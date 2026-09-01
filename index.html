@@ -114,7 +114,7 @@
 
   .q-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;background:#EAF0E4;color:var(--celadon-deep);padding:4px 10px;border-radius:6px;margin-bottom:10px;font-weight:600;}
   .q-content{font-size:15.5px;margin-bottom:14px;white-space:pre-wrap;}
-  .q-image{max-width:100%;border-radius:8px;border:1px solid var(--paper-line);margin-bottom:14px;display:block;}
+  .q-image{max-width:100%;max-height:280px;width:auto;object-fit:contain;border-radius:8px;border:1px solid var(--paper-line);margin-top:12px;display:block;background:#fff;}
 
   .mc-option{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border:1.5px solid var(--paper-line);border-radius:8px;margin-bottom:8px;cursor:pointer;background:#fff;}
   .mc-option:hover{background:#F4F2E7;}
@@ -823,7 +823,7 @@ function renderQuizBody(){
     part.questions.forEach((q,qi)=>{
       html += `<div class="card" data-part="${pi}" data-q="${qi}">
         <span class="q-tag">Câu ${qi+1}</span>
-        ${imgHtml(q)}<div class="q-content">${escHtml(q.content)}</div>`;
+        <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
       if(part.type==="mcq"){
         html += `<div class="mc-options">`;
         q.options.forEach(opt=>{
@@ -994,7 +994,7 @@ function renderReview(partResults){
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
-          ${imgHtml(q)}<div class="q-content">${escHtml(q.content)}</div>`;
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
         q.options.forEach(opt=>{
           let cls="review-mc-opt";
           if(opt.l===q.correct) cls+=" correct-ans";
@@ -1007,7 +1007,7 @@ function renderReview(partResults){
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
           <span class="qscore">${d.correctCount}/4 ý đúng · ${d.pts.toFixed(2)} đ</span></div>
-          ${imgHtml(q)}<div class="q-content">${escHtml(q.content)}</div>`;
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
         q.statements.forEach((st,si)=>{
           const userVal = d.userAns[si];
           const isOk = userVal===st.correct;
@@ -1026,7 +1026,7 @@ function renderReview(partResults){
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
-          ${imgHtml(q)}<div class="q-content">${escHtml(q.content)}</div>
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}
           <div class="meta">Bạn trả lời: <b>${(""+d.userAns).trim()===""?"chưa trả lời":d.userAns}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${q.answer}</b></div>
           ${q.expl?`<div class="expl" style="margin-top:8px;">${escHtml(q.expl)}</div>`:""}
         </div>`;
@@ -1047,4 +1047,3 @@ function renderReview(partResults){
 </script>
 </body>
 </html>
-
