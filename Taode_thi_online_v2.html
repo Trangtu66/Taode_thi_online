@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trình tạo đề kiểm tra trực tuyến</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+<!-- MỚI: thư viện đọc file Word (.docx) và PDF ngay trên trình duyệt, không cần server -->
+<!-- MỚI: KaTeX để hiển thị công thức toán (phân số dạng tử/gạch ngang/mẫu...) viết theo cú pháp LaTeX, bọc trong dấu $ ... $ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{
+    --paper:#F8F9FA; --paper-line:#DAD6C8; --ink:#1E293B; --ink-soft:#55655C;
+    --celadon:#4F7566; --celadon-deep:#33473D; --gold:#B98B2E; --good:#5C7A4E; --bad:#A8402F;
+    --card:#FFFEFA; --radius:14px; --shadow:0 4px 18px rgba(15,107,92,0.10);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink); font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh; line-height:1.55;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:28px 18px 80px;}
+  h1,h2,h3{font-family:'Fraunces', serif;font-weight:600;margin:0;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--celadon);font-weight:600;}
+  a{color:var(--celadon-deep);} button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+  header.top{background:var(--celadon-deep);color:#EFF6F3;border-radius:var(--radius);padding:22px 26px;margin-bottom:22px;box-shadow:var(--shadow);}
+  header.top h1{font-size:24px;color:#fff;}
+  header.top p{margin:6px 0 0;color:#DCE6D8;font-size:14px;}
+
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px;margin-bottom:18px;border:1px solid #E3DFD0;}
+  .btn-primary{background:var(--celadon);color:#fff;border:none;border-radius:9px;padding:12px 20px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background .15s, transform .1s;}
+  .btn-primary:hover{background:var(--celadon-deep);} .btn-primary:active{transform:scale(.98);}
+  .btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+  .btn-ghost{background:transparent;border:1.5px solid var(--celadon);color:var(--celadon-deep);border-radius:9px;padding:9px 16px;font-weight:600;font-size:13.5px;}
+  .btn-ghost:hover{background:#EAF0E4;}
+  .btn-danger{background:transparent;border:1.5px solid var(--bad);color:var(--bad);border-radius:7px;padding:5px 10px;font-weight:600;font-size:12.5px;}
+  .btn-danger:hover{background:#F7EBE7;}
+  .btn-add{background:#EAF0E4;border:1.5px dashed var(--celadon);color:var(--celadon-deep);border-radius:9px;padding:10px 16px;font-weight:600;font-size:13.5px;width:100%;margin-top:8px;}
+  .btn-add:hover{background:#DCE6D8;}
+
+  .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+  @media (max-width:640px){.choice-grid{grid-template-columns:1fr;}}
+  .choice-card{border:1.5px solid #E3DFD0;border-radius:12px;padding:20px;text-align:center;background:#FFFEFA;}
+  .choice-card .icon{font-size:32px;margin-bottom:8px;}
+  .choice-card p{color:var(--ink-soft);font-size:13.5px;margin:8px 0 14px;}
+
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
+  .field input[type=text], .field input[type=number], .field textarea, .field input[type=url]{
+    width:100%;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:14.5px;font-family:inherit;background:#FAF9F1;
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--celadon);outline:none;}
+  .field textarea{resize:vertical;min-height:54px;}
+  .field-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .field-row .field{flex:1;min-width:160px;}
+  .checkbox-field{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:14px;}
+
+  .part-block{border-radius:12px;background:#FAF9F1;border:1px solid #E3DFD0;padding:16px 18px;margin-bottom:18px;}
+  .part-block-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .part-block-header h3{font-size:16px;}
+  .qcard{background:#FFFEFA;border:1px solid #E3DFD0;border-radius:10px;padding:14px 16px;margin-bottom:12px;position:relative;}
+  .qcard-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+  .qcard-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--celadon-deep);font-weight:600;}
+  .opt-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .opt-row .opt-letter{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
+  .opt-row input[type=text]{flex:1;}
+  .opt-row input[type=radio]{flex-shrink:0;width:18px;height:18px;accent-color:var(--celadon);}
+  .stmt-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .stmt-row .stmt-letter{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
+  .stmt-row input[type=text]{flex:1;}
+  .stmt-toggle{display:flex;gap:4px;flex-shrink:0;}
+  .stmt-toggle button{border:1.5px solid var(--paper-line);background:#fff;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600;color:var(--ink-soft);min-width:44px;}
+  .stmt-toggle button.sel-true{background:var(--celadon);border-color:var(--celadon);color:#fff;}
+  .stmt-toggle button.sel-false{background:var(--bad);border-color:var(--bad);color:#fff;}
+
+  details.leaderboard-config{border:1px dashed var(--paper-line);border-radius:10px;padding:12px 16px;margin-top:6px;}
+  details.leaderboard-config summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--celadon-deep);}
+  details.leaderboard-config .hint{font-size:12px;color:var(--ink-soft);margin:8px 0 12px;}
+
+  .output-panel{text-align:center;}
+  .link-row{display:flex;gap:8px;margin:14px 0;}
+  .link-row input{flex:1;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#FAF9F1;}
+  #qr-output{margin:14px auto;padding:12px;background:#fff;border:1px solid var(--paper-line);border-radius:10px;display:inline-block;}
+  .size-note{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+  .warn-box{background:#F6ECD9;border-left:3px solid var(--gold);color:#7A5C1E;font-size:12.5px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
+
+  .name-field{margin-top:16px;}
+  .name-field label{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:6px;}
+  .name-field label .req{color:var(--bad);font-weight:700;}
+  .name-field input{width:100%;padding:11px 13px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:inherit;background:#FAF9F1;}
+  .name-field input.error{border-color:var(--bad);background:#F7EBE7;}
+  .field-error{color:var(--bad);font-size:12.5px;margin-top:6px;display:none;}
+  .field-error.show{display:block;}
+
+  .brief-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;}
+  .brief-table td{padding:8px 4px;border-bottom:1px dashed var(--paper-line);}
+  .brief-table td:first-child{color:var(--ink-soft);width:42%;}
+  .brief-table td:last-child{font-weight:600;color:var(--celadon-deep);}
+
+  .quiz-header{position:sticky;top:0;z-index:20;background:var(--paper);padding-top:10px;padding-bottom:10px;}
+  .quiz-bar{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow);border:1px solid #E3DFD0;flex-wrap:wrap;gap:8px;}
+  .timer{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--celadon-deep);display:flex;align-items:center;gap:6px;}
+  .timer.low{color:var(--bad);}
+  .jumpnav{display:flex;gap:6px;flex-wrap:wrap;}
+  .jumpnav button{border:1.5px solid var(--paper-line);background:#fff;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--ink-soft);}
+  .progress{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .part-header{background:var(--celadon-deep);color:#fff;border-radius:10px;padding:12px 18px;margin:22px 0 14px;font-family:'Fraunces',serif;font-weight:600;font-size:16px;}
+  .part-note{font-size:12.5px;color:var(--ink-soft);font-weight:400;margin-top:3px;font-family:'IBM Plex Sans',sans-serif;}
+
+  .q-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;background:#EAF0E4;color:var(--celadon-deep);padding:4px 10px;border-radius:6px;margin-bottom:10px;font-weight:600;}
+  .q-content{font-size:15.5px;margin-bottom:14px;white-space:pre-wrap;}
+  .q-image{max-width:100%;max-height:280px;width:auto;object-fit:contain;border-radius:8px;border:1px solid var(--paper-line);margin-top:12px;display:block;background:#fff;}
+
+  .mc-option{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border:1.5px solid var(--paper-line);border-radius:8px;margin-bottom:8px;cursor:pointer;background:#fff;}
+  .mc-option:hover{background:#F4F2E7;}
+  .mc-option.selected{border-color:var(--celadon);background:#EAF0E4;}
+  .mc-option .opt-label{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);flex-shrink:0;}
+
+  .statement{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:12px 4px;border-top:1px dashed var(--paper-line);}
+  .statement:first-of-type{border-top:none;}
+  .st-text{flex:1;font-size:14.5px;}
+  .st-label{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);margin-right:6px;}
+  .toggle{display:flex;gap:6px;flex-shrink:0;}
+  .toggle button{border:1.5px solid var(--paper-line);background:#fff;border-radius:7px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--ink-soft);min-width:58px;}
+  .toggle button.sel-true{background:var(--celadon);border-color:var(--celadon);color:#fff;}
+  .toggle button.sel-false{background:var(--bad);border-color:var(--bad);color:#fff;}
+
+  .short-answer input{width:180px;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:'IBM Plex Mono',monospace;background:#FAF9F1;}
+  .short-answer .hint{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+
+  .quiz-footer{display:flex;justify-content:center;margin-top:20px;}
+
+  .score-hero{text-align:center;background:var(--celadon-deep);color:#fff;border-radius:var(--radius);padding:28px 20px;margin-bottom:20px;box-shadow:var(--shadow);}
+  .score-hero .big{font-family:'IBM Plex Mono',monospace;font-size:52px;font-weight:600;}
+  .score-hero .cap{color:#DCE6D8;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
+  .score-hero .stuname{font-family:'Fraunces',serif;font-size:18px;margin-top:6px;}
+  .score-breakdown{display:flex;justify-content:center;gap:22px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#DCE6D8;flex-wrap:wrap;}
+  .save-status{margin-top:14px;font-size:12.5px;color:#DCE6D8;background:rgba(255,255,255,.12);display:inline-block;padding:6px 14px;border-radius:20px;}
+  .rank-card{text-align:center;}
+
+  .review-q{border-radius:var(--radius);}
+  .review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+  .qscore{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon-deep);font-size:13px;background:#EAF0E4;padding:4px 10px;border-radius:6px;}
+  .mark{width:20px;height:20px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;margin-top:1px;}
+  .mark.ok{background:var(--good);} .mark.no{background:var(--bad);}
+  .review-body .meta{font-size:12px;color:var(--ink-soft);margin-top:3px;}
+  .review-body .expl{font-size:12.5px;color:var(--celadon-deep);margin-top:4px;background:#EFF0E2;border-radius:6px;padding:6px 9px;}
+  .review-mc-opt{padding:6px 4px;font-size:13.5px;}
+  .review-mc-opt.correct-ans{color:var(--good);font-weight:600;}
+  .review-mc-opt.wrong-selected{color:var(--bad);font-weight:600;text-decoration:line-through;}
+
+  footer.hint{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:30px;}
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow" style="color:#C9D9C0;">TRÌNH TẠO ĐỀ KIỂM TRA TRỰC TUYẾN</div>
+    <h1 id="page-title">Đề kiểm tra trực tuyến</h1>
+    <p id="page-subtitle">Giáo viên tạo đề — học sinh làm bài, chấm điểm tự động</p>
+  </header>
+
+  <!-- ===================== SCREEN 0: ENTRY (chọn vai trò) ===================== -->
+  <section id="screen-entry">
+    <div class="card">
+      <span class="eyebrow">Bắt đầu</span>
+      <h2 style="margin-top:6px;">Bạn là giáo viên hay học sinh?</h2>
+      <p style="color:var(--ink-soft);font-size:14px;">Trang này dùng chung cho cả việc soạn đề lẫn làm bài — vai trò được xác định bằng đường link bạn mở.</p>
+      <div class="choice-grid">
+        <div class="choice-card">
+          <div class="icon">👩‍🏫</div>
+          <h3>Giáo viên</h3>
+          <p>Soạn đề mới (trắc nghiệm, Đúng/Sai, trả lời ngắn) và lấy link chia sẻ cho học sinh.</p>
+          <button class="btn-primary" id="go-builder-btn">Tạo đề mới</button>
+        </div>
+        <div class="choice-card">
+          <div class="icon">🎓</div>
+          <h3>Học sinh</h3>
+          <p>Mở đúng đường link (hoặc quét mã QR) mà giáo viên đã gửi để vào làm bài trực tiếp.</p>
+          <p style="font-size:12.5px;color:var(--ink-soft);">Chưa có link? Hãy hỏi giáo viên của bạn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCREEN 1: BUILDER (giáo viên soạn đề) ===================== -->
+  <section id="screen-builder" class="hidden">
+
+    <div class="card">
+      <span class="eyebrow">Soạn đề</span>
+      <h2 style="margin-top:6px;">Thông tin chung</h2>
+      <div class="field">
+        <label>📂 Đã có file cấu hình đề (.json) muốn sửa lại? Tải lên tại đây</label>
+        <input type="file" id="load-json-input" accept="application/json">
+      </div>
+      <div class="field">
+        <label>Tiêu đề đề thi</label>
+        <input type="text" id="meta-title" placeholder="Ví dụ: Đề kiểm tra Chương 3 — Đạo hàm">
+      </div>
+      <div class="field">
+        <label>Mô tả ngắn (hiển thị dưới tiêu đề)</label>
+        <input type="text" id="meta-subtitle" placeholder="Ví dụ: 10 câu trắc nghiệm · 20 phút">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Thời gian làm bài (phút)</label>
+          <input type="number" id="meta-time" value="60" min="1">
+        </div>
+        <div class="field" style="display:flex;align-items:flex-end;">
+          <div class="checkbox-field" style="margin-bottom:10px;">
+            <input type="checkbox" id="meta-require-name" checked>
+            <label for="meta-require-name" style="margin:0;font-weight:400;">Bắt buộc học sinh nhập tên</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="part-block-header">
+        <h3>Phần 1 · Trắc nghiệm 4 đáp án</h3>
+      </div>
+      <div class="field-row">
+        <div class="field" style="max-width:220px;">
+          <label>Tiêu đề phần</label>
+          <input type="text" id="p1-title" value="Phần 1. Câu hỏi trắc nghiệm nhiều phương án lựa chọn">
+        </div>
+        <div class="field" style="max-width:160px;">
+          <label>Điểm mỗi câu</label>
+          <input type="number" id="p1-points" value="0.25" step="0.05" min="0">
+        </div>
+      </div>
+      <div id="p1-list"></div>
+      <button class="btn-add" id="p1-add-btn">+ Thêm câu trắc nghiệm</button>
+    </div>
+
+    <div class="card">
+      <div class="part-block-header">
+        <h3>Phần 2 · Đúng/Sai (4 ý mỗi câu)</h3>
+      </div>
+      <div class="field-row">
+        <div class="field" style="max-width:220px;">
+          <label>Tiêu đề phần</label>
+          <input type="text" id="p2-title" value="Phần 2. Câu hỏi trắc nghiệm Đúng/Sai">
+        </div>
+        <div class="field" style="max-width:160px;">
+          <label>Điểm tối đa mỗi câu</label>
+          <input type="number" id="p2-points" value="1.0" step="0.1" min="0">
+        </div>
+      </div>
+      <p class="size-note" style="text-align:left;margin-bottom:10px;">Thang điểm theo chuẩn THPT: 1 ý đúng = 10%, 2 ý = 25%, 3 ý = 50%, 4 ý = 100% của điểm tối đa mỗi câu.</p>
+      <div id="p2-list"></div>
+      <button class="btn-add" id="p2-add-btn">+ Thêm câu Đúng/Sai</button>
+    </div>
+
+    <div class="card">
+      <div class="part-block-header">
+        <h3>Phần 3 · Trả lời ngắn (đáp án số)</h3>
+      </div>
+      <div class="field-row">
+        <div class="field" style="max-width:220px;">
+          <label>Tiêu đề phần</label>
+          <input type="text" id="p3-title" value="Phần 3. Câu hỏi trắc nghiệm trả lời ngắn">
+        </div>
+        <div class="field" style="max-width:160px;">
+          <label>Điểm mỗi câu</label>
+          <input type="number" id="p3-points" value="0.5" step="0.05" min="0">
+        </div>
+      </div>
+      <div id="p3-list"></div>
+      <button class="btn-add" id="p3-add-btn">+ Thêm câu trả lời ngắn</button>
+    </div>
+
+    <div class="card">
+      <details class="leaderboard-config">
+        <summary>🏆 Lưu điểm vào bảng xếp hạng (tùy chọn — cần Google Form đã thiết lập sẵn)</summary>
+        <p class="hint">Nếu bạn đã có Google Form + Sheet dùng cho đề khác, có thể tái sử dụng nguyên các giá trị đó ở đây. Bỏ trống nếu không cần lưu bảng xếp hạng.</p>
+        <div class="field"><label>Google Form Action URL</label><input type="text" id="lb-form-url" placeholder="https://docs.google.com/forms/d/e/.../formResponse"></div>
+        <div class="field"><label>Entry ID — Họ tên</label><input type="text" id="lb-entry-name" placeholder="entry.xxxxxxxxx"></div>
+        <div class="field"><label>Entry ID — Điểm số</label><input type="text" id="lb-entry-score" placeholder="entry.xxxxxxxxx"></div>
+        <div class="field"><label>Entry ID — Chi tiết</label><input type="text" id="lb-entry-detail" placeholder="entry.xxxxxxxxx"></div>
+        <div class="field"><label>Link Google Sheet đã Publish</label><input type="text" id="lb-sheet-url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pubhtml"></div>
+      </details>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-primary" id="generate-btn">🔗 Tạo đề & Lấy link</button>
+      <button class="btn-ghost" id="save-json-btn">💾 Tải file cấu hình đề (.json)</button>
+    </div>
+
+    <div class="card output-panel hidden" id="output-panel">
+      <h3>✅ Đề đã sẵn sàng!</h3>
+      <p style="color:var(--ink-soft);font-size:14px;">Gửi đường link hoặc mã QR dưới đây cho học sinh.</p>
+      <div class="link-row">
+        <input type="text" id="output-link" readonly>
+        <button class="btn-primary" id="copy-link-btn">Sao chép</button>
+      </div>
+      <div id="qr-output"></div>
+      <div id="size-warning"></div>
+      <div style="margin-top:10px;">
+        <a class="btn-ghost" id="try-link-btn" href="#" target="_blank" rel="noopener" style="text-decoration:none;">▶ Mở thử trang làm bài</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCREEN 2: STUDENT LANDING ===================== -->
+  <section id="screen-landing" class="hidden">
+    <div class="card">
+      <span class="eyebrow">Thông tin đề thi</span>
+      <h2 style="margin-top:6px;" id="landing-title">Đề kiểm tra</h2>
+      <table class="brief-table" id="landing-brief"></table>
+      <div class="name-field" id="landing-name-field">
+        <label for="student-name">Họ tên thí sinh <span class="req">(bắt buộc)</span></label>
+        <input id="student-name" type="text" placeholder="Nhập họ tên của bạn...">
+        <div class="field-error" id="name-error">Vui lòng nhập họ tên trước khi bắt đầu làm bài.</div>
+      </div>
+      <button class="btn-primary" id="start-btn">▶ Bắt đầu làm bài</button>
+    </div>
+  </section>
+
+  <!-- ===================== SCREEN 3: QUIZ ===================== -->
+  <section id="screen-quiz" class="hidden">
+    <div class="quiz-header">
+      <div class="quiz-bar">
+        <div class="timer" id="timer">⏱ 00:00</div>
+        <div class="jumpnav" id="jumpnav"></div>
+        <div class="progress" id="progress-text">0 đã trả lời</div>
+      </div>
+    </div>
+    <div id="quiz-body"></div>
+    <div class="quiz-footer">
+      <button class="btn-primary" id="submit-btn">Nộp bài</button>
+    </div>
+  </section>
+
+  <!-- ===================== SCREEN 4: RESULTS ===================== -->
+  <section id="screen-results" class="hidden">
+    <div class="score-hero">
+      <div class="cap">Tổng điểm</div>
+      <div class="big"><span id="score-total">0.00</span><span style="font-size:24px;" id="score-max">/10</span></div>
+      <div class="stuname" id="score-name"></div>
+      <div class="score-breakdown" id="score-breakdown"></div>
+      <div class="cap" id="score-sub" style="margin-top:10px;"></div>
+      <div class="save-status hidden" id="save-status">Đang lưu kết quả vào bảng xếp hạng...</div>
+    </div>
+    <div class="card rank-card hidden" id="rank-card">
+      <h3 style="margin-bottom:8px;">Xem bảng xếp hạng</h3>
+      <p style="color:var(--ink-soft);font-size:14px;margin:0 0 6px;">Điểm của bạn vừa được ghi nhận. Bấm nút dưới để xem toàn bộ bảng xếp hạng.</p>
+      <a class="btn-primary" id="rank-link" href="#" target="_blank" rel="noopener" style="text-decoration:none;">🏆 Xem bảng xếp hạng</a>
+    </div>
+    <div id="review-list"></div>
+  </section>
+
+  <footer class="hint">Trình tạo đề kiểm tra trực tuyến · Không cần máy chủ riêng</footer>
+</div>
+<script>
+/* ============== HELPERS ============== */
+function escHtml(str){
+  return String(str??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+let idCounter = 1;
+function uid(prefix){ return prefix + "_" + (idCounter++); }
+
+// MỚI: render công thức toán viết theo cú pháp LaTeX, bọc trong $ ... $ (inline) hoặc $$ ... $$ (hiển thị riêng dòng)
+function renderMath(container){
+  if(typeof renderMathInElement !== "function") return;
+  try{
+    renderMathInElement(container, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  }catch(e){ console.error("KaTeX render error:", e); }
+}
+
+/* ============== ENCODE / DECODE ĐỀ THI ============== */
+function encodeExam(examObj){
+  const json = JSON.stringify(examObj);
+  return LZString.compressToEncodedURIComponent(json);
+}
+function decodeExam(str){
+  try{
+    const json = LZString.decompressFromEncodedURIComponent(str);
+    if(!json) return null;
+    return JSON.parse(json);
+  }catch(e){ return null; }
+}
+function getExamFromUrl(){
+  const hash = window.location.hash;
+  const m = hash.match(/[#&]e=([^&]+)/);
+  if(!m) return null;
+  return decodeExam(m[1]);
+}
+function buildShareUrl(examObj){
+  const encoded = encodeExam(examObj);
+  const base = window.location.origin + window.location.pathname;
+  return base + "#e=" + encoded;
+}
+
+/* ============== BUILDER: THÊM CÂU HỎI ============== */
+function addP1Question(data){
+  data = data || {content:"", options:[{l:"A",t:""},{l:"B",t:""},{l:"C",t:""},{l:"D",t:""}], correct:"A", expl:""};
+  const list = document.getElementById("p1-list");
+  const cardId = uid("p1card");
+  const div = document.createElement("div");
+  div.className = "qcard";
+  div.dataset.cardType = "p1";
+  const letters = ["A","B","C","D"];
+  let optsHtml = "";
+  letters.forEach(l=>{
+    const opt = (data.options||[]).find(o=>o.l===l) || {t:""};
+    optsHtml += `<div class="opt-row">
+      <span class="opt-letter">${l}.</span>
+      <input type="text" data-role="opt" data-letter="${l}" value="${escHtml(opt.t)}" placeholder="Nội dung phương án ${l}">
+      <input type="radio" data-role="correct" name="${cardId}_correct" value="${l}" ${data.correct===l?"checked":""}>
+    </div>`;
+  });
+  div.innerHTML = `
+    <div class="qcard-head"><span class="qcard-tag">Câu trắc nghiệm</span><button class="btn-danger" data-remove-card>Xóa</button></div>
+    <div class="field"><label>Nội dung câu hỏi</label><textarea data-role="content" placeholder="Nhập nội dung câu hỏi...">${escHtml(data.content)}</textarea></div>
+    <div class="field"><label>Ảnh minh hoạ (URL, tuỳ chọn — đồ thị/bảng biến thiên)</label><input type="text" data-role="image" value="${escHtml(data.imageUrl||"")}" placeholder="https://..."></div>
+    ${optsHtml}
+    <div class="field" style="margin-top:8px;"><label>Lời giải (tùy chọn)</label><textarea data-role="expl" placeholder="Giải thích ngắn gọn vì sao đáp án đúng...">${escHtml(data.expl||"")}</textarea></div>
+  `;
+  div.querySelector("[data-remove-card]").addEventListener("click", ()=>{ div.remove(); renumberCards("p1-list","Câu trắc nghiệm"); });
+  list.appendChild(div);
+  renumberCards("p1-list","Câu trắc nghiệm");
+}
+
+function addP2Question(data){
+  data = data || {content:"", statements:[{text:"",correct:true,expl:""},{text:"",correct:true,expl:""},{text:"",correct:true,expl:""},{text:"",correct:true,expl:""}]};
+  const list = document.getElementById("p2-list");
+  const div = document.createElement("div");
+  div.className = "qcard";
+  div.dataset.cardType = "p2";
+  const labels = ["a","b","c","d"];
+  let stmtHtml = "";
+  labels.forEach((lb,si)=>{
+    const st = (data.statements||[])[si] || {text:"",correct:true,expl:""};
+    stmtHtml += `<div class="stmt-row">
+      <span class="stmt-letter">${lb})</span>
+      <input type="text" data-role="stmt-text" data-si="${si}" value="${escHtml(st.text)}" placeholder="Nội dung mệnh đề ${lb}">
+      <div class="stmt-toggle">
+        <button type="button" data-role="stmt-correct" data-si="${si}" data-val="true" class="${st.correct===true?'sel-true':''}">Đúng</button>
+        <button type="button" data-role="stmt-correct" data-si="${si}" data-val="false" class="${st.correct===false?'sel-false':''}">Sai</button>
+      </div>
+    </div>
+    <div class="field" style="margin:0 0 8px 26px;"><input type="text" data-role="stmt-expl" data-si="${si}" value="${escHtml(st.expl||"")}" placeholder="Lời giải cho ý ${lb} (tùy chọn)"></div>`;
+  });
+  div.innerHTML = `
+    <div class="qcard-head"><span class="qcard-tag">Câu Đúng/Sai</span><button class="btn-danger" data-remove-card>Xóa</button></div>
+    <div class="field"><label>Nội dung câu hỏi (bối cảnh chung)</label><textarea data-role="content" placeholder="Nhập nội dung câu hỏi...">${escHtml(data.content)}</textarea></div>
+    <div class="field"><label>Ảnh minh hoạ (URL, tuỳ chọn — đồ thị/bảng biến thiên)</label><input type="text" data-role="image" value="${escHtml(data.imageUrl||"")}" placeholder="https://..."></div>
+    ${stmtHtml}
+  `;
+  div.querySelectorAll('[data-role="stmt-correct"]').forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const si = btn.dataset.si;
+      const val = btn.dataset.val;
+      div.querySelectorAll(`[data-role="stmt-correct"][data-si="${si}"]`).forEach(b=>{
+        b.classList.remove("sel-true","sel-false");
+      });
+      btn.classList.add(val==="true" ? "sel-true" : "sel-false");
+    });
+  });
+  div.querySelector("[data-remove-card]").addEventListener("click", ()=>{ div.remove(); renumberCards("p2-list","Câu Đúng/Sai"); });
+  list.appendChild(div);
+  renumberCards("p2-list","Câu Đúng/Sai");
+}
+
+function addP3Question(data){
+  data = data || {content:"", answer:"", expl:""};
+  const list = document.getElementById("p3-list");
+  const div = document.createElement("div");
+  div.className = "qcard";
+  div.dataset.cardType = "p3";
+  div.innerHTML = `
+    <div class="qcard-head"><span class="qcard-tag">Câu trả lời ngắn</span><button class="btn-danger" data-remove-card>Xóa</button></div>
+    <div class="field"><label>Nội dung câu hỏi</label><textarea data-role="content" placeholder="Nhập nội dung câu hỏi...">${escHtml(data.content)}</textarea></div>
+    <div class="field"><label>Ảnh minh hoạ (URL, tuỳ chọn — đồ thị/bảng biến thiên)</label><input type="text" data-role="image" value="${escHtml(data.imageUrl||"")}" placeholder="https://..."></div>
+    <div class="field" style="max-width:200px;"><label>Đáp án đúng (số)</label><input type="text" data-role="answer" value="${escHtml(data.answer)}" placeholder="Ví dụ: 0.25 hoặc -9"></div>
+    <div class="field"><label>Lời giải (tùy chọn)</label><textarea data-role="expl" placeholder="Giải thích ngắn gọn...">${escHtml(data.expl||"")}</textarea></div>
+  `;
+  div.querySelector("[data-remove-card]").addEventListener("click", ()=>{ div.remove(); renumberCards("p3-list","Câu trả lời ngắn"); });
+  list.appendChild(div);
+  renumberCards("p3-list","Câu trả lời ngắn");
+}
+
+function renumberCards(listId, label){
+  const list = document.getElementById(listId);
+  Array.from(list.children).forEach((card,i)=>{
+    const tag = card.querySelector(".qcard-tag");
+    if(tag) tag.textContent = `${label} ${i+1}`;
+  });
+}
+
+document.getElementById("p1-add-btn").addEventListener("click", ()=> addP1Question());
+document.getElementById("p2-add-btn").addEventListener("click", ()=> addP2Question());
+document.getElementById("p3-add-btn").addEventListener("click", ()=> addP3Question());
+
+
+/* ============== BUILDER: THU THẬP DỮ LIỆU FORM -> EXAM OBJECT ============== */
+function collectExamFromForm(){
+  const meta = {
+    title: document.getElementById("meta-title").value.trim() || "Đề kiểm tra trực tuyến",
+    subtitle: document.getElementById("meta-subtitle").value.trim(),
+    timeMinutes: parseFloat(document.getElementById("meta-time").value) || 60,
+    requireName: document.getElementById("meta-require-name").checked
+  };
+
+  const parts = [];
+
+  // Phần 1: MCQ
+  const p1Cards = Array.from(document.querySelectorAll('#p1-list .qcard'));
+  if(p1Cards.length){
+    const questions = p1Cards.map(card=>{
+      const content = card.querySelector('[data-role="content"]').value.trim();
+      const imageUrl = card.querySelector('[data-role="image"]').value.trim();
+      const options = ["A","B","C","D"].map(l=>({
+        l, t: card.querySelector(`[data-role="opt"][data-letter="${l}"]`).value.trim()
+      }));
+      const correctRadio = card.querySelector('[data-role="correct"]:checked');
+      const correct = correctRadio ? correctRadio.value : "A";
+      const expl = card.querySelector('[data-role="expl"]').value.trim();
+      return {content, imageUrl, options, correct, expl};
+    });
+    parts.push({
+      type:"mcq",
+      title: document.getElementById("p1-title").value.trim(),
+      pointsPerQuestion: parseFloat(document.getElementById("p1-points").value) || 0.25,
+      questions
+    });
+  }
+
+  // Phần 2: Đúng/Sai
+  const p2Cards = Array.from(document.querySelectorAll('#p2-list .qcard'));
+  if(p2Cards.length){
+    const questions = p2Cards.map(card=>{
+      const content = card.querySelector('[data-role="content"]').value.trim();
+      const imageUrl = card.querySelector('[data-role="image"]').value.trim();
+      const statements = [0,1,2,3].map(si=>{
+        const text = card.querySelector(`[data-role="stmt-text"][data-si="${si}"]`).value.trim();
+        const trueBtn = card.querySelector(`[data-role="stmt-correct"][data-si="${si}"][data-val="true"]`);
+        const correct = trueBtn.classList.contains("sel-true");
+        const expl = card.querySelector(`[data-role="stmt-expl"][data-si="${si}"]`).value.trim();
+        return {text, correct, expl};
+      });
+      return {content, imageUrl, statements};
+    });
+    parts.push({
+      type:"tf",
+      title: document.getElementById("p2-title").value.trim(),
+      maxPoints: parseFloat(document.getElementById("p2-points").value) || 1.0,
+      questions
+    });
+  }
+
+  // Phần 3: Trả lời ngắn
+  const p3Cards = Array.from(document.querySelectorAll('#p3-list .qcard'));
+  if(p3Cards.length){
+    const questions = p3Cards.map(card=>{
+      const content = card.querySelector('[data-role="content"]').value.trim();
+      const imageUrl = card.querySelector('[data-role="image"]').value.trim();
+      const answerRaw = card.querySelector('[data-role="answer"]').value.trim().replace(",", ".");
+      const answer = parseFloat(answerRaw);
+      const expl = card.querySelector('[data-role="expl"]').value.trim();
+      return {content, imageUrl, answer, expl};
+    });
+    parts.push({
+      type:"short",
+      title: document.getElementById("p3-title").value.trim(),
+      pointsPerQuestion: parseFloat(document.getElementById("p3-points").value) || 0.5,
+      questions
+    });
+  }
+
+  const leaderboard = {
+    formUrl: document.getElementById("lb-form-url").value.trim(),
+    entryName: document.getElementById("lb-entry-name").value.trim(),
+    entryScore: document.getElementById("lb-entry-score").value.trim(),
+    entryDetail: document.getElementById("lb-entry-detail").value.trim(),
+    sheetUrl: document.getElementById("lb-sheet-url").value.trim()
+  };
+
+  return {meta, parts, leaderboard};
+}
+
+function populateFormFromExam(examObj){
+  document.getElementById("meta-title").value = examObj.meta?.title || "";
+  document.getElementById("meta-subtitle").value = examObj.meta?.subtitle || "";
+  document.getElementById("meta-time").value = examObj.meta?.timeMinutes || 60;
+  document.getElementById("meta-require-name").checked = examObj.meta?.requireName !== false;
+
+  document.getElementById("p1-list").innerHTML = "";
+  document.getElementById("p2-list").innerHTML = "";
+  document.getElementById("p3-list").innerHTML = "";
+
+  (examObj.parts||[]).forEach(part=>{
+    if(part.type==="mcq"){
+      document.getElementById("p1-title").value = part.title || "";
+      document.getElementById("p1-points").value = part.pointsPerQuestion ?? 0.25;
+      (part.questions||[]).forEach(q=> addP1Question(q));
+    } else if(part.type==="tf"){
+      document.getElementById("p2-title").value = part.title || "";
+      document.getElementById("p2-points").value = part.maxPoints ?? 1.0;
+      (part.questions||[]).forEach(q=> addP2Question(q));
+    } else if(part.type==="short"){
+      document.getElementById("p3-title").value = part.title || "";
+      document.getElementById("p3-points").value = part.pointsPerQuestion ?? 0.5;
+      (part.questions||[]).forEach(q=> addP3Question(q));
+    }
+  });
+
+  const lb = examObj.leaderboard || {};
+  document.getElementById("lb-form-url").value = lb.formUrl || "";
+  document.getElementById("lb-entry-name").value = lb.entryName || "";
+  document.getElementById("lb-entry-score").value = lb.entryScore || "";
+  document.getElementById("lb-entry-detail").value = lb.entryDetail || "";
+  document.getElementById("lb-sheet-url").value = lb.sheetUrl || "";
+}
+
+/* ============== BUILDER: TẠO LINK / QR ============== */
+document.getElementById("generate-btn").addEventListener("click", ()=>{
+  const examObj = collectExamFromForm();
+  const totalQ = examObj.parts.reduce((s,p)=>s+p.questions.length,0);
+  if(totalQ===0){
+    alert("Bạn cần thêm ít nhất 1 câu hỏi trước khi tạo đề.");
+    return;
+  }
+  const url = buildShareUrl(examObj);
+  document.getElementById("output-link").value = url;
+  document.getElementById("try-link-btn").href = url;
+  document.getElementById("output-panel").classList.remove("hidden");
+
+  const qrBox = document.getElementById("qr-output");
+  qrBox.innerHTML = "";
+  const sizeWarn = document.getElementById("size-warning");
+  sizeWarn.innerHTML = "";
+  if(url.length > 2400){
+    sizeWarn.innerHTML = `<div class="warn-box">⚠ Đề khá dài (${url.length.toLocaleString()} ký tự) nên có thể KHÔNG tạo được mã QR, hoặc mã QR quá dày để quét được. Hãy ưu tiên chia sẻ bằng đường link (sao chép) thay vì mã QR.</div>`;
+  }
+  try{
+    new QRCode(qrBox, {text:url, width:180, height:180, colorDark:"#33473D", colorLight:"#ffffff"});
+  }catch(e){
+    qrBox.innerHTML = `<div class="warn-box">⚠ Không tạo được mã QR do đề quá dài. Vui lòng dùng đường link phía trên.</div>`;
+  }
+
+  document.getElementById("output-panel").scrollIntoView({behavior:"smooth", block:"center"});
+});
+
+document.getElementById("copy-link-btn").addEventListener("click", ()=>{
+  const input = document.getElementById("output-link");
+  input.select();
+  navigator.clipboard.writeText(input.value).then(()=>{
+    const btn = document.getElementById("copy-link-btn");
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=> btn.textContent = old, 1500);
+  }).catch(()=>{ document.execCommand("copy"); });
+});
+
+document.getElementById("save-json-btn").addEventListener("click", ()=>{
+  const examObj = collectExamFromForm();
+  const blob = new Blob([JSON.stringify(examObj, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  const safeTitle = (examObj.meta.title||"de-kiem-tra").replace(/[^\p{L}\p{N}]+/gu,"-").toLowerCase();
+  a.download = `${safeTitle}.json`;
+  a.click();
+});
+
+document.getElementById("load-json-input").addEventListener("change", (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    try{
+      const examObj = JSON.parse(reader.result);
+      populateFormFromExam(examObj);
+      alert("Đã tải cấu hình đề. Bạn có thể chỉnh sửa rồi bấm 'Tạo đề & Lấy link' để lấy link mới.");
+    }catch(err){
+      alert("File không hợp lệ. Vui lòng chọn đúng file .json đã tải xuống từ công cụ này.");
+    }
+  };
+  reader.readAsText(file);
+});
+
+document.getElementById("go-builder-btn").addEventListener("click", ()=>{
+  document.getElementById("screen-entry").classList.add("hidden");
+  document.getElementById("screen-builder").classList.remove("hidden");
+  // khởi tạo mỗi phần với 1 câu mẫu trống để giáo viên dễ bắt đầu
+  addP1Question();
+  addP2Question();
+  addP3Question();
+});
+
+/* ============== HỌC SINH: LÀM BÀI ============== */
+let EXAM = null;
+let studentAnswers = []; // studentAnswers[partIdx] = array song song với questions của phần đó
+let studentName = "";
+let timeLeft = 0, timerInt = null;
+
+function initStudentFlow(examObj){
+  EXAM = examObj;
+  document.getElementById("screen-entry").classList.add("hidden");
+  document.getElementById("screen-builder").classList.add("hidden");
+  document.getElementById("screen-landing").classList.remove("hidden");
+
+  document.getElementById("page-title").textContent = EXAM.meta.title || "Đề kiểm tra trực tuyến";
+  document.getElementById("page-subtitle").textContent = EXAM.meta.subtitle || "";
+  document.getElementById("landing-title").textContent = EXAM.meta.title || "Đề kiểm tra";
+
+  const totalQ = EXAM.parts.reduce((s,p)=>s+p.questions.length,0);
+  const maxPoints = computeMaxPoints(EXAM);
+  let briefHtml = "";
+  EXAM.parts.forEach(part=>{
+    let desc = "";
+    if(part.type==="mcq") desc = `${part.questions.length} câu trắc nghiệm (${part.pointsPerQuestion}đ/câu)`;
+    else if(part.type==="tf") desc = `${part.questions.length} câu Đúng/Sai (tối đa ${part.maxPoints}đ/câu)`;
+    else if(part.type==="short") desc = `${part.questions.length} câu trả lời ngắn (${part.pointsPerQuestion}đ/câu)`;
+    briefHtml += `<tr><td>${escHtml(part.title||"")}</td><td>${desc}</td></tr>`;
+  });
+  briefHtml += `<tr><td>Thời gian làm bài</td><td>${EXAM.meta.timeMinutes} phút</td></tr>`;
+  briefHtml += `<tr><td>Tổng điểm tối đa</td><td>${maxPoints.toFixed(2)} điểm</td></tr>`;
+  document.getElementById("landing-brief").innerHTML = briefHtml;
+
+  if(!EXAM.meta.requireName){
+    document.getElementById("landing-name-field").classList.add("hidden");
+  } else {
+    document.getElementById("landing-name-field").classList.remove("hidden");
+  }
+}
+
+function computeMaxPoints(examObj){
+  let total = 0;
+  examObj.parts.forEach(part=>{
+    if(part.type==="mcq") total += part.questions.length * part.pointsPerQuestion;
+    else if(part.type==="tf") total += part.questions.length * part.maxPoints;
+    else if(part.type==="short") total += part.questions.length * part.pointsPerQuestion;
+  });
+  return total;
+}
+
+document.getElementById("start-btn").addEventListener("click", ()=>{
+  if(EXAM.meta.requireName){
+    const nameInput = document.getElementById("student-name");
+    const name = nameInput.value.trim();
+    if(!name){
+      nameInput.classList.add("error");
+      document.getElementById("name-error").classList.add("show");
+      nameInput.focus();
+      return;
+    }
+    nameInput.classList.remove("error");
+    document.getElementById("name-error").classList.remove("show");
+    studentName = name;
+  } else {
+    studentName = document.getElementById("student-name").value.trim() || "Học sinh";
+  }
+  startExam();
+});
+document.getElementById("student-name").addEventListener("input", function(){
+  if(this.value.trim()){
+    this.classList.remove("error");
+    document.getElementById("name-error").classList.remove("show");
+  }
+});
+
+function startExam(){
+  studentAnswers = EXAM.parts.map(part=>{
+    if(part.type==="mcq") return part.questions.map(()=>null);
+    if(part.type==="tf") return part.questions.map(()=>[null,null,null,null]);
+    if(part.type==="short") return part.questions.map(()=>"");
+  });
+  timeLeft = Math.round((EXAM.meta.timeMinutes||60) * 60);
+  document.getElementById("screen-landing").classList.add("hidden");
+  document.getElementById("screen-quiz").classList.remove("hidden");
+  renderQuizBody();
+  buildJumpNav();
+  startTimer();
+}
+
+function buildJumpNav(){
+  const nav = document.getElementById("jumpnav");
+  nav.innerHTML = "";
+  EXAM.parts.forEach((part,pi)=>{
+    const btn = document.createElement("button");
+    btn.textContent = `Phần ${pi+1}`;
+    btn.addEventListener("click", ()=> document.getElementById(`part-header-${pi}`).scrollIntoView({behavior:"smooth", block:"start"}));
+    nav.appendChild(btn);
+  });
+}
+
+function startTimer(){
+  updateTimerDisplay();
+  timerInt = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft<=0){ clearInterval(timerInt); submitExam(true); }
+  }, 1000);
+}
+function updateTimerDisplay(){
+  const m = Math.floor(timeLeft/60), s = timeLeft%60;
+  const el = document.getElementById("timer");
+  el.textContent = "⏱ " + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+  el.classList.toggle("low", timeLeft<=300);
+}
+
+function updateProgress(){
+  let done=0, total=0;
+  EXAM.parts.forEach((part,pi)=>{
+    part.questions.forEach((q,qi)=>{
+      total++;
+      if(part.type==="mcq" && studentAnswers[pi][qi]!==null) done++;
+      if(part.type==="tf" && studentAnswers[pi][qi].every(a=>a!==null)) done++;
+      if(part.type==="short" && studentAnswers[pi][qi].trim()!=="") done++;
+    });
+  });
+  document.getElementById("progress-text").textContent = `${done}/${total} đã trả lời`;
+}
+
+function imgHtml(q){
+  if(!q.imageUrl) return "";
+  return `<img class="q-image" src="${escHtml(q.imageUrl)}" alt="Hình minh hoạ câu hỏi" loading="lazy" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=\'warn-box\'>⚠ Không tải được ảnh minh hoạ (kiểm tra lại link).</div>');">`;
+}
+function renderQuizBody(){
+  const body = document.getElementById("quiz-body");
+  let html = "";
+  const labels = ["a","b","c","d"];
+  EXAM.parts.forEach((part,pi)=>{
+    html += `<div class="part-header" id="part-header-${pi}">${escHtml(part.title||("Phần "+(pi+1)))}</div>`;
+    part.questions.forEach((q,qi)=>{
+      html += `<div class="card" data-part="${pi}" data-q="${qi}">
+        <span class="q-tag">Câu ${qi+1}</span>
+        <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+      if(part.type==="mcq"){
+        html += `<div class="mc-options">`;
+        q.options.forEach(opt=>{
+          html += `<div class="mc-option" data-p="${pi}" data-q="${qi}" data-opt="${opt.l}">
+            <span class="opt-label">${opt.l}.</span><span>${escHtml(opt.t)}</span></div>`;
+        });
+        html += `</div>`;
+      } else if(part.type==="tf"){
+        q.statements.forEach((st,si)=>{
+          html += `<div class="statement">
+            <div class="st-text"><span class="st-label">${labels[si]})</span>${escHtml(st.text)}</div>
+            <div class="toggle">
+              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="true">Đúng</button>
+              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="false">Sai</button>
+            </div></div>`;
+        });
+      } else if(part.type==="short"){
+        html += `<div class="short-answer">
+          <input type="text" inputmode="decimal" data-p="${pi}" data-q="${qi}" placeholder="Nhập đáp án...">
+          <div class="hint">Có thể dùng dấu chấm hoặc dấu phẩy cho số thập phân.</div>
+        </div>`;
+      }
+      html += `</div>`;
+    });
+  });
+  body.innerHTML = html;
+  renderMath(body);
+
+  body.querySelectorAll(".mc-option").forEach(el=>{
+    el.addEventListener("click", ()=>{
+      const pi=+el.dataset.p, qi=+el.dataset.q, opt=el.dataset.opt;
+      studentAnswers[pi][qi] = opt;
+      body.querySelectorAll(`.mc-option[data-p="${pi}"][data-q="${qi}"]`).forEach(o=> o.classList.toggle("selected", o.dataset.opt===opt));
+      updateProgress();
+    });
+  });
+  body.querySelectorAll(".toggle button").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const pi=+btn.dataset.p, qi=+btn.dataset.q, si=+btn.dataset.si, val=btn.dataset.val==="true";
+      studentAnswers[pi][qi][si] = val;
+      const group = body.querySelectorAll(`.toggle button[data-p="${pi}"][data-q="${qi}"][data-si="${si}"]`);
+      group.forEach(b=>{
+        b.classList.remove("sel-true","sel-false");
+        if(b.dataset.val==="true" && val) b.classList.add("sel-true");
+        if(b.dataset.val==="false" && !val) b.classList.add("sel-false");
+      });
+      updateProgress();
+    });
+  });
+  body.querySelectorAll('input[data-p][data-q]').forEach(inp=>{
+    if(inp.type==="text"){
+      inp.addEventListener("input", ()=>{
+        const pi=+inp.dataset.p, qi=+inp.dataset.q;
+        studentAnswers[pi][qi] = inp.value;
+        updateProgress();
+      });
+    }
+  });
+
+  updateProgress();
+}
+
+document.getElementById("submit-btn").addEventListener("click", ()=>{
+  let done=0, total=0;
+  EXAM.parts.forEach((part,pi)=>{
+    part.questions.forEach((q,qi)=>{
+      total++;
+      if(part.type==="mcq" && studentAnswers[pi][qi]!==null) done++;
+      if(part.type==="tf" && studentAnswers[pi][qi].every(a=>a!==null)) done++;
+      if(part.type==="short" && studentAnswers[pi][qi].trim()!=="") done++;
+    });
+  });
+  const unanswered = total-done;
+  let msg = "Bạn có chắc chắn muốn nộp bài?";
+  if(unanswered>0) msg = `Còn ${unanswered} câu chưa trả lời đầy đủ. Bạn vẫn muốn nộp bài?`;
+  if(confirm(msg)) submitExam(false);
+});
+
+/* ============== CHẤM ĐIỂM ============== */
+function ratioForCount(n){
+  if(n===4) return 1.0; if(n===3) return 0.5; if(n===2) return 0.25; if(n===1) return 0.1; return 0;
+}
+function parseNum(str){
+  if(str===undefined || str===null) return null;
+  const s = String(str).trim().replace(",", ".");
+  if(s==="") return null;
+  const v = parseFloat(s);
+  return isNaN(v) ? null : v;
+}
+
+function submitExam(auto){
+  clearInterval(timerInt);
+
+  const partResults = EXAM.parts.map((part,pi)=>{
+    let score = 0;
+    const details = [];
+    part.questions.forEach((q,qi)=>{
+      if(part.type==="mcq"){
+        const userAns = studentAnswers[pi][qi];
+        const ok = userAns===q.correct;
+        if(ok) score += part.pointsPerQuestion;
+        details.push({q, userAns, ok, pts: ok?part.pointsPerQuestion:0});
+      } else if(part.type==="tf"){
+        let cnt=0;
+        q.statements.forEach((st,si)=>{ if(studentAnswers[pi][qi][si]===st.correct) cnt++; });
+        const pts = ratioForCount(cnt) * part.maxPoints;
+        score += pts;
+        details.push({q, userAns: studentAnswers[pi][qi], correctCount:cnt, pts});
+      } else if(part.type==="short"){
+        const userVal = parseNum(studentAnswers[pi][qi]);
+        const ok = userVal!==null && Math.abs(userVal - q.answer) < 0.006;
+        if(ok) score += part.pointsPerQuestion;
+        details.push({q, userAns: studentAnswers[pi][qi], ok, pts: ok?part.pointsPerQuestion:0});
+      }
+    });
+    return {part, score, details};
+  });
+
+  const total = partResults.reduce((s,r)=>s+r.score,0);
+  const maxPoints = computeMaxPoints(EXAM);
+
+  document.getElementById("screen-quiz").classList.add("hidden");
+  document.getElementById("screen-results").classList.remove("hidden");
+  document.getElementById("score-total").textContent = total.toFixed(2);
+  document.getElementById("score-max").textContent = "/" + maxPoints.toFixed(2);
+  document.getElementById("score-name").textContent = studentName;
+  document.getElementById("score-breakdown").innerHTML = partResults.map((r,i)=>
+    `<span>Phần ${i+1}: ${r.score.toFixed(2)}đ</span>`
+  ).join("");
+  document.getElementById("score-sub").textContent = auto ? "Hết giờ — bài tự động nộp" : "Đã nộp bài thành công";
+
+  if(EXAM.leaderboard && EXAM.leaderboard.formUrl){
+    document.getElementById("save-status").classList.remove("hidden");
+    document.getElementById("rank-card").classList.remove("hidden");
+    document.getElementById("rank-link").href = EXAM.leaderboard.sheetUrl || "#";
+    saveScoreToRanking(total, partResults);
+  }
+
+  renderReview(partResults);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function saveScoreToRanking(total, partResults){
+  const statusEl = document.getElementById("save-status");
+  const lb = EXAM.leaderboard;
+  const detailText = `${EXAM.meta.title} · ` + partResults.map((r,i)=>`P${i+1}: ${r.score.toFixed(2)}đ`).join(" · ");
+  const body = new URLSearchParams();
+  if(lb.entryName) body.append(lb.entryName, studentName);
+  if(lb.entryScore) body.append(lb.entryScore, total.toFixed(2));
+  if(lb.entryDetail) body.append(lb.entryDetail, detailText);
+  fetch(lb.formUrl, {
+    method:"POST", mode:"no-cors",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body: body.toString()
+  }).then(()=>{ statusEl.textContent = "✓ Đã lưu điểm vào bảng xếp hạng."; })
+    .catch(()=>{ statusEl.textContent = "⚠ Không lưu được điểm (kiểm tra kết nối mạng)."; });
+}
+
+/* ============== REVIEW ============== */
+function renderReview(partResults){
+  const box = document.getElementById("review-list");
+  let html = "";
+  const labels = ["a","b","c","d"];
+  partResults.forEach((r,pi)=>{
+    html += `<div class="part-header">${escHtml(r.part.title||("Phần "+(pi+1)))} — Chi tiết bài làm</div>`;
+    r.details.forEach((d,qi)=>{
+      const q=d.q;
+      if(r.part.type==="mcq"){
+        html += `<div class="card review-q">
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+        q.options.forEach(opt=>{
+          let cls="review-mc-opt";
+          if(opt.l===q.correct) cls+=" correct-ans";
+          else if(opt.l===d.userAns) cls+=" wrong-selected";
+          html += `<div class="${cls}">${opt.l}. ${escHtml(opt.t)}${opt.l===q.correct?' ✓ (đáp án đúng)':''}${(opt.l===d.userAns && opt.l!==q.correct)?' ✕ (bạn đã chọn)':''}</div>`;
+        });
+        if(q.expl) html += `<div class="review-body"><div class="expl">${escHtml(q.expl)}</div></div>`;
+        html += `</div>`;
+      } else if(r.part.type==="tf"){
+        html += `<div class="card review-q">
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <span class="qscore">${d.correctCount}/4 ý đúng · ${d.pts.toFixed(2)} đ</span></div>
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+        q.statements.forEach((st,si)=>{
+          const userVal = d.userAns[si];
+          const isOk = userVal===st.correct;
+          const userTxt = userVal===null ? "chưa chọn" : (userVal? "Đúng":"Sai");
+          const correctTxt = st.correct? "Đúng":"Sai";
+          html += `<div class="statement" style="border-top:1px dashed var(--paper-line);">
+            <div class="mark ${isOk?'ok':'no'}" style="margin-right:8px;">${isOk?'✓':'✕'}</div>
+            <div class="review-body" style="flex:1;">
+              <div class="st-text"><span class="st-label">${labels[si]})</span>${escHtml(st.text)}</div>
+              <div class="meta">Bạn chọn: <b>${userTxt}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${correctTxt}</b></div>
+              ${st.expl?`<div class="expl">${escHtml(st.expl)}</div>`:""}
+            </div></div>`;
+        });
+        html += `</div>`;
+      } else if(r.part.type==="short"){
+        html += `<div class="card review-q">
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
+          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}
+          <div class="meta">Bạn trả lời: <b>${(""+d.userAns).trim()===""?"chưa trả lời":d.userAns}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${q.answer}</b></div>
+          ${q.expl?`<div class="expl" style="margin-top:8px;">${escHtml(q.expl)}</div>`:""}
+        </div>`;
+      }
+    });
+  });
+  box.innerHTML = html;
+  renderMath(box);
+}
+
+/* ============== KHỞI ĐỘNG TRANG ============== */
+(function init(){
+  const examFromUrl = getExamFromUrl();
+  if(examFromUrl){
+    initStudentFlow(examFromUrl);
+  }
+  // nếu không có dữ liệu trong URL, giữ nguyên màn hình Entry mặc định
+})();
+</script>
+</body>
+</html>
