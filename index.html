@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+<!-- MỚI: thư viện đọc file Word (.docx) và PDF ngay trên trình duyệt, không cần server -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   :root{
     --paper:#F8F9FA; --paper-line:#DAD6C8; --ink:#1E293B; --ink-soft:#55655C;
@@ -80,6 +83,16 @@
   details.leaderboard-config{border:1px dashed var(--paper-line);border-radius:10px;padding:12px 16px;margin-top:6px;}
   details.leaderboard-config summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--celadon-deep);}
   details.leaderboard-config .hint{font-size:12px;color:var(--ink-soft);margin:8px 0 12px;}
+
+  /* MỚI: khối import Word/PDF */
+  details.import-config{border:1px dashed var(--celadon);border-radius:10px;padding:12px 16px;margin-bottom:16px;background:#F4F8F1;}
+  details.import-config summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--celadon-deep);}
+  details.import-config .hint{font-size:12.5px;color:var(--ink-soft);margin:8px 0 12px;}
+  .template-sample{background:#1E293B;color:#EFF6F3;border-radius:8px;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:12px;white-space:pre-wrap;overflow-x:auto;margin:10px 0;}
+  #import-status{font-size:13px;margin-top:8px;padding:8px 10px;border-radius:6px;}
+  #import-status.ok{background:#EAF0E4;color:var(--celadon-deep);}
+  #import-status.err{background:#F7EBE7;color:var(--bad);}
+  #import-status.busy{background:#F6ECD9;color:#7A5C1E;}
 
   .output-panel{text-align:center;}
   .link-row{display:flex;gap:8px;margin:14px 0;}
@@ -191,6 +204,58 @@
 
   <!-- ===================== SCREEN 1: BUILDER (giáo viên soạn đề) ===================== -->
   <section id="screen-builder" class="hidden">
+
+    <!-- ============ MỚI: KHỐI NHẬP ĐỀ TỪ FILE WORD/PDF ============ -->
+    <div class="card">
+      <span class="eyebrow">Nhập nhanh</span>
+      <h2 style="margin-top:6px;">📄 Nhập đề từ file Word (.docx) hoặc PDF</h2>
+      <p style="color:var(--ink-soft);font-size:13.5px;margin-top:6px;">
+        Soạn đề theo <b>đúng mẫu định dạng</b> bên dưới trong Word rồi lưu / xuất ra .docx hoặc .pdf, sau đó tải lên đây — hệ thống sẽ tự động tách câu hỏi và đổ vào 3 phần dưới, bạn không cần gõ tay lại.
+      </p>
+      <details class="import-config">
+        <summary>📋 Xem mẫu định dạng cần tuân theo</summary>
+        <p class="hint">Đây là quy tắc bắt buộc để hệ thống nhận diện đúng câu hỏi. Gõ đúng các từ khoá <b>PHẦN 1 / PHẦN 2 / PHẦN 3</b>, <b>Câu 1:, Câu 2:...</b>, <b>Đáp án:</b>, <b>Giải:</b> — nội dung câu hỏi có thể dài tùy ý.</p>
+        <div class="template-sample">PHẦN 1
+Câu 1: Cho đồ thị hàm số y = f(x) như hình vẽ.
+Ảnh: https://raw.githubusercontent.com/ten-ban/ten-repo/main/images/cau1.png
+A. 2x
+B. x^2
+C. 2
+D. x
+Đáp án: A
+Giải: Áp dụng công thức đạo hàm cơ bản.
+
+Câu 2: ...
+A. ...
+B. ...
+C. ...
+D. ...
+Đáp án: C
+
+PHẦN 2
+Câu 1: Cho hàm số y = f(x). Xét các mệnh đề sau:
+Ảnh: https://raw.githubusercontent.com/ten-ban/ten-repo/main/images/cau1-p2.png
+a) Mệnh đề thứ nhất - Đ
+b) Mệnh đề thứ hai - S
+c) Mệnh đề thứ ba - Đ
+d) Mệnh đề thứ tư - S
+
+PHẦN 3
+Câu 1: Tính giá trị của biểu thức...
+Đáp án: 12.5
+Giải: (không bắt buộc)</div>
+        <p class="hint" style="margin-top:0;">Ghi chú: mỗi câu trắc nghiệm luôn có đủ 4 phương án A/B/C/D; mỗi câu Đúng/Sai luôn có đủ 4 ý a/b/c/d, kết thúc mỗi ý bằng "- Đ" (đúng) hoặc "- S" (sai). Có thể bỏ trống 1 hoặc 2 trong 3 phần nếu đề không dùng dạng đó.</p>
+        <p class="hint" style="margin-top:0;"><b>Câu có hình ảnh (đồ thị, bảng biến thiên...):</b> ảnh KHÔNG được nhúng trực tiếp trong file Word/PDF — hệ thống không tự trích xuất ảnh nhúng vì sẽ làm link chia sẻ quá dài, không tạo được QR. Thay vào đó: (1) tải ảnh lên Google Drive (bật chia sẻ "Anyone with the link") hoặc để trong thư mục ảnh của repo GitHub, lấy link ảnh trực tiếp; (2) thêm 1 dòng <b>"Ảnh: &lt;link ảnh&gt;"</b> ngay dưới nội dung câu hỏi như ví dụ trên — hệ thống sẽ tự gán đúng vào câu đó.</p>
+        <button class="btn-ghost" id="download-template-btn" type="button">⬇ Tải file mẫu (.txt) để copy vào Word</button>
+      </details>
+      <div class="field" style="margin-top:12px;">
+        <label>Chọn file .docx hoặc .pdf đã soạn theo mẫu trên</label>
+        <input type="file" id="import-doc-input" accept=".docx,.pdf,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+      </div>
+      <div id="import-status" class="hidden"></div>
+    </div>
+    <!-- ============ HẾT KHỐI MỚI ============ -->
+
     <div class="card">
       <span class="eyebrow">Soạn đề</span>
       <h2 style="margin-top:6px;">Thông tin chung</h2>
@@ -489,6 +554,236 @@ function renumberCards(listId, label){
 document.getElementById("p1-add-btn").addEventListener("click", ()=> addP1Question());
 document.getElementById("p2-add-btn").addEventListener("click", ()=> addP2Question());
 document.getElementById("p3-add-btn").addEventListener("click", ()=> addP3Question());
+
+/* ================================================================
+   MỚI: NHẬP ĐỀ TỪ FILE WORD (.docx) / PDF THEO MẪU CỐ ĐỊNH
+   Chạy hoàn toàn trên trình duyệt (mammoth.js + pdf.js), không cần
+   server hay API key nào. Yêu cầu người soạn tuân theo mẫu định
+   dạng: PHẦN 1 / PHẦN 2 / PHẦN 3, Câu N:, A./B./C./D., a)/b)/c)/d),
+   Đáp án:, Giải:
+   ================================================================ */
+
+// đọc toàn bộ text thuần từ file .docx
+async function extractTextFromDocx(file){
+  const arrayBuffer = await file.arrayBuffer();
+  const result = await mammoth.extractRawText({arrayBuffer});
+  return result.value;
+}
+
+// đọc toàn bộ text thuần từ file .pdf (ghép text mọi trang)
+async function extractTextFromPdf(file){
+  if(!window.pdfjsLib.GlobalWorkerOptions.workerSrc){
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+  let text = "";
+  for(let i=1;i<=pdf.numPages;i++){
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    // mỗi item.str là 1 đoạn text nhỏ trên trang; nối lại kèm xuống dòng theo item có transform y khác nhau là phức tạp,
+    // nên ta ghép đơn giản theo dòng: nối các item cùng 1 dòng bằng khoảng trắng, xuống dòng khi đổi vị trí y đáng kể.
+    let lastY = null, lineBuf = [];
+    content.items.forEach(item=>{
+      const y = item.transform[5];
+      if(lastY!==null && Math.abs(y-lastY) > 2){
+        text += lineBuf.join(" ") + "\n";
+        lineBuf = [];
+      }
+      lineBuf.push(item.str);
+      lastY = y;
+    });
+    if(lineBuf.length) text += lineBuf.join(" ") + "\n";
+    text += "\n";
+  }
+  return text;
+}
+
+function normalizeLines(text){
+  return text.replace(/\r/g,"").split("\n").map(l=>l.trim()).filter(l=>l.length>0);
+}
+
+// tìm dòng bắt đầu của PHẦN 1 / PHẦN 2 / PHẦN 3
+function findSectionRanges(lines){
+  const idx = {p1:-1,p2:-1,p3:-1};
+  lines.forEach((line,i)=>{
+    if(idx.p1===-1 && /^ph[ầâàaAÂẦ]+n\s*(1|i)\b/i.test(line)) idx.p1=i;
+    else if(idx.p2===-1 && /^ph[ầâàaAÂẦ]+n\s*(2|ii)\b/i.test(line)) idx.p2=i;
+    else if(idx.p3===-1 && /^ph[ầâàaAÂẦ]+n\s*(3|iii)\b/i.test(line)) idx.p3=i;
+  });
+  return idx;
+}
+
+function sliceSection(lines, start, otherStarts){
+  if(start===-1) return [];
+  const validEnds = otherStarts.filter(e=> e>-1 && e>start);
+  const end = validEnds.length ? Math.min(...validEnds) : lines.length;
+  return lines.slice(start+1, end);
+}
+
+// tách 1 đoạn (mảng dòng) thành từng câu dựa trên "Câu N:"
+function splitByQuestions(lines){
+  const blocks=[];
+  let current=null;
+  lines.forEach(line=>{
+    const m = line.match(/^c[âa]u\s*(\d+)\s*[:.\)]?\s*(.*)$/i);
+    if(m){
+      if(current) blocks.push(current);
+      current = {num:m[1], lines: m[2] ? [m[2]] : []};
+    } else if(current){
+      current.lines.push(line);
+    }
+  });
+  if(current) blocks.push(current);
+  return blocks;
+}
+
+function parseMcqBlock(block){
+  const content=[]; const options={}; let correct=null; let expl=""; let imageUrl=""; let mode="content";
+  block.lines.forEach(line=>{
+    let m;
+    if((m=line.match(/^[ảa]nh\s*[:\-]?\s*(https?:\/\/\S+)/i))){
+      imageUrl = m[1];
+    } else if((m=line.match(/^([A-D])[.\)]\s*(.*)$/))){
+      options[m[1]] = m[2]; mode="opts";
+    } else if((m=line.match(/^đ[áa]p\s*[áa]n\s*[:\-]?\s*([A-D])/i))){
+      correct = m[1].toUpperCase(); mode="done";
+    } else if((m=line.match(/^gi[ảa]i\s*[:\-]?\s*(.*)$/i))){
+      expl = m[1]; mode="expl";
+    } else {
+      if(mode==="content") content.push(line);
+      else if(mode==="expl") expl += (expl?" ":"") + line;
+    }
+  });
+  return {
+    content: content.join(" ").trim(),
+    imageUrl,
+    options: ["A","B","C","D"].map(l=>({l, t: options[l]||""})),
+    correct: correct || "A",
+    expl: expl.trim()
+  };
+}
+
+function parseTfBlock(block){
+  const content=[]; const statements=[null,null,null,null]; const order=["a","b","c","d"]; let imageUrl=""; let mode="content";
+  block.lines.forEach(line=>{
+    let m;
+    if((m=line.match(/^[ảa]nh\s*[:\-]?\s*(https?:\/\/\S+)/i))){
+      imageUrl = m[1];
+    } else if((m=line.match(/^([a-dA-D])[.\)]\s*(.*)$/))){
+      const si = order.indexOf(m[1].toLowerCase());
+      if(si===-1) return;
+      let text = m[2];
+      let correctVal = true;
+      const tail = text.match(/[-–]\s*(đúng|đ|sai|s)\s*$/i);
+      if(tail){
+        correctVal = /^(đúng|đ)$/i.test(tail[1]);
+        text = text.slice(0, text.length - tail[0].length).trim();
+      }
+      statements[si] = {text, correct: correctVal, expl:""};
+      mode = "stmt";
+    } else if(mode==="content"){
+      content.push(line);
+    }
+  });
+  for(let i=0;i<4;i++) if(!statements[i]) statements[i] = {text:"", correct:true, expl:""};
+  return {content: content.join(" ").trim(), imageUrl, statements};
+}
+
+function parseShortBlock(block){
+  const content=[]; let answer=null; let expl=""; let imageUrl=""; let mode="content";
+  block.lines.forEach(line=>{
+    let m;
+    if((m=line.match(/^[ảa]nh\s*[:\-]?\s*(https?:\/\/\S+)/i))){
+      imageUrl = m[1];
+    } else if((m=line.match(/^đ[áa]p\s*[áa]n\s*[:\-]?\s*([\-0-9.,]+)/i))){
+      answer = parseFloat(m[1].replace(",", "."));
+      mode = "done";
+    } else if((m=line.match(/^gi[ảa]i\s*[:\-]?\s*(.*)$/i))){
+      expl = m[1]; mode="expl";
+    } else {
+      if(mode==="content") content.push(line);
+      else if(mode==="expl") expl += (expl?" ":"") + line;
+    }
+  });
+  return {content: content.join(" ").trim(), imageUrl, answer: (answer===null?"":answer), expl: expl.trim()};
+}
+
+function parseExamText(rawText){
+  const lines = normalizeLines(rawText);
+  const idx = findSectionRanges(lines);
+  const p1Lines = sliceSection(lines, idx.p1, [idx.p2, idx.p3]);
+  const p2Lines = sliceSection(lines, idx.p2, [idx.p3]);
+  const p3Lines = sliceSection(lines, idx.p3, []);
+
+  return {
+    mcq: splitByQuestions(p1Lines).map(parseMcqBlock),
+    tf: splitByQuestions(p2Lines).map(parseTfBlock),
+    short: splitByQuestions(p3Lines).map(parseShortBlock)
+  };
+}
+
+// đổ dữ liệu đã parse vào 3 khối câu hỏi trên form (thay thế nội dung cũ của phần tương ứng)
+function applyParsedExam(parsed){
+  if(parsed.mcq && parsed.mcq.length){
+    document.getElementById("p1-list").innerHTML = "";
+    parsed.mcq.forEach(q=> addP1Question(q));
+  }
+  if(parsed.tf && parsed.tf.length){
+    document.getElementById("p2-list").innerHTML = "";
+    parsed.tf.forEach(q=> addP2Question(q));
+  }
+  if(parsed.short && parsed.short.length){
+    document.getElementById("p3-list").innerHTML = "";
+    parsed.short.forEach(q=> addP3Question(q));
+  }
+}
+
+function setImportStatus(text, kind){
+  const el = document.getElementById("import-status");
+  el.className = kind || "";
+  el.textContent = text;
+  el.classList.remove("hidden");
+}
+
+document.getElementById("import-doc-input").addEventListener("change", async (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  setImportStatus("Đang đọc file, vui lòng chờ...", "busy");
+  try{
+    const lower = file.name.toLowerCase();
+    let text = "";
+    if(lower.endsWith(".docx")){
+      text = await extractTextFromDocx(file);
+    } else if(lower.endsWith(".pdf")){
+      text = await extractTextFromPdf(file);
+    } else {
+      setImportStatus("⚠ Chỉ hỗ trợ file .docx hoặc .pdf.", "err");
+      return;
+    }
+    const parsed = parseExamText(text);
+    const total = parsed.mcq.length + parsed.tf.length + parsed.short.length;
+    if(total===0){
+      setImportStatus("⚠ Không nhận diện được câu hỏi nào. Kiểm tra lại file có đúng theo mẫu định dạng (PHẦN 1/2/3, Câu N:, A./B./C./D., a)/b)/c)/d), Đáp án:) không.", "err");
+      return;
+    }
+    applyParsedExam(parsed);
+    setImportStatus(`✓ Đã nhập ${parsed.mcq.length} câu trắc nghiệm, ${parsed.tf.length} câu Đúng/Sai, ${parsed.short.length} câu trả lời ngắn. Vui lòng kéo xuống kiểm tra lại nội dung từng câu trước khi tạo link (nhất là các câu Đúng/Sai và đáp án).`, "ok");
+  }catch(err){
+    console.error(err);
+    setImportStatus("⚠ Có lỗi khi đọc file: " + err.message, "err");
+  }
+});
+
+document.getElementById("download-template-btn").addEventListener("click", ()=>{
+  const sample = document.querySelector(".template-sample").textContent;
+  const blob = new Blob([sample], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "mau-de-thi.txt";
+  a.click();
+});
+/* ============== HẾT KHỐI MỚI ============== */
 
 /* ============== BUILDER: THU THẬP DỮ LIỆU FORM -> EXAM OBJECT ============== */
 function collectExamFromForm(){
