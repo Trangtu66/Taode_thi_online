@@ -11,6 +11,10 @@
 <!-- MỚI: thư viện đọc file Word (.docx) và PDF ngay trên trình duyệt, không cần server -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<!-- MỚI: KaTeX để hiển thị công thức toán (phân số dạng tử/gạch ngang/mẫu...) viết theo cú pháp LaTeX, bọc trong dấu $ ... $ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <style>
   :root{
     --paper:#F8F9FA; --paper-line:#DAD6C8; --ink:#1E293B; --ink-soft:#55655C;
@@ -214,38 +218,38 @@
       </p>
       <details class="import-config">
         <summary>📋 Xem mẫu định dạng cần tuân theo</summary>
-        <p class="hint">Đây là quy tắc bắt buộc để hệ thống nhận diện đúng câu hỏi. Gõ đúng các từ khoá <b>PHẦN 1 / PHẦN 2 / PHẦN 3</b>, <b>Câu 1:, Câu 2:...</b>, <b>Đáp án:</b>, <b>Giải:</b> — nội dung câu hỏi có thể dài tùy ý.</p>
+        <p class="hint">Đây là quy tắc bắt buộc để hệ thống nhận diện đúng câu hỏi. Gõ đúng các từ khoá <b>PHẦN 1 / PHẦN 2 / PHẦN 3</b>, <b>Câu 1:, Câu 2:...</b>, <b>Đáp án:</b>, <b>Giải:</b> — nội dung câu hỏi có thể dài tùy ý. Cách này dùng được cho cả file .docx và .pdf.</p>
+        <p class="hint" style="color:var(--celadon-deep);"><b>📐 Viết công thức toán (phân số, căn, lũy thừa...):</b> bọc công thức trong dấu <code>$ ... $</code> và viết theo cú pháp LaTeX — trang sẽ tự hiển thị đẹp (phân số có tử số/gạch ngang/mẫu số) khi học sinh làm bài. Phân số dùng <code>\frac{tử số}{mẫu số}</code>, ví dụ gõ <code>$y = \frac{2x-1}{x+2}$</code> sẽ hiển thị thành y = phân số (2x−1) trên (x+2). Căn bậc hai dùng <code>\sqrt{...}</code>, lũy thừa dùng <code>^{...}</code> (ví dụ <code>x^{2}</code>). Chỉ cần gõ đúng cú pháp này dưới dạng CHỮ THƯỜNG trong Word/PDF — không cần và không nên chèn công thức Word thật (Equation) vì hệ thống chỉ đọc được chữ, không đọc được ảnh/đối tượng công thức.</p>
         <div class="template-sample">PHẦN 1
-Câu 1: Cho đồ thị hàm số y = f(x) như hình vẽ.
-Ảnh: https://raw.githubusercontent.com/ten-ban/ten-repo/main/images/cau1.png
-A. 2x
-B. x^2
-C. 2
-D. x
+Câu 1: Cho hàm số $y = \frac{1}{3}x^{3} - 2x^{2} + 3x + 1$.
+A. $y'(x) = x^{2} - 4x + 3$
+B. $y'(x) = x^{2} + 4x + 3$
+C. $y'(x) = 2x - 4$
+D. $y'(x) = x^{2} - 4x - 3$
 Đáp án: A
-Giải: Áp dụng công thức đạo hàm cơ bản.
+Giải: Áp dụng công thức đạo hàm cơ bản. (tùy chọn)
 
-Câu 2: ...
-A. ...
-B. ...
-C. ...
-D. ...
+Câu 2: Cho hàm số $y = \frac{2x-1}{x+2}$, khẳng định nào đúng?
+Ảnh: https://raw.githubusercontent.com/ten-ban/ten-repo/main/images/cau2.png
+A. Hàm số đồng biến trên $(-\infty; +\infty)$
+B. Hàm số nghịch biến trên $(-\infty; +\infty)$
+C. Hàm số đồng biến trên $(-\infty; -2)$ và $(-2; +\infty)$
+D. Hàm số nghịch biến trên $(-\infty; -2)$ và $(-2; +\infty)$
 Đáp án: C
 
 PHẦN 2
-Câu 1: Cho hàm số y = f(x). Xét các mệnh đề sau:
-Ảnh: https://raw.githubusercontent.com/ten-ban/ten-repo/main/images/cau1-p2.png
+Câu 1: Cho hàm số $y = f(x)$. Xét các mệnh đề sau:
 a) Mệnh đề thứ nhất - Đ
-b) Mệnh đề thứ hai - S
+b) Mệnh đề thứ hai có công thức $\frac{5}{(x+2)^{2}}$ - S
 c) Mệnh đề thứ ba - Đ
 d) Mệnh đề thứ tư - S
 
 PHẦN 3
-Câu 1: Tính giá trị của biểu thức...
-Đáp án: 12.5
+Câu 1: Tính giá trị của biểu thức $\sqrt{4 - x^{2}}$ tại x = 0.
+Đáp án: 2
 Giải: (không bắt buộc)</div>
         <p class="hint" style="margin-top:0;">Ghi chú: mỗi câu trắc nghiệm luôn có đủ 4 phương án A/B/C/D; mỗi câu Đúng/Sai luôn có đủ 4 ý a/b/c/d, kết thúc mỗi ý bằng "- Đ" (đúng) hoặc "- S" (sai). Có thể bỏ trống 1 hoặc 2 trong 3 phần nếu đề không dùng dạng đó.</p>
-        <p class="hint" style="margin-top:0;"><b>Câu có hình ảnh (đồ thị, bảng biến thiên...):</b> ảnh KHÔNG được nhúng trực tiếp trong file Word/PDF — hệ thống không tự trích xuất ảnh nhúng vì sẽ làm link chia sẻ quá dài, không tạo được QR. Thay vào đó: (1) tải ảnh lên Google Drive (bật chia sẻ "Anyone with the link") hoặc để trong thư mục ảnh của repo GitHub, lấy link ảnh trực tiếp; (2) thêm 1 dòng <b>"Ảnh: &lt;link ảnh&gt;"</b> ngay dưới nội dung câu hỏi như ví dụ trên — hệ thống sẽ tự gán đúng vào câu đó.</p>
+        <p class="hint" style="margin-top:0;"><b>Câu có hình ảnh (đồ thị, bảng biến thiên...):</b> ảnh KHÔNG được nhúng trực tiếp trong file — tải ảnh lên Google Drive (bật chia sẻ "Anyone with the link") hoặc thư mục ảnh trong repo GitHub, lấy link trực tiếp, rồi thêm dòng <b>"Ảnh: &lt;link ảnh&gt;"</b> ngay dưới nội dung câu hỏi như ví dụ Câu 2 ở trên.</p>
         <button class="btn-ghost" id="download-template-btn" type="button">⬇ Tải file mẫu (.txt) để copy vào Word</button>
       </details>
       <div class="field" style="margin-top:12px;">
@@ -429,6 +433,22 @@ function escHtml(str){
 }
 let idCounter = 1;
 function uid(prefix){ return prefix + "_" + (idCounter++); }
+
+// MỚI: render công thức toán viết theo cú pháp LaTeX, bọc trong $ ... $ (inline) hoặc $$ ... $$ (hiển thị riêng dòng)
+function renderMath(container){
+  if(typeof renderMathInElement !== "function") return;
+  try{
+    renderMathInElement(container, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  }catch(e){ console.error("KaTeX render error:", e); }
+}
 
 /* ============== ENCODE / DECODE ĐỀ THI ============== */
 function encodeExam(examObj){
@@ -1145,6 +1165,7 @@ function renderQuizBody(){
     });
   });
   body.innerHTML = html;
+  renderMath(body);
 
   body.querySelectorAll(".mc-option").forEach(el=>{
     el.addEventListener("click", ()=>{
@@ -1329,6 +1350,7 @@ function renderReview(partResults){
     });
   });
   box.innerHTML = html;
+  renderMath(box);
 }
 
 /* ============== KHỞI ĐỘNG TRANG ============== */
