@@ -185,7 +185,7 @@ async function taiDanhSach(){
   try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes; }catch(e){}
   const cfg = (window.DANH_SACH_BAI || []).map(b=>({...b}));
   cfg.forEach(b=>{ const q = qz.find(x=>x.quizId===b.ma); b.count = q ? q.count : 0; b.last = q ? q.last : 0; });
-  qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\((Toán\s*(10|11|12))\)/);
+  qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\(?(Toán\s*(10|11|12))\b\)?/i);
     cfg.push({nhom:(m ? m[1] + " · " : "") + "chưa có trong danh sách", ten:t.replace(/^Củng cố\s*[–-]\s*/,"").replace(/\s*\(Toán\s*\d+\)\s*$/,""), ma:q.quizId, khoi:m ? m[2] : "", count:q.count, last:q.last}); });
   cfg.forEach(b=>{ if(!b.khoi){ const m = String(b.nhom||"").concat(" ", b.ma||"").match(/\b(10|11|12)\b/); b.khoi = m ? m[1] : "khac"; } b.khoi = String(b.khoi); });
   BAI = cfg;

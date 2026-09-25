@@ -92,6 +92,14 @@
   .link-row input{flex:1;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#FAF9F1;}
   #qr-output{margin:14px auto;padding:12px;background:#fff;border:1px solid var(--paper-line);border-radius:10px;display:inline-block;}
   .size-note{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+  .word-box{border:2px dashed var(--celadon);border-radius:12px;padding:14px 16px;background:#F3F7F1;}
+  .word-box input[type=file]{margin:8px 0;}
+  .word-rules{font-size:12.5px;color:var(--ink-soft);margin:6px 0 0 18px;padding:0;}
+  .word-rules li{margin:2px 0;}
+  .ok-box{background:#E6F2E1;border-left:3px solid var(--celadon);color:#2F5230;font-size:13px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
+  .q-thumb{display:block;max-width:220px;max-height:140px;margin-top:6px;border:1px solid var(--paper-line);border-radius:6px;background:#fff;}
+  .key-row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;justify-content:center;margin:0 0 12px;}
+  .key-row .field{margin:0;min-width:240px;}
   .warn-box{background:#F6ECD9;border-left:3px solid var(--gold);color:#7A5C1E;font-size:12.5px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
 
   .name-field{margin-top:16px;}
@@ -201,7 +209,20 @@
     <div class="card">
       <span class="eyebrow">Soạn đề</span>
       <h2 style="margin-top:6px;">Thông tin chung</h2>
-      <div class="field">
+      <div class="word-box">
+        <b>📄 Nhập đề từ file Word (.docx)</b>
+        <div><input type="file" id="load-word-input" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div>
+        <ul class="word-rules">
+          <li>Mỗi câu bắt đầu bằng <b>Câu 1.</b>, <b>Câu 2:</b> …; theo thứ tự PHẦN I, PHẦN II, PHẦN III.</li>
+          <li>Phần I: phương án <b>A. B. C. D.</b> — đáp án đúng <b>gạch chân chữ cái</b> (ví dụ <u>C.</u>).</li>
+          <li>Phần II: các ý <b>a) b) c) d)</b> — ý <b>Đúng</b> thì <b>gạch chân nhãn</b> (ví dụ <u>b)</u>), ý không gạch chân là Sai.</li>
+          <li>Phần III: ghi dòng <b>Đáp án: 3,4</b> (tối đa 4 kí tự, kể cả dấu “-” và dấu phẩy).</li>
+          <li>Nếu có dòng <b>Lời giải</b>, phần phía sau được dùng làm lời giải cho học sinh xem sau khi nộp.</li>
+          <li>Công thức MathType hoặc Equation của Word đều đọc được; hình PNG/JPG được nhúng vào đề.</li>
+        </ul>
+        <div id="word-report"></div>
+      </div>
+      <div class="field" style="margin-top:14px;">
         <label>📂 Đã có file cấu hình đề (.json) muốn sửa lại? Tải lên tại đây</label>
         <input type="file" id="load-json-input" accept="application/json">
       </div>
@@ -291,7 +312,7 @@
     </div>
 
     <div class="card">
-      <details class="leaderboard-config">
+      <details class="leaderboard-config" style="display:none">
         <summary>🏆 Lưu điểm vào bảng xếp hạng (tùy chọn — cần Google Form đã thiết lập sẵn)</summary>
         <p class="hint">Nếu bạn đã có Google Form + Sheet dùng cho đề khác, có thể tái sử dụng nguyên các giá trị đó ở đây. Bỏ trống nếu không cần lưu bảng xếp hạng.</p>
         <div class="field"><label>Google Form Action URL</label><input type="text" id="lb-form-url" placeholder="https://docs.google.com/forms/d/e/.../formResponse"></div>
@@ -302,6 +323,9 @@
       </details>
     </div>
 
+    <div class="key-row">
+      <div class="field"><label for="gv-key">🔑 Mã giáo viên (để lưu đề — có link ngắn và mã QR gọn)</label><input type="password" id="gv-key" placeholder="Ví dụ: VT-GV01-…" autocomplete="off"></div>
+    </div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" id="generate-btn">🔗 Tạo đề & Lấy link</button>
       <button class="btn-ghost" id="save-json-btn">💾 Tải file cấu hình đề (.json)</button>
@@ -504,7 +528,7 @@ function addP3Question(data){
     <div class="qcard-head"><span class="qcard-tag">Câu trả lời ngắn</span><button class="btn-danger" data-remove-card>Xóa</button></div>
     <div class="field"><label>Nội dung câu hỏi</label><textarea data-role="content" placeholder="Nhập nội dung câu hỏi...">${escHtml(data.content)}</textarea></div>
     <div class="field"><label>Ảnh minh hoạ (URL, tuỳ chọn — đồ thị/bảng biến thiên)</label><input type="text" data-role="image" value="${escHtml(data.imageUrl||"")}" placeholder="https://..."></div>
-    <div class="field" style="max-width:200px;"><label>Đáp án đúng (số)</label><input type="text" data-role="answer" value="${escHtml(data.answer)}" placeholder="Ví dụ: 0.25 hoặc -9"></div>
+    <div class="field" style="max-width:220px;"><label>Đáp án đúng (số, tối đa 4 kí tự)</label><input type="text" data-role="answer" maxlength="4" value="${escHtml(data.answer)}" placeholder="Ví dụ: 3,08 hoặc -9"></div>
     <div class="field"><label>Lời giải (tùy chọn)</label><textarea data-role="expl" placeholder="Giải thích ngắn gọn...">${escHtml(data.expl||"")}</textarea></div>
   `;
   div.querySelector("[data-remove-card]").addEventListener("click", ()=>{ div.remove(); renumberCards("p3-list","Câu trả lời ngắn"); });
@@ -649,15 +673,96 @@ function populateFormFromExam(examObj){
   document.getElementById("lb-sheet-url").value = lb.sheetUrl || "";
 }
 
+/* ============== MỚI: GỌI MÁY CHỦ KẾT QUẢ (JSONP) ============== */
+function apiGoc(){ const u = window.KQ_API || ""; return /^https:\/\/script\.google(usercontent)?\.com\//.test(u) ? u : ""; }
+function jsonp(params, timeoutMs){
+  return new Promise((res, rej)=>{
+    const api = apiGoc(); if(!api) return rej("Chưa cấu hình địa chỉ máy chủ (cau_hinh.js).");
+    const cb = "cb_" + Math.random().toString(36).slice(2);
+    const sc = document.createElement("script");
+    const t = setTimeout(()=>{ done(); rej("Không kết nối được máy chủ."); }, timeoutMs || 30000);
+    function done(){ clearTimeout(t); delete window[cb]; sc.remove(); }
+    window[cb] = d => { done(); d && d.ok ? res(d) : rej((d && d.loi) || "Lỗi dữ liệu"); };
+    sc.onerror = ()=>{ done(); rej("Không kết nối được máy chủ."); };
+    sc.src = api + "?" + new URLSearchParams({...params, callback: cb}).toString();
+    document.body.appendChild(sc);
+  });
+}
+function napScript(src){ return new Promise((res, rej)=>{ const sc = document.createElement("script"); sc.src = src; sc.onload = res; sc.onerror = ()=>rej("Không tải được " + src); document.head.appendChild(sc); }); }
+
+/* ============== MỚI: NHẬP ĐỀ TỪ FILE WORD ============== */
+document.getElementById("load-word-input").addEventListener("change", async (e)=>{
+  const file = e.target.files[0]; if(!file) return;
+  const box = document.getElementById("word-report");
+  box.innerHTML = '<div class="ok-box">⏳ Đang đọc file Word và chuyển công thức…</div>';
+  try{
+    if(!window.JSZip) await napScript("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js");
+    if(!window.NhapWord) await napScript("nhap_word.js?v=1");
+    const r = await NhapWord.docx(await file.arrayBuffer());
+    const st = r.stats;
+    if(!r.exam.parts.length){ box.innerHTML = '<div class="warn-box">⚠ Không tìm thấy câu hỏi nào. Kiểm tra lại: mỗi câu phải bắt đầu bằng "Câu 1.", "Câu 2."…</div>'; return; }
+    populateFormFromExam(r.exam);
+    capNhatAnh();
+    const w = r.warnings.map(x=>`<li><b>Câu ${x.cau}:</b> ${escHtml(x.msg)}</li>`).join("");
+    box.innerHTML = `<div class="ok-box">✅ Đã nhập <b>${st.mcq}</b> câu nhiều lựa chọn, <b>${st.tf}</b> câu đúng sai, <b>${st.short}</b> câu trả lời ngắn · ${st.mathtype + st.omml} công thức · ${st.images} hình.<br>Hãy xem lại từng câu bên dưới (đặc biệt đáp án đúng), sửa nếu cần rồi bấm <b>Tạo đề &amp; Lấy link</b>.</div>`
+      + (w ? `<div class="warn-box">⚠ Cần kiểm tra:<ul style="margin:6px 0 0 18px;padding:0">${w}</ul></div>` : "");
+  }catch(err){
+    console.error(err);
+    box.innerHTML = `<div class="warn-box">⚠ Không đọc được file: ${escHtml(String(err && err.message || err))}. Hãy chắc chắn file là .docx (Word 2007 trở lên); file .doc cũ cần mở bằng Word rồi Lưu thành .docx.</div>`;
+  }
+  e.target.value = "";
+});
+
+/* ảnh xem trước dưới ô "Ảnh minh hoạ" */
+function capNhatAnh(){
+  document.querySelectorAll('[data-role="image"]').forEach(inp=>{
+    let im = inp.nextElementSibling;
+    if(!im || !im.classList || !im.classList.contains("q-thumb")){ im = document.createElement("img"); im.className = "q-thumb"; im.alt = ""; inp.after(im); }
+    const v = inp.value.trim();
+    if(v){ im.src = v; im.style.display = ""; } else { im.removeAttribute("src"); im.style.display = "none"; }
+    if(v.startsWith("data:")){ inp.title = "Ảnh đã nhúng từ file Word"; }
+  });
+}
+document.getElementById("screen-builder").addEventListener("input", e=>{ if(e.target.matches('[data-role="image"]')) capNhatAnh(); });
+
 /* ============== BUILDER: TẠO LINK / QR ============== */
-document.getElementById("generate-btn").addEventListener("click", ()=>{
+try{ document.getElementById("gv-key").value = localStorage.getItem("ql_ma_gv") || sessionStorage.getItem("ql_ma_gv") || ""; }catch(e){}
+async function luuDeLenMay(examObj, key){
+  await jsonp({action:"all", key, quiz:"__kiem_tra__"}, 20000);            // kiểm tra mã giáo viên
+  const id = Array.from(crypto.getRandomValues(new Uint8Array(8))).map(b=>"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789"[b % 56]).join("");
+  await fetch(apiGoc(), {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body: JSON.stringify({action:"luuDe", key, id, title: examObj.meta.title || "", de: JSON.stringify(examObj)})});
+  for(let i=0;i<10;i++){
+    try{ await jsonp({action:"de", id, check:1}, 15000); return id; }catch(e){ await new Promise(r=>setTimeout(r, 1500)); }
+  }
+  throw "Chưa lưu được đề (mạng chậm hoặc đề quá lớn). Hãy thử lại.";
+}
+document.getElementById("generate-btn").addEventListener("click", async ()=>{
   const examObj = collectExamFromForm();
   const totalQ = examObj.parts.reduce((s,p)=>s+p.questions.length,0);
   if(totalQ===0){
     alert("Bạn cần thêm ít nhất 1 câu hỏi trước khi tạo đề.");
     return;
   }
-  const url = buildShareUrl(examObj);
+  const btn = document.getElementById("generate-btn"), key = document.getElementById("gv-key").value.trim();
+  let url = "", loiLuu = "";
+  if(key && apiGoc()){
+    btn.disabled = true; const old = btn.textContent; btn.textContent = "⏳ Đang lưu đề…";
+    try{
+      const id = await luuDeLenMay(examObj, key);
+      url = window.location.origin + window.location.pathname + "?de=" + id;
+      try{ localStorage.setItem("ql_ma_gv", key); }catch(e){}
+    }catch(err){ loiLuu = String(err); }
+    btn.disabled = false; btn.textContent = old;
+  }
+  if(!url){
+    if(JSON.stringify(examObj).indexOf("data:image") >= 0){
+      alert((loiLuu ? "⚠ " + loiLuu + "\n\n" : "") + "Đề có hình nhúng từ file Word nên cần lưu lên hệ thống: hãy nhập đúng Mã giáo viên rồi bấm lại.");
+      return;
+    }
+    url = buildShareUrl(examObj);
+    if(loiLuu) alert("⚠ " + loiLuu + "\nTạm thời dùng link dài (không cần lưu).");
+  }
   document.getElementById("output-link").value = url;
   document.getElementById("try-link-btn").href = url;
   document.getElementById("output-panel").classList.remove("hidden");
@@ -707,6 +812,7 @@ document.getElementById("load-json-input").addEventListener("change", (e)=>{
     try{
       const examObj = JSON.parse(reader.result);
       populateFormFromExam(examObj);
+      capNhatAnh();
       alert("Đã tải cấu hình đề. Bạn có thể chỉnh sửa rồi bấm 'Tạo đề & Lấy link' để lấy link mới.");
     }catch(err){
       alert("File không hợp lệ. Vui lòng chọn đúng file .json đã tải xuống từ công cụ này.");
@@ -928,8 +1034,8 @@ function renderQuizBody(){
         });
       } else if(part.type==="short"){
         html += `<div class="short-answer">
-          <input type="text" inputmode="decimal" data-p="${pi}" data-q="${qi}" placeholder="Nhập đáp án...">
-          <div class="hint">Có thể dùng dấu chấm hoặc dấu phẩy cho số thập phân.</div>
+          <input type="text" inputmode="decimal" maxlength="4" data-p="${pi}" data-q="${qi}" placeholder="Nhập đáp án...">
+          <div class="hint">Tối đa 4 kí tự (kể cả dấu “-” và dấu phẩy), ví dụ: 3,08 · -1 · 250.</div>
         </div>`;
       }
       html += `</div>`;
@@ -1195,8 +1301,19 @@ function renderReview(partResults){
 /* ============== KHỞI ĐỘNG TRANG ============== */
 (function init(){
   const examFromUrl = getExamFromUrl();
+  const maDe = new URLSearchParams(location.search).get("de");
   if(examFromUrl){
     initStudentFlow(examFromUrl);
+  } else if(maDe){
+    const entry = document.getElementById("screen-entry");
+    entry.innerHTML = '<div class="card" style="text-align:center"><h2>⏳ Đang tải đề…</h2><p style="color:var(--ink-soft)">Vui lòng chờ trong giây lát.</p></div>';
+    const thu = (lan)=> jsonp({action:"de", id:maDe}, 40000).then(d=>{
+      const ex = JSON.parse(d.de); ex.meta = ex.meta || {}; ex.meta.maDe = maDe; initStudentFlow(ex);
+    }).catch(err=>{
+      if(lan < 2) return setTimeout(()=>thu(lan+1), 1500);
+      entry.innerHTML = '<div class="card" style="text-align:center"><h2>⚠ Không mở được đề</h2><p>' + escHtml(String(err)) + '</p><p style="color:var(--ink-soft)">Kiểm tra kết nối mạng rồi tải lại trang, hoặc hỏi lại giáo viên đường link.</p></div>';
+    });
+    thu(0);
   }
   // nếu không có dữ liệu trong URL, giữ nguyên màn hình Entry mặc định
 })();
