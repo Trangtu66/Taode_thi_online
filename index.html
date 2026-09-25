@@ -222,6 +222,14 @@
             <input type="checkbox" id="meta-require-name" checked>
             <label for="meta-require-name" style="margin:0;font-weight:400;">Bắt buộc học sinh nhập tên</label>
           </div>
+          <div class="checkbox-field" style="margin-bottom:10px;margin-left:18px;">
+            <input type="checkbox" id="meta-shuffle" checked>
+            <label for="meta-shuffle" style="margin:0;font-weight:400;">Đảo thứ tự phương án A–D cho từng học sinh (Phần I)</label>
+          </div>
+          <div class="checkbox-field" style="margin-bottom:10px;margin-left:18px;">
+            <input type="checkbox" id="meta-shuffle-q" checked>
+            <label for="meta-shuffle-q" style="margin:0;font-weight:400;">Đảo thứ tự câu hỏi cho từng học sinh (Phần I)</label>
+          </div>
         </div>
       </div>
     </div>
@@ -519,7 +527,9 @@ function collectExamFromForm(){
     title: document.getElementById("meta-title").value.trim() || "Đề kiểm tra trực tuyến",
     subtitle: document.getElementById("meta-subtitle").value.trim(),
     timeMinutes: parseFloat(document.getElementById("meta-time").value) || 60,
-    requireName: document.getElementById("meta-require-name").checked
+    requireName: document.getElementById("meta-require-name").checked,
+    shuffleOptions: document.getElementById("meta-shuffle").checked,
+    shuffleQuestions: document.getElementById("meta-shuffle-q").checked
   };
 
   const parts = [];
@@ -604,6 +614,8 @@ function populateFormFromExam(examObj){
   document.getElementById("meta-subtitle").value = examObj.meta?.subtitle || "";
   document.getElementById("meta-time").value = examObj.meta?.timeMinutes || 60;
   document.getElementById("meta-require-name").checked = examObj.meta?.requireName !== false;
+  document.getElementById("meta-shuffle").checked = examObj.meta?.shuffleOptions === true;
+  document.getElementById("meta-shuffle-q").checked = examObj.meta?.shuffleQuestions === true;
 
   document.getElementById("p1-list").innerHTML = "";
   document.getElementById("p2-list").innerHTML = "";
@@ -780,7 +792,34 @@ document.getElementById("student-name").addEventListener("input", function(){
   }
 });
 
+/* MỚI: đảo thứ tự phương án A–D của Phần I cho từng học sinh (bật bằng meta.shuffleOptions).
+   Nội dung phương án được xáo trộn rồi gán lại nhãn A, B, C, D; đáp án đúng được đổi theo,
+   nên phần chấm điểm và phần xem lại lời giải vẫn khớp. Câu có "noShuffle": true giữ nguyên thứ tự. */
+function shuffleArr(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function shuffleMcqOptions(examObj){
+  if(!examObj.meta) return;
+  /* MỚI: đảo thứ tự câu hỏi Phần I (bật bằng meta.shuffleQuestions); số thứ tự "Câu 1, 2…" đánh lại theo thứ tự mới */
+  if(examObj.meta.shuffleQuestions){
+    examObj.parts.forEach(part=>{ if(part.type==="mcq") shuffleArr(part.questions); });
+  }
+  if(!examObj.meta.shuffleOptions) return;
+  const L = ["A","B","C","D"];
+  examObj.parts.forEach(part=>{
+    if(part.type!=="mcq") return;
+    part.questions.forEach(q=>{
+      if(q.noShuffle || !Array.isArray(q.options) || q.options.length<2) return;
+      const correctIdx = q.options.findIndex(o=>o.l===q.correct);
+      const arr = q.options.map((o,i)=>({t:o.t, wasCorrect:i===correctIdx}));
+      shuffleArr(arr);
+      q.options = arr.map((o,i)=>({l:L[i], t:o.t}));
+      const k = arr.findIndex(o=>o.wasCorrect);
+      if(k>=0) q.correct = L[k];
+    });
+  });
+}
+
 function startExam(){
+  shuffleMcqOptions(EXAM);
   studentAnswers = EXAM.parts.map(part=>{
     if(part.type==="mcq") return part.questions.map(()=>null);
     if(part.type==="tf") return part.questions.map(()=>[null,null,null,null]);
