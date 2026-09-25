@@ -6,6 +6,7 @@
 <title>Trình tạo đề kiểm tra trực tuyến</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="cau_hinh.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 <!-- MỚI: thư viện đọc file Word (.docx) và PDF ngay trên trình duyệt, không cần server -->
@@ -331,6 +332,9 @@
         <label for="student-name">Họ tên thí sinh <span class="req">(bắt buộc)</span></label>
         <input id="student-name" type="text" placeholder="Nhập họ tên của bạn...">
         <div class="field-error" id="name-error">Vui lòng nhập họ tên trước khi bắt đầu làm bài.</div>
+        <label for="student-lop" style="margin-top:10px;">Lớp <span class="req">(bắt buộc)</span></label>
+        <input id="student-lop" type="text" placeholder="Ví dụ: 10A1" maxlength="12">
+        <div class="field-error" id="lop-error">Vui lòng nhập lớp trước khi bắt đầu làm bài.</div>
       </div>
       <button class="btn-primary" id="start-btn">▶ Bắt đầu làm bài</button>
     </div>
@@ -724,6 +728,8 @@ document.getElementById("go-builder-btn").addEventListener("click", ()=>{
 let EXAM = null;
 let studentAnswers = []; // studentAnswers[partIdx] = array song song với questions của phần đó
 let studentName = "";
+let studentLop = "";      // MỚI: lớp của học sinh (gửi kèm kết quả)
+let examStartTs = 0;      // MỚI: thời điểm bắt đầu làm bài
 let timeLeft = 0, timerInt = null;
 
 function initStudentFlow(examObj){
@@ -779,11 +785,26 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
     }
     nameInput.classList.remove("error");
     document.getElementById("name-error").classList.remove("show");
+    const lopInput = document.getElementById("student-lop");
+    const lop = lopInput.value.trim().toUpperCase().replace(/\s+/g,"");
+    if(!lop){
+      lopInput.classList.add("error");
+      document.getElementById("lop-error").classList.add("show");
+      lopInput.focus();
+      return;
+    }
+    lopInput.classList.remove("error");
+    document.getElementById("lop-error").classList.remove("show");
     studentName = name;
+    studentLop = lop;
   } else {
     studentName = document.getElementById("student-name").value.trim() || "Học sinh";
+    studentLop = document.getElementById("student-lop").value.trim().toUpperCase().replace(/\s+/g,"");
   }
   startExam();
+});
+document.getElementById("student-lop").addEventListener("input", function(){
+  if(this.value.trim()){ this.classList.remove("error"); document.getElementById("lop-error").classList.remove("show"); }
 });
 document.getElementById("student-name").addEventListener("input", function(){
   if(this.value.trim()){
@@ -798,6 +819,8 @@ document.getElementById("student-name").addEventListener("input", function(){
 function shuffleArr(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function shuffleMcqOptions(examObj){
   if(!examObj.meta) return;
+  // ghi lại số thứ tự gốc của từng câu để kết quả gửi về luôn theo thứ tự trong đề gốc
+  examObj.parts.forEach(part=> part.questions.forEach((q,i)=>{ if(q._i===undefined) q._i = i; }));
   /* MỚI: đảo thứ tự câu hỏi Phần I (bật bằng meta.shuffleQuestions); số thứ tự "Câu 1, 2…" đánh lại theo thứ tự mới */
   if(examObj.meta.shuffleQuestions){
     examObj.parts.forEach(part=>{ if(part.type==="mcq") shuffleArr(part.questions); });
@@ -820,6 +843,7 @@ function shuffleMcqOptions(examObj){
 
 function startExam(){
   shuffleMcqOptions(EXAM);
+  examStartTs = Date.now();
   studentAnswers = EXAM.parts.map(part=>{
     if(part.type==="mcq") return part.questions.map(()=>null);
     if(part.type==="tf") return part.questions.map(()=>[null,null,null,null]);
@@ -1019,7 +1043,10 @@ function submitExam(auto){
   ).join("");
   document.getElementById("score-sub").textContent = auto ? "Hết giờ — bài tự động nộp" : "Đã nộp bài thành công";
 
-  if(EXAM.leaderboard && EXAM.leaderboard.formUrl){
+  // MỚI: gửi kết quả về Google Sheet của GV (địa chỉ đặt trong cau_hinh.js) và mở bảng xếp hạng
+  if(ketQuaApi()){
+    guiKetQua(scaledTotal, total, maxPoints, partResults, auto);
+  } else if(EXAM.leaderboard && EXAM.leaderboard.formUrl){
     document.getElementById("save-status").classList.remove("hidden");
     document.getElementById("rank-card").classList.remove("hidden");
     document.getElementById("rank-link").href = EXAM.leaderboard.sheetUrl || "#";
@@ -1044,6 +1071,69 @@ function saveScoreToRanking(scaledTotal, partResults){
     body: body.toString()
   }).then(()=>{ statusEl.textContent = "✓ Đã lưu điểm vào bảng xếp hạng."; })
     .catch(()=>{ statusEl.textContent = "⚠ Không lưu được điểm (kiểm tra kết nối mạng)."; });
+}
+
+/* ============== MỚI: GỬI KẾT QUẢ & XẾP HẠNG ============== */
+function ketQuaApi(){
+  const u = (EXAM.leaderboard && EXAM.leaderboard.apiUrl) || window.KQ_API || "";
+  return /^https:\/\/script\.google(usercontent)?\.com\//.test(u) ? u : "";
+}
+function maBai(){ return (EXAM.meta.quizId || EXAM.meta.title || "de-kiem-tra").trim(); }
+function maThietBi(){
+  try{
+    let id = localStorage.getItem("tdt_client");
+    if(!id){ id = Math.random().toString(36).slice(2,12); localStorage.setItem("tdt_client", id); }
+    return id;
+  }catch(e){ return ""; }
+}
+function rutGon(s){
+  let t = String(s==null?"":s).replace(/\s+/g," ").trim();
+  if(t.length>220){ t = t.slice(0,220); if((t.match(/\$/g)||[]).length%2) t = t.slice(0, t.lastIndexOf("$")); t = t.trim() + "…"; }
+  return t;
+}
+function guiKetQua(score10, total, maxPoints, partResults, auto){
+  const statusEl = document.getElementById("save-status");
+  statusEl.classList.remove("hidden");
+  statusEl.textContent = "Đang gửi kết quả cho giáo viên...";
+  const answers = [];
+  partResults.forEach((r,pi)=>{
+    r.details.forEach(d=>{
+      const q = d.q, a = {p:pi+1, c:(q._i===undefined?answers.length:q._i)+1, q:rutGon(q.content), pts:+d.pts.toFixed(2)};
+      if(r.part.type==="mcq"){
+        const chon = (q.options.find(o=>o.l===d.userAns)||{}).t;
+        a.chon = chon===undefined ? "" : rutGon(chon);
+        a.dung = rutGon((q.options.find(o=>o.l===q.correct)||{}).t);
+        a.ok = !!d.ok;
+      } else if(r.part.type==="tf"){
+        a.chon = (d.userAns||[]).map(v=> v===null?"-":(v?"Đ":"S")).join("");
+        a.dung = q.statements.map(st=> st.correct?"Đ":"S").join("");
+        a.soYDung = d.correctCount; a.ok = d.correctCount===4;
+      } else {
+        a.chon = rutGon(d.userAns); a.dung = String(q.answer); a.ok = !!d.ok;
+      }
+      answers.push(a);
+    });
+  });
+  answers.sort((x,y)=> x.p-y.p || x.c-y.c);
+  const payload = {
+    quizId: maBai(), title: EXAM.meta.title || "", name: studentName, lop: studentLop,
+    score10: +score10.toFixed(2), total: +total.toFixed(2), max: maxPoints,
+    parts: partResults.map((r,i)=>`P${i+1}: ${r.score.toFixed(2)}đ`),
+    timeUsed: Math.round((Date.now()-examStartTs)/1000), auto: !!auto,
+    answers, clientId: maThietBi()
+  };
+  const rankUrl = "xep_hang.html?q=" + encodeURIComponent(maBai()) + (studentLop ? "&lop=" + encodeURIComponent(studentLop) : "");
+  const gui = (lan)=> fetch(ketQuaApi(), {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(payload)})
+    .then(()=>{
+      statusEl.textContent = "✓ Đã gửi kết quả cho giáo viên.";
+      document.getElementById("rank-card").classList.remove("hidden");
+      document.getElementById("rank-link").href = rankUrl;
+    })
+    .catch(()=>{
+      if(lan<3){ statusEl.textContent = "Mạng chập chờn, đang gửi lại lần " + (lan+1) + "..."; setTimeout(()=>gui(lan+1), 2500*lan); }
+      else statusEl.textContent = "⚠ Chưa gửi được kết quả (mất mạng). Hãy chụp màn hình điểm và báo giáo viên.";
+    });
+  gui(1);
 }
 
 /* ============== REVIEW ============== */
