@@ -2,13 +2,14 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bảng xếp hạng</title>
 <script src="cau_hinh.js"></script>
 <style>
-  :root{--paper:#F8F9FA;--line:#DAD6C8;--ink:#1E293B;--soft:#55655C;--cel:#4F7566;--deep:#33473D;--gold:#B98B2E;--good:#5C7A4E;--bad:#A8402F;}
+  :root{--paper:#F3F8FF;--line:#D9E4F5;--ink:#1F2A44;--soft:#5A6B85;--cel:#2F6FEB;--deep:#1D4ED8;--gold:#F59E0B;--good:#16A34A;--bad:#E5484D;--pale:#E8F0FE;--grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%)}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI",Roboto,Arial,sans-serif;font-size:15px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Be Vietnam Pro","Segoe UI",Roboto,Arial,sans-serif;font-size:15px}
   .wrap{max-width:900px;margin:0 auto;padding:20px 16px 40px}
   header{background:var(--deep);color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:14px}
   header h1{margin:0;font-size:22px}
@@ -22,16 +23,27 @@
   .stat b{display:block;font-size:22px;color:var(--deep)}
   .stat span{font-size:12.5px;color:var(--soft)}
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #EEEBE1}
-  th{background:#EAF0E4;font-size:13px;color:var(--deep)}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #EEF3FB}
+  th{background:#E8F0FE;font-size:13px;color:var(--deep)}
   td.num,th.num{text-align:center;white-space:nowrap}
-  tr.top1 td{background:#FFF6DC}tr.top2 td{background:#F3F4F6}tr.top3 td{background:#FBEFE6}
+  tr.top1 td{background:#FFF4D6}tr.top2 td{background:#EEF3FB}tr.top3 td{background:#FFF0E6}
   .score{font-weight:700;font-size:16px}
   .rank{font-weight:700;font-size:16px}
   .empty,.err{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--soft)}
   .err{color:var(--bad)}
   .foot{font-size:12.5px;color:var(--soft);margin-top:10px}
   @media (max-width:560px){th.hide,td.hide{display:none}th,td{padding:8px 7px}}
+
+  /* ===== GIAO DIỆN SÁNG ===== */
+  body{background:radial-gradient(1200px 500px at 10% -10%,#DDEBFF 0%,rgba(221,235,255,0) 60%),radial-gradient(900px 500px at 110% 10%,#EDE7FF 0%,rgba(237,231,255,0) 55%),#F3F8FF;background-attachment:fixed}
+  header{background:var(--grad)!important;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(47,111,235,.25);border-radius:16px!important}
+  header::before{content:"";position:absolute;width:200px;height:200px;right:-50px;top:-90px;border-radius:50%;background:rgba(255,255,255,.14);pointer-events:none}
+  header h1{font-weight:800}
+  .card,table,.stat,.empty{box-shadow:0 6px 22px rgba(47,111,235,.08);border-color:#E3ECFA!important}
+  .btn{background:var(--grad);box-shadow:0 4px 14px rgba(47,111,235,.28);border-radius:11px}
+  .btn.ghost{background:#fff;box-shadow:none;color:var(--deep)}
+  th{background:#E8F0FE!important;color:#1D4ED8!important}
+  input:focus,select:focus{border-color:#2F6FEB;box-shadow:0 0 0 3px rgba(47,111,235,.15);outline:none}
 </style>
 </head>
 <body>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trình tạo đề kiểm tra trực tuyến</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="cau_hinh.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
@@ -16,48 +16,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <style>
   :root{
-    --paper:#F8F9FA; --paper-line:#DAD6C8; --ink:#1E293B; --ink-soft:#55655C;
-    --celadon:#4F7566; --celadon-deep:#33473D; --gold:#B98B2E; --good:#5C7A4E; --bad:#A8402F;
-    --card:#FFFEFA; --radius:14px; --shadow:0 4px 18px rgba(15,107,92,0.10);
+    --paper:#F3F8FF; --paper-line:#D5E2F4; --ink:#1F2A44; --ink-soft:#5A6B85;
+    --celadon:#2F6FEB; --celadon-deep:#1D4ED8; --gold:#F59E0B; --good:#16A34A; --bad:#E5484D;
+    --card:#FFFFFF; --radius:16px; --shadow:0 6px 24px rgba(47,111,235,0.10);
+    --grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:var(--paper);
-    color:var(--ink); font-family:'IBM Plex Sans', sans-serif;
+    color:var(--ink); font-family:'Be Vietnam Pro','Segoe UI',Arial,sans-serif;
     min-height:100vh; line-height:1.55;
   }
   .wrap{max-width:920px;margin:0 auto;padding:28px 18px 80px;}
-  h1,h2,h3{font-family:'Fraunces', serif;font-weight:600;margin:0;}
-  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--celadon);font-weight:600;}
+  h1,h2,h3{font-family:'Be Vietnam Pro','Segoe UI',Arial,sans-serif;font-weight:700;margin:0;}
+  .eyebrow{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--celadon);font-weight:600;}
   a{color:var(--celadon-deep);} button{font-family:inherit;cursor:pointer;}
   :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
 
-  header.top{background:var(--celadon-deep);color:#EFF6F3;border-radius:var(--radius);padding:22px 26px;margin-bottom:22px;box-shadow:var(--shadow);}
+  header.top{background:var(--celadon-deep);color:#F3F6FF;border-radius:var(--radius);padding:22px 26px;margin-bottom:22px;box-shadow:var(--shadow);}
   header.top h1{font-size:24px;color:#fff;}
-  header.top p{margin:6px 0 0;color:#DCE6D8;font-size:14px;}
+  header.top p{margin:6px 0 0;color:#E3ECFF;font-size:14px;}
 
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px;margin-bottom:18px;border:1px solid #E3DFD0;}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 24px;margin-bottom:18px;border:1px solid #DCE7F5;}
   .btn-primary{background:var(--celadon);color:#fff;border:none;border-radius:9px;padding:12px 20px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background .15s, transform .1s;}
   .btn-primary:hover{background:var(--celadon-deep);} .btn-primary:active{transform:scale(.98);}
   .btn-primary:disabled{opacity:.5;cursor:not-allowed;}
   .btn-ghost{background:transparent;border:1.5px solid var(--celadon);color:var(--celadon-deep);border-radius:9px;padding:9px 16px;font-weight:600;font-size:13.5px;}
-  .btn-ghost:hover{background:#EAF0E4;}
+  .btn-ghost:hover{background:#E8F0FE;}
   .btn-danger{background:transparent;border:1.5px solid var(--bad);color:var(--bad);border-radius:7px;padding:5px 10px;font-weight:600;font-size:12.5px;}
-  .btn-danger:hover{background:#F7EBE7;}
-  .btn-add{background:#EAF0E4;border:1.5px dashed var(--celadon);color:var(--celadon-deep);border-radius:9px;padding:10px 16px;font-weight:600;font-size:13.5px;width:100%;margin-top:8px;}
-  .btn-add:hover{background:#DCE6D8;}
+  .btn-danger:hover{background:#FDECEC;}
+  .btn-add{background:#E8F0FE;border:1.5px dashed var(--celadon);color:var(--celadon-deep);border-radius:9px;padding:10px 16px;font-weight:600;font-size:13.5px;width:100%;margin-top:8px;}
+  .btn-add:hover{background:#E3ECFF;}
 
   .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
   @media (max-width:640px){.choice-grid{grid-template-columns:1fr;}}
-  .choice-card{border:1.5px solid #E3DFD0;border-radius:12px;padding:20px;text-align:center;background:#FFFEFA;}
+  .choice-card{border:1.5px solid #DCE7F5;border-radius:12px;padding:20px;text-align:center;background:#FFFFFF;}
   .choice-card .icon{font-size:32px;margin-bottom:8px;}
   .choice-card p{color:var(--ink-soft);font-size:13.5px;margin:8px 0 14px;}
 
   .field{margin-bottom:14px;}
   .field label{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
   .field input[type=text], .field input[type=number], .field textarea, .field input[type=url]{
-    width:100%;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:14.5px;font-family:inherit;background:#FAF9F1;
+    width:100%;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:14.5px;font-family:inherit;background:#F7FAFF;
   }
   .field input:focus, .field textarea:focus{border-color:var(--celadon);outline:none;}
   .field textarea{resize:vertical;min-height:54px;}
@@ -65,18 +66,18 @@
   .field-row .field{flex:1;min-width:160px;}
   .checkbox-field{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:14px;}
 
-  .part-block{border-radius:12px;background:#FAF9F1;border:1px solid #E3DFD0;padding:16px 18px;margin-bottom:18px;}
+  .part-block{border-radius:12px;background:#F7FAFF;border:1px solid #DCE7F5;padding:16px 18px;margin-bottom:18px;}
   .part-block-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
   .part-block-header h3{font-size:16px;}
-  .qcard{background:#FFFEFA;border:1px solid #E3DFD0;border-radius:10px;padding:14px 16px;margin-bottom:12px;position:relative;}
+  .qcard{background:#FFFFFF;border:1px solid #DCE7F5;border-radius:10px;padding:14px 16px;margin-bottom:12px;position:relative;}
   .qcard-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-  .qcard-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--celadon-deep);font-weight:600;}
+  .qcard-tag{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:var(--celadon-deep);font-weight:600;}
   .opt-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-  .opt-row .opt-letter{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
+  .opt-row .opt-letter{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
   .opt-row input[type=text]{flex:1;}
   .opt-row input[type=radio]{flex-shrink:0;width:18px;height:18px;accent-color:var(--celadon);}
   .stmt-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-  .stmt-row .stmt-letter{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
+  .stmt-row .stmt-letter{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;color:var(--celadon);width:18px;flex-shrink:0;}
   .stmt-row input[type=text]{flex:1;}
   .stmt-toggle{display:flex;gap:4px;flex-shrink:0;}
   .stmt-toggle button{border:1.5px solid var(--paper-line);background:#fff;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600;color:var(--ink-soft);min-width:44px;}
@@ -89,24 +90,41 @@
 
   .output-panel{text-align:center;}
   .link-row{display:flex;gap:8px;margin:14px 0;}
-  .link-row input{flex:1;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#FAF9F1;}
+  .link-row input{flex:1;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;background:#F7FAFF;}
   #qr-output{margin:14px auto;padding:12px;background:#fff;border:1px solid var(--paper-line);border-radius:10px;display:inline-block;}
   .size-note{font-size:12px;color:var(--ink-soft);margin-top:6px;}
-  .word-box{border:2px dashed var(--celadon);border-radius:12px;padding:14px 16px;background:#F3F7F1;}
+  .qcard.thieu{border:2px solid var(--bad,#C62828);}
+  .qcard.thieu .qcard-tag::after{content:" · ⚠ cần bổ sung";color:#C62828;font-weight:700;}
+  .dap-an{margin-top:10px;background:#fff;border:1px solid var(--paper-line);border-radius:10px;padding:10px 12px;font-size:13px;}
+  .dap-an table{width:100%;border-collapse:collapse;margin:6px 0;}
+  .dap-an td,.dap-an th{border:1px solid #DCE7F5;padding:4px 6px;text-align:center;}
+  .dap-an th{background:#E8F0FE;font-weight:600;}
+  .dap-an td.loi{background:#FBE3DE;color:#C62828;font-weight:700;}
+  .dap-an td.ok{color:#166534;}
+  .dap-an a{color:inherit;cursor:pointer;text-decoration:underline dotted;}
+  .xac-nhan{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-weight:600;}
+  .xac-nhan input{margin-top:3px;width:18px;height:18px;}
+  .claude-bar{display:none;margin-top:10px;padding:10px 12px;border-radius:10px;background:#F0EEFF;border:1px solid #D9D3FF;}
+  .claude-bar .btn-primary{background:#6D5DF6;}
+  .claude-note{font-size:12.5px;margin:0 0 8px;padding:5px 9px;border-radius:6px;background:#F0EEFF;color:#4338CA;}
+  .claude-note.lech{background:#FFF3D6;color:#92400E;font-weight:600;}
+  .claude-note.loi{background:#FBE3DE;color:#C62828;}
+  .dap-an td .lech{display:block;color:#9A6A12;font-weight:600;margin-top:2px;}
+  .word-box{border:2px dashed var(--celadon);border-radius:12px;padding:14px 16px;background:#F2F7FF;}
   .word-box input[type=file]{margin:8px 0;}
   .word-rules{font-size:12.5px;color:var(--ink-soft);margin:6px 0 0 18px;padding:0;}
   .word-rules li{margin:2px 0;}
-  .ok-box{background:#E6F2E1;border-left:3px solid var(--celadon);color:#2F5230;font-size:13px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
+  .ok-box{background:#E7F7EE;border-left:3px solid var(--celadon);color:#166534;font-size:13px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
   .q-thumb{display:block;max-width:220px;max-height:140px;margin-top:6px;border:1px solid var(--paper-line);border-radius:6px;background:#fff;}
   .key-row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;justify-content:center;margin:0 0 12px;}
   .key-row .field{margin:0;min-width:240px;}
-  .warn-box{background:#F6ECD9;border-left:3px solid var(--gold);color:#7A5C1E;font-size:12.5px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
+  .warn-box{background:#FFF4DB;border-left:3px solid var(--gold);color:#92400E;font-size:12.5px;padding:8px 12px;border-radius:6px;margin-top:10px;text-align:left;}
 
   .name-field{margin-top:16px;}
   .name-field label{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:6px;}
   .name-field label .req{color:var(--bad);font-weight:700;}
-  .name-field input{width:100%;padding:11px 13px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:inherit;background:#FAF9F1;}
-  .name-field input.error{border-color:var(--bad);background:#F7EBE7;}
+  .name-field input{width:100%;padding:11px 13px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:inherit;background:#F7FAFF;}
+  .name-field input.error{border-color:var(--bad);background:#FDECEC;}
   .field-error{color:var(--bad);font-size:12.5px;margin-top:6px;display:none;}
   .field-error.show{display:block;}
 
@@ -116,66 +134,109 @@
   .brief-table td:last-child{font-weight:600;color:var(--celadon-deep);}
 
   .quiz-header{position:sticky;top:0;z-index:20;background:var(--paper);padding-top:10px;padding-bottom:10px;}
-  .quiz-bar{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow);border:1px solid #E3DFD0;flex-wrap:wrap;gap:8px;}
-  .timer{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--celadon-deep);display:flex;align-items:center;gap:6px;}
+  .quiz-bar{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow);border:1px solid #DCE7F5;flex-wrap:wrap;gap:8px;}
+  .timer{font-family:'Be Vietnam Pro',sans-serif;font-size:20px;font-weight:600;color:var(--celadon-deep);display:flex;align-items:center;gap:6px;}
   .timer.low{color:var(--bad);}
   .jumpnav{display:flex;gap:6px;flex-wrap:wrap;}
   .jumpnav button{border:1.5px solid var(--paper-line);background:#fff;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--ink-soft);}
-  .progress{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .progress{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:var(--ink-soft);}
 
-  .part-header{background:var(--celadon-deep);color:#fff;border-radius:10px;padding:12px 18px;margin:22px 0 14px;font-family:'Fraunces',serif;font-weight:600;font-size:16px;}
-  .part-note{font-size:12.5px;color:var(--ink-soft);font-weight:400;margin-top:3px;font-family:'IBM Plex Sans',sans-serif;}
+  .part-header{background:var(--celadon-deep);color:#fff;border-radius:10px;padding:12px 18px;margin:22px 0 14px;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:16px;}
+  .part-note{font-size:12.5px;color:var(--ink-soft);font-weight:400;margin-top:3px;font-family:'Be Vietnam Pro',sans-serif;}
 
-  .q-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;background:#EAF0E4;color:var(--celadon-deep);padding:4px 10px;border-radius:6px;margin-bottom:10px;font-weight:600;}
+  .q-tag{display:inline-block;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;background:#E8F0FE;color:var(--celadon-deep);padding:4px 10px;border-radius:6px;margin-bottom:10px;font-weight:600;}
   .q-content{font-size:15.5px;margin-bottom:14px;white-space:pre-wrap;}
   .q-image{max-width:100%;max-height:280px;width:auto;object-fit:contain;border-radius:8px;border:1px solid var(--paper-line);margin-top:12px;display:block;background:#fff;}
 
   .mc-option{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border:1.5px solid var(--paper-line);border-radius:8px;margin-bottom:8px;cursor:pointer;background:#fff;}
-  .mc-option:hover{background:#F4F2E7;}
-  .mc-option.selected{border-color:var(--celadon);background:#EAF0E4;}
-  .mc-option .opt-label{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);flex-shrink:0;}
+  .mc-option:hover{background:#F1F6FF;}
+  .mc-option.selected{border-color:var(--celadon);background:#E8F0FE;}
+  .mc-option .opt-label{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;color:var(--celadon);flex-shrink:0;}
 
   .statement{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:12px 4px;border-top:1px dashed var(--paper-line);}
   .statement:first-of-type{border-top:none;}
   .st-text{flex:1;font-size:14.5px;}
-  .st-label{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon);margin-right:6px;}
+  .st-label{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;color:var(--celadon);margin-right:6px;}
   .toggle{display:flex;gap:6px;flex-shrink:0;}
   .toggle button{border:1.5px solid var(--paper-line);background:#fff;border-radius:7px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--ink-soft);min-width:58px;}
   .toggle button.sel-true{background:var(--celadon);border-color:var(--celadon);color:#fff;}
   .toggle button.sel-false{background:var(--bad);border-color:var(--bad);color:#fff;}
 
-  .short-answer input{width:180px;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:'IBM Plex Mono',monospace;background:#FAF9F1;}
+  .short-answer input{width:180px;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:15px;font-family:'Be Vietnam Pro',sans-serif;background:#F7FAFF;}
   .short-answer .hint{font-size:12px;color:var(--ink-soft);margin-top:6px;}
 
   .quiz-footer{display:flex;justify-content:center;margin-top:20px;}
 
   .score-hero{text-align:center;background:var(--celadon-deep);color:#fff;border-radius:var(--radius);padding:28px 20px;margin-bottom:20px;box-shadow:var(--shadow);}
-  .score-hero .big{font-family:'IBM Plex Mono',monospace;font-size:52px;font-weight:600;}
-  .score-hero .cap{color:#DCE6D8;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
-  .score-hero .stuname{font-family:'Fraunces',serif;font-size:18px;margin-top:6px;}
-  .score-breakdown{display:flex;justify-content:center;gap:22px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#DCE6D8;flex-wrap:wrap;}
-  .save-status{margin-top:14px;font-size:12.5px;color:#DCE6D8;background:rgba(255,255,255,.12);display:inline-block;padding:6px 14px;border-radius:20px;}
+  .score-hero .big{font-family:'Be Vietnam Pro',sans-serif;font-size:52px;font-weight:600;}
+  .score-hero .cap{color:#E3ECFF;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-family:'Be Vietnam Pro',sans-serif;}
+  .score-hero .stuname{font-family:'Be Vietnam Pro',sans-serif;font-size:18px;margin-top:6px;}
+  .score-breakdown{display:flex;justify-content:center;gap:22px;margin-top:14px;font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:#E3ECFF;flex-wrap:wrap;}
+  .save-status{margin-top:14px;font-size:12.5px;color:#E3ECFF;background:rgba(255,255,255,.12);display:inline-block;padding:6px 14px;border-radius:20px;}
   .rank-card{text-align:center;}
 
   .review-q{border-radius:var(--radius);}
   .review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
-  .qscore{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--celadon-deep);font-size:13px;background:#EAF0E4;padding:4px 10px;border-radius:6px;}
+  .qscore{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;color:var(--celadon-deep);font-size:13px;background:#E8F0FE;padding:4px 10px;border-radius:6px;}
   .mark{width:20px;height:20px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;margin-top:1px;}
   .mark.ok{background:var(--good);} .mark.no{background:var(--bad);}
   .review-body .meta{font-size:12px;color:var(--ink-soft);margin-top:3px;}
-  .review-body .expl{font-size:12.5px;color:var(--celadon-deep);margin-top:4px;background:#EFF0E2;border-radius:6px;padding:6px 9px;}
+  .review-body .expl{font-size:12.5px;color:var(--celadon-deep);margin-top:4px;background:#EEF3FB;border-radius:6px;padding:6px 9px;}
   .review-mc-opt{padding:6px 4px;font-size:13.5px;}
   .review-mc-opt.correct-ans{color:var(--good);font-weight:600;}
   .review-mc-opt.wrong-selected{color:var(--bad);font-weight:600;text-decoration:line-through;}
 
   footer.hint{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:30px;}
   .hidden{display:none !important;}
+
+  /* ===== GIAO DIỆN SÁNG ===== */
+  body{background:radial-gradient(1200px 500px at 10% -10%,#DDEBFF 0%,rgba(221,235,255,0) 60%),radial-gradient(900px 500px at 110% 10%,#EDE7FF 0%,rgba(237,231,255,0) 55%),#F3F8FF;background-attachment:fixed;}
+  header.top{background:var(--grad);position:relative;overflow:hidden;padding:26px 28px;border:0;box-shadow:0 10px 30px rgba(47,111,235,.25);}
+  header.top::before,header.top::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14);pointer-events:none;}
+  header.top::before{width:220px;height:220px;right:-60px;top:-90px;}
+  header.top::after{width:140px;height:140px;right:120px;bottom:-80px;background:rgba(255,255,255,.10);}
+  header.top h1{font-size:26px;font-weight:800;letter-spacing:.2px;}
+  header.top p{color:#EAF1FF;}
+  header.top .eyebrow{color:#FFE7A3!important;}
+  .eyebrow{color:#6D5DF6;}
+  .card{border:1px solid #E3ECFA;box-shadow:0 6px 24px rgba(47,111,235,.08);}
+  .card h2{color:#1F2A44;}
+  .btn-primary{background:var(--grad);box-shadow:0 4px 14px rgba(47,111,235,.30);border-radius:11px;}
+  .btn-primary:hover{background:linear-gradient(120deg,#1D4ED8,#5B4BE6 55%,#0EA5B7);transform:translateY(-1px);}
+  .btn-primary:disabled{opacity:.6;cursor:wait;}
+  .btn-ghost{border-color:#2F6FEB;color:#1D4ED8;border-radius:11px;}
+  .btn-add{border-radius:11px;}
+  .choice-card{border:0;background:linear-gradient(160deg,#FFFFFF,#F2F7FF);box-shadow:0 6px 20px rgba(47,111,235,.10);transition:transform .15s, box-shadow .15s;}
+  .choice-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(47,111,235,.18);}
+  .choice-card:nth-child(2){background:linear-gradient(160deg,#FFFFFF,#FFF6E8);}
+  .choice-card .icon{font-size:40px;}
+  .qcard{border-left:4px solid #6D5DF6;}
+  .part-header{background:var(--grad);box-shadow:0 6px 18px rgba(47,111,235,.22);border-radius:12px;}
+  #part-header-1{background:linear-gradient(120deg,#F97316,#F59E0B);box-shadow:0 6px 18px rgba(245,158,11,.25);}
+  #part-header-2{background:linear-gradient(120deg,#059669,#10B3C6);box-shadow:0 6px 18px rgba(16,179,198,.25);}
+  .q-tag{background:#FFF1D6;color:#B45309;}
+  .mc-option{border-radius:10px;transition:background .12s,border-color .12s,transform .08s;}
+  .mc-option:hover{background:#F1F6FF;border-color:#A9C4F5;}
+  .mc-option.selected{border-color:#2F6FEB;background:#E8F0FE;box-shadow:0 0 0 2px rgba(47,111,235,.18) inset;}
+  .mc-option .opt-label{color:#6D5DF6;}
+  .toggle button,.stmt-toggle button{border-radius:9px;}
+  .toggle button.sel-true,.stmt-toggle button.sel-true{background:var(--good);border-color:var(--good);}
+  .quiz-bar{border:1px solid #E3ECFA;}
+  .quiz-header{background:linear-gradient(#F3F8FF,rgba(243,248,255,.92));}
+  .timer{color:#1D4ED8;}
+  .jumpnav button{border-radius:9px;}
+  .jumpnav button:hover{border-color:#2F6FEB;color:#1D4ED8;}
+  .score-hero{background:var(--grad);box-shadow:0 12px 30px rgba(47,111,235,.28);}
+  .word-box{border-color:#6D5DF6;background:linear-gradient(160deg,#F7F5FF,#F2F7FF);}
+  .field input:focus,.field textarea:focus,.name-field input:focus{border-color:#2F6FEB;box-shadow:0 0 0 3px rgba(47,111,235,.15);outline:none;}
+  .q-image{border-color:#DCE7F5;}
+  .dap-an th{background:#E8F0FE;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow" style="color:#C9D9C0;">TRÌNH TẠO ĐỀ KIỂM TRA TRỰC TUYẾN</div>
+    <div class="eyebrow" style="color:#DCE6FF;">TRÌNH TẠO ĐỀ KIỂM TRA TRỰC TUYẾN</div>
     <h1 id="page-title">Đề kiểm tra trực tuyến</h1>
     <p id="page-subtitle">Giáo viên tạo đề — học sinh làm bài, chấm điểm tự động</p>
   </header>
@@ -214,12 +275,17 @@
         <div><input type="file" id="load-word-input" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div>
         <ul class="word-rules">
           <li>Mỗi câu bắt đầu bằng <b>Câu 1.</b>, <b>Câu 2:</b> …; theo thứ tự PHẦN I, PHẦN II, PHẦN III.</li>
-          <li>Phần I: phương án <b>A. B. C. D.</b> — đáp án đúng <b>gạch chân chữ cái</b> (ví dụ <u>C.</u>).</li>
-          <li>Phần II: các ý <b>a) b) c) d)</b> — ý <b>Đúng</b> thì <b>gạch chân nhãn</b> (ví dụ <u>b)</u>), ý không gạch chân là Sai.</li>
-          <li>Phần III: ghi dòng <b>Đáp án: 3,4</b> (tối đa 4 kí tự, kể cả dấu “-” và dấu phẩy).</li>
-          <li>Nếu có dòng <b>Lời giải</b>, phần phía sau được dùng làm lời giải cho học sinh xem sau khi nộp.</li>
+          <li>Phần I: phương án <b>A. B. C. D.</b>; Phần II: các ý <b>a) b) c) d)</b>; Phần III: câu hỏi trả lời ngắn (đáp án tối đa 4 kí tự).</li>
+          <li><b>Không cần đánh đáp án</b>: sau khi nhập, bấm <b>🤖 Nhờ Claude giải</b> để Claude tự giải, gán đáp án và viết lời giải. Nếu file đã có đáp án (gạch chân chữ cái/nhãn ý Đúng, dòng <b>Đáp án: …</b>) thì Claude dùng để đối chiếu.</li>
+          <li><b>Mỗi câu phải có lời giải</b>: ghi dòng <b>Lời giải</b> ngay sau câu hỏi, nội dung lời giải ở các dòng tiếp theo (câu Đúng/Sai: lời giải từng ý bắt đầu bằng a) b) c) d)). Học sinh xem lời giải sau khi nộp bài.</li>
+          <li>Sau khi nhập, trang hiện <b>Bảng đối chiếu đáp án</b>: giáo viên phải kiểm tra lại và đánh dấu xác nhận mới tạo được đề.</li>
           <li>Công thức MathType hoặc Equation của Word đều đọc được; hình PNG/JPG được nhúng vào đề.</li>
         </ul>
+        <div class="claude-bar" id="claude-bar">
+          <button class="btn-primary" id="nho-claude" type="button">🤖 Nhờ Claude giải &amp; gán đáp án</button>
+          <span style="font-size:12.5px;color:var(--ink-soft);margin-left:6px">Claude giải từng câu, điền đáp án và lời giải còn trống; câu nào khác đáp án gạch chân trong Word sẽ được đánh dấu để thầy cô quyết định. Cần nhập Mã giáo viên ở ô 🔑 cuối trang.</span>
+          <div id="claude-status"></div>
+        </div>
         <div id="word-report"></div>
       </div>
       <div class="field" style="margin-top:14px;">
@@ -703,9 +769,14 @@ document.getElementById("load-word-input").addEventListener("change", async (e)=
     if(!r.exam.parts.length){ box.innerHTML = '<div class="warn-box">⚠ Không tìm thấy câu hỏi nào. Kiểm tra lại: mỗi câu phải bắt đầu bằng "Câu 1.", "Câu 2."…</div>'; return; }
     populateFormFromExam(r.exam);
     capNhatAnh();
+    TU_WORD = true;
+    document.getElementById("claude-bar").style.display = "block";
+    document.getElementById("claude-status").innerHTML = st.chuaDA ? `<div class="warn-box">Có <b>${st.chuaDA}</b> câu chưa có đáp án trong file Word – hãy bấm <b>🤖 Nhờ Claude giải</b>.</div>` : "";
     const w = r.warnings.map(x=>`<li><b>Câu ${x.cau}:</b> ${escHtml(x.msg)}</li>`).join("");
     box.innerHTML = `<div class="ok-box">✅ Đã nhập <b>${st.mcq}</b> câu nhiều lựa chọn, <b>${st.tf}</b> câu đúng sai, <b>${st.short}</b> câu trả lời ngắn · ${st.mathtype + st.omml} công thức · ${st.images} hình.<br>Hãy xem lại từng câu bên dưới (đặc biệt đáp án đúng), sửa nếu cần rồi bấm <b>Tạo đề &amp; Lấy link</b>.</div>`
-      + (w ? `<div class="warn-box">⚠ Cần kiểm tra:<ul style="margin:6px 0 0 18px;padding:0">${w}</ul></div>` : "");
+      + (w ? `<div class="warn-box">⚠ Cần kiểm tra:<ul style="margin:6px 0 0 18px;padding:0">${w}</ul></div>` : "")
+      + `<div class="dap-an" id="bang-dap-an"></div>`;
+    veBangDapAn();
   }catch(err){
     console.error(err);
     box.innerHTML = `<div class="warn-box">⚠ Không đọc được file: ${escHtml(String(err && err.message || err))}. Hãy chắc chắn file là .docx (Word 2007 trở lên); file .doc cũ cần mở bằng Word rồi Lưu thành .docx.</div>`;
@@ -725,6 +796,160 @@ function capNhatAnh(){
 }
 document.getElementById("screen-builder").addEventListener("input", e=>{ if(e.target.matches('[data-role="image"]')) capNhatAnh(); });
 
+/* ============== MỚI: KIỂM TRA ĐÁP ÁN & LỜI GIẢI (đề nhập từ Word) ============== */
+let TU_WORD = false;
+function danhSachThe(){ return ["p1","p2","p3"].flatMap(k=>Array.from(document.querySelectorAll('#'+k+'-list .qcard')).map(c=>({k, c}))); }
+function kiemTraThe(k, c){
+  const loi = [], v = sel => (c.querySelector(sel)||{}).value?.trim() || "";
+  if(!v('[data-role="content"]') && !v('[data-role="image"]')) loi.push("thiếu nội dung");
+  if(k==="p1"){
+    ["A","B","C","D"].forEach(l=>{ if(!v(`[data-role="opt"][data-letter="${l}"]`)) loi.push("thiếu phương án "+l); });
+    if(!c.querySelector('[data-role="correct"]:checked')) loi.push("chưa chọn đáp án");
+    if(!v('[data-role="expl"]')) loi.push("thiếu lời giải");
+    else if(/(ph[ưươ]+ng [áa]n|đ[áa]p [áa]n|ch[ọo]n|c[âa]u)\s+[A-D]\b|\b[A-D]\s+(đúng|sai)\b/i.test(v('[data-role="expl"]'))) loi.push("lời giải gọi phương án bằng chữ A–D (thứ tự bị đảo) – hãy gọi theo nội dung");
+  } else if(k==="p2"){
+    [0,1,2,3].forEach(si=>{
+      if(!v(`[data-role="stmt-text"][data-si="${si}"]`)) loi.push("thiếu ý "+"abcd"[si]);
+      if(!c.querySelector(`[data-role="stmt-correct"][data-si="${si}"].sel-true, [data-role="stmt-correct"][data-si="${si}"].sel-false`)) loi.push("ý "+"abcd"[si]+" chưa chọn Đ/S");
+      if(!v(`[data-role="stmt-expl"][data-si="${si}"]`)) loi.push("thiếu lời giải ý "+"abcd"[si]);
+    });
+  } else {
+    const a = v('[data-role="answer"]');
+    if(!a) loi.push("thiếu đáp án"); else if(a.length>4) loi.push("đáp án quá 4 kí tự"); else if(isNaN(parseFloat(a.replace(",",".")))) loi.push("đáp án không phải số");
+    if(!v('[data-role="expl"]')) loi.push("thiếu lời giải");
+  }
+  return loi;
+}
+function dapAnThe(k, c){
+  if(k==="p1"){ const r = c.querySelector('[data-role="correct"]:checked'); return r ? r.value : "?"; }
+  if(k==="p2") return [0,1,2,3].map(si=>{ const b = c.querySelector(`[data-role="stmt-correct"][data-si="${si}"].sel-true`) ? "Đ" : c.querySelector(`[data-role="stmt-correct"][data-si="${si}"].sel-false`) ? "S" : "?"; return "abcd"[si]+b; }).join(" ");
+  return (c.querySelector('[data-role="answer"]')||{}).value || "?";
+}
+function veBangDapAn(){
+  const box = document.getElementById("bang-dap-an"); if(!box || !TU_WORD) return;
+  const ds = danhSachThe(); let thieu = 0;
+  const hang = ds.map((x,i)=>{ const loi = kiemTraThe(x.k, x.c); x.c.classList.toggle("thieu", loi.length>0); if(loi.length) thieu++;
+    return `<tr><td><a data-toi="${i}">Câu ${i+1}</a></td><td>${x.k==="p1"?"Nhiều lựa chọn":x.k==="p2"?"Đúng/Sai":"Trả lời ngắn"}</td><td style="text-align:left"><b>${escHtml(dapAnThe(x.k,x.c))}</b>${x.k==="p1" ? (()=>{ const r = x.c.querySelector('[data-role="correct"]:checked'); const t = r ? (x.c.querySelector(`[data-role="opt"][data-letter="${r.value}"]`)||{}).value || "" : ""; return t ? " · " + escHtml(t) : ""; })() : ""}</td><td class="${loi.length?"loi":"ok"}">${loi.length?escHtml(loi.join("; ")):"✓ Đủ"}${x.c.dataset.lech ? `<span class="lech">⚠ ${escHtml(x.c.dataset.lech)}</span>` : ""}</td></tr>`; }).join("");
+  const daTick = (document.getElementById("xac-nhan-da")||{}).checked;
+  box.innerHTML = `<b>🔍 Bảng đối chiếu đáp án – hãy so với đáp án gốc của đề</b>
+    <table><thead><tr><th>Câu</th><th>Dạng</th><th>Đáp án đang lưu</th><th>Lời giải / kiểm tra</th></tr></thead><tbody>${hang}</tbody></table>
+    ${thieu ? `<div class="warn-box" style="margin-top:6px">⚠ Còn <b>${thieu}</b> câu thiếu lời giải hoặc thông tin (khung đỏ bên dưới). Bấm vào "Câu …" để đến câu đó và bổ sung. Đề nhập từ Word bắt buộc mỗi câu có lời giải; câu Đúng/Sai cần lời giải cho từng ý.</div>` : `<div class="ok-box" style="margin-top:6px">✓ Tất cả các câu đã có đáp án và lời giải.</div>`}
+    <label class="xac-nhan"><input type="checkbox" id="xac-nhan-da" ${daTick?"checked":""}> Tôi đã kiểm tra lại đáp án và lời giải của tất cả các câu, đối chiếu với đáp án gốc.</label>`;
+  renderMath(box);
+  box.querySelectorAll("[data-toi]").forEach(a=> a.onclick = ()=>{ const c = ds[+a.dataset.toi].c; c.scrollIntoView({behavior:"smooth", block:"center"}); c.animate([{boxShadow:"0 0 0 4px #B98B2E"},{boxShadow:"none"}],{duration:1600}); });
+}
+let hen = 0;
+["input","click"].forEach(ev=> document.getElementById("screen-builder").addEventListener(ev, e=>{
+  if(!TU_WORD || e.target.id==="xac-nhan-da" || (e.target.closest && e.target.closest("#bang-dap-an"))) return;
+  const trongCau = e.target.closest && e.target.closest(".qcard");
+  const cb = document.getElementById("xac-nhan-da"); if(cb && cb.checked && trongCau && (ev==="input" || e.target.matches('[data-role="stmt-correct"],[data-role="correct"],[data-remove-card]'))) cb.checked = false;   // sửa câu hỏi thì phải xác nhận lại
+  clearTimeout(hen); hen = setTimeout(veBangDapAn, 400);
+}));
+
+/* ============== MỚI: NHỜ CLAUDE GIẢI ĐỀ ============== */
+function deBaiThe(k, c){
+  const v = sel => (c.querySelector(sel)||{}).value?.trim() || "";
+  const img = v('[data-role="image"]'), coHinh = img ? "\n(Câu hỏi có kèm hình ở trên.)" : "";
+  const stem = v('[data-role="content"]') + coHinh;
+  if(k==="p1") return "CÂU TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN (chỉ có một phương án đúng)\n" + stem + "\n" + ["A","B","C","D"].map(l=> l + ". " + v(`[data-role="opt"][data-letter="${l}"]`)).join("\n")
+    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu:\n<dap_an>một chữ A, B, C hoặc D</dap_an>\n<loi_giai>lời giải ngắn gọn cho học sinh (2–6 câu), công thức trong $…$. KHÔNG nhắc tới chữ cái A, B, C, D vì thứ tự phương án sẽ bị đảo; nếu cần hãy gọi phương án theo nội dung.</loi_giai>";
+  if(k==="p2") return "CÂU TRẮC NGHIỆM ĐÚNG/SAI: xét tính đúng sai của từng ý a), b), c), d).\n" + stem + "\n" + [0,1,2,3].map(si=> "abcd"[si] + ") " + v(`[data-role="stmt-text"][data-si="${si}"]`)).join("\n")
+    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu (mỗi ý ghi Đúng hoặc Sai):\n<y_a>Đúng hoặc Sai</y_a><giai_a>giải thích ngắn cho ý a</giai_a>\n<y_b>…</y_b><giai_b>…</giai_b>\n<y_c>…</y_c><giai_c>…</giai_c>\n<y_d>…</y_d><giai_d>…</giai_d>\nCông thức trong $…$.";
+  return "CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN: đáp án là một số, viết tối đa 4 kí tự (kể cả dấu trừ và dấu phẩy thập phân kiểu Việt Nam, ví dụ 3,08 hoặc -1,5), làm tròn đúng theo yêu cầu của đề.\n" + stem
+    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu:\n<dap_an>số, tối đa 4 kí tự</dap_an>\n<loi_giai>lời giải ngắn gọn cho học sinh (2–6 câu), công thức trong $…$</loi_giai>";
+}
+function ganGhiChu(c, cls, txt){
+  let n = c.querySelector(".claude-note");
+  if(!n){ n = document.createElement("div"); n.className = "claude-note"; c.querySelector(".qcard-head").after(n); }
+  n.className = "claude-note " + (cls||""); n.textContent = txt;
+}
+function apDungKetQua(k, c, r){
+  const the = (t, tag) => { const m = t.match(new RegExp("<" + tag + ">([\\s\\S]*?)</" + tag + ">", "i")); return m ? m[1].trim() : ""; };
+  if(!r || r.loi){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Claude chưa giải được câu này: " + (r && r.loi || "lỗi") + ". Bấm “Nhờ Claude giải” lần nữa để thử lại."); return "loi"; }
+  const t = (r.text || "").replace(/<nhap>[\s\S]*?<\/nhap>/i, "");
+  const expl = c.querySelector('[data-role="expl"]');
+  let lech = "";
+  if(k==="p1"){
+    const da = (the(t, "dap_an").match(/[A-D]/) || [])[0]; const lg = the(t, "loi_giai");
+    if(!da){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đáp án Claude trả về – thử lại."); return "loi"; }
+    const cur = c.querySelector('[data-role="correct"]:checked');
+    if(!cur){ c.querySelector(`[data-role="correct"][value="${da}"]`).checked = true; }
+    else if(cur.value !== da) lech = "Claude giải ra " + da + ", khác đáp án đang lưu " + cur.value;
+    if(expl && !expl.value.trim() && lg) expl.value = lg;
+    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra và chọn lại nếu cần." : "🤖 Claude: đáp án " + da);
+  } else if(k==="p2"){
+    const res = [0,1,2,3].map(si=>{ const y = the(t, "y_" + "abcd"[si]); return /đúng|dung|true/i.test(y) ? true : /sai|false/i.test(y) ? false : null; });
+    if(res.some(x=>x===null)){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đủ 4 ý Claude trả về – thử lại."); return "loi"; }
+    const khac = [];
+    res.forEach((val, si)=>{
+      const btnT = c.querySelector(`[data-role="stmt-correct"][data-si="${si}"][data-val="true"]`), btnF = c.querySelector(`[data-role="stmt-correct"][data-si="${si}"][data-val="false"]`);
+      const cur = btnT.classList.contains("sel-true") ? true : btnF.classList.contains("sel-false") ? false : null;
+      if(cur === null) (val ? btnT : btnF).click(); else if(cur !== val) khac.push("abcd"[si] + ") " + (val ? "Đúng" : "Sai"));
+      const ex = c.querySelector(`[data-role="stmt-expl"][data-si="${si}"]`), g = the(t, "giai_" + "abcd"[si]);
+      if(ex && !ex.value.trim() && g) ex.value = g;
+    });
+    if(khac.length) lech = "Claude giải ra " + khac.join(", ") + ", khác đáp án đang lưu";
+    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra lại." : "🤖 Claude: " + res.map((x,si)=>"abcd"[si] + (x?"Đ":"S")).join(" "));
+  } else {
+    let da = the(t, "dap_an").replace(/\s+/g, "").replace(/\$/g, "").replace(".", ",");
+    const lg = the(t, "loi_giai"), ans = c.querySelector('[data-role="answer"]');
+    if(!da || isNaN(parseFloat(da.replace(",", ".")))){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đáp án số Claude trả về – thử lại."); return "loi"; }
+    if(da.length > 4) da = da.slice(0, 4);
+    if(!ans.value.trim()) ans.value = da;
+    else if(Math.abs(parseFloat(ans.value.replace(",", ".")) - parseFloat(da.replace(",", "."))) > 1e-9) lech = "Claude giải ra " + da + ", khác đáp án đang lưu " + ans.value;
+    if(expl && !expl.value.trim() && lg) expl.value = lg;
+    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra lại." : "🤖 Claude: đáp án " + da);
+  }
+  if(lech) c.dataset.lech = lech; else delete c.dataset.lech;
+  c.dataset.claude = lech ? "lech" : "ok";
+  return c.dataset.claude;
+}
+let DANG_GIAI = false;
+document.getElementById("nho-claude").addEventListener("click", async ()=>{
+  if(DANG_GIAI) return;
+  const st = document.getElementById("claude-status"), key = document.getElementById("gv-key").value.trim();
+  if(!key){ alert("Hãy nhập Mã giáo viên ở ô 🔑 (phía trên nút “Tạo đề & Lấy link”) rồi bấm lại."); document.getElementById("gv-key").focus(); return; }
+  let ds = danhSachThe().map((x,i)=>({...x, i}));
+  const conLai = ds.filter(x=> x.c.dataset.claude !== "ok" && x.c.dataset.claude !== "lech");
+  if(!conLai.length){ if(!confirm("Claude đã giải tất cả các câu. Giải lại toàn bộ?")) return; ds.forEach(x=>{ delete x.c.dataset.claude; }); } else ds = conLai;
+  DANG_GIAI = true; const btn = document.getElementById("nho-claude"); btn.disabled = true;
+  const t0 = Date.now(), dem = ()=> Math.round((Date.now()-t0)/1000);
+  const hien = (html)=> st.innerHTML = `<div class="ok-box">${html}</div>`;
+  try{
+    hien("⏳ Đang kiểm tra mã giáo viên…");
+    await jsonp({action:"all", key, quiz:"__kiem_tra__"}, 20000);
+    const job = Array.from(crypto.getRandomValues(new Uint8Array(10))).map(b=>"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[b % 32]).join("");
+    const guiMot = (x)=> fetch(apiGoc(), {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({action:"giaiCau", key, job, i:x.i, de: deBaiThe(x.k, x.c), anh: [(x.c.querySelector('[data-role="image"]')||{}).value || ""].filter(u=>u.startsWith("data:image"))})}).catch(()=>{});
+    // gửi tối đa 6 câu cùng lúc
+    const hang = ds.slice(); let dangChay = 0, xong = 0;
+    const chay = ()=> new Promise(res=>{ const tiep = ()=>{ if(!hang.length && !dangChay) return res(); while(dangChay < 6 && hang.length){ const x = hang.shift(); dangChay++; guiMot(x).finally(()=>{ dangChay--; tiep(); }); } }; tiep(); });
+    const guiXong = chay();
+    const n = danhSachThe().length, daAp = new Set(); let ketThuc = false; guiXong.then(()=> ketThuc = true);
+    for(;;){
+      await new Promise(r=>setTimeout(r, 5000));
+      let kq = []; try{ kq = (await jsonp({action:"ketQuaGiai", job, n}, 30000)).kq; }catch(e){}
+      ds.forEach(x=>{ if(!daAp.has(x.i) && kq[x.i]){ daAp.add(x.i); apDungKetQua(x.k, x.c, kq[x.i]); } });
+      xong = daAp.size;
+      hien(`🤖 Claude đang giải… <b>${xong}/${ds.length}</b> câu (${dem()} giây). Có thể mất vài phút, thầy cô vui lòng không đóng trang.`);
+      if(xong >= ds.length) break;
+      if(ketThuc && dem() > 60 && xong < ds.length){ // đã gửi hết mà vẫn thiếu: chờ thêm 1 lượt rồi dừng
+        await new Promise(r=>setTimeout(r, 6000));
+        try{ kq = (await jsonp({action:"ketQuaGiai", job, n}, 30000)).kq; }catch(e){}
+        ds.forEach(x=>{ if(!daAp.has(x.i)){ if(kq[x.i]){ daAp.add(x.i); apDungKetQua(x.k, x.c, kq[x.i]); } else { x.c.dataset.claude = "loi"; ganGhiChu(x.c, "loi", "🤖 Chưa nhận được lời giải (hết thời gian) – bấm “Nhờ Claude giải” lần nữa."); } } });
+        break;
+      }
+      if(dem() > 600) break;
+    }
+    const all = danhSachThe(), ok = all.filter(c=>c.c.dataset.claude==="ok").length, lech = all.filter(c=>c.c.dataset.claude==="lech").length, loi = all.filter(c=>c.c.dataset.claude==="loi").length;
+    const cb = document.getElementById("xac-nhan-da"); if(cb) cb.checked = false;
+    veBangDapAn();
+    st.innerHTML = `<div class="${loi||lech?"warn-box":"ok-box"}">🤖 Claude đã giải xong: <b>${ok}</b> câu khớp/đã gán${lech?`, <b>${lech}</b> câu <b>khác đáp án trong file Word</b> (đánh dấu vàng)`:""}${loi?`, <b>${loi}</b> câu lỗi – bấm nút lần nữa để giải lại các câu này`:""}.<br>Đáp án do AI giải có thể sai ở câu khó: thầy cô xem Bảng đối chiếu, kiểm tra lời giải rồi đánh dấu xác nhận.</div>`;
+  }catch(err){
+    st.innerHTML = `<div class="warn-box">⚠ ${escHtml(String(err))}</div>`;
+  }finally{ DANG_GIAI = false; btn.disabled = false; }
+});
+
 /* ============== BUILDER: TẠO LINK / QR ============== */
 try{ document.getElementById("gv-key").value = localStorage.getItem("ql_ma_gv") || sessionStorage.getItem("ql_ma_gv") || ""; }catch(e){}
 async function luuDeLenMay(examObj, key){
@@ -743,6 +968,20 @@ document.getElementById("generate-btn").addEventListener("click", async ()=>{
   if(totalQ===0){
     alert("Bạn cần thêm ít nhất 1 câu hỏi trước khi tạo đề.");
     return;
+  }
+  if(TU_WORD){
+    veBangDapAn();
+    const loi = danhSachThe().map((x,i)=>({i, loi: kiemTraThe(x.k, x.c), c: x.c})).filter(x=>x.loi.length);
+    if(loi.length){
+      alert("Đề nhập từ file Word cần đủ đáp án và lời giải cho mọi câu.\nCòn " + loi.length + " câu chưa đủ:\n\n" + loi.slice(0,8).map(x=>"• Câu " + (x.i+1) + ": " + x.loi.join("; ")).join("\n") + (loi.length>8 ? "\n…" : ""));
+      loi[0].c.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    if(!(document.getElementById("xac-nhan-da")||{}).checked){
+      alert("Hãy xem Bảng đối chiếu đáp án ở đầu trang và đánh dấu ô \"Tôi đã kiểm tra lại đáp án và lời giải…\" trước khi tạo đề.");
+      document.getElementById("bang-dap-an").scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
   }
   const btn = document.getElementById("generate-btn"), key = document.getElementById("gv-key").value.trim();
   let url = "", loiLuu = "";
@@ -775,7 +1014,7 @@ document.getElementById("generate-btn").addEventListener("click", async ()=>{
     sizeWarn.innerHTML = `<div class="warn-box">⚠ Đề khá dài (${url.length.toLocaleString()} ký tự) nên có thể KHÔNG tạo được mã QR, hoặc mã QR quá dày để quét được. Hãy ưu tiên chia sẻ bằng đường link (sao chép) thay vì mã QR.</div>`;
   }
   try{
-    new QRCode(qrBox, {text:url, width:180, height:180, colorDark:"#33473D", colorLight:"#ffffff"});
+    new QRCode(qrBox, {text:url, width:180, height:180, colorDark:"#1E3A8A", colorLight:"#ffffff"});
   }catch(e){
     qrBox.innerHTML = `<div class="warn-box">⚠ Không tạo được mã QR do đề quá dài. Vui lòng dùng đường link phía trên.</div>`;
   }
