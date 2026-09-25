@@ -83,7 +83,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div><h1>🎓 Quản lý bài củng cố</h1><div class="sub">Trường THPT Vĩnh Thạnh · GV Trương Tử Trang · <span id="capnhat">—</span></div></div>
+    <div><h1>🎓 Quản lý bài củng cố</h1><div class="sub">Trường THPT Vĩnh Thạnh · GV Trương Tử Trang · <span id="capnhat">—</span></div><div class="sub" id="xin-chao"></div></div>
     <div class="links">
       <a href="index.html" target="_blank" rel="noopener">✏️ Tạo đề mới</a>
       <a id="lnk-sheet" class="hidden" href="#" target="_blank" rel="noopener">📑 Google Sheet</a>
@@ -159,24 +159,30 @@ function baiHienTai(){ return BAI.find(b=>b.ma===CHON) || {ten:CHON, ma:CHON}; }
 function linkBai(b){ return b.link ? new URL(b.link, location.href).href : ""; }
 
 /* ---------- đăng nhập ---------- */
+let GV = null;
+function hienGV(){
+  const el = $("xin-chao"); if(!el || !GV) return;
+  el.textContent = GV.admin ? "Đăng nhập: Quản trị (tất cả các lớp)" : "Xin chào " + GV.ten + " · " + (GV.lop.length ? "Lớp: " + GV.lop.join(", ") : "tất cả các lớp");
+}
 async function vao(){
   $("loi-vao").textContent = "";
   const m = MA || $("ma-gv").value.trim();
   if(!m){ $("loi-vao").textContent = "Nhập mã giáo viên."; return; }
   $("loi-vao").textContent = "Đang kiểm tra…";
   try{
-    await jsonp({action:"all", key:m, quiz:"__kiem_tra__"});
+    const kt = await jsonp({action:"all", key:m, quiz:"__kiem_tra__"}); GV = kt.gv || null;
     MA = m;
     try{ ($("nho").checked ? localStorage : sessionStorage).setItem("ql_ma_gv", MA); }catch(e){}
     $("dang-nhap").classList.add("hidden"); $("noi-dung").classList.remove("hidden"); $("btn-thoat").classList.remove("hidden");
-    if(window.KQ_SHEET){ $("lnk-sheet").href = window.KQ_SHEET; $("lnk-sheet").classList.remove("hidden"); }
+    hienGV();
+    if(window.KQ_SHEET && (!GV || GV.admin)){ $("lnk-sheet").href = window.KQ_SHEET; $("lnk-sheet").classList.remove("hidden"); }
     await taiDanhSach();
   }catch(e){ MA = ""; try{ localStorage.removeItem("ql_ma_gv"); sessionStorage.removeItem("ql_ma_gv"); }catch(x){} $("loi-vao").textContent = "⚠ " + e; }
 }
 /* ---------- danh sách bài ---------- */
 async function taiDanhSach(){
   let qz = [];
-  try{ qz = (await jsonp({action:"quizzes"})).quizzes; }catch(e){}
+  try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes; }catch(e){}
   const cfg = (window.DANH_SACH_BAI || []).map(b=>({...b}));
   cfg.forEach(b=>{ const q = qz.find(x=>x.quizId===b.ma); b.count = q ? q.count : 0; b.last = q ? q.last : 0; });
   qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\((Toán\s*(10|11|12))\)/);

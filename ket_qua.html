@@ -48,7 +48,7 @@
 </head>
 <body>
 <div class="wrap">
-  <header><h1>📋 Kết quả bài làm của học sinh</h1><div class="sub">Trang dành cho giáo viên – cần mã giáo viên (MA_GV trong Apps Script)</div></header>
+  <header><h1>📋 Kết quả bài làm của học sinh</h1><div class="sub">Trang dành cho giáo viên – cần mã giáo viên</div></header>
 
   <div class="card" id="dang-nhap">
     <div class="bar">
@@ -180,8 +180,9 @@ async function vao(){
   MA = MA || $("ma-gv").value.trim();
   if(!MA){ $("loi-vao").textContent = "Nhập mã giáo viên."; return; }
   try{
-    await jsonp({action:"all", key:MA, quiz:"__kiem_tra__"});
-    const d = await jsonp({action:"quizzes"});
+    const kt = await jsonp({action:"all", key:MA, quiz:"__kiem_tra__"});
+    const g = kt.gv; if(g) document.querySelector("header .sub").textContent = g.admin ? "Đăng nhập: Quản trị (tất cả các lớp)" : "Xin chào " + g.ten + " · " + (g.lop.length ? "Lớp: " + g.lop.join(", ") : "tất cả các lớp");
+    const d = await jsonp({action:"quizzes", key:MA});
     QUIZZES = d.quizzes;
     try{ sessionStorage.setItem("kq_ma_gv", MA); }catch(e){}
     $("dang-nhap").classList.add("hidden"); $("noi-dung").classList.remove("hidden");
