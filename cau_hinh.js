@@ -1,7 +1,7 @@
 // ====== CẤU HÌNH NHẬN KẾT QUẢ BÀI LÀM ======
 // Địa chỉ Ứng dụng web Apps Script (Google Sheet nhận kết quả của GV Trương Tử Trang).
 // Để trống "" thì trang vẫn chấm điểm bình thường nhưng không gửi kết quả về.
-window.KQ_API = "https://script.google.com/macros/s/AKfycbyIEBSW8d7XVyV0FpwPfRmqod-ytA7RzPqna5We7COieFUGY4Cnj8zBx5gQuOROQba4JQ/exec";
+window.KQ_API = "https://script.google.com/macros/s/AKfycbz-yf2unZA961vY5ACGaedBrZh7BkROcrI489Vz209eOfyIQufdPtwGRtQZkpuvDVFklw/exec";
 
 // (Tùy chọn) Link mở Google Sheet kết quả — dán link trình duyệt của bảng tính vào đây để có nút "Mở Google Sheet".
 window.KQ_SHEET = "";
