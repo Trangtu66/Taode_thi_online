@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 1. Mệnh đề (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Câu nào sau đây là mệnh đề?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "Hôm nay trời đẹp quá!"
+            },
+            {
+              "l": "B",
+              "t": "Bạn có đi học không?"
+            },
+            {
+              "l": "C",
+              "t": "15 là số nguyên tố."
+            },
+            {
+              "l": "D",
+              "t": "$x+2=5$."
+            }
+          ],
+          "correct": "C",
+          "expl": "Câu cảm thán (A) và câu hỏi (B) không phải mệnh đề; câu D là mệnh đề chứa biến (chưa xác định được đúng hay sai khi chưa biết $x$). Câu C là một khẳng định sai (vì $15=3\\cdot 5$) nên là mệnh đề."
+        },
+        {
+          "content": "Mệnh đề phủ định của mệnh đề \"Số 7 là số chẵn\" là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "\"Số 7 không là số chẵn\""
+            },
+            {
+              "l": "B",
+              "t": "\"Số 8 là số chẵn\""
+            },
+            {
+              "l": "C",
+              "t": "\"Số 7 là số nguyên tố\""
+            },
+            {
+              "l": "D",
+              "t": "\"Số 7 là số chẵn hoặc số lẻ\""
+            }
+          ],
+          "correct": "A",
+          "expl": "Phủ định của mệnh đề $P$ nhận được bằng cách thêm (hoặc bớt) từ \"không\" (\"không phải\") trước vị ngữ: \"Số 7 không là số chẵn\"."
+        },
+        {
+          "content": "Cho mệnh đề chứa biến $P(n)$: \"$n$ chia hết cho 3\" với $n\\in\\mathbb{N}$. Mệnh đề nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$P(4)$"
+            },
+            {
+              "l": "B",
+              "t": "$P(10)$"
+            },
+            {
+              "l": "C",
+              "t": "$P(12)$"
+            },
+            {
+              "l": "D",
+              "t": "$P(5)$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$12=3\\cdot 4$ nên $P(12)$ đúng; 4, 10, 5 đều không chia hết cho 3."
+        },
+        {
+          "content": "Mệnh đề đảo của mệnh đề \"Nếu tam giác $ABC$ là tam giác đều thì tam giác $ABC$ là tam giác cân\" là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "\"Nếu tam giác $ABC$ là tam giác cân thì tam giác $ABC$ là tam giác đều\""
+            },
+            {
+              "l": "B",
+              "t": "\"Nếu tam giác $ABC$ không là tam giác đều thì tam giác $ABC$ không là tam giác cân\""
+            },
+            {
+              "l": "C",
+              "t": "\"Tam giác $ABC$ là tam giác đều khi và chỉ khi tam giác $ABC$ là tam giác cân\""
+            },
+            {
+              "l": "D",
+              "t": "\"Nếu tam giác $ABC$ không là tam giác cân thì tam giác $ABC$ không là tam giác đều\""
+            }
+          ],
+          "correct": "A",
+          "expl": "Mệnh đề đảo của $P\\Rightarrow Q$ là $Q\\Rightarrow P$: \"Nếu tam giác $ABC$ cân thì tam giác $ABC$ đều\" (mệnh đề đảo này sai)."
+        },
+        {
+          "content": "Mệnh đề phủ định của mệnh đề \"$\\forall x\\in\\mathbb{R},\\ x^2+1>0$\" là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\exists x\\in\\mathbb{R},\\ x^2+1\\le 0$"
+            },
+            {
+              "l": "B",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2+1\\le 0$"
+            },
+            {
+              "l": "C",
+              "t": "$\\exists x\\in\\mathbb{R},\\ x^2+1<0$"
+            },
+            {
+              "l": "D",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2+1<0$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Phủ định của \"$\\forall x\\in X,\\ P(x)$\" là \"$\\exists x\\in X,\\ \\overline{P(x)}$\"; phủ định của $x^2+1>0$ là $x^2+1\\le 0$ (không phải $<0$)."
+        },
+        {
+          "content": "Mệnh đề nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\exists n\\in\\mathbb{N},\\ n^2=2$"
+            },
+            {
+              "l": "B",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2\\ge x$"
+            },
+            {
+              "l": "C",
+              "t": "$\\exists x\\in\\mathbb{R},\\ x^2+x+1=0$"
+            },
+            {
+              "l": "D",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2-2x+2>0$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$x^2-2x+2=(x-1)^2+1\\ge 1>0$ với mọi $x$ nên D đúng. A sai ($n^2=2$ không có nghiệm tự nhiên); B sai (với $x=\\frac{1}{2}$ thì $x^2=\\frac{1}{4}<\\frac{1}{2}$); C sai (phương trình có $\\Delta=-3<0$)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Một siêu thị điện máy thông báo: \"Nếu hóa đơn của khách hàng từ 500 nghìn đồng trở lên thì khách hàng được giảm giá 10%.\" Gọi $P$: \"Hóa đơn của khách hàng từ 500 nghìn đồng trở lên\", $Q$: \"Khách hàng được giảm giá 10%\". Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Thông báo của siêu thị là mệnh đề có dạng $P\\Rightarrow Q$.",
+              "correct": true,
+              "expl": "Thông báo có dạng \"Nếu $P$ thì $Q$\", tức là $P\\Rightarrow Q$."
+            },
+            {
+              "text": "\"Hóa đơn từ 500 nghìn đồng trở lên\" là điều kiện cần để khách hàng được giảm giá 10%.",
+              "correct": false,
+              "expl": "Trong $P\\Rightarrow Q$, $P$ là điều kiện đủ để có $Q$; $Q$ mới là điều kiện cần để có $P$."
+            },
+            {
+              "text": "Mệnh đề đảo của thông báo là: \"Nếu khách hàng được giảm giá 10% thì hóa đơn của khách hàng từ 500 nghìn đồng trở lên\".",
+              "correct": true,
+              "expl": "Mệnh đề đảo của $P\\Rightarrow Q$ là $Q\\Rightarrow P$, đúng như phát biểu."
+            },
+            {
+              "text": "Bạn An có hóa đơn 450 nghìn đồng nhưng vẫn được giảm giá 10% (nhờ thẻ thành viên). Điều này chứng tỏ thông báo của siêu thị là sai.",
+              "correct": false,
+              "expl": "Mệnh đề $P\\Rightarrow Q$ chỉ sai khi $P$ đúng và $Q$ sai. Với An, $P$ sai nên trường hợp này không làm thông báo sai (nó chỉ cho thấy mệnh đề đảo $Q\\Rightarrow P$ sai)."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài tập cuối chương I (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Mệnh đề phủ định của mệnh đề \"$\\exists x\\in\\mathbb{R},\\ x^2<0$\" là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2\\ge 0$"
+            },
+            {
+              "l": "B",
+              "t": "$\\exists x\\in\\mathbb{R},\\ x^2\\ge 0$"
+            },
+            {
+              "l": "C",
+              "t": "$\\forall x\\in\\mathbb{R},\\ x^2>0$"
+            },
+            {
+              "l": "D",
+              "t": "$\\exists x\\in\\mathbb{R},\\ x^2>0$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Phủ định của \"$\\exists x\\in X,\\ P(x)$\" là \"$\\forall x\\in X,\\ \\overline{P(x)}$\"; phủ định của $x^2<0$ là $x^2\\ge 0$."
+        },
+        {
+          "content": "Cho tập hợp $A=\\{1;2;3\\}$. Khẳng định nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$1\\subset A$"
+            },
+            {
+              "l": "B",
+              "t": "$\\{1;2\\}\\subset A$"
+            },
+            {
+              "l": "C",
+              "t": "$\\{1\\}\\in A$"
+            },
+            {
+              "l": "D",
+              "t": "$\\varnothing\\in A$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Phần tử dùng kí hiệu $\\in$ ($1\\in A$); tập hợp dùng kí hiệu $\\subset$ ($\\{1;2\\}\\subset A$, $\\varnothing\\subset A$). Chỉ B đúng."
+        },
+        {
+          "content": "Cho định lí: \"Nếu một tứ giác là hình vuông thì tứ giác đó là hình chữ nhật\". Mệnh đề nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "Tứ giác là hình chữ nhật là điều kiện đủ để nó là hình vuông."
+            },
+            {
+              "l": "B",
+              "t": "Tứ giác là hình vuông là điều kiện cần để nó là hình chữ nhật."
+            },
+            {
+              "l": "C",
+              "t": "Tứ giác là hình chữ nhật là điều kiện cần để nó là hình vuông."
+            },
+            {
+              "l": "D",
+              "t": "Tứ giác là hình vuông là điều kiện cần và đủ để nó là hình chữ nhật."
+            }
+          ],
+          "correct": "C",
+          "expl": "Định lí $P\\Rightarrow Q$ với $P$: \"hình vuông\", $Q$: \"hình chữ nhật\". $P$ là điều kiện đủ để có $Q$, $Q$ là điều kiện cần để có $P$."
+        },
+        {
+          "content": "Cho $A=(-3;2]$ và $B=[0;5)$. Tập hợp $A\\cup B$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(-3;5)$"
+            },
+            {
+              "l": "B",
+              "t": "$[0;2]$"
+            },
+            {
+              "l": "C",
+              "t": "$(-3;5]$"
+            },
+            {
+              "l": "D",
+              "t": "$[-3;5)$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Hợp gồm các số thuộc ít nhất một trong hai tập: $-3<x<5$. Đầu mút $-3$ và $5$ đều không được lấy, nên $A\\cup B=(-3;5)$."
+        },
+        {
+          "content": "Phần bù của tập hợp $(-\\infty;4]$ trong $\\mathbb{R}$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$[4;+\\infty)$"
+            },
+            {
+              "l": "B",
+              "t": "$(4;+\\infty)$"
+            },
+            {
+              "l": "C",
+              "t": "$(-\\infty;4)$"
+            },
+            {
+              "l": "D",
+              "t": "$\\mathbb{R}$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$C_{\\mathbb{R}}(-\\infty;4]=\\mathbb{R}\\setminus(-\\infty;4]=(4;+\\infty)$; số 4 thuộc tập đã cho nên không thuộc phần bù."
+        },
+        {
+          "content": "Cho $A=[m;m+2]$ và $B=(1;5)$. Tất cả giá trị của $m$ để $A\\subset B$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$1<m<3$"
+            },
+            {
+              "l": "B",
+              "t": "$1\\le m\\le 3$"
+            },
+            {
+              "l": "C",
+              "t": "$m>1$"
+            },
+            {
+              "l": "D",
+              "t": "$m<3$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$A\\subset B\\Leftrightarrow 1<m$ và $m+2<5\\Leftrightarrow 1<m<3$ (đầu mút của $A$ được lấy nên phải nằm hẳn trong khoảng mở $(1;5)$)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Khối 10 của một trường có 90 học sinh. Câu lạc bộ Tin học có 45 học sinh khối 10 tham gia, câu lạc bộ Tiếng Anh có 38 học sinh khối 10 tham gia, trong đó có 12 học sinh tham gia cả hai câu lạc bộ. Gọi $A$, $B$ lần lượt là tập hợp học sinh khối 10 tham gia câu lạc bộ Tin học, Tiếng Anh. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Số học sinh tham gia ít nhất một câu lạc bộ là 71.",
+              "correct": true,
+              "expl": "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)=45+38-12=71$."
+            },
+            {
+              "text": "Số học sinh chỉ tham gia câu lạc bộ Tin học là 33.",
+              "correct": true,
+              "expl": "$n(A\\setminus B)=45-12=33$."
+            },
+            {
+              "text": "Số học sinh khối 10 không tham gia câu lạc bộ nào là 29.",
+              "correct": false,
+              "expl": "Số học sinh không tham gia câu lạc bộ nào là $90-71=19$."
+            },
+            {
+              "text": "Tập hợp học sinh chỉ tham gia câu lạc bộ Tiếng Anh là $A\\setminus B$.",
+              "correct": false,
+              "expl": "Học sinh chỉ tham gia câu lạc bộ Tiếng Anh thuộc $B$ nhưng không thuộc $A$, đó là tập $B\\setminus A$."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 2. Tập hợp và các phép toán trên tập hợp (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Cho tập hợp $A=\\{x\\in\\mathbb{N}\\mid x<4\\}$. Tập hợp $A$ viết bằng cách liệt kê các phần tử là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$A=\\{0;1;2;3\\}$"
+            },
+            {
+              "l": "B",
+              "t": "$A=\\{1;2;3\\}$"
+            },
+            {
+              "l": "C",
+              "t": "$A=\\{0;1;2;3;4\\}$"
+            },
+            {
+              "l": "D",
+              "t": "$A=\\{1;2;3;4\\}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Các số tự nhiên nhỏ hơn 4 là 0; 1; 2; 3 (chú ý $0\\in\\mathbb{N}$ và $4$ không nhỏ hơn 4)."
+        },
+        {
+          "content": "Tập hợp nào sau đây là tập rỗng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\{x\\in\\mathbb{R}\\mid x^2+1=0\\}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\{x\\in\\mathbb{R}\\mid x^2-1=0\\}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\{0\\}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\{x\\in\\mathbb{Z}\\mid x^2=4\\}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$x^2+1\\ge 1>0$ với mọi $x$ nên phương trình $x^2+1=0$ vô nghiệm, tập A rỗng. Tập B có hai phần tử $\\pm 1$; tập $\\{0\\}$ có một phần tử là số 0; tập D có hai phần tử $\\pm 2$."
+        },
+        {
+          "content": "Cho tập hợp $X=\\{1;2\\}$. Cách viết nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$1\\subset X$"
+            },
+            {
+              "l": "B",
+              "t": "$\\{1\\}\\in X$"
+            },
+            {
+              "l": "C",
+              "t": "$\\{1\\}\\subset X$"
+            },
+            {
+              "l": "D",
+              "t": "$\\varnothing\\in X$"
+            }
+          ],
+          "correct": "C",
+          "expl": "Phần tử dùng kí hiệu $\\in$: $1\\in X$; tập hợp dùng kí hiệu $\\subset$: $\\{1\\}\\subset X$, $\\varnothing\\subset X$. Vậy chỉ C đúng."
+        },
+        {
+          "content": "Tập hợp $\\{x\\in\\mathbb{R}\\mid -1<x\\le 3\\}$ được viết dưới dạng nửa khoảng là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(-1;3]$"
+            },
+            {
+              "l": "B",
+              "t": "$[-1;3)$"
+            },
+            {
+              "l": "C",
+              "t": "$[-1;3]$"
+            },
+            {
+              "l": "D",
+              "t": "$(-1;3)$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Đầu mút $-1$ không lấy (dấu $<$) nên dùng ngoặc tròn; đầu mút 3 được lấy (dấu $\\le$) nên dùng ngoặc vuông: $(-1;3]$."
+        },
+        {
+          "content": "Cho $A=[1;5]$ và $B=(3;7)$. Tập hợp $A\\cap B$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(3;5]$"
+            },
+            {
+              "l": "B",
+              "t": "$[1;7)$"
+            },
+            {
+              "l": "C",
+              "t": "$[3;5]$"
+            },
+            {
+              "l": "D",
+              "t": "$(3;5)$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Biểu diễn trên trục số, phần chung của $[1;5]$ và $(3;7)$ gồm các số $x$ với $3<x\\le 5$, tức là $(3;5]$."
+        },
+        {
+          "content": "Cho $A=(-\\infty;3]$ và $B=(1;5)$. Tập hợp $A\\setminus B$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(-\\infty;1)$"
+            },
+            {
+              "l": "B",
+              "t": "$(-\\infty;1]$"
+            },
+            {
+              "l": "C",
+              "t": "$(1;3]$"
+            },
+            {
+              "l": "D",
+              "t": "$[3;5)$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$A\\setminus B$ gồm các số thuộc $A$ nhưng không thuộc $B$: $x\\le 3$ và ($x\\le 1$ hoặc $x\\ge 5$), tức là $x\\le 1$. Số 1 không thuộc $B=(1;5)$ nên được lấy: $A\\setminus B=(-\\infty;1]$."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Lớp 10A1 có 40 học sinh. Khảo sát cho thấy có 25 học sinh dùng Zalo để học nhóm, 18 học sinh dùng Google Classroom, trong đó có 10 học sinh dùng cả hai ứng dụng. Gọi $A$ là tập hợp học sinh dùng Zalo, $B$ là tập hợp học sinh dùng Google Classroom. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "$n(A\\cap B)=10$.",
+              "correct": true,
+              "expl": "$A\\cap B$ là tập hợp học sinh dùng cả hai ứng dụng, có 10 học sinh."
+            },
+            {
+              "text": "Có 43 học sinh dùng ít nhất một trong hai ứng dụng.",
+              "correct": false,
+              "expl": "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)=25+18-10=33$ học sinh (cộng 25 + 18 là đếm hai lần 10 bạn dùng cả hai)."
+            },
+            {
+              "text": "Số học sinh chỉ dùng Zalo (không dùng Google Classroom) là 15.",
+              "correct": true,
+              "expl": "$n(A\\setminus B)=n(A)-n(A\\cap B)=25-10=15$."
+            },
+            {
+              "text": "Có 7 học sinh không dùng ứng dụng nào trong hai ứng dụng trên.",
+              "correct": true,
+              "expl": "Số học sinh không dùng ứng dụng nào: $40-n(A\\cup B)=40-33=7$."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}
