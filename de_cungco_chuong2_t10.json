@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài tập cuối chương II (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Cặp số nào sau đây là một nghiệm của bất phương trình $3x-2y>4$?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(2;1)$"
+            },
+            {
+              "l": "B",
+              "t": "$(1;-1)$"
+            },
+            {
+              "l": "C",
+              "t": "$(0;-2)$"
+            },
+            {
+              "l": "D",
+              "t": "$(-1;2)$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Thay $(1;-1)$: $3\\cdot 1-2\\cdot(-1)=5>4$ (đúng). Với $(2;1)$ và $(0;-2)$ ta được $4>4$ (sai); với $(-1;2)$ ta được $-7>4$ (sai)."
+        },
+        {
+          "content": "Hệ bất phương trình nào sau đây là hệ bất phương trình bậc nhất hai ẩn?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\begin{cases} x+y\\ge 2\\\\ x-3y<1\\end{cases}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\begin{cases} xy>1\\\\ x+y<3\\end{cases}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\begin{cases} x^2+y\\le 1\\\\ x-y>0\\end{cases}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\begin{cases} x+\\frac{1}{y}>0\\\\ 2x-y<5\\end{cases}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Các hệ còn lại chứa $xy$, $x^2$ hoặc $\\frac{1}{y}$ nên không phải hệ bất phương trình bậc nhất hai ẩn."
+        },
+        {
+          "content": "Miền nghiệm của bất phương trình $2x+y\\le 4$ là nửa mặt phẳng (kể cả bờ) có bờ là đường thẳng $2x+y=4$ và",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "chứa điểm $O(0;0)$."
+            },
+            {
+              "l": "B",
+              "t": "chứa điểm $(2;1)$."
+            },
+            {
+              "l": "C",
+              "t": "chứa điểm $(3;0)$."
+            },
+            {
+              "l": "D",
+              "t": "chứa điểm $(1;3)$."
+            }
+          ],
+          "correct": "A",
+          "expl": "Thay $O(0;0)$: $0\\le 4$ (đúng) nên miền nghiệm là nửa mặt phẳng chứa $O$. Các điểm $(2;1)$, $(3;0)$, $(1;3)$ cho $2x+y$ lần lượt bằng $5;6;5>4$."
+        },
+        {
+          "content": "Điểm nào sau đây thuộc miền nghiệm của hệ bất phương trình $\\begin{cases} x+y\\le 3\\\\ x-y>1\\\\ y\\ge 0\\end{cases}$?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(2;0)$"
+            },
+            {
+              "l": "B",
+              "t": "$(1;0)$"
+            },
+            {
+              "l": "C",
+              "t": "$(3;1)$"
+            },
+            {
+              "l": "D",
+              "t": "$(0;0)$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$(2;0)$: $2\\le 3$, $2>1$, $0\\ge 0$ – thỏa mãn cả ba. $(1;0)$ và $(0;0)$ không thỏa mãn $x-y>1$; $(3;1)$ không thỏa mãn $x+y\\le 3$."
+        },
+        {
+          "content": "Giá trị nhỏ nhất của biểu thức $F(x;y)=x-2y$ trên miền nghiệm của hệ $\\begin{cases} x\\ge 0\\\\ y\\ge 0\\\\ x+y\\le 4\\end{cases}$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$-8$"
+            },
+            {
+              "l": "B",
+              "t": "$0$"
+            },
+            {
+              "l": "C",
+              "t": "$-4$"
+            },
+            {
+              "l": "D",
+              "t": "$4$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Miền nghiệm là tam giác với các đỉnh $O(0;0)$, $(4;0)$, $(0;4)$. $F(0;0)=0$, $F(4;0)=4$, $F(0;4)=-8$. Vậy $\\min\\ F=-8$."
+        },
+        {
+          "content": "Một xưởng sản xuất hai loại sản phẩm I và II. Mỗi kilôgam sản phẩm I cần 2 giờ máy, 1 giờ công nhân và lãi 40 nghìn đồng; mỗi kilôgam sản phẩm II cần 1 giờ máy, 2 giờ công nhân và lãi 30 nghìn đồng. Mỗi ngày xưởng có tối đa 10 giờ máy và 8 giờ công nhân. Tiền lãi lớn nhất xưởng có thể thu được trong một ngày là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "200 nghìn đồng."
+            },
+            {
+              "l": "B",
+              "t": "220 nghìn đồng."
+            },
+            {
+              "l": "C",
+              "t": "120 nghìn đồng."
+            },
+            {
+              "l": "D",
+              "t": "250 nghìn đồng."
+            }
+          ],
+          "correct": "B",
+          "expl": "Gọi $x$, $y$ (kg) là lượng sản phẩm I, II. Ta có $x\\ge 0$, $y\\ge 0$, $2x+y\\le 10$, $x+2y\\le 8$; lãi $F=40x+30y$. Các đỉnh: $O(0;0)$, $(5;0)$, $(4;2)$, $(0;4)$ cho $F$ lần lượt bằng $0;200;220;120$. Vậy lãi lớn nhất là 220 nghìn đồng (sản xuất 4 kg sản phẩm I và 2 kg sản phẩm II)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Một hộ nông dân ở Gia Lai có 8 ha đất, dự định trồng cà phê và hồ tiêu. Trồng 1 ha cà phê cần 20 ngày công, 1 ha hồ tiêu cần 30 ngày công; tổng số ngày công có thể huy động không quá 180. Lợi nhuận ước tính của 1 ha cà phê là 60 triệu đồng, của 1 ha hồ tiêu là 80 triệu đồng. Gọi $x$, $y$ lần lượt là số hecta trồng cà phê, hồ tiêu. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Các điều kiện của bài toán là $x+y\\le 8$, $2x+3y\\le 18$, $x\\ge 0$, $y\\ge 0$.",
+              "correct": true,
+              "expl": "Diện tích: $x+y\\le 8$; ngày công: $20x+30y\\le 180\\Leftrightarrow 2x+3y\\le 18$; diện tích không âm: $x\\ge 0$, $y\\ge 0$."
+            },
+            {
+              "text": "Điểm $(3;5)$ thuộc miền nghiệm của hệ bất phương trình trên.",
+              "correct": false,
+              "expl": "$2\\cdot 3+3\\cdot 5=21>18$ nên $(3;5)$ không thuộc miền nghiệm (vượt quá số ngày công)."
+            },
+            {
+              "text": "Miền nghiệm của hệ là tứ giác có các đỉnh $O(0;0)$, $(8;0)$, $(6;2)$, $(0;6)$.",
+              "correct": true,
+              "expl": "Giao điểm của $x+y=8$ và $2x+3y=18$ là $(6;2)$; giao của $2x+3y=18$ với trục $Oy$ là $(0;6)$, của $x+y=8$ với trục $Ox$ là $(8;0)$."
+            },
+            {
+              "text": "Lợi nhuận lớn nhất là 540 triệu đồng, đạt được khi trồng 6 ha cà phê và 2 ha hồ tiêu.",
+              "correct": false,
+              "expl": "$F=60x+80y$: $F(0;0)=0$, $F(8;0)=480$, $F(6;2)=520$, $F(0;6)=480$. Lợi nhuận lớn nhất là 520 triệu đồng (không phải 540)."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}
