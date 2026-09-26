@@ -17,6 +17,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Chuyên đề 1, Bài 1. Hệ phương trình bậc nhất ba ẩn", ma: "Củng cố – Chuyên đề 1, Bài 1. Hệ phương trình bậc nhất ba ẩn (Toán 10)", link: "cc_cd1bai1_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 4. Hệ bất phương trình bậc nhất hai ẩn", ma: "Củng cố – Bài 4. Hệ bất phương trình bậc nhất hai ẩn (Toán 10)", link: "cc_bai4_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối chương II", ma: "Củng cố – Bài tập cuối chương II (Toán 10)", link: "cc_chuong2_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°", ma: "Củng cố – Bài 5. Giá trị lượng giác của một góc từ 0° đến 180° (Toán 10)", link: "cc_bai5_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 6. Hệ thức lượng trong tam giác", ma: "Củng cố – Bài 6. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_bai6_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
