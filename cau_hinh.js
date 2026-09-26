@@ -23,6 +23,7 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 4. Phương trình lượng giác cơ bản", ma: "Củng cố – Bài 4. Phương trình lượng giác cơ bản (Toán 11)", link: "cc_bai4_t11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "Bài tập cuối chương I", ma: "Củng cố – Bài tập cuối chương I (Toán 11)", link: "cc_chuong1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 1. Phép biến hình", ma: "Củng cố – Chuyên đề 1, Bài 1. Phép biến hình (Toán 11)", link: "cc_cd1bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 2. Phép tịnh tiến", ma: "Củng cố – Chuyên đề 1, Bài 2. Phép tịnh tiến (Toán 11)", link: "cc_cd1bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 3. Phép đối xứng trục", ma: "Củng cố – Chuyên đề 1, Bài 3. Phép đối xứng trục (Toán 11)", link: "cc_cd1bai3_t11.html" },

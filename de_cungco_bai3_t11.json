@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Tập xác định của hàm số $y=\\tan x$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\mathbb{R}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\mathbb{R}\\setminus\\{k\\pi\\mid k\\in\\mathbb{Z}\\}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\mathbb{R}\\setminus\\left\\{\\frac{\\pi}{2}+k\\pi\\mid k\\in\\mathbb{Z}\\right\\}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\mathbb{R}\\setminus\\{k2\\pi\\mid k\\in\\mathbb{Z}\\}$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$\\tan x=\\frac{\\sin x}{\\cos x}$ xác định khi $\\cos x\\ne 0$, tức là $x\\ne\\frac{\\pi}{2}+k\\pi$. Tập $\\mathbb{R}\\setminus\\{k\\pi\\}$ là tập xác định của $y=\\cot x$."
+        },
+        {
+          "content": "Hàm số nào sau đây là hàm số chẵn?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$y=\\sin x$"
+            },
+            {
+              "l": "B",
+              "t": "$y=\\cos x$"
+            },
+            {
+              "l": "C",
+              "t": "$y=\\tan x$"
+            },
+            {
+              "l": "D",
+              "t": "$y=\\cot x$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$\\cos(-x)=\\cos x$ với mọi $x$ nên $y=\\cos x$ là hàm số chẵn; ba hàm số $\\sin x$, $\\tan x$, $\\cot x$ đều là hàm số lẻ."
+        },
+        {
+          "content": "Chu kì của hàm số $y=\\cos 2x$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\pi$"
+            },
+            {
+              "l": "B",
+              "t": "$4\\pi$"
+            },
+            {
+              "l": "C",
+              "t": "$\\frac{\\pi}{2}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\pi$"
+            }
+          ],
+          "correct": "D",
+          "expl": "Hàm số $y=A\\cos\\omega x$ có chu kì $T=\\frac{2\\pi}{|\\omega|}$; với $\\omega=2$ ta có $T=\\pi$. Kết quả $4\\pi$ sai do nhân $2\\pi$ với 2."
+        },
+        {
+          "content": "Tập giá trị của hàm số $y=3\\sin x-1$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$[-4;2]$"
+            },
+            {
+              "l": "B",
+              "t": "$[-1;1]$"
+            },
+            {
+              "l": "C",
+              "t": "$[-3;3]$"
+            },
+            {
+              "l": "D",
+              "t": "$[-2;4]$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$-1\\le\\sin x\\le 1\\Rightarrow -3\\le 3\\sin x\\le 3\\Rightarrow -4\\le 3\\sin x-1\\le 2$. Tập $[-3;3]$ là tập giá trị của $3\\sin x$ (quên trừ 1)."
+        },
+        {
+          "content": "Hàm số $y=\\sin x$ đồng biến trên khoảng nào sau đây?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(0;\\pi)$"
+            },
+            {
+              "l": "B",
+              "t": "$\\left(\\frac{\\pi}{2};\\frac{3\\pi}{2}\\right)$"
+            },
+            {
+              "l": "C",
+              "t": "$\\left(-\\frac{\\pi}{2};\\frac{\\pi}{2}\\right)$"
+            },
+            {
+              "l": "D",
+              "t": "$(-\\pi;0)$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$y=\\sin x$ đồng biến trên mỗi khoảng $\\left(-\\frac{\\pi}{2}+k2\\pi;\\frac{\\pi}{2}+k2\\pi\\right)$; với $k=0$ là $\\left(-\\frac{\\pi}{2};\\frac{\\pi}{2}\\right)$. Trên $\\left(\\frac{\\pi}{2};\\frac{3\\pi}{2}\\right)$ hàm số nghịch biến."
+        },
+        {
+          "content": "Trên đoạn $[0;2\\pi]$, hàm số $y=\\cos x$ nhận giá trị âm khi $x$ thuộc",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(0;\\pi)$"
+            },
+            {
+              "l": "B",
+              "t": "$\\left(\\frac{\\pi}{2};\\frac{3\\pi}{2}\\right)$"
+            },
+            {
+              "l": "C",
+              "t": "$(\\pi;2\\pi)$"
+            },
+            {
+              "l": "D",
+              "t": "$\\left(0;\\frac{\\pi}{2}\\right)\\cup\\left(\\frac{3\\pi}{2};2\\pi\\right)$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Trên $[0;2\\pi]$, đồ thị $y=\\cos x$ nằm dưới trục hoành khi $\\frac{\\pi}{2}<x<\\frac{3\\pi}{2}$. Khoảng $(\\pi;2\\pi)$ là nơi $\\sin x<0$ (nhầm sin với côsin)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Nhiệt độ ngoài trời ở xã Vĩnh Thạnh trong một ngày được mô hình hoá bởi hàm số $T(t)=27+4\\sin\\frac{\\pi(t-9)}{12}$ (°C), trong đó $t$ là thời gian tính bằng giờ kể từ 0 giờ ($0\\le t\\le 24$). Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Nhiệt độ cao nhất trong ngày là 31 °C.",
+              "correct": true,
+              "expl": "Vì $\\sin\\frac{\\pi(t-9)}{12}\\le 1$ nên $T(t)\\le 31$; dấu bằng xảy ra khi $\\frac{\\pi(t-9)}{12}=\\frac{\\pi}{2}$, tức $t=15\\in[0;24]$."
+            },
+            {
+              "text": "Nhiệt độ cao nhất đạt được lúc 12 giờ trưa.",
+              "correct": false,
+              "expl": "Nhiệt độ cao nhất khi $t=15$, tức lúc 15 giờ (3 giờ chiều). Lúc 12 giờ: $T(12)=27+4\\sin\\frac{\\pi}{4}\\approx 29,8$ °C."
+            },
+            {
+              "text": "Lúc 9 giờ sáng, nhiệt độ ngoài trời là 27 °C.",
+              "correct": true,
+              "expl": "$T(9)=27+4\\sin 0=27$ (°C)."
+            },
+            {
+              "text": "Hàm số $T(t)$ tuần hoàn với chu kì 12 giờ.",
+              "correct": false,
+              "expl": "Chu kì $\\frac{2\\pi}{\\frac{\\pi}{12}}=24$ (giờ), không phải 12 giờ."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

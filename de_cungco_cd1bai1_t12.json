@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Cho biến ngẫu nhiên rời rạc $X$ có bảng phân bố xác suất như hình dưới đây. Giá trị của $a$ là",
+          "imageUrl": "t12_cd1bai1_c1.png",
+          "options": [
+            {
+              "l": "A",
+              "t": "$0{,}4$"
+            },
+            {
+              "l": "B",
+              "t": "$0{,}3$"
+            },
+            {
+              "l": "C",
+              "t": "$0{,}5$"
+            },
+            {
+              "l": "D",
+              "t": "$0{,}2$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Tổng các xác suất bằng 1: $0{,}2+0{,}3+a+0{,}1=1\\Rightarrow a=0{,}4$."
+        },
+        {
+          "content": "Cho biến ngẫu nhiên rời rạc $X$ có bảng phân bố xác suất như hình dưới đây. Kì vọng $E(X)$ bằng",
+          "imageUrl": "t12_cd1bai1_c2.png",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2$"
+            },
+            {
+              "l": "B",
+              "t": "$1{,}9$"
+            },
+            {
+              "l": "C",
+              "t": "$1{,}8$"
+            },
+            {
+              "l": "D",
+              "t": "$2{,}1$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$E(X)=1\\cdot 0{,}3+2\\cdot 0{,}5+3\\cdot 0{,}2=0{,}3+1+0{,}6=1{,}9$. Lưu ý: $E(X)$ không phải trung bình cộng của các giá trị $1,2,3$."
+        },
+        {
+          "content": "Cho biến ngẫu nhiên rời rạc $X$ có bảng phân bố xác suất như hình dưới đây. Xác suất $P(X\\ge 2)$ bằng",
+          "imageUrl": "t12_cd1bai1_c3.png",
+          "options": [
+            {
+              "l": "A",
+              "t": "$0{,}3$"
+            },
+            {
+              "l": "B",
+              "t": "$0{,}4$"
+            },
+            {
+              "l": "C",
+              "t": "$0{,}7$"
+            },
+            {
+              "l": "D",
+              "t": "$0{,}6$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$P(X\\ge 2)=P(X=2)+P(X=3)+P(X=4)=0{,}4+0{,}2+0{,}1=0{,}7$ (hoặc $1-P(X=0)-P(X=1)=1-0{,}3=0{,}7$)."
+        },
+        {
+          "content": "Cho biến ngẫu nhiên rời rạc $X$ có bảng phân bố xác suất như hình dưới đây. Độ lệch chuẩn $\\sigma(X)$ bằng",
+          "imageUrl": "t12_cd1bai1_c4.png",
+          "options": [
+            {
+              "l": "A",
+              "t": "$4$"
+            },
+            {
+              "l": "B",
+              "t": "$\\sqrt{2}$"
+            },
+            {
+              "l": "C",
+              "t": "$16$"
+            },
+            {
+              "l": "D",
+              "t": "$2$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$E(X)=0\\cdot 0{,}5+4\\cdot 0{,}5=2$; $V(X)=0^2\\cdot 0{,}5+4^2\\cdot 0{,}5-2^2=8-4=4$; $\\sigma(X)=\\sqrt{4}=2$. Lưu ý: $4$ là phương sai, không phải độ lệch chuẩn."
+        },
+        {
+          "content": "Tung một đồng xu cân đối, đồng chất hai lần liên tiếp. Gọi $X$ là số lần xuất hiện mặt ngửa. Xác suất $P(X=1)$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\dfrac{1}{4}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\dfrac{1}{2}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\dfrac{3}{4}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\dfrac{1}{3}$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Không gian mẫu $\\{SS;SN;NS;NN\\}$ có 4 kết quả; biến cố $\\{X=1\\}=\\{SN;NS\\}$ có 2 kết quả. Vậy $P(X=1)=\\dfrac{2}{4}=\\dfrac{1}{2}$."
+        },
+        {
+          "content": "Một hộp có 4 viên bi đỏ và 2 viên bi xanh có cùng kích thước và khối lượng. Lấy ngẫu nhiên đồng thời 2 viên bi. Gọi $X$ là số viên bi xanh lấy được. Kì vọng $E(X)$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\dfrac{1}{3}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\dfrac{1}{2}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\dfrac{2}{3}$"
+            },
+            {
+              "l": "D",
+              "t": "$1$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$C_6^2=15$. $P(X=0)=\\dfrac{C_4^2}{15}=\\dfrac{6}{15}$; $P(X=1)=\\dfrac{C_4^1C_2^1}{15}=\\dfrac{8}{15}$; $P(X=2)=\\dfrac{C_2^2}{15}=\\dfrac{1}{15}$. $E(X)=\\dfrac{8}{15}+2\\cdot\\dfrac{1}{15}=\\dfrac{10}{15}=\\dfrac{2}{3}$."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Số máy bơm tưới bị hỏng trong một tuần ở một trang trại cà phê là biến ngẫu nhiên rời rạc $X$ có bảng phân bố xác suất như bảng dưới đây. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "t12_cd1bai1_c7.png",
+          "statements": [
+            {
+              "text": "Xác suất để trong một tuần có ít nhất một máy bơm bị hỏng là $0{,}5$.",
+              "correct": true,
+              "expl": "$P(X\\ge 1)=1-P(X=0)=1-0{,}5=0{,}5$."
+            },
+            {
+              "text": "$E(X)=0{,}75$.",
+              "correct": true,
+              "expl": "$E(X)=0\\cdot 0{,}5+1\\cdot 0{,}3+2\\cdot 0{,}15+3\\cdot 0{,}05=0{,}75$."
+            },
+            {
+              "text": "$V(X)=1{,}35$.",
+              "correct": false,
+              "expl": "$V(X)=1^2\\cdot 0{,}3+2^2\\cdot 0{,}15+3^2\\cdot 0{,}05-0{,}75^2=1{,}35-0{,}5625=0{,}7875$. Sai lầm thường gặp: quên trừ $\\mu^2$."
+            },
+            {
+              "text": "Chi phí sửa mỗi máy bơm là 500 nghìn đồng. Chi phí sửa chữa trung bình mỗi tuần của trang trại lớn hơn 400 nghìn đồng.",
+              "correct": false,
+              "expl": "Chi phí trung bình mỗi tuần: $500\\cdot E(X)=500\\cdot 0{,}75=375$ (nghìn đồng) $<400$ nghìn đồng."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

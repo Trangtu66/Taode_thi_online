@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 2. Công thức lượng giác (Toán 11)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Với mọi số thực $a$, $b$, ta có $\\cos(a+b)$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\cos a\\cos b+\\sin a\\sin b$"
+            },
+            {
+              "l": "B",
+              "t": "$\\sin a\\cos b+\\cos a\\sin b$"
+            },
+            {
+              "l": "C",
+              "t": "$\\cos a\\cos b-\\sin a\\sin b$"
+            },
+            {
+              "l": "D",
+              "t": "$\\cos a+\\cos b$"
+            }
+          ],
+          "correct": "C",
+          "expl": "Công thức cộng: $\\cos(a+b)=\\cos a\\cos b-\\sin a\\sin b$. Biểu thức $\\cos a\\cos b+\\sin a\\sin b$ là của $\\cos(a-b)$; $\\cos(a+b)\\ne\\cos a+\\cos b$."
+        },
+        {
+          "content": "Với mọi số thực $a$, ta có $\\sin 2a$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\sin a\\cos a$"
+            },
+            {
+              "l": "B",
+              "t": "$2\\sin a$"
+            },
+            {
+              "l": "C",
+              "t": "$\\cos^2 a-\\sin^2 a$"
+            },
+            {
+              "l": "D",
+              "t": "$\\sin^2 a-\\cos^2 a$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Công thức nhân đôi: $\\sin 2a=2\\sin a\\cos a$. Biểu thức $\\cos^2 a-\\sin^2 a$ là $\\cos 2a$."
+        },
+        {
+          "content": "Không dùng máy tính, giá trị của $\\cos 105^\\circ$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\frac{\\sqrt{6}-\\sqrt{2}}{4}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\frac{\\sqrt{2}+\\sqrt{6}}{4}$"
+            },
+            {
+              "l": "C",
+              "t": "$-\\frac{\\sqrt{2}+\\sqrt{6}}{4}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\frac{\\sqrt{2}-\\sqrt{6}}{4}$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$\\cos 105^\\circ=\\cos(60^\\circ+45^\\circ)=\\cos 60^\\circ\\cos 45^\\circ-\\sin 60^\\circ\\sin 45^\\circ=\\frac{\\sqrt{2}}{4}-\\frac{\\sqrt{6}}{4}=\\frac{\\sqrt{2}-\\sqrt{6}}{4}$. Kết quả $\\frac{\\sqrt{6}-\\sqrt{2}}{4}$ là $\\cos 75^\\circ$, sai dấu."
+        },
+        {
+          "content": "Cho $\\cos a=\\frac{1}{3}$. Giá trị của $\\cos 2a$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\frac{7}{9}$"
+            },
+            {
+              "l": "B",
+              "t": "$-\\frac{7}{9}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\frac{2}{3}$"
+            },
+            {
+              "l": "D",
+              "t": "$-\\frac{1}{3}$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$\\cos 2a=2\\cos^2 a-1=2\\cdot\\frac{1}{9}-1=-\\frac{7}{9}$. Kết quả $\\frac{7}{9}$ sai do dùng nhầm $1-2\\cos^2 a$; kết quả $\\frac{2}{3}$ sai do viết $\\cos 2a=2\\cos a$."
+        },
+        {
+          "content": "Biểu thức $\\cos 5x+\\cos x$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\cos 3x\\cos 2x$"
+            },
+            {
+              "l": "B",
+              "t": "$2\\sin 3x\\sin 2x$"
+            },
+            {
+              "l": "C",
+              "t": "$-2\\sin 3x\\sin 2x$"
+            },
+            {
+              "l": "D",
+              "t": "$2\\cos 6x\\cos 4x$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$\\cos u+\\cos v=2\\cos\\frac{u+v}{2}\\cos\\frac{u-v}{2}$ nên $\\cos 5x+\\cos x=2\\cos 3x\\cos 2x$. Biểu thức $2\\cos 6x\\cos 4x$ sai do quên chia 2."
+        },
+        {
+          "content": "Cho $\\tan a=2$. Giá trị của $\\tan\\left(a+\\frac{\\pi}{4}\\right)$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$3$"
+            },
+            {
+              "l": "B",
+              "t": "$\\frac{1}{3}$"
+            },
+            {
+              "l": "C",
+              "t": "$-\\frac{1}{3}$"
+            },
+            {
+              "l": "D",
+              "t": "$-3$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$\\tan\\left(a+\\frac{\\pi}{4}\\right)=\\frac{\\tan a+1}{1-\\tan a}=\\frac{2+1}{1-2}=-3$. Kết quả $3$ sai do dùng mẫu $1+\\tan a\\tan b$ (của $\\tan(a-b)$)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Khi nhấn phím 1 trên bàn phím điện thoại cảm ứng, máy tạo ra hai âm thuần có tần số thấp $f_1=697$ Hz và tần số cao $f_2=1209$ Hz; âm thanh tạo ra là sóng $y=\\sin(2\\pi f_1 t)+\\sin(2\\pi f_2 t)$, trong đó $t$ là thời gian (giây). Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Hàm số mô hình hoá âm thanh khi nhấn phím 1 là $y=\\sin(1394\\pi t)+\\sin(2418\\pi t)$.",
+              "correct": true,
+              "expl": "$2\\pi\\cdot 697=1394\\pi$ và $2\\pi\\cdot 1209=2418\\pi$."
+            },
+            {
+              "text": "Có thể viết $y=2\\sin(1906\\pi t)\\sin(512\\pi t)$.",
+              "correct": false,
+              "expl": "$\\sin u+\\sin v=2\\sin\\frac{u+v}{2}\\cos\\frac{u-v}{2}$ nên $y=2\\sin(1906\\pi t)\\cos(512\\pi t)$ (thừa số thứ hai là côsin, không phải sin)."
+            },
+            {
+              "text": "Với mọi $t$, ta có $-2\\le y\\le 2$.",
+              "correct": true,
+              "expl": "$y=2\\sin(1906\\pi t)\\cos(512\\pi t)$ mà $|\\sin(1906\\pi t)|\\le 1$, $|\\cos(512\\pi t)|\\le 1$ nên $|y|\\le 2$."
+            },
+            {
+              "text": "Tại thời điểm $t=0$ thì $y=2$.",
+              "correct": false,
+              "expl": "$y(0)=\\sin 0+\\sin 0=0$."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

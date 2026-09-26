@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Chuyên đề 1, Bài 1. Phép biến hình (Toán 11)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Phép biến hình trong mặt phẳng là một quy tắc để ứng với mỗi điểm $M$ thuộc mặt phẳng, xác định được",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "ít nhất một điểm $M'$ thuộc mặt phẳng đó"
+            },
+            {
+              "l": "B",
+              "t": "duy nhất một điểm $M'$ thuộc mặt phẳng đó"
+            },
+            {
+              "l": "C",
+              "t": "hai điểm đối xứng với nhau qua $M$"
+            },
+            {
+              "l": "D",
+              "t": "một đường thẳng đi qua $M$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Theo định nghĩa, phép biến hình ứng mỗi điểm $M$ với DUY NHẤT một điểm $M'$. Quy tắc cho nhiều hơn một điểm không phải là phép biến hình."
+        },
+        {
+          "content": "Phép đồng nhất biến điểm $M$ thành",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "điểm đối xứng với $M$ qua gốc tọa độ"
+            },
+            {
+              "l": "B",
+              "t": "hình chiếu của $M$ trên trục $Ox$"
+            },
+            {
+              "l": "C",
+              "t": "chính điểm $M$"
+            },
+            {
+              "l": "D",
+              "t": "một điểm tùy ý"
+            }
+          ],
+          "correct": "C",
+          "expl": "Phép biến hình biến mỗi điểm $M$ thành chính $M$ được gọi là phép đồng nhất."
+        },
+        {
+          "content": "Trong mặt phẳng $Oxy$, phép biến hình $f$ biến mỗi điểm $M(x;y)$ thành $M'(x+2;y-1)$. Ảnh của điểm $A(1;3)$ qua $f$ là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(3;2)$"
+            },
+            {
+              "l": "B",
+              "t": "$(-1;4)$"
+            },
+            {
+              "l": "C",
+              "t": "$(3;4)$"
+            },
+            {
+              "l": "D",
+              "t": "$(2;-3)$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$A'(1+2;\\,3-1)=(3;2)$. Kết quả $(-1;4)$ sai do trừ 2 và cộng 1 (làm ngược quy tắc)."
+        },
+        {
+          "content": "Trong mặt phẳng $Oxy$, phép biến hình $f$ biến mỗi điểm $M(x;y)$ thành $M'(x+1;y+2)$. Điểm nào có ảnh qua $f$ là $B'(4;5)$?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$(5;7)$"
+            },
+            {
+              "l": "B",
+              "t": "$(4;5)$"
+            },
+            {
+              "l": "C",
+              "t": "$(3;7)$"
+            },
+            {
+              "l": "D",
+              "t": "$(3;3)$"
+            }
+          ],
+          "correct": "D",
+          "expl": "Gọi $B(x;y)$ thì $x+1=4$, $y+2=5$ nên $B(3;3)$. Kết quả $(5;7)$ là ảnh của $B'$ chứ không phải điểm có ảnh là $B'$."
+        },
+        {
+          "content": "Trong mặt phẳng $Oxy$, phép biến hình $f$ biến mỗi điểm $M(x;y)$ thành $M'(x;2y)$. Ảnh của đường thẳng $y=x+1$ qua $f$ là đường thẳng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$y=x+2$"
+            },
+            {
+              "l": "B",
+              "t": "$y=2x+2$"
+            },
+            {
+              "l": "C",
+              "t": "$y=2x+1$"
+            },
+            {
+              "l": "D",
+              "t": "$y=\\frac{1}{2}x+1$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Lấy $M(x_0;x_0+1)$ thì ảnh $M'(x_0;\\,2x_0+2)$ thỏa mãn $y=2x+2$. Kết quả $y=2x+1$ sai do chỉ nhân 2 hệ số của $x$."
+        },
+        {
+          "content": "Trong mặt phẳng $Oxy$, phép co về trục $Ox$ biến mỗi điểm $M(x;y)$ thành $M'\\left(x;\\frac{1}{2}y\\right)$. Ảnh của đường tròn $x^2+y^2=4$ là elip có phương trình",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$\\frac{x^2}{4}+\\frac{y^2}{16}=1$"
+            },
+            {
+              "l": "B",
+              "t": "$\\frac{x^2}{2}+y^2=1$"
+            },
+            {
+              "l": "C",
+              "t": "$\\frac{x^2}{4}+\\frac{y^2}{1}=1$"
+            },
+            {
+              "l": "D",
+              "t": "$\\frac{x^2}{4}+\\frac{y^2}{2}=1$"
+            }
+          ],
+          "correct": "C",
+          "expl": "Với $R=2$, $k=\\frac{1}{2}$: elip $\\frac{x^2}{R^2}+\\frac{y^2}{(kR)^2}=1$, tức $\\frac{x^2}{4}+\\frac{y^2}{1}=1$. Kết quả có mẫu 16 là của phép dãn với $k=2$."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Trong phần mềm chỉnh ảnh, một bức ảnh hình chữ nhật kích thước 1200 × 800 (điểm ảnh) được đặt trong hệ tọa độ $Oxy$, góc dưới bên trái tại $O$, chiều rộng theo trục $Ox$. Bạn Nam dùng phép co về trục $Ox$ biến mỗi điểm $M(x;y)$ thành $M'(x;\\,0{,}5y)$. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Góc trên bên phải $(1200;800)$ của ảnh biến thành điểm $(1200;400)$.",
+              "correct": true,
+              "expl": "$M'(1200;\\,0{,}5\\cdot 800)=(1200;400)$."
+            },
+            {
+              "text": "Bức ảnh mới có kích thước 600 × 800.",
+              "correct": false,
+              "expl": "Chiều rộng giữ nguyên, chiều cao nhân 0,5: ảnh mới có kích thước 1200 × 400."
+            },
+            {
+              "text": "Diện tích bức ảnh mới bằng một nửa diện tích bức ảnh cũ.",
+              "correct": true,
+              "expl": "$1200\\cdot 400=\\frac{1}{2}\\cdot 1200\\cdot 800$."
+            },
+            {
+              "text": "Hình tròn tâm $(600;400)$, bán kính 100 trong ảnh biến thành một hình tròn bán kính 50.",
+              "correct": false,
+              "expl": "Phép co về trục biến đường tròn thành elip (bán trục 100 theo $Ox$, 50 theo $Oy$), không phải đường tròn."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

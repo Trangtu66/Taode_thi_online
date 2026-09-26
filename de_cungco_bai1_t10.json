@@ -3,7 +3,9 @@
     "title": "Củng cố – Bài 1. Mệnh đề (Toán 10)",
     "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
     "timeMinutes": 7,
-    "requireName": true
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
   },
   "parts": [
     {
@@ -33,7 +35,7 @@
             }
           ],
           "correct": "C",
-          "expl": "Câu cảm thán (A) và câu hỏi (B) không phải mệnh đề; câu D là mệnh đề chứa biến (chưa xác định được đúng hay sai khi chưa biết $x$). Câu C là một khẳng định sai (vì $15=3\\cdot 5$) nên là mệnh đề."
+          "expl": "Câu cảm thán \"Hôm nay trời đẹp quá!\" và câu hỏi \"Bạn có đi học không?\" không phải mệnh đề; \"$x+2=5$\" là mệnh đề chứa biến (chưa xác định được đúng hay sai khi chưa biết $x$). \"15 là số nguyên tố\" là một khẳng định sai (vì $15=3\\cdot 5$) nên là mệnh đề."
         },
         {
           "content": "Mệnh đề phủ định của mệnh đề \"Số 7 là số chẵn\" là",
@@ -153,7 +155,7 @@
             }
           ],
           "correct": "D",
-          "expl": "$x^2-2x+2=(x-1)^2+1\\ge 1>0$ với mọi $x$ nên D đúng. A sai ($n^2=2$ không có nghiệm tự nhiên); B sai (với $x=\\frac{1}{2}$ thì $x^2=\\frac{1}{4}<\\frac{1}{2}$); C sai (phương trình có $\\Delta=-3<0$)."
+          "expl": "$x^2-2x+2=(x-1)^2+1\\ge 1>0$ với mọi $x$ nên mệnh đề \"$\\forall x\\in\\mathbb{R},\\ x^2-2x+2>0$\" đúng. Các mệnh đề còn lại sai: $n^2=2$ không có nghiệm tự nhiên; với $x=\\frac{1}{2}$ thì $x^2=\\frac{1}{4}<\\frac{1}{2}$ nên \"$\\forall x\\in\\mathbb{R},\\ x^2\\ge x$\" sai; phương trình $x^2+x+1=0$ có $\\Delta=-3<0$ nên vô nghiệm."
         }
       ]
     },

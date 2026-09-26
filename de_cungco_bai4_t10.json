@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 4. Hệ bất phương trình bậc nhất hai ẩn (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Hệ nào sau đây là hệ bất phương trình bậc nhất hai ẩn?",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "$\\begin{cases} x+y\\le 3\\\\ 2x-y>1\\end{cases}$" },
+            { "l": "B", "t": "$\\begin{cases} x^2+y\\le 3\\\\ x-y>1\\end{cases}$" },
+            { "l": "C", "t": "$\\begin{cases} xy\\ge 2\\\\ x+y<5\\end{cases}$" },
+            { "l": "D", "t": "$\\begin{cases} x+y+z<1\\\\ y\\ge 0\\end{cases}$" }
+          ],
+          "correct": "A",
+          "expl": "Hệ gồm $x+y\\le 3$ và $2x-y>1$ là hệ bất phương trình bậc nhất hai ẩn. Các hệ còn lại chứa $x^2$, chứa $xy$ hoặc có ba ẩn $x, y, z$."
+        },
+        {
+          "content": "Cặp số nào sau đây là một nghiệm của hệ bất phương trình $\\begin{cases} x+y\\le 4\\\\ x-y\\ge 0\\end{cases}$?",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "$(1;3)$" },
+            { "l": "B", "t": "$(3;1)$" },
+            { "l": "C", "t": "$(2;3)$" },
+            { "l": "D", "t": "$(0;5)$" }
+          ],
+          "correct": "B",
+          "expl": "$(3;1)$: $3+1=4\\le 4$ và $3-1=2\\ge 0$ nên là nghiệm. $(1;3)$: $1-3=-2<0$; $(2;3)$: $2+3=5>4$; $(0;5)$: $0+5=5>4$ – đều không là nghiệm."
+        },
+        {
+          "content": "Miền nghiệm của hệ bất phương trình $\\begin{cases} x\\ge 0\\\\ y\\ge 0\\\\ x+y\\le 5\\end{cases}$ là",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "nửa mặt phẳng bờ $x+y=5$ chứa gốc tọa độ" },
+            { "l": "B", "t": "miền tam giác $OAB$ với $A(5;0)$, $B(0;5)$, không kể cạnh $AB$" },
+            { "l": "C", "t": "miền tam giác $OAB$ với $A(5;0)$, $B(0;5)$, kể cả các cạnh" },
+            { "l": "D", "t": "góc phần tư thứ nhất của mặt phẳng tọa độ" }
+          ],
+          "correct": "C",
+          "expl": "Miền nghiệm là giao của ba nửa mặt phẳng $x\\ge 0$, $y\\ge 0$, $x+y\\le 5$: đó là miền tam giác $OAB$ với $A(5;0)$, $B(0;5)$. Các dấu đều là $\\ge$, $\\le$ nên kể cả các cạnh."
+        },
+        {
+          "content": "Điểm nào sau đây KHÔNG thuộc miền nghiệm của hệ $\\begin{cases} x\\ge 0\\\\ y>0\\\\ 2x+y<6\\end{cases}$?",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "$(1;1)$" },
+            { "l": "B", "t": "$(0;2)$" },
+            { "l": "C", "t": "$(2;1)$" },
+            { "l": "D", "t": "$(3;0)$" }
+          ],
+          "correct": "D",
+          "expl": "Điểm $(3;0)$ có $y=0$, không thỏa mãn $y>0$ (và $2\\cdot 3+0=6$ không nhỏ hơn $6$) nên không thuộc miền nghiệm. Các điểm $(1;1)$, $(0;2)$, $(2;1)$ đều thỏa mãn cả ba bất phương trình."
+        },
+        {
+          "content": "Miền nghiệm của một hệ bất phương trình là miền tứ giác $OABC$ với $O(0;0)$, $A(0;4)$, $B(2;3)$, $C(3;0)$. Giá trị lớn nhất của $F(x;y)=3x+2y$ trên miền đó là",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "$12$" },
+            { "l": "B", "t": "$9$" },
+            { "l": "C", "t": "$8$" },
+            { "l": "D", "t": "$13$" }
+          ],
+          "correct": "A",
+          "expl": "Giá trị lớn nhất đạt tại một đỉnh: $F(0;0)=0$, $F(0;4)=8$, $F(2;3)=12$, $F(3;0)=9$. Vậy giá trị lớn nhất là $12$ tại $B(2;3)$. (Giá trị $13$ là do nhầm thành $2x+3y$.)"
+        },
+        {
+          "content": "Một suất ăn gồm $x$ lạng thịt nạc và $y$ lạng đậu phụ. Các điều kiện về protein, khối lượng, ngân sách cho miền nghiệm là ngũ giác với các đỉnh $(0{,}5;2)$, $(1;2)$, $(1{,}5;1{,}5)$, $(1{,}8;0)$, $(1{,}5;0)$. Chi phí là $F(x;y)=15x+3y$ (nghìn đồng). Chi phí thấp nhất của suất ăn là",
+          "imageUrl": "",
+          "options": [
+            { "l": "A", "t": "$21$ nghìn đồng" },
+            { "l": "B", "t": "$22{,}5$ nghìn đồng" },
+            { "l": "C", "t": "$13{,}5$ nghìn đồng" },
+            { "l": "D", "t": "$27$ nghìn đồng" }
+          ],
+          "correct": "C",
+          "expl": "Tính $F$ tại các đỉnh: $F(0{,}5;2)=13{,}5$; $F(1;2)=21$; $F(1{,}5;1{,}5)=27$; $F(1{,}8;0)=27$; $F(1{,}5;0)=22{,}5$. Chi phí thấp nhất là $13{,}5$ nghìn đồng (50 g thịt và 200 g đậu phụ)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Bếp ăn bán trú của một trường ở Vĩnh Thạnh mỗi ngày mua $x$ kg thịt gà và $y$ kg cá rô phi. Giá thịt gà là 120 nghìn đồng/kg, giá cá rô phi là 60 nghìn đồng/kg; số tiền mua không quá 1,2 triệu đồng; tổng khối lượng ít nhất 12 kg; cá rô phi không quá 10 kg ($x\\ge 0$, $y\\ge 0$). Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Điều kiện về số tiền mua được viết là $2x+y\\le 20$.",
+              "correct": true,
+              "expl": "Số tiền mua là $120x+60y$ (nghìn đồng), không quá $1200$ nghìn đồng: $120x+60y\\le 1200\\Leftrightarrow 2x+y\\le 20$."
+            },
+            {
+              "text": "Cặp số $(6;5)$ thuộc miền nghiệm của hệ bất phương trình biểu thị các điều kiện của bài toán.",
+              "correct": false,
+              "expl": "$6+5=11<12$: không thỏa mãn điều kiện tổng khối lượng ít nhất 12 kg nên $(6;5)$ không thuộc miền nghiệm."
+            },
+            {
+              "text": "Miền nghiệm của hệ là miền tam giác có các đỉnh $(2;10)$, $(5;10)$, $(8;4)$.",
+              "correct": true,
+              "expl": "Hệ: $x\\ge 0$, $y\\ge 0$, $y\\le 10$, $x+y\\ge 12$, $2x+y\\le 20$. Các đỉnh: giao của $y=10$ và $x+y=12$ là $(2;10)$; của $y=10$ và $2x+y=20$ là $(5;10)$; của $x+y=12$ và $2x+y=20$ là $(8;4)$."
+            },
+            {
+              "text": "Để chi phí thấp nhất, bếp ăn cần mua 8 kg thịt gà và 4 kg cá rô phi.",
+              "correct": false,
+              "expl": "Chi phí $F=120x+60y$: $F(2;10)=840$, $F(5;10)=1200$, $F(8;4)=1200$. Chi phí thấp nhất là 840 nghìn đồng khi mua 2 kg thịt gà và 10 kg cá rô phi."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

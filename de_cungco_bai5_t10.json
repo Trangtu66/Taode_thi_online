@@ -19,11 +19,11 @@
           "options": [
             {
               "l": "A",
-              "t": "$\\frac{1}{2}$"
+              "t": "$-\\frac{1}{2}$"
             },
             {
               "l": "B",
-              "t": "$-\\frac{1}{2}$"
+              "t": "$\\frac{1}{2}$"
             },
             {
               "l": "C",
@@ -34,7 +34,7 @@
               "t": "$-\\frac{\\sqrt{3}}{2}$"
             }
           ],
-          "correct": "A",
+          "correct": "B",
           "expl": "$\\sin 150^\\circ=\\sin(180^\\circ-30^\\circ)=\\sin 30^\\circ=\\frac{1}{2}$ (hai góc bù nhau có sin bằng nhau)."
         },
         {
@@ -43,7 +43,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$\\sin\\alpha>0$ và $\\cos\\alpha<0$"
+              "t": "$\\cot\\alpha>0$"
             },
             {
               "l": "B",
@@ -55,10 +55,10 @@
             },
             {
               "l": "D",
-              "t": "$\\cot\\alpha>0$"
+              "t": "$\\sin\\alpha>0$ và $\\cos\\alpha<0$"
             }
           ],
-          "correct": "A",
+          "correct": "D",
           "expl": "Điểm $M(x_0;y_0)$ nằm bên trái trục tung, phía trên trục hoành nên $y_0>0$, $x_0<0$: $\\sin\\alpha>0$, $\\cos\\alpha<0$; do đó $\\tan\\alpha<0$, $\\cot\\alpha<0$."
         },
         {
@@ -67,7 +67,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$-\\frac{\\sqrt{2}}{2}$"
+              "t": "$-\\frac{1}{2}$"
             },
             {
               "l": "B",
@@ -75,14 +75,14 @@
             },
             {
               "l": "C",
-              "t": "$-\\frac{1}{2}$"
+              "t": "$-\\frac{\\sqrt{2}}{2}$"
             },
             {
               "l": "D",
               "t": "$\\frac{\\sqrt{3}}{2}$"
             }
           ],
-          "correct": "A",
+          "correct": "C",
           "expl": "$\\cos 135^\\circ=-\\cos 45^\\circ=-\\frac{\\sqrt{2}}{2}$."
         },
         {
@@ -91,7 +91,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$\\sin(180^\\circ-\\alpha)=\\sin\\alpha$"
+              "t": "$\\tan(180^\\circ-\\alpha)=\\tan\\alpha$"
             },
             {
               "l": "B",
@@ -99,14 +99,14 @@
             },
             {
               "l": "C",
-              "t": "$\\tan(180^\\circ-\\alpha)=\\tan\\alpha$"
+              "t": "$\\sin(180^\\circ-\\alpha)=\\sin\\alpha$"
             },
             {
               "l": "D",
               "t": "$\\cot(180^\\circ-\\alpha)=-\\cot\\alpha$"
             }
           ],
-          "correct": "C",
+          "correct": "A",
           "expl": "Hai góc bù nhau có tang đối nhau: $\\tan(180^\\circ-\\alpha)=-\\tan\\alpha$."
         },
         {
@@ -115,11 +115,11 @@
           "options": [
             {
               "l": "A",
-              "t": "$\\frac{3}{2}$"
+              "t": "$1$"
             },
             {
               "l": "B",
-              "t": "$1$"
+              "t": "$\\frac{3}{2}$"
             },
             {
               "l": "C",
@@ -130,7 +130,7 @@
               "t": "$2$"
             }
           ],
-          "correct": "A",
+          "correct": "B",
           "expl": "$\\frac{1}{4}+\\left(-\\frac{1}{2}\\right)^2+1=\\frac{1}{4}+\\frac{1}{4}+1=\\frac{3}{2}$."
         },
         {
@@ -139,7 +139,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$3$"
+              "t": "$-3$"
             },
             {
               "l": "B",
@@ -147,14 +147,14 @@
             },
             {
               "l": "C",
-              "t": "$-3$"
+              "t": "$3$"
             },
             {
               "l": "D",
               "t": "$2$"
             }
           ],
-          "correct": "A",
+          "correct": "C",
           "expl": "Vì $\\tan\\alpha=2$ nên $\\cos\\alpha\\ne 0$. Chia tử và mẫu cho $\\cos\\alpha$: $P=\\frac{\\tan\\alpha+1}{\\tan\\alpha-1}=\\frac{3}{1}=3$."
         }
       ]

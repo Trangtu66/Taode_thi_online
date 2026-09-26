@@ -3,7 +3,9 @@
     "title": "Củng cố – Bài tập cuối chương I (Toán 10)",
     "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
     "timeMinutes": 7,
-    "requireName": true
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
   },
   "parts": [
     {
@@ -57,7 +59,7 @@
             }
           ],
           "correct": "B",
-          "expl": "Phần tử dùng kí hiệu $\\in$ ($1\\in A$); tập hợp dùng kí hiệu $\\subset$ ($\\{1;2\\}\\subset A$, $\\varnothing\\subset A$). Chỉ B đúng."
+          "expl": "Phần tử dùng kí hiệu $\\in$ ($1\\in A$); tập hợp dùng kí hiệu $\\subset$ ($\\{1;2\\}\\subset A$, $\\varnothing\\subset A$). Chỉ khẳng định $\\{1;2\\}\\subset A$ đúng."
         },
         {
           "content": "Cho định lí: \"Nếu một tứ giác là hình vuông thì tứ giác đó là hình chữ nhật\". Mệnh đề nào sau đây đúng?",

@@ -3,7 +3,9 @@
     "title": "Củng cố – Bài 2. Tập hợp và các phép toán trên tập hợp (Toán 10)",
     "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
     "timeMinutes": 7,
-    "requireName": true
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
   },
   "parts": [
     {
@@ -57,7 +59,7 @@
             }
           ],
           "correct": "A",
-          "expl": "$x^2+1\\ge 1>0$ với mọi $x$ nên phương trình $x^2+1=0$ vô nghiệm, tập A rỗng. Tập B có hai phần tử $\\pm 1$; tập $\\{0\\}$ có một phần tử là số 0; tập D có hai phần tử $\\pm 2$."
+          "expl": "$x^2+1\\ge 1>0$ với mọi $x$ nên phương trình $x^2+1=0$ vô nghiệm, tập $\\{x\\in\\mathbb{R}\\mid x^2+1=0\\}$ là tập rỗng. Tập $\\{x\\in\\mathbb{R}\\mid x^2-1=0\\}$ có hai phần tử $\\pm 1$; tập $\\{0\\}$ có một phần tử là số 0; tập $\\{x\\in\\mathbb{Z}\\mid x^2=4\\}$ có hai phần tử $\\pm 2$."
         },
         {
           "content": "Cho tập hợp $X=\\{1;2\\}$. Cách viết nào sau đây đúng?",
@@ -81,7 +83,7 @@
             }
           ],
           "correct": "C",
-          "expl": "Phần tử dùng kí hiệu $\\in$: $1\\in X$; tập hợp dùng kí hiệu $\\subset$: $\\{1\\}\\subset X$, $\\varnothing\\subset X$. Vậy chỉ C đúng."
+          "expl": "Phần tử dùng kí hiệu $\\in$: $1\\in X$; tập hợp dùng kí hiệu $\\subset$: $\\{1\\}\\subset X$, $\\varnothing\\subset X$. Vậy chỉ cách viết $\\{1\\}\\subset X$ đúng."
         },
         {
           "content": "Tập hợp $\\{x\\in\\mathbb{R}\\mid -1<x\\le 3\\}$ được viết dưới dạng nửa khoảng là",

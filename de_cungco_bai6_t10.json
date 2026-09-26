@@ -19,7 +19,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$a^2=b^2+c^2-2bc\\cos A$"
+              "t": "$a^2=b^2+c^2-bc\\cos A$"
             },
             {
               "l": "B",
@@ -27,14 +27,14 @@
             },
             {
               "l": "C",
-              "t": "$a^2=b^2+c^2-bc\\cos A$"
+              "t": "$a^2=b^2+c^2-2bc\\cos A$"
             },
             {
               "l": "D",
               "t": "$a^2=b^2+c^2-2bc\\sin A$"
             }
           ],
-          "correct": "A",
+          "correct": "C",
           "expl": "Định lí côsin: $a^2=b^2+c^2-2bc\\cos A$."
         },
         {
@@ -67,7 +67,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$\\sqrt{19}$"
+              "t": "$4$"
             },
             {
               "l": "B",
@@ -79,10 +79,10 @@
             },
             {
               "l": "D",
-              "t": "$4$"
+              "t": "$\\sqrt{19}$"
             }
           ],
-          "correct": "A",
+          "correct": "D",
           "expl": "$a^2=9+25-2\\cdot 3\\cdot 5\\cdot\\cos 60^\\circ=34-15=19$ nên $a=\\sqrt{19}$. (Phương án 7 do nhầm dấu thành $+2bc\\cos A$.)"
         },
         {
@@ -91,11 +91,11 @@
           "options": [
             {
               "l": "A",
-              "t": "$6$"
+              "t": "$12$"
             },
             {
               "l": "B",
-              "t": "$12$"
+              "t": "$6$"
             },
             {
               "l": "C",
@@ -106,7 +106,7 @@
               "t": "$6\\sqrt{3}$"
             }
           ],
-          "correct": "A",
+          "correct": "B",
           "expl": "$2R=\\frac{a}{\\sin A}=\\frac{6}{0{,}5}=12$ nên $R=6$. (Phương án 12 là $2R$.)"
         },
         {
@@ -115,7 +115,7 @@
           "options": [
             {
               "l": "A",
-              "t": "$5$"
+              "t": "$10\\sqrt{3}$"
             },
             {
               "l": "B",
@@ -127,10 +127,10 @@
             },
             {
               "l": "D",
-              "t": "$10\\sqrt{3}$"
+              "t": "$5$"
             }
           ],
-          "correct": "A",
+          "correct": "D",
           "expl": "$S=\\frac{1}{2}bc\\sin A=\\frac{1}{2}\\cdot 4\\cdot 5\\cdot\\sin 150^\\circ=10\\cdot\\frac{1}{2}=5$."
         },
         {
