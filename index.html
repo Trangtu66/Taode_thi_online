@@ -62,6 +62,9 @@
             border: 1px solid #E2E8F0;
             transition: transform 0.2s;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .menu-card:hover {
             transform: translateY(-5px);
@@ -81,6 +84,7 @@
             border-radius: 5px;
             font-weight: bold;
             margin-top: 1rem;
+            align-self: center;
         }
         .btn:hover {
             background-color: #1D4ED8;
@@ -105,28 +109,43 @@
     <div class="container">
         <div class="intro-box">
             <h2>Chào mừng các em học sinh!</h2>
-            <p>Hệ thống hỗ trợ tự học, tự luyện tập sau mỗi bài học và ôn thi Tốt nghiệp THPT vĩnh viễn. bám sát cấu trúc định hướng và ma trận đề minh họa mới của Bộ Giáo dục & Đào tạo..</p>
+            <p>Hệ thống hỗ trợ tự học, tự luyện tập sau mỗi bài học và ôn thi Tốt nghiệp THPT vĩnh viễn. Đề thi được biên soạn bám sát cấu trúc định hướng và ma trận đề minh họa mới của Bộ Giáo dục & Đào tạo.</p>
         </div>
 
         <div class="grid-menu">
             <!-- Phân khu 1 -->
             <div class="menu-card">
-                <h3>📚 Tự Luyện Theo Bài Học</h3>
-                <p>Tổng hợp các bài trắc nghiệm củng cố nhanh ngay sau tiết học trên lớp của khối 10, 11 và 12.</p>
+                <div>
+                    <h3>📚 Tự Luyện Theo Bài Học</h3>
+                    <p>Tổng hợp các bài trắc nghiệm củng cố nhanh ngay sau tiết học trên lớp của khối 10, 11 và 12.</p>
+                </div>
                 <a href="#" class="btn">Vào Luyện Tập</a>
             </div>
 
             <!-- Phân khu 2 -->
             <div class="menu-card">
-                <h3>⏱️ Kiểm Tra Định Kỳ</h3>
-                <p>Các đề thi thử Giữa kỳ, Cuối kỳ có đồng hồ bấm giờ 45 phút - 90 phút và tự động chấm điểm.</p>
-                <a href="#" class="btn">Thử Sức Ngay</a>
+                <div>
+                    <h3>🗂️ Ôn Tập Theo Chương</h3>
+                    <p>Tổng hợp kiến thức, các bài toán thực tế và ngân hàng đề kiểm tra toàn diện sau khi kết thúc mỗi chương.</p>
+                </div>
+                <a href="#" class="btn">Vào Ôn Chương</a>
             </div>
 
             <!-- Phân khu 3 -->
             <div class="menu-card">
-                <h3>🎓 Ôn Thi Đột Phá TN THPT</h3>
-                <p>Luyện đề tổng hợp cấu trúc mới nhất gồm 3 phần: Nhiều lựa chọn, Đúng/Sai và Trả lời ngắn.</p>
+                <div>
+                    <h3>⏱️ Kiểm Tra Định Kỳ</h3>
+                    <p>Các đề thi thử Giữa kỳ, Cuối kỳ có đồng hồ bấm giờ 45 phút - 90 phút và tự động chấm điểm.</p>
+                </div>
+                <a href="#" class="btn">Thử Sức Ngay</a>
+            </div>
+
+            <!-- Phân khu 4 -->
+            <div class="menu-card">
+                <div>
+                    <h3>🎓 Ôn Thi Đột Phá TN THPT</h3>
+                    <p>Luyện đề tổng hợp cấu trúc mới nhất gồm 3 phần: Nhiều lựa chọn, Đúng/Sai và Trả lời ngắn.</p>
+                </div>
                 <a href="#" class="btn">Bắt Đầu Luyện Đề</a>
             </div>
         </div>
