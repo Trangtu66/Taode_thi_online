@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 11 · Bài 1: Vợ nhặt (Kim Lân)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo phần Tri thức ngữ văn (SGK tr.10), điểm nhìn trong truyện kể được hiểu là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nhân vật chính xuất hiện nhiều nhất trong truyện"
+      },
+      {
+       "l": "B",
+       "t": "Vị trí để quan sát, trần thuật, đánh giá của người kể chuyện"
+      },
+      {
+       "l": "C",
+       "t": "Trình tự thời gian diễn ra các sự kiện"
+      },
+      {
+       "l": "D",
+       "t": "Lời đối thoại giữa các nhân vật"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK: người kể chuyện bao giờ cũng kể câu chuyện từ điểm nhìn nhất định, “được hiểu là vị trí để quan sát, trần thuật, đánh giá”."
+    },
+    {
+     "content": "Truyện ngắn Vợ nhặt viết về sự kiện lịch sử nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nạn lụt vỡ đê năm 1945"
+      },
+      {
+       "l": "B",
+       "t": "Cách mạng tháng Tám năm 1945"
+      },
+      {
+       "l": "C",
+       "t": "Kháng chiến chống Pháp năm 1946"
+      },
+      {
+       "l": "D",
+       "t": "Nạn đói năm Ất Dậu (1945)"
+      }
+     ],
+     "correct": "D",
+     "expl": "Phần giới thiệu tác phẩm (tr.22): “Truyện ngắn Vợ nhặt viết về nạn đói năm Ất Dậu (1945).”"
+    },
+    {
+     "content": "Tiền thân của truyện ngắn Vợ nhặt là tác phẩm nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tiểu thuyết Xóm ngụ cư"
+      },
+      {
+       "l": "B",
+       "t": "Tập truyện Nên vợ nên chồng"
+      },
+      {
+       "l": "C",
+       "t": "Tập truyện Con chó xấu xí"
+      },
+      {
+       "l": "D",
+       "t": "Truyện ngắn Làng"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK: tiền thân là tiểu thuyết Xóm ngụ cư Kim Lân viết ngay sau Cách mạng; bản thảo dang dở, thất lạc."
+    },
+    {
+     "content": "Câu chuyện trong Vợ nhặt được kể bởi ai?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Bà cụ Tứ, kể lại chuyện con trai"
+      },
+      {
+       "l": "B",
+       "t": "Tràng, xưng “tôi”"
+      },
+      {
+       "l": "C",
+       "t": "Người kể chuyện ngôi thứ ba, giấu mình"
+      },
+      {
+       "l": "D",
+       "t": "Người vợ nhặt, kể về ngày theo Tràng về"
+      }
+     ],
+     "correct": "C",
+     "expl": "Người kể không xưng “tôi”, gọi nhân vật là “hắn”, “thị”, “bà lão” – ngôi thứ ba, nhưng điểm nhìn linh hoạt nhập vào từng nhân vật."
+    },
+    {
+     "content": "Tình huống truyện độc đáo của Vợ nhặt là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Bà cụ Tứ đi tìm vợ cho con trai ở chợ tỉnh"
+      },
+      {
+       "l": "B",
+       "t": "Tràng đi phá kho thóc Nhật cùng đoàn người đói"
+      },
+      {
+       "l": "C",
+       "t": "Tràng – anh dân ngụ cư nghèo, xấu – bỗng dưng “nhặt” được vợ giữa lúc nạn đói đang đe doạ cái chết"
+      },
+      {
+       "l": "D",
+       "t": "Người vợ nhặt bỏ Tràng ra đi vì quá đói"
+      }
+     ],
+     "correct": "C",
+     "expl": "Việc lấy vợ lẽ ra là chuyện hệ trọng lại diễn ra “nhặt” được giữa nạn đói – tình huống vừa lạ vừa éo le, khiến mọi người ngạc nhiên, lo âu."
+    },
+    {
+     "content": "Nhan đề Vợ nhặt gợi lên điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thân phận rẻ rúng của con người trong nạn đói, đồng thời gợi tình người cưu mang nhau"
+      },
+      {
+       "l": "B",
+       "t": "Niềm vui trọn vẹn của một đám cưới linh đình"
+      },
+      {
+       "l": "C",
+       "t": "Sự may mắn giàu sang bất ngờ của Tràng"
+      },
+      {
+       "l": "D",
+       "t": "Phong tục cưới xin truyền thống của làng quê Bắc Bộ"
+      }
+     ],
+     "correct": "A",
+     "expl": "Vợ mà có thể “nhặt” được cho thấy giá trị con người bị rẻ rúng; nhưng Tràng “nhặt” người đàn bà về cũng là cưu mang, mở ra khát vọng sống."
+    },
+    {
+     "content": "Món “chè khoán” bà cụ Tứ bưng ra trong bữa cơm ngày đói thực chất là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nồi chè đỗ xanh"
+      },
+      {
+       "l": "B",
+       "t": "Nồi cháo cám"
+      },
+      {
+       "l": "C",
+       "t": "Nồi cháo gạo"
+      },
+      {
+       "l": "D",
+       "t": "Nồi bánh đúc"
+      }
+     ],
+     "correct": "B",
+     "expl": "Bà lão nói: “Cám đấy mày ạ, hì. Ngon đáo để...”. Gọi cháo cám là “chè khoán” là cách bà cố tạo không khí vui cho các con."
+    },
+    {
+     "content": "Chi tiết “Bà lão ngoảnh vội ra ngoài. Bà lão không dám để con dâu nhìn thấy bà khóc” thể hiện điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Sự thờ ơ của bà lão trước cảnh đói"
+      },
+      {
+       "l": "B",
+       "t": "Sự khó chịu của bà lão với người con dâu mới"
+      },
+      {
+       "l": "C",
+       "t": "Nỗi sợ hãi của bà lão trước tiếng trống thúc thuế"
+      },
+      {
+       "l": "D",
+       "t": "Tấm lòng thương con, lo lắng nhưng cố giấu nỗi buồn để giữ niềm vui cho các con"
+      }
+     ],
+     "correct": "D",
+     "expl": "Bà cụ Tứ nén nỗi lo, không để con dâu buồn – vẻ đẹp của tình mẫu tử và lòng nhân hậu giữa cảnh đói."
+    },
+    {
+     "content": "Ở cuối truyện: “Trong óc Tràng vẫn thấy đám người đói và lá cờ đỏ bay phấp phới...”. Điểm nhìn trần thuật lúc này được đặt ở đâu?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ở người kể chuyện đứng ngoài, chỉ tả ngoại hình"
+      },
+      {
+       "l": "B",
+       "t": "Ở bà cụ Tứ đang quan sát con trai"
+      },
+      {
+       "l": "C",
+       "t": "Ở đám người phá kho thóc trên đê Sộp"
+      },
+      {
+       "l": "D",
+       "t": "Trong tâm trí, cảm nhận của nhân vật Tràng (điểm nhìn bên trong)"
+      }
+     ],
+     "correct": "D",
+     "expl": "Tri thức ngữ văn: điểm nhìn bên trong kể và tả xuyên qua cảm nhận, ý thức của nhân vật – ở đây là hình ảnh hiện ra “trong óc Tràng”."
+    },
+    {
+     "content": "Hình ảnh “lá cờ đỏ bay phấp phới” khép lại truyện có ý nghĩa gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Gợi niềm tin vào con đường cách mạng, lối thoát và tương lai tươi sáng cho người nghèo đói"
+      },
+      {
+       "l": "B",
+       "t": "Báo hiệu một trận lụt sắp xảy ra"
+      },
+      {
+       "l": "C",
+       "t": "Thể hiện nỗi sợ hãi của Tràng trước Việt Minh"
+      },
+      {
+       "l": "D",
+       "t": "Cho thấy Tràng muốn bỏ nhà đi theo đám người đói"
+      }
+     ],
+     "correct": "A",
+     "expl": "Nghe chuyện phá kho thóc Nhật, Tràng ân hận, tiếc rẻ; lá cờ đỏ trong óc Tràng mở ra hướng đi mới – thể hiện giá trị nhân đạo và niềm tin của tác phẩm."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn văn: “Giữa cái cảnh tối sầm lại vì đói khát ấy, một buổi chiều người trong xóm bỗng thấy Tràng về với một người đàn bà nữa. Mặt hắn có một vẻ gì phớn phở khác thường. Hắn tủm tỉm cười nụ một mình và hai mắt thì sáng lên lấp lánh.” (Kim Lân, Vợ nhặt)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Đoạn văn được kể bằng lời của người kể chuyện ngôi thứ ba.",
+       "correct": true,
+       "expl": "Nhân vật được gọi là “Tràng”, “hắn”; người kể không xưng “tôi”."
+      },
+      {
+       "text": "Các chi tiết “phớn phở”, “tủm tỉm cười nụ”, “hai mắt sáng lên lấp lánh” cho thấy Tràng buồn rầu, hối hận vì đã đưa người đàn bà về.",
+       "correct": false,
+       "expl": "Các chi tiết cho thấy Tràng vui sướng, hãnh diện khác thường – niềm hạnh phúc bất ngờ giữa cảnh đói."
+      },
+      {
+       "text": "Đoạn văn có sự kết hợp điểm nhìn: người kể quan sát qua con mắt “người trong xóm” và miêu tả những biểu hiện bên ngoài của Tràng.",
+       "correct": true,
+       "expl": "“người trong xóm bỗng thấy...” – điểm nhìn của dân xóm ngụ cư; diện mạo, nụ cười, đôi mắt là biểu hiện bên ngoài."
+      },
+      {
+       "text": "Từ đoạn văn, có thể rút ra thông điệp: ngay cả khi cận kề cái chết, con người vẫn khao khát hạnh phúc và hướng về sự sống.",
+       "correct": true,
+       "expl": "Niềm vui của Tràng giữa “cảnh tối sầm lại vì đói khát” thể hiện khát vọng sống, khát vọng hạnh phúc – một thông điệp nhân đạo của truyện."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 10 · Bài 1: Thần Trụ Trời, Thần Sét, Thần Gió",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo phần Tri thức ngữ văn (SGK tr.10), thần thoại là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Truyện kể về các nhân vật, sự kiện lịch sử có thật, gắn với những địa danh cụ thể"
+      },
+      {
+       "l": "B",
+       "t": "Thể loại truyện kể ra đời sớm nhất, kể về thế giới thần linh, thể hiện quan niệm về vũ trụ và nhân sinh của người xưa"
+      },
+      {
+       "l": "C",
+       "t": "Truyện kể về số phận của những con người bất hạnh và ước mơ công bằng của nhân dân"
+      },
+      {
+       "l": "D",
+       "t": "Truyện ngắn gọn, dùng yếu tố gây cười để phê phán thói hư tật xấu trong xã hội"
+      }
+     ],
+     "correct": "B",
+     "expl": "Đây là định nghĩa thần thoại trong Tri thức ngữ văn (tr.10). Các phương án còn lại lần lượt gần với truyền thuyết, cổ tích và truyện cười."
+    },
+    {
+     "content": "Ba truyện Thần Trụ Trời, Thần Sét, Thần Gió thuộc nhóm thần thoại nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Sử thi anh hùng của các dân tộc Tây Nguyên"
+      },
+      {
+       "l": "B",
+       "t": "Thần thoại sáng tạo (kể về anh hùng văn hoá)"
+      },
+      {
+       "l": "C",
+       "t": "Truyền thuyết về các anh hùng giữ nước"
+      },
+      {
+       "l": "D",
+       "t": "Thần thoại suy nguyên (kể về nguồn gốc vũ trụ và muôn loài)"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK (tr.14): nhân vật chính của thần thoại suy nguyên là các vị thần sáng tạo thế giới: trời đất, mưa, gió, sấm, sét, muôn loài – đúng với ba truyện này."
+    },
+    {
+     "content": "Câu mở đầu truyện Thần Trụ Trời: “Thuở ấy chưa có vũ trụ, chưa có muôn vật và loài người” cho biết đặc điểm nào về thời gian của thần thoại?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thời gian phiếm chỉ, mang tính ước lệ, thuở hồng hoang của vũ trụ"
+      },
+      {
+       "l": "B",
+       "t": "Thời gian lịch sử cụ thể, gắn với một triều đại"
+      },
+      {
+       "l": "C",
+       "t": "Thời gian hiện tại, lúc người kể đang kể chuyện"
+      },
+      {
+       "l": "D",
+       "t": "Thời gian được ghi rõ năm, tháng, ngày xảy ra sự việc"
+      }
+     ],
+     "correct": "A",
+     "expl": "Tri thức ngữ văn: câu chuyện trong thần thoại gắn liền với thời gian phiếm chỉ, mang tính ước lệ; “thuở ấy” là thời điểm trước khi có vũ trụ."
+    },
+    {
+     "content": "Thần Trụ Trời đã làm gì để phân chia trời và đất?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Dùng chiếc quạt màu nhiệm thổi bầu trời bay lên cao"
+      },
+      {
+       "l": "B",
+       "t": "Dùng lưỡi búa đá bổ đôi khối hỗn độn thành trời và đất"
+      },
+      {
+       "l": "C",
+       "t": "Dùng đầu đội trời lên, rồi đào đất, đá đắp thành một cái cột vừa to vừa cao để chống trời"
+      },
+      {
+       "l": "D",
+       "t": "Cùng các thần đếm cát, tát bể để tách nước ra khỏi đất"
+      }
+     ],
+     "correct": "C",
+     "expl": "Văn bản: thần “đứng dậy dùng đầu đội trời lên rồi đào đất, đá đắp thành một cái cột vừa to vừa cao để chống trời”."
+    },
+    {
+     "content": "Theo truyện Thần Trụ Trời, núi đồi, hải đảo và biển cả được hình thành như thế nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Con thần Gió quạt tung đất đá khắp nơi khi cha đi vắng"
+      },
+      {
+       "l": "B",
+       "t": "Thần Sét dùng búa đá đập vỡ mặt đất thành núi và biển"
+      },
+      {
+       "l": "C",
+       "t": "Thần phá cột, ném đá và đất đi khắp nơi thành núi, đảo, gò đồi; chỗ thần đào đất đắp cột trở thành biển cả"
+      },
+      {
+       "l": "D",
+       "t": "Các thần đào sông, tát bể theo lệnh của Ngọc Hoàng"
+      }
+     ],
+     "correct": "C",
+     "expl": "Truyện lí giải: mỗi hòn đá văng ra thành núi, đảo; đất tung toé thành cồn đồi, cao nguyên; chỗ đào đất đắp cột bây giờ là biển cả – cách người xưa giải thích địa hình."
+    },
+    {
+     "content": "Bảo bối của thần Sét là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Một lưỡi búa đá"
+      },
+      {
+       "l": "B",
+       "t": "Một chiếc quạt màu nhiệm"
+      },
+      {
+       "l": "C",
+       "t": "Một cái cột đá chống trời"
+      },
+      {
+       "l": "D",
+       "t": "Một con gà thần của Ngọc Hoàng"
+      }
+     ],
+     "correct": "A",
+     "expl": "Văn bản: “Thần có một lưỡi búa đá”; khi xử án, thần dùng lưỡi búa bổ xuống đầu tội nhân. Quạt màu nhiệm là bảo bối của thần Gió."
+    },
+    {
+     "content": "Vì sao mỗi lần có chớp rạch, người hạ giới thường bắt chước tiếng gọi gà?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Để gọi gà về chuồng tránh mưa bão"
+      },
+      {
+       "l": "B",
+       "t": "Để doạ thần Sét, vì thần từng bị gà thần của Ngọc Hoàng mổ khi bị phạt nên hễ nghe tiếng gà là giật mình"
+      },
+      {
+       "l": "C",
+       "t": "Để cầu Ngọc Hoàng cho mưa thuận gió hoà"
+      },
+      {
+       "l": "D",
+       "t": "Để báo hiệu cho thần Gió biết trời sắp mưa"
+      }
+     ],
+     "correct": "B",
+     "expl": "Truyện kể thần Sét từng bị phạt nằm im, gà thần mổ đau nhói nên sinh thói giật mình khi nghe tiếng gà – chi tiết lí giải một tập tục dân gian."
+    },
+    {
+     "content": "Thần Gió có hình dạng như thế nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Có đôi cánh lớn, bay theo những đám mây đen"
+      },
+      {
+       "l": "B",
+       "t": "Thân thể to lớn, bước một bước từ đỉnh núi này sang đỉnh núi kia"
+      },
+      {
+       "l": "C",
+       "t": "Mặt mũi nanh ác, tiếng quát tháo rất dữ dội"
+      },
+      {
+       "l": "D",
+       "t": "Không có đầu, bảo bối là một thứ quạt màu nhiệm; dân gian gọi là thần Cụt Đầu"
+      }
+     ],
+     "correct": "D",
+     "expl": "Văn bản: “Thần Gió có một hình dạng kì quặc. Thần không có đầu. Bảo bối của thần là một thứ quạt màu nhiệm”; trận gió xoáy được gọi là thần Cụt Đầu."
+    },
+    {
+     "content": "Mục đích của việc tạo ra nhân vật đứa con thần Gió là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Kể lại cuộc chiến giữa thần Gió và thần Mưa"
+      },
+      {
+       "l": "B",
+       "t": "Giải thích vì sao thần Gió không có đầu"
+      },
+      {
+       "l": "C",
+       "t": "Ca ngợi lòng hiếu thảo của con cái đối với cha mẹ"
+      },
+      {
+       "l": "D",
+       "t": "Lí giải nguồn gốc cây ngải gió báo tin gió mưa và kinh nghiệm dùng lá ngải chữa bệnh cảm gió cho trâu"
+      }
+     ],
+     "correct": "D",
+     "expl": "Đứa con bị đày xuống trần chăn trâu, sau hoá cây ngải gió; cây cuốn lá báo tin gió, lá ngải chữa trâu cảm gió – truyện lí giải hiện tượng tự nhiên và kinh nghiệm dân gian."
+    },
+    {
+     "content": "Nhận xét nào khái quát đúng nhất đặc điểm xây dựng nhân vật trong chùm truyện?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Các vị thần có hình dạng khổng lồ hoặc kì lạ, năng lực siêu nhiên nhưng mang tính khí như con người; chức năng chính là lí giải các hiện tượng tự nhiên"
+      },
+      {
+       "l": "B",
+       "t": "Nhân vật là những con người có thật trong lịch sử, được kể lại chính xác"
+      },
+      {
+       "l": "C",
+       "t": "Nhân vật có đời sống nội tâm phức tạp, thay đổi tâm lí theo từng hoàn cảnh"
+      },
+      {
+       "l": "D",
+       "t": "Nhân vật là người mồ côi, bất hạnh, cuối truyện được đền đáp xứng đáng"
+      }
+     ],
+     "correct": "A",
+     "expl": "Tri thức ngữ văn: nhân vật thần thoại có nguồn gốc thần linh, năng lực siêu nhiên, hình dạng khổng lồ; chức năng là cắt nghĩa, lí giải hiện tượng tự nhiên. Thần Sét nóng nảy, đánh lầm – tính khí rất “người”."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn trích: “Nhất ông đếm cát, / Nhì ông tát bể (biển), / Ba ông kể sao, / Bốn ông đào sông, / Năm ông trồng cây, / Sáu ông xây rú, / Bảy ông trụ trời...” (Thần Trụ Trời).",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Câu hát liệt kê công việc của nhiều vị thần cùng kiến thiết thế giới.",
+       "correct": true,
+       "expl": "Văn bản: sau thần Trụ Trời có nhiều thần khác làm sao, đào sông, tát biển, trồng cây... câu hát liệt kê các công việc đó."
+      },
+      {
+       "text": "Theo văn bản, câu hát vừa so sánh tài năng của các thần, vừa cho biết một phần công việc “hồi khai thiên lập địa”.",
+       "correct": true,
+       "expl": "Văn bản: “Câu hát ấy chỉ là để so sánh tài năng của các thần nhưng cũng cho ta biết một phần nào công việc hồi khai thiên lập địa.”"
+      },
+      {
+       "text": "Dân gian khẳng định chắc chắn rằng thần Trụ Trời sau đó đã trở thành Ngọc Hoàng.",
+       "correct": false,
+       "expl": "Văn bản: “Không hiểu sau đó rồi vị thần ấy chết hay sống, hay là trở thành Ngọc Hoàng. Việc đó không thấy dân gian kể đến.”"
+      },
+      {
+       "text": "Việc gắn cột chống trời với núi Thạch Môn (núi Kính Chủ, Hải Phòng) giúp câu chuyện thêm gần gũi, tăng niềm tin của người nghe vào lời kể.",
+       "correct": true,
+       "expl": "Chi tiết gắn di tích với địa danh có thật (chú thích SGK) khiến chuyện hoang đường trở nên “có dấu vết” trong đời sống."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

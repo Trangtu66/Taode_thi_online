@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Ôn luyện tiếng Việt – Ngữ văn 11: Ngôn ngữ nói và ngôn ngữ viết",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Trong giao tiếp bằng ngôn ngữ nói, người nói và người nghe có quan hệ như thế nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Không tiếp xúc trực tiếp, người viết có thời gian suy ngẫm"
+      },
+      {
+       "l": "B",
+       "t": "Tiếp xúc trực tiếp với nhau, thay vai luân phiên"
+      },
+      {
+       "l": "C",
+       "t": "Chỉ người nói được phát biểu, người nghe im lặng"
+      },
+      {
+       "l": "D",
+       "t": "Luôn giao tiếp qua văn bản in"
+      }
+     ],
+     "correct": "B",
+     "expl": "Khung Nhận biết (tr.36): trong ngôn ngữ nói, người nói và người nghe tiếp xúc trực tiếp, thay vai luân phiên nên ít có điều kiện gọt giũa lời nói."
+    },
+    {
+     "content": "Ngôn ngữ nói thường có những tính chất nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tính quy phạm tuyệt đối về ngữ pháp"
+      },
+      {
+       "l": "B",
+       "t": "Tính khuôn mẫu, chặt chẽ, trừu tượng"
+      },
+      {
+       "l": "C",
+       "t": "Tính khách quan, phi cá thể"
+      },
+      {
+       "l": "D",
+       "t": "Tính biểu cảm, tính cụ thể và tính cá thể cao"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK: “ngôn ngữ nói thường có tính biểu cảm, tính cụ thể và tính cá thể cao”."
+    },
+    {
+     "content": "Ngôn ngữ nói có thể dùng những phương tiện hỗ trợ nào để tăng hiệu quả giao tiếp?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ngữ điệu, cử chỉ, điệu bộ, nét mặt"
+      },
+      {
+       "l": "B",
+       "t": "Dấu câu, bố cục, đề mục"
+      },
+      {
+       "l": "C",
+       "t": "Chú thích, bảng biểu, hình vẽ"
+      },
+      {
+       "l": "D",
+       "t": "Chính tả, kiểu chữ, cỡ chữ"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK: ngôn ngữ nói phát huy tác dụng của ngữ điệu, cử chỉ, điệu bộ, nét mặt... Dấu câu, bố cục là phương tiện của ngôn ngữ viết."
+    },
+    {
+     "content": "Nhận định nào nêu đúng đặc điểm của ngôn ngữ viết?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thường dùng nhiều từ đưa đẩy, câu tỉnh lược"
+      },
+      {
+       "l": "B",
+       "t": "Chỉ tồn tại nhất thời trong phạm vi không gian hạn chế"
+      },
+      {
+       "l": "C",
+       "t": "Được gọt giũa, có khả năng lưu trữ thông tin lâu dài và hướng tới phạm vi người đọc rộng lớn"
+      },
+      {
+       "l": "D",
+       "t": "Luôn cần ngữ điệu và nét mặt người viết đi kèm"
+      }
+     ],
+     "correct": "C",
+     "expl": "SGK (tr.37): người viết có thời gian suy ngẫm, lựa chọn cách biểu đạt; ngôn ngữ viết được gọt giũa, lưu trữ lâu dài, hướng tới phạm vi rộng."
+    },
+    {
+     "content": "Ngôn ngữ viết đòi hỏi người viết phải tuân theo điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ngữ điệu lên xuống phù hợp"
+      },
+      {
+       "l": "B",
+       "t": "Cách phát âm của địa phương mình"
+      },
+      {
+       "l": "C",
+       "t": "Các quy định về chính tả, từ vựng, ngữ pháp, bố cục trình bày, phong cách"
+      },
+      {
+       "l": "D",
+       "t": "Việc thay vai luân phiên với người đọc"
+      }
+     ],
+     "correct": "C",
+     "expl": "SGK: “Ngôn ngữ viết đòi hỏi người viết phải tuân theo các quy định về chính tả, từ vựng, ngữ pháp, bố cục trình bày, phong cách,...”."
+    },
+    {
+     "content": "Trong câu trả lời của nhà văn Nguyễn Ngọc Tư: “Chà, câu hỏi này mênh mông ghê... Nhiêu đó đủ rồi.”, đâu là phương tiện đặc trưng của ngôn ngữ nói?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Từ cảm thán “chà”, “ghê” và từ địa phương “nhiêu”"
+      },
+      {
+       "l": "B",
+       "t": "Câu dài, nhiều thành phần phức tạp"
+      },
+      {
+       "l": "C",
+       "t": "Hệ thống thuật ngữ khoa học"
+      },
+      {
+       "l": "D",
+       "t": "Dấu chấm phẩy và đề mục"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK phân tích đúng như vậy: từ cảm thán “chà”, “ghê”, từ địa phương “nhiêu” là phương tiện đặc trưng của ngôn ngữ nói."
+    },
+    {
+     "content": "Lời thoại “– Có ăn gì thì ăn, chả ăn giầu.” và “– Rích bố cu, hở!” (Vợ nhặt) thể hiện đặc điểm nào của ngôn ngữ nói được tái tạo trong văn bản?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Dùng câu dài nhiều vế, đúng chuẩn ngữ pháp"
+      },
+      {
+       "l": "B",
+       "t": "Dùng lớp từ khẩu ngữ, trợ từ, thán từ, câu tỉnh lược"
+      },
+      {
+       "l": "C",
+       "t": "Dùng thuật ngữ chuyên ngành"
+      },
+      {
+       "l": "D",
+       "t": "Dùng từ Hán Việt trang trọng"
+      }
+     ],
+     "correct": "B",
+     "expl": "“chả”, “hở”, “bố cu” là khẩu ngữ; câu ngắn, tỉnh lược – nhà văn mô phỏng lời nói tự nhiên của nhân vật."
+    },
+    {
+     "content": "Câu văn nào mang rõ đặc điểm của ngôn ngữ viết?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "“– Ờ... thì cứ thế đi nhé!”"
+      },
+      {
+       "l": "B",
+       "t": "“– Ừ, sao nhà biết?”"
+      },
+      {
+       "l": "C",
+       "t": "“– Hà, ngon! Về chị ấy thấy hụt tiền thì bỏ bố.”"
+      },
+      {
+       "l": "D",
+       "t": "“Tiếng trống thành phủ gần đấy đã bắt đầu thu không. Trên bốn chòi canh, ngục tốt cũng bắt đầu điểm vào cái quạnh quẽ của trời tối mịt...”"
+      }
+     ],
+     "correct": "D",
+     "expl": "Đây là ví dụ SGK dùng cho ngôn ngữ viết: câu dài, nhiều thành phần, từ ngữ chọn lọc. Các câu còn lại là lời thoại khẩu ngữ."
+    },
+    {
+     "content": "Khi chuyển nội dung một buổi thảo luận (lời nói) thành biên bản (văn bản viết), cần làm gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thêm nhiều thán từ để biên bản sinh động"
+      },
+      {
+       "l": "B",
+       "t": "Ghi lại nguyên văn mọi tiếng “ờ”, “à”, “thì là”"
+      },
+      {
+       "l": "C",
+       "t": "Giữ nguyên cách phát âm địa phương của người nói"
+      },
+      {
+       "l": "D",
+       "t": "Lược bỏ từ đưa đẩy, yếu tố trùng lặp; diễn đạt chặt chẽ, đúng chính tả và ngữ pháp"
+      }
+     ],
+     "correct": "D",
+     "expl": "Biên bản là văn bản viết nên phải tuân theo quy định của ngôn ngữ viết, loại bỏ các yếu tố dư thừa của lời nói."
+    },
+    {
+     "content": "Tình huống nào dưới đây cần dùng ngôn ngữ viết theo đúng quy chuẩn?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Viết đơn xin nghỉ học gửi giáo viên chủ nhiệm"
+      },
+      {
+       "l": "B",
+       "t": "Trò chuyện với bạn thân giờ ra chơi"
+      },
+      {
+       "l": "C",
+       "t": "Cổ vũ đội bóng của lớp trên sân"
+      },
+      {
+       "l": "D",
+       "t": "Hỏi đường một người đi ngang qua"
+      }
+     ],
+     "correct": "A",
+     "expl": "Đơn từ là văn bản hành chính: cần đúng thể thức, chính tả, ngữ pháp. Các tình huống còn lại là giao tiếp nói trực tiếp."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn trích (SGK tr.37): “Rồi đổi giọng, cụ thân mật hỏi: – Về bao giờ thế? Sao không vào tôi chơi? Đi vào nhà uống nước.” và lời Bá Kiến: “– Cái anh này nói mới hay! Ai làm gì anh mà anh phải chết? Đời người chứ có phải con ngoé đâu?” (Nam Cao, Chí Phèo)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Trong đoạn trích, nhà văn mô phỏng, tái tạo ngôn ngữ nói trong văn bản viết.",
+       "correct": true,
+       "expl": "SGK dùng đoạn này làm ngữ liệu nhận xét đặc điểm ngôn ngữ nói được mô phỏng, tái tạo."
+      },
+      {
+       "text": "Việc Bá Kiến liên tục “đổi giọng” (quát, dịu giọng, thân mật) cho thấy ngữ điệu là phương tiện quan trọng của ngôn ngữ nói, phục vụ mục đích giao tiếp.",
+       "correct": true,
+       "expl": "Bá Kiến dùng ngữ điệu để điều khiển tình huống: xua đám đông, xoa dịu Chí Phèo."
+      },
+      {
+       "text": "Câu “Đời người chứ có phải con ngoé đâu?” không có yếu tố khẩu ngữ nào.",
+       "correct": false,
+       "expl": "Trợ từ “chứ”, “đâu” và cách ví von “con ngoé” là khẩu ngữ đậm chất lời nói hằng ngày."
+      },
+      {
+       "text": "Vì đã được in thành tác phẩm, lời thoại nhân vật phải tuân thủ chặt chẽ quy tắc ngôn ngữ viết như câu dài, nhiều thành phần.",
+       "correct": false,
+       "expl": "Lời thoại được tái tạo để giống lời nói thật (ngắn, khẩu ngữ, biểu cảm) – đó là dụng ý nghệ thuật, không phải lỗi."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Ôn luyện tiếng Việt – Ngữ văn 10: Sử dụng từ Hán Việt",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Trong câu “Kẻ kia là một cư sĩ, trung thuần lẫm liệt, có công với tiên triều...” (Chuyện chức Phán sự đền Tản Viên), từ “tiên triều” có nghĩa là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Triều đình trên tiên giới"
+      },
+      {
+       "l": "B",
+       "t": "Triều vua trước"
+      },
+      {
+       "l": "C",
+       "t": "Triều đại đầu tiên của đất nước"
+      },
+      {
+       "l": "D",
+       "t": "Nơi các vị tiên hội họp"
+      }
+     ],
+     "correct": "B",
+     "expl": "“tiên” (先) nghĩa là trước; “triều” là triều đại, triều đình. Tiên triều: triều vua trước."
+    },
+    {
+     "content": "Trong câu “Mày là một kẻ hàn sĩ, sao dám hỗn láo...”, từ “hàn sĩ” có nghĩa là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Người sống ở xứ lạnh"
+      },
+      {
+       "l": "B",
+       "t": "Người lính canh cửa"
+      },
+      {
+       "l": "C",
+       "t": "Người thợ hàn"
+      },
+      {
+       "l": "D",
+       "t": "Người học trò nghèo"
+      }
+     ],
+     "correct": "D",
+     "expl": "“hàn” (寒): lạnh, nghèo; “sĩ”: người có học. Hàn sĩ: học trò nghèo."
+    },
+    {
+     "content": "Từ “khoan dung” trong câu “Xin đại vương khoan dung tha cho hắn...” có nghĩa là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Rộng lượng tha thứ cho người có lỗi"
+      },
+      {
+       "l": "B",
+       "t": "Chậm rãi, từ tốn"
+      },
+      {
+       "l": "C",
+       "t": "Nghiêm khắc trừng phạt"
+      },
+      {
+       "l": "D",
+       "t": "Dung túng cho cái xấu"
+      }
+     ],
+     "correct": "A",
+     "expl": "Khoan dung: rộng lượng, dễ tha thứ – phù hợp với “để tỏ cái đức rộng rãi” ở vế sau."
+    },
+    {
+     "content": "Từ “hiếu sinh” trong câu “Nếu thẳng tay trị tội nó, sợ hại đến cái đức hiếu sinh” có nghĩa là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ham học hỏi suốt đời"
+      },
+      {
+       "l": "B",
+       "t": "Hiếu thảo với cha mẹ khi còn sống"
+      },
+      {
+       "l": "C",
+       "t": "Quý trọng sự sống, không muốn giết hại"
+      },
+      {
+       "l": "D",
+       "t": "Sinh ra trong gia đình hiếu thảo"
+      }
+     ],
+     "correct": "C",
+     "expl": "“hiếu” ở đây là ham, thích, quý; “sinh” là sự sống. Đức hiếu sinh: đức quý trọng sự sống."
+    },
+    {
+     "content": "Yếu tố “hiếu” trong “hiếu sinh” có cùng nghĩa với yếu tố “hiếu” trong từ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "trung hiếu"
+      },
+      {
+       "l": "B",
+       "t": "hiếu thảo"
+      },
+      {
+       "l": "C",
+       "t": "hiếu học"
+      },
+      {
+       "l": "D",
+       "t": "báo hiếu"
+      }
+     ],
+     "correct": "C",
+     "expl": "Trong hiếu sinh, hiếu học, hiếu khách: “hiếu” (好) = ham, thích. Trong hiếu thảo, trung hiếu, báo hiếu: “hiếu” (孝) = lòng thảo kính cha mẹ."
+    },
+    {
+     "content": "Yếu tố “hàn” trong “hàn sĩ” có cùng nghĩa với yếu tố “hàn” trong từ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "bần hàn"
+      },
+      {
+       "l": "B",
+       "t": "hàn lâm"
+      },
+      {
+       "l": "C",
+       "t": "hàn gắn"
+      },
+      {
+       "l": "D",
+       "t": "Hàn Quốc"
+      }
+     ],
+     "correct": "A",
+     "expl": "Bần hàn: nghèo khổ, lạnh lẽo – cùng nghĩa “lạnh, nghèo”. “Hàn lâm” (rừng bút), “Hàn Quốc” là các yếu tố khác; “hàn gắn” là từ thuần Việt."
+    },
+    {
+     "content": "Câu nào mắc lỗi dùng từ Hán Việt sai nghĩa?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Cả lớp được đi tham quan bảo tàng tỉnh."
+      },
+      {
+       "l": "B",
+       "t": "Anh ấy luôn bàng quang trước những việc chung của lớp."
+      },
+      {
+       "l": "C",
+       "t": "Hai xã được sáp nhập thành một đơn vị hành chính mới."
+      },
+      {
+       "l": "D",
+       "t": "Chúng em đề đạt nguyện vọng lên ban giám hiệu."
+      }
+     ],
+     "correct": "B",
+     "expl": "“bàng quang” là bộ phận chứa nước tiểu; từ đúng là “bàng quan” (đứng ngoài cuộc, thờ ơ)."
+    },
+    {
+     "content": "Câu “Tiếng Anh là yếu điểm của em, em sẽ cố gắng khắc phục” mắc lỗi dùng từ. Cách sửa nào đúng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Câu đúng, không cần sửa"
+      },
+      {
+       "l": "B",
+       "t": "Thay “yếu điểm” bằng “trọng điểm”"
+      },
+      {
+       "l": "C",
+       "t": "Thay “khắc phục” bằng “phát huy”"
+      },
+      {
+       "l": "D",
+       "t": "Thay “yếu điểm” bằng “điểm yếu”"
+      }
+     ],
+     "correct": "D",
+     "expl": "“Yếu điểm” (要點) là điểm quan trọng, không phải chỗ yếu kém. Muốn nói chỗ kém phải dùng “điểm yếu”."
+    },
+    {
+     "content": "Câu nào dùng đúng từ?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Em rất bàng quang với chuyện học hành."
+      },
+      {
+       "l": "B",
+       "t": "Lớp trưởng đề bạt ý kiến của cả lớp lên thầy chủ nhiệm."
+      },
+      {
+       "l": "C",
+       "t": "Hai trường được sát nhập để thuận tiện quản lí."
+      },
+      {
+       "l": "D",
+       "t": "Lớp trưởng đề đạt ý kiến của cả lớp lên thầy chủ nhiệm."
+      }
+     ],
+     "correct": "D",
+     "expl": "Đề đạt: trình bày ý kiến, nguyện vọng lên cấp trên. Đề bạt: cất nhắc lên chức vụ cao hơn. “Sát nhập”, “bàng quang” dùng sai (đúng: sáp nhập, bàng quan)."
+    },
+    {
+     "content": "Trong lời Huấn Cao: “Ta nhất sinh không vì vàng ngọc hay quyền thế mà phải ép mình viết câu đối bao giờ... Ta cảm cái tấm lòng biệt nhỡn liên tài của các người...”, các từ Hán Việt có tác dụng gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tạo sắc thái trang trọng, cổ kính, phù hợp với nhân vật và bối cảnh xưa, thể hiện cốt cách của một bậc tài hoa"
+      },
+      {
+       "l": "B",
+       "t": "Làm lời nói trở nên suồng sã, gần gũi đời thường"
+      },
+      {
+       "l": "C",
+       "t": "Khiến câu văn khó hiểu, nên cần thay hết bằng từ thuần Việt"
+      },
+      {
+       "l": "D",
+       "t": "Chỉ để kéo dài câu văn, không có tác dụng biểu đạt"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 2c (SGK tr.28): từ Hán Việt “nhất sinh”, “biệt nhỡn liên tài”, “thiên hạ” tạo giọng trang trọng, cổ kính, khắc hoạ khí phách Huấn Cao."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Cho các câu văn trong SGK (tr.28): “Nhưng biết ngài là một người có nghĩa khí, tôi muốn châm chước ít nhiều.” và “...nó nói lên những cái hoài bão tung hoành của một đời con người.” (Nguyễn Tuân, Chữ người tử tù)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "“Nghĩa khí” chỉ khí phách của người sống theo lẽ phải, dám xả thân vì việc nghĩa.",
+       "correct": true,
+       "expl": "Nghĩa: lẽ phải, việc nghĩa; khí: khí phách. Quản ngục kính trọng Huấn Cao vì khí phách ấy."
+      },
+      {
+       "text": "Có thể thay “hàn sĩ” bằng “kẻ sĩ nghèo”: ý cơ bản không đổi nhưng giảm sắc thái trang trọng, cổ kính của lời văn.",
+       "correct": true,
+       "expl": "Đây là thao tác thay thế SGK yêu cầu (câu 2b) để nhận ra sắc thái riêng của từ Hán Việt."
+      },
+      {
+       "text": "“Tung hoành” nghĩa là rụt rè, thu mình lại, không dám hành động.",
+       "correct": false,
+       "expl": "Tung hoành: dọc ngang – tự do vẫy vùng, hành động mạnh mẽ không gì cản trở."
+      },
+      {
+       "text": "Dùng càng nhiều từ Hán Việt trong mọi hoàn cảnh giao tiếp thì lời nói càng hay, càng trang trọng.",
+       "correct": false,
+       "expl": "Lạm dụng từ Hán Việt khiến lời nói nặng nề, sai sắc thái (ví dụ nói chuyện thân mật). Chỉ dùng khi phù hợp ngữ cảnh, đúng nghĩa."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

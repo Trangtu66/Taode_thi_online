@@ -24,6 +24,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối chương II", ma: "Củng cố – Bài tập cuối chương II (Toán 10)", link: "cc_chuong2_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°", ma: "Củng cố – Bài 5. Giá trị lượng giác của một góc từ 0° đến 180° (Toán 10)", link: "cc_bai5_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 6. Hệ thức lượng trong tam giác", ma: "Củng cố – Bài 6. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_bai6_t10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 1. Truyện về các vị thần sáng tạo thế giới (Thần Trụ Trời, Thần Sét, Thần Gió)", ma: "Củng cố – Ngữ văn 10 · Bài 1: Thần Trụ Trời, Thần Sét, Thần Gió", link: "van_cc_bai1_k10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Ôn luyện tiếng Việt", ten: "Thực hành tiếng Việt: Sử dụng từ Hán Việt – nhận diện và sửa lỗi dùng từ", ma: "Ôn luyện tiếng Việt – Ngữ văn 10: Sử dụng từ Hán Việt", link: "van_tv_hanviet_k10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
@@ -42,11 +44,14 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương I. Hàm số lượng giác và phương trình lượng giác", ma: "Ôn tập Chương I – Hàm số lượng giác và phương trình lượng giác (Toán 11)", link: "oc_chuong1_t11.html" },
   { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Ôn tập Chương II – Dãy số. Cấp số cộng và cấp số nhân (Toán 11)", link: "oc_chuong2_t11.html" },
   { khoi: 11, nhom: "Toán 11 · Kiểm tra định kỳ", ten: "Giữa kỳ I (Bài 1 – Bài 9)", ma: "Đề ôn tập kiểm tra giữa kỳ I (Toán 11)", link: "dk_gk1_t11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 1. Vợ nhặt (Kim Lân) – điểm nhìn trong truyện kể", ma: "Củng cố – Ngữ văn 11 · Bài 1: Vợ nhặt (Kim Lân)", link: "van_cc_bai1_k11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Ôn luyện tiếng Việt", ten: "Thực hành tiếng Việt: Đặc điểm cơ bản của ngôn ngữ nói và ngôn ngữ viết", ma: "Ôn luyện tiếng Việt – Ngữ văn 11: Ngôn ngữ nói và ngôn ngữ viết", link: "van_tv_noiviet_k11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số", ma: "Củng cố – Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số (Toán 12)", link: "cc_bai4_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn thi tốt nghiệp", ten: "Đề thi chính thức TN THPT 2026 – mã 0101", ma: "Đề thi tốt nghiệp THPT 2026 – Môn Toán – Mã đề 0101 (làm thử)", link: "tn_2026_0101.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 1. Xuân Tóc Đỏ cứu quốc (Vũ Trọng Phụng) – nói mỉa, nghịch ngữ", ma: "Củng cố – Ngữ văn 12 · Bài 1: Xuân Tóc Đỏ cứu quốc (Vũ Trọng Phụng)", link: "van_cc_bai1_k12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

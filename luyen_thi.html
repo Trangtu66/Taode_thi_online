@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luyện thi toàn trường – THPT Vĩnh Thạnh</title>
+<script src="cau_hinh.js"></script>
+<script src="de_luyen_tap.js"></script>
+<script src="van_demo.js"></script>
+<style>
+  :root { --blue:#1E40AF; --red:#991B1B; --ink:#1E293B; --muted:#64748B; --bg:#F8F9FA; --line:#E2E8F0; --green:#166534;
+          --van:#9D174D; --van-bg:#FDF2F8; --ly:#B45309; --ly-bg:#FFFBEB; --toan-bg:#EFF4FF; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Calibri,'Open Sans',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+  header { background:var(--blue); color:#fff; text-align:center; padding:1.6rem 1rem 1.3rem; }
+  header h1 { margin:0; font-family:Arial,sans-serif; font-size:1.8rem; letter-spacing:.02em; text-wrap:balance; }
+  header p { margin:.3rem 0 0; opacity:.92; }
+  header a { color:#fff; font-size:.9rem; }
+  .wrap { max-width:1040px; margin:0 auto; padding:1.2rem 1rem 2rem; }
+  .mon { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.1rem; }
+  .mon button { flex:1 1 180px; font:inherit; font-size:1.08rem; font-weight:700; padding:.8rem 1rem; border-radius:10px; cursor:pointer;
+                border:2px solid var(--line); background:#fff; color:var(--ink); }
+  .mon button[data-m="toan"].on { border-color:var(--blue); background:var(--toan-bg); color:var(--blue); }
+  .mon button[data-m="van"].on { border-color:var(--van); background:var(--van-bg); color:var(--van); }
+  .mon button[data-m="ly"].on { border-color:var(--ly); background:var(--ly-bg); color:var(--ly); }
+  .mon button:focus-visible, .btn:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+  h2.muc { font-family:Arial,sans-serif; font-size:1.2rem; margin:.2rem 0 .9rem; padding-bottom:.4rem; border-bottom:2px solid var(--line); }
+  .khu { background:#fff; border:1px solid var(--line); border-radius:10px; padding:1rem 1.1rem; margin-bottom:1rem; }
+  .khu h3 { margin:0 0 .25rem; font-size:1.1rem; }
+  .khu .mota { color:var(--muted); font-size:.95rem; margin:0 0 .7rem; }
+  .row { display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; padding:.6rem 0; border-top:1px dashed var(--line); }
+  .row .txt { flex:1 1 380px; }
+  .row .ten { font-weight:700; }
+  .row .meta { color:var(--muted); font-size:.9rem; }
+  .k { display:inline-block; font-size:.78rem; font-weight:700; padding:.08rem .45rem; border-radius:4px; margin-right:.35rem; background:var(--van-bg); color:var(--van); }
+  .btns { display:flex; gap:.45rem; flex-wrap:wrap; }
+  .btn { display:inline-block; text-decoration:none; border-radius:6px; padding:.45rem .85rem; font-weight:700; font-size:.93rem; }
+  .btn.go { background:var(--van); color:#fff; } .btn.go:hover { filter:brightness(1.1); }
+  .btn.go.toan { background:var(--blue); }
+  .btn.doc { border:1px solid var(--line); color:var(--van); background:#fff; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:.4rem; }
+  .card h3 { margin:0; color:var(--blue); font-size:1.05rem; }
+  .card p { margin:0; color:var(--muted); font-size:.93rem; flex:1; }
+  .card .so { font-size:.85rem; color:var(--ink); }
+  .note { background:#fff; border-left:4px solid var(--red); border-radius:6px; padding:.7rem 1rem; font-size:.92rem; margin-top:.4rem; }
+  .sap { background:#fff; border:1px dashed var(--ly); border-radius:10px; padding:1.4rem; text-align:center; color:var(--ink); }
+  .sap b { color:var(--ly); }
+  footer { max-width:1040px; margin:0 auto; padding:1rem; font-size:.85rem; color:var(--muted); border-top:1px solid var(--line); }
+  @media (max-width:560px){ header h1{font-size:1.35rem;} .mon button{flex-basis:100%;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>HỆ THỐNG LUYỆN THI TRỰC TUYẾN TOÀN TRƯỜNG</h1>
+  <p>Trường THPT Vĩnh Thạnh – Gia Lai · <a href="index.html">Trang Toán</a></p>
+</header>
+<div class="wrap">
+  <div class="mon" role="tablist" aria-label="Chọn bộ môn">
+    <button data-m="toan" role="tab">📐 Môn Toán</button>
+    <button data-m="van" role="tab">📚 Môn Ngữ văn</button>
+    <button data-m="ly" role="tab">⚡ Môn Vật lí</button>
+  </div>
+  <div id="noidung"></div>
+</div>
+<footer>
+  Học sinh nhập họ tên, lớp rồi làm bài; hệ thống trộn thứ tự câu hỏi và phương án cho từng em, chấm tự động và hiện lời giải sau khi nộp.
+  Kết quả được gửi về bảng điểm trực tuyến của nhà trường (xem ở trang quản lí kết quả).<br>
+  <b>Năng lực số (Phụ lục 1): 5.2.NC1b; 2.5.NC1a</b> – Sử dụng hệ thống luyện tập trực tuyến do giáo viên/tổ chuyên môn tổ chức để củng cố nội dung bài học,
+  nhận phản hồi và tự đánh giá kết quả; thực hiện đúng quy tắc an toàn, bảo mật và trung thực trong môi trường số.
+</footer>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const VAN = window.VAN_DEMO || [];
+
+function hang(d, nut) {
+  return `<div class="row"><div class="txt"><div class="ten"><span class="k">Khối ${d.khoi}</span>${esc(d.ten)}</div>
+    <div class="meta">${d.phut ? d.phut + " phút · " + d.cau[0] + " câu nhiều lựa chọn · " + d.cau[1] + " câu đúng sai (4 ý) · " : ""}${esc(d.nguon || "")}</div></div>
+    <div class="btns">${d.link ? `<a class="btn go" href="${esc(d.link)}">${nut}</a>` : ""}
+      ${d.pdf ? `<a class="btn go" href="${esc(d.pdf)}">Xem PDF</a>` : ""}
+      ${d.word ? `<a class="btn doc" href="${esc(d.word)}">${d.link ? "Đề Word (GV)" : "Tải Word"}</a>` : ""}</div></div>`;
+}
+function khu(tieu_de, mota, ds, nut) {
+  return `<section class="khu"><h3>${tieu_de}</h3><p class="mota">${mota}</p>${ds.sort((a, b) => a.khoi - b.khoi).map(d => hang(d, nut)).join("")
+    || '<div class="row"><div class="txt meta">Tổ Ngữ văn đang cập nhật.</div></div>'}</section>`;
+}
+function veVan() {
+  return `<h2 class="muc" style="color:var(--van)">DANH MỤC ÔN LUYỆN TRỰC TUYẾN MÔN NGỮ VĂN (bản demo Khối 10 – 12)</h2>`
+    + khu("🗂️ Phân khu 1: Đọc hiểu văn bản (củng cố cuối bài)",
+          "Trắc nghiệm củng cố sau mỗi bài học, bám sát văn bản và Tri thức ngữ văn trong SGK Kết nối tri thức.",
+          VAN.filter(d => d.khu === "doc"), "Vào làm bài củng cố")
+    + khu("🗂️ Phân khu 2: Thực hành tiếng Việt và kiến thức Ngữ văn",
+          "Nhận diện và sửa lỗi dùng từ, phân biệt đặc điểm ngôn ngữ; mỗi câu có lời giải chi tiết sau khi nộp bài.",
+          VAN.filter(d => d.khu === "tv"), "Vào ôn luyện tiếng Việt")
+    + khu("🗂️ Phân khu 3: Ma trận đề kiểm tra định kỳ (tự luận)",
+          "Ma trận và bản đặc tả đề Giữa kỳ I, Cuối kỳ I – phạm vi theo PPCT Ngữ văn của trường. Cấu trúc: Đọc hiểu 4 điểm + Viết 6 điểm (đoạn văn 2 điểm, bài văn 4 điểm).",
+          VAN.filter(d => d.khu === "matran"), "")
+    + `<div class="note">Bản demo do Tổ Toán dựng để minh hoạ hệ thống; nội dung câu hỏi, ma trận cần Tổ Ngữ văn thẩm định trước khi dùng chính thức.</div>`;
+}
+function veToan() {
+  const de = window.DE_LUYEN_TAP || [], cc = (window.DANH_SACH_BAI || []).filter(b => /^cc_/.test(b.link || ""));
+  const dem = k => de.filter(d => d.khu === k).length;
+  const the = (tieu_de, mota, so, link, nut) => `<div class="card"><h3>${tieu_de}</h3><p>${mota}</p><div class="so">${so}</div>
+      <a class="btn go toan" href="${link}">${nut}</a></div>`;
+  return `<h2 class="muc" style="color:var(--blue)">LUYỆN TẬP TOÁN THEO CẤU TRÚC MỚI (3 dạng thức)</h2><div class="grid">`
+    + the("📚 Tự luyện theo bài học", "Củng cố cuối tiết và đề luyện tập 3 dạng 25 phút.", `${cc.length} bài củng cố · ${dem("bai")} đề 3 dạng`, "luyen_tap.html#bai", "Vào luyện tập")
+    + the("🗂️ Ôn tập theo chương", "Đề 45 phút theo ma trận của tổ Toán.", `${dem("chuong")} đề`, "luyen_tap.html#chuong", "Vào ôn chương")
+    + the("⏱️ Kiểm tra định kỳ", "Đề ôn 90 phút: 12 – 4 – 6 câu.", `${dem("dinhky")} đề`, "luyen_tap.html#dinhky", "Thử sức ngay")
+    + the("🎓 Ôn thi tốt nghiệp THPT", "Đề chính thức và đề theo cấu trúc của Bộ.", `${dem("totnghiep")} đề`, "luyen_tap.html#totnghiep", "Luyện đề")
+    + `</div>`;
+}
+function veLy() {
+  return `<h2 class="muc" style="color:var(--ly)">MÔN VẬT LÍ</h2><div class="sap"><b>Đang xây dựng.</b><br>
+    Tổ Vật lí có thể dùng cùng hệ thống: bài củng cố cuối bài, đề 3 dạng thức (nhiều lựa chọn, đúng sai, trả lời ngắn) và ma trận đề định kỳ.</div>`;
+}
+const VE = { toan: veToan, van: veVan, ly: veLy };
+let MON = "van";
+function ve() {
+  document.querySelectorAll(".mon button").forEach(b => { const on = b.dataset.m === MON; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
+  $("noidung").innerHTML = VE[MON]();
+}
+document.querySelectorAll(".mon button").forEach(b => b.onclick = () => { MON = b.dataset.m; history.replaceState(null, "", "#" + MON); ve(); });
+function theoHash() { const h = location.hash.slice(1); if (VE[h]) MON = h; ve(); }
+window.addEventListener("hashchange", theoHash);
+theoHash();
+</script>
+</body>
+</html>
