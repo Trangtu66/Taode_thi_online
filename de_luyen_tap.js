@@ -13,7 +13,7 @@ window.DE_LUYEN_TAP = [
    2
   ],
   "link": "lt_bai5_t11.html",
-  "word": "de_luyen_tap/lt_bai5_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/lt_bai5_t11.docx"
  },
  {
   "khu": "bai",
@@ -27,7 +27,7 @@ window.DE_LUYEN_TAP = [
    2
   ],
   "link": "lt_bai6_t11.html",
-  "word": "de_luyen_tap/lt_bai6_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/lt_bai6_t11.docx"
  },
  {
   "khu": "bai",
@@ -41,7 +41,7 @@ window.DE_LUYEN_TAP = [
    2
   ],
   "link": "lt_bai7_t11.html",
-  "word": "de_luyen_tap/lt_bai7_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/lt_bai7_t11.docx"
  },
  {
   "khu": "chuong",
@@ -55,7 +55,7 @@ window.DE_LUYEN_TAP = [
    3
   ],
   "link": "oc_chuong1_t11.html",
-  "word": "de_luyen_tap/oc_chuong1_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/oc_chuong1_t11.docx"
  },
  {
   "khu": "chuong",
@@ -69,7 +69,7 @@ window.DE_LUYEN_TAP = [
    3
   ],
   "link": "oc_chuong2_t11.html",
-  "word": "de_luyen_tap/oc_chuong2_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/oc_chuong2_t11.docx"
  },
  {
   "khu": "dinhky",
@@ -83,7 +83,7 @@ window.DE_LUYEN_TAP = [
    6
   ],
   "link": "dk_gk1_t11.html",
-  "word": "de_luyen_tap/dk_gk1_t11.docx"
+  "word": "mon/toan/trac_nghiem/lop11/dk_gk1_t11.docx"
  },
  {
   "khu": "totnghiep",
@@ -97,6 +97,6 @@ window.DE_LUYEN_TAP = [
    6
   ],
   "link": "tn_2026_0101.html",
-  "word": "de_luyen_tap/tn_2026_0101.docx"
+  "word": "mon/toan/trac_nghiem/lop12/tn_2026_0101.docx"
  }
 ];

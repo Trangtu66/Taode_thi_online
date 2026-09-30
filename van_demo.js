@@ -11,7 +11,7 @@ window.VAN_DEMO = [
    1
   ],
   "link": "van_cc_bai1_k10.html",
-  "word": "ngu_van/de/van_cc_bai1_k10.docx",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_bai1_k10.docx",
   "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.9 – 14"
  },
  {
@@ -25,7 +25,7 @@ window.VAN_DEMO = [
    1
   ],
   "link": "van_cc_bai1_k11.html",
-  "word": "ngu_van/de/van_cc_bai1_k11.docx",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_bai1_k11.docx",
   "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.9 – 22"
  },
  {
@@ -39,7 +39,7 @@ window.VAN_DEMO = [
    1
   ],
   "link": "van_cc_bai1_k12.html",
-  "word": "ngu_van/de/van_cc_bai1_k12.docx",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_bai1_k12.docx",
   "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.9 – 18, 26"
  },
  {
@@ -53,7 +53,7 @@ window.VAN_DEMO = [
    1
   ],
   "link": "van_tv_hanviet_k10.html",
-  "word": "ngu_van/de/van_tv_hanviet_k10.docx",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_tv_hanviet_k10.docx",
   "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.28"
  },
  {
@@ -67,7 +67,7 @@ window.VAN_DEMO = [
    1
   ],
   "link": "van_tv_noiviet_k11.html",
-  "word": "ngu_van/de/van_tv_noiviet_k11.docx",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_tv_noiviet_k11.docx",
   "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.36 – 38"
  },
  {
@@ -75,23 +75,23 @@ window.VAN_DEMO = [
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",
-  "word": "ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
-  "pdf": "ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.pdf"
+  "word": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
+  "pdf": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.pdf"
  },
  {
   "mon": "van",
   "khu": "matran",
   "khoi": 11,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 11",
-  "word": "ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
-  "pdf": "ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.pdf"
+  "word": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
+  "pdf": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.pdf"
  },
  {
   "mon": "van",
   "khu": "matran",
   "khoi": 12,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 12",
-  "word": "ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
-  "pdf": "ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.pdf"
+  "word": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
+  "pdf": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.pdf"
  }
 ];
