@@ -3,6 +3,11 @@
 // Để trống "" thì trang vẫn chấm điểm bình thường nhưng không gửi kết quả về.
 window.KQ_API = "https://script.google.com/macros/s/AKfycbz-yf2unZA961vY5ACGaedBrZh7BkROcrI489Vz209eOfyIQufdPtwGRtQZkpuvDVFklw/exec";
 
+// CHẾ ĐỘ TRẢI NGHIỆM: true = trang Quản lý (quan_ly.html) và Kết quả (ket_qua.html) mở cho mọi người, không cần mã giáo viên;
+// chỉ hiện dữ liệu công khai (họ tên, lớp, điểm, thời gian – giống Bảng xếp hạng). Đáp án từng câu, thống kê câu hỏi
+// vẫn cần mã giáo viên. Khi muốn CHỐT LẠI (bắt buộc mã giáo viên), đổi true thành false.
+window.CONG_KHAI_KET_QUA = true;
+
 // (Tùy chọn) Link mở Google Sheet kết quả — dán link trình duyệt của bảng tính vào đây để có nút "Mở Google Sheet".
 window.KQ_SHEET = "";
 

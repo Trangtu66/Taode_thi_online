@@ -88,6 +88,7 @@
   </div>
 </div>
 <script>
+const CONG_KHAI = window.CONG_KHAI_KET_QUA === true;
 let MA = "", QUIZZES = [], ROWS = [];
 try{ MA = sessionStorage.getItem("kq_ma_gv") || ""; }catch(e){}
 const $ = id => document.getElementById(id);
@@ -155,6 +156,7 @@ function hienThi(){
     o.n++; if(a.ok) o.ok++; else { const c = a.chon || "(bỏ trống)"; o.sai[c] = (o.sai[c]||0)+1; }
   }));
   const arr = Object.values(st).sort((a,b)=> a.ok/a.n - b.ok/b.n);
+  if(!MA){ $("cau").innerHTML = '<span class="msg">Thống kê từng câu dùng đáp án của từng học sinh nên chỉ hiện khi giáo viên đăng nhập (ô đăng nhập ở cuối trang).</span>'; return; }
   $("cau").innerHTML = `<table><thead><tr><th class="num">Câu</th><th>Câu hỏi</th><th class="num">Tỉ lệ đúng</th><th></th><th>Đáp án đúng</th><th>Lựa chọn sai nhiều nhất</th></tr></thead><tbody>` +
     arr.map(o=>{ const p = Math.round(o.ok*100/o.n); const s = Object.entries(o.sai).sort((a,b)=>b[1]-a[1])[0];
       return `<tr><td class="num">${o.p===1?'':'P'+o.p+' – '}${o.c||''}</td><td>${esc(o.q)}</td><td class="num">${o.ok}/${o.n} (${p}%)</td><td><div class="barpct ${p<50?'low':''}"><i style="width:${p}%"></i></div></td><td>${esc(o.dung)}</td><td>${s?esc(s[0])+' ('+s[1]+' HS)':''}</td></tr>`; }).join("") + `</tbody></table>`;
@@ -179,8 +181,8 @@ async function taiBai(){
   const q = $("chon-bai").value; if(!q) return;
   $("bang").innerHTML = '<span class="msg">Đang tải…</span>';
   try{
-    const d = await jsonp({action:"all", key:MA, quiz:q});
-    ROWS = d.rows;
+    ROWS = MA ? (await jsonp({action:"all", key:MA, quiz:q})).rows
+              : (await jsonp({action:"rank", quiz:q})).rows.map(r=>({...r, parts:"", answers:[], auto:false}));
     const sel = $("chon-lop"), cur = sel.value;
     const lops = [...new Set(ROWS.map(r=>r.lop).filter(Boolean))].sort();
     sel.innerHTML = '<option value="">Tất cả các lớp</option>' + lops.map(l=>`<option ${l===cur?"selected":""}>${esc(l)}</option>`).join("");
@@ -202,7 +204,21 @@ async function vao(){
     taiBai();
   }catch(e){ MA = ""; $("loi-vao").textContent = "⚠ " + e; }
 }
-$("btn-vao").addEventListener("click", vao);
+async function vaoCongKhai(){
+  document.querySelector("header .sub").textContent = "Chế độ trải nghiệm: xem không cần mã giáo viên (đáp án từng câu chỉ hiện khi giáo viên đăng nhập)";
+  try{
+    const qz = (await jsonp({action:"quizzes"})).quizzes;
+    // gộp danh sách bài trong cau_hinh.js để chọn được cả bài chưa có lượt nộp
+    QUIZZES = (window.DANH_SACH_BAI || []).map(b=>{ const q = qz.find(x=>x.quizId===b.ma); return {quizId:b.ma, title:b.ma, count:q ? q.count : 0}; })
+      .concat(qz.filter(q=> !(window.DANH_SACH_BAI || []).some(b=>b.ma===q.quizId)));
+    $("noi-dung").classList.remove("hidden"); $("noi-dung").after($("dang-nhap"));
+    $("btn-thoat").classList.add("hidden");
+    document.querySelector("#bang").previousElementSibling.querySelector(".msg").textContent = "(đáp án từng câu hiện khi giáo viên đăng nhập)";
+    $("chon-bai").innerHTML = QUIZZES.length ? QUIZZES.map(x=>`<option value="${esc(x.quizId)}">${esc(x.title||x.quizId)} (${x.count} lượt)</option>`).join("") : '<option value="">(chưa có bài nộp)</option>';
+    taiBai();
+  }catch(e){ $("loi-vao").textContent = "⚠ " + e; }
+}
+$("btn-vao").addEventListener("click", ()=>{ $("btn-thoat").classList.remove("hidden"); vao(); });
 $("ma-gv").addEventListener("keydown", e=>{ if(e.key==="Enter") vao(); });
 $("chon-bai").addEventListener("change", ()=>{ $("chon-lop").value=""; taiBai(); });
 $("chon-lop").addEventListener("change", hienThi);
@@ -210,7 +226,7 @@ $("chon-cach").addEventListener("change", hienThi);
 $("btn-tai").addEventListener("click", taiBai);
 $("btn-excel").addEventListener("click", xuatCSV);
 $("btn-thoat").addEventListener("click", ()=>{ try{ sessionStorage.removeItem("kq_ma_gv"); }catch(e){} location.reload(); });
-if(MA) vao();
+if(MA) vao(); else if(CONG_KHAI) vaoCongKhai();
 </script>
 </body>
 </html>

@@ -164,6 +164,7 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const doc = k => { try{ return localStorage.getItem(k) || sessionStorage.getItem(k) || ""; }catch(e){ return ""; } };
 let KHOI = doc("ql_khoi") || "";
+const CONG_KHAI = window.CONG_KHAI_KET_QUA === true;
 let MA = doc("ql_ma_gv"), BAI = [], CHON = "", VIEW = "xephang", LOP = "", ROWS = [], LIST = [];
 function jsonp(params){
   return new Promise((res, rej)=>{
@@ -206,6 +207,13 @@ async function vao(){
     if(window.KQ_SHEET && (!GV || GV.admin)){ $("lnk-sheet").href = window.KQ_SHEET; $("lnk-sheet").classList.remove("hidden"); }
     await taiDanhSach();
   }catch(e){ MA = ""; try{ localStorage.removeItem("ql_ma_gv"); sessionStorage.removeItem("ql_ma_gv"); }catch(x){} $("loi-vao").textContent = "⚠ " + e; }
+}
+async function vaoCongKhai(){
+  $("noi-dung").classList.remove("hidden");
+  $("xin-chao").textContent = "Chế độ trải nghiệm: xem không cần mã giáo viên (đáp án từng câu chỉ hiện khi giáo viên đăng nhập)";
+  $("dang-nhap").querySelector("h2").textContent = "Giáo viên đăng nhập để xem đáp án từng câu, thống kê câu hỏi";
+  $("dang-nhap").style.order = "9"; $("noi-dung").after($("dang-nhap"));
+  await taiDanhSach();
 }
 /* ---------- danh sách bài ---------- */
 async function taiDanhSach(){
@@ -256,7 +264,8 @@ async function taiBai(){
   if(DANG_XEM !== CHON && VIEW !== "qr") $("noi-dung-chinh").innerHTML = '<span class="msg">Đang tải kết quả…</span>';
   DANG_XEM = CHON;
   try{
-    ROWS = (await jsonp({action:"all", key:MA, quiz:CHON})).rows;
+    ROWS = MA ? (await jsonp({action:"all", key:MA, quiz:CHON})).rows
+              : (await jsonp({action:"rank", quiz:CHON})).rows.map(r=>({...r, parts:"", answers:[], auto:false}));
     $("capnhat").textContent = "cập nhật lúc " + new Date().toLocaleTimeString("vi-VN", {hour:"2-digit", minute:"2-digit", second:"2-digit"});
     const bb = BAI.find(x=>x.ma===CHON); if(bb && bb.count !== ROWS.length){ bb.count = ROWS.length; bb.last = Math.max(0, ...ROWS.map(r=>r.t)); veDanhSach(); }
     veLop(); ve();
@@ -308,7 +317,7 @@ function ve(){
     const bands = [["< 3.5",0,3.5],["3.5 – < 5",3.5,5],["5 – < 6.5",5,6.5],["6.5 – < 8",6.5,8],["≥ 8",8,11]];
     const sc = LIST.map(r=>r.score), cnt = bands.map(b=> sc.filter(x=>x>=b[1] && x<b[2]).length), mx = Math.max(1,...cnt);
     box.innerHTML = thongKe(LIST) + `<div class="pho">${bands.map((b,i)=>`<div><i style="height:${Math.round(cnt[i]/mx*85)+2}px"></i><b>${cnt[i]}</b><br>${b[0]}</div>`).join("")}</div>
-      <p class="msg" style="font-size:13px">Bấm vào tên một học sinh để xem đáp án từng câu.</p>
+      <p class="msg" style="font-size:13px">${MA ? "Bấm vào tên một học sinh để xem đáp án từng câu." : "Đáp án từng câu chỉ hiện khi giáo viên đăng nhập."}</p>
       <div class="tbl"><table><thead><tr><th class="num">Hạng</th><th>Họ tên</th><th class="num">Lớp</th><th class="num">Điểm</th><th class="num">Thời gian</th><th class="num">Nộp lúc</th><th class="num">Lần làm</th><th>Điểm từng phần</th></tr></thead><tbody>` +
       LIST.map((r,i)=>`<tr class="hs" data-i="${i}"><td class="num"><b>${r.hang}</b></td><td>${esc(r.name)}${r.auto?' <span class="msg">(hết giờ)</span>':''}</td><td class="num">${esc(r.lop)}</td><td class="num"><b>${r.score.toFixed(2)}</b></td><td class="num">${tg(r.timeUsed)}</td><td class="num">${ngay(r.t)}</td><td class="num">${r.lan}/${r.soLan}</td><td>${esc(r.parts)}</td></tr>`).join("") + `</tbody></table></div>`;
     document.querySelectorAll("tr.hs").forEach(tr=> tr.onclick = ()=>{
@@ -326,6 +335,7 @@ function ve(){
       o.n++; if(a.ok) o.ok++; else { const c = a.chon || "(bỏ trống)"; o.sai[c] = (o.sai[c]||0)+1; }
     }));
     const arr = Object.values(st).sort((a,b)=> a.ok/a.n - b.ok/b.n);
+    if(!MA){ box.innerHTML = '<div class="msg" style="padding:20px;text-align:center">Thống kê từng câu hỏi dùng đáp án của từng học sinh nên chỉ hiện khi giáo viên đăng nhập (ô đăng nhập ở cuối trang). Các mục Bảng xếp hạng, Kết quả từng học sinh, Mã QR, Xuất Excel xem được ngay.</div>'; return; }
     box.innerHTML = `<p class="msg" style="font-size:13px;margin-top:0">Sắp xếp từ câu có tỉ lệ đúng thấp nhất – nên chữa các câu đầu bảng.</p><div class="tbl"><table><thead><tr><th class="num">Câu</th><th>Câu hỏi</th><th class="num">Tỉ lệ đúng</th><th></th><th>Đáp án đúng</th><th>Lựa chọn sai nhiều nhất</th></tr></thead><tbody>` +
       arr.map(o=>{ const p = Math.round(o.ok*100/o.n); const s = Object.entries(o.sai).sort((a,b)=>b[1]-a[1])[0];
         return `<tr><td class="num">${o.p===1?'':'P'+o.p+' – '}${o.c||''}</td><td>${esc(o.q)}</td><td class="num">${o.ok}/${o.n} (${p}%)</td><td><div class="barpct ${p<50?'low':''}"><i style="width:${p}%"></i></div></td><td>${esc(o.dung)}</td><td>${s?esc(s[0])+' ('+s[1]+' HS)':''}</td></tr>`; }).join("") + `</tbody></table></div>`;
@@ -368,8 +378,8 @@ $("chon-cach").onchange = ve;
 $("btn-tai").onclick = taiBai;
 $("btn-full").onclick = ()=>{ const k = $("khung"); if(document.fullscreenElement) document.exitFullscreen(); else if(k.requestFullscreen) k.requestFullscreen(); };
 $("btn-thoat").onclick = ()=>{ try{ localStorage.removeItem("ql_ma_gv"); sessionStorage.removeItem("ql_ma_gv"); }catch(e){} location.reload(); };
-setInterval(()=>{ if(MA && !document.hidden && (VIEW==="xephang" || VIEW==="cau")) taiBai(); }, 20000);
-if(MA) vao();
+setInterval(()=>{ if((MA || CONG_KHAI) && !document.hidden && (VIEW==="xephang" || VIEW==="cau")) taiBai(); }, 20000);
+if(MA) vao(); else if(CONG_KHAI) vaoCongKhai();
 </script>
 </body>
 </html>
