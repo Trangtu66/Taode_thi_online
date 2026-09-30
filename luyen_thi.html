@@ -7,6 +7,7 @@
 <script src="cau_hinh.js"></script>
 <script src="de_luyen_tap.js"></script>
 <script src="van_demo.js"></script>
+<script src="mon_demo.js"></script>
 <style>
   :root { --blue:#1E40AF; --red:#991B1B; --ink:#1E293B; --muted:#64748B; --bg:#F8F9FA; --line:#E2E8F0; --green:#166534;
           --van:#9D174D; --van-bg:#FDF2F8; --ly:#B45309; --ly-bg:#FFFBEB; --toan-bg:#EFF4FF; }
@@ -18,11 +19,9 @@
   header a { color:#fff; font-size:.9rem; }
   .wrap { max-width:1040px; margin:0 auto; padding:1.2rem 1rem 2rem; }
   .mon { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.1rem; }
-  .mon button { flex:1 1 180px; font:inherit; font-size:1.08rem; font-weight:700; padding:.8rem 1rem; border-radius:10px; cursor:pointer;
+  .mon button { flex:1 1 150px; font:inherit; font-size:1rem; font-weight:700; padding:.8rem 1rem; border-radius:10px; cursor:pointer;
                 border:2px solid var(--line); background:#fff; color:var(--ink); }
-  .mon button[data-m="toan"].on { border-color:var(--blue); background:var(--toan-bg); color:var(--blue); }
-  .mon button[data-m="van"].on { border-color:var(--van); background:var(--van-bg); color:var(--van); }
-  .mon button[data-m="ly"].on { border-color:var(--ly); background:var(--ly-bg); color:var(--ly); }
+  .mon button.on { border-color:var(--c); color:var(--c); background:#fff; box-shadow:inset 0 -3px 0 var(--c); }
   .mon button:focus-visible, .btn:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
   h2.muc { font-family:Arial,sans-serif; font-size:1.2rem; margin:.2rem 0 .9rem; padding-bottom:.4rem; border-bottom:2px solid var(--line); }
   .khu { background:#fff; border:1px solid var(--line); border-radius:10px; padding:1rem 1.1rem; margin-bottom:1rem; }
@@ -57,9 +56,6 @@
 </header>
 <div class="wrap">
   <div class="mon" role="tablist" aria-label="Chọn bộ môn">
-    <button data-m="toan" role="tab">📐 Môn Toán</button>
-    <button data-m="van" role="tab">📚 Môn Ngữ văn</button>
-    <button data-m="ly" role="tab">⚡ Môn Vật lí</button>
   </div>
   <div id="noidung"></div>
 </div>
@@ -110,11 +106,28 @@ function veToan() {
     + the("🎓 Ôn thi tốt nghiệp THPT", "Đề chính thức và đề theo cấu trúc của Bộ.", `${dem("totnghiep")} đề`, "luyen_tap.html#totnghiep", "Luyện đề")
     + `</div>`;
 }
+const KHAC = window.MON_DEMO || {};
+function veMon(ma) {
+  const m = KHAC[ma], ds = (m.de || []).map(d => ({...d, cau: d.cau}));
+  const hang2 = d => `<div class="row"><div class="txt"><div class="ten"><span class="k">Khối ${d.khoi}</span>${esc(d.ten)}</div>
+      <div class="meta">${d.phut} phút · ${d.cau[0]} câu nhiều lựa chọn · ${d.cau[1]} câu đúng sai (4 ý)${d.cau[2] ? " · " + d.cau[2] + " câu trả lời ngắn" : ""} · ${esc(d.nguon)}</div></div>
+      <div class="btns"><a class="btn go" href="${esc(d.link)}">Vào làm bài củng cố</a><a class="btn doc" href="${esc(d.word)}">Đề Word (GV)</a></div></div>`;
+  const kho = "https://github.com/Trangtu66/Taode_thi_online/tree/main/" + m.kho;
+  return `<div style="--van:${m.mau}; --van-bg:#F1F5F9"><h2 class="muc" style="color:${m.mau}">DANH MỤC ÔN LUYỆN TRỰC TUYẾN MÔN ${esc(m.ten.toUpperCase())} (bản demo)</h2>`
+    + `<section class="khu"><h3>🗂️ Phân khu 1: Củng cố cuối bài</h3><p class="mota">Trắc nghiệm theo dạng thức đề mới, soạn bám sát SGK Kết nối tri thức; có lời giải chi tiết sau khi nộp bài.</p>${ds.map(hang2).join("")}</section>`
+    + `<section class="khu"><h3>🗂️ Phân khu 2: Ôn tập theo chủ đề, chương</h3><p class="mota">Tổ ${esc(m.ten)} bổ sung đề ôn tập 45 phút theo ma trận của tổ.</p><div class="row"><div class="txt meta">Tổ chuyên môn đang cập nhật.</div></div></section>`
+    + `<section class="khu"><h3>🗂️ Phân khu 3: Kho học liệu của tổ</h3><p class="mota">Kế hoạch bài dạy, slide, đề và ma trận xếp theo khối trong thư mục <b>${esc(m.kho)}/</b> (khbd · slide · trac_nghiem · ma_tran).</p>
+       <div class="row"><div class="txt"><div class="ten">Thư mục môn ${esc(m.ten)} trên GitHub</div></div><div class="btns"><a class="btn doc" href="${kho}">Mở kho học liệu</a></div></div></section>`
+    + `<div class="note">Bản demo do Tổ Toán dựng để minh hoạ hệ thống; câu hỏi cần Tổ ${esc(m.ten)} thẩm định trước khi dùng chính thức.</div></div>`;
+}
 function veLy() {
   return `<h2 class="muc" style="color:var(--ly)">MÔN VẬT LÍ</h2><div class="sap"><b>Đang xây dựng.</b><br>
     Tổ Vật lí có thể dùng cùng hệ thống: bài củng cố cuối bài, đề 3 dạng thức (nhiều lựa chọn, đúng sai, trả lời ngắn) và ma trận đề định kỳ.</div>`;
 }
-const VE = { toan: veToan, van: veVan, ly: veLy };
+const VE = { toan: veToan, van: veVan }, NUT = [["toan", "📐 Toán", "#1E40AF"], ["van", "📚 Ngữ văn", "#9D174D"]];
+Object.keys(KHAC).forEach(ma => { VE[ma] = () => veMon(ma); NUT.push([ma, KHAC[ma].bieu_tuong + " " + (ma === "gdkt_pl" ? "GDKT&PL" : KHAC[ma].ten), KHAC[ma].mau]); });
+VE.ly = veLy; NUT.push(["ly", "⚡ Vật lí", "#B45309"]);
+document.querySelector(".mon").innerHTML = NUT.map(([m, t, c]) => `<button data-m="${m}" role="tab" style="--c:${c}">${t}</button>`).join("");
 let MON = "van";
 function ve() {
   document.querySelectorAll(".mon button").forEach(b => { const on = b.dataset.m === MON; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });

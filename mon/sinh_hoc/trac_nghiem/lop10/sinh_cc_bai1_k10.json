@@ -1,0 +1,313 @@
+{
+ "meta": {
+  "title": "Củng cố – Sinh học 10 · Bài 1: Giới thiệu khái quát môn Sinh học",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Sinh học (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 15,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.5,
+   "questions": [
+    {
+     "content": "Đối tượng nghiên cứu của sinh học là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "các chất hoá học và phản ứng giữa chúng"
+      },
+      {
+       "l": "B",
+       "t": "các sinh vật cùng các cấp độ tổ chức của thế giới sống"
+      },
+      {
+       "l": "C",
+       "t": "các hiện tượng vật lí trong tự nhiên"
+      },
+      {
+       "l": "D",
+       "t": "các hoạt động kinh tế – xã hội của con người"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK: sinh học là ngành khoa học nghiên cứu về sự sống; đối tượng chính là các sinh vật cùng các cấp độ tổ chức của thế giới sống."
+    },
+    {
+     "content": "Các lĩnh vực nghiên cứu sinh học có thể chia thành hai loại chính là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "nghiên cứu vi sinh vật và nghiên cứu con người"
+      },
+      {
+       "l": "B",
+       "t": "nghiên cứu động vật và nghiên cứu thực vật"
+      },
+      {
+       "l": "C",
+       "t": "nghiên cứu trong phòng thí nghiệm và ngoài thực địa"
+      },
+      {
+       "l": "D",
+       "t": "nghiên cứu cơ bản và nghiên cứu ứng dụng"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.5 – 6: nghiên cứu cơ bản tìm hiểu cấu trúc, phân loại, vận hành, tiến hoá; nghiên cứu ứng dụng đưa phát kiến vào thực tiễn."
+    },
+    {
+     "content": "Theo Chương trình Giáo dục phổ thông, ở lớp 10 học sinh tìm hiểu",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "sinh học tế bào và thế giới vi sinh vật"
+      },
+      {
+       "l": "B",
+       "t": "sinh học cơ thể"
+      },
+      {
+       "l": "C",
+       "t": "di truyền học, tiến hoá và sinh thái học"
+      },
+      {
+       "l": "D",
+       "t": "giải phẫu người"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK: lớp 10 – sinh học tế bào và thế giới vi sinh vật; lớp 11 – sinh học cơ thể; lớp 12 – di truyền học, tiến hoá và sinh thái học."
+    },
+    {
+     "content": "Nhờ giải trình tự DNA, người ta có thể nhận diện từng cá thể qua “dấu vân tay DNA”. Đây là ứng dụng của sinh học trong ngành",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "lâm nghiệp"
+      },
+      {
+       "l": "B",
+       "t": "công nghệ thực phẩm"
+      },
+      {
+       "l": "C",
+       "t": "pháp y"
+      },
+      {
+       "l": "D",
+       "t": "bảo vệ môi trường"
+      }
+     ],
+     "correct": "C",
+     "expl": "SGK mục II.2 – Sinh học và ngành pháp y: dấu vân tay DNA giúp truy tìm chủ nhân dấu vết, xác định nhân thân nạn nhân."
+    },
+    {
+     "content": "Hình 1.1 (SGK) cho thấy chuối được nhân giống với số lượng lớn. Biện pháp được sử dụng là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "gây đột biến bằng phóng xạ"
+      },
+      {
+       "l": "B",
+       "t": "lai hữu tính"
+      },
+      {
+       "l": "C",
+       "t": "nuôi cấy mô"
+      },
+      {
+       "l": "D",
+       "t": "chiết cành"
+      }
+     ],
+     "correct": "C",
+     "expl": "Chú thích Hình 1.1: chuối được nhân giống số lượng lớn bằng biện pháp nuôi cấy mô."
+    },
+    {
+     "content": "Loài vi khuẩn được biết đến là chống chịu phóng xạ tốt nhất, có thể giúp làm sạch các địa điểm bị ô nhiễm phóng xạ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Deinococcus radiodurans"
+      },
+      {
+       "l": "B",
+       "t": "Shewanella oneidensis"
+      },
+      {
+       "l": "C",
+       "t": "Chlorobium tepidum"
+      },
+      {
+       "l": "D",
+       "t": "Escherichia coli"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.8: Deinococcus radiodurans chịu phóng xạ tốt nhất; Shewanella oneidensis sinh năng lượng điện; Chlorobium tepidum sinh năng lượng từ ánh sáng."
+    },
+    {
+     "content": "Theo Uỷ ban Môi trường và Phát triển Thế giới (WCED), phát triển bền vững là sự phát triển",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "chỉ chú trọng tăng trưởng kinh tế nhanh nhất có thể"
+      },
+      {
+       "l": "B",
+       "t": "đáp ứng được nhu cầu hiện tại nhưng không làm tổn hại đến khả năng đáp ứng nhu cầu phát triển của các thế hệ tương lai"
+      },
+      {
+       "l": "C",
+       "t": "khai thác tối đa tài nguyên thiên nhiên cho hiện tại"
+      },
+      {
+       "l": "D",
+       "t": "dừng mọi hoạt động sản xuất để bảo vệ môi trường"
+      }
+     ],
+     "correct": "B",
+     "expl": "Đây là định nghĩa của WCED (1987) được trích trong SGK mục III.1."
+    },
+    {
+     "content": "Ví dụ nào sau đây thể hiện vấn đề đạo đức sinh học?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Dùng vi khuẩn làm sạch nước nhiễm thuỷ ngân"
+      },
+      {
+       "l": "B",
+       "t": "Dùng vi khuẩn lên men để làm sữa chua"
+      },
+      {
+       "l": "C",
+       "t": "Nhân giống chuối bằng nuôi cấy mô"
+      },
+      {
+       "l": "D",
+       "t": "Ai có quyền biết thông tin giải trình tự hệ gene của một người"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK mục III.3a nêu các câu hỏi đạo đức: ai có quyền biết thông tin hệ gene, có nên chỉnh sửa gene người, nhân bản vô tính người..."
+    },
+    {
+     "content": "Sinh học hệ thống được hình thành từ sự kết hợp của sinh học với",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "lịch sử và địa lí"
+      },
+      {
+       "l": "B",
+       "t": "chỉ riêng y học"
+      },
+      {
+       "l": "C",
+       "t": "văn học và nghệ thuật"
+      },
+      {
+       "l": "D",
+       "t": "hoá học, tin học, toán học và vật lí"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK mục I.5: sự kết hợp của sinh học với hoá học, tin học, toán học và vật lí hình thành ngành sinh học hệ thống."
+    },
+    {
+     "content": "Một hợp tác xã định trồng trên diện tích lớn chỉ một giống cây tạo ra từ nuôi cấy mô tế bào. Theo SGK, rủi ro cần cân nhắc là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "dễ mất mùa đồng loạt nếu điều kiện môi trường bất lợi với giống cây đó"
+      },
+      {
+       "l": "B",
+       "t": "cây sẽ không bao giờ ra hoa, kết quả"
+      },
+      {
+       "l": "C",
+       "t": "chi phí giống cao hơn gieo hạt truyền thống gấp nhiều lần"
+      },
+      {
+       "l": "D",
+       "t": "cây sẽ lai tạp với cỏ dại quanh ruộng"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK mục III.3b: trồng cây giống tạo từ nuôi cấy mô trên diện tích lớn tiềm ẩn rủi ro mất mùa nếu điều kiện môi trường bất lợi."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc thông tin (SGK tr.6): Giải trình tự hệ gene của SARS – CoV – 2 giúp các nhà khoa học tìm ra trình tự nucleotide của gene quy định gai protein. Từ đó tổng hợp mRNA nhân tạo, bao bọc trong màng phospholipid rồi tiêm vào người để tế bào người tạo ra protein gai của virus.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Giải trình tự hệ gene virus là bước giúp xác định gene quy định gai protein.",
+       "correct": true,
+       "expl": "Đúng như thông tin trong SGK."
+      },
+      {
+       "text": "Vaccine mRNA đưa virus SARS – CoV – 2 còn sống vào cơ thể người.",
+       "correct": false,
+       "expl": "Vaccine chỉ chứa mRNA nhân tạo quy định protein gai, không chứa virus sống."
+      },
+      {
+       "text": "Sau khi tiêm, hệ thống miễn dịch được kích hoạt tạo ra kháng thể chống lại virus.",
+       "correct": true,
+       "expl": "Tế bào người tạo protein gai; hệ miễn dịch nhận diện và tạo kháng thể."
+      },
+      {
+       "text": "Đây là ví dụ cho thấy vai trò của sinh học trong y – dược và triển vọng của sinh học trong tương lai.",
+       "correct": true,
+       "expl": "SGK dùng ví dụ vaccine mRNA ở mục “Sinh học trong tương lai” – loại vaccine mới sản xuất thành công trong thời gian ngắn."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "short",
+   "title": "PHẦN III. Câu trắc nghiệm trả lời ngắn",
+   "pointsPerQuestion": 1,
+   "questions": [
+    {
+     "content": "Uỷ ban Môi trường và Phát triển Thế giới (WCED) của Liên hợp quốc đưa ra định nghĩa về phát triển bền vững vào năm nào?",
+     "imageUrl": "",
+     "answer": 1987,
+     "expl": "SGK mục III.1: “Theo định nghĩa của Uỷ ban Môi trường và Phát triển Thế giới (WCED) của Liên hợp quốc (1987)...”."
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – GDKT&PL 10 · Bài 1: Các hoạt động kinh tế cơ bản trong đời sống xã hội",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Giáo dục kinh tế và pháp luật (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Các hoạt động kinh tế cơ bản của nền kinh tế gồm",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "sản xuất, vận chuyển, cất trữ"
+      },
+      {
+       "l": "B",
+       "t": "sản xuất, phân phối – trao đổi, tiêu dùng"
+      },
+      {
+       "l": "C",
+       "t": "mua bán, cho vay, đầu tư"
+      },
+      {
+       "l": "D",
+       "t": "trồng trọt, chăn nuôi, dịch vụ"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.6: nền kinh tế là chỉnh thể thống nhất các hoạt động kinh tế cơ bản: sản xuất, phân phối – trao đổi, tiêu dùng."
+    },
+    {
+     "content": "Hoạt động con người sử dụng các yếu tố sản xuất để tạo ra các sản phẩm đáp ứng nhu cầu của đời sống xã hội là hoạt động",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "phân phối"
+      },
+      {
+       "l": "B",
+       "t": "tiêu dùng"
+      },
+      {
+       "l": "C",
+       "t": "trao đổi"
+      },
+      {
+       "l": "D",
+       "t": "sản xuất"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.7: định nghĩa hoạt động sản xuất."
+    },
+    {
+     "content": "Hoạt động nào đóng vai trò cơ bản nhất, quyết định các hoạt động phân phối – trao đổi, tiêu dùng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Hoạt động sản xuất"
+      },
+      {
+       "l": "B",
+       "t": "Hoạt động tiêu dùng"
+      },
+      {
+       "l": "C",
+       "t": "Hoạt động trao đổi"
+      },
+      {
+       "l": "D",
+       "t": "Hoạt động phân phối"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK: sản xuất là hoạt động cơ bản nhất, là gốc, có vai trò quyết định."
+    },
+    {
+     "content": "Công ty X phân công lao động cho các bộ phận cắt vải, may, kiểm tra chất lượng và phân bổ máy móc, nguyên vật liệu cho từng bộ phận. Việc làm này thuộc",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "hoạt động tiêu dùng"
+      },
+      {
+       "l": "B",
+       "t": "phân phối cho tiêu dùng"
+      },
+      {
+       "l": "C",
+       "t": "phân phối cho sản xuất"
+      },
+      {
+       "l": "D",
+       "t": "hoạt động trao đổi"
+      }
+     ],
+     "correct": "C",
+     "expl": "Phân phối cho sản xuất là phân chia các yếu tố sản xuất cho các ngành, các đơn vị sản xuất khác nhau."
+    },
+    {
+     "content": "Sau quá trình sản xuất, doanh nghiệp thu lợi nhuận, người lao động nhận tiền lương, Nhà nước thu thuế. Đây là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "hoạt động sản xuất"
+      },
+      {
+       "l": "B",
+       "t": "phân phối cho sản xuất"
+      },
+      {
+       "l": "C",
+       "t": "phân phối cho tiêu dùng"
+      },
+      {
+       "l": "D",
+       "t": "hoạt động trao đổi"
+      }
+     ],
+     "correct": "C",
+     "expl": "Phân phối cho tiêu dùng: kết quả sản xuất được phân chia cho các chủ thể liên quan, tương xứng với đóng góp."
+    },
+    {
+     "content": "Người dân xã Si Ma Cai (Lào Cai) đến chợ phiên mỗi sáng thứ Bảy để bán sản phẩm của mình và mua thứ cần thiết. Hoạt động chủ yếu diễn ra ở chợ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "trao đổi, mua bán hàng hoá"
+      },
+      {
+       "l": "B",
+       "t": "sản xuất hàng hoá"
+      },
+      {
+       "l": "C",
+       "t": "phân phối yếu tố sản xuất"
+      },
+      {
+       "l": "D",
+       "t": "tiêu dùng cho sản xuất"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.8: chợ phiên là nơi diễn ra hoạt động trao đổi, mua bán, đưa hàng hoá đến tay người tiêu dùng."
+    },
+    {
+     "content": "Trong mối quan hệ giữa các hoạt động kinh tế, tiêu dùng có vai trò",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "là gốc, quyết định sản xuất"
+      },
+      {
+       "l": "B",
+       "t": "là mục đích, là động lực của sản xuất"
+      },
+      {
+       "l": "C",
+       "t": "là cầu nối giữa sản xuất và phân phối"
+      },
+      {
+       "l": "D",
+       "t": "không ảnh hưởng đến sản xuất"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.10: sản xuất là gốc; tiêu dùng là mục đích, động lực của sản xuất; phân phối và trao đổi là cầu nối."
+    },
+    {
+     "content": "Chủ quán cơm mua gạo ngon để nấu cơm phục vụ khách hàng. Hoạt động tiêu dùng này nhằm thoả mãn nhu cầu",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "trao đổi"
+      },
+      {
+       "l": "B",
+       "t": "sinh hoạt của gia đình"
+      },
+      {
+       "l": "C",
+       "t": "tiết kiệm"
+      },
+      {
+       "l": "D",
+       "t": "sản xuất, kinh doanh"
+      }
+     ],
+     "correct": "D",
+     "expl": "Tranh 2 (SGK tr.9): gạo được dùng để kinh doanh; còn tranh 1 mẹ mua gạo nấu cơm cho gia đình là tiêu dùng cho sinh hoạt."
+    },
+    {
+     "content": "Doanh nghiệp Y thương lượng để người lao động làm bán thời gian, hưởng lương bán thời gian khi sản xuất khó khăn. Giải pháp này điều chỉnh hoạt động",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "trao đổi hàng hoá"
+      },
+      {
+       "l": "B",
+       "t": "sản xuất sản phẩm"
+      },
+      {
+       "l": "C",
+       "t": "tiêu dùng của người lao động"
+      },
+      {
+       "l": "D",
+       "t": "phân phối thu nhập"
+      }
+     ],
+     "correct": "D",
+     "expl": "Luyện tập 1b (SGK tr.10): điều chỉnh hoạt động phân phối thu nhập giúp doanh nghiệp vượt khó, người lao động giữ được việc làm."
+    },
+    {
+     "content": "Hành động nào của học sinh thể hiện “tiêu dùng xanh”?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Mang bình nước riêng, hạn chế dùng túi nilon và ống hút nhựa"
+      },
+      {
+       "l": "B",
+       "t": "Mua nhiều đồ nhựa dùng một lần cho tiện"
+      },
+      {
+       "l": "C",
+       "t": "Chọn sản phẩm rẻ nhất bất kể nguồn gốc"
+      },
+      {
+       "l": "D",
+       "t": "Thay điện thoại mới mỗi khi có mẫu mới"
+      }
+     ],
+     "correct": "A",
+     "expl": "Luyện tập 1d và Vận dụng (SGK tr.11): tiêu dùng sản phẩm nhựa tăng làm rác thải tăng; tiêu dùng xanh là lựa chọn thân thiện với môi trường."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc thông tin (SGK tr.10): Bán hàng trực tuyến là hình thức kinh doanh được nhiều bạn trẻ thử sức vì không tốn chi phí thuê mặt bằng, nguồn nhân lực... Tuy nhiên hình thức này cũng tiềm ẩn nhược điểm như: mất thời gian chờ hàng, sản phẩm không đúng quảng cáo, một số người kinh doanh trốn thuế, bán hàng không rõ nguồn gốc,...",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Bán hàng trực tuyến thuộc hoạt động phân phối – trao đổi.",
+       "correct": true,
+       "expl": "Đưa hàng hoá từ người bán đến người mua là hoạt động trao đổi."
+      },
+      {
+       "text": "Người bán hàng trực tuyến có thể tiết kiệm chi phí thuê mặt bằng.",
+       "correct": true,
+       "expl": "Đúng như thông tin SGK nêu."
+      },
+      {
+       "text": "Bán hàng trực tuyến không có tác động tiêu cực nào đến đời sống xã hội.",
+       "correct": false,
+       "expl": "SGK chỉ ra nhiều nhược điểm: hàng không đúng quảng cáo, trốn thuế, hàng không rõ nguồn gốc..."
+      },
+      {
+       "text": "Để hạn chế tác động tiêu cực, người tiêu dùng nên chọn nơi bán uy tín, kiểm tra nguồn gốc, xuất xứ và phản ánh hành vi vi phạm.",
+       "correct": true,
+       "expl": "Đây là biện pháp phù hợp với yêu cầu “Hãy nêu biện pháp để hạn chế tác động tiêu cực” của bài."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

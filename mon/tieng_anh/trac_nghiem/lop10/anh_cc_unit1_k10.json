@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Tiếng Anh 10 · Unit 1: Family life",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Tiếng Anh (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Choose the word that matches the meaning: “someone who earns money to support their family”.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "homemaker"
+      },
+      {
+       "l": "B",
+       "t": "breadwinner"
+      },
+      {
+       "l": "C",
+       "t": "groceries"
+      },
+      {
+       "l": "D",
+       "t": "housework"
+      }
+     ],
+     "correct": "B",
+     "expl": "Vocabulary 1 (tr.10): breadwinner – người trụ cột kiếm tiền nuôi gia đình."
+    },
+    {
+     "content": "Choose the word that matches the meaning: “a person who manages a home and often raises children instead of earning money”.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "housework"
+      },
+      {
+       "l": "B",
+       "t": "breadwinner"
+      },
+      {
+       "l": "C",
+       "t": "heavy lifting"
+      },
+      {
+       "l": "D",
+       "t": "homemaker"
+      }
+     ],
+     "correct": "D",
+     "expl": "Vocabulary 1: homemaker – người nội trợ."
+    },
+    {
+     "content": "“heavy lifting” means",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "picking up and carrying heavy objects"
+      },
+      {
+       "l": "B",
+       "t": "food and other goods sold at a shop"
+      },
+      {
+       "l": "C",
+       "t": "work around the house such as cooking and cleaning"
+      },
+      {
+       "l": "D",
+       "t": "a person who earns money"
+      }
+     ],
+     "correct": "A",
+     "expl": "Vocabulary 1: heavy lifting – việc khuân vác nặng."
+    },
+    {
+     "content": "Which word begins with the consonant blend /kr/?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "track"
+      },
+      {
+       "l": "B",
+       "t": "brown"
+      },
+      {
+       "l": "C",
+       "t": "crane"
+      },
+      {
+       "l": "D",
+       "t": "breakfast"
+      }
+     ],
+     "correct": "C",
+     "expl": "Pronunciation (tr.9): /kr/ – crash, crane, cream; /br/ – breadwinner, breakfast, brown; /tr/ – track, tree, train."
+    },
+    {
+     "content": "Mrs Lan usually ______ the cooking in her family.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "do"
+      },
+      {
+       "l": "B",
+       "t": "is doing"
+      },
+      {
+       "l": "C",
+       "t": "does"
+      },
+      {
+       "l": "D",
+       "t": "doing"
+      }
+     ],
+     "correct": "C",
+     "expl": "“usually” diễn tả thói quen → thì hiện tại đơn, chủ ngữ ngôi thứ ba số ít: does."
+    },
+    {
+     "content": "I’m afraid he can’t answer the phone now. He ______ the rubbish.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "is putting out"
+      },
+      {
+       "l": "B",
+       "t": "puts out"
+      },
+      {
+       "l": "C",
+       "t": "put out"
+      },
+      {
+       "l": "D",
+       "t": "has put"
+      }
+     ],
+     "correct": "A",
+     "expl": "Hành động đang diễn ra tại thời điểm nói (now) → hiện tại tiếp diễn: is putting out."
+    },
+    {
+     "content": "My sister can’t do any housework today. She ______ for her exams.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "studies"
+      },
+      {
+       "l": "B",
+       "t": "is studying"
+      },
+      {
+       "l": "C",
+       "t": "study"
+      },
+      {
+       "l": "D",
+       "t": "studied"
+      }
+     ],
+     "correct": "B",
+     "expl": "Việc đang diễn ra quanh thời điểm nói (today) → hiện tại tiếp diễn: is studying."
+    },
+    {
+     "content": "Which sentence is correct?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "They are needing more time."
+      },
+      {
+       "l": "B",
+       "t": "I am knowing the answer to this question."
+      },
+      {
+       "l": "C",
+       "t": "She is wanting a new laptop now."
+      },
+      {
+       "l": "D",
+       "t": "I know the answer to this question."
+      }
+     ],
+     "correct": "D",
+     "expl": "Remember! (tr.10): không dùng thì tiếp diễn với động từ chỉ trạng thái (like, love, need, want, know, agree...)."
+    },
+    {
+     "content": "In the reading text “Benefits of doing housework”, the word “gratitude” means",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "a duty"
+      },
+      {
+       "l": "B",
+       "t": "the feeling of being great"
+      },
+      {
+       "l": "C",
+       "t": "a close connection"
+      },
+      {
+       "l": "D",
+       "t": "the feeling of being grateful"
+      }
+     ],
+     "correct": "D",
+     "expl": "Reading 2 (tr.11): gratitude – lòng biết ơn."
+    },
+    {
+     "content": "According to the reading text, why should parents encourage their kids to share the housework?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "It teaches them life skills and helps build their character."
+      },
+      {
+       "l": "B",
+       "t": "It gives parents more time to go out."
+      },
+      {
+       "l": "C",
+       "t": "It helps children get higher marks at school immediately."
+      },
+      {
+       "l": "D",
+       "t": "It stops children from playing sports."
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu kết bài đọc: “It teaches them life skills and helps build their character. Therefore, parents should encourage their kids to share the housework...”"
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Read the text “Benefits of doing housework” (Tiếng Anh 10, tr.11) and decide whether each statement is true or false.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Most people think that housework is boring and is the responsibility of wives and mothers only.",
+       "correct": true,
+       "expl": "Câu mở đầu bài đọc nói đúng như vậy."
+      },
+      {
+       "text": "Kids who do housework develop important life skills that they will need for the rest of their lives.",
+       "correct": true,
+       "expl": "Đoạn 2 của bài đọc."
+      },
+      {
+       "text": "Schools can fully teach children all the life skills they need, so learning them at home is not important.",
+       "correct": false,
+       "expl": "Bài đọc: “These are the things that schools cannot fully teach, so it’s important for children to learn them at home.”"
+      },
+      {
+       "text": "Doing chores together helps strengthen family bonds and creates special moments between children and parents.",
+       "correct": true,
+       "expl": "Đoạn 3: “doing chores together helps strengthen family bonds, creating special moments between children and parents.”"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

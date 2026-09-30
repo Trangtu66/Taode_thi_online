@@ -16,7 +16,8 @@ mon/
 │   ├── trac_nghiem/      Đề trực tuyến: nguồn JSON + đề Word có đáp án, lời giải   lop10/ lop11/ lop12/
 │   └── ma_tran/          Ma trận, bản đặc tả đề luyện tập / kiểm tra
 ├── ngu_van/              Môn Ngữ văn (bản demo)
-│   ├── khbd/  slide/  trac_nghiem/  ma_tran/
+├── hoa_hoc/  sinh_hoc/  lich_su/  dia_li/  gdkt_pl/  tieng_anh/   (bản demo: bài củng cố lớp 10)
+│   └── mỗi môn: khbd/  slide/  trac_nghiem/  ma_tran/
 └── vat_li/               Môn Vật lí (đang xây dựng)
 ```
 
@@ -37,10 +38,11 @@ Mã QR in trên slide, KHBD và các link đã gửi học sinh trỏ thẳng v�
 | `lam_bai.html` | Trang làm bài và chấm điểm (dùng chung mọi môn) |
 | `quan_ly.html`, `ket_qua.html`, `xep_hang.html` | Quản lí bài, kết quả, xếp hạng |
 | `cau_hinh.js` | Danh sách bài + địa chỉ nhận kết quả |
-| `de_luyen_tap.js`, `van_demo.js` | Danh mục đề hiển thị trên cổng |
+| `de_luyen_tap.js`, `van_demo.js`, `mon_demo.js` | Danh mục đề hiển thị trên cổng |
 | `cc_*.html` | Bài củng cố cuối tiết (Toán) – đích của mã QR |
 | `lt_*`, `oc_*`, `dk_*`, `tn_*.html` | Đề luyện tập 3 dạng, ôn chương, định kỳ, tốt nghiệp (Toán) |
 | `van_*.html` | Bài trực tuyến môn Ngữ văn |
+| `hoa_*`, `sinh_*`, `su_*`, `dia_*`, `gdkt_*`, `anh_*.html` | Bài trực tuyến Hóa, Sinh, Sử, Địa, GDKT&PL, Tiếng Anh |
 | `*.png`, `hinh_de/` | Ảnh minh hoạ trong đề (các trang làm bài đang dùng) |
 
 Trang làm bài của môn mới đặt tên theo mẫu `<mã môn>_<loại>_<bài>_k<khối>.html`, ví dụ `ly_cc_bai1_k10.html`.
