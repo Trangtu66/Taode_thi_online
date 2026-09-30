@@ -72,6 +72,20 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 1. Chí Phèo (Nam Cao) – điểm nhìn, lời nửa trực tiếp",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_chipheo_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_chipheo_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.23 – 35"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

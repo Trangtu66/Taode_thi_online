@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 11 · Bài 1: Chí Phèo (Nam Cao)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Truyện ngắn Chí Phèo ban đầu có tên là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Đôi lứa xứng đôi"
+      },
+      {
+       "l": "B",
+       "t": "Cái lò gạch cũ"
+      },
+      {
+       "l": "C",
+       "t": "Luống cày"
+      },
+      {
+       "l": "D",
+       "t": "Đời thừa"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.34: tác phẩm vốn có tên Cái lò gạch cũ; khi in năm 1941 bị đổi thành Đôi lứa xứng đôi; in lại trong tập Luống cày, Nam Cao đặt tên Chí Phèo."
+    },
+    {
+     "content": "Truyện Chí Phèo mở đầu bằng sự việc nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Bá Kiến gọi Chí Phèo vào nhà"
+      },
+      {
+       "l": "B",
+       "t": "Chí Phèo gặp thị Nở ở vườn chuối"
+      },
+      {
+       "l": "C",
+       "t": "Chí Phèo ra tù trở về làng"
+      },
+      {
+       "l": "D",
+       "t": "Chí Phèo vừa đi vừa chửi"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu mở đầu: “Hắn vừa đi vừa chửi. Bao giờ cũng thế, cứ rượu xong là hắn chửi.”"
+    },
+    {
+     "content": "Việc nhà văn không kể theo trình tự thời gian cuộc đời nhân vật mà mở đầu bằng tiếng chửi có tác dụng chủ yếu nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Gây ấn tượng mạnh, tô đậm bi kịch bị cự tuyệt quyền làm người và tạo sức hấp dẫn"
+      },
+      {
+       "l": "B",
+       "t": "Giúp người đọc dễ nhớ tên các nhân vật"
+      },
+      {
+       "l": "C",
+       "t": "Kéo dài dung lượng tác phẩm"
+      },
+      {
+       "l": "D",
+       "t": "Giới thiệu đầy đủ lai lịch của Bá Kiến"
+      }
+     ],
+     "correct": "A",
+     "expl": "Phá vỡ trình tự thời gian là một đặc trưng của nghệ thuật tự sự hiện đại; tiếng chửi vang lên mà không ai đáp lại cho thấy Chí Phèo bị loại khỏi xã hội loài người."
+    },
+    {
+     "content": "Câu “Tức thật! Tức thật! Ồ! Thế này thì tức thật!” trong đoạn mở đầu thể hiện điểm nhìn nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Điểm nhìn bên ngoài của người kể chuyện"
+      },
+      {
+       "l": "B",
+       "t": "Điểm nhìn của dân làng Vũ Đại"
+      },
+      {
+       "l": "C",
+       "t": "Điểm nhìn bên trong, lời nửa trực tiếp của nhân vật Chí Phèo"
+      },
+      {
+       "l": "D",
+       "t": "Điểm nhìn của Bá Kiến"
+      }
+     ],
+     "correct": "C",
+     "expl": "Người kể chuyện nhập vào ý nghĩ của Chí Phèo – lời người kể và lời nhân vật hòa quyện (lời nửa trực tiếp)."
+    },
+    {
+     "content": "Trước khi vào tù, Chí Phèo làm nghề gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Đi buôn gạo ngoài chợ"
+      },
+      {
+       "l": "B",
+       "t": "Làm lính lệ ở huyện"
+      },
+      {
+       "l": "C",
+       "t": "Làm canh điền cho lí Kiến"
+      },
+      {
+       "l": "D",
+       "t": "Làm thợ lò gạch"
+      }
+     ],
+     "correct": "C",
+     "expl": "Phần lược SGK: “Khi trưởng thành, Chí Phèo làm canh điền cho lí Kiến, bị lí Kiến đẩy vào tù vì nguyên nhân gì không rõ.”"
+    },
+    {
+     "content": "Buổi sáng sau khi gặp thị Nở, âm thanh nào khiến Chí Phèo bâng khuâng, nhận ra cuộc sống quanh mình?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tiếng chim hót, tiếng cười nói của những người đi chợ, tiếng anh thuyền chài gõ mái chèo"
+      },
+      {
+       "l": "B",
+       "t": "Tiếng trống thúc thuế ở đình làng"
+      },
+      {
+       "l": "C",
+       "t": "Tiếng chửi của bà cô thị Nở"
+      },
+      {
+       "l": "D",
+       "t": "Tiếng quát tháo của lí Cường"
+      }
+     ],
+     "correct": "A",
+     "expl": "Những âm thanh bình dị “bao giờ cũng có” nhưng hôm nay hắn mới nghe thấy – dấu hiệu tỉnh rượu, tỉnh ngộ."
+    },
+    {
+     "content": "Nhân tố mang tính quyết định với quá trình hồi sinh nhân tính của Chí Phèo là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "lời khuyên của Bá Kiến"
+      },
+      {
+       "l": "B",
+       "t": "tình thương mộc mạc của thị Nở, kết tinh trong bát cháo hành"
+      },
+      {
+       "l": "C",
+       "t": "sự sợ hãi trước pháp luật"
+      },
+      {
+       "l": "D",
+       "t": "việc được dân làng tha thứ"
+      }
+     ],
+     "correct": "B",
+     "expl": "Bát cháo hành là lần đầu tiên hắn được một người đàn bà cho – tình thương đánh thức bản chất lương thiện."
+    },
+    {
+     "content": "Sau khi bị thị Nở cự tuyệt, chi tiết “càng uống lại càng tỉnh ra” cho thấy điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Chí Phèo muốn quay lại làm tay sai cho Bá Kiến"
+      },
+      {
+       "l": "B",
+       "t": "Rượu đã hết tác dụng vì Chí Phèo uống ít"
+      },
+      {
+       "l": "C",
+       "t": "Chí Phèo đã hoàn toàn bình tâm"
+      },
+      {
+       "l": "D",
+       "t": "Chí Phèo ý thức rõ bi kịch của mình, nỗi đau không thể dìm vào men rượu"
+      }
+     ],
+     "correct": "D",
+     "expl": "Lần này rượu không làm hắn say mà làm hắn tỉnh – tỉnh để thấm thía việc bị cự tuyệt quyền làm người."
+    },
+    {
+     "content": "Câu nói nào của Chí Phèo trước khi đâm Bá Kiến thể hiện khát vọng lương thiện?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "“Ai cho tao về làng?”"
+      },
+      {
+       "l": "B",
+       "t": "“Tao chỉ liều chết với bố con nhà mày đấy thôi.”"
+      },
+      {
+       "l": "C",
+       "t": "“Mày muốn lôi thôi gì?”"
+      },
+      {
+       "l": "D",
+       "t": "“Tao muốn làm người lương thiện!… Ai cho tao lương thiện?”"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu hỏi “Ai cho tao lương thiện?” là tiếng kêu phẫn uất đòi quyền làm người."
+    },
+    {
+     "content": "So với đoạn kết truyện Vợ nhặt (lá cờ đỏ trong óc Tràng), đoạn kết truyện Chí Phèo (thị Nở nghĩ tới cái lò gạch cũ) có ý nghĩa gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Gợi vòng luẩn quẩn của bi kịch tha hóa, cảnh báo về một “Chí Phèo con” có thể ra đời"
+      },
+      {
+       "l": "B",
+       "t": "Mở ra niềm tin vào cách mạng"
+      },
+      {
+       "l": "C",
+       "t": "Cho thấy thị Nở sẽ rời làng Vũ Đại"
+      },
+      {
+       "l": "D",
+       "t": "Khẳng định Chí Phèo vẫn còn sống"
+      }
+     ],
+     "correct": "A",
+     "expl": "Cái lò gạch cũ bỏ không – nơi Chí Phèo bị bỏ rơi – xuất hiện lại ở cuối truyện, gợi kết cấu vòng tròn, bi kịch có thể lặp lại."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn văn (SGK tr.23): “Hắn vừa đi vừa chửi. […] Nhưng cả làng Vũ Đại ai cũng nhủ: “Chắc nó trừ mình ra!”. Không ai lên tiếng cả. Tức thật! Tức thật! Ồ! Thế này thì tức thật! Tức chết đi được mất!”",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Đoạn văn được kể bởi người kể chuyện ngôi thứ ba.",
+       "correct": true,
+       "expl": "Nhân vật được gọi là “hắn”, người kể giấu mình."
+      },
+      {
+       "text": "Câu “Chắc nó trừ mình ra!” thể hiện điểm nhìn của dân làng Vũ Đại.",
+       "correct": true,
+       "expl": "Đó là ý nghĩ của người làng, thái độ thờ ơ, xa lánh."
+      },
+      {
+       "text": "Trong đoạn văn, điểm nhìn cố định ở người kể chuyện, không có sự dịch chuyển.",
+       "correct": false,
+       "expl": "Điểm nhìn luân phiên giữa người kể chuyện, dân làng và Chí Phèo; giữa bên ngoài và bên trong."
+      },
+      {
+       "text": "Tiếng chửi không ai đáp lại cho thấy Chí Phèo đã bị gạt ra ngoài xã hội loài người.",
+       "correct": true,
+       "expl": "Chửi mà không ai chửi lại – hắn không còn được coi là người để giao tiếp."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}
