@@ -100,6 +100,34 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 2. Chùm thơ hai-cư Nhật Bản; Thu hứng (Đỗ Phủ)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai2_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_bai2_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.43 – 49"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 2. Mùa xuân chín (Hàn Mặc Tử); Bản hoà âm ngôn từ trong Tiếng thu",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_muaxuanchin_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_muaxuanchin_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.50 – 58"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

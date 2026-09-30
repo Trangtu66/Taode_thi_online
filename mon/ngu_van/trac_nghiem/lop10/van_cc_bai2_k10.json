@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 10 · Bài 2: Chùm thơ hai-cư; Thu hứng (Đỗ Phủ)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo Tri thức ngữ văn, nhân vật trữ tình là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "nhân vật chính có hành động, số phận trong câu chuyện"
+      },
+      {
+       "l": "B",
+       "t": "người trực tiếp bộc lộ rung động và tình cảm trong bài thơ trước một khung cảnh hoặc sự tình nào đó"
+      },
+      {
+       "l": "C",
+       "t": "chính là tác giả bài thơ, hoàn toàn đồng nhất với tác giả"
+      },
+      {
+       "l": "D",
+       "t": "người được nhắc đến ở ngôi thứ ba trong bài thơ"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.44: nhân vật trữ tình (chủ thể trữ tình) có liên hệ mật thiết với tác giả nhưng không hoàn toàn đồng nhất với tác giả."
+    },
+    {
+     "content": "Một bài thơ hai-cư tiếng Nhật chỉ gồm",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "2 dòng lục bát"
+      },
+      {
+       "l": "B",
+       "t": "4 dòng, mỗi dòng bảy âm tiết"
+      },
+      {
+       "l": "C",
+       "t": "8 dòng theo luật bằng trắc"
+      },
+      {
+       "l": "D",
+       "t": "3 dòng (dòng 1 và 3 có năm âm tiết, dòng 2 có bảy âm tiết)"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.46: bài thơ hai-cư trong tiếng Nhật gồm 3 dòng 5 – 7 – 5 âm tiết."
+    },
+    {
+     "content": "Hình ảnh trung tâm trong bài thơ của Ba-sô “Trên cành khô / cánh quạ đậu / chiều thu” là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "cánh quạ đậu trên cành khô"
+      },
+      {
+       "l": "B",
+       "t": "chiều thu rực rỡ"
+      },
+      {
+       "l": "C",
+       "t": "con ốc nhỏ"
+      },
+      {
+       "l": "D",
+       "t": "dây gàu vướng hoa"
+      }
+     ],
+     "correct": "A",
+     "expl": "Hình ảnh cánh quạ trên cành khô, đặt trong thời gian chiều thu, gợi không khí tĩnh lặng, hiu hắt."
+    },
+    {
+     "content": "Bài thơ của Chi-y-ô được triển khai xoay quanh phát hiện nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Giếng nhà đã cạn nước"
+      },
+      {
+       "l": "B",
+       "t": "Hoa triêu nhan đã tàn úa"
+      },
+      {
+       "l": "C",
+       "t": "Dây gàu đã bị hoa triêu nhan quấn vướng bên giếng"
+      },
+      {
+       "l": "D",
+       "t": "Con ốc đang trèo núi Phú Sĩ"
+      }
+     ],
+     "correct": "C",
+     "expl": "Không nỡ làm đứt dây hoa, nhân vật trữ tình “đành xin nước nhà bên” – thái độ trân trọng, nâng niu thiên nhiên."
+    },
+    {
+     "content": "Hình ảnh “con ốc nhỏ” trèo “núi Phú Sĩ” trong thơ Ít-sa gợi suy tưởng gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Núi Phú Sĩ đang bị con ốc phá hoại"
+      },
+      {
+       "l": "B",
+       "t": "Con ốc sẽ không bao giờ lên tới đỉnh"
+      },
+      {
+       "l": "C",
+       "t": "Sự kiên nhẫn, bền bỉ của cái nhỏ bé trước cái lớn lao, vĩnh hằng"
+      },
+      {
+       "l": "D",
+       "t": "Nhà thơ chế giễu sự chậm chạp của con ốc"
+      }
+     ],
+     "correct": "C",
+     "expl": "Tương quan nhỏ bé – lớn lao, chậm rì – cao vời gợi niềm tin vào ý chí bền bỉ; thơ hai-cư khơi gợi hơn là diễn giải."
+    },
+    {
+     "content": "Bài thơ Thu hứng (bài 1) của Đỗ Phủ thuộc thể thơ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thất ngôn bát cú Đường luật"
+      },
+      {
+       "l": "B",
+       "t": "Ngũ ngôn tứ tuyệt"
+      },
+      {
+       "l": "C",
+       "t": "Lục bát"
+      },
+      {
+       "l": "D",
+       "t": "Thơ tự do"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.49: Thu hứng là bài đầu trong chùm tám bài thơ thất ngôn bát cú viết năm 766."
+    },
+    {
+     "content": "Theo SGK, bố cục bài thơ thất ngôn bát cú Đường luật gồm bốn phần là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "mở – thân – kết – bàn"
+      },
+      {
+       "l": "B",
+       "t": "đề – thực – luận – kết"
+      },
+      {
+       "l": "C",
+       "t": "khai – thừa – chuyển – hợp"
+      },
+      {
+       "l": "D",
+       "t": "tả – kể – bình – luận"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.48: bốn cặp câu (liên) tương ứng đề – thực – luận – kết."
+    },
+    {
+     "content": "Hai câu thơ “Khóm cúc tuôn thêm dòng lệ cũ, / Con thuyền buộc chặt mối tình nhà” cho thấy điều gì ở nhân vật trữ tình?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Mong muốn ra khơi đánh cá"
+      },
+      {
+       "l": "B",
+       "t": "Niềm vui được trở về quê"
+      },
+      {
+       "l": "C",
+       "t": "Sự thờ ơ trước cảnh thu"
+      },
+      {
+       "l": "D",
+       "t": "Nỗi nhớ quê hương, gia đình da diết trong cảnh tha hương"
+      }
+     ],
+     "correct": "D",
+     "expl": "“Lệ cũ”, “tình nhà” (cố viên tâm) – tấm lòng luôn hướng về vườn cũ, quê nhà."
+    },
+    {
+     "content": "Âm thanh tiếng dao thước may áo, tiếng chày đập vải ở hai câu kết gợi không khí gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Sự yên tĩnh tuyệt đối của thành Bạch Đế"
+      },
+      {
+       "l": "B",
+       "t": "Không khí lễ hội mùa thu"
+      },
+      {
+       "l": "C",
+       "t": "Cảnh lao động nhộn nhịp, vui tươi"
+      },
+      {
+       "l": "D",
+       "t": "Cảnh chuẩn bị áo rét cho người đi xa, gợi nỗi buồn li biệt và nỗi nhớ nhà"
+      }
+     ],
+     "correct": "D",
+     "expl": "Âm thanh dồn dập lúc chiều tối khiến nỗi nhớ quê, nỗi buồn thân phận càng thêm da diết."
+    },
+    {
+     "content": "Nhận định nào đúng về Thu hứng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Bài thơ không chỉ nói nỗi niềm cá nhân mà còn gợi nỗi lo cho thời thế, đất nước loạn li"
+      },
+      {
+       "l": "B",
+       "t": "Bài thơ chỉ tả cảnh thu tươi đẹp"
+      },
+      {
+       "l": "C",
+       "t": "Bài thơ không sử dụng phép đối"
+      },
+      {
+       "l": "D",
+       "t": "Bài thơ ra đời trong thời bình yên, thịnh trị"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 6 SGK: hoàn cảnh sau loạn An – Sử; nỗi niềm cá nhân gắn với nỗi đau thời thế."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc bản dịch thơ Thu hứng (Nguyễn Công Trứ dịch): “Lác đác rừng phong hạt móc sa, / Ngàn non hiu hắt, khí thu loà. / Lưng trời sóng rợn lòng sông thẳm, / Mặt đất mây đùn cửa ải xa.”",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Bốn câu thơ đầu tập trung gợi tả khung cảnh thu ở Quỳ Châu.",
+       "correct": true,
+       "expl": "Rừng phong, núi Vu, kẽm Vu, lòng sông, cửa ải – cảnh thu nơi Quỳ Châu."
+      },
+      {
+       "text": "Hai câu 3 – 4 có phép đối: “lưng trời” – “mặt đất”, “sóng” – “mây”.",
+       "correct": true,
+       "expl": "Đối giữa không gian cao – thấp, sự vật sóng – mây."
+      },
+      {
+       "text": "Khung cảnh thu ở đây trong trẻo, tươi vui, rực rỡ sắc màu.",
+       "correct": false,
+       "expl": "Cảnh hiu hắt, u ám, dữ dội – gợi tâm trạng buồn, bất an."
+      },
+      {
+       "text": "Cảnh thu vừa hùng vĩ vừa ảm đạm cũng là hình ảnh của thời thế loạn lạc và tâm trạng bất an của nhà thơ.",
+       "correct": true,
+       "expl": "Tả cảnh ngụ tình: cảnh vật dữ dội, u uất gắn với thời cuộc và nỗi lòng Đỗ Phủ."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

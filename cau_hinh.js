@@ -32,6 +32,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Địa lí 10 · Củng cố", ten: "Bài 1. Môn Địa lí với định hướng nghề nghiệp", ma: "Củng cố – Địa lí 10 · Bài 1: Môn Địa lí với định hướng nghề nghiệp", link: "dia_cc_bai1_k10.html" },
   { khoi: 10, nhom: "Giáo dục kinh tế và pháp luật 10 · Củng cố", ten: "Bài 1. Các hoạt động kinh tế cơ bản trong đời sống xã hội", ma: "Củng cố – GDKT&PL 10 · Bài 1: Các hoạt động kinh tế cơ bản trong đời sống xã hội", link: "gdkt_cc_bai1_k10.html" },
   { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 1. Family life", ma: "Củng cố – Tiếng Anh 10 · Unit 1: Family life", link: "anh_cc_unit1_k10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Chùm thơ hai-cư Nhật Bản; Thu hứng (Đỗ Phủ)", ma: "Củng cố – Ngữ văn 10 · Bài 2: Chùm thơ hai-cư; Thu hứng (Đỗ Phủ)", link: "van_cc_bai2_k10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Mùa xuân chín (Hàn Mặc Tử); Bản hoà âm ngôn từ trong Tiếng thu", ma: "Củng cố – Ngữ văn 10 · Bài 2: Mùa xuân chín (Hàn Mặc Tử)", link: "van_cc_muaxuanchin_k10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
