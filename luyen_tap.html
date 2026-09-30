@@ -72,6 +72,7 @@ const INTRO = {
         + "Đây là đề luyện tập; đề kiểm tra chính thức không đăng công khai.",
   totnghiep: "Luyện đề thi tốt nghiệp THPT <b>90 phút</b>: đề chính thức của Bộ GD&ĐT và đề theo cấu trúc mới. Làm trong thời gian thật để quen áp lực phòng thi."
 };
+const NHAN = {bai: "3 DẠNG", chuong: "ÔN CHƯƠNG", dinhky: "90 PHÚT", totnghiep: "ĐỀ THI TN"};
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function items(khu) {
@@ -92,14 +93,15 @@ function ve() {
   $("intro").innerHTML = INTRO[KHU];
   const ds = all.filter(d => !KHOI || d.khoi === KHOI).sort((a, b) => a.khoi - b.khoi || (a.loai === b.loai ? 0 : a.loai === "cc" ? -1 : 1));
   $("list").innerHTML = ds.length ? ds.map(d => `<div class="card"><div class="txt">
-      <div class="ten"><span class="tag ${d.loai === "cc" ? "t-cc" : "t-lt"}">${d.loai === "cc" ? "CỦNG CỐ" : "3 DẠNG"}</span>Toán ${d.khoi} · ${esc(d.ten)}</div>
+      <div class="ten"><span class="tag ${d.loai === "cc" ? "t-cc" : "t-lt"}">${d.loai === "cc" ? "CỦNG CỐ" : NHAN[d.khu]}</span>Toán ${d.khoi} · ${esc(d.ten)}</div>
       <div class="meta">${d.phut} phút · ${d.cau[0]} câu nhiều lựa chọn · ${d.cau[1]} câu đúng sai${d.cau[2] ? " · " + d.cau[2] + " câu trả lời ngắn" : ""}</div></div>
       <div class="btns"><a class="btn go" href="${esc(d.link)}">Làm bài</a>${d.word ? `<a class="btn doc" href="${esc(d.word)}">Đề Word (GV)</a>` : ""}</div></div>`).join("")
     : `<div class="empty">Chưa có đề cho mục này. Tổ Toán đang cập nhật theo ma trận.</div>`;
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { KHU = t.dataset.k; history.replaceState(null, "", "#" + KHU); ve(); });
-const h = location.hash.slice(1); if (INTRO[h]) KHU = h;
-ve();
+function theoHash() { const h = location.hash.slice(1); if (INTRO[h]) KHU = h; ve(); }
+window.addEventListener("hashchange", theoHash);
+theoHash();
 </script>
 </body>
 </html>
