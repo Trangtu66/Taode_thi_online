@@ -1,0 +1,1034 @@
+{
+ "meta": {
+  "title": "Đề ôn thi TN THPT – Tiếng Anh – Đề số 1",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Tiếng Anh (bản demo), theo ma trận đề 2026 · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 50,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": false,
+  "noMath": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "Questions 1 – 5. Sắp xếp câu thành đoạn hội thoại, lá thư, đoạn văn hoàn chỉnh",
+   "pointsPerQuestion": 0.25,
+   "startNo": 1,
+   "passage": "Mark the letter A, B, C or D on your answer sheet to indicate the best arrangement of utterances or sentences to make a cohesive and coherent exchange or text in each of the following questions from 1 to 5.",
+   "questions": [
+    {
+     "content": "a. As a result, many residents now travel by bus instead of by motorbike.\nb. Ten years ago, the city’s streets were crowded with motorbikes, and air pollution was a serious concern.\nc. To solve the problem, the city council introduced a network of cheap and frequent electric buses.\nd. The success of the scheme shows that good public transport can change people’s habits.\ne. Bus stops were also built close to schools, markets and hospitals.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "c − e − b − a − d"
+      },
+      {
+       "l": "B",
+       "t": "b − c − e − a − d"
+      },
+      {
+       "l": "C",
+       "t": "b − a − c − e − d"
+      },
+      {
+       "l": "D",
+       "t": "d − b − c − a − e"
+      }
+     ],
+     "correct": "B",
+     "expl": "Nêu vấn đề ô nhiễm (b) → giải pháp xe buýt điện (c) → bổ sung chi tiết bến xe (e) → “As a result” kết quả (a) → kết luận (d)."
+    },
+    {
+     "content": "a. Librarian: Of course. It’s due back in two weeks.\nb. Student: Excuse me, can I borrow this book on climate change?\nc. Student: Great, thank you very much.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "c − b − a"
+      },
+      {
+       "l": "B",
+       "t": "a − b − c"
+      },
+      {
+       "l": "C",
+       "t": "b − c − a"
+      },
+      {
+       "l": "D",
+       "t": "b − a − c"
+      }
+     ],
+     "correct": "D",
+     "expl": "Học sinh hỏi mượn sách (b) → thủ thư đồng ý, báo hạn trả (a) → học sinh cảm ơn (c)."
+    },
+    {
+     "content": "Dear Mr Tuan,\na. Your internship will start on 1 July and last for eight weeks.\nb. Thank you for your application for the summer internship at Green Tech Company.\nc. We are pleased to inform you that you have been selected for the position.\nd. Please bring your identity card and a copy of your school report on your first day.\ne. If you have any questions, do not hesitate to contact me.\nBest regards,",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "b − c − a − d − e"
+      },
+      {
+       "l": "B",
+       "t": "c − b − d − a − e"
+      },
+      {
+       "l": "C",
+       "t": "b − a − c − e − d"
+      },
+      {
+       "l": "D",
+       "t": "c − a − b − d − e"
+      }
+     ],
+     "correct": "A",
+     "expl": "Cảm ơn đơn ứng tuyển (b) → báo tin được chọn (c) → thời gian thực tập (a) → giấy tờ cần mang (d) → lời mời liên hệ để kết thư (e)."
+    },
+    {
+     "content": "a. Receptionist: I’m afraid we only have a double room left. Is that OK?\nb. Guest: Hello, I’d like to book a single room for this Saturday night.\nc. Guest: That’s fine. How much is it?\nd. Receptionist: It’s 800,000 dong, including breakfast.\ne. Guest: Perfect. I’ll take it.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "a − b − c − d − e"
+      },
+      {
+       "l": "B",
+       "t": "b − c − a − d − e"
+      },
+      {
+       "l": "C",
+       "t": "b − a − c − d − e"
+      },
+      {
+       "l": "D",
+       "t": "b − a − d − c − e"
+      }
+     ],
+     "correct": "C",
+     "expl": "Khách đặt phòng đơn (b) → lễ tân báo chỉ còn phòng đôi (a) → khách đồng ý, hỏi giá (c) → lễ tân báo giá (d) → khách nhận phòng (e)."
+    },
+    {
+     "content": "a. Within a year, the panels were producing enough electricity for the school’s lights and fans.\nb. Last year, students at a rural school decided to reduce the school’s electricity bills.\nc. Encouraged by this result, two nearby schools have asked the students for advice.\nd. With support from local businesses, they raised money to install solar panels on the roof.\ne. The money saved has been used to buy new books for the library.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "d − b − a − c − e"
+      },
+      {
+       "l": "B",
+       "t": "b − a − d − c − e"
+      },
+      {
+       "l": "C",
+       "t": "b − d − a − e − c"
+      },
+      {
+       "l": "D",
+       "t": "b − d − c − a − e"
+      }
+     ],
+     "correct": "C",
+     "expl": "Mục tiêu giảm tiền điện (b) → gây quỹ lắp pin mặt trời (d) → kết quả sau một năm (a) → khoản tiết kiệm được dùng mua sách (e) → “Encouraged by this result” lan toả (c)."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "title": "Questions 6 – 10. Chọn cụm từ, mệnh đề phù hợp điền vào đoạn văn",
+   "pointsPerQuestion": 0.25,
+   "startNo": 6,
+   "passage": "Read the following passage and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 6 to 10.\n\nLifelong learning used to be a phrase found mainly in education policy documents. Today, (6)_______. Technology is changing so quickly that the skills people learn at school may be out of date within a decade.\n\nMany adults, however, find it difficult to return to learning. They often have jobs and families to look after, (7)_______. Online courses have helped to solve this problem, since learners can study at their own pace and at any time of day.\n\nYet flexibility alone does not guarantee success. Research shows that learners who set clear goals and study with others (8)_______. For this reason, some companies now organise learning groups in which employees meet regularly to share what they have learnt.\n\nGovernments also have a role to play. (9)_______, workers will be better prepared for changes in the job market. In the end, lifelong learning is not only about getting a better job; (10)_______.\n\n(Written for the review test)",
+   "questions": [
+    {
+     "content": "(6)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "it has become a necessity for almost everyone"
+      },
+      {
+       "l": "B",
+       "t": "almost everyone has been necessary for it"
+      },
+      {
+       "l": "C",
+       "t": "it becomes necessary that everyone to learn"
+      },
+      {
+       "l": "D",
+       "t": "a necessity has almost everyone become"
+      }
+     ],
+     "correct": "A",
+     "expl": "Sau “Today,” cần một mệnh đề hoàn chỉnh, đúng ngữ pháp: it has become a necessity for almost everyone."
+    },
+    {
+     "content": "(7)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "that leaving them little time for regular classes"
+      },
+      {
+       "l": "B",
+       "t": "which leaves them little time for regular classes"
+      },
+      {
+       "l": "C",
+       "t": "leaves them little time for regular classes"
+      },
+      {
+       "l": "D",
+       "t": "which they leave little time of regular classes"
+      }
+     ],
+     "correct": "B",
+     "expl": "Mệnh đề quan hệ không xác định “which” thay cho cả vế trước: điều đó khiến họ có ít thời gian cho lớp học chính quy."
+    },
+    {
+     "content": "(8)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "being more likely to complete their courses"
+      },
+      {
+       "l": "B",
+       "t": "more likely completing their courses"
+      },
+      {
+       "l": "C",
+       "t": "is more likely to complete their courses"
+      },
+      {
+       "l": "D",
+       "t": "are more likely to complete their courses"
+      }
+     ],
+     "correct": "D",
+     "expl": "Chủ ngữ “learners” số nhiều cần động từ chính: are more likely to complete their courses."
+    },
+    {
+     "content": "(9)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Had they provided affordable training programmes"
+      },
+      {
+       "l": "B",
+       "t": "Unless providing affordable training programmes"
+      },
+      {
+       "l": "C",
+       "t": "Providing affordable training programmes are"
+      },
+      {
+       "l": "D",
+       "t": "If they provide affordable training programmes"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu điều kiện loại 1 (mệnh đề chính dùng will): If they provide affordable training programmes, workers will be better prepared…"
+    },
+    {
+     "content": "(10)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "it is also about keeping our minds active throughout our lives"
+      },
+      {
+       "l": "B",
+       "t": "it is also keeping our lives about active minds"
+      },
+      {
+       "l": "C",
+       "t": "keeping our minds active is also about throughout our lives"
+      },
+      {
+       "l": "D",
+       "t": "our minds are also kept active about our lives"
+      }
+     ],
+     "correct": "A",
+     "expl": "Cấu trúc song song “not only about… ; it is also about…” và nghĩa hợp lí: học suốt đời còn giúp trí óc luôn năng động."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "title": "Questions 11 – 20. Đọc hiểu đoạn văn (Environmental Economics and Policy)",
+   "pointsPerQuestion": 0.25,
+   "startNo": 11,
+   "passage": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 11 to 20.\n\nCities around the world are growing at an extraordinary rate. By 2050, nearly seven in ten people are expected to live in urban areas. This rapid growth brings ⟪obvious⟫ benefits, such as better access to jobs, schools and hospitals, but it also puts enormous pressure on housing, transport and the natural environment.\n\nOne of the most serious problems is the loss of green space. As land becomes more valuable, parks and gardens are often replaced by roads and apartment blocks. Yet studies show that green areas are far from a luxury. Trees lower street temperatures by several degrees in summer, absorb rainwater that would otherwise flood the streets, and give residents a place to exercise and relax.\n\nSome cities have begun to find creative solutions. [I] Singapore requires new buildings to replace the greenery lost during construction, often in the form of rooftop gardens and plant-covered walls. [II] In Seoul, a busy motorway was removed to uncover a stream that now runs through a long public park. [III] Medellín in Colombia has turned the edges of its roads into “green corridors” that cool the air and connect small parks. [IV]\n\nCritics argue that such projects are expensive and that the money should be spent on housing instead. However, supporters point out that the costs of floods, heatstroke and poor mental health are even higher. What ⟪they⟫ suggest is that green space should be treated as essential infrastructure, just like water pipes or electricity lines. If planners accept this idea, the cities of the future may be both larger and more pleasant to live in.\n\n(Written for the review test)",
+   "questions": [
+    {
+     "content": "The word ⟪obvious⟫ in paragraph 1 is closest in meaning to _______.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "minor"
+      },
+      {
+       "l": "B",
+       "t": "hidden"
+      },
+      {
+       "l": "C",
+       "t": "clear"
+      },
+      {
+       "l": "D",
+       "t": "doubtful"
+      }
+     ],
+     "correct": "C",
+     "expl": "obvious (rõ ràng, hiển nhiên) gần nghĩa nhất với clear."
+    },
+    {
+     "content": "According to paragraph 1, which of the following is a benefit of urban growth?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Lower pressure on housing and transport"
+      },
+      {
+       "l": "B",
+       "t": "Better access to jobs, schools and hospitals"
+      },
+      {
+       "l": "C",
+       "t": "More space for parks and gardens"
+      },
+      {
+       "l": "D",
+       "t": "Cleaner natural environment"
+      }
+     ],
+     "correct": "B",
+     "expl": "Đoạn 1: “better access to jobs, schools and hospitals”. Các phương án còn lại trái với bài (tăng áp lực, mất không gian xanh)."
+    },
+    {
+     "content": "Which of the following is NOT mentioned in paragraph 2 as a benefit of green areas?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "They increase the value of land"
+      },
+      {
+       "l": "B",
+       "t": "They lower street temperatures"
+      },
+      {
+       "l": "C",
+       "t": "They absorb rainwater"
+      },
+      {
+       "l": "D",
+       "t": "They give residents a place to relax"
+      }
+     ],
+     "correct": "A",
+     "expl": "Đoạn 2 nói đất có giá trị cao khiến công viên bị thay thế – không nói cây xanh làm tăng giá trị đất. Ba lợi ích còn lại đều được nêu."
+    },
+    {
+     "content": "Where in paragraph 3 does the following sentence best fit?\n“These examples show that even crowded cities can find room for nature.”",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "[III]"
+      },
+      {
+       "l": "B",
+       "t": "[I]"
+      },
+      {
+       "l": "C",
+       "t": "[II]"
+      },
+      {
+       "l": "D",
+       "t": "[IV]"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu chèn khái quát “These examples…” phải đứng sau cả ba ví dụ Singapore, Seoul, Medellín – vị trí [IV]."
+    },
+    {
+     "content": "Which of the following best summarises paragraph 3?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Singapore is the only city that protects its green spaces."
+      },
+      {
+       "l": "B",
+       "t": "Several cities have found inventive ways to bring greenery back into urban areas."
+      },
+      {
+       "l": "C",
+       "t": "Removing motorways is the best way to create parks."
+      },
+      {
+       "l": "D",
+       "t": "Green corridors are too expensive for most cities."
+      }
+     ],
+     "correct": "B",
+     "expl": "Đoạn 3 nêu nhiều thành phố với các giải pháp sáng tạo đưa cây xanh trở lại đô thị."
+    },
+    {
+     "content": "The word ⟪they⟫ in paragraph 4 refers to _______.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "projects"
+      },
+      {
+       "l": "B",
+       "t": "critics"
+      },
+      {
+       "l": "C",
+       "t": "supporters"
+      },
+      {
+       "l": "D",
+       "t": "costs"
+      }
+     ],
+     "correct": "C",
+     "expl": "“supporters point out… What they suggest…” – they thay cho supporters."
+    },
+    {
+     "content": "According to paragraph 4, why do critics oppose green projects?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "They think the money should be used for housing."
+      },
+      {
+       "l": "B",
+       "t": "They believe trees cause floods."
+      },
+      {
+       "l": "C",
+       "t": "They think parks are dangerous at night."
+      },
+      {
+       "l": "D",
+       "t": "They believe cities are growing too slowly."
+      }
+     ],
+     "correct": "A",
+     "expl": "Đoạn 4: “the money should be spent on housing instead”."
+    },
+    {
+     "content": "Which of the following is TRUE according to the passage?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Most people will live in rural areas by 2050."
+      },
+      {
+       "l": "B",
+       "t": "Singapore bans all new buildings."
+      },
+      {
+       "l": "C",
+       "t": "Medellín has replaced all its roads with parks."
+      },
+      {
+       "l": "D",
+       "t": "In Seoul, a motorway was removed to reveal a stream."
+      }
+     ],
+     "correct": "D",
+     "expl": "Đoạn 3: “In Seoul, a busy motorway was removed to uncover a stream…”."
+    },
+    {
+     "content": "Which of the following can be inferred from the passage?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Green space is less important than electricity."
+      },
+      {
+       "l": "B",
+       "t": "Cities will stop growing by 2050."
+      },
+      {
+       "l": "C",
+       "t": "Urban planners should include green space when designing cities."
+      },
+      {
+       "l": "D",
+       "t": "Rooftop gardens are only found in Asia."
+      }
+     ],
+     "correct": "C",
+     "expl": "Tác giả kết luận không gian xanh nên được coi là hạ tầng thiết yếu – suy ra quy hoạch đô thị cần tính đến cây xanh."
+    },
+    {
+     "content": "Which of the following would be the best title for the passage?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "The History of Seoul"
+      },
+      {
+       "l": "B",
+       "t": "Green Space: A Necessity, Not a Luxury"
+      },
+      {
+       "l": "C",
+       "t": "Why Cities Should Stop Growing"
+      },
+      {
+       "l": "D",
+       "t": "Building Cheaper Apartments"
+      }
+     ],
+     "correct": "B",
+     "expl": "Ý chính toàn bài: không gian xanh không phải xa xỉ mà là nhu cầu thiết yếu của đô thị."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "title": "Questions 21 – 28. Đọc hiểu đoạn văn (laptops in lectures)",
+   "pointsPerQuestion": 0.25,
+   "startNo": 21,
+   "passage": "Read the passage and mark the letter A, B, C or D on your answer sheet to indicate the best answer to each of the following questions from 21 to 28.\n\nWalk into any secondary school canteen at lunchtime and you will probably notice something missing: conversation. Many students sit together but spend the break looking at their phones. Teachers in a growing number of countries have started to ask whether this habit is ⟪harming⟫ young people’s ability to connect with one another.\n\nIn 2023, a school in the north of England decided to test the idea. For one term, students had to leave their phones in lockers from the beginning to the end of the school day. At first, many complained that they felt bored and anxious. By the end of the term, however, the school reported fewer arguments in the playground and more students joining sports clubs. Teachers also noticed that students were more willing to ask questions in class.\n\nNot everyone is convinced by such results. Some researchers point out that the school introduced several changes at the same time, so it is hard to know whether the phone ban alone made the difference. Parents, for their part, worry that ⟪those⟫ who cannot reach their children during the day will be unable to help in an emergency.\n\nPerhaps the most sensible approach lies somewhere in between. Rather than banning phones completely, schools can teach students to use them wisely: switching them off during lessons, turning off unnecessary notifications, and putting them away at mealtimes. ⟪After all, the goal is not to remove technology from young people’s lives but to make sure that it serves them rather than controls them.⟫\n\n(Written for the review test)",
+   "questions": [
+    {
+     "content": "In paragraph 1, the writer mainly _______.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "praises students for using technology"
+      },
+      {
+       "l": "B",
+       "t": "introduces a concern about students’ phone use"
+      },
+      {
+       "l": "C",
+       "t": "describes the food in school canteens"
+      },
+      {
+       "l": "D",
+       "t": "compares schools in different countries"
+      }
+     ],
+     "correct": "B",
+     "expl": "Đoạn 1 nêu hiện tượng học sinh dùng điện thoại giờ ăn trưa và câu hỏi liệu thói quen này có hại – giới thiệu một mối lo ngại."
+    },
+    {
+     "content": "The word ⟪harming⟫ in paragraph 1 is closest in meaning to _______.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "supporting"
+      },
+      {
+       "l": "B",
+       "t": "improving"
+      },
+      {
+       "l": "C",
+       "t": "measuring"
+      },
+      {
+       "l": "D",
+       "t": "damaging"
+      }
+     ],
+     "correct": "D",
+     "expl": "harm (gây hại) gần nghĩa nhất với damage."
+    },
+    {
+     "content": "According to paragraph 2, how did students feel at first about the phone ban?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Bored and anxious"
+      },
+      {
+       "l": "B",
+       "t": "Happy and relaxed"
+      },
+      {
+       "l": "C",
+       "t": "Proud and confident"
+      },
+      {
+       "l": "D",
+       "t": "Calm and patient"
+      }
+     ],
+     "correct": "A",
+     "expl": "Đoạn 2: “many complained that they felt bored and anxious”."
+    },
+    {
+     "content": "The word ⟪those⟫ in paragraph 3 refers to _______.",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "students"
+      },
+      {
+       "l": "B",
+       "t": "researchers"
+      },
+      {
+       "l": "C",
+       "t": "parents"
+      },
+      {
+       "l": "D",
+       "t": "teachers"
+      }
+     ],
+     "correct": "C",
+     "expl": "“Parents… worry that those who cannot reach their children…” – those thay cho parents."
+    },
+    {
+     "content": "Which of the following best paraphrases the underlined sentence in paragraph 4?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Technology controls young people more than it serves them."
+      },
+      {
+       "l": "B",
+       "t": "Young people should stop using technology completely."
+      },
+      {
+       "l": "C",
+       "t": "The aim is to help young people use technology for their benefit instead of being dominated by it."
+      },
+      {
+       "l": "D",
+       "t": "The main goal of schools is to remove phones from students’ lives."
+      }
+     ],
+     "correct": "C",
+     "expl": "Câu gạch chân: mục tiêu không phải loại bỏ công nghệ mà để công nghệ phục vụ chứ không chi phối các em."
+    },
+    {
+     "content": "Which of the following statements would the writer most likely agree with?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Schools should teach students to use phones responsibly."
+      },
+      {
+       "l": "B",
+       "t": "All phones should be banned from schools forever."
+      },
+      {
+       "l": "C",
+       "t": "Phones have no effect on students’ behaviour."
+      },
+      {
+       "l": "D",
+       "t": "Parents should never contact their children at school."
+      }
+     ],
+     "correct": "A",
+     "expl": "Đoạn 4: cách hợp lí là dạy học sinh dùng điện thoại khôn ngoan thay vì cấm hoàn toàn."
+    },
+    {
+     "content": "In which paragraph does the writer mention doubts about the evidence?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Paragraph 1"
+      },
+      {
+       "l": "B",
+       "t": "Paragraph 3"
+      },
+      {
+       "l": "C",
+       "t": "Paragraph 2"
+      },
+      {
+       "l": "D",
+       "t": "Paragraph 4"
+      }
+     ],
+     "correct": "B",
+     "expl": "Đoạn 3: một số nhà nghiên cứu cho rằng trường đưa ra nhiều thay đổi cùng lúc nên khó kết luận – nghi ngờ bằng chứng."
+    },
+    {
+     "content": "In which paragraph does the writer give practical tips for using phones wisely?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Paragraph 3"
+      },
+      {
+       "l": "B",
+       "t": "Paragraph 1"
+      },
+      {
+       "l": "C",
+       "t": "Paragraph 2"
+      },
+      {
+       "l": "D",
+       "t": "Paragraph 4"
+      }
+     ],
+     "correct": "D",
+     "expl": "Đoạn 4 liệt kê: tắt máy trong giờ học, tắt thông báo không cần thiết, cất điện thoại khi ăn."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "title": "Questions 29 – 34. Điền từ vào tờ thông báo (flyer)",
+   "pointsPerQuestion": 0.25,
+   "startNo": 29,
+   "passage": "Read the following announcement and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 29 to 34.\n\nJOIN OUR BOOK DRIVE!\n\nDo you have books that you no longer read? Give them a second life! Our Youth Union is collecting books for three village libraries in the mountains.\n\nWhat to donate: Storybooks, dictionaries and reference books in (29)_______ condition. Please do not donate damaged textbooks.\nWhen and where: Books can be (30)_______ off at the school library from 1 to 20 December.\nHow we work: Volunteers will (31)_______ the books by subject and age group. Each book will have a label (32)_______ the name of the donor.\nDelivery: We will work in (33)_______ with the local post office to send the books free of charge.\n\nIf every student (34)_______ just one book, we will fill three libraries!",
+   "questions": [
+    {
+     "content": "(29)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "best"
+      },
+      {
+       "l": "B",
+       "t": "well"
+      },
+      {
+       "l": "C",
+       "t": "better"
+      },
+      {
+       "l": "D",
+       "t": "good"
+      }
+     ],
+     "correct": "D",
+     "expl": "Cụm cố định in good condition (còn tốt)."
+    },
+    {
+     "content": "(30)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "dropped"
+      },
+      {
+       "l": "B",
+       "t": "taken"
+      },
+      {
+       "l": "C",
+       "t": "given"
+      },
+      {
+       "l": "D",
+       "t": "put"
+      }
+     ],
+     "correct": "A",
+     "expl": "drop off: mang đến và để lại; bị động can be dropped off."
+    },
+    {
+     "content": "(31)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "sorted"
+      },
+      {
+       "l": "B",
+       "t": "sorting"
+      },
+      {
+       "l": "C",
+       "t": "sort"
+      },
+      {
+       "l": "D",
+       "t": "to sort"
+      }
+     ],
+     "correct": "C",
+     "expl": "Sau will dùng động từ nguyên thể: will sort the books by subject."
+    },
+    {
+     "content": "(32)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "shown"
+      },
+      {
+       "l": "B",
+       "t": "showing"
+      },
+      {
+       "l": "C",
+       "t": "shows"
+      },
+      {
+       "l": "D",
+       "t": "to be shown"
+      }
+     ],
+     "correct": "B",
+     "expl": "Mệnh đề quan hệ rút gọn chủ động: a label (which shows) → showing the name of the donor."
+    },
+    {
+     "content": "(33)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "partnership"
+      },
+      {
+       "l": "B",
+       "t": "partner"
+      },
+      {
+       "l": "C",
+       "t": "partnered"
+      },
+      {
+       "l": "D",
+       "t": "partnering"
+      }
+     ],
+     "correct": "A",
+     "expl": "Cụm cố định work in partnership with (hợp tác với)."
+    },
+    {
+     "content": "(34)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "will donate"
+      },
+      {
+       "l": "B",
+       "t": "donate"
+      },
+      {
+       "l": "C",
+       "t": "donated"
+      },
+      {
+       "l": "D",
+       "t": "donates"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu điều kiện loại 1: If + hiện tại đơn; every student là chủ ngữ số ít → donates."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "title": "Questions 35 – 40. Điền từ vào tờ rơi (leaflet)",
+   "pointsPerQuestion": 0.25,
+   "startNo": 35,
+   "passage": "Read the following leaflet and mark the letter A, B, C or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 35 to 40.\n\nSTAY SAFE ONLINE – A GUIDE FOR TEENAGERS\n\nThe internet offers endless opportunities to learn and connect, but it also (35)_______ risks. Here are some simple tips to protect yourself.\n\nProtect your passwords. Create strong passwords for all your accounts, and never share (36)_______ with anyone, not even your best friend.\nThink before you post. Photos and comments can stay online for years. (37)_______, a joke that seems funny today may embarrass you in the future.\nCheck before you click. Many links in messages lead to fake websites that (38)_______ to steal personal information.\nBe kind. Cyberbullying can cause serious harm. If you see it happening, report it (39)_______ ignoring it.\n\nRemember: the more careful you are online, (40)_______ you will be!",
+   "questions": [
+    {
+     "content": "(35)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "makes"
+      },
+      {
+       "l": "B",
+       "t": "carries"
+      },
+      {
+       "l": "C",
+       "t": "takes"
+      },
+      {
+       "l": "D",
+       "t": "does"
+      }
+     ],
+     "correct": "B",
+     "expl": "Collocation carry risks (tiềm ẩn rủi ro)."
+    },
+    {
+     "content": "(36)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "they"
+      },
+      {
+       "l": "B",
+       "t": "it"
+      },
+      {
+       "l": "C",
+       "t": "them"
+      },
+      {
+       "l": "D",
+       "t": "their"
+      }
+     ],
+     "correct": "C",
+     "expl": "Thay cho “passwords” (số nhiều, tân ngữ) → them."
+    },
+    {
+     "content": "(37)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "For example"
+      },
+      {
+       "l": "B",
+       "t": "However"
+      },
+      {
+       "l": "C",
+       "t": "Otherwise"
+      },
+      {
+       "l": "D",
+       "t": "In contrast"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu sau là ví dụ minh hoạ cho ý “có thể tồn tại nhiều năm” → For example."
+    },
+    {
+     "content": "(38)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "is designed"
+      },
+      {
+       "l": "B",
+       "t": "design"
+      },
+      {
+       "l": "C",
+       "t": "designing"
+      },
+      {
+       "l": "D",
+       "t": "are designed"
+      }
+     ],
+     "correct": "D",
+     "expl": "Bị động, chủ ngữ “fake websites” số nhiều: that are designed to steal…"
+    },
+    {
+     "content": "(39)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "in spite"
+      },
+      {
+       "l": "B",
+       "t": "because of"
+      },
+      {
+       "l": "C",
+       "t": "instead of"
+      },
+      {
+       "l": "D",
+       "t": "as well"
+      }
+     ],
+     "correct": "C",
+     "expl": "instead of + V-ing: báo cáo thay vì phớt lờ."
+    },
+    {
+     "content": "(40)",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "the safest"
+      },
+      {
+       "l": "B",
+       "t": "the safer"
+      },
+      {
+       "l": "C",
+       "t": "safer"
+      },
+      {
+       "l": "D",
+       "t": "safe"
+      }
+     ],
+     "correct": "B",
+     "expl": "So sánh kép: the more careful…, the safer…"
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

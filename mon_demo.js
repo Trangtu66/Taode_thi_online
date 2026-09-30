@@ -1,4 +1,4 @@
-// Danh mục bài trực tuyến các môn (ngoài Toán, Ngữ văn) hiển thị trên luyen_thi.html. Sinh bởi mon_khac/build_mon.py.
+// Danh mục bài trực tuyến các môn (ngoài Toán, Ngữ văn) hiển thị trên luyen_thi.html. Sinh bởi mon_khac/build_mon.py, build_anh_tn.py.
 window.MON_DEMO = {
  "hoa_hoc": {
   "ten": "Hóa học",
@@ -123,6 +123,41 @@ window.MON_DEMO = {
     "link": "anh_cc_unit1_k10.html",
     "word": "mon/tieng_anh/trac_nghiem/lop10/anh_cc_unit1_k10.docx",
     "nguon": "Tiếng Anh 10 Global Success, tr.8 – 13"
+   },
+   {
+    "khu": "totnghiep",
+    "khoi": 12,
+    "ten": "Đề thi tốt nghiệp THPT năm 2026 – Tiếng Anh – mã đề 1116 (có giải thích)",
+    "phut": 50,
+    "cau": [
+     40,
+     0,
+     0
+    ],
+    "link": "anh_tn2026_1116_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_tn2026_1116_k12.docx",
+    "nguon": "Cấu trúc đề thi TN THPT 2026"
+   },
+   {
+    "khu": "totnghiep",
+    "khoi": 12,
+    "ten": "Đề ôn thi tốt nghiệp THPT – Tiếng Anh – Đề số 1",
+    "phut": 50,
+    "cau": [
+     40,
+     0,
+     0
+    ],
+    "link": "anh_ontn_so1_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_ontn_so1_k12.docx",
+    "nguon": "Cấu trúc đề thi TN THPT 2026"
+   },
+   {
+    "khu": "matran",
+    "khoi": 12,
+    "ten": "Ma trận, bản đặc tả đề ôn thi TN THPT – Tiếng Anh (theo đề 2026)",
+    "word": "mon/tieng_anh/ma_tran/MaTran_DacTa_OnThiTN_TiengAnh_2026-2027.docx",
+    "pdf": "mon/tieng_anh/ma_tran/MaTran_DacTa_OnThiTN_TiengAnh_2026-2027.pdf"
    }
   ]
  }

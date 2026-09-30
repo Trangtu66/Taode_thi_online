@@ -214,6 +214,8 @@
   .choice-card:nth-child(2){background:linear-gradient(160deg,#FFFFFF,#FFF6E8);}
   .choice-card .icon{font-size:40px;}
   .qcard{border-left:4px solid #6D5DF6;}
+  .passage{background:#fff;border:1px solid var(--paper-line);border-left:4px solid var(--celadon-deep);border-radius:10px;padding:14px 18px;margin:0 0 14px;white-space:pre-line;line-height:1.7;font-size:15px;}
+  .passage u{text-decoration-thickness:2px;}
   .part-header{background:var(--grad);box-shadow:0 6px 18px rgba(47,111,235,.22);border-radius:12px;}
   #part-header-1{background:linear-gradient(120deg,#F97316,#F59E0B);box-shadow:0 6px 18px rgba(245,158,11,.25);}
   #part-header-2{background:linear-gradient(120deg,#059669,#10B3C6);box-shadow:0 6px 18px rgba(16,179,198,.25);}
@@ -479,6 +481,7 @@ function uid(prefix){ return prefix + "_" + (idCounter++); }
 // MỚI: render công thức toán viết theo cú pháp LaTeX, bọc trong $ ... $ (inline) hoặc $$ ... $$ (hiển thị riêng dòng)
 function renderMath(container){
   if(typeof renderMathInElement !== "function") return;
+  if(typeof EXAM !== "undefined" && EXAM && EXAM.meta && EXAM.meta.noMath) return;   // đề không dùng công thức (vd. Tiếng Anh)
   try{
     renderMathInElement(container, {
       delimiters: [
@@ -1253,16 +1256,25 @@ function imgHtml(q){
   if(!q.imageUrl) return "";
   return `<img class="q-image" src="${escHtml(q.imageUrl)}" alt="Hình minh hoạ câu hỏi" loading="lazy" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=\'warn-box\'>⚠ Không tải được ảnh minh hoạ (kiểm tra lại link).</div>');">`;
 }
+/* MỚI (đề Tiếng Anh kiểu thi TN): part.passage = đoạn văn dùng chung cho các câu của phần (__từ__ để gạch chân);
+   part.startNo = số thứ tự câu đầu tiên của phần để đánh số liên tục 1 – 40. */
+/* ⟪…⟫ = gạch chân (không trùng với chỗ trống ____ trong đề) */
+function rich(t){ return escHtml(t).replace(/⟪([^⟫]+)⟫/g, "<u>$1</u>"); }
+function qNo(part, qi){ return (part.startNo ? part.startNo : 1) + qi; }
+function passageHtml(part){
+  if(!part.passage) return "";
+  return `<div class="passage">${rich(part.passage)}</div>`;
+}
 function renderQuizBody(){
   const body = document.getElementById("quiz-body");
   let html = "";
   const labels = ["a","b","c","d"];
   EXAM.parts.forEach((part,pi)=>{
-    html += `<div class="part-header" id="part-header-${pi}">${escHtml(part.title||("Phần "+(pi+1)))}</div>`;
+    html += `<div class="part-header" id="part-header-${pi}">${escHtml(part.title||("Phần "+(pi+1)))}</div>` + passageHtml(part);
     part.questions.forEach((q,qi)=>{
       html += `<div class="card" data-part="${pi}" data-q="${qi}">
-        <span class="q-tag">Câu ${qi+1}</span>
-        <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+        <span class="q-tag">Câu ${qNo(part,qi)}</span>
+        <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}`;
       if(part.type==="mcq"){
         html += `<div class="mc-options">`;
         q.options.forEach(opt=>{
@@ -1527,14 +1539,14 @@ function renderReview(partResults){
   let html = "";
   const labels = ["a","b","c","d"];
   partResults.forEach((r,pi)=>{
-    html += `<div class="part-header">${escHtml(r.part.title||("Phần "+(pi+1)))} — Chi tiết bài làm</div>`;
+    html += `<div class="part-header">${escHtml(r.part.title||("Phần "+(pi+1)))} — Chi tiết bài làm</div>` + passageHtml(r.part);
     r.details.forEach((d,qi)=>{
       const q=d.q;
       if(r.part.type==="mcq"){
         html += `<div class="card review-q">
-          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
-          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+          <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}`;
         q.options.forEach(opt=>{
           let cls="review-mc-opt";
           if(opt.l===q.correct) cls+=" correct-ans";
@@ -1545,9 +1557,9 @@ function renderReview(partResults){
         html += `</div>`;
       } else if(r.part.type==="tf"){
         html += `<div class="card review-q">
-          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.correctCount}/4 ý đúng · ${d.pts.toFixed(2)} đ</span></div>
-          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}`;
+          <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}`;
         q.statements.forEach((st,si)=>{
           const userVal = d.userAns[si];
           const isOk = userVal===st.correct;
@@ -1564,9 +1576,9 @@ function renderReview(partResults){
         html += `</div>`;
       } else if(r.part.type==="short"){
         html += `<div class="card review-q">
-          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qi+1}</span>
+          <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
-          <div class="q-content">${escHtml(q.content)}</div>${imgHtml(q)}
+          <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}
           <div class="meta">Bạn trả lời: <b>${(""+d.userAns).trim()===""?"chưa trả lời":escHtml(d.userAns)}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${String(q.answer).replace(".", ",")}</b></div>
           ${q.expl?`<div class="expl" style="margin-top:8px;">${escHtml(q.expl)}</div>`:""}
         </div>`;
