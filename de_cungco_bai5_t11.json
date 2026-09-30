@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 5. Dãy số (Toán 11)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Cho dãy số $(u_n)$ với $u_n=2n+1$. Số hạng $u_3$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$9$"
+            },
+            {
+              "l": "B",
+              "t": "$5$"
+            },
+            {
+              "l": "C",
+              "t": "$7$"
+            },
+            {
+              "l": "D",
+              "t": "$6$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$u_3=2\\cdot 3+1=7$."
+        },
+        {
+          "content": "Dãy số $1,\\ 4,\\ 9,\\ 16,\\ 25,\\ \\ldots$ có số hạng tổng quát là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$u_n=n^2$"
+            },
+            {
+              "l": "B",
+              "t": "$u_n=3n-2$"
+            },
+            {
+              "l": "C",
+              "t": "$u_n=(n+1)^2$"
+            },
+            {
+              "l": "D",
+              "t": "$u_n=2n^2-1$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Các số hạng là bình phương của $1, 2, 3, \\ldots$ nên $u_n=n^2$. Công thức $u_n=3n-2$ chỉ đúng với hai số hạng đầu ($u_3=7\\ne 9$)."
+        },
+        {
+          "content": "Cho dãy số $(u_n)$ xác định bởi $u_1=2$, $u_n=2u_{n-1}-1$ với $n\\ge 2$. Số hạng $u_4$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$7$"
+            },
+            {
+              "l": "B",
+              "t": "$5$"
+            },
+            {
+              "l": "C",
+              "t": "$17$"
+            },
+            {
+              "l": "D",
+              "t": "$9$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$u_2=2\\cdot 2-1=3$, $u_3=2\\cdot 3-1=5$, $u_4=2\\cdot 5-1=9$."
+        },
+        {
+          "content": "Dãy số nào sau đây là dãy số tăng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$u_n=\\frac{1}{n}$"
+            },
+            {
+              "l": "B",
+              "t": "$u_n=\\frac{n}{n+1}$"
+            },
+            {
+              "l": "C",
+              "t": "$u_n=(-1)^n n$"
+            },
+            {
+              "l": "D",
+              "t": "$u_n=-2n+5$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$u_{n+1}-u_n=\\frac{n+1}{n+2}-\\frac{n}{n+1}=\\frac{1}{(n+1)(n+2)}>0$ với mọi $n\\in\\mathbb{N}^*$. Dãy $\\frac{1}{n}$ và $-2n+5$ giảm; dãy $(-1)^n n$ đổi dấu liên tục nên không tăng, không giảm."
+        },
+        {
+          "content": "Dãy số nào sau đây bị chặn?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$u_n=-3n$"
+            },
+            {
+              "l": "B",
+              "t": "$u_n=n^2$"
+            },
+            {
+              "l": "C",
+              "t": "$u_n=2^n$"
+            },
+            {
+              "l": "D",
+              "t": "$u_n=\\frac{1}{n^2+1}$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$0<\\frac{1}{n^2+1}\\le\\frac{1}{2}$ với mọi $n\\in\\mathbb{N}^*$ nên dãy bị chặn. Dãy $n^2$, $2^n$ không bị chặn trên; dãy $-3n$ không bị chặn dưới."
+        },
+        {
+          "content": "Cho dãy số $(u_n)$ với $u_n=\\frac{2n-1}{n+1}$. Khẳng định nào sau đây đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "Dãy số giảm và bị chặn"
+            },
+            {
+              "l": "B",
+              "t": "Dãy số tăng và bị chặn"
+            },
+            {
+              "l": "C",
+              "t": "Dãy số tăng và không bị chặn trên"
+            },
+            {
+              "l": "D",
+              "t": "Dãy số không tăng, không giảm"
+            }
+          ],
+          "correct": "B",
+          "expl": "$u_n=2-\\frac{3}{n+1}$. Khi $n$ tăng thì $\\frac{3}{n+1}$ giảm nên $u_n$ tăng; $u_{n+1}-u_n=\\frac{3}{(n+1)(n+2)}>0$. Ngoài ra $\\frac{1}{2}=u_1\\le u_n<2$ nên dãy bị chặn."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Một hồ chứa nước tưới cà phê ở xã Vĩnh Thạnh có $5\\,000$ m³ nước vào đầu tuần thứ nhất của mùa khô. Mỗi tuần, lượng nước giảm $10\\%$ (do tưới và bốc hơi), sau đó hồ được bơm bổ sung $300$ m³. Gọi $u_n$ (m³) là lượng nước trong hồ vào đầu tuần thứ $n$; ta có $u_1=5\\,000$, $u_{n+1}=0{,}9u_n+300$. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "$u_2=4\\,800$.",
+              "correct": true,
+              "expl": "$u_2=0{,}9\\cdot 5\\,000+300=4\\,800$ (m³)."
+            },
+            {
+              "text": "$u_3=4\\,600$.",
+              "correct": false,
+              "expl": "$u_3=0{,}9\\cdot 4\\,800+300=4\\,620$ (m³)."
+            },
+            {
+              "text": "$(u_n)$ là dãy số giảm.",
+              "correct": true,
+              "expl": "Bằng quy nạp: $u_n-3\\,000=2\\,000\\cdot 0{,}9^{n-1}$, do đó $u_{n+1}-u_n=-200\\cdot 0{,}9^{n-1}<0$ với mọi $n$."
+            },
+            {
+              "text": "Vào đầu tuần thứ 6, lượng nước trong hồ ít hơn $4\\,000$ m³.",
+              "correct": false,
+              "expl": "$u_6=3\\,000+2\\,000\\cdot 0{,}9^5\\approx 4\\,181$ (m³) $>4\\,000$ m³."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}

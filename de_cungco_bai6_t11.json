@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài 6. Cấp số cộng (Toán 11)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Dãy số hữu hạn nào sau đây là một cấp số cộng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$1,\\ 2,\\ 4,\\ 8,\\ 16$"
+            },
+            {
+              "l": "B",
+              "t": "$1,\\ 4,\\ 7,\\ 10,\\ 13$"
+            },
+            {
+              "l": "C",
+              "t": "$1,\\ 4,\\ 9,\\ 16,\\ 25$"
+            },
+            {
+              "l": "D",
+              "t": "$2,\\ 4,\\ 7,\\ 11,\\ 16$"
+            }
+          ],
+          "correct": "B",
+          "expl": "Dãy $1, 4, 7, 10, 13$ có hiệu hai số hạng liên tiếp luôn bằng $3$ nên là cấp số cộng với công sai $d=3$; các dãy còn lại có hiệu thay đổi."
+        },
+        {
+          "content": "Cấp số cộng $(u_n)$ có $u_1=3$ và công sai $d=4$. Số hạng tổng quát của cấp số cộng là",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$u_n=3n+1$"
+            },
+            {
+              "l": "B",
+              "t": "$u_n=3n+4$"
+            },
+            {
+              "l": "C",
+              "t": "$u_n=4n+3$"
+            },
+            {
+              "l": "D",
+              "t": "$u_n=4n-1$"
+            }
+          ],
+          "correct": "D",
+          "expl": "$u_n=u_1+(n-1)d=3+4(n-1)=4n-1$. Công thức $u_n=4n+3$ sai vì đã dùng $u_1+nd$."
+        },
+        {
+          "content": "Cấp số cộng $(u_n)$ có $u_1=-5$ và công sai $d=3$. Số hạng $u_{15}$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$37$"
+            },
+            {
+              "l": "B",
+              "t": "$40$"
+            },
+            {
+              "l": "C",
+              "t": "$34$"
+            },
+            {
+              "l": "D",
+              "t": "$42$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$u_{15}=u_1+14d=-5+14\\cdot 3=37$."
+        },
+        {
+          "content": "Cấp số cộng $(u_n)$ có $u_3=7$ và $u_8=22$. Số hạng $u_{20}$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$55$"
+            },
+            {
+              "l": "B",
+              "t": "$61$"
+            },
+            {
+              "l": "C",
+              "t": "$58$"
+            },
+            {
+              "l": "D",
+              "t": "$60$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$u_8-u_3=5d=15$ nên $d=3$, $u_1=u_3-2d=1$. Do đó $u_{20}=1+19\\cdot 3=58$."
+        },
+        {
+          "content": "Tổng $20$ số hạng đầu của cấp số cộng $2,\\ 5,\\ 8,\\ \\ldots$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$610$"
+            },
+            {
+              "l": "B",
+              "t": "$640$"
+            },
+            {
+              "l": "C",
+              "t": "$1\\,220$"
+            },
+            {
+              "l": "D",
+              "t": "$305$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$u_1=2$, $d=3$: $S_{20}=\\frac{20}{2}\\left[2\\cdot 2+19\\cdot 3\\right]=10\\cdot 61=610$."
+        },
+        {
+          "content": "Cần lấy tổng của bao nhiêu số hạng đầu của cấp số cộng $1,\\ 3,\\ 5,\\ \\ldots$ để được kết quả bằng $400$?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$19$"
+            },
+            {
+              "l": "B",
+              "t": "$40$"
+            },
+            {
+              "l": "C",
+              "t": "$20$"
+            },
+            {
+              "l": "D",
+              "t": "$200$"
+            }
+          ],
+          "correct": "C",
+          "expl": "$u_1=1$, $d=2$: $S_n=\\frac{n}{2}\\left[2+2(n-1)\\right]=n^2=400$ nên $n=20$."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Một vườn cà phê ở xã Vĩnh Thạnh được trồng thành 15 hàng: hàng thứ nhất có 20 cây, mỗi hàng sau nhiều hơn hàng liền trước 3 cây. Gọi $u_n$ là số cây ở hàng thứ $n$. Xét tính đúng, sai của các khẳng định sau:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "Hàng thứ 10 có 47 cây.",
+              "correct": true,
+              "expl": "$(u_n)$ là cấp số cộng với $u_1=20$, $d=3$: $u_{10}=20+9\\cdot 3=47$."
+            },
+            {
+              "text": "Vườn cà phê có tất cả 615 cây.",
+              "correct": true,
+              "expl": "$S_{15}=\\frac{15}{2}\\left[2\\cdot 20+14\\cdot 3\\right]=\\frac{15\\cdot 82}{2}=615$."
+            },
+            {
+              "text": "Số cây ở hàng thứ $n$ là $u_n=20+3n$.",
+              "correct": false,
+              "expl": "$u_n=20+3(n-1)=3n+17$; công thức $20+3n$ cho $u_1=23$, sai."
+            },
+            {
+              "text": "Chỉ riêng 11 hàng đầu tiên đã có hơn 400 cây.",
+              "correct": false,
+              "expl": "$S_{11}=\\frac{11}{2}\\left[40+10\\cdot 3\\right]=385<400$; phải đến 12 hàng ($S_{12}=438$) mới vượt 400 cây."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}
