@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      // Link bài củng cố (cc_…html, mã QR) mở trang chủ kèm đề nén "#e=…": chuyển sang trang làm bài.
+      if (/^#e=/.test(location.hash)) location.replace("lam_bai.html" + location.hash);
+    </script>
     <title>Cổng Luyện Thi Trắc Nghiệm - THPT Vĩnh Thạnh</title>
     <style>
         :root {
@@ -119,7 +123,7 @@
                     <h3>📚 Tự Luyện Theo Bài Học</h3>
                     <p>Tổng hợp các bài trắc nghiệm củng cố nhanh ngay sau tiết học trên lớp của khối 10, 11 và 12.</p>
                 </div>
-                <a href="#" class="btn">Vào Luyện Tập</a>
+                <a href="quan_ly.html" class="btn">Vào Luyện Tập</a>
             </div>
 
             <!-- Phân khu 2 -->
