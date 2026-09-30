@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 12 · Bài 1: Mùa lá rụng trong vườn (Ma Văn Kháng)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Đoạn trích Mùa lá rụng trong vườn được trích từ chương nào của tiểu thuyết cùng tên?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Chương 1"
+      },
+      {
+       "l": "B",
+       "t": "Chương 2"
+      },
+      {
+       "l": "C",
+       "t": "Chương 10"
+      },
+      {
+       "l": "D",
+       "t": "Chương cuối"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.25: “Văn bản trên đây trích từ chương 2 của tiểu thuyết Mùa lá rụng trong vườn.”"
+    },
+    {
+     "content": "Sự việc chính mở đầu đoạn trích là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Lý chuẩn bị đám cưới cho Luận"
+      },
+      {
+       "l": "B",
+       "t": "Cả nhà ông Bằng về quê ăn Tết"
+      },
+      {
+       "l": "C",
+       "t": "Phượng chuyển công tác về Hà Nội"
+      },
+      {
+       "l": "D",
+       "t": "Chị Hoài từ quê lên thăm gia đình ông Bằng đúng chiều ba mươi Tết"
+      }
+     ],
+     "correct": "D",
+     "expl": "Đoạn trích mở đầu: người phụ nữ mà Lý và Phượng ao ước hiện ra trước cổng nhà vào buổi cúng tất niên chiều ba mươi Tết."
+    },
+    {
+     "content": "Chị Hoài có quan hệ thế nào với gia đình ông Bằng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Là vợ của anh Tường – con trai ông đã hi sinh, nay đã đi bước nữa"
+      },
+      {
+       "l": "B",
+       "t": "Là em gái ông Bằng"
+      },
+      {
+       "l": "C",
+       "t": "Là người giúp việc lâu năm"
+      },
+      {
+       "l": "D",
+       "t": "Là cô giáo cũ của Phượng"
+      }
+     ],
+     "correct": "A",
+     "expl": "Chị Hoài – “dâu trưởng”, vợ anh Tường liệt sĩ; nay đã có gia đình riêng nhưng vẫn giữ tình nghĩa với nhà chồng cũ."
+    },
+    {
+     "content": "Chi tiết nào cho thấy đức tính tốt đẹp của chị Hoài?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Hơn chục năm không lên Hà Nội"
+      },
+      {
+       "l": "B",
+       "t": "Mặc áo vét như cán bộ"
+      },
+      {
+       "l": "C",
+       "t": "Mang gạo nếp tăng sản, giò thủ, bí, quả giống… từ quê lên và hỏi han từng người trong nhà"
+      },
+      {
+       "l": "D",
+       "t": "Làm chủ nhiệm hợp tác xã"
+      }
+     ],
+     "correct": "C",
+     "expl": "Những món quà quê cùng lời hỏi han chu đáo cho thấy chị hồn hậu, chu đáo, nặng tình nghĩa."
+    },
+    {
+     "content": "Phản ứng của ông Bằng khi nhìn thấy chị Hoài là gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Trách móc chị vì đã đi bước nữa"
+      },
+      {
+       "l": "B",
+       "t": "Lạnh nhạt, quay đi"
+      },
+      {
+       "l": "C",
+       "t": "Sững lại, mặt thoáng ngơ ngẩn, mắt chớp liên hồi, môi lật bật không thành tiếng, có cảm giác sắp khóc"
+      },
+      {
+       "l": "D",
+       "t": "Vui vẻ cười lớn, hỏi chuyện quê"
+      }
+     ],
+     "correct": "C",
+     "expl": "Chi tiết miêu tả ngoại hình, cử chỉ bộc lộ xúc động mãnh liệt của người cha già trước người con dâu cũ."
+    },
+    {
+     "content": "Việc tác giả kể chi tiết về mâm cỗ Tết do Lý chuẩn bị gợi ra điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Sự trân trọng nét đẹp văn hoá truyền thống ngày Tết và tài khéo, tấm lòng của người chế biến"
+      },
+      {
+       "l": "B",
+       "t": "Sự xa hoa, lãng phí của gia đình"
+      },
+      {
+       "l": "C",
+       "t": "Lý là người vụng về trong bếp"
+      },
+      {
+       "l": "D",
+       "t": "Gia đình ông Bằng không còn giữ nếp xưa"
+      }
+     ],
+     "correct": "A",
+     "expl": "Mâm cỗ với các món vịt tần, vây, mọc… mang dấu ấn tài hoa – gợi nếp nhà gia phong và cảm hứng trân trọng văn hoá truyền thống."
+    },
+    {
+     "content": "Ma Văn Kháng từng gắn bó với vùng đất nào trước khi chuyển về Hà Nội?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Cà Mau"
+      },
+      {
+       "l": "B",
+       "t": "Lào Cai"
+      },
+      {
+       "l": "C",
+       "t": "Nghệ An"
+      },
+      {
+       "l": "D",
+       "t": "Đà Lạt"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.24: ông từng là nhà giáo, dạy học ở Lào Cai từ năm 1964 đến năm 1976."
+    },
+    {
+     "content": "Tiểu thuyết Mùa lá rụng trong vườn được giải thưởng nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Giải thưởng Văn học ASEAN năm 1998"
+      },
+      {
+       "l": "B",
+       "t": "Giải thưởng Hồ Chí Minh năm 1996"
+      },
+      {
+       "l": "C",
+       "t": "Giải thưởng Nhà nước năm 2001"
+      },
+      {
+       "l": "D",
+       "t": "Giải thưởng của Hội Nhà văn Việt Nam năm 1986"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.25: Mùa lá rụng trong vườn được giải thưởng của Hội Nhà văn Việt Nam năm 1986."
+    },
+    {
+     "content": "Nhan đề Mùa lá rụng trong vườn có ý nghĩa ẩn dụ gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Báo hiệu gia đình ông Bằng tan rã hoàn toàn"
+      },
+      {
+       "l": "B",
+       "t": "Chỉ đơn thuần tả cảnh mùa thu ở Hà Nội"
+      },
+      {
+       "l": "C",
+       "t": "Nói về nghề làm vườn của ông Bằng"
+      },
+      {
+       "l": "D",
+       "t": "Gợi sự chuyển giao, đổi thay của những giá trị truyền thống trước thử thách của đời sống mới; cái cũ mất đi để cái mới nảy sinh"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu hỏi 6 SGK: “mùa lá rụng” – quy luật tự nhiên, ẩn dụ cho sự biến đổi của đại gia đình và xã hội thời hậu chiến, trong đó vẫn còn điểm sáng."
+    },
+    {
+     "content": "Theo phần Tri thức ngữ văn, đặc điểm nào của tiểu thuyết hiện đại thể hiện rõ qua đoạn trích?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nhìn cuộc sống từ góc độ đời tư, quan tâm cái thường ngày; nhân vật là “con người nếm trải”, phức tạp về tâm lí"
+      },
+      {
+       "l": "B",
+       "t": "Nhân vật là thần linh có sức mạnh siêu nhiên"
+      },
+      {
+       "l": "C",
+       "t": "Kết cấu đơn tuyến, nhân vật bất biến"
+      },
+      {
+       "l": "D",
+       "t": "Chỉ ghi chép sự kiện lịch sử có thật"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.10 nêu các đặc điểm của tiểu thuyết hiện đại; đoạn trích kể chuyện gia đình ngày Tết, diễn tả tinh tế tâm lí từng nhân vật."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn văn: “Ông sững lại khi nhìn thấy Hoài, mặt thoáng một chút ngơ ngẩn. Rồi mắt ông chớp liên hồi, môi ông lật bật không thành tiếng, có cảm giác ông sắp khóc oà.” (Ma Văn Kháng, Mùa lá rụng trong vườn)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Đoạn văn được kể bằng lời người kể chuyện ngôi thứ ba.",
+       "correct": true,
+       "expl": "Nhân vật được gọi là “ông”, người kể giấu mình."
+      },
+      {
+       "text": "Nhà văn chủ yếu thể hiện tâm lí nhân vật qua biểu hiện bên ngoài: nét mặt, ánh mắt, cử chỉ.",
+       "correct": true,
+       "expl": "“ngơ ngẩn”, “mắt chớp liên hồi”, “môi lật bật” – tâm lí được thể hiện gián tiếp qua ngoại hình, cử chỉ."
+      },
+      {
+       "text": "Đoạn văn cho thấy ông Bằng thờ ơ, không còn tình cảm với chị Hoài.",
+       "correct": false,
+       "expl": "Ông xúc động mạnh đến mức “sắp khóc oà”."
+      },
+      {
+       "text": "Chi tiết thể hiện sự trân trọng tình nghĩa gia đình – một giá trị văn hoá truyền thống của người Việt.",
+       "correct": true,
+       "expl": "Người cha già vẫn coi người con dâu cũ như con – tình nghĩa bền chặt vượt qua biến cố."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

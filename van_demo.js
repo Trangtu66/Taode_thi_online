@@ -86,6 +86,20 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 1. Mùa lá rụng trong vườn (Ma Văn Kháng) – nhân vật, tâm lí, văn hoá gia đình",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_mualarung_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_mualarung_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.19 – 25"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",
