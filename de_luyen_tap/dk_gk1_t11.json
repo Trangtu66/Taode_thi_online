@@ -1,0 +1,469 @@
+{
+ "meta": {
+  "title": "Đề ôn tập kiểm tra giữa kỳ I (Toán 11)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 90,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.25,
+   "questions": [
+    {
+     "content": "Góc có số đo $60^\\circ$ đổi sang rađian là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\frac{\\pi}{6}$"
+      },
+      {
+       "l": "B",
+       "t": "$\\frac{\\pi}{3}$"
+      },
+      {
+       "l": "C",
+       "t": "$\\frac{\\pi}{4}$"
+      },
+      {
+       "l": "D",
+       "t": "$\\frac{2\\pi}{3}$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$60\\cdot\\frac{\\pi}{180}=\\frac{\\pi}{3}$."
+    },
+    {
+     "content": "Với mọi số thực $\\alpha$, khẳng định nào sau đây đúng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\tan\\alpha\\cdot\\cot\\alpha=1$"
+      },
+      {
+       "l": "B",
+       "t": "$\\sin\\alpha+\\cos\\alpha=1$"
+      },
+      {
+       "l": "C",
+       "t": "$\\sin^2\\alpha-\\cos^2\\alpha=1$"
+      },
+      {
+       "l": "D",
+       "t": "$\\sin^2\\alpha+\\cos^2\\alpha=1$"
+      }
+     ],
+     "correct": "D",
+     "expl": "Hệ thức cơ bản; $\\tan\\alpha\\cot\\alpha=1$ chỉ đúng khi cả hai xác định."
+    },
+    {
+     "content": "Với mọi số thực $a$, $b$, $\\cos(a+b)$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\cos a\\cos b-\\sin a\\sin b$"
+      },
+      {
+       "l": "B",
+       "t": "$\\cos a\\cos b+\\sin a\\sin b$"
+      },
+      {
+       "l": "C",
+       "t": "$\\sin a\\cos b+\\cos a\\sin b$"
+      },
+      {
+       "l": "D",
+       "t": "$\\cos a+\\cos b$"
+      }
+     ],
+     "correct": "A",
+     "expl": "Công thức cộng."
+    },
+    {
+     "content": "Giá trị của $\\sin 75^\\circ\\cos 15^\\circ+\\cos 75^\\circ\\sin 15^\\circ$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\frac{\\sqrt{3}}{2}$"
+      },
+      {
+       "l": "B",
+       "t": "$\\frac{1}{2}$"
+      },
+      {
+       "l": "C",
+       "t": "$1$"
+      },
+      {
+       "l": "D",
+       "t": "$0$"
+      }
+     ],
+     "correct": "C",
+     "expl": "Bằng $\\sin(75^\\circ+15^\\circ)=\\sin 90^\\circ=1$."
+    },
+    {
+     "content": "Hàm số nào sau đây là hàm số lẻ?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$y=1+\\sin x$"
+      },
+      {
+       "l": "B",
+       "t": "$y=\\cos x$"
+      },
+      {
+       "l": "C",
+       "t": "$y=\\sin x$"
+      },
+      {
+       "l": "D",
+       "t": "$y=\\sin^2 x$"
+      }
+     ],
+     "correct": "C",
+     "expl": "$\\sin(-x)=-\\sin x$ với mọi $x$."
+    },
+    {
+     "content": "Tập giá trị của hàm số $y=2\\sin x+1$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$[-1;3]$"
+      },
+      {
+       "l": "B",
+       "t": "$[-2;2]$"
+      },
+      {
+       "l": "C",
+       "t": "$[1;3]$"
+      },
+      {
+       "l": "D",
+       "t": "$[-3;3]$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$-1\\le\\sin x\\le 1\\Rightarrow -1\\le y\\le 3$."
+    },
+    {
+     "content": "Nghiệm của phương trình $\\tan x=\\tan\\frac{\\pi}{5}$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$x=\\frac{\\pi}{5}+k2\\pi\\ (k\\in\\mathbb{Z})$"
+      },
+      {
+       "l": "B",
+       "t": "$x=\\frac{\\pi}{5}+k\\pi\\ (k\\in\\mathbb{Z})$"
+      },
+      {
+       "l": "C",
+       "t": "$x=\\pm\\frac{\\pi}{5}+k2\\pi\\ (k\\in\\mathbb{Z})$"
+      },
+      {
+       "l": "D",
+       "t": "$x=\\frac{4\\pi}{5}+k2\\pi\\ (k\\in\\mathbb{Z})$"
+      }
+     ],
+     "correct": "B",
+     "expl": "Hàm tang có chu kì $\\pi$."
+    },
+    {
+     "content": "Cho dãy số $(u_n)$ với $u_n=3n-1$. Số hạng $u_5$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$11$"
+      },
+      {
+       "l": "B",
+       "t": "$15$"
+      },
+      {
+       "l": "C",
+       "t": "$16$"
+      },
+      {
+       "l": "D",
+       "t": "$14$"
+      }
+     ],
+     "correct": "D",
+     "expl": "$u_5=15-1=14$."
+    },
+    {
+     "content": "Công sai của cấp số cộng $7,\\ 4,\\ 1,\\ \\ldots$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$-4$"
+      },
+      {
+       "l": "B",
+       "t": "$3$"
+      },
+      {
+       "l": "C",
+       "t": "$4$"
+      },
+      {
+       "l": "D",
+       "t": "$-3$"
+      }
+     ],
+     "correct": "D",
+     "expl": "$d=4-7=-3$."
+    },
+    {
+     "content": "Công bội của cấp số nhân $1,\\ -2,\\ 4,\\ \\ldots$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$2$"
+      },
+      {
+       "l": "B",
+       "t": "$-2$"
+      },
+      {
+       "l": "C",
+       "t": "$-\\frac{1}{2}$"
+      },
+      {
+       "l": "D",
+       "t": "$3$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$q=\\frac{-2}{1}=-2$."
+    },
+    {
+     "content": "Chiều cao (cm) của 40 học sinh: $[150;155)$: 5 bạn; $[155;160)$: 12 bạn; $[160;165)$: 18 bạn; $[165;170)$: 5 bạn. Nhóm có tần số lớn nhất là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$[150;155)$"
+      },
+      {
+       "l": "B",
+       "t": "$[155;160)$"
+      },
+      {
+       "l": "C",
+       "t": "$[160;165)$"
+      },
+      {
+       "l": "D",
+       "t": "$[165;170)$"
+      }
+     ],
+     "correct": "C",
+     "expl": "Nhóm $[160;165)$ có 18 bạn."
+    },
+    {
+     "content": "Với mẫu số liệu ghép nhóm, giá trị đại diện của nhóm $[a;b)$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\frac{a+b}{2}$"
+      },
+      {
+       "l": "B",
+       "t": "$a$"
+      },
+      {
+       "l": "C",
+       "t": "$b$"
+      },
+      {
+       "l": "D",
+       "t": "$b-a$"
+      }
+     ],
+     "correct": "A",
+     "expl": "Giá trị đại diện là trung điểm của nhóm."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 1,
+   "questions": [
+    {
+     "content": "Cho góc $\\alpha$ thỏa mãn $\\cos\\alpha=-\\frac{4}{5}$ và $\\pi<\\alpha<\\frac{3\\pi}{2}$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$\\sin\\alpha<0$.",
+       "correct": true,
+       "expl": "Góc phần tư thứ III nên $\\sin\\alpha<0$."
+      },
+      {
+       "text": "$\\tan\\alpha=\\frac{3}{4}$.",
+       "correct": true,
+       "expl": "$\\sin\\alpha=-\\frac{3}{5}$ nên $\\tan\\alpha=\\frac{-3/5}{-4/5}=\\frac{3}{4}$."
+      },
+      {
+       "text": "$\\sin 2\\alpha=-\\frac{24}{25}$.",
+       "correct": false,
+       "expl": "$\\sin 2\\alpha=2\\cdot\\left(-\\frac{3}{5}\\right)\\left(-\\frac{4}{5}\\right)=\\frac{24}{25}$."
+      },
+      {
+       "text": "Trên khoảng $(0;2\\pi)$, phương trình $\\cos x=-\\frac{4}{5}$ có đúng hai nghiệm và $\\alpha$ là nghiệm lớn hơn.",
+       "correct": true,
+       "expl": "Hai nghiệm là $x_0\\in\\left(\\frac{\\pi}{2};\\pi\\right)$ và $2\\pi-x_0\\in\\left(\\pi;\\frac{3\\pi}{2}\\right)$; nghiệm sau chính là $\\alpha$."
+      }
+     ]
+    },
+    {
+     "content": "Một cabin vòng quay ở độ cao $h(t)=20-18\\cos\\frac{\\pi t}{15}$ (mét) sau $t$ phút kể từ lúc bắt đầu quay.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Tại $t=0$, cabin ở độ cao 20 m.",
+       "correct": false,
+       "expl": "$h(0)=20-18=2$ (m)."
+      },
+      {
+       "text": "Vòng quay quay hết một vòng trong 30 phút.",
+       "correct": true,
+       "expl": "Chu kì $\\frac{2\\pi}{\\pi/15}=30$."
+      },
+      {
+       "text": "Độ cao lớn nhất của cabin là 36 m.",
+       "correct": false,
+       "expl": "$\\cos\\ge -1$ nên $h\\le 38$ m, đạt tại $t=15$."
+      },
+      {
+       "text": "Trong vòng quay đầu tiên ($0\\le t\\le 30$), thời gian cabin ở độ cao trên 29 m là 10 phút.",
+       "correct": true,
+       "expl": "$h>29\\Leftrightarrow\\cos\\frac{\\pi t}{15}<-\\frac{1}{2}\\Leftrightarrow\\frac{2\\pi}{3}<\\frac{\\pi t}{15}<\\frac{4\\pi}{3}\\Leftrightarrow 10<t<20$."
+      }
+     ]
+    },
+    {
+     "content": "Cho cấp số cộng $(u_n)$ có $u_1=2$, công sai $d=3$ và dãy số $(v_n)$ với $v_n=2^{u_n}$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$(u_n)$ là dãy số tăng.",
+       "correct": true,
+       "expl": "$d=3>0$."
+      },
+      {
+       "text": "$v_1=2$.",
+       "correct": false,
+       "expl": "$v_1=2^{u_1}=2^2=4$."
+      },
+      {
+       "text": "$u_{10}=29$.",
+       "correct": true,
+       "expl": "$u_{10}=2+9\\cdot 3=29$."
+      },
+      {
+       "text": "$(v_n)$ là cấp số nhân có công bội 8.",
+       "correct": true,
+       "expl": "$\\frac{v_{n+1}}{v_n}=2^{u_{n+1}-u_n}=2^3=8$."
+      }
+     ]
+    },
+    {
+     "content": "Thời gian tự học (phút) mỗi ngày của 40 học sinh: $[0;20)$: 5; $[20;40)$: 9; $[40;60)$: 12; $[60;80)$: 10; $[80;100)$: 4.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Giá trị đại diện của nhóm $[40;60)$ là 50.",
+       "correct": true,
+       "expl": "$\\frac{40+60}{2}=50$."
+      },
+      {
+       "text": "Nhóm $[40;60)$ có tần số lớn nhất.",
+       "correct": true,
+       "expl": "Tần số 12 là lớn nhất."
+      },
+      {
+       "text": "Số trung bình của mẫu số liệu là 50 phút.",
+       "correct": false,
+       "expl": "$\\bar x=\\frac{10\\cdot 5+30\\cdot 9+50\\cdot 12+70\\cdot 10+90\\cdot 4}{40}=49{,}5$."
+      },
+      {
+       "text": "Trung vị của mẫu số liệu lớn hơn số trung bình.",
+       "correct": true,
+       "expl": "$M_e=40+\\frac{20-14}{12}\\cdot 20=50>49{,}5$."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "short",
+   "title": "PHẦN III. Câu trắc nghiệm trả lời ngắn",
+   "pointsPerQuestion": 0.5,
+   "questions": [
+    {
+     "content": "Kim phút của một đồng hồ dài 10 cm. Trong 20 phút, đầu kim phút vạch nên cung tròn dài bao nhiêu cm (làm tròn đến hàng phần mười)?",
+     "imageUrl": "",
+     "answer": 20.9,
+     "expl": "20 phút ứng với góc $\\frac{2\\pi}{3}$; $l=10\\cdot\\frac{2\\pi}{3}\\approx 20{,}94\\approx 20{,}9$ cm."
+    },
+    {
+     "content": "Cho $\\cos a=\\frac{3}{5}$, $\\cos b=\\frac{4}{5}$ với $a, b\\in\\left(0;\\frac{\\pi}{2}\\right)$. Tính $\\cos(a-b)$.",
+     "imageUrl": "",
+     "answer": 0.96,
+     "expl": "$\\sin a=\\frac{4}{5}$, $\\sin b=\\frac{3}{5}$; $\\cos(a-b)=\\frac{12}{25}+\\frac{12}{25}=\\frac{24}{25}=0{,}96$."
+    },
+    {
+     "content": "Mực nước ở một cảng được mô hình hóa bởi $h(t)=4+3\\sin\\frac{\\pi t}{12}$ (m), $0\\le t\\le 24$ (giờ). Mực nước cao nhất lúc mấy giờ?",
+     "imageUrl": "",
+     "answer": 6,
+     "expl": "$h$ lớn nhất khi $\\sin\\frac{\\pi t}{12}=1\\Leftrightarrow t=6$ (trên $[0;24]$)."
+    },
+    {
+     "content": "Phương trình $2\\sin x-1=0$ có bao nhiêu nghiệm trên đoạn $[0;4\\pi]$?",
+     "imageUrl": "",
+     "answer": 4,
+     "expl": "$\\sin x=\\frac{1}{2}$: $x=\\frac{\\pi}{6},\\frac{5\\pi}{6},\\frac{13\\pi}{6},\\frac{17\\pi}{6}$ – có 4 nghiệm."
+    },
+    {
+     "content": "Cho dãy số $(u_n)$ với $u_n=n^2-2n$. Tính $u_4$.",
+     "imageUrl": "",
+     "answer": 8,
+     "expl": "$u_4=16-8=8$."
+    },
+    {
+     "content": "Cấp số cộng $(u_n)$ có $u_2=7$ và $u_5=16$. Tính tổng 10 số hạng đầu.",
+     "imageUrl": "",
+     "answer": 175,
+     "expl": "$3d=9\\Rightarrow d=3$, $u_1=4$; $S_{10}=\\frac{10}{2}[8+27]=175$."
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

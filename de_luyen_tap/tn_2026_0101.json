@@ -1,0 +1,469 @@
+{
+ "meta": {
+  "title": "Đề thi tốt nghiệp THPT 2026 – Môn Toán – Mã đề 0101 (làm thử)",
+  "subtitle": "Đề thi chính thức của Bộ GD&ĐT – làm thử trực tuyến · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 90,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.25,
+   "questions": [
+    {
+     "content": "Cho cấp số cộng $(u_n)$ có $u_1=5$ và công sai $d=-1$. Giá trị của $u_2$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$4$"
+      },
+      {
+       "l": "B",
+       "t": "$-5$"
+      },
+      {
+       "l": "C",
+       "t": "$5$"
+      },
+      {
+       "l": "D",
+       "t": "$-4$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$u_2=u_1+d=4$."
+    },
+    {
+     "content": "Cho các hàm số $y=f(x)$ và $y=g(x)$ có đạo hàm trên $\\mathbb{R}$ thỏa mãn $f'(x)=x$ và $g'(x)=x^2$. Đạo hàm của hàm số $y=f(x)+g(x)$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$3x$"
+      },
+      {
+       "l": "B",
+       "t": "$1+x^2$"
+      },
+      {
+       "l": "C",
+       "t": "$x+x^2$"
+      },
+      {
+       "l": "D",
+       "t": "$1+2x$"
+      }
+     ],
+     "correct": "C",
+     "expl": "$(f+g)'=f'+g'=x+x^2$."
+    },
+    {
+     "content": "Cho $\\int f(x)\\,dx=\\sin x+C$. Phát biểu nào sau đây là đúng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\int[3+f(x)]\\,dx=3x+\\cos x+C$"
+      },
+      {
+       "l": "B",
+       "t": "$\\int[3+f(x)]\\,dx=3x+\\sin x+C$"
+      },
+      {
+       "l": "C",
+       "t": "$\\int[3+f(x)]\\,dx=3x-\\cos x+C$"
+      },
+      {
+       "l": "D",
+       "t": "$\\int[3+f(x)]\\,dx=3x-\\sin x+C$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$\\int[3+f(x)]dx=3x+\\sin x+C$."
+    },
+    {
+     "content": "Nghiệm của phương trình $\\log_3(x-1)=1$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$x=2$"
+      },
+      {
+       "l": "B",
+       "t": "$x=3$"
+      },
+      {
+       "l": "C",
+       "t": "$x=5$"
+      },
+      {
+       "l": "D",
+       "t": "$x=4$"
+      }
+     ],
+     "correct": "D",
+     "expl": "$x-1=3\\Leftrightarrow x=4$."
+    },
+    {
+     "content": "Trong không gian $Oxyz$, cho hai điểm $A(1;5;1)$ và $B(3;3;1)$. Vectơ $\\overrightarrow{AB}$ có tọa độ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$(2;-2;0)$"
+      },
+      {
+       "l": "B",
+       "t": "$(-2;2;0)$"
+      },
+      {
+       "l": "C",
+       "t": "$(4;8;2)$"
+      },
+      {
+       "l": "D",
+       "t": "$(2;4;1)$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$\\overrightarrow{AB}=(3-1;3-5;1-1)=(2;-2;0)$."
+    },
+    {
+     "content": "Cho hai biến cố độc lập $A$ và $B$ có $P(A)=0{,}5$ và $P(B)=0{,}4$. Giá trị của $P(AB)$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$0{,}8$"
+      },
+      {
+       "l": "B",
+       "t": "$0{,}1$"
+      },
+      {
+       "l": "C",
+       "t": "$0{,}9$"
+      },
+      {
+       "l": "D",
+       "t": "$0{,}2$"
+      }
+     ],
+     "correct": "D",
+     "expl": "$P(AB)=P(A)P(B)=0{,}2$."
+    },
+    {
+     "content": "Cho hình lập phương $ABCD.A'B'C'D'$ (xem hình). Vectơ nào sau đây bằng vectơ $\\overrightarrow{AB}$?",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/c7.png",
+     "options": [
+      {
+       "l": "A",
+       "t": "$\\overrightarrow{AA'}$"
+      },
+      {
+       "l": "B",
+       "t": "$\\overrightarrow{D'C'}$"
+      },
+      {
+       "l": "C",
+       "t": "$\\overrightarrow{CD}$"
+      },
+      {
+       "l": "D",
+       "t": "$\\overrightarrow{AD}$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$\\overrightarrow{D'C'}$ cùng hướng, cùng độ dài với $\\overrightarrow{AB}$."
+    },
+    {
+     "content": "Cặp số nào sau đây là nghiệm của hệ bất phương trình $\\begin{cases}x+y-3<0\\\\x-y+1>0\\end{cases}$?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$(1;0)$"
+      },
+      {
+       "l": "B",
+       "t": "$(0;2)$"
+      },
+      {
+       "l": "C",
+       "t": "$(-1;1)$"
+      },
+      {
+       "l": "D",
+       "t": "$(1;2)$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$(1;0)$: $1-3<0$ và $1+1>0$ – thỏa mãn; các cặp khác vi phạm bất phương trình thứ hai."
+    },
+    {
+     "content": "Hàm số $F(x)=4x^3$ là một nguyên hàm của hàm số nào sau đây?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$f_2(x)=3x^2$"
+      },
+      {
+       "l": "B",
+       "t": "$f_3(x)=12x^2$"
+      },
+      {
+       "l": "C",
+       "t": "$f_1(x)=x^4$"
+      },
+      {
+       "l": "D",
+       "t": "$f_4(x)=4x^4$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$F'(x)=12x^2$."
+    },
+    {
+     "content": "Cho hàm số $y=\\frac{ax+b}{cx+d}$ ($c\\ne 0$, $ad-bc\\ne 0$) có bảng biến thiên như hình. Đường tiệm cận ngang của đồ thị hàm số có phương trình là",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/c10.png",
+     "options": [
+      {
+       "l": "A",
+       "t": "$y=-2$"
+      },
+      {
+       "l": "B",
+       "t": "$x=-2$"
+      },
+      {
+       "l": "C",
+       "t": "$x=1$"
+      },
+      {
+       "l": "D",
+       "t": "$y=1$"
+      }
+     ],
+     "correct": "A",
+     "expl": "Khi $x\\to\\pm\\infty$ thì $y\\to -2$."
+    },
+    {
+     "content": "Cho cấp số nhân $(u_n)$ có số hạng đầu $u_1$ và công bội $q$ với $u_1\\ne 0$, $q>1$. Số hạng $u_4$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$u_4=u_1q^3$"
+      },
+      {
+       "l": "B",
+       "t": "$u_4=u_1q^4$"
+      },
+      {
+       "l": "C",
+       "t": "$u_4=u_1+3q$"
+      },
+      {
+       "l": "D",
+       "t": "$u_4=u_1+4q$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$u_n=u_1q^{n-1}$."
+    },
+    {
+     "content": "Thời gian học trực tuyến (phút) trong một ngày của 42 học sinh: $\\begin{array}{|l|c|c|c|c|c|c|}\\hline\\text{Thời gian}&[10;20)&[20;30)&[30;40)&[40;50)&[50;60)&[60;70)\\\\\\hline\\text{Số học sinh}&4&8&14&7&4&5\\\\\\hline\\end{array}$ Trung vị của mẫu số liệu thuộc nhóm nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$[30;40)$"
+      },
+      {
+       "l": "B",
+       "t": "$[40;50)$"
+      },
+      {
+       "l": "C",
+       "t": "$[60;70)$"
+      },
+      {
+       "l": "D",
+       "t": "$[50;60)$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$\\frac{n}{2}=21$; tần số tích lũy $4, 12, 26$ nên trung vị thuộc nhóm $[30;40)$."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 1,
+   "questions": [
+    {
+     "content": "Người ta dùng một ứng dụng trí tuệ nhân tạo để sàng lọc nguy cơ mắc bệnh dựa trên hồ sơ y tế. Kết quả quét thử 10 000 hồ sơ: 1000 người nhận được cảnh báo (700 người có bệnh, 300 người không có bệnh); 9000 người không nhận được cảnh báo (100 người có bệnh, 8900 người không có bệnh). Chọn ngẫu nhiên một người trong 10 000 người.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Xác suất để người đó không nhận được cảnh báo bằng $0{,}9$.",
+       "correct": true,
+       "expl": "$\\frac{9000}{10000}=0{,}9$."
+      },
+      {
+       "text": "Xác suất để người đó không có bệnh, biết rằng người đó không nhận được cảnh báo, lớn hơn $0{,}98$.",
+       "correct": true,
+       "expl": "$\\frac{8900}{9000}\\approx 0{,}989$."
+      },
+      {
+       "text": "Xác suất để người đó không có bệnh bằng $0{,}9$.",
+       "correct": false,
+       "expl": "$\\frac{300+8900}{10000}=0{,}92$."
+      },
+      {
+       "text": "Xác suất để người đó không nhận được cảnh báo, biết rằng người đó không có bệnh, nhỏ hơn $0{,}95$.",
+       "correct": false,
+       "expl": "$\\frac{8900}{9200}\\approx 0{,}967$."
+      }
+     ]
+    },
+    {
+     "content": "Cho hàm số $f(x)=\\frac{1}{3}x^3-5x^2+9x+8$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$f'(x)=x^2-10x+9$.",
+       "correct": true,
+       "expl": "Đạo hàm trực tiếp."
+      },
+      {
+       "text": "Phương trình $f'(x)=0$ có tập nghiệm $S=\\{1;9\\}$.",
+       "correct": true,
+       "expl": "$x^2-10x+9=0\\Leftrightarrow x=1$ hoặc $x=9$."
+      },
+      {
+       "text": "Hàm số nghịch biến trên khoảng $(1;9)$.",
+       "correct": true,
+       "expl": "$f'(x)<0$ với $1<x<9$."
+      },
+      {
+       "text": "Giá trị cực tiểu của hàm số bằng $\\frac{37}{3}$.",
+       "correct": false,
+       "expl": "Cực tiểu tại $x=9$: $f(9)=-73$; $\\frac{37}{3}=f(1)$ là giá trị cực đại."
+      }
+     ]
+    },
+    {
+     "content": "Một hệ thống pin năng lượng mặt trời lưu điện vào bộ lưu trữ. Gọi $F(t)$ là năng lượng điện (kWh) lưu trữ được từ lúc hệ thống bắt đầu hoạt động ($t=0$) đến thời điểm $t$ giờ ($0\\le t\\le 12$), $F(0)=0$. Tốc độ lưu trữ (kW) là $f(t)=F'(t)=-0{,}3t^2+3{,}6t$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$F(t)=-0{,}1t^3+1{,}8t^2$ với $0\\le t\\le 12$.",
+       "correct": true,
+       "expl": "Nguyên hàm của $f$ thỏa $F(0)=0$."
+      },
+      {
+       "text": "Năng lượng điện lưu trữ được từ $t=a$ đến $t=b$ ($0\\le a<b\\le 12$) là $\\int_a^b f(t)\\,dt$.",
+       "correct": true,
+       "expl": "Ý nghĩa của tích phân."
+      },
+      {
+       "text": "Năng lượng điện lưu trữ được từ $t=1$ đến $t=4$ nhỏ hơn $20{,}6$ kWh.",
+       "correct": false,
+       "expl": "$F(4)-F(1)=22{,}4-1{,}7=20{,}7$ kWh."
+      },
+      {
+       "text": "Năng lượng lưu trữ từ $t=1$ đến $t=7$ gấp hai lần năng lượng lưu trữ từ $t=1$ đến $t=4$.",
+       "correct": false,
+       "expl": "$F(7)-F(1)=52{,}2\\ne 2\\cdot 20{,}7$."
+      }
+     ]
+    },
+    {
+     "content": "Trong không gian $Oxyz$ (mỗi đơn vị ứng với 10 m), vành đai bảo vệ là đường tròn tâm $O$ bán kính 7 nằm trong mặt phẳng $(Oxy)$. Máy bay không người lái bay thẳng từ $M(5;10;4)$ đến $N(14;-2;4)$. Khoảng cách từ máy bay đến vành đai là độ dài ngắn nhất của đoạn thẳng nối máy bay với một điểm trên vành đai.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$\\overrightarrow{MN}=(9;-12;0)$.",
+       "correct": true,
+       "expl": "$(14-5;-2-10;4-4)$."
+      },
+      {
+       "text": "Phương trình tham số của đường thẳng $MN$ là $\\begin{cases}x=5+3t\\\\y=10-4t\\\\z=0\\end{cases}$ ($t\\in\\mathbb{R}$).",
+       "correct": false,
+       "expl": "Mọi điểm của $MN$ có $z=4$."
+      },
+      {
+       "text": "Trong quá trình bay từ $M$ đến $N$, khoảng cách ngắn nhất từ máy bay đến vành đai là 50 mét.",
+       "correct": true,
+       "expl": "Hình chiếu gần $O$ nhất là $(8;6)$, cách $O$ 10 đơn vị; khoảng cách $\\sqrt{(10-7)^2+4^2}=5$ đơn vị = 50 m."
+      },
+      {
+       "text": "Khoảng cách đó ngắn nhất khi máy bay ở vị trí $(8;6;4)$.",
+       "correct": true,
+       "expl": "Ứng với $t=1$ trên đoạn $MN$."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "short",
+   "title": "PHẦN III. Câu trắc nghiệm trả lời ngắn",
+   "pointsPerQuestion": 0.5,
+   "questions": [
+    {
+     "content": "Cho hình lập phương $ABCD.MNPQ$ cạnh 6 ($M, N, P, Q$ lần lượt ở trên $A, B, C, D$). Gọi $E$ là trung điểm $AB$. Khoảng cách từ $P$ đến mặt phẳng $(MED)$ bằng bao nhiêu (làm tròn đến hàng phần trăm)?",
+     "imageUrl": "",
+     "answer": 7.35,
+     "expl": "Chọn hệ tọa độ, mặt phẳng $(MED)$: $2x+y+z-6=0$; $d(P)=\\frac{|12+6+6-6|}{\\sqrt 6}=\\frac{18}{\\sqrt 6}\\approx 7{,}35$."
+    },
+    {
+     "content": "Điền 15 số $\\{0;1;2;3;4;5;6;7;8;10;11;12;15;16;20\\}$ vào 15 ô (hình), mỗi ô một số, mỗi số dùng một lần, sao cho hiệu hai số bất kì trên cùng một hàng hoặc cùng một cột không chia hết cho 5. Gọi $H$ là số cách điền. Tính $\\frac{H}{30}$.",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/iii_c2.png",
+     "answer": 1152,
+     "expl": "Xét số dư khi chia cho 5 (có 5, 4, 3, 2, 1 số ứng với dư 0, 1, 2, 3, 4); đếm cách xếp số dư thỏa điều kiện rồi nhân với số hoán vị trong từng lớp: $H=34\\,560$."
+    },
+    {
+     "content": "Hạt cườm là khối tròn xoay khi quay nửa trên elip $\\frac{x^2}{1{,}5^2}+\\frac{y^2}{1^2}=1$ quanh $Ox$ (đơn vị cm), rồi khoan lỗ hình trụ bán kính 0,2 cm dọc trục. Thể tích hạt cườm (cm³, làm tròn hàng phần trăm)?",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/iii_c3.png",
+     "answer": 5.91,
+     "expl": "$V=\\pi\\int_{-x_0}^{x_0}\\left(1-\\frac{x^2}{2{,}25}-0{,}04\\right)dx$ với $x_0=1{,}5\\sqrt{0{,}96}$; $V\\approx 5{,}91$."
+    },
+    {
+     "content": "Gắn ngẫu nhiên 12 bóng đèn (4 đỏ, 8 xanh) vào 12 đỉnh của đa giác đều $A_1A_2\\ldots A_{12}$. Gọi $P$ là xác suất mỗi hình vuông có 4 đỉnh là đỉnh của đa giác đều có ít nhất một bóng đỏ. Tính $3190P$.",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/iii_c4.png",
+     "answer": 1856,
+     "expl": "Có 3 hình vuông rời nhau; bóng đỏ phân bố $(2;1;1)$: $3\\cdot C_4^2\\cdot 4\\cdot 4=288$ cách trên $C_{12}^4=495$; $3190P=1856$."
+    },
+    {
+     "content": "Bảng bán rau quả của một nông trại (hình). Đơn giá mỗi loại không đổi. Tổng số tiền ngày thứ Bảy là bao nhiêu nghìn đồng?",
+     "imageUrl": "https://trangtu66.github.io/Taode_thi_online/hinh_de/tn2026/iii_c5.png",
+     "answer": 1275,
+     "expl": "Giải hệ: đơn giá rau muống 10, bí xanh 15, cà chua 20 (nghìn đồng/kg); $50\\cdot 10+25\\cdot 15+20\\cdot 20=1275$."
+    },
+    {
+     "content": "Công ty chế biến $x$ tấn nguyên liệu mỗi tháng ($1\\le x\\le 200$) với chi phí $C(x)=0{,}001x^3+30x+10$ và doanh thu $R(x)=60x$ (triệu đồng). Lợi nhuận lớn nhất là bao nhiêu triệu đồng?",
+     "imageUrl": "",
+     "answer": 1990,
+     "expl": "$L=30x-0{,}001x^3-10$, $L'=0\\Leftrightarrow x=100$; $L(100)=1990$."
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

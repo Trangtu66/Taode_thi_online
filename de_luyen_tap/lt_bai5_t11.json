@@ -1,0 +1,249 @@
+{
+ "meta": {
+  "title": "Luyện tập – Bài 5. Dãy số (Toán 11)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 25,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.5,
+   "questions": [
+    {
+     "content": "Cho dãy số $(u_n)$ với $u_n=n^2+1$. Số hạng $u_4$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$16$"
+      },
+      {
+       "l": "B",
+       "t": "$17$"
+      },
+      {
+       "l": "C",
+       "t": "$10$"
+      },
+      {
+       "l": "D",
+       "t": "$26$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$u_4=4^2+1=17$."
+    },
+    {
+     "content": "Dãy số nào sau đây là dãy số hữu hạn?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Dãy các số tự nhiên lẻ"
+      },
+      {
+       "l": "B",
+       "t": "Dãy các số nguyên tố"
+      },
+      {
+       "l": "C",
+       "t": "Dãy các số chính phương"
+      },
+      {
+       "l": "D",
+       "t": "Dãy các số tự nhiên chẵn nhỏ hơn 20"
+      }
+     ],
+     "correct": "D",
+     "expl": "Chỉ có 10 số tự nhiên chẵn nhỏ hơn 20 ($0, 2, \\ldots, 18$); các dãy còn lại có vô số số hạng."
+    },
+    {
+     "content": "Cho dãy số $(u_n)$ xác định bởi $u_1=3$, $u_{n+1}=u_n+2n$ với $n\\ge 1$. Số hạng $u_3$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$9$"
+      },
+      {
+       "l": "B",
+       "t": "$7$"
+      },
+      {
+       "l": "C",
+       "t": "$11$"
+      },
+      {
+       "l": "D",
+       "t": "$13$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$u_2=u_1+2\\cdot 1=5$; $u_3=u_2+2\\cdot 2=9$."
+    },
+    {
+     "content": "Dãy số $(u_n)$ được gọi là dãy số tăng nếu",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$u_1<u_2$"
+      },
+      {
+       "l": "B",
+       "t": "$u_{n+1}<u_n$ với mọi $n\\in\\mathbb{N}^*$"
+      },
+      {
+       "l": "C",
+       "t": "$u_{n+1}>u_n$ với mọi $n\\in\\mathbb{N}^*$"
+      },
+      {
+       "l": "D",
+       "t": "$u_n>0$ với mọi $n\\in\\mathbb{N}^*$"
+      }
+     ],
+     "correct": "C",
+     "expl": "Định nghĩa: $(u_n)$ tăng nếu $u_{n+1}>u_n$ với mọi $n\\in\\mathbb{N}^*$; chỉ so sánh $u_1, u_2$ là chưa đủ."
+    },
+    {
+     "content": "Dãy số nào sau đây là dãy số giảm?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$u_n=(-1)^n$"
+      },
+      {
+       "l": "B",
+       "t": "$u_n=n^2$"
+      },
+      {
+       "l": "C",
+       "t": "$u_n=\\frac{5}{n+2}$"
+      },
+      {
+       "l": "D",
+       "t": "$u_n=2n-7$"
+      }
+     ],
+     "correct": "C",
+     "expl": "$n$ tăng thì mẫu $n+2$ tăng nên $\\frac{5}{n+2}$ giảm. Dãy $n^2$ và $2n-7$ tăng; dãy $(-1)^n$ đổi dấu liên tục."
+    },
+    {
+     "content": "Cho dãy số $(u_n)$ với $u_n=\\frac{n+3}{n+1}$. Khẳng định nào sau đây đúng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$1<u_n\\le 2$ với mọi $n\\in\\mathbb{N}^*$"
+      },
+      {
+       "l": "B",
+       "t": "$u_n\\ge 2$ với mọi $n\\in\\mathbb{N}^*$"
+      },
+      {
+       "l": "C",
+       "t": "$0<u_n<1$ với mọi $n\\in\\mathbb{N}^*$"
+      },
+      {
+       "l": "D",
+       "t": "$u_n\\le 1$ với mọi $n\\in\\mathbb{N}^*$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$u_n=1+\\frac{2}{n+1}$; vì $0<\\frac{2}{n+1}\\le 1$ nên $1<u_n\\le 2$ (dấu bằng khi $n=1$)."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 2,
+   "questions": [
+    {
+     "content": "Cho dãy số $(u_n)$ với $u_n=\\frac{2n-1}{n+2}$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$u_1=\\frac{1}{3}$.",
+       "correct": true,
+       "expl": "$u_1=\\frac{2-1}{1+2}=\\frac{1}{3}$."
+      },
+      {
+       "text": "$u_{n+1}-u_n=\\frac{5}{(n+2)(n+3)}$ với mọi $n\\in\\mathbb{N}^*$.",
+       "correct": true,
+       "expl": "$\\frac{2n+1}{n+3}-\\frac{2n-1}{n+2}=\\frac{(2n+1)(n+2)-(2n-1)(n+3)}{(n+2)(n+3)}=\\frac{5}{(n+2)(n+3)}$."
+      },
+      {
+       "text": "$(u_n)$ là dãy số giảm.",
+       "correct": false,
+       "expl": "$u_{n+1}-u_n>0$ nên $(u_n)$ là dãy số tăng."
+      },
+      {
+       "text": "$(u_n)$ là dãy số bị chặn, cụ thể $\\frac{1}{3}\\le u_n<2$ với mọi $n\\in\\mathbb{N}^*$.",
+       "correct": true,
+       "expl": "$u_n=2-\\frac{5}{n+2}<2$ và dãy tăng nên $u_n\\ge u_1=\\frac{1}{3}$."
+      }
+     ]
+    },
+    {
+     "content": "Một vườn ươm cây giống ở xã Vĩnh Thạnh có 500 cây vào đầu tuần thứ nhất. Mỗi tuần vườn bán $20\\%$ số cây đang có rồi ươm thêm 150 cây. Gọi $u_n$ là số cây vào đầu tuần thứ $n$; ta có $u_1=500$, $u_{n+1}=0{,}8u_n+150$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "$u_2=550$.",
+       "correct": true,
+       "expl": "$u_2=0{,}8\\cdot 500+150=550$."
+      },
+      {
+       "text": "$u_3=600$.",
+       "correct": false,
+       "expl": "$u_3=0{,}8\\cdot 550+150=590$."
+      },
+      {
+       "text": "$(u_n)$ là dãy số tăng.",
+       "correct": true,
+       "expl": "Chứng minh được $u_n=750-250\\cdot 0{,}8^{n-1}$ nên $u_{n+1}-u_n=50\\cdot 0{,}8^{n-1}>0$."
+      },
+      {
+       "text": "Số cây trong vườn luôn ít hơn 750 cây.",
+       "correct": true,
+       "expl": "$u_n=750-250\\cdot 0{,}8^{n-1}<750$ với mọi $n$."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "short",
+   "title": "PHẦN III. Câu trắc nghiệm trả lời ngắn",
+   "pointsPerQuestion": 1.5,
+   "questions": [
+    {
+     "content": "Cho dãy số $(u_n)$ xác định bởi $u_1=2$, $u_n=2u_{n-1}+1$ với $n\\ge 2$. Tính $u_5$.",
+     "imageUrl": "",
+     "answer": 47,
+     "expl": "$u_2=5$, $u_3=11$, $u_4=23$, $u_5=47$."
+    },
+    {
+     "content": "Chị Lan vay 50 triệu đồng, lãi suất $1\\%$ mỗi tháng tính trên số tiền còn nợ; cuối mỗi tháng chị trả 5 triệu đồng. Số tiền chị còn nợ sau 3 tháng là bao nhiêu triệu đồng (làm tròn đến hàng phần mười)?",
+     "imageUrl": "",
+     "answer": 36.4,
+     "expl": "$A_n=1{,}01A_{n-1}-5$: $A_1=45{,}5$; $A_2=40{,}955$; $A_3=36{,}36455\\approx 36{,}4$."
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

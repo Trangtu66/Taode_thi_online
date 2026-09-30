@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luyện tập Toán – THPT Vĩnh Thạnh</title>
+<script src="cau_hinh.js"></script>
+<script src="de_luyen_tap.js"></script>
+<style>
+  :root { --blue:#1E40AF; --red:#991B1B; --ink:#1E293B; --muted:#64748B; --bg:#F8F9FA; --line:#E2E8F0; --green:#166534; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Calibri,'Open Sans',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+  header { background:var(--blue); color:#fff; padding:1.4rem 1rem 1.1rem; text-align:center; }
+  header h1 { margin:0; font-family:Arial,sans-serif; font-size:1.7rem; }
+  header p { margin:.3rem 0 0; opacity:.9; }
+  header a { color:#fff; font-size:.9rem; }
+  .wrap { max-width:1000px; margin:0 auto; padding:1.2rem 1rem 2rem; }
+  .tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+  .tab { flex:1 1 200px; border:1px solid var(--line); background:#fff; border-radius:8px; padding:.75rem .9rem; cursor:pointer; text-align:left;
+         font:inherit; color:var(--ink); }
+  .tab b { display:block; color:var(--blue); font-size:1.05rem; }
+  .tab small { color:var(--muted); }
+  .tab.on { border-color:var(--blue); box-shadow:inset 0 -3px 0 var(--blue); }
+  .tab:focus-visible, .btn:focus-visible, .khoi button:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+  .khoi { display:flex; gap:.4rem; margin:.2rem 0 1rem; flex-wrap:wrap; }
+  .khoi button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:.35rem .9rem; cursor:pointer; font:inherit; }
+  .khoi button.on { background:var(--blue); color:#fff; border-color:var(--blue); }
+  .intro { background:#fff; border-left:4px solid var(--red); border-radius:6px; padding:.8rem 1rem; margin-bottom:1rem; }
+  .list { display:grid; gap:.7rem; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:.85rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+  .card .txt { flex:1 1 360px; }
+  .card .ten { font-weight:700; color:var(--ink); }
+  .card .meta { color:var(--muted); font-size:.92rem; }
+  .tag { display:inline-block; font-size:.75rem; font-weight:700; padding:.1rem .45rem; border-radius:4px; margin-right:.35rem; vertical-align:1px; }
+  .t-cc { background:#EFF4FF; color:var(--blue); } .t-lt { background:#ECFDF3; color:var(--green); }
+  .btns { display:flex; gap:.5rem; flex-wrap:wrap; }
+  .btn { display:inline-block; text-decoration:none; border-radius:6px; padding:.5rem .9rem; font-weight:700; font-size:.95rem; }
+  .btn.go { background:var(--blue); color:#fff; } .btn.go:hover { background:#1D4ED8; }
+  .btn.doc { border:1px solid var(--line); color:var(--blue); background:#fff; }
+  .empty { background:#fff; border:1px dashed var(--line); border-radius:8px; padding:1.2rem; color:var(--muted); text-align:center; }
+  footer { max-width:1000px; margin:0 auto; padding:1rem; font-size:.85rem; color:var(--muted); border-top:1px solid var(--line); }
+  @media (max-width:560px){ header h1{font-size:1.35rem;} .card{align-items:flex-start;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>LUYỆN TẬP TOÁN THEO CẤU TRÚC MỚI</h1>
+  <p>Trường THPT Vĩnh Thạnh – Tổ Toán · <a href="index.html">Trang chủ</a></p>
+</header>
+<div class="wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab" data-k="bai" role="tab"><b>📚 Tự luyện theo bài học</b><small>Củng cố 7 câu cuối tiết · Luyện tập 3 dạng 25 phút</small></button>
+    <button class="tab" data-k="chuong" role="tab"><b>🗂️ Ôn tập theo chương</b><small>Đề 45 phút theo ma trận của tổ</small></button>
+    <button class="tab" data-k="dinhky" role="tab"><b>⏱️ Kiểm tra định kỳ</b><small>Đề 90 phút: 12 – 4 – 6 câu</small></button>
+    <button class="tab" data-k="totnghiep" role="tab"><b>🎓 Ôn thi tốt nghiệp THPT</b><small>Đề chính thức, đề theo cấu trúc Bộ</small></button>
+  </div>
+  <div class="khoi" id="khoi"></div>
+  <div class="intro" id="intro"></div>
+  <div class="list" id="list"></div>
+</div>
+<footer>
+  Mỗi lần mở đề, hệ thống <b>trộn ngẫu nhiên</b> thứ tự câu hỏi (cả 3 phần) và thứ tự phương án A–D cho từng học sinh; bài được chấm tự động theo thang 10
+  (Phần II chấm lũy tiến như đề của Bộ) và hiện lời giải chi tiết sau khi nộp.<br>
+  <b>Năng lực số (Phụ lục 1): 5.2.NC1b; 2.5.NC1a</b> – Sử dụng hệ thống luyện tập trực tuyến do giáo viên/tổ chuyên môn tổ chức để củng cố nội dung bài học,
+  nhận phản hồi và tự đánh giá kết quả; thực hiện đúng quy tắc an toàn, bảo mật và trung thực trong môi trường số.
+</footer>
+<script>
+const INTRO = {
+  bai: "Sau mỗi bài học: làm <b>bài củng cố</b> (7 câu, 7 phút) ngay trên lớp, rồi làm <b>đề luyện tập 3 dạng</b> (10 câu, 25 phút) ở nhà: nhiều lựa chọn, đúng sai, trả lời ngắn.",
+  chuong: "Đề ôn tập chương <b>45 phút</b>: 6 câu nhiều lựa chọn, 2 câu đúng sai, 3 câu trả lời ngắn – phân bổ theo ma trận và bảng đặc tả của tổ Toán.",
+  dinhky: "Đề ôn tập kiểm tra giữa kỳ, cuối kỳ <b>90 phút</b> đúng cấu trúc của Bộ: 12 câu nhiều lựa chọn, 4 câu đúng sai, 6 câu trả lời ngắn. "
+        + "Đây là đề luyện tập; đề kiểm tra chính thức không đăng công khai.",
+  totnghiep: "Luyện đề thi tốt nghiệp THPT <b>90 phút</b>: đề chính thức của Bộ GD&ĐT và đề theo cấu trúc mới. Làm trong thời gian thật để quen áp lực phòng thi."
+};
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function items(khu) {
+  const de = (window.DE_LUYEN_TAP || []).filter(d => d.khu === khu).map(d => ({...d, loai: "lt"}));
+  if (khu !== "bai") return de;
+  const ma = new Set(de.map(d => d.link));
+  const cc = (window.DANH_SACH_BAI || []).filter(b => /^cc_/.test(b.link || "") && !ma.has(b.link))
+    .map(b => ({khu: "bai", khoi: b.khoi, ten: b.ten, tieu_de: b.ma, phut: 7, cau: [6, 1, 0], link: b.link, loai: "cc"}));
+  return cc.concat(de);
+}
+let KHU = "bai", KHOI = 0;
+function ve() {
+  document.querySelectorAll(".tab").forEach(t => { const on = t.dataset.k === KHU; t.classList.toggle("on", on); t.setAttribute("aria-selected", on); });
+  const all = items(KHU), khois = [...new Set(all.map(d => d.khoi))].sort();
+  if (KHOI && !khois.includes(KHOI)) KHOI = 0;
+  $("khoi").innerHTML = [0, ...khois].map(k => `<button class="${k === KHOI ? "on" : ""}" data-k="${k}">${k ? "Toán " + k : "Tất cả"}</button>`).join("");
+  $("khoi").querySelectorAll("button").forEach(b => b.onclick = () => { KHOI = +b.dataset.k; ve(); });
+  $("intro").innerHTML = INTRO[KHU];
+  const ds = all.filter(d => !KHOI || d.khoi === KHOI).sort((a, b) => a.khoi - b.khoi || (a.loai === b.loai ? 0 : a.loai === "cc" ? -1 : 1));
+  $("list").innerHTML = ds.length ? ds.map(d => `<div class="card"><div class="txt">
+      <div class="ten"><span class="tag ${d.loai === "cc" ? "t-cc" : "t-lt"}">${d.loai === "cc" ? "CỦNG CỐ" : "3 DẠNG"}</span>Toán ${d.khoi} · ${esc(d.ten)}</div>
+      <div class="meta">${d.phut} phút · ${d.cau[0]} câu nhiều lựa chọn · ${d.cau[1]} câu đúng sai${d.cau[2] ? " · " + d.cau[2] + " câu trả lời ngắn" : ""}</div></div>
+      <div class="btns"><a class="btn go" href="${esc(d.link)}">Làm bài</a>${d.word ? `<a class="btn doc" href="${esc(d.word)}">Đề Word (GV)</a>` : ""}</div></div>`).join("")
+    : `<div class="empty">Chưa có đề cho mục này. Tổ Toán đang cập nhật theo ma trận.</div>`;
+}
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => { KHU = t.dataset.k; history.replaceState(null, "", "#" + KHU); ve(); });
+const h = location.hash.slice(1); if (INTRO[h]) KHU = h;
+ve();
+</script>
+</body>
+</html>

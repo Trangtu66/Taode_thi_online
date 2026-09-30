@@ -36,10 +36,17 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 2. Phép tịnh tiến", ma: "Củng cố – Chuyên đề 1, Bài 2. Phép tịnh tiến (Toán 11)", link: "cc_cd1bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 3. Phép đối xứng trục", ma: "Củng cố – Chuyên đề 1, Bài 3. Phép đối xứng trục (Toán 11)", link: "cc_cd1bai3_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 1, Bài 4. Phép quay và phép đối xứng tâm", ma: "Củng cố – Chuyên đề 1, Bài 4. Phép quay và phép đối xứng tâm (Toán 11)", link: "cc_cd1bai4_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Luyện tập 3 dạng", ten: "Bài 5. Dãy số", ma: "Luyện tập – Bài 5. Dãy số (Toán 11)", link: "lt_bai5_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Luyện tập 3 dạng", ten: "Bài 6. Cấp số cộng", ma: "Luyện tập – Bài 6. Cấp số cộng (Toán 11)", link: "lt_bai6_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Luyện tập 3 dạng", ten: "Bài 7. Cấp số nhân", ma: "Luyện tập – Bài 7. Cấp số nhân (Toán 11)", link: "lt_bai7_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương I. Hàm số lượng giác và phương trình lượng giác", ma: "Ôn tập Chương I – Hàm số lượng giác và phương trình lượng giác (Toán 11)", link: "oc_chuong1_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Ôn tập Chương II – Dãy số. Cấp số cộng và cấp số nhân (Toán 11)", link: "oc_chuong2_t11.html" },
+  { khoi: 11, nhom: "Toán 11 · Kiểm tra định kỳ", ten: "Giữa kỳ I (Bài 1 – Bài 9)", ma: "Đề ôn tập kiểm tra giữa kỳ I (Toán 11)", link: "dk_gk1_t11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số", ma: "Củng cố – Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số (Toán 12)", link: "cc_bai4_t12.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn thi tốt nghiệp", ten: "Đề thi chính thức TN THPT 2026 – mã 0101", ma: "Đề thi tốt nghiệp THPT 2026 – Môn Toán – Mã đề 0101 (làm thử)", link: "tn_2026_0101.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

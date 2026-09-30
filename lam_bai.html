@@ -1170,6 +1170,11 @@ function shuffleMcqOptions(examObj){
   if(examObj.meta.shuffleQuestions){
     examObj.parts.forEach(part=>{ if(part.type==="mcq") shuffleArr(part.questions); });
   }
+  /* MỚI (đề luyện tập 3 dạng): meta.shuffleAllParts = true thì đảo cả thứ tự câu Phần II, Phần III
+     (giữ nguyên thứ tự các ý a, b, c, d trong câu đúng sai như đề của Bộ) */
+  if(examObj.meta.shuffleAllParts){
+    examObj.parts.forEach(part=>{ if(part.type!=="mcq") shuffleArr(part.questions); });
+  }
   if(!examObj.meta.shuffleOptions) return;
   const L = ["A","B","C","D"];
   examObj.parts.forEach(part=>{

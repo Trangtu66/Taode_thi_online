@@ -1,0 +1,249 @@
+{
+ "meta": {
+  "title": "Luyện tập – Bài 6. Cấp số cộng (Toán 11)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 25,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.5,
+   "questions": [
+    {
+     "content": "Cấp số cộng $(u_n)$ có $u_1=2$ và công sai $d=5$. Số hạng $u_4$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$22$"
+      },
+      {
+       "l": "B",
+       "t": "$17$"
+      },
+      {
+       "l": "C",
+       "t": "$12$"
+      },
+      {
+       "l": "D",
+       "t": "$20$"
+      }
+     ],
+     "correct": "B",
+     "expl": "$u_4=u_1+3d=2+15=17$."
+    },
+    {
+     "content": "Dãy số hữu hạn nào sau đây là cấp số cộng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$2,\\ -2,\\ 2,\\ -2$"
+      },
+      {
+       "l": "B",
+       "t": "$1,\\ 2,\\ 4,\\ 8$"
+      },
+      {
+       "l": "C",
+       "t": "$1,\\ 3,\\ 6,\\ 10$"
+      },
+      {
+       "l": "D",
+       "t": "$3,\\ 7,\\ 11,\\ 15$"
+      }
+     ],
+     "correct": "D",
+     "expl": "Dãy $3, 7, 11, 15$ có hiệu hai số hạng liên tiếp luôn bằng $4$."
+    },
+    {
+     "content": "Cấp số cộng $(u_n)$ có $u_1=-3$, $d=2$. Số hạng tổng quát là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$u_n=2n-5$"
+      },
+      {
+       "l": "B",
+       "t": "$u_n=2n-3$"
+      },
+      {
+       "l": "C",
+       "t": "$u_n=-3n+2$"
+      },
+      {
+       "l": "D",
+       "t": "$u_n=-3+2n$"
+      }
+     ],
+     "correct": "A",
+     "expl": "$u_n=-3+2(n-1)=2n-5$."
+    },
+    {
+     "content": "Tổng $n$ số hạng đầu của cấp số cộng $(u_n)$ là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$S_n=\\frac{u_1+u_n}{2}$"
+      },
+      {
+       "l": "B",
+       "t": "$S_n=n(u_1+u_n)$"
+      },
+      {
+       "l": "C",
+       "t": "$S_n=\\frac{n(u_1+u_n)}{2}$"
+      },
+      {
+       "l": "D",
+       "t": "$S_n=nu_1+nd$"
+      }
+     ],
+     "correct": "C",
+     "expl": "Công thức $S_n=\\frac{n(u_1+u_n)}{2}=\\frac{n}{2}[2u_1+(n-1)d]$."
+    },
+    {
+     "content": "Cấp số cộng $(u_n)$ có $u_2=5$ và $u_6=17$. Công sai $d$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$4$"
+      },
+      {
+       "l": "B",
+       "t": "$12$"
+      },
+      {
+       "l": "C",
+       "t": "$3$"
+      },
+      {
+       "l": "D",
+       "t": "$2$"
+      }
+     ],
+     "correct": "C",
+     "expl": "$u_6-u_2=4d=12$ nên $d=3$."
+    },
+    {
+     "content": "Tổng $1+4+7+\\ldots+58$ bằng",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "$590$"
+      },
+      {
+       "l": "B",
+       "t": "$609$"
+      },
+      {
+       "l": "C",
+       "t": "$560$"
+      },
+      {
+       "l": "D",
+       "t": "$620$"
+      }
+     ],
+     "correct": "A",
+     "expl": "Cấp số cộng $u_1=1$, $d=3$, $u_n=58\\Rightarrow n=20$; $S_{20}=\\frac{20(1+58)}{2}=590$."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 2,
+   "questions": [
+    {
+     "content": "Cho cấp số cộng $(u_n)$ có $u_1=4$ và $u_5=16$.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Công sai $d=3$.",
+       "correct": true,
+       "expl": "$u_5=u_1+4d\\Rightarrow 16=4+4d\\Rightarrow d=3$."
+      },
+      {
+       "text": "$u_{10}=31$.",
+       "correct": true,
+       "expl": "$u_{10}=4+9\\cdot 3=31$."
+      },
+      {
+       "text": "$S_{10}=185$.",
+       "correct": false,
+       "expl": "$S_{10}=\\frac{10(4+31)}{2}=175$."
+      },
+      {
+       "text": "Số $100$ là một số hạng của cấp số cộng này.",
+       "correct": true,
+       "expl": "$4+3(n-1)=100\\Leftrightarrow n=33\\in\\mathbb{N}^*$."
+      }
+     ]
+    },
+    {
+     "content": "Một hội trường ở xã Vĩnh Thạnh có 15 hàng ghế; hàng đầu có 12 ghế, mỗi hàng sau nhiều hơn hàng trước 2 ghế.",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Hàng thứ 5 có 20 ghế.",
+       "correct": true,
+       "expl": "$u_5=12+4\\cdot 2=20$."
+      },
+      {
+       "text": "Hàng cuối có 42 ghế.",
+       "correct": false,
+       "expl": "$u_{15}=12+14\\cdot 2=40$."
+      },
+      {
+       "text": "Hội trường có tất cả 390 ghế.",
+       "correct": true,
+       "expl": "$S_{15}=\\frac{15(12+40)}{2}=390$."
+      },
+      {
+       "text": "Nếu muốn có ít nhất 500 ghế (vẫn theo quy luật trên) thì cần tối thiểu 18 hàng.",
+       "correct": true,
+       "expl": "$S_n=n(n+11)\\ge 500$; $S_{17}=476<500$, $S_{18}=522\\ge 500$."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "short",
+   "title": "PHẦN III. Câu trắc nghiệm trả lời ngắn",
+   "pointsPerQuestion": 1.5,
+   "questions": [
+    {
+     "content": "Cấp số cộng $(u_n)$ có $u_3=7$ và $u_9=25$. Tính $u_{20}$.",
+     "imageUrl": "",
+     "answer": 58,
+     "expl": "$6d=18\\Rightarrow d=3$, $u_1=1$; $u_{20}=1+19\\cdot 3=58$."
+    },
+    {
+     "content": "Bạn An bỏ heo 20 nghìn đồng ở tuần đầu, mỗi tuần sau bỏ nhiều hơn tuần trước 5 nghìn đồng. Sau 30 tuần An có bao nhiêu nghìn đồng?",
+     "imageUrl": "",
+     "answer": 2775,
+     "expl": "Cấp số cộng $u_1=20$, $d=5$: $S_{30}=\\frac{30}{2}[40+29\\cdot 5]=15\\cdot 185=2775$."
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}
