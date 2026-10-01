@@ -1,4 +1,4 @@
-// Danh mục bài trực tuyến các môn (ngoài Toán, Ngữ văn) hiển thị trên luyen_thi.html. Sinh bởi mon_khac/build_mon.py, build_anh_tn.py.
+// Danh mục bài trực tuyến các môn (ngoài Toán, Ngữ văn) hiển thị trên luyen_thi.html. Sinh bởi mon_khac/build_mon.py.
 window.MON_DEMO = {
  "hoa_hoc": {
   "ten": "Hóa học",
@@ -7,6 +7,7 @@ window.MON_DEMO = {
   "kho": "mon/hoa_hoc",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Thành phần của nguyên tử",
     "phut": 15,
@@ -28,6 +29,7 @@ window.MON_DEMO = {
   "kho": "mon/sinh_hoc",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Giới thiệu khái quát môn Sinh học",
     "phut": 15,
@@ -39,6 +41,34 @@ window.MON_DEMO = {
     "link": "sinh_cc_bai1_k10.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai1_k10.docx",
     "nguon": "SGK Sinh học 10 (KNTT), tr.5 – 11"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai1_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai1_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.5 – 8"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. DNA và cơ chế tái bản DNA",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     1
+    ],
+    "link": "sinh_cc_bai1_k12.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai1_k12.docx",
+    "nguon": "SGK Sinh học 12 (KNTT), tr.5 – 8"
    }
   ]
  },
@@ -49,6 +79,7 @@ window.MON_DEMO = {
   "kho": "mon/lich_su",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Hiện thực lịch sử và lịch sử được con người nhận thức",
     "phut": 12,
@@ -70,6 +101,7 @@ window.MON_DEMO = {
   "kho": "mon/dia_li",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Môn Địa lí với định hướng nghề nghiệp",
     "phut": 12,
@@ -91,6 +123,7 @@ window.MON_DEMO = {
   "kho": "mon/gdkt_pl",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Các hoạt động kinh tế cơ bản trong đời sống xã hội",
     "phut": 12,
@@ -112,6 +145,7 @@ window.MON_DEMO = {
   "kho": "mon/tieng_anh",
   "de": [
    {
+    "khu": "cc",
     "khoi": 10,
     "ten": "Unit 1. Family life",
     "phut": 12,
@@ -127,20 +161,6 @@ window.MON_DEMO = {
    {
     "khu": "totnghiep",
     "khoi": 12,
-    "ten": "Đề thi tốt nghiệp THPT năm 2026 – Tiếng Anh – mã đề 1116 (có giải thích)",
-    "phut": 50,
-    "cau": [
-     40,
-     0,
-     0
-    ],
-    "link": "anh_tn2026_1116_k12.html",
-    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_tn2026_1116_k12.docx",
-    "nguon": "Cấu trúc đề thi TN THPT 2026"
-   },
-   {
-    "khu": "totnghiep",
-    "khoi": 12,
     "ten": "Đề ôn thi tốt nghiệp THPT – Tiếng Anh – Đề số 1",
     "phut": 50,
     "cau": [
@@ -150,6 +170,20 @@ window.MON_DEMO = {
     ],
     "link": "anh_ontn_so1_k12.html",
     "word": "mon/tieng_anh/trac_nghiem/lop12/anh_ontn_so1_k12.docx",
+    "nguon": "Cấu trúc đề thi TN THPT 2026"
+   },
+   {
+    "khu": "totnghiep",
+    "khoi": 12,
+    "ten": "Đề thi tốt nghiệp THPT năm 2026 – Tiếng Anh – mã đề 1116 (có giải thích)",
+    "phut": 50,
+    "cau": [
+     40,
+     0,
+     0
+    ],
+    "link": "anh_tn2026_1116_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_tn2026_1116_k12.docx",
     "nguon": "Cấu trúc đề thi TN THPT 2026"
    },
    {

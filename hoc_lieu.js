@@ -364,6 +364,105 @@ window.HOC_LIEU = [
 "ngay": "2026-09-30"
 },
 {
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.docx",
+"kb": 1917,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
+"kb": 164,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "KHBD_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.docx",
+"kb": 1904,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
+"kb": 154,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "KHBD_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
+"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
+"kb": 1908,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "SoDoTuDuy_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
+"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
+"kb": 158,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 10,
+"ten": "BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
+"kb": 248,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
+"kb": 221,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 12,
+"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "Slide_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
+"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
+"kb": 235,
+"ngay": "2026-10-01"
+},
+{
 "mon": "tieng_anh",
 "tenMon": "Tiếng Anh",
 "loai": "ma_tran",
