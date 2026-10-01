@@ -30,7 +30,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
-"kb": 1142,
+"kb": 1143,
 "ngay": "2026-10-01"
 },
 {
@@ -96,7 +96,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Cấu trúc của văn bản nghị luận",
 "file": "KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
-"kb": 1129,
+"kb": 1131,
 "ngay": "2026-10-01"
 },
 {
@@ -162,7 +162,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Lập luận trong văn bản nghị luận",
 "file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
-"kb": 1133,
+"kb": 1135,
 "ngay": "2026-10-01"
 },
 {
