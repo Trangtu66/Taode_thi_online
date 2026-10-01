@@ -156,6 +156,34 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 2. Cảm hoài (Đặng Dung); Tây Tiến (Quang Dũng)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai2_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_bai2_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.40 – 47"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 2. Đàn ghi ta của Lor-ca (Thanh Thảo) – tượng trưng, siêu thực",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_danghita_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_danghita_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.41, 48 – 51"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

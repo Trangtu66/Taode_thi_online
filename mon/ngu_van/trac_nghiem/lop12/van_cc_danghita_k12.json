@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 12 · Bài 2: Đàn ghi ta của Lor-ca (Thanh Thảo)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo Tri thức ngữ văn, yếu tố siêu thực trong thơ biểu hiện trước hết qua",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "các câu thơ có vần chân đều đặn"
+      },
+      {
+       "l": "B",
+       "t": "những hình ảnh có vẻ kì lạ, gắn kết theo một logic khác thường, gắn với tiềm thức, vô thức"
+      },
+      {
+       "l": "C",
+       "t": "bố cục đề – thực – luận – kết"
+      },
+      {
+       "l": "D",
+       "t": "những từ ngữ Hán Việt cổ"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.41: các nhà thơ siêu thực theo đuổi “lối viết tự động”, pha trộn chiêm bao – tỉnh thức, ảo giác – thực tế."
+    },
+    {
+     "content": "Lor-ca là nghệ sĩ nổi tiếng của nước nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ý"
+      },
+      {
+       "l": "B",
+       "t": "Pháp"
+      },
+      {
+       "l": "C",
+       "t": "Nga"
+      },
+      {
+       "l": "D",
+       "t": "Tây Ban Nha"
+      }
+     ],
+     "correct": "D",
+     "expl": "Chú thích SGK tr.48: Phê-đê-ri-cô Gác-xi-a Lor-ca (1898 – 1936), nghệ sĩ Tây Ban Nha."
+    },
+    {
+     "content": "Lời đề từ của bài thơ là câu nói nổi tiếng nào của Lor-ca?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "“Khi tôi chết hãy chôn tôi với cây đàn”"
+      },
+      {
+       "l": "B",
+       "t": "“Tây Ban Nha hát nghêu ngao”"
+      },
+      {
+       "l": "C",
+       "t": "“Không ai chôn cất tiếng đàn”"
+      },
+      {
+       "l": "D",
+       "t": "“Li-la li-la li-la”"
+      }
+     ],
+     "correct": "A",
+     "expl": "Đề từ là câu mở đầu bài thơ Ghi nhớ của Lor-ca."
+    },
+    {
+     "content": "Bài thơ Đàn ghi ta của Lor-ca được rút từ tập thơ nào của Thanh Thảo?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Những người đi tới biển"
+      },
+      {
+       "l": "B",
+       "t": "Dấu chân qua trảng cỏ"
+      },
+      {
+       "l": "C",
+       "t": "Khối vuông ru-bích"
+      },
+      {
+       "l": "D",
+       "t": "Từ một đến một trăm"
+      }
+     ],
+     "correct": "C",
+     "expl": "SGK tr.50."
+    },
+    {
+     "content": "Hình ảnh “áo choàng đỏ gắt” ở đoạn đầu và “áo choàng bê bết đỏ” ở đoạn sau thể hiện điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Màu áo truyền thống của nước Pháp"
+      },
+      {
+       "l": "B",
+       "t": "Lor-ca thay áo mới"
+      },
+      {
+       "l": "C",
+       "t": "Sự chuyển đổi từ vẻ đẹp đấu tranh rực rỡ sang cái chết bi thảm của Lor-ca"
+      },
+      {
+       "l": "D",
+       "t": "Sự giàu sang của Lor-ca"
+      }
+     ],
+     "correct": "C",
+     "expl": "Màu đỏ từ “gắt” (rực lửa, đấu sĩ) đến “bê bết” (máu) – cái chết bị bắn của người nghệ sĩ."
+    },
+    {
+     "content": "Những dòng “tiếng ghi ta nâu / bầu trời cô gái ấy / tiếng ghi ta lá xanh biết mấy / tiếng ghi ta tròn bọt nước vỡ tan” sử dụng chủ yếu biện pháp nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Điệp ngữ kết hợp chuyển đổi cảm giác (âm thanh được cảm nhận bằng màu sắc, hình khối)"
+      },
+      {
+       "l": "B",
+       "t": "So sánh trực tiếp"
+      },
+      {
+       "l": "C",
+       "t": "Nói giảm nói tránh"
+      },
+      {
+       "l": "D",
+       "t": "Liệt kê địa danh"
+      }
+     ],
+     "correct": "A",
+     "expl": "Tiếng đàn có màu (nâu, xanh), có hình (tròn bọt nước) – hoà trộn các giác quan, đặc trưng tượng trưng."
+    },
+    {
+     "content": "Dòng “tiếng ghi ta ròng ròng / máu chảy” gợi điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tiếng mưa rơi"
+      },
+      {
+       "l": "B",
+       "t": "Tiếng đàn hoá thành dòng máu – cái chết đau đớn, bi thương của Lor-ca"
+      },
+      {
+       "l": "C",
+       "t": "Âm thanh lễ hội"
+      },
+      {
+       "l": "D",
+       "t": "Tiếng nước suối"
+      }
+     ],
+     "correct": "B",
+     "expl": "Hình ảnh siêu thực: âm thanh biến thành máu, diễn tả cái chết bạo tàn."
+    },
+    {
+     "content": "Câu “không ai chôn cất tiếng đàn / tiếng đàn như cỏ mọc hoang” thể hiện điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Lor-ca không có ai thân thích"
+      },
+      {
+       "l": "B",
+       "t": "Tiếng đàn đã bị lãng quên"
+      },
+      {
+       "l": "C",
+       "t": "Không ai yêu thích âm nhạc của Lor-ca"
+      },
+      {
+       "l": "D",
+       "t": "Nghệ thuật của Lor-ca bất tử, sức sống lan toả mãnh liệt như cỏ"
+      }
+     ],
+     "correct": "D",
+     "expl": "Câu hỏi 5 SGK: đan xen thực – ảo về cái chết và sự bất tử của Lor-ca."
+    },
+    {
+     "content": "Dòng thơ kết “li-la li-la li-la…” có tác dụng gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Là lời đối thoại của cô gái Di-gan"
+      },
+      {
+       "l": "B",
+       "t": "Là tên một nhân vật mới"
+      },
+      {
+       "l": "C",
+       "t": "Thể hiện sự vui tươi vô tư"
+      },
+      {
+       "l": "D",
+       "t": "Ngân vang như tiếng đàn tiễn biệt, khép lại bài thơ bằng âm điệu ám ảnh, gợi sự bất tử của tiếng đàn"
+      }
+     ],
+     "correct": "D",
+     "expl": "Âm thanh láy lại như nhạc đàn ghi ta, kết thúc bằng dư âm."
+    },
+    {
+     "content": "Bài thơ gợi suy nghĩ gì về sức mạnh của nghệ thuật trong đời sống?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nghệ thuật chân chính có sức sống vượt qua cái chết, bạo lực, trở thành biểu tượng của tự do và cái đẹp"
+      },
+      {
+       "l": "B",
+       "t": "Nghệ thuật không thể chống lại bạo lực"
+      },
+      {
+       "l": "C",
+       "t": "Nghệ thuật chỉ để giải trí"
+      },
+      {
+       "l": "D",
+       "t": "Nghệ sĩ nên tránh xa đời sống chính trị"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 7 SGK; thơ Lor-ca là biểu tượng của tự do và cái đẹp, dân chủ và nhân quyền."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc đoạn thơ: “đường chỉ tay đã đứt / dòng sông rộng vô cùng / Lor-ca bơi sang ngang / trên chiếc ghi ta màu bạc” (Thanh Thảo, Đàn ghi ta của Lor-ca)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "“Đường chỉ tay đã đứt” là ẩn dụ chỉ cái chết, sự tuyệt mệnh.",
+       "correct": true,
+       "expl": "Chú thích SGK tr.49."
+      },
+      {
+       "text": "Hình ảnh Lor-ca “bơi sang ngang trên chiếc ghi ta màu bạc” vừa gợi cõi chết vừa gợi sự siêu thoát nhờ nghệ thuật.",
+       "correct": true,
+       "expl": "Đan xen thực – ảo: cái chết mà vẫn gắn với cây đàn, bước vào cõi vĩnh hằng."
+      },
+      {
+       "text": "Đoạn thơ sử dụng thể thơ Đường luật chặt chẽ, có vần, có đối.",
+       "correct": false,
+       "expl": "Thơ tự do, không viết hoa đầu dòng, không vần cố định."
+      },
+      {
+       "text": "Đoạn thơ cho thấy Thanh Thảo dùng hình ảnh tượng trưng, siêu thực để nói về cái chết một cách vừa bi thương vừa nhẹ nhõm, thanh thản.",
+       "correct": true,
+       "expl": "Phong cách thơ Thanh Thảo giàu tính tượng trưng, siêu thực."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

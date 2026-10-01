@@ -66,6 +66,8 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Tiếng Anh 12 · Ôn thi tốt nghiệp", ten: "Đề thi tốt nghiệp THPT năm 2026 – Tiếng Anh – mã đề 1116 (có giải thích)", ma: "Đề thi TN THPT 2026 – Tiếng Anh – Mã đề 1116", link: "anh_tn2026_1116_k12.html" },
   { khoi: 12, nhom: "Tiếng Anh 12 · Ôn thi tốt nghiệp", ten: "Đề ôn thi tốt nghiệp THPT – Tiếng Anh – Đề số 1", ma: "Đề ôn thi TN THPT – Tiếng Anh – Đề số 1", link: "anh_ontn_so1_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 1. Mùa lá rụng trong vườn (Ma Văn Kháng) – nhân vật, tâm lí, văn hoá gia đình", ma: "Củng cố – Ngữ văn 12 · Bài 1: Mùa lá rụng trong vườn (Ma Văn Kháng)", link: "van_cc_mualarung_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 2. Cảm hoài (Đặng Dung); Tây Tiến (Quang Dũng)", ma: "Củng cố – Ngữ văn 12 · Bài 2: Cảm hoài; Tây Tiến", link: "van_cc_bai2_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 2. Đàn ghi ta của Lor-ca (Thanh Thảo) – tượng trưng, siêu thực", ma: "Củng cố – Ngữ văn 12 · Bài 2: Đàn ghi ta của Lor-ca (Thanh Thảo)", link: "van_cc_danghita_k12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

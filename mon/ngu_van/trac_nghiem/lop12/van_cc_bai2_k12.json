@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 12 · Bài 2: Cảm hoài; Tây Tiến",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo Tri thức ngữ văn, biểu tượng là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "hình ảnh chỉ có chức năng miêu tả sự vật"
+      },
+      {
+       "l": "B",
+       "t": "hình ảnh mang tính ngụ ý, vượt lên chức năng miêu tả, chứa nhiều tầng nghĩa, gợi suy tư về điều mang tính phổ quát"
+      },
+      {
+       "l": "C",
+       "t": "lời bình của tác giả trong bài thơ"
+      },
+      {
+       "l": "D",
+       "t": "một thể thơ của văn học trung đại"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.40: biểu tượng là hình ảnh mang tính ngụ ý, vượt lên chức năng miêu tả, tạo hình đơn giản."
+    },
+    {
+     "content": "Phong cách cổ điển có đặc trưng nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Chỉ tả hiện thực trần trụi đời thường"
+      },
+      {
+       "l": "B",
+       "t": "Đề cao cái tôi phá phách, phi lí"
+      },
+      {
+       "l": "C",
+       "t": "Theo đuổi lối viết tự động của tiềm thức"
+      },
+      {
+       "l": "D",
+       "t": "Nghiêng về đề tài cao nhã, hướng về cái vĩnh hằng, mẫu hình lí tưởng, tôn trọng tính quy phạm"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.41: phong cách cổ điển hình thành từ thời trung đại, coi vũ trụ là mô hình ổn định, trật tự."
+    },
+    {
+     "content": "Bài thơ Cảm hoài (Nỗi lòng) của Đặng Dung thuộc thể thơ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thất ngôn bát cú Đường luật"
+      },
+      {
+       "l": "B",
+       "t": "Lục bát"
+      },
+      {
+       "l": "C",
+       "t": "Song thất lục bát"
+      },
+      {
+       "l": "D",
+       "t": "Thơ tự do"
+      }
+     ],
+     "correct": "A",
+     "expl": "Phiên âm 8 câu, mỗi câu 7 chữ, theo luật Đường."
+    },
+    {
+     "content": "Câu “Thế sự du du nại lão hà” (Thế sự ngổn ngang đã vội già) gợi hoàn cảnh – tình thế nào của nhân vật trữ tình?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ông vừa thắng trận lớn"
+      },
+      {
+       "l": "B",
+       "t": "Đất nước thái bình, ông được nghỉ ngơi"
+      },
+      {
+       "l": "C",
+       "t": "Việc đời còn dằng dặc mà bản thân đã già, sức lực không đủ"
+      },
+      {
+       "l": "D",
+       "t": "Ông đang say sưa vui chơi"
+      }
+     ],
+     "correct": "C",
+     "expl": "Mâu thuẫn giữa việc lớn chưa thành và tuổi già – bi kịch của người anh hùng thất thế."
+    },
+    {
+     "content": "Hình ảnh “mài gươm dưới trăng” (Bao phen mài gươm Long Tuyền dưới trăng) thể hiện điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Thú vui thưởng trăng của nhà nho"
+      },
+      {
+       "l": "B",
+       "t": "Sự buông xuôi, bất lực"
+      },
+      {
+       "l": "C",
+       "t": "Ý chí bền bỉ, khát vọng báo thù, cứu nước không nguôi dù đầu đã bạc"
+      },
+      {
+       "l": "D",
+       "t": "Ước mong được về quê nghỉ ngơi"
+      }
+     ],
+     "correct": "C",
+     "expl": "Câu hỏi 5 SGK: hình ảnh vừa bi tráng vừa lãng mạn, kết tinh chí lớn của người tráng sĩ."
+    },
+    {
+     "content": "Bài thơ Tây Tiến ban đầu có nhan đề là gì và được sáng tác năm nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Nhớ Tây Tiến – năm 1948"
+      },
+      {
+       "l": "B",
+       "t": "Tây Tiến – năm 1947"
+      },
+      {
+       "l": "C",
+       "t": "Nhớ rừng – năm 1946"
+      },
+      {
+       "l": "D",
+       "t": "Mây đầu ô – năm 1986"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.46: bài thơ (ban đầu có nhan đề Nhớ Tây Tiến) sáng tác năm 1948 tại Phù Lưu Chanh."
+    },
+    {
+     "content": "Bốn câu “Dốc lên khúc khuỷu dốc thăm thẳm / Heo hút cồn mây súng ngửi trời / Ngàn thước lên cao, ngàn thước xuống / Nhà ai Pha Luông mưa xa khơi” nổi bật",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "giọng điệu hài hước, châm biếm"
+      },
+      {
+       "l": "B",
+       "t": "chất nhạc và chất hoạ: nhiều thanh trắc gợi gian nan, câu cuối toàn thanh bằng gợi thư thái; điệp từ, phép đối"
+      },
+      {
+       "l": "C",
+       "t": "lời kể về một trận đánh"
+      },
+      {
+       "l": "D",
+       "t": "cảnh sinh hoạt đêm hội"
+      }
+     ],
+     "correct": "B",
+     "expl": "Câu hỏi 2d SGK: phối hợp thanh điệu, điệp từ “dốc”, “ngàn thước”, phép đối lên – xuống tạo bức tranh núi rừng hiểm trở."
+    },
+    {
+     "content": "Hình ảnh “Tây Tiến đoàn binh không mọc tóc / Quân xanh màu lá dữ oai hùm” vừa gợi hiện thực gian khổ vừa thể hiện",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "nỗi sợ hãi trước chiến trường"
+      },
+      {
+       "l": "B",
+       "t": "sự yếu đuối, bi quan của người lính"
+      },
+      {
+       "l": "C",
+       "t": "cuộc sống đầy đủ, sung túc"
+      },
+      {
+       "l": "D",
+       "t": "vẻ đẹp oai phong, lẫm liệt của người lính"
+      }
+     ],
+     "correct": "D",
+     "expl": "Hiện thực sốt rét rừng được nhìn bằng cảm hứng lãng mạn, bi tráng: “dữ oai hùm”."
+    },
+    {
+     "content": "Câu “Áo bào thay chiếu, anh về đất” thể hiện cách nói về cái chết như thế nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Phủ nhận cái chết"
+      },
+      {
+       "l": "B",
+       "t": "Miêu tả trần trụi, ghê sợ"
+      },
+      {
+       "l": "C",
+       "t": "Châm biếm sự hi sinh"
+      },
+      {
+       "l": "D",
+       "t": "Dùng hình ảnh trang trọng, cổ kính, nói giảm – sự hi sinh bi tráng, thiêng liêng"
+      }
+     ],
+     "correct": "D",
+     "expl": "“Áo bào” thay “chiếu”, “về đất” – nói giảm, làm cái chết trở nên trang trọng, bất tử."
+    },
+    {
+     "content": "Biểu hiện nào thuộc phong cách lãng mạn trong Tây Tiến?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Khẳng định cái cao cả, phi thường; cảm xúc mạnh mẽ; ưa dùng yếu tố tương phản; trí tưởng tượng phóng khoáng"
+      },
+      {
+       "l": "B",
+       "t": "Tôn trọng quy phạm chặt chẽ của thơ Đường"
+      },
+      {
+       "l": "C",
+       "t": "Lối viết tự động của tiềm thức"
+      },
+      {
+       "l": "D",
+       "t": "Miêu tả lạnh lùng, khách quan"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 5 SGK; Tri thức ngữ văn tr.41 về đặc điểm phong cách lãng mạn."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc hai câu thơ: “Chiều chiều oai linh thác gầm thét / Đêm đêm Mường Hịch cọp trêu người” (Quang Dũng, Tây Tiến)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Hai câu thơ có sử dụng biện pháp nhân hoá.",
+       "correct": true,
+       "expl": "“thác gầm thét”, “cọp trêu người” – Thực hành tiếng Việt câu 1a."
+      },
+      {
+       "text": "Từ láy “chiều chiều”, “đêm đêm” gợi sự lặp lại, thường trực của hiểm nguy.",
+       "correct": true,
+       "expl": "Thời gian lặp lại – mối đe doạ luôn rình rập."
+      },
+      {
+       "text": "Hai câu thơ miêu tả thiên nhiên hiền hoà, thơ mộng của miền Tây.",
+       "correct": false,
+       "expl": "Thiên nhiên hoang dã, dữ dội, đầy bí ẩn và hiểm nguy."
+      },
+      {
+       "text": "Sự dữ dội của thiên nhiên làm nổi bật vẻ đẹp kiên cường, can trường của người lính Tây Tiến.",
+       "correct": true,
+       "expl": "Thiên nhiên càng khắc nghiệt, người lính càng hiện lên phi thường."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}
