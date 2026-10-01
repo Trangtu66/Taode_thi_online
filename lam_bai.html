@@ -428,7 +428,7 @@
         <input id="student-name" type="text" placeholder="Nhập họ tên của bạn...">
         <div class="field-error" id="name-error">Vui lòng nhập họ tên trước khi bắt đầu làm bài.</div>
         <label for="student-lop" style="margin-top:10px;">Lớp <span class="req">(bắt buộc)</span></label>
-        <input id="student-lop" type="text" placeholder="Ví dụ: 10A1" maxlength="12">
+        <input id="student-lop" type="text" placeholder="Ví dụ: 10A1" maxlength="12" list="ds-lop" autocomplete="off"><datalist id="ds-lop"></datalist>
         <div class="field-error" id="lop-error">Vui lòng nhập lớp trước khi bắt đầu làm bài.</div>
       </div>
       <button class="btn-primary" id="start-btn">▶ Bắt đầu làm bài</button>
@@ -1104,6 +1104,9 @@ function initStudentFlow(examObj){
   document.getElementById("page-title").textContent = EXAM.meta.title || "Đề kiểm tra trực tuyến";
   document.getElementById("page-subtitle").textContent = EXAM.meta.subtitle || "";
   document.getElementById("landing-title").textContent = EXAM.meta.title || "Đề kiểm tra";
+  if(ketQuaApi()) jsonp({action:"dsLop"}, 15000).then(d=>{
+    document.getElementById("ds-lop").innerHTML = (d.lop||[]).map(l=>`<option value="${escHtml(l)}">`).join("");
+  }).catch(()=>{});
   kiemTraDapAn().then(mo=>{ if(!mo) return;
     const bl = docBaiLam();
     document.getElementById("dapan-box").classList.remove("hidden");
@@ -1168,6 +1171,18 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
     document.getElementById("lop-error").classList.remove("show");
     studentName = name;
     studentLop = lop;
+    /* MỚI: lớp có danh sách học sinh → máy chủ đối chiếu họ tên (không phân biệt dấu, hoa thường), trả về tên chuẩn */
+    if(ketQuaApi()){
+      const btn = document.getElementById("start-btn"), err = document.getElementById("name-error"), cu = err.textContent;
+      btn.disabled = true; btn.textContent = "Đang kiểm tra họ tên…";
+      jsonp({action:"ktHS", lop, ten:name}, 15000).then(d=>{
+        btn.disabled = false; btn.textContent = "▶ Bắt đầu làm bài";
+        if(d.coDS && !d.ok){ nameInput.classList.add("error"); err.textContent = d.loi; err.classList.add("show"); nameInput.focus(); return; }
+        if(d.coDS && d.ten){ studentName = d.ten; }
+        err.textContent = cu; startExam();
+      }).catch(()=>{ btn.disabled = false; btn.textContent = "▶ Bắt đầu làm bài"; startExam(); });
+      return;
+    }
   } else {
     studentName = document.getElementById("student-name").value.trim() || "Học sinh";
     studentLop = document.getElementById("student-lop").value.trim().toUpperCase().replace(/\s+/g,"");

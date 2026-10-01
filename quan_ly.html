@@ -143,6 +143,7 @@
         <button class="cn" data-v="cau"><span class="ic">📊</span>Thống kê câu hỏi</button>
         <button class="cn" data-v="qr"><span class="ic">📱</span>Mã QR cho học sinh</button>
         <button class="cn" data-v="excel"><span class="ic">⬇️</span>Xuất Excel</button>
+        <button class="cn" data-v="chuanop"><span class="ic">👥</span>Chưa nộp bài</button>
         <button class="cn" data-v="dapan"><span class="ic">🔓</span>Mở / khoá đáp án</button>
       </div>
       <div class="lopbar" id="lopbar"></div>
@@ -303,12 +304,13 @@ function thongKe(list){
 /* ---------- các màn hình ---------- */
 function ve(){
   document.querySelectorAll(".cn").forEach(el=> el.classList.toggle("on", el.dataset.v===VIEW));
-  $("chon-cach").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan");
+  $("chon-cach").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan" || VIEW==="chuanop");
   $("lopbar").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan");
   LIST = chonDong(ROWS.filter(r=> !LOP || r.lop===LOP), $("chon-cach").value);
   const box = $("noi-dung-chinh");
   if(VIEW==="qr") return veQR();
   if(VIEW==="dapan") return veDapAn();
+  if(VIEW==="chuanop") return veChuaNop();
   if(!LIST.length){ box.innerHTML = '<div class="msg" style="padding:20px;text-align:center">Chưa có học sinh nào nộp bài này' + (LOP ? ' ở lớp ' + esc(LOP) : '') + '. Bấm “📱 Mã QR cho học sinh” để chiếu mã cho học sinh làm bài.</div>'; return; }
   if(VIEW==="xephang"){
     const md = ["🥇","🥈","🥉"];
@@ -359,6 +361,24 @@ function veQR(){
   const ve = ()=>{ if(window.QRCode){ new QRCode($("qr"), {text:url, width:260, height:260, correctLevel:QRCode.CorrectLevel.M}); } else setTimeout(ve, 200); };
   ve();
   $("btn-copy").onclick = ()=>{ (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(()=>{ $("btn-copy").textContent = "✓ Đã sao chép"; }).catch(()=>{ prompt("Sao chép link:", url); }); };
+}
+/* ---------- học sinh chưa nộp (theo danh sách lớp trong Google Sheet, trang DanhSachHS) ---------- */
+async function veChuaNop(){
+  const box = $("noi-dung-chinh");
+  if(!MA){ box.innerHTML = '<div class="msg" style="padding:20px;text-align:center">Danh sách học sinh chưa nộp chỉ hiện khi giáo viên đăng nhập.</div>'; return; }
+  box.innerHTML = '<span class="msg">Đang đối chiếu danh sách lớp…</span>';
+  let d;
+  try{ d = await jsonp({action:"chuaNop", key:MA, quiz:CHON, lop:LOP}); }
+  catch(e){ box.innerHTML = `<span class="err">⚠ ${esc(e)}</span>`; return; }
+  if(!d.coDS && d.siSo === undefined){ box.innerHTML = '<span class="err">Máy chủ chưa có chức năng này – cần dán Code.gs mới vào Apps Script và triển khai phiên bản mới.</span>'; return; }
+  if(!d.siSo){ box.innerHTML = `<div class="msg" style="padding:20px;text-align:center">Chưa có danh sách học sinh${LOP ? " lớp " + esc(LOP) : ""}. Dán danh sách vào trang tính <b>DanhSachHS</b> của Google Sheet nhận kết quả (cột Lớp | Họ tên | Mã HS).</div>`; return; }
+  const ds = d.ds || [], theoLop = {};
+  ds.forEach(h=> (theoLop[h.lop] = theoLop[h.lop] || []).push(h.ten));
+  box.innerHTML = `<div class="stats"><div class="stat"><b>${d.siSo}</b><span>học sinh trong danh sách${LOP ? " lớp " + esc(LOP) : ""}</span></div>
+      <div class="stat"><b>${d.siSo - ds.length}</b><span>đã nộp</span></div><div class="stat"><b style="color:#991B1B">${ds.length}</b><span>chưa nộp</span></div></div>
+    ${ds.length ? Object.keys(theoLop).sort().map(l=>`<h3 style="margin:12px 0 6px;font-size:15px">Lớp ${esc(l)} – ${theoLop[l].length} em chưa nộp</h3>
+      <div style="columns:3 220px;font-size:14.5px">${theoLop[l].map((t,i)=>`<div>${i+1}. ${esc(t)}</div>`).join("")}</div>`).join("") : '<p style="font-size:16px">🎉 Tất cả học sinh trong danh sách đã nộp bài.</p>'}
+    <p class="msg" style="font-size:12.5px;margin-top:10px">Chọn lớp ở thanh “Lớp” phía trên để xem riêng từng lớp. Đối chiếu theo họ tên không dấu.</p>`;
 }
 /* ---------- mở / khoá đáp án khi chữa bài ---------- */
 async function veDapAn(){
