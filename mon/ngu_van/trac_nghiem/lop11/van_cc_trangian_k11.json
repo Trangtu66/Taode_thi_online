@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 11 · Bài 2: Tràng giang; Con đường mùa đông",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Bài thơ Tràng giang được in trong tập thơ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Trời mỗi ngày lại sáng (1958)"
+      },
+      {
+       "l": "B",
+       "t": "Lửa thiêng (1940)"
+      },
+      {
+       "l": "C",
+       "t": "Đất nở hoa (1960)"
+      },
+      {
+       "l": "D",
+       "t": "Từ ấy (1946)"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.60: Tràng giang in trong tập Lửa thiêng."
+    },
+    {
+     "content": "Cảm hứng sáng tác Tràng giang được khơi dậy từ đâu?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Những ngày bị giam trong nhà lao"
+      },
+      {
+       "l": "B",
+       "t": "Chuyến đi thăm sông Hương ở Huế"
+      },
+      {
+       "l": "C",
+       "t": "Một chuyến vượt biển ra nước ngoài"
+      },
+      {
+       "l": "D",
+       "t": "Những buổi chiều ngắm cảnh sông Hồng mênh mang ở vùng Chèm – Vẽ, mùa thu năm 1939"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.60, theo lời kể của chính Huy Cận trong Suy nghĩ về nghệ thuật."
+    },
+    {
+     "content": "Câu đề từ của bài thơ Tràng giang là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "“Bâng khuâng trời rộng nhớ sông dài”"
+      },
+      {
+       "l": "B",
+       "t": "“Sóng gợn tràng giang buồn điệp điệp”"
+      },
+      {
+       "l": "C",
+       "t": "“Không khói hoàng hôn cũng nhớ nhà”"
+      },
+      {
+       "l": "D",
+       "t": "“Lớp lớp mây cao đùn núi bạc”"
+      }
+     ],
+     "correct": "A",
+     "expl": "Đề từ do chính tác giả viết (H.C.), gợi cảm xúc chủ đạo: bâng khuâng trước không gian rộng dài."
+    },
+    {
+     "content": "Hình ảnh “Củi một cành khô lạc mấy dòng” gợi cảm nhận gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Cảnh lao động nhộn nhịp trên sông"
+      },
+      {
+       "l": "B",
+       "t": "Niềm vui khi tìm được củi đun"
+      },
+      {
+       "l": "C",
+       "t": "Sự nhỏ bé, lạc loài, trôi nổi vô định của kiếp người giữa vũ trụ mênh mông"
+      },
+      {
+       "l": "D",
+       "t": "Sự giàu có của thiên nhiên"
+      }
+     ],
+     "correct": "C",
+     "expl": "Phép tách từ “củi / một / cành khô” nhấn mạnh sự cô đơn, bé nhỏ trước dòng sông vô tận."
+    },
+    {
+     "content": "Cụm từ “sâu chót vót” gây ấn tượng đặc biệt vì",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "lặp lại nhiều lần trong bài"
+      },
+      {
+       "l": "B",
+       "t": "là từ ngữ địa phương"
+      },
+      {
+       "l": "C",
+       "t": "kết hợp lạ: “sâu” (chiều thẳm) với “chót vót” (chiều cao), mở rộng không gian ba chiều và gợi nỗi buồn thăm thẳm"
+      },
+      {
+       "l": "D",
+       "t": "là một từ Hán Việt cổ"
+      }
+     ],
+     "correct": "C",
+     "expl": "Thực hành tiếng Việt câu 2: hiện tượng phá vỡ quy tắc ngôn ngữ thông thường, tạo kết hợp từ trái logic để “lạ hoá”."
+    },
+    {
+     "content": "Câu thơ “Không khói hoàng hôn cũng nhớ nhà” mượn tứ từ bài thơ nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Hoàng Hạc lâu (Thôi Hiệu)"
+      },
+      {
+       "l": "B",
+       "t": "Tĩnh dạ tứ (Lý Bạch)"
+      },
+      {
+       "l": "C",
+       "t": "Thu hứng (Đỗ Phủ)"
+      },
+      {
+       "l": "D",
+       "t": "Phong Kiều dạ bạc (Trương Kế)"
+      }
+     ],
+     "correct": "A",
+     "expl": "Chú thích SGK: mượn tứ câu cuối “Yên ba giang thượng sử nhân sầu” trong Hoàng Hạc lâu của Thôi Hiệu."
+    },
+    {
+     "content": "Điểm mới trong câu “Không khói hoàng hôn cũng nhớ nhà” so với thơ xưa là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "nhà thơ không còn nhớ quê"
+      },
+      {
+       "l": "B",
+       "t": "nỗi nhớ nhà tự thân, không cần ngoại cảnh (khói sóng) khơi gợi – nỗi buồn của cái tôi hiện đại"
+      },
+      {
+       "l": "C",
+       "t": "khói hoàng hôn làm nhà thơ nhớ nhà"
+      },
+      {
+       "l": "D",
+       "t": "câu thơ chép nguyên văn thơ Đường"
+      }
+     ],
+     "correct": "B",
+     "expl": "Thôi Hiệu cần khói sóng mới buồn; Huy Cận “không khói” vẫn nhớ – nỗi nhớ thường trực, sâu thẳm."
+    },
+    {
+     "content": "Bài thơ Con đường mùa đông được Pu-skin sáng tác năm nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "1799"
+      },
+      {
+       "l": "B",
+       "t": "1825"
+      },
+      {
+       "l": "C",
+       "t": "1837"
+      },
+      {
+       "l": "D",
+       "t": "1826"
+      }
+     ],
+     "correct": "D",
+     "expl": "Văn bản ghi năm 1826 – sau cuộc khởi nghĩa tháng 12 năm 1825 bị dập tắt, nhà thơ còn ở nơi đày ải."
+    },
+    {
+     "content": "“Xe tam mã” trong văn hoá Nga được nhìn nhận là biểu tượng cho",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "mùa đông lạnh giá"
+      },
+      {
+       "l": "B",
+       "t": "sự giàu sang"
+      },
+      {
+       "l": "C",
+       "t": "nỗi buồn chia li"
+      },
+      {
+       "l": "D",
+       "t": "nước Nga"
+      }
+     ],
+     "correct": "D",
+     "expl": "Chú thích SGK tr.61: xe tam mã là biểu tượng cho nước Nga."
+    },
+    {
+     "content": "Hình ảnh “cột sọc chỉ đường” và âm thanh “kim đồng hồ kêu tích tắc” góp phần diễn tả điều gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Ý thức vận động, vượt qua trở ngại, hướng tới niềm vui, hơi ấm ở phía trước trên con đường mùa đông"
+      },
+      {
+       "l": "B",
+       "t": "Sự bế tắc, tuyệt vọng hoàn toàn"
+      },
+      {
+       "l": "C",
+       "t": "Sự đứng yên của thời gian"
+      },
+      {
+       "l": "D",
+       "t": "Niềm vui ngày hội mùa đông"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 2 SGK: hình ảnh, âm thanh vừa nhấn mạnh nỗi buồn vừa thể hiện hoạt động không ngừng cố gắng vượt qua trở ngại."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc khổ thơ: “Lớp lớp mây cao đùn núi bạc, / Chim nghiêng cánh nhỏ: bóng chiều sa. / Lòng quê dợn dợn vời con nước, / Không khói hoàng hôn cũng nhớ nhà.” (Huy Cận, Tràng giang)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Khổ thơ có hình ảnh vừa cổ điển (mây, chim, hoàng hôn) vừa mang dấu ấn cảm xúc hiện đại.",
+       "correct": true,
+       "expl": "Thi liệu cổ điển kết hợp nỗi buồn cô đơn của cái tôi Thơ mới."
+      },
+      {
+       "text": "Dấu hai chấm trong câu “Chim nghiêng cánh nhỏ: bóng chiều sa” chỉ có chức năng liệt kê thông thường.",
+       "correct": false,
+       "expl": "Dấu hai chấm được bổ sung chức năng mới: gợi quan hệ – cánh chim nghiêng như kéo bóng chiều sa xuống."
+      },
+      {
+       "text": "Từ láy “dợn dợn” gợi những đợt sóng lòng gợn lên liên tiếp, không dứt.",
+       "correct": true,
+       "expl": "Chú ý đặc điểm chính tả và ngữ âm của từ láy “dợn dợn”."
+      },
+      {
+       "text": "Khổ thơ cho thấy nỗi nhớ quê hương của nhân vật trữ tình da diết, thường trực, không cần ngoại cảnh khơi gợi.",
+       "correct": true,
+       "expl": "“Không khói hoàng hôn cũng nhớ nhà”."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}

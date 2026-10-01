@@ -128,6 +128,34 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 2. Nhớ đồng (Tố Hữu) – cấu tứ và hình ảnh",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai2_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_bai2_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.54 – 58"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 2. Tràng giang (Huy Cận); Con đường mùa đông (Pu-skin)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_trangian_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_trangian_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.59 – 66"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

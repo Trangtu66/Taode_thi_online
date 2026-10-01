@@ -55,6 +55,8 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 1. Vợ nhặt (Kim Lân) – điểm nhìn trong truyện kể", ma: "Củng cố – Ngữ văn 11 · Bài 1: Vợ nhặt (Kim Lân)", link: "van_cc_bai1_k11.html" },
   { khoi: 11, nhom: "Ngữ văn 11 · Ôn luyện tiếng Việt", ten: "Thực hành tiếng Việt: Đặc điểm cơ bản của ngôn ngữ nói và ngôn ngữ viết", ma: "Ôn luyện tiếng Việt – Ngữ văn 11: Ngôn ngữ nói và ngôn ngữ viết", link: "van_tv_noiviet_k11.html" },
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 1. Chí Phèo (Nam Cao) – điểm nhìn, lời nửa trực tiếp", ma: "Củng cố – Ngữ văn 11 · Bài 1: Chí Phèo (Nam Cao)", link: "van_cc_chipheo_k11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 2. Nhớ đồng (Tố Hữu) – cấu tứ và hình ảnh", ma: "Củng cố – Ngữ văn 11 · Bài 2: Nhớ đồng (Tố Hữu)", link: "van_cc_bai2_k11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 2. Tràng giang (Huy Cận); Con đường mùa đông (Pu-skin)", ma: "Củng cố – Ngữ văn 11 · Bài 2: Tràng giang; Con đường mùa đông", link: "van_cc_trangian_k11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },

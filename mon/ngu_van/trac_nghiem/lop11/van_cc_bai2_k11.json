@@ -1,0 +1,300 @@
+{
+ "meta": {
+  "title": "Củng cố – Ngữ văn 11 · Bài 2: Nhớ đồng (Tố Hữu)",
+  "subtitle": "Trường THPT Vĩnh Thạnh – Tổ Ngữ văn (bản demo) · NLS 5.2.NC1b; 2.5.NC1a",
+  "timeMinutes": 12,
+  "requireName": true,
+  "shuffleOptions": true,
+  "shuffleQuestions": true,
+  "shuffleAllParts": true
+ },
+ "parts": [
+  {
+   "type": "mcq",
+   "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+   "pointsPerQuestion": 0.6,
+   "questions": [
+    {
+     "content": "Theo Tri thức ngữ văn, sản phẩm của hoạt động cấu tứ trong thơ được gọi là",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "hình tượng"
+      },
+      {
+       "l": "B",
+       "t": "tứ thơ (tứ)"
+      },
+      {
+       "l": "C",
+       "t": "thi luật"
+      },
+      {
+       "l": "D",
+       "t": "nhịp điệu"
+      }
+     ],
+     "correct": "B",
+     "expl": "SGK tr.54: sản phẩm của hoạt động cấu tứ là tứ thơ (thường gọi đơn giản là tứ)."
+    },
+    {
+     "content": "Yếu tố tượng trưng trong thơ được nhận ra khi",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "bài thơ dùng nhiều từ Hán Việt"
+      },
+      {
+       "l": "B",
+       "t": "bài thơ có vần chân đều đặn"
+      },
+      {
+       "l": "C",
+       "t": "bài thơ kể lại một câu chuyện"
+      },
+      {
+       "l": "D",
+       "t": "một hình ảnh, hình tượng chứa đựng nhiều tầng nghĩa, gợi những cảm nhận đa chiều"
+      }
+     ],
+     "correct": "D",
+     "expl": "SGK tr.55: trước một hình ảnh chứa đựng nhiều tầng nghĩa, gợi cảm nhận đa chiều, có căn cứ nói đến yếu tố tượng trưng."
+    },
+    {
+     "content": "Bài thơ Nhớ đồng được Tố Hữu viết trong hoàn cảnh nào?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Khi bị thực dân Pháp bắt giam ở nhà lao Thừa Phủ (Huế), tháng 7/1939"
+      },
+      {
+       "l": "B",
+       "t": "Khi đang ở chiến khu Việt Bắc"
+      },
+      {
+       "l": "C",
+       "t": "Sau ngày Cách mạng tháng Tám thành công"
+      },
+      {
+       "l": "D",
+       "t": "Khi đi công tác ở nước ngoài"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.58: bài thơ viết trong thời gian tác giả bị bắt giam ở nhà lao Thừa Phủ, ghi tháng 7/1939."
+    },
+    {
+     "content": "Nhớ đồng được in trong tập thơ nào của Tố Hữu?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Gió lộng"
+      },
+      {
+       "l": "B",
+       "t": "Việt Bắc"
+      },
+      {
+       "l": "C",
+       "t": "Từ ấy (tập Thơ)"
+      },
+      {
+       "l": "D",
+       "t": "Ra trận"
+      }
+     ],
+     "correct": "C",
+     "expl": "Sau Cách mạng tháng Tám, bài thơ được đưa vào tập Thơ (tức Từ ấy)."
+    },
+    {
+     "content": "Từ “đâu” xuất hiện nhiều lần trong bài thơ có vai trò gì trong cấu tứ?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Phủ định hoàn toàn những gì đã qua"
+      },
+      {
+       "l": "B",
+       "t": "Hỏi đường đi về quê"
+      },
+      {
+       "l": "C",
+       "t": "Mở ra chuỗi hình ảnh hồi tưởng, làm điểm tựa liên kết mạch nhớ thương"
+      },
+      {
+       "l": "D",
+       "t": "Chỉ nơi chốn của nhà lao"
+      }
+     ],
+     "correct": "C",
+     "expl": "“Đâu” lặp lại liên tiếp như tiếng gọi thầm, dẫn dắt những hình ảnh quê nhà hiện về trong tâm tưởng người tù."
+    },
+    {
+     "content": "Khổ thơ “Gì sâu bằng những trưa thương nhớ / Hiu quạnh bên trong một tiếng hò!” có vai trò gì?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Khổ mở đầu, lặp lại biến đổi ở các khổ 4, 7, 13 – tạo “quy luật” vòng lặp cho mạch nhớ"
+      },
+      {
+       "l": "B",
+       "t": "Khổ kết thúc duy nhất của bài"
+      },
+      {
+       "l": "C",
+       "t": "Đoạn kể chuyện vượt ngục"
+      },
+      {
+       "l": "D",
+       "t": "Lời đối thoại với người mẹ"
+      }
+     ],
+     "correct": "A",
+     "expl": "Câu hỏi 2 SGK: các khổ 1, 4, 7, 13 lặp lại, biến đổi – điểm tựa cấu tứ của bài thơ."
+    },
+    {
+     "content": "Tiếng hò có mối quan hệ thế nào với nỗi nhớ của nhân vật trữ tình?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Tiếng hò làm nhân vật quên đi nỗi nhớ"
+      },
+      {
+       "l": "B",
+       "t": "Tiếng hò là tác nhân khơi dậy, khởi đầu nỗi nhớ đồng quê"
+      },
+      {
+       "l": "C",
+       "t": "Tiếng hò là âm thanh nhà lao"
+      },
+      {
+       "l": "D",
+       "t": "Tiếng hò không liên quan đến nỗi nhớ"
+      }
+     ],
+     "correct": "B",
+     "expl": "Một tiếng hò vọng vào buổi trưa hiu quạnh đã đánh thức cả thế giới quê hương trong lòng người tù."
+    },
+    {
+     "content": "Hình ảnh “Như cánh chim buồn nhớ gió mây” biểu đạt cảm xúc gì của nhân vật trữ tình?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Mong muốn trở thành nhà điểu học"
+      },
+      {
+       "l": "B",
+       "t": "Niềm vui được ở yên trong nhà lao"
+      },
+      {
+       "l": "C",
+       "t": "Nỗi sợ hãi trước gió bão"
+      },
+      {
+       "l": "D",
+       "t": "Khát khao tự do, khao khát được trở lại với cuộc đời, cách mạng"
+      }
+     ],
+     "correct": "D",
+     "expl": "Cánh chim bị nhốt mà nhớ gió mây – hình ảnh tượng trưng cho người chiến sĩ trẻ khao khát tự do."
+    },
+    {
+     "content": "“Tôi” ở khổ “Rồi một hôm nào, tôi thấy tôi / Nhẹ nhàng như con chim cà lơi” có sự phát triển thế nào so với khổ trước?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Từ người chiến sĩ trở thành người nông dân"
+      },
+      {
+       "l": "B",
+       "t": "Từ vui vẻ chuyển sang chán nản"
+      },
+      {
+       "l": "C",
+       "t": "Không thay đổi gì"
+      },
+      {
+       "l": "D",
+       "t": "Từ băn khoăn “vẩn vơ”, bế tắc chuyển sang say sưa, hạnh phúc khi tìm thấy lí tưởng"
+      }
+     ],
+     "correct": "D",
+     "expl": "Khổ trước: “Băn khoăn đi kiếm lẽ yêu đời / Vẩn vơ theo mãi vòng quanh quẩn”; khổ sau: “Say đồng hương nắng vui ca hát”."
+    },
+    {
+     "content": "Nhận định nào khái quát đúng nhân vật trữ tình trong Nhớ đồng?",
+     "imageUrl": "",
+     "options": [
+      {
+       "l": "A",
+       "t": "Người thanh niên yêu nước, giàu nhiệt huyết, gắn bó quê hương, khao khát tự do và sát cánh cùng đồng bào"
+      },
+      {
+       "l": "B",
+       "t": "Người nông dân chỉ mong yên ổn làm ăn"
+      },
+      {
+       "l": "C",
+       "t": "Một kẻ lãng tử không màng thế sự"
+      },
+      {
+       "l": "D",
+       "t": "Người trí thức bi quan, tuyệt vọng"
+      }
+     ],
+     "correct": "A",
+     "expl": "SGK tr.58: bài thơ thể hiện tâm sự của người thanh niên yêu nước, khao khát tự do, nôn nóng trở về với đồng chí, đồng bào."
+    }
+   ]
+  },
+  {
+   "type": "tf",
+   "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+   "maxPoints": 4,
+   "questions": [
+    {
+     "content": "Đọc khổ thơ: “Đâu những hồn thân tự thuở xưa / Những hồn quen dãi gió dầm mưa / Những hồn chất phác hiền như đất / Khoai sắn tình quê rất thiệt thà!” (Tố Hữu, Nhớ đồng)",
+     "imageUrl": "",
+     "statements": [
+      {
+       "text": "Khổ thơ sử dụng phép điệp từ “những hồn”.",
+       "correct": true,
+       "expl": "“Những hồn” lặp lại ba lần."
+      },
+      {
+       "text": "“Những hồn thân” ở đây chỉ những người nông dân lao động chất phác ở quê hương.",
+       "correct": true,
+       "expl": "“dãi gió dầm mưa”, “chất phác hiền như đất” – người lao động nơi đồng quê."
+      },
+      {
+       "text": "Khổ thơ thể hiện thái độ coi thường, xa cách với người dân quê.",
+       "correct": false,
+       "expl": "Thái độ trân trọng, yêu thương, gắn bó."
+      },
+      {
+       "text": "Hình ảnh “hiền như đất” vừa so sánh vừa gợi phẩm chất bền bỉ, gắn bó máu thịt với ruộng đồng.",
+       "correct": true,
+       "expl": "Đất – biểu tượng của sự hiền hậu, bao dung, gắn với người nông dân."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leaderboard": {
+  "formUrl": "",
+  "entryName": "",
+  "entryScore": "",
+  "entryDetail": "",
+  "sheetUrl": ""
+ }
+}
