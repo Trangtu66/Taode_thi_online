@@ -39,6 +39,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 1. Family life", ma: "Củng cố – Tiếng Anh 10 · Unit 1: Family life", link: "anh_cc_unit1_k10.html" },
   { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Chùm thơ hai-cư Nhật Bản; Thu hứng (Đỗ Phủ)", ma: "Củng cố – Ngữ văn 10 · Bài 2: Chùm thơ hai-cư; Thu hứng (Đỗ Phủ)", link: "van_cc_bai2_k10.html" },
   { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Mùa xuân chín (Hàn Mặc Tử); Bản hoà âm ngôn từ trong Tiếng thu", ma: "Củng cố – Ngữ văn 10 · Bài 2: Mùa xuân chín (Hàn Mặc Tử)", link: "van_cc_muaxuanchin_k10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 3. Hiền tài là nguyên khí của quốc gia; Yêu và đồng cảm", ma: "Củng cố – Ngữ văn 10 · Bài 3: Hiền tài là nguyên khí của quốc gia; Yêu và đồng cảm", link: "van_cc_bai3_k10.html" },
+  { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 3. Chữ bầu lên nhà thơ (Lê Đạt)", ma: "Củng cố – Ngữ văn 10 · Bài 3: Chữ bầu lên nhà thơ (Lê Đạt)", link: "van_cc_chubaulen_k10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
@@ -62,6 +64,8 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 1. Chí Phèo (Nam Cao) – điểm nhìn, lời nửa trực tiếp", ma: "Củng cố – Ngữ văn 11 · Bài 1: Chí Phèo (Nam Cao)", link: "van_cc_chipheo_k11.html" },
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 2. Nhớ đồng (Tố Hữu) – cấu tứ và hình ảnh", ma: "Củng cố – Ngữ văn 11 · Bài 2: Nhớ đồng (Tố Hữu)", link: "van_cc_bai2_k11.html" },
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 2. Tràng giang (Huy Cận); Con đường mùa đông (Pu-skin)", ma: "Củng cố – Ngữ văn 11 · Bài 2: Tràng giang; Con đường mùa đông", link: "van_cc_trangian_k11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 3. Cầu hiền chiếu (Ngô Thì Nhậm); Tôi có một ước mơ (M. L. Kinh)", ma: "Củng cố – Ngữ văn 11 · Bài 3: Cầu hiền chiếu; Tôi có một ước mơ", link: "van_cc_bai3_k11.html" },
+  { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 3. Một thời đại trong thi ca (Hoài Thanh)", ma: "Củng cố – Ngữ văn 11 · Bài 3: Một thời đại trong thi ca (Hoài Thanh)", link: "van_cc_thoidaithica_k11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
@@ -73,6 +77,8 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 1. Mùa lá rụng trong vườn (Ma Văn Kháng) – nhân vật, tâm lí, văn hoá gia đình", ma: "Củng cố – Ngữ văn 12 · Bài 1: Mùa lá rụng trong vườn (Ma Văn Kháng)", link: "van_cc_mualarung_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 2. Cảm hoài (Đặng Dung); Tây Tiến (Quang Dũng)", ma: "Củng cố – Ngữ văn 12 · Bài 2: Cảm hoài; Tây Tiến", link: "van_cc_bai2_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 2. Đàn ghi ta của Lor-ca (Thanh Thảo) – tượng trưng, siêu thực", ma: "Củng cố – Ngữ văn 12 · Bài 2: Đàn ghi ta của Lor-ca (Thanh Thảo)", link: "van_cc_danghita_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 3. Nhìn về vốn văn hoá dân tộc; Năng lực sáng tạo", ma: "Củng cố – Ngữ văn 12 · Bài 3: Nhìn về vốn văn hoá dân tộc; Năng lực sáng tạo", link: "van_cc_bai3_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 3. Mấy ý nghĩ về thơ (Nguyễn Đình Thi)", ma: "Củng cố – Ngữ văn 12 · Bài 3: Mấy ý nghĩ về thơ (Nguyễn Đình Thi)", link: "van_cc_mayynghivetho_k12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

@@ -184,6 +184,90 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 3. Hiền tài là nguyên khí của quốc gia; Yêu và đồng cảm",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai3_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_bai3_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.72 – 81"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 3. Chữ bầu lên nhà thơ (Lê Đạt)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_chubaulen_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_chubaulen_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.82 – 85"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 3. Cầu hiền chiếu (Ngô Thì Nhậm); Tôi có một ước mơ (M. L. Kinh)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai3_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_bai3_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.74 – 84"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 3. Một thời đại trong thi ca (Hoài Thanh)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_thoidaithica_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_thoidaithica_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.85 – 89"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 3. Nhìn về vốn văn hoá dân tộc; Năng lực sáng tạo",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai3_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_bai3_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.62 – 71"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 3. Mấy ý nghĩ về thơ (Nguyễn Đình Thi)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_mayynghivetho_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_mayynghivetho_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.72 – 77"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

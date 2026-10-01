@@ -27,6 +27,17 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
+"file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
+"kb": 1142,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – Bài 1. Sức hấp dẫn của truyện kể",
 "file": "SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
@@ -42,6 +53,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
 "kb": 142,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
+"file": "SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
+"url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
+"kb": 156,
 "ngay": "2026-10-01"
 },
 {
@@ -71,6 +93,17 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 3. Cấu trúc của văn bản nghị luận",
+"file": "KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
+"url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
+"kb": 1129,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
@@ -86,6 +119,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
 "kb": 145,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – Bài 3. Cấu trúc của văn bản nghị luận",
+"file": "SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
+"url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
+"kb": 144,
 "ngay": "2026-10-01"
 },
 {
@@ -115,6 +159,17 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 3. Lập luận trong văn bản nghị luận",
+"file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
+"kb": 1133,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Sơ đồ tư duy – Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
@@ -130,6 +185,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
 "kb": 154,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 3. Lập luận trong văn bản nghị luận",
+"file": "SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
+"kb": 148,
 "ngay": "2026-10-01"
 },
 {
@@ -158,6 +224,17 @@ window.HOC_LIEU = [
 "mon": "ngu_van",
 "tenMon": "Ngữ văn",
 "loai": "slide",
+"khoi": 10,
+"ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
+"file": "Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
+"url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
+"kb": 285,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "slide",
 "khoi": 11,
 "ten": "Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "Slide_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.pptx",
@@ -180,6 +257,17 @@ window.HOC_LIEU = [
 "mon": "ngu_van",
 "tenMon": "Ngữ văn",
 "loai": "slide",
+"khoi": 11,
+"ten": "Bài 3. Cấu trúc của văn bản nghị luận",
+"file": "Slide_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.pptx",
+"url": "mon/ngu_van/slide/lop11/Slide_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.pptx",
+"kb": 255,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "slide",
 "khoi": 12,
 "ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "Slide_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.pptx",
@@ -196,6 +284,17 @@ window.HOC_LIEU = [
 "file": "Slide_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.pptx",
 "url": "mon/ngu_van/slide/lop12/Slide_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.pptx",
 "kb": 269,
+"ngay": "2026-10-01"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "slide",
+"khoi": 12,
+"ten": "Bài 3. Lập luận trong văn bản nghị luận",
+"file": "Slide_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.pptx",
+"url": "mon/ngu_van/slide/lop12/Slide_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.pptx",
+"kb": 259,
 "ngay": "2026-10-01"
 },
 {
