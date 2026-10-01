@@ -379,10 +379,76 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 10,
+"ten": "BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.docx",
+"kb": 1817,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.docx",
+"kb": 1913,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.docx",
+"kb": 1901,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
 "kb": 164,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.png",
+"kb": 141,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.png",
+"kb": 163,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.png",
+"kb": 151,
 "ngay": "2026-10-01"
 },
 {
@@ -412,10 +478,10 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 12,
-"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
-"file": "KHBD_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
-"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
-"kb": 1908,
+"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "KHBD_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
+"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
+"kb": 1910,
 "ngay": "2026-10-01"
 },
 {
@@ -423,10 +489,10 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Sơ đồ tư duy – BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
-"file": "SoDoTuDuy_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
-"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
-"kb": 158,
+"ten": "Sơ đồ tư duy – BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "SoDoTuDuy_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
+"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
+"kb": 154,
 "ngay": "2026-10-01"
 },
 {
@@ -438,6 +504,39 @@ window.HOC_LIEU = [
 "file": "Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
 "kb": 248,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 10,
+"ten": "BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.pptx",
+"kb": 219,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 10,
+"ten": "BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.pptx",
+"kb": 238,
+"ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 10,
+"ten": "BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.pptx",
+"kb": 229,
 "ngay": "2026-10-01"
 },
 {
@@ -456,10 +555,10 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "slide",
 "khoi": 12,
-"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
-"file": "Slide_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
-"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
-"kb": 235,
+"ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "Slide_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
+"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
+"kb": 219,
 "ngay": "2026-10-01"
 },
 {

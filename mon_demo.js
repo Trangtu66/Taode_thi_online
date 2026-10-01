@@ -44,6 +44,48 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 2. Phương pháp nghiên cứu và học tập môn Sinh học",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai2_k10.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai2_k10.docx",
+    "nguon": "SGK Sinh học 10 (KNTT), tr.12 – 17"
+   },
+   {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 3. Các cấp độ tổ chức của thế giới sống",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai3_k10.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai3_k10.docx",
+    "nguon": "SGK Sinh học 10 (KNTT), tr.18 – 21"
+   },
+   {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 4. Các nguyên tố hoá học và nước",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai4_k10.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai4_k10.docx",
+    "nguon": "SGK Sinh học 10 (KNTT), tr.23 – 27"
+   },
+   {
+    "khu": "cc",
     "khoi": 11,
     "ten": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng",
     "phut": 10,
