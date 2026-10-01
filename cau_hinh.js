@@ -8,9 +8,8 @@ window.KQ_API = "https://script.google.com/macros/s/AKfycbz-yf2unZA961vY5ACGaedB
 // vẫn cần mã giáo viên. Khi muốn CHỐT LẠI (bắt buộc mã giáo viên), đổi true thành false.
 window.CONG_KHAI_KET_QUA = true;
 
-// MỞ ĐÁP ÁN KHI CHỮA BÀI: học sinh chỉ xem đáp án, lời giải của đề khi tên đề có trong danh sách này.
-// Ghi đúng tên đề (cột "ma" trong DANH_SACH_BAI, ví dụ "Củng cố – Bài 1. ..."), hoặc "*" để mở tất cả.
-// Mặc định để trống = khoá đáp án mọi đề.
+// MỞ ĐÁP ÁN KHI CHỮA BÀI: cách chính là trang Quản lý → "🔓 Mở / khoá đáp án" (cần mã GV, có hiệu lực ngay).
+// Danh sách dưới đây chỉ là cách dự phòng: tên đề ghi ở đây luôn được mở ("*" = mở tất cả). Để trống = theo trang Quản lý.
 window.MO_DAP_AN = [
 ];
 

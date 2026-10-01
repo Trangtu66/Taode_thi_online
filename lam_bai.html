@@ -472,8 +472,10 @@
     </div>
     <div class="card hidden" id="dapan-khoa" style="text-align:center;">
       <h3 style="margin:0 0 6px;">🔒 Đáp án và lời giải đang khoá</h3>
-      <p style="margin:0;color:var(--ink-soft);">Giáo viên sẽ mở đáp án khi chữa bài trên lớp. Bài làm của em đã được lưu trên thiết bị này –
-      khi giáo viên mở, em mở lại đúng đường link (hoặc quét lại mã QR) để xem lại bài làm kèm lời giải.</p>
+      <p style="margin:0 0 10px;color:var(--ink-soft);">Giáo viên sẽ mở đáp án khi chữa bài trên lớp. Bài làm của em đã được lưu trên thiết bị này.
+      Khi giáo viên báo đã mở, bấm nút dưới (hoặc mở lại đúng đường link, quét lại mã QR) để xem lại bài làm kèm lời giải.</p>
+      <button class="btn-primary" id="btn-kt-dapan" type="button">🔄 Giáo viên đã mở đáp án chưa?</button>
+      <div id="kt-dapan-msg" style="margin-top:8px;font-size:13px;color:var(--ink-soft);"></div>
     </div>
     <div id="review-list"></div>
   </section>
@@ -1102,14 +1104,14 @@ function initStudentFlow(examObj){
   document.getElementById("page-title").textContent = EXAM.meta.title || "Đề kiểm tra trực tuyến";
   document.getElementById("page-subtitle").textContent = EXAM.meta.subtitle || "";
   document.getElementById("landing-title").textContent = EXAM.meta.title || "Đề kiểm tra";
-  if(duocXemDapAn()){
+  kiemTraDapAn().then(mo=>{ if(!mo) return;
     const bl = docBaiLam();
     document.getElementById("dapan-box").classList.remove("hidden");
     const b1 = document.getElementById("xem-bailam-btn");
     if(bl){ b1.onclick = ()=> hienKetQuaDaLuu(bl, "Bài làm đã lưu trên thiết bị này – kèm đáp án, lời giải"); }
     else b1.classList.add("hidden");
     document.getElementById("xem-dapan-btn").onclick = ()=> hienKetQuaDaLuu(null, "Đáp án và lời giải (giáo viên đã mở để chữa bài)");
-  }
+  });
 
   const totalQ = EXAM.parts.reduce((s,p)=>s+p.questions.length,0);
   const maxPoints = computeMaxPoints(EXAM);
@@ -1469,8 +1471,15 @@ function submitExam(auto){
   }
 
   luuBaiLam(partResults, scaledTotal);
-  if(duocXemDapAn()) renderReview(partResults);
-  else { document.getElementById("review-list").innerHTML = ""; document.getElementById("dapan-khoa").classList.remove("hidden"); }
+  document.getElementById("review-list").innerHTML = "";
+  document.getElementById("dapan-khoa").classList.remove("hidden");
+  const thu = ()=>{ document.getElementById("kt-dapan-msg").textContent = "Đang kiểm tra…";
+    kiemTraDapAn().then(mo=>{
+      if(mo){ document.getElementById("dapan-khoa").classList.add("hidden"); renderReview(partResults); }
+      else document.getElementById("kt-dapan-msg").textContent = "Đáp án vẫn đang khoá (" + new Date().toLocaleTimeString("vi-VN") + ").";
+    }); };
+  document.getElementById("btn-kt-dapan").onclick = thu;
+  thu();
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
@@ -1497,9 +1506,15 @@ function ketQuaApi(){
 }
 /* MỚI: học sinh chỉ xem đáp án, lời giải khi GV cho phép (chữa bài).
    GV mở bằng cách thêm tên đề (meta.title) vào window.MO_DAP_AN trong cau_hinh.js ("*" = mở tất cả). */
-function duocXemDapAn(){
+function duocXemDapAn(){   // mở sẵn trong cau_hinh.js (dự phòng)
   const ds = window.MO_DAP_AN || [];
   return ds.includes("*") || ds.includes(maBai());
+}
+/* Hỏi máy chủ (Google Apps Script): GV đã bấm "Mở đáp án" trên trang Quản lý chưa? */
+function kiemTraDapAn(){
+  if(duocXemDapAn()) return Promise.resolve(true);
+  if(!ketQuaApi()) return Promise.resolve(false);
+  return jsonp({action:"dapAn", quiz: maBai()}, 15000).then(d=> !!d.mo).catch(()=> false);
 }
 function khoaLuu(){ return "tdt_bailam_" + maBai(); }
 function luuBaiLam(partResults, diem){
