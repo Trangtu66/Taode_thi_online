@@ -1086,6 +1086,8 @@ document.getElementById("go-builder-btn").addEventListener("click", ()=>{
   addP2Question();
   addP3Question();
 });
+// Link "lam_bai.html#tao" (từ trang chính, trang quản lý) mở thẳng trình tạo đề
+if(location.hash === "#tao" && !location.search) document.getElementById("go-builder-btn").click();
 
 /* ============== HỌC SINH: LÀM BÀI ============== */
 let EXAM = null;

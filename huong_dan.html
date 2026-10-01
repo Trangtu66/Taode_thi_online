@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn sử dụng – THPT Vĩnh Thạnh</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="giao_dien.css">
+<style>
+  .bo { display:grid; grid-template-columns:230px 1fr; gap:24px; align-items:start; }
+  .bo > * { min-width:0; }
+  .muc-luc { position:sticky; top:12px; font-size:14px; }
+  .muc-luc b { display:block; font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin:10px 0 4px; }
+  .muc-luc a { display:block; text-decoration:none; color:var(--ink); padding:5px 8px; border-radius:6px; }
+  .muc-luc a:hover { background:var(--blue-bg); color:var(--blue); }
+  section.hd { scroll-margin-top:12px; margin-bottom:18px; }
+  section.hd h2 { margin:0 0 4px; } section.hd .vi-tri { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .buoc { counter-reset:b; list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+  .buoc li { counter-increment:b; position:relative; padding-left:38px; }
+  .buoc li::before { content:counter(b); position:absolute; left:0; top:0; width:26px; height:26px; border-radius:50%; background:var(--blue); color:#fff;
+                     display:grid; place-items:center; font-size:13px; font-weight:700; }
+  .tbl { overflow-x:auto; } table { border-collapse:collapse; width:100%; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; } th { background:#F1F5F9; }
+  code { background:#F1F5F9; padding:1px 5px; border-radius:4px; font-size:13px; }
+  details { border:1px solid var(--line); border-radius:10px; padding:10px 14px; background:#fff; margin-bottom:8px; }
+  summary { font-weight:700; cursor:pointer; }
+  .so-do { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin:6px 0 0; }
+  .so-do div { background:var(--blue-bg); border-radius:10px; padding:10px; text-align:center; font-size:14px; font-weight:600; }
+  .so-do small { display:block; font-weight:400; color:var(--muted); }
+  @media (max-width:820px){ .bo{grid-template-columns:1fr;} .muc-luc{position:static;} }
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Hướng dẫn sử dụng</b><small>Trường THPT Vĩnh Thạnh – Gia Lai</small></span></a>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chính</a><a href="luyen_thi.html">Luyện tập</a><a href="hoc_lieu.html">Kho học liệu</a>
+    <a href="quan_ly.html">Quản lý (GV)</a><a href="huong_dan.html" class="on">Hướng dẫn</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <h1>Hướng dẫn sử dụng hệ thống</h1>
+  <p class="lead">Mỗi việc dưới đây có: làm ở trang nào, các bước bấm. Hệ thống chỉ có 4 trang chính cần nhớ:</p>
+  <div class="so-do">
+    <div>🏠 Trang chính<small>chọn vai trò, đi tới việc cần làm</small></div>
+    <div>📚 Luyện tập<small>danh mục bài trực tuyến theo môn</small></div>
+    <div>📂 Kho học liệu<small>KHBD, slide, ma trận để tải</small></div>
+    <div>🎓 Quản lý (GV)<small>QR, kết quả, đáp án, ngân hàng đề</small></div>
+  </div>
+
+  <div class="bo" style="margin-top:22px">
+    <nav class="muc-luc card" aria-label="Mục lục">
+      <b>Giáo viên</b>
+      <a href="#ma-gv">0. Mã giáo viên</a>
+      <a href="#tai-hoc-lieu">1. Tải học liệu</a>
+      <a href="#giao-bai">2. Giao bài trực tuyến</a>
+      <a href="#ket-qua">3. Xem kết quả, ai chưa nộp</a>
+      <a href="#chua-bai">4. Chữa bài – mở đáp án</a>
+      <a href="#tao-de">5. Tạo đề trực tuyến</a>
+      <a href="#dong-gop">6. Đưa tài liệu vào kho, ngân hàng đề</a>
+      <b>Học sinh</b>
+      <a href="#hoc-sinh">Làm bài, xem lời giải</a>
+      <b>Khác</b>
+      <a href="#hoi-dap">Hỏi đáp thường gặp</a>
+    </nav>
+
+    <div>
+      <section class="hd card" id="ma-gv">
+        <h2>0. Mã giáo viên</h2>
+        <p class="vi-tri">Do quản trị hệ thống cấp, mỗi thầy cô một mã (dạng <code>VT-GV…</code>).</p>
+        <p style="margin:0">Mã dùng để: đăng nhập trang Quản lý, xem kết quả có đáp án từng câu, mở/khoá đáp án, lưu đề vào ngân hàng đề. Giữ mã riêng, <b>không đưa cho học sinh</b>. Quên mã hoặc lộ mã: báo quản trị để cấp lại.</p>
+      </section>
+
+      <section class="hd card" id="tai-hoc-lieu">
+        <h2>1. Tải học liệu môn mình</h2>
+        <p class="vi-tri">Ở trang <a href="hoc_lieu.html">📂 Kho học liệu</a> – không cần mã.</p>
+        <ol class="buoc">
+          <li>Chọn <b>Môn</b> (Toán, Ngữ văn, Hóa học…), rồi <b>Khối</b> 10/11/12. Trang nhớ lựa chọn cho lần sau.</li>
+          <li>Có thể lọc <b>Loại</b> (KHBD, slide, sơ đồ tư duy, ma trận) hoặc gõ tên bài vào ô tìm (gõ không dấu cũng được).</li>
+          <li>Mỗi bài là một thẻ chứa đủ file của bài đó. Bấm vào file để tải về, mở bằng Word/PowerPoint và chỉnh theo lớp mình.</li>
+        </ol>
+        <p class="note blue" style="margin:12px 0 0">Mẹo: gửi đồng nghiệp đường link <code>hoc_lieu.html#ngu_van</code> để mở sẵn môn Ngữ văn (tương tự <code>#toan</code>, <code>#hoa_hoc</code>, <code>#tieng_anh</code>…).</p>
+      </section>
+
+      <section class="hd card" id="giao-bai">
+        <h2>2. Giao bài trực tuyến cho học sinh</h2>
+        <p class="vi-tri">Ở trang <a href="quan_ly.html">🎓 Quản lý</a> (bài có sẵn) hoặc ngân hàng đề (đề thầy cô tự tạo).</p>
+        <ol class="buoc">
+          <li>Mở Quản lý, nhập <b>mã giáo viên</b>, bấm “Vào trang quản lý”.</li>
+          <li>Mục ①: chọn <b>khối</b> → chọn <b>bài</b>.</li>
+          <li>Mục ②: bấm <b>“📱 Mã QR cho học sinh”</b> → chiếu lên màn hình (nút “⛶ Chiếu toàn màn hình”). Học sinh quét bằng camera hoặc Zalo. Hoặc bấm “📋 Sao chép link” để gửi vào nhóm Zalo lớp.</li>
+          <li>Đề thầy cô tự tạo: mục ② → <b>“📚 Ngân hàng đề của tôi”</b> → bấm “📱 QR” ở dòng đề cần giao.</li>
+        </ol>
+        <p class="muted" style="margin:10px 0 0;font-size:14px">Xem trước toàn bộ bài có sẵn của mỗi môn ở trang <a href="luyen_thi.html">Luyện tập</a>.</p>
+      </section>
+
+      <section class="hd card" id="ket-qua">
+        <h2>3. Xem kết quả, ai chưa nộp</h2>
+        <p class="vi-tri">Ở trang <a href="quan_ly.html">🎓 Quản lý</a> → chọn bài → mục ②.</p>
+        <div class="tbl"><table>
+          <tr><th>Muốn xem</th><th>Bấm</th></tr>
+          <tr><td>Thứ hạng, điểm cả lớp (chiếu cho HS)</td><td>🏆 Bảng xếp hạng</td></tr>
+          <tr><td>Bài làm từng em, đúng sai từng câu</td><td>📋 Kết quả từng học sinh (bấm vào tên)</td></tr>
+          <tr><td>Câu nào nhiều em sai để chữa</td><td>📊 Thống kê câu hỏi</td></tr>
+          <tr><td>Em nào chưa làm bài</td><td>👥 Chưa nộp bài (cần danh sách lớp trong Google Sheet, trang tính <code>DanhSachHS</code>)</td></tr>
+          <tr><td>Lấy điểm vào sổ</td><td>⬇️ Xuất Excel</td></tr>
+        </table></div>
+        <p class="muted" style="margin:10px 0 0;font-size:14px">Thanh <b>Lớp</b> phía dưới mục ② để lọc riêng từng lớp; ô “Cách tính điểm” chọn lần làm đầu tiên hay lần cao nhất.</p>
+      </section>
+
+      <section class="hd card" id="chua-bai">
+        <h2>4. Chữa bài – mở, khoá đáp án</h2>
+        <p class="vi-tri">Học sinh nộp bài chỉ thấy điểm. Đáp án, lời giải chỉ hiện khi giáo viên mở.</p>
+        <ol class="buoc">
+          <li>Quản lý → chọn bài → <b>“🔓 Mở / khoá đáp án”</b> → bấm <b>“Mở đáp án cho học sinh”</b>.</li>
+          <li>Học sinh mở lại đúng link (hoặc quét lại QR) → bấm <b>“📖 Xem lại bài làm của em và lời giải”</b>. Giáo viên chiếu bài và bấm “📋 Xem đáp án, lời giải (chữa bài)”.</li>
+          <li>Chữa xong bấm <b>“🔒 Khoá đáp án”</b>. Danh sách các bài đang mở hiện bên dưới để khoá nhanh.</li>
+        </ol>
+        <p class="note" style="margin:12px 0 0">Đề được xáo trộn câu và phương án cho từng em – khi chữa, gọi theo <b>nội dung</b> câu, phương án, không gọi “câu 3”, “phương án C”.</p>
+      </section>
+
+      <section class="hd card" id="tao-de">
+        <h2>5. Tạo đề kiểm tra trực tuyến</h2>
+        <p class="vi-tri">Ở <a href="lam_bai.html#tao">✍️ Trình tạo đề</a>. Đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
+        <p style="margin:0 0 6px"><b>Cách A – Nhập từ file Word (nhanh nhất)</b></p>
+        <ol class="buoc">
+          <li>Soạn đề trong Word (.docx): mỗi câu bắt đầu <b>Câu 1.</b>, <b>Câu 2.</b>…; theo thứ tự PHẦN I, II, III. Phần I có <b>A. B. C. D.</b>; Phần II có các ý <b>a) b) c) d)</b>; Phần III đáp án tối đa 4 kí tự.</li>
+          <li>Đáp án: gạch chân chữ cái đúng (Phần I), gạch chân nhãn ý đúng (Phần II), hoặc dòng <b>Đáp án: …</b>. Lời giải: dòng <b>Lời giải</b> ngay sau câu. Công thức MathType, Equation và hình PNG/JPG đều đọc được.</li>
+          <li>Mở Trình tạo đề → ô “📄 Nhập đề từ file Word” → chọn file. Kiểm tra <b>Bảng đối chiếu đáp án</b> và đánh dấu xác nhận. Đề Toán chưa có đáp án: bấm “🤖 Nhờ Claude giải &amp; gán đáp án”, rồi vẫn phải soát lại.</li>
+          <li>Điền tiêu đề, thời gian → nhập <b>mã giáo viên</b> ở ô 🔑 → bấm <b>“🔗 Tạo đề &amp; Lấy link”</b>. Trang cho link ngắn và mã QR.</li>
+        </ol>
+        <p style="margin:12px 0 6px"><b>Cách B – Soạn trực tiếp</b>: bấm “+ Thêm câu trắc nghiệm / Đúng/Sai / trả lời ngắn”, gõ nội dung (công thức gõ giữa hai dấu <code>$…$</code>), chọn đáp án, rồi làm như bước 4.</p>
+        <p class="note blue" style="margin:10px 0 0">Đề lưu bằng mã giáo viên tự vào <b>ngân hàng đề</b> của thầy cô (bước 6), không cần tải file. Nút “💾 Tải file cấu hình đề (.json)” chỉ dùng để giữ bản sao trên máy.</p>
+      </section>
+
+      <section class="hd card" id="dong-gop">
+        <h2>6. Đưa tài liệu vào kho, ngân hàng đề</h2>
+        <p class="vi-tri">Có hai loại kho, cách đưa vào khác nhau.</p>
+        <div class="tbl"><table>
+          <tr><th>Loại tài liệu</th><th>Vào đâu</th><th>Cách làm</th></tr>
+          <tr><td>Đề kiểm tra trực tuyến (HS làm trên điện thoại)</td><td><b>Ngân hàng đề</b> của từng giáo viên</td>
+              <td>Tạo đề như mục 5, nhập mã GV khi bấm “Tạo đề &amp; Lấy link” – đề tự lưu. Xem lại, lấy QR: Quản lý → “📚 Ngân hàng đề của tôi”.</td></tr>
+          <tr><td>KHBD (Word), slide (PowerPoint), sơ đồ tư duy, ma trận, đặc tả</td><td><b>Kho học liệu</b> chung của trường</td>
+              <td>Đặt tên file đúng quy ước (bảng dưới), gửi file cho <b>quản trị hệ thống (cô Trương Tử Trang, tổ Toán)</b> qua nhóm Zalo hoặc thư mục Drive của tổ. Quản trị đưa lên kho; file hiện ở Kho học liệu sau vài phút.</td></tr>
+          <tr><td>Đề kiểm tra định kỳ có đáp án (Word)</td><td>Kho riêng của giáo viên (không công khai)</td>
+              <td>Gửi quản trị như trên, ghi rõ “đề có đáp án”. Đề chính thức chỉ đưa lên làm trực tuyến khi đến giờ kiểm tra.</td></tr>
+        </table></div>
+        <p style="margin:14px 0 6px"><b>Quy ước đặt tên file</b> (không dấu, nối bằng dấu gạch dưới):</p>
+        <div class="tbl"><table>
+          <tr><th>Loại</th><th>Mẫu tên</th><th>Ví dụ</th></tr>
+          <tr><td>KHBD</td><td><code>KHBD_[MÔN][Khối]_Bai[số]_T[tiết].docx</code></td><td><code>KHBD_HOA10_Bai3_T5-6.docx</code></td></tr>
+          <tr><td>Slide</td><td><code>Slide_[MÔN][Khối]_Bai[số]_T[tiết].pptx</code></td><td><code>Slide_SINH11_Bai2_T3-4.pptx</code></td></tr>
+          <tr><td>Ma trận, đặc tả</td><td><code>MaTran_DacTa_[MÔN][Khối]_[kỳ].docx</code></td><td><code>MaTran_DacTa_SU12_GKI.docx</code></td></tr>
+        </table></div>
+        <p class="muted" style="margin:8px 0 0;font-size:14px">Mã môn: TOAN, NGUVAN, HOA, SINH, SU, DIA, GDKTPL, ANH, LY, TIN, CN.</p>
+      </section>
+
+      <section class="hd card" id="hoc-sinh">
+        <h2>Dành cho học sinh</h2>
+        <ol class="buoc">
+          <li>Quét <b>mã QR</b> giáo viên chiếu (camera hoặc Zalo), hoặc mở link giáo viên gửi.</li>
+          <li>Chọn đúng <b>lớp</b>, gõ đủ <b>họ và tên</b> như danh sách lớp (gõ không dấu cũng được, máy tự sửa). Bấm “▶ Bắt đầu làm bài”.</li>
+          <li>Phần trả lời ngắn: tối đa 4 kí tự, kể cả dấu “−” và dấu phẩy, ví dụ <code>-1,5</code>.</li>
+          <li>Bấm “Nộp bài” → xem điểm. Đáp án, lời giải hiện khi giáo viên mở lúc chữa bài: mở lại đúng link và bấm “📖 Xem lại bài làm của em và lời giải” (dùng đúng điện thoại đã làm bài).</li>
+        </ol>
+        <p class="muted" style="margin:10px 0 0;font-size:14px">Tự luyện thêm ở trang <a href="luyen_thi.html">Luyện tập</a>.</p>
+      </section>
+
+      <section class="hd" id="hoi-dap">
+        <h2>Hỏi đáp thường gặp</h2>
+        <details><summary>Học sinh báo “Không tìm thấy họ tên trong danh sách lớp”?</summary><p>Lớp đó đã có danh sách trong Google Sheet. Em cần gõ đúng họ tên (có thể không dấu) và chọn đúng lớp. Nếu đúng mà vẫn báo, giáo viên chủ nhiệm kiểm tra lại tên trong trang tính <code>DanhSachHS</code>.</p></details>
+        <details><summary>Không thấy bài mình vừa tạo trong danh sách bài ở trang Quản lý?</summary><p>Đề tự tạo nằm ở “📚 Ngân hàng đề của tôi”. Sau khi có học sinh nộp bài, đề hiện thêm trong danh sách bài ở mục ① (nhóm “chưa có trong danh sách”) để xem kết quả.</p></details>
+        <details><summary>Học sinh làm 2 lần thì tính lần nào?</summary><p>Ở trang Quản lý, ô “Cách tính điểm” chọn: lần làm đầu tiên, lần điểm cao nhất, hoặc hiện tất cả các lần.</p></details>
+        <details><summary>Muốn bài củng cố của môn mình hiện trên trang Luyện tập?</summary><p>Gửi đề (Word, có đáp án và lời giải) cho quản trị. Quản trị đưa vào danh mục môn và trang Quản lý; đáp án được giữ ở kho riêng.</p></details>
+        <details><summary>Mở đáp án rồi mà học sinh vẫn chưa thấy?</summary><p>Học sinh bấm nút “🔄 Giáo viên đã mở đáp án chưa?” hoặc tải lại trang. Trạng thái được cập nhật ngay khi giáo viên bấm mở.</p></details>
+      </section>
+    </div>
+  </div>
+</main>
+<footer class="foot"><div class="in"><span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai</span><span><a href="index.html">Về trang chính</a></span></div></footer>
+</body>
+</html>

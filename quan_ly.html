@@ -113,7 +113,9 @@
   <header>
     <div><h1>🎓 Quản lý bài trực tuyến</h1><div class="sub">Trường THPT Vĩnh Thạnh · Toàn trường · <span id="capnhat">—</span></div><div class="sub" id="xin-chao"></div></div>
     <div class="links">
-      <a href="index.html" target="_blank" rel="noopener">✏️ Tạo đề mới</a>
+      <a href="index.html#gv">🏠 Trang chính</a>
+      <a href="lam_bai.html#tao" target="_blank" rel="noopener">✏️ Tạo đề mới</a>
+      <a href="huong_dan.html" target="_blank" rel="noopener">❓ Hướng dẫn</a>
       <a id="lnk-sheet" class="hidden" href="#" target="_blank" rel="noopener">📑 Google Sheet</a>
       <button id="btn-thoat" class="hidden">Đăng xuất</button>
     </div>
@@ -145,6 +147,7 @@
         <button class="cn" data-v="excel"><span class="ic">⬇️</span>Xuất Excel</button>
         <button class="cn" data-v="chuanop"><span class="ic">👥</span>Chưa nộp bài</button>
         <button class="cn" data-v="dapan"><span class="ic">🔓</span>Mở / khoá đáp án</button>
+        <button class="cn" data-v="nganhang"><span class="ic">📚</span>Ngân hàng đề của tôi</button>
       </div>
       <div class="lopbar" id="lopbar"></div>
     </div>
@@ -304,13 +307,14 @@ function thongKe(list){
 /* ---------- các màn hình ---------- */
 function ve(){
   document.querySelectorAll(".cn").forEach(el=> el.classList.toggle("on", el.dataset.v===VIEW));
-  $("chon-cach").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan" || VIEW==="chuanop");
-  $("lopbar").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan");
+  $("chon-cach").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan" || VIEW==="chuanop" || VIEW==="nganhang");
+  $("lopbar").classList.toggle("hidden", VIEW==="qr" || VIEW==="dapan" || VIEW==="nganhang");
   LIST = chonDong(ROWS.filter(r=> !LOP || r.lop===LOP), $("chon-cach").value);
   const box = $("noi-dung-chinh");
   if(VIEW==="qr") return veQR();
   if(VIEW==="dapan") return veDapAn();
   if(VIEW==="chuanop") return veChuaNop();
+  if(VIEW==="nganhang") return veNganHang();
   if(!LIST.length){ box.innerHTML = '<div class="msg" style="padding:20px;text-align:center">Chưa có học sinh nào nộp bài này' + (LOP ? ' ở lớp ' + esc(LOP) : '') + '. Bấm “📱 Mã QR cho học sinh” để chiếu mã cho học sinh làm bài.</div>'; return; }
   if(VIEW==="xephang"){
     const md = ["🥇","🥈","🥉"];
@@ -379,6 +383,29 @@ async function veChuaNop(){
     ${ds.length ? Object.keys(theoLop).sort().map(l=>`<h3 style="margin:12px 0 6px;font-size:15px">Lớp ${esc(l)} – ${theoLop[l].length} em chưa nộp</h3>
       <div style="columns:3 220px;font-size:14.5px">${theoLop[l].map((t,i)=>`<div>${i+1}. ${esc(t)}</div>`).join("")}</div>`).join("") : '<p style="font-size:16px">🎉 Tất cả học sinh trong danh sách đã nộp bài.</p>'}
     <p class="msg" style="font-size:12.5px;margin-top:10px">Chọn lớp ở thanh “Lớp” phía trên để xem riêng từng lớp. Đối chiếu theo họ tên không dấu.</p>`;
+}
+/* ---------- ngân hàng đề: các đề giáo viên đã tạo bằng trình tạo đề (lưu ở trang tính DeThi) ---------- */
+async function veNganHang(){
+  const box = $("noi-dung-chinh");
+  $("tieu-de").textContent = "📚 Ngân hàng đề của tôi";
+  if(!MA){ box.innerHTML = '<div class="msg" style="padding:20px;text-align:center">Đăng nhập bằng mã giáo viên để xem các đề thầy cô đã tạo.</div>'; return; }
+  box.innerHTML = '<span class="msg">Đang tải ngân hàng đề…</span>';
+  let ds = [];
+  try{ const d = await jsonp({action:"dsDe", key:MA}); if(d.ok === false) throw d.loi; ds = d.ds || []; }
+  catch(e){ box.innerHTML = `<span class="err">⚠ ${esc(e)}</span>`; return; }
+  const goc = new URL("lam_bai.html", location.href).href;
+  box.innerHTML = `<p class="msg" style="margin:0 0 10px">Đề tạo bằng <a href="lam_bai.html#tao" target="_blank" rel="noopener">Trình tạo đề</a> và bấm “Tạo đề &amp; Lấy link” (có mã GV) sẽ tự lưu vào đây. ${GV && GV.admin ? "Quản trị thấy đề của mọi giáo viên." : ""}</p>
+    ${ds.length ? `<div class="tbl"><table><thead><tr><th>#</th><th>Tên đề</th>${GV && GV.admin ? "<th>Giáo viên</th>" : ""}<th>Ngày tạo</th><th></th></tr></thead><tbody>${ds.map((x,i)=>`<tr><td class="num">${i+1}</td><td>${esc(x.tieuDe || x.id)}</td>${GV && GV.admin ? `<td>${esc(x.gv)}</td>` : ""}<td class="num">${x.t ? ngay(x.t) : ""}</td>
+      <td style="white-space:nowrap"><button class="btn ghost nh-qr" data-i="${i}">📱 QR</button> <a class="btn ghost" style="text-decoration:none;display:inline-block" href="${esc(goc + "?de=" + x.id)}" target="_blank" rel="noopener">▶ Mở</a></td></tr>`).join("")}</tbody></table></div>
+      <div id="nh-qr-box" style="margin-top:14px"></div>`
+    : '<div class="msg" style="padding:20px;text-align:center">Thầy cô chưa lưu đề nào. Mở <a href="lam_bai.html#tao" target="_blank" rel="noopener">Trình tạo đề</a> → soạn hoặc nhập file Word → nhập mã GV → “Tạo đề &amp; Lấy link”.</div>'}
+    <p class="msg" style="font-size:12.5px;margin-top:10px">Kết quả học sinh làm các đề này hiện trong danh sách bài ở mục ① (nhóm “chưa có trong danh sách”) sau khi có em nộp bài.</p>`;
+  document.querySelectorAll(".nh-qr").forEach(el=> el.onclick = ()=>{
+    const x = ds[+el.dataset.i], url = goc + "?de=" + x.id, q = $("nh-qr-box");
+    q.innerHTML = `<div class="qrbox"><div id="qr"></div><div class="qrtext"><div class="t">${esc(x.tieuDe || x.id)}</div><p><a href="${esc(url)}" target="_blank" rel="noopener">${esc(url)}</a></p></div></div>`;
+    const v = ()=>{ if(window.QRCode) new QRCode($("qr"), {text:url, width:240, height:240, correctLevel:QRCode.CorrectLevel.M}); else setTimeout(v, 200); }; v();
+    q.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
 }
 /* ---------- mở / khoá đáp án khi chữa bài ---------- */
 async function veDapAn(){

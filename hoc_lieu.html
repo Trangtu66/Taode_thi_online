@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kho học liệu – THPT Vĩnh Thạnh</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="giao_dien.css">
+<style>
+  .loc { display:grid; gap:12px; margin-bottom:14px; }
+  .hang { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .hang > b { font-size:13px; color:var(--muted); width:52px; text-transform:uppercase; letter-spacing:.4px; }
+  .chip { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:6px 12px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+  .chip .n { color:var(--muted); font-weight:400; margin-left:4px; font-variant-numeric:tabular-nums; }
+  .chip.on { background:var(--blue); border-color:var(--blue); color:#fff; } .chip.on .n { color:#DBEAFE; }
+  .tim { width:100%; max-width:420px; padding:10px 12px; border:1px solid #CBD5E1; border-radius:8px; font:inherit; }
+  .bai { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 16px; display:grid; gap:8px; }
+  .bai .tt { font-weight:700; } .bai .meta { font-size:13px; color:var(--muted); }
+  .files { display:flex; flex-wrap:wrap; gap:8px; }
+  .f { display:inline-flex; gap:6px; align-items:center; text-decoration:none; font-size:14px; font-weight:600; border-radius:8px; padding:6px 11px; border:1px solid; }
+  .f small { font-weight:400; opacity:.8; font-variant-numeric:tabular-nums; }
+  .f.khbd { color:#1E40AF; border-color:#BFDBFE; background:#EFF6FF; }
+  .f.slide { color:#B45309; border-color:#FDE68A; background:#FFFBEB; }
+  .f.sodo { color:#166534; border-color:#BBF7D0; background:#F0FDF4; }
+  .f.ma_tran { color:#6B21A8; border-color:#E9D5FF; background:#FAF5FF; }
+  .ds { display:grid; gap:10px; }
+  .nhom { margin:18px 0 8px; font-size:15px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  .rong { padding:24px; text-align:center; color:var(--muted); background:#fff; border:1px dashed #CBD5E1; border-radius:12px; }
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Kho học liệu</b><small>Trường THPT Vĩnh Thạnh – Gia Lai</small></span></a>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chính</a><a href="luyen_thi.html">Luyện tập</a><a href="hoc_lieu.html" class="on">Kho học liệu</a>
+    <a href="quan_ly.html">Quản lý (GV)</a><a href="huong_dan.html">Hướng dẫn</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <h1>Kho học liệu</h1>
+  <p class="lead">Kế hoạch bài dạy (Word), slide bài giảng (PowerPoint), sơ đồ tư duy và ma trận đề của các tổ chuyên môn. Chọn môn, khối rồi bấm vào file để tải về. Đề có đáp án không đặt ở đây (chỉ giáo viên giữ).</p>
+  <div class="loc card">
+    <div class="hang" id="l-mon"><b>Môn</b></div>
+    <div class="hang" id="l-khoi"><b>Khối</b></div>
+    <div class="hang" id="l-loai"><b>Loại</b></div>
+    <input class="tim" id="tim" type="search" placeholder="Tìm tên bài, ví dụ: cấp số cộng, thần thoại…" aria-label="Tìm học liệu">
+  </div>
+  <p class="muted" id="dem" style="margin:0 0 6px;font-size:14px"></p>
+  <div id="ket-qua"></div>
+  <div class="note blue" style="margin-top:22px">Muốn đưa KHBD, slide của mình vào kho? Xem <a href="huong_dan.html#dong-gop">Hướng dẫn đóng góp học liệu</a>.</div>
+</main>
+<footer class="foot"><div class="in"><span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai</span><span><a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
+
+<script src="hoc_lieu.js"></script>
+<script>
+const HL = window.HOC_LIEU || [], TEN = window.TEN_MON || {};
+const LOAI = [["", "Tất cả"], ["khbd", "Kế hoạch bài dạy"], ["slide", "Slide"], ["sodo", "Sơ đồ tư duy"], ["ma_tran", "Ma trận, đặc tả"]];
+const loaiCua = x => x.loai === "khbd" && /^SoDoTuDuy_/.test(x.file) ? "sodo" : x.loai;
+const NHAN = {khbd: "📄 KHBD", slide: "📊 Slide", sodo: "🧠 Sơ đồ tư duy", ma_tran: "📋 Ma trận"};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const kd = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+const DUOI = f => f.split(".").pop().toUpperCase();
+const ST = {mon: "", khoi: "", loai: "", q: ""};
+try { Object.assign(ST, JSON.parse(localStorage.getItem("hoc_lieu_loc") || "{}"), {q: ""}); } catch (e) {}
+const h0 = location.hash.slice(1); if (TEN[h0]) ST.mon = h0;
+
+// gom các file cùng một bài (KHBD + slide + sơ đồ + PDF) thành một thẻ
+function khoaBai(x) {
+  const g = x.file.replace(/\.[^.]+$/, "").replace(/^(KHBD|Slide|SoDoTuDuy|MaTran_DacTa)_/, "").replace(/_v\d+$/, "");
+  const m = g.match(/CD(\d+)_Bai(\d+)/) || g.match(/BaiTapCuoiChuong(\d+)/) || g.match(/Bai(\d+)/);
+  return x.mon + "|" + x.khoi + "|" + (x.loai === "ma_tran" ? "mt|" + g : (m ? m[0] : g));
+}
+function locBo(bo) { return HL.filter(x => (bo !== "mon" && ST.mon && x.mon !== ST.mon) ? false
+  : (bo !== "khoi" && ST.khoi && String(x.khoi) !== ST.khoi) ? false
+  : (bo !== "loai" && ST.loai && loaiCua(x) !== ST.loai) ? false
+  : !(ST.q && !kd(x.ten + " " + x.file + " " + x.tenMon).includes(kd(ST.q)))); }
+function chips(id, ds, khoaST, bo) {
+  const nguon = locBo(bo), el = document.getElementById(id), nhan = el.querySelector("b").outerHTML;
+  el.innerHTML = nhan + ds.map(([v, t]) => { const n = v ? nguon.filter(x => (bo === "mon" ? x.mon : bo === "khoi" ? String(x.khoi) : loaiCua(x)) === v).length : nguon.length;
+    return (n || !v || ST[khoaST] === v) ? `<button class="chip${ST[khoaST] === v ? " on" : ""}" data-v="${v}">${t}<span class="n">${n}</span></button>` : ""; }).join("");
+  el.querySelectorAll(".chip").forEach(b => b.onclick = () => { ST[khoaST] = b.dataset.v; ve(); });
+}
+function ve() {
+  try { localStorage.setItem("hoc_lieu_loc", JSON.stringify({mon: ST.mon, khoi: ST.khoi, loai: ST.loai})); } catch (e) {}
+  const mons = [...new Set(HL.map(x => x.mon))].sort((a, b) => (a === "toan" ? -1 : b === "toan" ? 1 : (TEN[a] || a).localeCompare(TEN[b] || b, "vi")));
+  chips("l-mon", [["", "Tất cả"]].concat(mons.map(m => [m, TEN[m] || m])), "mon", "mon");
+  chips("l-khoi", [["", "Tất cả"], ["10", "Lớp 10"], ["11", "Lớp 11"], ["12", "Lớp 12"]], "khoi", "khoi");
+  chips("l-loai", LOAI, "loai", "loai");
+  const ds = locBo(null), bai = new Map();
+  ds.forEach(x => { const k = khoaBai(x); if (!bai.has(k)) bai.set(k, []); bai.get(k).push(x); });
+  const the = [...bai.values()].map(fs => {
+    fs.sort((a, b) => ["khbd", "slide", "sodo", "ma_tran"].indexOf(loaiCua(a)) - ["khbd", "slide", "sodo", "ma_tran"].indexOf(loaiCua(b)));
+    const chinh = fs.find(x => loaiCua(x) === "slide") || fs.find(x => loaiCua(x) === "khbd") || fs[0];
+    return {fs, ten: chinh.ten.replace(/^Sơ đồ tư duy – /, "").replace(/ \((bản \d+|PDF)\)$/, ""), mon: chinh.mon, khoi: chinh.khoi,
+            ngay: fs.map(x => x.ngay).sort().pop()};
+  });
+  const so = s => { const m = s.match(/^(Chuyên đề (\d+)|Bài (\d+))/); return m ? (m[2] ? 100 + +m[2] : +m[3]) : 999; };
+  the.sort((a, b) => mons.indexOf(a.mon) - mons.indexOf(b.mon) || a.khoi - b.khoi || so(a.ten) - so(b.ten) || a.ten.localeCompare(b.ten, "vi"));
+  document.getElementById("dem").textContent = ds.length ? `${ds.length} file · ${the.length} bài` : "";
+  if (!the.length) { document.getElementById("ket-qua").innerHTML = `<div class="rong">Chưa có học liệu phù hợp. Thử bỏ bớt bộ lọc hoặc xoá ô tìm kiếm.</div>`; return; }
+  let html = "", nhom = "";
+  the.forEach(t => {
+    const n = (TEN[t.mon] || t.mon) + (t.khoi ? " " + t.khoi : "");
+    if (n !== nhom) { html += (nhom ? "</div>" : "") + `<h2 class="nhom">${esc(n)}</h2><div class="ds">`; nhom = n; }
+    html += `<div class="bai"><div><div class="tt">${esc(t.ten)}</div><div class="meta">Cập nhật ${t.ngay.split("-").reverse().join("/")}</div></div><div class="files">` +
+      t.fs.map(x => { const l = loaiCua(x), ph = (x.ten.match(/\((bản \d+)\)$/) || [])[1];
+        return `<a class="f ${l}" href="${esc(x.url)}" download title="${esc(x.file)}">${NHAN[l]}${ph ? " · " + ph : ""} <small>${DUOI(x.file)} · ${x.kb >= 1024 ? (x.kb / 1024).toFixed(1).replace(".", ",") + " MB" : x.kb + " KB"}</small></a>`; }).join("") + `</div></div>`;
+  });
+  document.getElementById("ket-qua").innerHTML = html + "</div>";
+}
+document.getElementById("tim").oninput = e => { ST.q = e.target.value.trim(); ve(); };
+ve();
+</script>
+</body>
+</html>

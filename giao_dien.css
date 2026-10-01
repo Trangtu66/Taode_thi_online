@@ -1,0 +1,36 @@
+/* Giao diện chung – Hệ thống học tập trực tuyến THPT Vĩnh Thạnh (trang chính, kho học liệu, hướng dẫn) */
+:root { --blue:#1E40AF; --blue2:#1D4ED8; --blue-bg:#EFF4FF; --red:#991B1B; --red-bg:#FEF2F2; --green:#166534; --green-bg:#ECFDF3;
+        --amber:#B45309; --amber-bg:#FFFBEB; --ink:#1E293B; --muted:#5B6474; --bg:#F6F7FB; --card:#FFFFFF; --line:#E2E8F0; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:"Be Vietnam Pro",Calibri,"Segoe UI",Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+a { color:var(--blue); }
+.top { background:var(--blue); color:#fff; }
+.top .in { max-width:1120px; margin:0 auto; padding:14px 16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.logo { display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; }
+.logo b { font-size:18px; letter-spacing:.2px; } .logo small { display:block; opacity:.85; font-size:12.5px; }
+.logo .dot { width:38px; height:38px; border-radius:10px; background:#fff; color:var(--blue); display:grid; place-items:center; font-weight:800; font-size:18px; }
+.nav { margin-left:auto; display:flex; gap:4px; flex-wrap:wrap; }
+.nav a { color:#fff; text-decoration:none; padding:7px 11px; border-radius:8px; font-size:14px; opacity:.92; }
+.nav a:hover, .nav a.on { background:rgba(255,255,255,.16); opacity:1; }
+.wrap { max-width:1120px; margin:0 auto; padding:22px 16px 40px; }
+h1 { font-size:26px; margin:0 0 6px; text-wrap:balance; }
+h2 { font-size:20px; margin:28px 0 12px; text-wrap:balance; }
+h3 { font-size:16.5px; margin:0 0 6px; }
+.lead { color:var(--muted); margin:0 0 18px; max-width:760px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+.grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); }
+.btn { display:inline-flex; align-items:center; gap:6px; border:0; border-radius:8px; padding:9px 15px; font:inherit; font-weight:700; font-size:14.5px;
+       cursor:pointer; text-decoration:none; background:var(--blue); color:#fff; }
+.btn:hover { background:var(--blue2); }
+.btn.ghost { background:#fff; color:var(--blue); border:1px solid #C7D2FE; }
+.btn.green { background:var(--green); } .btn.red { background:var(--red); }
+.btn:focus-visible, .nav a:focus-visible, button:focus-visible { outline:3px solid #93C5FD; outline-offset:2px; }
+.tag { display:inline-block; font-size:12px; font-weight:700; padding:2px 8px; border-radius:999px; background:var(--blue-bg); color:var(--blue); }
+.muted { color:var(--muted); }
+.steps { margin:8px 0 0; padding-left:20px; font-size:14px; color:#334155; } .steps li { margin:2px 0; }
+.note { border-left:4px solid var(--amber); background:var(--amber-bg); border-radius:8px; padding:10px 14px; font-size:14px; }
+.note.blue { border-color:var(--blue); background:var(--blue-bg); } .note.red { border-color:var(--red); background:var(--red-bg); }
+.foot { border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+.foot .in { max-width:1120px; margin:0 auto; padding:16px; display:flex; gap:16px; flex-wrap:wrap; justify-content:space-between; }
+@media (max-width:640px){ h1{font-size:22px;} .nav{margin-left:0;} .top .in{padding:12px 16px;} }
