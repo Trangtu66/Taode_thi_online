@@ -100,6 +100,48 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 2. Trao đổi nước và khoáng ở thực vật",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai2_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai2_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.9 – 21"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 3. Thực hành trao đổi nước và khoáng ở thực vật",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai3_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai3_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.22 – 25"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 4. Quang hợp ở thực vật",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai4_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai4_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.26 – 34"
+   },
+   {
+    "khu": "cc",
     "khoi": 12,
     "ten": "Bài 1. DNA và cơ chế tái bản DNA",
     "phut": 10,
@@ -111,6 +153,48 @@ window.MON_DEMO = {
     "link": "sinh_cc_bai1_k12.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai1_k12.docx",
     "nguon": "SGK Sinh học 12 (KNTT), tr.5 – 8"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai2_k12.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai2_k12.docx",
+    "nguon": "SGK Sinh học 12 (KNTT), tr.9 – 17"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 3. Điều hoà biểu hiện gene",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai3_k12.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai3_k12.docx",
+    "nguon": "SGK Sinh học 12 (KNTT), tr.18 – 22"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 4. Đột biến gene",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     1
+    ],
+    "link": "sinh_cc_bai4_k12.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai4_k12.docx",
+    "nguon": "SGK Sinh học 12 (KNTT), tr.23 – 26"
    }
   ]
  },

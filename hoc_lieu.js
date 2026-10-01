@@ -467,11 +467,110 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 11,
+"ten": "BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
+"file": "KHBD_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.docx",
+"kb": 1895,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
+"file": "KHBD_SINH11_Bai4_QuangHopOThucVat_T8-10.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai4_QuangHopOThucVat_T8-10.docx",
+"kb": 1907,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.docx",
+"kb": 1901,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
 "kb": 154,
 "ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
+"file": "SoDoTuDuy_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.png",
+"kb": 143,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
+"file": "SoDoTuDuy_SINH11_Bai4_QuangHopOThucVat_T8-10.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai4_QuangHopOThucVat_T8-10.png",
+"kb": 157,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.png",
+"kb": 149,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
+"file": "KHBD_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.docx",
+"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.docx",
+"kb": 1908,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "KHBD_SINH12_Bai3_DieuHoaBieuHienGene_T5.docx",
+"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai3_DieuHoaBieuHienGene_T5.docx",
+"kb": 1902,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH12_Bai4_DotBienGene_T6-7.docx",
+"url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai4_DotBienGene_T6-7.docx",
+"kb": 1888,
+"ngay": "2026-10-02"
 },
 {
 "mon": "sinh_hoc",
@@ -483,6 +582,39 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
 "kb": 1910,
 "ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
+"file": "SoDoTuDuy_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.png",
+"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.png",
+"kb": 158,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "SoDoTuDuy_SINH12_Bai3_DieuHoaBieuHienGene_T5.png",
+"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai3_DieuHoaBieuHienGene_T5.png",
+"kb": 154,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH12_Bai4_DotBienGene_T6-7.png",
+"url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai4_DotBienGene_T6-7.png",
+"kb": 140,
+"ngay": "2026-10-02"
 },
 {
 "mon": "sinh_hoc",
@@ -549,6 +681,72 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
 "kb": 221,
 "ngay": "2026-10-01"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
+"file": "Slide_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.pptx",
+"kb": 218,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
+"file": "Slide_SINH11_Bai4_QuangHopOThucVat_T8-10.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai4_QuangHopOThucVat_T8-10.pptx",
+"kb": 236,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.pptx",
+"kb": 221,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 12,
+"ten": "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
+"file": "Slide_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.pptx",
+"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.pptx",
+"kb": 238,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 12,
+"ten": "BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "Slide_SINH12_Bai3_DieuHoaBieuHienGene_T5.pptx",
+"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai3_DieuHoaBieuHienGene_T5.pptx",
+"kb": 216,
+"ngay": "2026-10-02"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 12,
+"ten": "BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH12_Bai4_DotBienGene_T6-7.pptx",
+"url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai4_DotBienGene_T6-7.pptx",
+"kb": 202,
+"ngay": "2026-10-02"
 },
 {
 "mon": "sinh_hoc",

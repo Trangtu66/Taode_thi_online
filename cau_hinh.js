@@ -70,6 +70,9 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 3. Cầu hiền chiếu (Ngô Thì Nhậm); Tôi có một ước mơ (M. L. Kinh)", ma: "Củng cố – Ngữ văn 11 · Bài 3: Cầu hiền chiếu; Tôi có một ước mơ", link: "van_cc_bai3_k11.html" },
   { khoi: 11, nhom: "Ngữ văn 11 · Củng cố đọc hiểu", ten: "Bài 3. Một thời đại trong thi ca (Hoài Thanh)", ma: "Củng cố – Ngữ văn 11 · Bài 3: Một thời đại trong thi ca (Hoài Thanh)", link: "van_cc_thoidaithica_k11.html" },
   { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng", ma: "Củng cố – Sinh học 11 · Bài 1: Khái quát về trao đổi chất và chuyển hoá năng lượng", link: "sinh_cc_bai1_k11.html" },
+  { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 2. Trao đổi nước và khoáng ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 2: Trao đổi nước và khoáng ở thực vật", link: "sinh_cc_bai2_k11.html" },
+  { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 3. Thực hành trao đổi nước và khoáng ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 3: Thực hành trao đổi nước và khoáng ở thực vật", link: "sinh_cc_bai3_k11.html" },
+  { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 4. Quang hợp ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 4: Quang hợp ở thực vật", link: "sinh_cc_bai4_k11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
@@ -84,6 +87,9 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 3. Nhìn về vốn văn hoá dân tộc; Năng lực sáng tạo", ma: "Củng cố – Ngữ văn 12 · Bài 3: Nhìn về vốn văn hoá dân tộc; Năng lực sáng tạo", link: "van_cc_bai3_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 3. Mấy ý nghĩ về thơ (Nguyễn Đình Thi)", ma: "Củng cố – Ngữ văn 12 · Bài 3: Mấy ý nghĩ về thơ (Nguyễn Đình Thi)", link: "van_cc_mayynghivetho_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 1. DNA và cơ chế tái bản DNA", ma: "Củng cố – Sinh học 12 · Bài 1: DNA và cơ chế tái bản DNA", link: "sinh_cc_bai1_k12.html" },
+  { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền", ma: "Củng cố – Sinh học 12 · Bài 2: Gene, hệ gene và quá trình truyền đạt thông tin di truyền", link: "sinh_cc_bai2_k12.html" },
+  { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 3. Điều hoà biểu hiện gene", ma: "Củng cố – Sinh học 12 · Bài 3: Điều hoà biểu hiện gene", link: "sinh_cc_bai3_k12.html" },
+  { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 4. Đột biến gene", ma: "Củng cố – Sinh học 12 · Bài 4: Đột biến gene", link: "sinh_cc_bai4_k12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
