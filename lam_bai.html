@@ -432,6 +432,11 @@
         <div class="field-error" id="lop-error">Vui lòng nhập lớp trước khi bắt đầu làm bài.</div>
       </div>
       <button class="btn-primary" id="start-btn">▶ Bắt đầu làm bài</button>
+      <div id="dapan-box" class="hidden" style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--paper-line);">
+        <p style="margin:0 0 8px;color:var(--good);font-weight:600;">✅ Giáo viên đã mở đáp án và lời giải của đề này.</p>
+        <button class="btn-primary" id="xem-bailam-btn" style="background:#166534;" type="button">📖 Xem lại bài làm của em và lời giải</button>
+        <button class="btn-primary" id="xem-dapan-btn" style="background:#475569;margin-left:6px;" type="button">📋 Xem đáp án, lời giải (chữa bài)</button>
+      </div>
     </div>
   </section>
 
@@ -464,6 +469,11 @@
       <h3 style="margin-bottom:8px;">Xem bảng xếp hạng</h3>
       <p style="color:var(--ink-soft);font-size:14px;margin:0 0 6px;">Điểm của bạn vừa được ghi nhận. Bấm nút dưới để xem toàn bộ bảng xếp hạng.</p>
       <a class="btn-primary" id="rank-link" href="#" target="_blank" rel="noopener" style="text-decoration:none;">🏆 Xem bảng xếp hạng</a>
+    </div>
+    <div class="card hidden" id="dapan-khoa" style="text-align:center;">
+      <h3 style="margin:0 0 6px;">🔒 Đáp án và lời giải đang khoá</h3>
+      <p style="margin:0;color:var(--ink-soft);">Giáo viên sẽ mở đáp án khi chữa bài trên lớp. Bài làm của em đã được lưu trên thiết bị này –
+      khi giáo viên mở, em mở lại đúng đường link (hoặc quét lại mã QR) để xem lại bài làm kèm lời giải.</p>
     </div>
     <div id="review-list"></div>
   </section>
@@ -1092,6 +1102,14 @@ function initStudentFlow(examObj){
   document.getElementById("page-title").textContent = EXAM.meta.title || "Đề kiểm tra trực tuyến";
   document.getElementById("page-subtitle").textContent = EXAM.meta.subtitle || "";
   document.getElementById("landing-title").textContent = EXAM.meta.title || "Đề kiểm tra";
+  if(duocXemDapAn()){
+    const bl = docBaiLam();
+    document.getElementById("dapan-box").classList.remove("hidden");
+    const b1 = document.getElementById("xem-bailam-btn");
+    if(bl){ b1.onclick = ()=> hienKetQuaDaLuu(bl, "Bài làm đã lưu trên thiết bị này – kèm đáp án, lời giải"); }
+    else b1.classList.add("hidden");
+    document.getElementById("xem-dapan-btn").onclick = ()=> hienKetQuaDaLuu(null, "Đáp án và lời giải (giáo viên đã mở để chữa bài)");
+  }
 
   const totalQ = EXAM.parts.reduce((s,p)=>s+p.questions.length,0);
   const maxPoints = computeMaxPoints(EXAM);
@@ -1450,7 +1468,9 @@ function submitExam(auto){
     saveScoreToRanking(scaledTotal, partResults);
   }
 
-  renderReview(partResults);
+  luuBaiLam(partResults, scaledTotal);
+  if(duocXemDapAn()) renderReview(partResults);
+  else { document.getElementById("review-list").innerHTML = ""; document.getElementById("dapan-khoa").classList.remove("hidden"); }
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
@@ -1474,6 +1494,30 @@ function saveScoreToRanking(scaledTotal, partResults){
 function ketQuaApi(){
   const u = (EXAM.leaderboard && EXAM.leaderboard.apiUrl) || window.KQ_API || "";
   return /^https:\/\/script\.google(usercontent)?\.com\//.test(u) ? u : "";
+}
+/* MỚI: học sinh chỉ xem đáp án, lời giải khi GV cho phép (chữa bài).
+   GV mở bằng cách thêm tên đề (meta.title) vào window.MO_DAP_AN trong cau_hinh.js ("*" = mở tất cả). */
+function duocXemDapAn(){
+  const ds = window.MO_DAP_AN || [];
+  return ds.includes("*") || ds.includes(maBai());
+}
+function khoaLuu(){ return "tdt_bailam_" + maBai(); }
+function luuBaiLam(partResults, diem){
+  try{ localStorage.setItem(khoaLuu(), JSON.stringify({ten: studentName, lop: studentLop, diem, ts: Date.now(),
+    parts: partResults.map(r=>({part: r.part, score: r.score, details: r.details}))})); }catch(e){}
+}
+function docBaiLam(){ try{ return JSON.parse(localStorage.getItem(khoaLuu()) || "null"); }catch(e){ return null; } }
+function hienKetQuaDaLuu(bl, cheDo){
+  document.getElementById("screen-landing").classList.add("hidden");
+  document.getElementById("screen-results").classList.remove("hidden");
+  document.getElementById("dapan-khoa").classList.add("hidden");
+  document.getElementById("score-total").textContent = bl ? Number(bl.diem).toFixed(2) : "—";
+  document.getElementById("score-name").textContent = bl ? bl.ten + (bl.lop ? " – " + bl.lop : "") : "Đáp án, lời giải";
+  document.getElementById("score-breakdown").innerHTML = bl ? bl.parts.map((r,i)=>`<span>Phần ${i+1}: ${r.score.toFixed(2)}đ</span>`).join("") : "";
+  document.getElementById("score-sub").textContent = cheDo;
+  renderReview(bl ? bl.parts : EXAM.parts.map(part=>({part, score:0, details: part.questions.map(q=>(
+    part.type==="mcq" ? {q, userAns:null, ok:false, pts:0} : part.type==="tf" ? {q, userAns:[null,null,null,null], correctCount:0, pts:0} : {q, userAns:"", ok:false, pts:0}))})));
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 function maBai(){ return (EXAM.meta.quizId || EXAM.meta.title || "de-kiem-tra").trim(); }
 function maThietBi(){

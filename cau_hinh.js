@@ -8,6 +8,12 @@ window.KQ_API = "https://script.google.com/macros/s/AKfycbz-yf2unZA961vY5ACGaedB
 // vẫn cần mã giáo viên. Khi muốn CHỐT LẠI (bắt buộc mã giáo viên), đổi true thành false.
 window.CONG_KHAI_KET_QUA = true;
 
+// MỞ ĐÁP ÁN KHI CHỮA BÀI: học sinh chỉ xem đáp án, lời giải của đề khi tên đề có trong danh sách này.
+// Ghi đúng tên đề (cột "ma" trong DANH_SACH_BAI, ví dụ "Củng cố – Bài 1. ..."), hoặc "*" để mở tất cả.
+// Mặc định để trống = khoá đáp án mọi đề.
+window.MO_DAP_AN = [
+];
+
 // (Tùy chọn) Link mở Google Sheet kết quả — dán link trình duyệt của bảng tính vào đây để có nút "Mở Google Sheet".
 window.KQ_SHEET = "";
 
