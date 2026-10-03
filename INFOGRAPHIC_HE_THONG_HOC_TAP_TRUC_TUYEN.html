@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Hệ thống học tập trực tuyến – THPT Vĩnh Thạnh</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap">
+<style>
+  :root { --blue:#1E40AF; --blue2:#3B82F6; --sky:#EFF4FF; --red:#991B1B; --amber:#D97706; --green:#15803D; --ink:#1E293B; --muted:#5B6474; --line:#E2E8F0; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9EDF5; font-family:"Be Vietnam Pro",Calibri,Arial,sans-serif; color:var(--ink); }
+  .page { width:1240px; margin:0 auto; background:#fff; }
+  .hero { background:linear-gradient(135deg,#1E3A8A 0%,#1E40AF 55%,#2563EB 100%); color:#fff; padding:46px 56px 40px; position:relative; overflow:hidden; }
+  .hero::after { content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px; border-radius:50%; background:rgba(255,255,255,.07); }
+  .school { font-size:17px; letter-spacing:2px; text-transform:uppercase; opacity:.85; font-weight:600; }
+  .hero h1 { font-size:52px; line-height:1.1; margin:12px 0 10px; font-weight:900; }
+  .hero h1 span { color:#FDE68A; }
+  .hero p { font-size:20px; margin:0; opacity:.92; max-width:820px; }
+  .url { display:inline-block; margin-top:20px; background:#fff; color:var(--blue); font-weight:800; font-size:20px; padding:10px 20px; border-radius:999px; }
+  .stats { display:grid; grid-template-columns:repeat(5,1fr); gap:0; background:#0F2A6B; color:#fff; }
+  .stat { padding:22px 10px; text-align:center; border-right:1px solid rgba(255,255,255,.12); }
+  .stat:last-child { border-right:0; }
+  .stat b { display:block; font-size:44px; font-weight:900; color:#FDE68A; font-variant-numeric:tabular-nums; line-height:1.05; }
+  .stat span { font-size:15px; opacity:.9; }
+  section { padding:34px 56px 6px; }
+  h2 { font-size:28px; margin:0 0 6px; color:var(--blue); font-weight:800; display:flex; align-items:center; gap:12px; }
+  h2 .n { width:40px; height:40px; border-radius:10px; background:var(--blue); color:#fff; display:grid; place-items:center; font-size:20px; }
+  .sub { color:var(--muted); margin:0 0 18px; font-size:16px; }
+  .flow { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; position:relative; }
+  .step { background:var(--sky); border-radius:16px; padding:18px 14px 16px; text-align:center; position:relative; }
+  .step .ic { font-size:40px; }
+  .step b { display:block; font-size:17px; margin:6px 0 4px; color:var(--blue); }
+  .step small { font-size:13.5px; color:#334155; line-height:1.4; display:block; }
+  .step .k { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--red); color:#fff; font-weight:800; font-size:13px; border-radius:999px; padding:2px 10px; }
+  .flow .step:not(:last-child)::after { content:"➜"; position:absolute; right:-14px; top:42%; color:var(--blue2); font-size:20px; z-index:1; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .card { border:2px solid var(--line); border-radius:18px; padding:20px 22px; }
+  .card h3 { margin:0 0 10px; font-size:21px; display:flex; gap:10px; align-items:center; }
+  .card.hs { border-color:#BBF7D0; background:#F0FDF4; } .card.hs h3 { color:var(--green); }
+  .card.gv { border-color:#BFDBFE; background:#F5F8FF; } .card.gv h3 { color:var(--blue); }
+  .li { display:flex; gap:12px; align-items:flex-start; margin:9px 0; font-size:16px; line-height:1.4; }
+  .li .d { flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-weight:800; color:#fff; font-size:14px; }
+  .hs .d { background:var(--green); } .gv .d { background:var(--blue); }
+  .pack { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
+  .it { border-radius:14px; padding:16px 10px; text-align:center; color:#fff; }
+  .it .ic { font-size:34px; } .it b { display:block; font-size:16px; margin-top:4px; } .it small { font-size:12.5px; opacity:.92; }
+  .safe { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .sf { background:#FFF7ED; border:2px solid #FED7AA; border-radius:14px; padding:16px; }
+  .sf b { color:#9A3412; display:block; font-size:16px; margin:4px 0; } .sf small { font-size:13.5px; color:#44403C; line-height:1.45; display:block; }
+  .sf .ic { font-size:28px; }
+  .mon { display:flex; flex-wrap:wrap; gap:10px; }
+  .mon span { background:var(--sky); color:var(--blue); font-weight:700; padding:8px 16px; border-radius:999px; font-size:16px; }
+  .mon span.on { background:var(--blue); color:#fff; }
+  footer { margin-top:30px; background:#0F2A6B; color:#fff; padding:22px 56px; display:flex; justify-content:space-between; align-items:center; font-size:15px; }
+  footer b { color:#FDE68A; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="school">Sở GD&ĐT Gia Lai · Trường THPT Vĩnh Thạnh · Năm học 2026 – 2027</div>
+    <h1>Hệ thống học tập trực tuyến<br><span>ứng dụng trí tuệ nhân tạo</span></h1>
+    <p>Soạn kế hoạch bài dạy – slide – kiểm tra trực tuyến – quản lý kết quả trên một nền tảng duy nhất, miễn phí, dùng chung cho toàn trường.</p>
+    <div class="url">🌐 trangtu66.github.io/Taode_thi_online</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>61</b><span>bài kiểm tra trực tuyến</span></div>
+    <div class="stat"><b>91</b><span>học liệu dùng chung</span></div>
+    <div class="stat"><b>8</b><span>môn học tham gia</span></div>
+    <div class="stat"><b>45</b><span>giáo viên có mã riêng</span></div>
+    <div class="stat"><b>938</b><span>học sinh · 21 lớp</span></div>
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>Quy trình soạn một bài học trọn gói</h2>
+    <p class="sub">Giáo viên chỉ cần nói tên bài và khối – trợ lý AI làm phần còn lại, giáo viên soát và điều chỉnh.</p>
+    <div class="flow">
+      <div class="step"><span class="k">Bước 1</span><div class="ic">📚</div><b>Đọc tài liệu</b><small>PPCT · SGK · SGV<br>KHBD mẫu của tổ</small></div>
+      <div class="step"><span class="k">Bước 2</span><div class="ic">📝</div><b>Soạn KHBD</b><small>Đúng mẫu từng môn, đủ mục SGK, năng lực số – AI</small></div>
+      <div class="step"><span class="k">Bước 3</span><div class="ic">📊</div><b>Slide & sơ đồ</b><small>Đề bài / lời giải tách đôi, video chính thống, QR</small></div>
+      <div class="step"><span class="k">Bước 4</span><div class="ic">📱</div><b>Củng cố online</b><small>Trắc nghiệm 3 mức độ, đảo câu, khoá đáp án</small></div>
+      <div class="step"><span class="k">Bước 5</span><div class="ic">☁️</div><b>Lưu & chia sẻ</b><small>Kho học liệu theo môn, lưu trữ vĩnh viễn</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Một tiết học có kiểm tra trực tuyến</h2>
+    <p class="sub">Không cần tài khoản, không cần cài ứng dụng – chỉ cần điện thoại có mạng.</p>
+    <div class="two">
+      <div class="card gv"><h3>👩‍🏫 Giáo viên</h3>
+        <div class="li"><span class="d">1</span><span>Vào <b>Quản lý</b> bằng mã giáo viên, chọn bài, <b>chiếu mã QR</b></span></div>
+        <div class="li"><span class="d">2</span><span>Xem <b>xếp hạng, câu sai nhiều, em chưa nộp</b> ngay khi học sinh nộp bài</span></div>
+        <div class="li"><span class="d">3</span><span><b>Mở đáp án</b> để chữa bài, chữa xong <b>khoá lại</b></span></div>
+        <div class="li"><span class="d">4</span><span><b>Xuất Excel</b> vào sổ điểm; tự tạo đề từ file Word</span></div>
+      </div>
+      <div class="card hs"><h3>🎓 Học sinh</h3>
+        <div class="li"><span class="d">1</span><span><b>Quét mã QR</b> bằng camera hoặc Zalo</span></div>
+        <div class="li"><span class="d">2</span><span>Chọn lớp, gõ <b>họ tên</b> – hệ thống đối chiếu danh sách lớp</span></div>
+        <div class="li"><span class="d">3</span><span>Làm bài có <b>tính giờ</b>, nộp bài, biết <b>điểm ngay</b></span></div>
+        <div class="li"><span class="d">4</span><span>Xem <b>lời giải chi tiết</b> khi giáo viên mở đáp án</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>Mỗi bài học nhận được</h2>
+    <p class="sub">Một bộ học liệu hoàn chỉnh, lưu đúng thư mục môn – khối.</p>
+    <div class="pack">
+      <div class="it" style="background:#1E40AF"><div class="ic">📄</div><b>KHBD Word</b><small>4 hoạt động, phụ lục, rubric</small></div>
+      <div class="it" style="background:#B45309"><div class="ic">🖥️</div><b>Slide</b><small>35 – 40 trang, đúng quy chuẩn</small></div>
+      <div class="it" style="background:#15803D"><div class="ic">🧠</div><b>Sơ đồ tư duy</b><small>Củng cố cuối bài</small></div>
+      <div class="it" style="background:#991B1B"><div class="ic">🎬</div><b>Video</b><small>Kênh chính thống, đã kiểm tra</small></div>
+      <div class="it" style="background:#6D28D9"><div class="ic">✅</div><b>Đề củng cố</b><small>Làm trên điện thoại</small></div>
+      <div class="it" style="background:#0E7490"><div class="ic">🔳</div><b>Mã QR</b><small>In vào KHBD, chiếu trên slide</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>An toàn – bảo mật – trung thực</h2>
+    <p class="sub">Dữ liệu cá nhân của học sinh và đáp án được bảo vệ.</p>
+    <div class="safe">
+      <div class="sf"><div class="ic">🔑</div><b>Mã giáo viên riêng</b><small>45 mã, không công khai; chỉ giáo viên xem được đáp án từng câu</small></div>
+      <div class="sf"><div class="ic">👥</div><b>Danh sách lớp</b><small>Chỉ lưu trong Google Sheet của trường; học sinh phải đúng tên mới làm bài</small></div>
+      <div class="sf"><div class="ic">🔒</div><b>Khoá đáp án</b><small>Học sinh chỉ thấy lời giải khi giáo viên cho phép lúc chữa bài</small></div>
+      <div class="sf"><div class="ic">🤖</div><b>Dùng AI có trách nhiệm</b><small>Giáo viên soát lại nội dung; học sinh ghi Nhật ký sử dụng AI</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>Môn học trên hệ thống</h2>
+    <p class="sub">Đậm màu: đã có KHBD, slide trọn gói · Nhạt: đã có bài trực tuyến hoặc đang mở rộng – các tổ gửi PPCT và KHBD mẫu để bổ sung.</p>
+    <div class="mon"><span class="on">📐 Toán</span><span class="on">📚 Ngữ văn</span><span>🔤 Tiếng Anh</span><span>⚗️ Hoá học</span><span>🧬 Sinh học</span><span>🏛️ Lịch sử</span><span>🌏 Địa lí</span><span>⚖️ GDKT&PL</span><span>⚡ Vật lí</span><span>💻 Tin học</span></div>
+  </section>
+
+  <footer><span>Người xây dựng: <b>Trương Tử Trang</b> · Tổ Toán · THPT Vĩnh Thạnh</span><span>Chuyển đổi số trong dạy học · 2026 – 2027</span></footer>
+</div>
+</body>
+</html>
