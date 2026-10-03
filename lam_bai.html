@@ -281,12 +281,12 @@
         <ul class="word-rules">
           <li>Mỗi câu bắt đầu bằng <b>Câu 1.</b>, <b>Câu 2:</b> …; theo thứ tự PHẦN I, PHẦN II, PHẦN III.</li>
           <li>Phần I: phương án <b>A. B. C. D.</b>; Phần II: các ý <b>a) b) c) d)</b>; Phần III: câu hỏi trả lời ngắn (đáp án tối đa 4 kí tự).</li>
-          <li><b>Không cần đánh đáp án</b>: sau khi nhập, bấm <b>🤖 Nhờ Claude giải</b> để Claude tự giải, gán đáp án và viết lời giải. Nếu file đã có đáp án (gạch chân chữ cái/nhãn ý Đúng, dòng <b>Đáp án: …</b>) thì Claude dùng để đối chiếu.</li>
+          <li style="display: none;"><b>Không cần đánh đáp án</b>: sau khi nhập, bấm <b>... Nhờ Claude giải</b>...</li>
           <li><b>Mỗi câu phải có lời giải</b>: ghi dòng <b>Lời giải</b> ngay sau câu hỏi, nội dung lời giải ở các dòng tiếp theo (câu Đúng/Sai: lời giải từng ý bắt đầu bằng a) b) c) d)). Học sinh xem lời giải sau khi nộp bài.</li>
           <li>Sau khi nhập, trang hiện <b>Bảng đối chiếu đáp án</b>: giáo viên phải kiểm tra lại và đánh dấu xác nhận mới tạo được đề.</li>
           <li>Công thức MathType hoặc Equation của Word đều đọc được; hình PNG/JPG được nhúng vào đề.</li>
         </ul>
-        <div class="claude-bar" id="claude-bar">
+        <div class="claude-bar" id="claude-bar" style="display: none;">
           <button class="btn-primary" id="nho-claude" type="button">🤖 Nhờ Claude giải &amp; gán đáp án</button>
           <span style="font-size:12.5px;color:var(--ink-soft);margin-left:6px">Claude giải từng câu, điền đáp án và lời giải còn trống; câu nào khác đáp án gạch chân trong Word sẽ được đánh dấu để thầy cô quyết định. Cần nhập Mã giáo viên ở ô 🔑 cuối trang.</span>
           <div id="claude-status"></div>
