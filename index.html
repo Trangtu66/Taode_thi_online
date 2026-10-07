@@ -11,22 +11,39 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="giao_dien.css">
 <style>
-  .hero { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:6px 0 8px; }
-  .who { border:2px solid var(--line); border-radius:14px; padding:18px 20px; background:#fff; cursor:pointer; text-align:left; font:inherit; color:inherit;
+  /* Hero Banner */
+  .hero-sec { background:linear-gradient(135deg,#1E3A8A 0%,#1E40AF 55%,#2563EB 100%); color:#fff; }
+  .hero-sec .in { max-width:1120px; margin:0 auto; padding:44px 16px 40px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; }
+  .hero-eyebrow { font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; opacity:.75; margin:0 0 10px; }
+  .hero-sec h1 { font-size:34px; margin:0 0 10px; color:#fff; line-height:1.25; }
+  .hero-sec .sub { opacity:.88; margin:0; font-size:15px; }
+  .hero-form { background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.22); border-radius:16px; padding:22px 20px; }
+  .hero-form p.lbl { font-weight:700; font-size:14px; margin:0 0 10px; }
+  .qr-box { display:flex; gap:10px; }
+  .qr-box input { flex:1 1 0; padding:11px 13px; border:0; border-radius:9px; font:inherit; font-size:15px; min-width:0; }
+  .qr-box .btn { white-space:nowrap; font-size:15px; padding:11px 18px; }
+  #link-loi { color:#FCA5A5; margin:6px 0 0; font-size:13px; }
+  /* Role Toggle */
+  .role-bar { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:22px 0 10px; }
+  .who { border:2px solid var(--line); border-radius:14px; padding:16px 18px; background:#fff; cursor:pointer; text-align:left; font:inherit; color:inherit;
          display:flex; gap:14px; align-items:center; }
-  .who .ic { font-size:40px; } .who b { font-size:19px; display:block; } .who span { color:var(--muted); font-size:14px; }
+  .who .ic { font-size:36px; flex-shrink:0; }
+  .who b { font-size:17px; display:block; }
+  .who span { color:var(--muted); font-size:13.5px; }
   .who.on { border-color:var(--blue); box-shadow:0 0 0 3px #DBEAFE; }
+  /* Task cards */
   .task { display:flex; flex-direction:column; gap:6px; }
-  .task .ic { font-size:28px; line-height:1; } .task p { margin:0; color:var(--muted); font-size:14px; }
+  .task .ic { font-size:26px; line-height:1; }
+  .task p { margin:0; color:var(--muted); font-size:14px; }
   .task .go { margin-top:auto; padding-top:8px; display:flex; gap:8px; flex-wrap:wrap; }
-  .num { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--blue); color:#fff; font-size:13px; font-weight:700; margin-right:6px; }
-  .mon { display:flex; flex-wrap:wrap; gap:8px; }
-  .mon a { text-decoration:none; background:#fff; border:1px solid var(--line); border-radius:999px; padding:7px 13px; color:var(--ink); font-weight:600; font-size:14px; }
-  .mon a:hover { border-color:var(--blue); color:var(--blue); }
-  .qr-box { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  .qr-box input { flex:1 1 240px; padding:10px 12px; border:1px solid #CBD5E1; border-radius:8px; font:inherit; }
+  .num { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:12px; font-weight:700; margin-right:5px; }
+  /* Môn học grid */
+  .mon-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:10px; }
+  .mon-grid a { text-decoration:none; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 13px; color:var(--ink); font-weight:700; font-size:14.5px; display:flex; align-items:center; gap:8px; }
+  .mon-grid a:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-bg); }
   [hidden] { display:none !important; }
-  @media (max-width:640px){ .hero{grid-template-columns:1fr;} }
+  @media (max-width:860px){ .hero-sec .in{grid-template-columns:1fr;gap:22px;padding:30px 16px 28px;} .mon-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .role-bar{grid-template-columns:1fr;} .hero-sec h1{font-size:26px;} }
 </style>
 </head>
 <body>
@@ -38,69 +55,92 @@
   </nav>
 </div></header>
 
+<!-- HERO SECTION: full-width, ngoài .wrap -->
+<section class="hero-sec" aria-label="Tìm kiếm nhanh bài kiểm tra">
+  <div class="in">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Chuyển đổi số trong dạy học · GDPT 2018</p>
+      <h1>Học tập &amp; Kiểm tra<br>mọi lúc, mọi nơi</h1>
+      <p class="sub">THPT Vĩnh Thạnh – Gia Lai · Năm học 2026–2027</p>
+    </div>
+    <div class="hero-form">
+      <p class="lbl">Nhập mã bài tập hoặc dán link QR</p>
+      <div class="qr-box">
+        <input id="link-hs" type="url" placeholder="Dán đường link bài làm…" aria-label="Mã bài tập hoặc đường link bài làm" inputmode="url">
+        <button class="btn" id="mo-link">Vào nhanh</button>
+      </div>
+      <p id="link-loi"></p>
+    </div>
+  </div>
+</section>
+
 <main class="wrap">
-  <h1>Bạn là ai?</h1>
-  <p class="lead">Chọn vai trò để thấy đúng những việc bạn cần làm. Trang sẽ nhớ lựa chọn trên thiết bị này.</p>
-  <div class="hero" role="tablist" aria-label="Chọn vai trò">
-    <button class="who" data-v="hs" role="tab" id="tab-hs" aria-controls="v-hs" aria-selected="true"><span class="ic">🎓</span><span><b>Tôi là học sinh</b><span>Làm bài giáo viên giao, luyện tập, ôn thi</span></span></button>
-    <button class="who" data-v="gv" role="tab" id="tab-gv" aria-controls="v-gv" aria-selected="false"><span class="ic">👩‍🏫</span><span><b>Tôi là giáo viên</b><span>Học liệu, giao bài, kết quả, tạo đề</span></span></button>
+  <!-- ROLE TOGGLE (WAI-ARIA Tabs) -->
+  <div class="role-bar" role="tablist" aria-label="Chọn vai trò">
+    <button class="who" data-v="hs" role="tab" id="tab-hs" aria-controls="v-hs" aria-selected="true">
+      <span class="ic">🎓</span><span><b>Dành cho Học sinh</b><span>Làm bài, ôn luyện, xem lại lời giải</span></span>
+    </button>
+    <button class="who" data-v="gv" role="tab" id="tab-gv" aria-controls="v-gv" aria-selected="false">
+      <span class="ic">👩‍🏫</span><span><b>Dành cho Giáo viên</b><span>Giao bài, tạo đề, quản lý kết quả</span></span>
+    </button>
   </div>
 
-  <!-- ===================== HỌC SINH ===================== -->
-  <!-- không đặt hidden ở đây: section học sinh là mặc định, tránh flash khi JS chưa chạy -->
+  <!-- ===================== HỌC SINH (3 cards) ===================== -->
+  <!-- không đặt hidden: section học sinh là mặc định, tránh flash khi JS chưa chạy -->
   <section id="v-hs" role="tabpanel" aria-labelledby="tab-hs" tabindex="0">
-    <h2>Em muốn…</h2>
     <div class="grid">
-      <div class="card task"><span class="ic">📱</span><h3>Làm bài giáo viên vừa giao</h3>
-        <p>Quét <b>mã QR</b> trên màn hình bằng camera điện thoại hoặc Zalo. Nếu giáo viên gửi đường link thì dán vào ô dưới.</p>
-        <div class="qr-box" style="margin-top:6px"><input id="link-hs" placeholder="Dán đường link bài làm…" aria-label="Đường link bài làm"><button class="btn" id="mo-link">Mở</button></div>
-        <p id="link-loi" style="color:var(--red)"></p></div>
-      <div class="card task"><span class="ic">📚</span><h3>Tự luyện tập theo môn</h3>
-        <p>Bài củng cố sau mỗi bài học, đề 3 dạng thức, ôn tập chương, ôn kiểm tra định kỳ.</p>
-        <div class="go"><a class="btn" href="luyen_thi.html">Vào luyện tập</a></div></div>
-      <div class="card task"><span class="ic">🎯</span><h3>Ôn thi tốt nghiệp THPT</h3>
-        <p>Đề thi chính thức của Bộ và đề ôn theo cấu trúc mới, làm trong thời gian thật.</p>
-        <div class="go"><a class="btn" href="luyen_thi.html#toan">Toán</a><a class="btn ghost" href="luyen_thi.html#tieng_anh">Tiếng Anh</a></div></div>
-      <div class="card task"><span class="ic">📖</span><h3>Xem lại bài làm và lời giải</h3>
-        <p>Đáp án được mở khi giáo viên chữa bài. Lúc đó mở lại đúng link (hoặc quét lại mã QR) và bấm <b>“Xem lại bài làm của em và lời giải”</b>.</p></div>
+      <div class="card task">
+        <span class="ic">📱</span><h3>1. Làm bài ngay</h3>
+        <p>Quét <b>mã QR</b> trên màn hình bằng camera hoặc Zalo khi giáo viên chiếu lên bảng. Hoặc dán link giáo viên gửi vào ô bên trên.</p>
+        <div class="go"><a class="btn" href="lam_bai.html">Mở trang làm bài</a></div>
+      </div>
+      <div class="card task">
+        <span class="ic">📚</span><h3>2. Tự ôn luyện theo môn</h3>
+        <p>Bài củng cố theo tiết học, đề luyện tập 3 dạng thức (cấu trúc GDPT 2018), ôn tập chương, ôn thi tốt nghiệp THPT.</p>
+        <div class="go"><a class="btn" href="luyen_thi.html">Chọn môn ôn luyện</a></div>
+      </div>
+      <div class="card task">
+        <span class="ic">📖</span><h3>3. Xem lại lịch sử &amp; Lời giải</h3>
+        <p>Đáp án và lời giải hiện ra sau khi giáo viên chữa bài. Mở lại đúng link (hoặc quét lại QR) rồi bấm <b>"Xem lại bài làm của em và lời giải"</b>.</p>
+      </div>
     </div>
     <div class="note blue" style="margin-top:16px">Khi làm bài: chọn đúng <b>lớp</b>, gõ đủ <b>họ và tên</b> như trong danh sách lớp (không cần gõ dấu). Làm bài trung thực – điểm được gửi thẳng cho giáo viên.</div>
   </section>
 
-  <!-- ===================== GIÁO VIÊN ===================== -->
+  <!-- ===================== GIÁO VIÊN (4 cards) ===================== -->
   <section id="v-gv" role="tabpanel" aria-labelledby="tab-gv" tabindex="0" hidden>
-    <h2>Thầy cô muốn…</h2>
     <div class="grid">
-      <div class="card task"><span class="ic">📂</span><h3><span class="num">1</span>Tải học liệu môn mình</h3>
-        <p>Kế hoạch bài dạy (Word), slide (PowerPoint), sơ đồ tư duy, ma trận đề – lọc theo môn, khối.</p>
-        <ol class="steps"><li>Mở Kho học liệu</li><li>Chọn môn → khối → loại</li><li>Bấm “Tải về”</li></ol>
-        <div class="go"><a class="btn" href="hoc_lieu.html">Mở kho học liệu</a></div></div>
-      <div class="card task"><span class="ic">📱</span><h3><span class="num">2</span>Giao bài trực tuyến cho học sinh</h3>
-        <p>Chiếu mã QR để cả lớp quét và làm bài trên điện thoại.</p>
-        <ol class="steps"><li>Vào Quản lý, nhập <b>mã GV</b></li><li>Chọn khối → bài</li><li>Bấm “📱 Mã QR cho học sinh” và chiếu lên</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Vào Quản lý</a><a class="btn ghost" href="luyen_thi.html">Xem danh mục bài</a></div></div>
-      <div class="card task"><span class="ic">📊</span><h3><span class="num">3</span>Xem kết quả, ai chưa nộp</h3>
-        <p>Bảng xếp hạng, điểm từng em, thống kê câu sai nhiều, học sinh chưa nộp, xuất Excel.</p>
-        <ol class="steps"><li>Vào Quản lý (mã GV)</li><li>Chọn bài, chọn lớp</li><li>Chọn chức năng cần xem</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Xem kết quả</a></div></div>
-      <div class="card task"><span class="ic">🔓</span><h3><span class="num">4</span>Chữa bài – mở đáp án</h3>
-        <p>Học sinh chỉ thấy đáp án, lời giải khi giáo viên mở.</p>
-        <ol class="steps"><li>Quản lý → chọn bài</li><li>“🔓 Mở / khoá đáp án” → Mở</li><li>Chữa xong bấm Khoá</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Mở / khoá đáp án</a></div></div>
-      <div class="card task"><span class="ic">✍️</span><h3><span class="num">5</span>Tạo đề kiểm tra trực tuyến</h3>
-        <p>Soạn trực tiếp hoặc <b>nhập từ file Word</b>; đủ 3 dạng: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
-        <ol class="steps"><li>Mở Trình tạo đề → “Tạo đề mới”</li><li>Soạn câu hoặc nhập file Word</li><li>Nhập mã GV → “Tạo đề &amp; Lấy link”</li></ol>
-        <div class="go"><a class="btn" href="lam_bai.html">Mở trình tạo đề</a><a class="btn ghost" href="huong_dan.html#tao-de">Hướng dẫn</a></div></div>
-      <div class="card task"><span class="ic">🗄️</span><h3><span class="num">6</span>Đưa tài liệu vào ngân hàng</h3>
-        <p>Đề trực tuyến tự vào <b>ngân hàng đề</b> khi lưu bằng mã GV. KHBD, slide, đề Word gửi quản trị để đưa lên kho.</p>
-        <ol class="steps"><li>Đề trực tuyến: tạo ở mục 5</li><li>Xem lại: Quản lý → “📚 Ngân hàng đề của tôi”</li><li>KHBD, slide: đặt tên đúng quy ước rồi gửi quản trị</li></ol>
-        <div class="go"><a class="btn" href="huong_dan.html#dong-gop">Cách đóng góp</a></div></div>
+      <div class="card task">
+        <span class="ic">📱</span><h3><span class="num">1</span>Giao bài &amp; Tạo QR chiếu lớp</h3>
+        <p>Chiếu mã QR để cả lớp quét và làm bài trực tiếp trên điện thoại trong 10–15 phút cuối tiết.</p>
+        <ol class="steps"><li>Vào Quản lý, nhập <b>mã GV</b></li><li>Chọn khối → bài → lớp</li><li>Bấm "📱 Mã QR" và chiếu lên bảng</li></ol>
+        <div class="go"><a class="btn" href="quan_ly.html">Vào Quản lý</a></div>
+      </div>
+      <div class="card task">
+        <span class="ic">✍️</span><h3><span class="num">2</span>Tạo đề thi Online</h3>
+        <p>Soạn trực tiếp hoặc <b>nhập từ file Word</b>; đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
+        <ol class="steps"><li>Mở Trình tạo đề → "Tạo đề mới"</li><li>Soạn câu hoặc nhập file Word</li><li>Nhập mã GV → "Tạo đề &amp; Lấy link"</li></ol>
+        <div class="go"><a class="btn" href="lam_bai.html">Mở trình tạo đề</a><a class="btn ghost" href="huong_dan.html#tao-de">Hướng dẫn</a></div>
+      </div>
+      <div class="card task">
+        <span class="ic">📊</span><h3><span class="num">3</span>Quản lý, Thống kê &amp; Đáp án</h3>
+        <p>Điểm từng em, xếp hạng, ai chưa nộp, câu sai nhiều, xuất Excel. Mở/Khoá đáp án sau khi chữa bài xong.</p>
+        <ol class="steps"><li>Vào Quản lý (mã GV)</li><li>Chọn bài, chọn lớp</li><li>"🔓 Mở / khoá đáp án" sau khi chữa</li></ol>
+        <div class="go"><a class="btn" href="quan_ly.html">Xem kết quả</a></div>
+      </div>
+      <div class="card task">
+        <span class="ic">📂</span><h3><span class="num">4</span>Ngân hàng đề &amp; Kho học liệu</h3>
+        <p>KHBD, slide, sơ đồ tư duy, ma trận – lọc theo môn, khối. Đề trực tuyến tự vào ngân hàng khi lưu bằng mã GV.</p>
+        <ol class="steps"><li>Kho học liệu: KHBD, slide, tài liệu</li><li>Ngân hàng: Quản lý → "📚 Đề của tôi"</li><li>Đóng góp: đặt tên đúng quy ước</li></ol>
+        <div class="go"><a class="btn" href="hoc_lieu.html">Kho học liệu</a><a class="btn ghost" href="huong_dan.html#dong-gop">Cách đóng góp</a></div>
+      </div>
     </div>
     <div class="note" style="margin-top:16px">🔑 <b>Mã giáo viên</b> do quản trị hệ thống cấp riêng cho từng thầy cô (in trong danh sách ký nhận). Mã dùng để xem kết quả, mở đáp án và lưu đề – <b>không đưa mã cho học sinh</b>.</div>
   </section>
 
-  <h2>Môn học trên hệ thống</h2>
-  <div class="mon" id="ds-mon"></div>
+  <!-- DANH MỤC MÔN HỌC (4-column grid) -->
+  <h2>Danh mục môn học</h2>
+  <div class="mon-grid" id="ds-mon"></div>
 </main>
 
 <footer class="foot"><div class="in">
