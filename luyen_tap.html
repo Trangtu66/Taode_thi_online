@@ -10,10 +10,20 @@
   :root { --blue:#1E40AF; --red:#991B1B; --ink:#1E293B; --muted:#64748B; --bg:#F8F9FA; --line:#E2E8F0; --green:#166534; }
   * { box-sizing:border-box; }
   body { margin:0; font-family:Calibri,'Open Sans',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
-  header { background:var(--blue); color:#fff; padding:1.4rem 1rem 1.1rem; text-align:center; }
-  header h1 { margin:0; font-family:Arial,sans-serif; font-size:1.7rem; }
-  header p { margin:.3rem 0 0; opacity:.9; }
-  header a { color:#fff; font-size:.9rem; }
+  header:not(.top) { background:var(--blue); color:#fff; padding:1.4rem 1rem 1.1rem; text-align:center; }
+  header:not(.top) h1 { margin:0; font-family:Arial,sans-serif; font-size:1.7rem; }
+  header:not(.top) p { margin:.3rem 0 0; opacity:.9; }
+  header:not(.top) a { color:#fff; font-size:.9rem; }
+  header.top{background:var(--blue);color:#fff}
+  header.top .in{max-width:1120px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+  .logo b{font-size:18px;letter-spacing:.2px}.logo small{display:block;opacity:.85;font-size:12.5px}
+  .logo .dot{width:38px;height:38px;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:18px}
+  .nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .nav a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:8px;font-size:14px;opacity:.92}
+  .nav a:hover,.nav a.on{background:rgba(255,255,255,.16);opacity:1}
+  .nav a:focus-visible{outline:3px solid #93C5FD;outline-offset:2px}
+  @media(max-width:640px){.nav{margin-left:0}header.top .in{padding:12px 16px}}
   .wrap { max-width:1000px; margin:0 auto; padding:1.2rem 1rem 2rem; }
   .tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
   .tab { flex:1 1 200px; border:1px solid var(--line); background:#fff; border-radius:8px; padding:.75rem .9rem; cursor:pointer; text-align:left;
@@ -43,9 +53,16 @@
 </style>
 </head>
 <body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT Vĩnh Thạnh – Gia Lai</small></span></a>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html" class="on">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="lam_bai.html">Tạo đề Online</a>
+    <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
+  </nav>
+</div></header>
 <header>
   <h1>LUYỆN TẬP TOÁN THEO CẤU TRÚC MỚI</h1>
-  <p>Trường THPT Vĩnh Thạnh – Tổ Toán · <a href="index.html">Trang chủ</a></p>
+  <p>Trường THPT Vĩnh Thạnh – Tổ Toán</p>
 </header>
 <div class="wrap">
   <div class="tabs" role="tablist">
