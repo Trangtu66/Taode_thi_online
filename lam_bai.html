@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ Thống Khảo Sát & Tạo Đề Thi Trực Tuyến - THPT Vĩnh Thạnh</title>
     
-    <!-- THƯ VIỆN ĐỌC FILE WORD (.DOCX) CHUẨN CỦA HỆ THỐNG CŨ -->
+    <!-- THƯ VIỆN ĐỌC FILE WORD (.DOCX) CHUẨN CỦA HỆ THỐNG -->
     <script src="https://cloudflare.com"></script>
 
     <style>
@@ -34,7 +34,6 @@
         .options-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; background: #f8f9fa; padding: 12px; border-radius: 6px; }
         .option-select-item { display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #495057; }
         .option-select-item input[type="radio"] { width: 18px; height: 18px; cursor: pointer; }
-        .badge-warning { background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; border: 1px solid #ffeeba; margin-top: 8px; display: none; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -102,45 +101,9 @@
         <button type="button" class="btn btn-primary" onclick="xuLyTaoDeVaQuyHoachCachCu()">📦 BẤM NÚT TẠO ĐỀ THI & XUẤT BẢN FILE LƯU KHO</button>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- PHÂN HỆ 2: GIAO DIỆN LÀM BÀI TRỰC TUYẾN DÀNH CHO HỌC SINH -->
-    <!-- ========================================================================= -->
-    <div class="card">
-        <h2>📝 CỔNG LÀM BÀI TRỰC TUYẾN HỌC SINH (CHẤM ĐIỂM HOÀN CHỈNH)</h2>
-        <div class="form-group">
-            <label for="txt_hoten">Họ và tên Học sinh:</label>
-            <input type="text" id="txt_hoten" placeholder="Học sinh nhập đầy đủ họ và tên...">
-        </div>
-        <div class="form-group">
-            <label for="sel_lop">Chọn Lớp học / Phân ban:</label>
-            <select id="sel_lop" onchange="kiemTraPhanLuongHocSinhTuDo()">
-                <option value="">-- Bấm vào đây để chọn Lớp học --</option>
-                <option value="Hoc_Sinh_Tu_Do">🌐 Nhóm: Học sinh tự do (Dạy thêm / Ngoài trường)</option>
-                <option value="10A1">Khối 10 ➔ Lớp 10A1</option>
-                <option value="11A1">Khối 11 ➔ Lớp 11A1</option>
-                <option value="12A1">Khối 12 ➔ Lớp 12A1</option>
-            </select>
-        </div>
-        <div class="form-group" id="div_dat_ten_lop_rieng" style="display:none;">
-            <label style="color: var(--success);">✏️ Đặt tên lớp dạy thêm tự do riêng (Không đặt trùng tên lớp trường):</label>
-            <input type="text" id="txt_lop_tu_do" placeholder="Ví dụ: TD_Toan_ThayTrang_K12, LT_DaiHoc_NhomA...">
-        </div>
-        
-        <input type="hidden" id="txt_made_hidden" value="DE_MAC_DINH_CŨ">
-        <input type="hidden" id="txt_magv_hidden" value="THPT_VINHTHANH">
-        <input type="hidden" id="txt_sheet_hidden" value="">
-
-        <div id="vung_chua_cau_hoi_tran" style="margin: 25px 0; border-top: 1px dashed #ccc; padding-top: 20px;">
-            <!-- Học sinh mở link đề sinh ra sẽ hiện danh sách câu hỏi ở đây -->
-        </div>
-
-        <button type="button" id="btn_nopbai_cloud" class="btn btn-success" onclick="xuLyHocSinhNopBaiCachCu()">🚀 BẤM NỘP BÀI GỬI SỔ ĐIỂM VỀ GIÁO VIÊN</button>
-    </div>
-
 </div>
 
 <script>
-// Biến lưu trữ cấu trúc mảng câu hỏi toàn cục
 window.mangCauHoiGlobal = [];
 
 function cauHinhGiaoVienTuDo() {
@@ -156,8 +119,51 @@ function cauHinhGiaoVienTuDo() {
     }
 }
 
-function kiemTraPhanLuongHocSinhTuDo() {
-    const selLop = document.getElementById("sel_lop").value;
-    const divLopRieng = document.getElementById("div_dat_ten_lop_rieng");
-    divLopRieng.style.display = (selLop === "Hoc_Sinh_Tu_Do") ? "block" : "none";
-}
+// =========================================================================
+// SỬA LỖI CỐT LÕI: TRÍCH XUẤT FILE ĐÚNG ĐỊNH DẠNG FILE OBJECT TRONG MẢNG [0]
+// =========================================================================
+function docVaTrichXuatFileWordCachCu(input) {
+    const file = input.files[0]; // ĐÃ FIX: Lấy phần tử đầu tiên của FileList
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(loadEvent) {
+        const arrayBuffer = loadEvent.target.result;
+        mammoth.extractRawText({ arrayBuffer: arrayBuffer })
+        .then(function(result) {
+            const vanBanTho = result.value;
+            const lines = vanBanTho.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const workspace = document.getElementById("vung_chinh_sua_truc_quan");
+            workspace.innerHTML = ""; 
+            window.mangCauHoiGlobal = [];
+
+            let cauHoiHienTai = null;
+            let indexCau = 1;
+
+            lines.forEach(line => {
+                if (/^(Câu|Cau)\s*\d+/i.test(line)) {
+                    if (cauHoiHienTai) window.mangCauHoiGlobal.push(cauHoiHienTai);
+                    cauHoiHienTai = { text: line, options: [], index: indexCau++ };
+                } else if (/^[A-D](\.|\))/i.test(line) && cauHoiHienTai) {
+                    cauHoiHienTai.options.push(line);
+                } else if (cauHoiHienTai) {
+                    cauHoiHienTai.text += "<br>" + line;
+                }
+            });
+            if (cauHoiHienTai) window.mangCauHoiGlobal.push(cauHoiHienTai);
+
+            // BUNG MÀN HÌNH CHỈNH SỬA TRỰC QUAN CỰC MƯỢT
+            window.mangCauHoiGlobal.forEach((cau, i) => {
+                const itemHtml = document.createElement("div");
+                itemHtml.className = "question-editor-item";
+                itemHtml.innerHTML = `
+                    <div class="question-title">${cau.text}</div>
+                    <div class="options-grid">
+                        <label class="option-select-item"><input type="radio" name="correct_ans_${i}" value="A"> A</label>
+                        <label class="option-select-item"><input type="radio" name="correct_ans_${i}" value="B"> B</label>
+                        <label class="option-select-item"><input type="radio" name="correct_ans_${i}" value="C"> C</label>
+                        <label class="option-select-item"><input type="radio" name="correct_ans_${i}" value="D"> D</label>
+                    </div>
+                `;
+                workspace.appendChild(itemHtml);
+            });
