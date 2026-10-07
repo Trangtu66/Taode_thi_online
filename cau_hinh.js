@@ -50,6 +50,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Toán 10 (không phải đề thi chính thức)", link: "kt_toan10_gki.html" },
   { khoi: 10, nhom: "Sinh học 10 · Ôn tập chương", ten: "Phần mở đầu", ma: "Ôn tập Phần mở đầu (Sinh học 10)", link: "oc_sinh10_modau.html" },
   { khoi: 10, nhom: "Sinh học 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 10 (không phải đề thi chính thức)", link: "kt_sinh10_gki.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "chuong3", ma: "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_chuong3_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
@@ -102,6 +103,12 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Toán 12 (không phải đề thi chính thức)", link: "kt_toan12_gki.html" },
   { khoi: 12, nhom: "Sinh học 12 · Ôn tập chương", ten: "Chương I. Di truyền phân tử", ma: "Ôn tập Chương I. Di truyền phân tử (Sinh học 12)", link: "oc_sinh12_chuong1.html" },
   { khoi: 12, nhom: "Sinh học 12 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 12 (không phải đề thi chính thức)", link: "kt_sinh12_gki.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 1. Cấu trúc của chất. Sự chuyển thể", ma: "Củng cố – Vật lí 12 · Bài 1: Cấu trúc của chất. Sự chuyển thể", link: "ly_cc_bai1_k12.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 2. Nội năng. Định luật I của nhiệt động lực học", ma: "Củng cố – Vật lí 12 · Bài 2: Nội năng. Định luật I NĐLH", link: "ly_cc_bai2_k12.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 3. Nhiệt độ. Thang đo nhiệt độ", ma: "Củng cố – Vật lí 12 · Bài 3: Nhiệt độ. Thang đo nhiệt độ", link: "ly_cc_bai3_k12.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 4. Nhiệt dung riêng. Phương trình nhiệt lượng", ma: "Củng cố – Vật lí 12 · Bài 4: Nhiệt dung riêng. Phương trình nhiệt lượng", link: "ly_cc_bai4_k12.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 5. Nhiệt nóng chảy riêng", ma: "Củng cố – Vật lí 12 · Bài 5: Nhiệt nóng chảy riêng", link: "ly_cc_bai5_k12.html" },
+  { khoi: 12, nhom: "Vật lí 12 · Củng cố", ten: "Bài 6. Nhiệt hoá hơi riêng", ma: "Củng cố – Vật lí 12 · Bài 6: Nhiệt hoá hơi riêng", link: "ly_cc_bai6_k12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
