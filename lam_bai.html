@@ -11,7 +11,7 @@
     <style>
         :root { --primary: #0056b3; --success: #28a745; --warning: #ffc107; --danger: #dc3545; --bg: #f8f9fa; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: var(--bg); color: #333; line-height: 1.6; }
-        .wrapper { max-width: 950px; margin: 0 auto; }
+        .wrapper { max-width: 1000px; margin: 0 auto; }
         .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 25px; border-top: 5px solid var(--primary); }
         .card-teacher { border-top-color: var(--warning); }
         h2, h3 { color: var(--primary); margin-top: 0; }
@@ -27,9 +27,13 @@
         .btn-primary:hover { background-color: #004094; }
         .btn-success { background-color: var(--success); }
         .btn-success:hover { background-color: #218838; }
+        .btn-warning { background-color: #e0a800; color: #fff; }
         .btn:disabled { background-color: #6c757d; cursor: not-allowed; }
-        .badge-warning { background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; border: 1px solid #ffeeba; margin-top: 8px; display: none; font-size: 14px; font-weight: 500; }
-        .question-box { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; margin-bottom: 15px; }
+        
+        /* GIAO DIỆN KHU VỰC CHỈNH SỬA ĐỀ HOÀN CHỈNH CHO GIÁO VIÊN */
+        .editor-box { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 5px solid var(--primary); }
+        .option-edit-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .option-edit-row input[type="radio"] { width: 20px; hieght: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -37,7 +41,7 @@
 <div class="wrapper">
     
     <!-- ========================================================================= -->
-    <!-- PHÂN HỆ 1: GIAO DIỆN SOẠN ĐỀ, NẠP FILE VÀ QUY HOẠCH KHO LƯU TRỮ (GIÁO VIÊN) -->
+    <!-- PHÂN HỆ 1: BẢNG ĐIỀU HÀNH VÀ MÀN HÌNH CHỈNH SỬA ĐỀ HOÀN CHỈNH (GIÁO VIÊN) -->
     <!-- ========================================================================= -->
     <div class="card card-teacher">
         <h2>🛠️ BẢNG ĐIỀU HÀNH TẠO ĐỀ & QUY HOẠCH KHO LƯU TRỮ</h2>
@@ -55,11 +59,10 @@
         <div class="form-group" id="div_url_sheet_ca_nhan" style="display: none;">
             <label style="color: var(--danger);" for="txt_url_sheet_input">🔗 Đường link WebApp Google Sheet cá nhân của thầy/cô:</label>
             <input type="text" id="txt_url_sheet_input" placeholder="https://google.com">
-            <small style="color: #6c757d;">(Hệ thống sẽ tự động rẽ nhánh dữ liệu, đẩy điểm số của học sinh về thẳng Drive của riêng thầy/cô)</small>
         </div>
 
         <div class="form-group">
-            <label for="txt_tende_input">📄 Tên đề thi (Gõ tiếng Việt không dấu hoặc có dấu ngắn gọn):</label>
+            <label for="txt_tende_input">📄 Tên đề thi (Gõ tiếng Việt ngắn gọn):</label>
             <input type="text" id="txt_tende_input" placeholder="Ví dụ: Kiem_tra_giua_ky_Toan_11">
         </div>
 
@@ -85,77 +88,88 @@
             </div>
         </div>
 
+        <!-- MÀN HÌNH CHỈNH SỬA ĐỀ HOÀN CHỈNH CHO GIÁO VIÊN (DANH SÁCH BÓC TÁCH TRỰC QUAN) -->
         <div class="form-group">
-            <label for="txt_vung_word">📝 Nội dung bộ câu hỏi trần (Hệ thống tự động hiển thị dữ liệu):</label>
-            <textarea id="txt_vung_word" rows="6" placeholder="Nội dung phôi đề bài sau khi bóc tách file đầu vào..."></textarea>
+            <label style="color: var(--primary);">📋 MÀN HÌNH CHỈNH SỬA VÀ THIẾT LẬP ĐÁP ÁN HOÀN CHỈNH:</label>
+            <div id="vung_chinh_sua_truoc_khi_tao" style="background: #fafafa; border: 1px dashed #bbb; padding: 15px; border-radius: 8px; min-height: 100px;">
+                <p style="color: #666; text-align: center; margin-top: 40px;">(Hệ thống đang chờ nạp file Word để tự động dàn dựng giao diện câu hỏi chỉnh sửa...)</p>
+            </div>
         </div>
 
         <button type="button" class="btn btn-primary" onclick="xuLyTaoDeVaQuyHoachKhoLuuTru()">📦 XUẤT BẢN ĐỀ THI & PHÂN PHỐI KHO LƯU TRỮ</button>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- PHÂN HỆ 2: GIAO DIỆN LÀM BÀI TRỰC TUYẾN BẢO MẬT ZERO-TRUST (HỌC SINH) -->
-    <!-- ========================================================================= -->
-    <div class="card">
-        <h2>📝 CỔNG LÀM BÀI TRỰC TUYẾN CHẤM NGẦM BẢO MẬT ĐÁM MÂY</h2>
-        
-        <div class="form-group">
-            <label for="txt_hoten">🧑‍🎓 Họ và tên Học sinh:</label>
-            <input type="text" id="txt_hoten" placeholder="Học sinh nhập đầy đủ họ và tên cá nhân...">
-        </div>
-
-        <div class="form-group">
-            <label for="sel_lop">🏫 Chọn Lớp học / Nhóm học tập:</label>
-            <select id="sel_lop" onchange="kiemTraPhanLuongHocSinhTuDo()">
-                <option value="">-- Bấm vào đây để chọn Lớp của em --</option>
-                <option value="Hoc_Sinh_Tu_Do">🌐 Lớp: Học sinh tự do (Trường ngoài đăng ký tự học)</option>
-                <!-- Hệ thống danh sách lớp chính khóa của nhà trường Vĩnh Thạnh -->
-                <option value="10A1">Khối 10 ➔ Lớp 10A1</option>
-                <option value="11A1">Khối 11 ➔ Lớp 11A1</option>
-                <option value="12A1">Khối 12 ➔ Lớp 12A1</option>
-            </select>
-        </div>
-
-        <!-- Ô nhập thông tin cho nhóm tự do/trường ngoài của giáo viên -->
-        <div class="form-group" id="div_dat_ten_lop_rieng" style="display:none;">
-            <label for="txt_lop_tu_do" style="color: var(--success);">✏️ Nhập tên nhóm/lớp dạy thêm riêng của thầy/cô hoặc tên trường ngoài:</label>
-            <input type="text" id="txt_lop_tu_do" placeholder="Ví dụ: TD_Toan_ThayTrang_Nhom1, THPT_Pleiku_11A2...">
-        </div>
-
-        <!-- CÁC Ô CHỨA THAM SỐ ĐỂ ĐẤU NỐI ĐƯỜNG TRUYỀN NGẦM (ẨN) -->
-        <input type="hidden" id="txt_made_hidden" value="DE_MAC_DINH_THANG10">
-        <input type="hidden" id="txt_magv_hidden" value="THPT_VINHTHANH">
-        <input type="hidden" id="txt_sheet_hidden" value="">
-
-        <!-- VÙNG CHỨA CÂU HỎI TRẦN - KHÔNG CHỨA BẤT KỲ ĐÁP ÁN ĐÚNG NÀO TRÊN MÁY HỌC SINH -->
-        <div id="vung_chua_cau_hoi_tran" style="margin: 25px 0; border-top: 1px dashed #ccc; padding-top: 20px;">
-            <div class="question-box">
-                <p><b>Câu 1 (Trả lời ngắn mẫu):</b> Nhập kết quả bài toán dưới dạng số nguyên hoặc số thập phân:</p>
-                <input type="text" id="txt_ans_cau1" maxlength="4" style="max-width: 150px;" oninput="xuLyCanhBaoKyTuThoiGianThuc(this)">
-                <div class="badge-warning"></div>
-            </div>
-        </div>
-
-        <button type="button" id="btn_nopbai_cloud" class="btn btn-success" onclick="xuLyNopBaiKhongGhiDapAnClient()">🚀 BẤM NỘP BÀI KHẢO SÁT CHẤM NGẦM</button>
-    </div>
-
 </div>
 
 <script>
-// Toàn bộ dữ liệu đáp án gốc khi phục hồi từ JSON sẽ lưu ở biến này
-window.dapAnGocPhucHoi = null;
+// Biến toàn cầu lưu trữ cấu trúc mảng câu hỏi sau khi Parse để sẵn sàng đóng gói
+window.danhSachCauHoiDaParse = [];
+
+function cauHinhGiaoVienTuDo() {
+    const chkIsGuest = document.getElementById("chk_is_guest");
+    const divUrlSheetRieng = document.getElementById("div_url_sheet_ca_nhan");
+    const txtMaGV = document.getElementById("txt_magv");
+    if (chkIsGuest && chkIsGuest.checked) { txtMaGV.value = "GUEST"; txtMaGV.disabled = true; if (divUrlSheetRieng) divUrlSheetRieng.style.display = "block"; } 
+    else { txtMaGV.disabled = false; txtMaGV.value = ""; if (divUrlSheetRieng) divUrlSheetRieng.style.display = "none"; }
+}
 
 // =========================================================================
-// LOGIC SƯ PHẠM 1: BỘ ĐỌC VÀ TRÍCH XUẤT FILE KÉP ĐẦU VÀO (WORD VÀ JSON)
+// THUẬT TOÁN QUÉT VÀ TỰ ĐỘNG DÀN DỰNG MÀN HÌNH CHỈNH SỬA (PARSER & RENDERER)
 // =========================================================================
 function docVaTrichXuatFileWord(input) {
-    const file = input.files;
+    const file = input.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function(loadEvent) {
         const arrayBuffer = loadEvent.target.result;
         mammoth.extractRawText({ arrayBuffer: arrayBuffer })
         .then(function(result) {
-            document.getElementById("txt_vung_word").value = result.value;
-            alert("🚀 Đồng bộ file Word thành công! Toàn bộ nội dung câu hỏi trần đã được nạp vào hệ thống.");
+            const vanBanTran = result.value;
+            parseVaDungManHinhChinhSua(vanBanTran);
         })
+        .catch(function(err) {
+            alert("Định dạng file Word không hợp lệ!");
+        });
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+// Bộ bóc tách phân tích cú pháp tự động để dựng màn hình chỉnh sửa cho giáo viên
+function parseVaDungManHinhChinhSua(text) {
+    const vungChinhSua = document.getElementById("vung_chinh_sua_truoc_khi_tao");
+    vungChinhSua.innerHTML = ""; // Xóa dòng thông báo chờ
+    window.danhSachCauHoiDaParse = [];
+
+    // Tách văn bản thô theo từ khóa "Câu X" hoặc "Cau X"
+    const cacDoanCauHoi = text.split(/(?=Câu\s*\d+\s*[:.]|Cau\s*\d+\s*[:.])/i);
+    let indexCau = 1;
+
+    cacDoanCauHoi.forEach(doan => {
+        if (!doan.trim()) return;
+
+        // Bóc tách nội dung câu hỏi và các phương án A, B, C, D bằng Regex
+        const dongCauHoi = doan.match(/(?:Câu|Cau)\s*\d+\s*[:.]([\s\S]*?)(?=A\s*[:.]|B\s*[:.]|$)/i);
+        const noiDungCau = dongCauHoi ? dongCauHoi[1].trim() : doan.trim();
+
+        const optA = doan.match(/A\s*[:.]([\s\S]*?)(?=B\s*[:.]|C\s*[:.]|D\s*[:.]|$)/i);
+        const optB = doan.match(/B\s*[:.]([\s\S]*?)(?=C\s*[:.]|D\s*[:.]|$)/i);
+        const optC = doan.match(/C\s*[:.]([\s\S]*?)(?=D\s*[:.]|$)/i);
+        const optD = doan.match(/D\s*[:.]([\s\S]*?)(?=$)/i);
+
+        const cauHoiObj = {
+            id: indexCau,
+            deBai: noiDungCau,
+            options: [
+                optA ? optA[1].trim() : "",
+                optB ? optB[1].trim() : "",
+                optC ? optC[1].trim() : "",
+                optD ? optD[1].trim() : ""
+            ]
+        };
+        window.danhSachCauHoiDaParse.push(cauHoiObj);
+
+        // DÀN DỰNG BIỂU MẪU GIAO DIỆN CHỈNH SỬA HOÀN CHỈNH LÊN MÀN HÌNH
+        const editorCard = document.createElement("div");
+        editorCard.className = "editor-box";
+        editorCard.innerHTML = `
+            <p style="margin-top:0; font-weight:bold; color:var(--primary);">Câu ${indexCau}: Chỉnh sửa nội dung đề bài:</p>
