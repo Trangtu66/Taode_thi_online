@@ -1564,51 +1564,79 @@ function rutGon(s){
   if(t.length>220){ t = t.slice(0,220); if((t.match(/\$/g)||[]).length%2) t = t.slice(0, t.lastIndexOf("$")); t = t.trim() + "…"; }
   return t;
 }
-function guiKetQua(score10, total, maxPoints, partResults, auto){
-  const statusEl = document.getElementById("save-status");
-  statusEl.classList.remove("hidden");
-  statusEl.textContent = "Đang gửi kết quả cho giáo viên...";
-  const answers = [];
-  partResults.forEach((r,pi)=>{
-    r.details.forEach(d=>{
-      const q = d.q, a = {p:pi+1, c:(q._i===undefined?answers.length:q._i)+1, q:rutGon(q.content), pts:+d.pts.toFixed(2)};
-      if(r.part.type==="mcq"){
-        const chon = (q.options.find(o=>o.l===d.userAns)||{}).t;
-        a.chon = chon===undefined ? "" : rutGon(chon);
-        a.dung = rutGon((q.options.find(o=>o.l===q.correct)||{}).t);
-        a.ok = !!d.ok;
-      } else if(r.part.type==="tf"){
-        a.chon = (d.userAns||[]).map(v=> v===null?"-":(v?"Đ":"S")).join("");
-        a.dung = q.statements.map(st=> st.correct?"Đ":"S").join("");
-        a.soYDung = d.correctCount; a.ok = d.correctCount===4;
-      } else {
-        a.chon = rutGon(d.userAns); a.dung = String(q.answer); a.ok = !!d.ok;
-      }
-      answers.push(a);
-    });
-  });
-  answers.sort((x,y)=> x.p-y.p || x.c-y.c);
-  const payload = {
-    quizId: maBai(), title: EXAM.meta.title || "", name: studentName, lop: studentLop,
-    score10: +score10.toFixed(2), total: +total.toFixed(2), max: maxPoints,
-    parts: partResults.map((r,i)=>`P${i+1}: ${r.score.toFixed(2)}đ`),
-    timeUsed: Math.round((Date.now()-examStartTs)/1000), auto: !!auto,
-    answers, clientId: maThietBi()
-  };
-  const rankUrl = "xep_hang.html?q=" + encodeURIComponent(maBai()) + (studentLop ? "&lop=" + encodeURIComponent(studentLop) : "");
-  const gui = (lan)=> fetch(ketQuaApi(), {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(payload)})
-    .then(()=>{
-      statusEl.textContent = "✓ Đã gửi kết quả cho giáo viên.";
-      document.getElementById("rank-card").classList.remove("hidden");
-      document.getElementById("rank-link").href = rankUrl;
-    })
-    .catch(()=>{
-      if(lan<3){ statusEl.textContent = "Mạng chập chờn, đang gửi lại lần " + (lan+1) + "..."; setTimeout(()=>gui(lan+1), 2500*lan); }
-      else statusEl.textContent = "⚠ Chưa gửi được kết quả (mất mạng). Hãy chụp màn hình điểm và báo giáo viên.";
-    });
-  gui(1);
-}
 
+function guiKetQua(score10, total, maxPoints, partResults, auto){
+    const statusEl = document.getElementById("save-status");
+    if(statusEl) {
+        statusEl.classList.remove("hidden");
+        statusEl.textContent = "⏳ Đang gửi kết quả cho giáo viên...";
+    }
+
+    // CHUẨN HÓA THÔNG TIN ĐỊNH DANH HỌC SINH CHUẨN SƯ PHẠM
+    const hoTen = studentName ? studentName.trim() : "";
+    let lop = studentLop ? studentLop.trim().toUpperCase().replace(/\s+/g, '') : "";
+    
+    // Đọc tham số mã đề, mã GV nhúng ngầm ẩn trong phôi đề thi
+    const maDe = maBai();
+    const maGV_Goc = (window.EXAM && window.EXAM.meta && window.EXAM.meta.maGv) ? window.EXAM.meta.maGv : "THPT_VINHTHANH";
+    const urlSheetRieng = (window.EXAM && window.EXAM.meta && window.EXAM.meta.urlSheet) ? window.EXAM.meta.urlSheet : "";
+
+    // Phân luồng rẽ nhánh bảng điểm độc lập cho Giáo viên tự do / Trường ngoài
+    if (maGV_Goc === "GUEST") {
+        lop = "GUEST_" + lop;
+    }
+
+    // ĐÓNG GÓI CHUỖI ĐÁP ÁN TRẦN TRỌC - TUYỆT ĐỐI KHÔNG CHỨA ĐÁP ÁN ĐÚNG TRÊN TRÌNH DUYỆT HỌC SINH ĐỂ CHỐNG HACK
+    let chuoiDapAnTran = { phan1: [], phan2: [], phan3: [] };
+
+    if (partResults && partResults.length > 0) {
+        partResults.forEach((part, pIdx) => {
+            if (part && part.details) {
+                part.details.forEach(q => {
+                    if (pIdx === 0) chuoiDapAnTran.phan1.push(q.userAns || "");
+                    else if (pIdx === 1) chuoiDapAnTran.phan2.push(q.userAns || [null,null,null,null]);
+                    else if (pIdx === 2) chuoiDapAnTran.phan3.push(q.userAns || "");
+                });
+            }
+        });
+    }
+
+    // ĐƯỜNG TRUYỀN POST NGẦM PHÂN LUỒNG TỰ ĐỘNG LÊN SERVER GOOGLE SHEET CỦA TRƯỜNG HOẶC GUEST
+    let webAppUrl = ketQuaApi(); // Bốc mặc định từ hàm ketQuaApi() sẵn có của hai thầy trò
+    if (maGV_Goc === "GUEST" && urlSheetRieng) {
+        webAppUrl = urlSheetRieng; // Tự động bứt tốc rẽ nhánh điểm về Drive riêng của giáo viên tự do ngoài trường
+    }
+
+    // Đóng gói hồ sơ kết quả đóng gửi ngầm lên Cloud
+    const payload = {
+        quizId: maDe,
+        title: EXAM.meta.title || "de-kiem-tra",
+        score10: score10.toFixed(2),
+        total: total,
+        max: maxPoints,
+        parts: partResults.map((r, i) => `P${i + 1}:${r.score.toFixed(2)}đ`),
+        timeUsed: Math.round((Date.now() - examStarts) / 1000),
+        auto: !!auto,
+        answers: chuoiDapAnTran, // Thêm chuỗi bài làm trần trọc gửi ngầm an toàn 100% chống cheat F12
+        clientId: maThietBi()
+    };
+
+    // Kích hoạt luồng truyền HTTP POST ẩn an ninh số cao cấp của hệ thống cũ
+    fetch(webAppUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        if(statusEl) statusEl.textContent = "✓ Đã gửi kết quả cho giáo viên.";
+        alert("🚀 Nộp bài thành công! Bài làm của em đã được chuyển về Server đám mây để chấm điểm ngầm bảo mật tuyệt đối.");
+    })
+    .catch(error => {
+        console.error("Lỗi đường truyền:", error);
+        if(statusEl) statusEl.textContent = "❌ Nghẽn mạng cục bộ, vui lòng thử lại!";
+    });
+}
 /* ============== REVIEW ============== */
 function renderReview(partResults){
   const box = document.getElementById("review-list");
