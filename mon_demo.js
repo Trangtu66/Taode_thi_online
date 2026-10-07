@@ -320,5 +320,97 @@ window.MON_DEMO = {
     "pdf": "mon/tieng_anh/ma_tran/MaTran_DacTa_OnThiTN_TiengAnh_2026-2027.pdf"
    }
   ]
+ },
+ "vat_li": {
+  "ten": "Vật lí",
+  "mau": "#0369A1",
+  "bieu_tuong": "⚡",
+  "kho": "mon/vat_li",
+  "de": [
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. Cấu trúc của chất. Sự chuyển thể",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     2
+    ],
+    "link": "ly_cc_bai1_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai1_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.6 – 9"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 2. Nội năng. Định luật I của nhiệt động lực học",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     1
+    ],
+    "link": "ly_cc_bai2_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai2_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.10 – 14"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 3. Nhiệt độ. Thang đo nhiệt độ",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     1
+    ],
+    "link": "ly_cc_bai3_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai3_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.15 – 19"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 4. Nhiệt dung riêng. Phương trình nhiệt lượng",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     1
+    ],
+    "link": "ly_cc_bai4_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai4_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.20 – 23"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 5. Nhiệt nóng chảy riêng",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     1
+    ],
+    "link": "ly_cc_bai5_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai5_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.24 – 26"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 6. Nhiệt hoá hơi riêng",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     1
+    ],
+    "link": "ly_cc_bai6_k12.html",
+    "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai6_k12.docx",
+    "nguon": "SGK Vật lí 12 (KNTT), tr.27 – 29"
+   }
+  ]
  }
 };
