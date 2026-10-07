@@ -59,7 +59,7 @@
         <div class="go"><a class="btn" href="luyen_thi.html">Vào luyện tập</a></div></div>
       <div class="card task"><span class="ic">🎯</span><h3>Ôn thi tốt nghiệp THPT</h3>
         <p>Đề thi chính thức của Bộ và đề ôn theo cấu trúc mới, làm trong thời gian thật.</p>
-        <div class="go"><a class="btn" href="luyen_tap.html#totnghiep">Toán</a><a class="btn ghost" href="luyen_thi.html#tieng_anh">Tiếng Anh</a></div></div>
+        <div class="go"><a class="btn" href="luyen_thi.html#toan">Toán</a><a class="btn ghost" href="luyen_thi.html#tieng_anh">Tiếng Anh</a></div></div>
       <div class="card task"><span class="ic">📖</span><h3>Xem lại bài làm và lời giải</h3>
         <p>Đáp án được mở khi giáo viên chữa bài. Lúc đó mở lại đúng link (hoặc quét lại mã QR) và bấm <b>“Xem lại bài làm của em và lời giải”</b>.</p></div>
     </div>
@@ -108,7 +108,7 @@
 </div></footer>
 
 <script>
-const MON = [["toan","📐 Toán","luyen_tap.html"],["van","📚 Ngữ văn","luyen_thi.html#van"],["hoa_hoc","⚗️ Hóa học","luyen_thi.html#hoa_hoc"],
+const MON = [["toan","📐 Toán","luyen_thi.html#toan"],["van","📚 Ngữ văn","luyen_thi.html#van"],["hoa_hoc","⚗️ Hóa học","luyen_thi.html#hoa_hoc"],
   ["sinh_hoc","🧬 Sinh học","luyen_thi.html#sinh_hoc"],["lich_su","🏛️ Lịch sử","luyen_thi.html#lich_su"],["dia_li","🌏 Địa lí","luyen_thi.html#dia_li"],
   ["gdkt_pl","⚖️ GDKT&PL","luyen_thi.html#gdkt_pl"],["tieng_anh","🔤 Tiếng Anh","luyen_thi.html#tieng_anh"],["ly","⚡ Vật lí","luyen_thi.html#ly"]];
 document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}">${m[1]}</a>`).join("");
