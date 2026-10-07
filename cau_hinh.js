@@ -44,6 +44,12 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 2. Phương pháp nghiên cứu và học tập môn Sinh học", ma: "Củng cố – Sinh học 10 · Bài 2: Phương pháp nghiên cứu và học tập môn Sinh học", link: "sinh_cc_bai2_k10.html" },
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 3. Các cấp độ tổ chức của thế giới sống", ma: "Củng cố – Sinh học 10 · Bài 3: Các cấp độ tổ chức của thế giới sống", link: "sinh_cc_bai3_k10.html" },
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 4. Các nguyên tố hoá học và nước", ma: "Củng cố – Sinh học 10 · Bài 4: Các nguyên tố hoá học và nước", link: "sinh_cc_bai4_k10.html" },
+  { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương I. Mệnh đề và tập hợp", ma: "Ôn tập Chương I. Mệnh đề và tập hợp (Toán 10)", link: "oc_toan10_chuong1.html" },
+  { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương II. Bất phương trình và hệ bất phương trình bậc nhất hai ẩn", ma: "Ôn tập Chương II. Bất phương trình và hệ bất phương trình bậc nhất hai ẩn (Toán 10)", link: "oc_toan10_chuong2.html" },
+  { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương III. Hệ thức lượng trong tam giác", ma: "Ôn tập Chương III. Hệ thức lượng trong tam giác (Toán 10)", link: "oc_toan10_chuong3.html" },
+  { khoi: 10, nhom: "Toán 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Toán 10 (không phải đề thi chính thức)", link: "kt_toan10_gki.html" },
+  { khoi: 10, nhom: "Sinh học 10 · Ôn tập chương", ten: "Phần mở đầu", ma: "Ôn tập Phần mở đầu (Sinh học 10)", link: "oc_sinh10_modau.html" },
+  { khoi: 10, nhom: "Sinh học 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 10 (không phải đề thi chính thức)", link: "kt_sinh10_gki.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
@@ -73,6 +79,8 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 2. Trao đổi nước và khoáng ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 2: Trao đổi nước và khoáng ở thực vật", link: "sinh_cc_bai2_k11.html" },
   { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 3. Thực hành trao đổi nước và khoáng ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 3: Thực hành trao đổi nước và khoáng ở thực vật", link: "sinh_cc_bai3_k11.html" },
   { khoi: 11, nhom: "Sinh học 11 · Củng cố", ten: "Bài 4. Quang hợp ở thực vật", ma: "Củng cố – Sinh học 11 · Bài 4: Quang hợp ở thực vật", link: "sinh_cc_bai4_k11.html" },
+  { khoi: 11, nhom: "Sinh học 11 · Ôn tập chương", ten: "Chương I. Trao đổi chất và chuyển hoá năng lượng ở sinh vật", ma: "Ôn tập Chương I. Trao đổi chất và chuyển hoá năng lượng ở sinh vật (Sinh học 11)", link: "oc_sinh11_chuong1.html" },
+  { khoi: 11, nhom: "Sinh học 11 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 11 (không phải đề thi chính thức)", link: "kt_sinh11_gki.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
@@ -90,6 +98,10 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền", ma: "Củng cố – Sinh học 12 · Bài 2: Gene, hệ gene và quá trình truyền đạt thông tin di truyền", link: "sinh_cc_bai2_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 3. Điều hoà biểu hiện gene", ma: "Củng cố – Sinh học 12 · Bài 3: Điều hoà biểu hiện gene", link: "sinh_cc_bai3_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 4. Đột biến gene", ma: "Củng cố – Sinh học 12 · Bài 4: Đột biến gene", link: "sinh_cc_bai4_k12.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số (Toán 12)", link: "oc_toan12_chuong1.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Toán 12 (không phải đề thi chính thức)", link: "kt_toan12_gki.html" },
+  { khoi: 12, nhom: "Sinh học 12 · Ôn tập chương", ten: "Chương I. Di truyền phân tử", ma: "Ôn tập Chương I. Di truyền phân tử (Sinh học 12)", link: "oc_sinh12_chuong1.html" },
+  { khoi: 12, nhom: "Sinh học 12 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 12 (không phải đề thi chính thức)", link: "kt_sinh12_gki.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc", ma: "Củng cố – Chuyên đề 1, Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng (Toán 12)", link: "cc_cd1bai1_t12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
