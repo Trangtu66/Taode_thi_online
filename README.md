@@ -422,3 +422,64 @@ graph TD
 ```
 
 > **Bài củng cố trực tuyến:** <https://trangtu66.github.io/Taode_thi_online/ly_cc_bai6_k12.html>
+
+### Toán 10 – Bài tập cuối Chương III. Hệ thức lượng trong tam giác *(Tiết 22)*
+
+```mermaid
+graph TD
+    Goc["🎯 CHƯƠNG III · TOÁN 10
+Hệ thức lượng trong tam giác"]
+
+    G1["① Góc từ 0° đến 180°"]
+    G2["② Định lí Sin & Cosin"]
+    G3["③ Diện tích & R, r"]
+    G4["④ Bài tập ứng dụng"]
+
+    Goc --> G1
+    Goc --> G2
+    Goc --> G3
+    Goc --> G4
+
+    G1 --> g1a["sin²α + cos²α = 1"]
+    G1 --> g1b["sin(180°–α) = sinα"]
+    G1 --> g1c["cos(180°–α) = –cosα"]
+    G1 --> g1d["Bảng 30°, 45°, 60°, 120°, 135°, 150°"]
+
+    G2 --> g2a["a/sinA = b/sinB = c/sinC = 2R"]
+    G2 --> g2b["a² = b²+c²–2bc·cosA"]
+    G2 --> g2c["cosA = (b²+c²–a²)/(2bc)"]
+    G2 --> g2d["Tìm cạnh/góc ẩn trong tam giác"]
+
+    G3 --> g3a["S = ½bc·sinA"]
+    G3 --> g3b["R = a/(2sinA) – ngoại tiếp"]
+    G3 --> g3c["r = S/p; p = (a+b+c)/2 – nội tiếp"]
+    G3 --> g3d["S = r·p = abc/(4R)"]
+
+    G4 --> g4a["Tính S, R, r khi biết 2 cạnh, 1 góc"]
+    G4 --> g4b["Chứng minh: đường trung tuyến"]
+    G4 --> g4c["Đo đạc thực tế (bài 3.18, 3.19)"]
+    G4 --> g4d["Quan hệ góc A và độ lớn cạnh a"]
+
+    style Goc fill:#1E40AF,color:#fff,font-weight:bold
+    style G1 fill:#1E3A8A,color:#fff
+    style G2 fill:#1E3A8A,color:#fff
+    style G3 fill:#1E3A8A,color:#fff
+    style G4 fill:#1E3A8A,color:#fff
+    style g1a fill:#DBEAFE
+    style g1b fill:#DBEAFE
+    style g1c fill:#DBEAFE
+    style g1d fill:#DBEAFE
+    style g2a fill:#FEF3C7,font-weight:bold
+    style g2b fill:#DBEAFE
+    style g2c fill:#DBEAFE
+    style g2d fill:#DBEAFE
+    style g3a fill:#FEF3C7,font-weight:bold
+    style g3b fill:#DBEAFE
+    style g3c fill:#DBEAFE
+    style g3d fill:#DBEAFE
+    style g4a fill:#DCFCE7
+    style g4b fill:#DCFCE7
+    style g4c fill:#DCFCE7
+    style g4d fill:#DCFCE7
+```
+
