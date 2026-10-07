@@ -41,13 +41,14 @@
 <main class="wrap">
   <h1>Bạn là ai?</h1>
   <p class="lead">Chọn vai trò để thấy đúng những việc bạn cần làm. Trang sẽ nhớ lựa chọn trên thiết bị này.</p>
-  <div class="hero" role="tablist">
-    <button class="who" data-v="hs" role="tab"><span class="ic">🎓</span><span><b>Tôi là học sinh</b><span>Làm bài giáo viên giao, luyện tập, ôn thi</span></span></button>
-    <button class="who" data-v="gv" role="tab"><span class="ic">👩‍🏫</span><span><b>Tôi là giáo viên</b><span>Học liệu, giao bài, kết quả, tạo đề</span></span></button>
+  <div class="hero" role="tablist" aria-label="Chọn vai trò">
+    <button class="who" data-v="hs" role="tab" id="tab-hs" aria-controls="v-hs" aria-selected="true"><span class="ic">🎓</span><span><b>Tôi là học sinh</b><span>Làm bài giáo viên giao, luyện tập, ôn thi</span></span></button>
+    <button class="who" data-v="gv" role="tab" id="tab-gv" aria-controls="v-gv" aria-selected="false"><span class="ic">👩‍🏫</span><span><b>Tôi là giáo viên</b><span>Học liệu, giao bài, kết quả, tạo đề</span></span></button>
   </div>
 
   <!-- ===================== HỌC SINH ===================== -->
-  <section id="v-hs" hidden>
+  <!-- không đặt hidden ở đây: section học sinh là mặc định, tránh flash khi JS chưa chạy -->
+  <section id="v-hs" role="tabpanel" aria-labelledby="tab-hs" tabindex="0">
     <h2>Em muốn…</h2>
     <div class="grid">
       <div class="card task"><span class="ic">📱</span><h3>Làm bài giáo viên vừa giao</h3>
@@ -67,7 +68,7 @@
   </section>
 
   <!-- ===================== GIÁO VIÊN ===================== -->
-  <section id="v-gv" hidden>
+  <section id="v-gv" role="tabpanel" aria-labelledby="tab-gv" tabindex="0" hidden>
     <h2>Thầy cô muốn…</h2>
     <div class="grid">
       <div class="card task"><span class="ic">📂</span><h3><span class="num">1</span>Tải học liệu môn mình</h3>
@@ -113,8 +114,13 @@ const MON = [["toan","📐 Toán","luyen_thi.html#toan"],["van","📚 Ngữ văn
   ["gdkt_pl","⚖️ GDKT&PL","luyen_thi.html#gdkt_pl"],["tieng_anh","🔤 Tiếng Anh","luyen_thi.html#tieng_anh"],["ly","⚡ Vật lí","luyen_thi.html#ly"]];
 document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}">${m[1]}</a>`).join("");
 function chon(v){
-  document.querySelectorAll(".who").forEach(b=>{ const on = b.dataset.v === v; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
-  document.getElementById("v-hs").hidden = v !== "hs"; document.getElementById("v-gv").hidden = v !== "gv";
+  document.querySelectorAll(".who").forEach(b=>{
+    const on = b.dataset.v === v;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-selected", String(on));
+  });
+  document.getElementById("v-hs").hidden = v !== "hs";
+  document.getElementById("v-gv").hidden = v !== "gv";
   try{ localStorage.setItem("vai_tro", v); }catch(e){}
   if(location.hash !== "#" + v) history.replaceState(null, "", "#" + v);
 }
