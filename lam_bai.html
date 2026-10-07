@@ -1091,7 +1091,34 @@ if(location.hash === "#tao" && !location.search) document.getElementById("go-bui
 
 /* ============== HỌC SINH: LÀM BÀI ============== */
 let EXAM = null;
-let studentAnswers = []; // studentAnswers[partIdx] = array song song với questions của phần đó
+let _ans = null; // closure giữ đáp án sau khi niêm phong — không lộ qua window.EXAM
+let studentAnswers = [];
+
+/* Niêm phong đáp án: lưu vào closure, xoá khỏi EXAM để F12 không thấy */
+function sealAnswers(exam){
+  const cache = exam.parts.map(part=>
+    part.questions.map(q=>{
+      const rec = {
+        c: q.correct !== undefined ? q.correct : null,
+        e: q.expl || "",
+        a: q.answer !== undefined ? q.answer : null,
+        ss: q.statements ? q.statements.map(s=>({c:s.correct,e:s.expl||""})) : null
+      };
+      delete q.correct; q.expl = "";
+      delete q.answer;
+      if(q.statements) q.statements.forEach(s=>{ delete s.correct; s.expl=""; });
+      return rec;
+    })
+  );
+  return {
+    getCorrect:(pi,qi)=> cache[pi]?.[qi]?.c ?? null,
+    getAnswer: (pi,qi)=> cache[pi]?.[qi]?.a ?? null,
+    getExpl:   (pi,qi)=> cache[pi]?.[qi]?.e ?? "",
+    stmtOk:    (pi,qi,si,val)=> cache[pi]?.[qi]?.ss?.[si]?.c === val,
+    stmtCorrect:(pi,qi,si)=> cache[pi]?.[qi]?.ss?.[si]?.c ?? null,
+    stmtExpl:  (pi,qi,si)=> cache[pi]?.[qi]?.ss?.[si]?.e ?? ""
+  };
+} // studentAnswers[partIdx] = array song song với questions của phần đó
 let studentName = "";
 let studentLop = "";      // MỚI: lớp của học sinh (gửi kèm kết quả)
 let examStartTs = 0;      // MỚI: thời điểm bắt đầu làm bài
@@ -1236,6 +1263,7 @@ function shuffleMcqOptions(examObj){
 
 function startExam(){
   shuffleMcqOptions(EXAM);
+  _ans = sealAnswers(EXAM); // gọi SAU shuffle để đáp án khớp với thứ tự phương án đã đảo
   examStartTs = Date.now();
   studentAnswers = EXAM.parts.map(part=>{
     if(part.type==="mcq") return part.questions.map(()=>null);
@@ -1443,18 +1471,18 @@ function submitExam(auto){
     part.questions.forEach((q,qi)=>{
       if(part.type==="mcq"){
         const userAns = studentAnswers[pi][qi];
-        const ok = userAns===q.correct;
+        const ok = userAns===_ans.getCorrect(pi,qi);
         if(ok) score += part.pointsPerQuestion;
         details.push({q, userAns, ok, pts: ok?part.pointsPerQuestion:0});
       } else if(part.type==="tf"){
         let cnt=0;
-        q.statements.forEach((st,si)=>{ if(studentAnswers[pi][qi][si]===st.correct) cnt++; });
+        q.statements.forEach((_st,si)=>{ if(_ans.stmtOk(pi,qi,si,studentAnswers[pi][qi][si])) cnt++; });
         const pts = ratioForCount(cnt) * part.maxPoints;
         score += pts;
         details.push({q, userAns: studentAnswers[pi][qi], correctCount:cnt, pts});
       } else if(part.type==="short"){
         const userVal = parseNum(studentAnswers[pi][qi]);
-        const ok = userVal!==null && Math.abs(userVal - q.answer) <= 0.006 + 1e-9;
+        const ok = userVal!==null && Math.abs(userVal - _ans.getAnswer(pi,qi)) <= 0.006 + 1e-9;
         if(ok) score += part.pointsPerQuestion;
         details.push({q, userAns: studentAnswers[pi][qi], ok, pts: ok?part.pointsPerQuestion:0});
       }
@@ -1492,7 +1520,7 @@ function submitExam(auto){
   document.getElementById("dapan-khoa").classList.remove("hidden");
   const thu = ()=>{ document.getElementById("kt-dapan-msg").textContent = "Đang kiểm tra…";
     kiemTraDapAn().then(mo=>{
-      if(mo){ document.getElementById("dapan-khoa").classList.add("hidden"); renderReview(partResults); }
+      if(mo){ document.getElementById("dapan-khoa").classList.add("hidden"); renderReview(partResults, _ans); }
       else document.getElementById("kt-dapan-msg").textContent = "Đáp án vẫn đang khoá (" + new Date().toLocaleTimeString("vi-VN") + ").";
     }); };
   document.getElementById("btn-kt-dapan").onclick = thu;
@@ -1548,7 +1576,7 @@ function hienKetQuaDaLuu(bl, cheDo){
   document.getElementById("score-breakdown").innerHTML = bl ? bl.parts.map((r,i)=>`<span>Phần ${i+1}: ${r.score.toFixed(2)}đ</span>`).join("") : "";
   document.getElementById("score-sub").textContent = cheDo;
   renderReview(bl ? bl.parts : EXAM.parts.map(part=>({part, score:0, details: part.questions.map(q=>(
-    part.type==="mcq" ? {q, userAns:null, ok:false, pts:0} : part.type==="tf" ? {q, userAns:[null,null,null,null], correctCount:0, pts:0} : {q, userAns:"", ok:false, pts:0}))})));
+    part.type==="mcq" ? {q, userAns:null, ok:false, pts:0} : part.type==="tf" ? {q, userAns:[null,null,null,null], correctCount:0, pts:0} : {q, userAns:"", ok:false, pts:0}))})), _ans);
   window.scrollTo({top:0, behavior:"smooth"});
 }
 function maBai(){ return (EXAM.meta.quizId || EXAM.meta.title || "de-kiem-tra").trim(); }
@@ -1638,7 +1666,7 @@ function guiKetQua(score10, total, maxPoints, partResults, auto){
     });
 }
 /* ============== REVIEW ============== */
-function renderReview(partResults){
+function renderReview(partResults, ansGetter){
   const box = document.getElementById("review-list");
   let html = "";
   const labels = ["a","b","c","d"];
@@ -1647,44 +1675,51 @@ function renderReview(partResults){
     r.details.forEach((d,qi)=>{
       const q=d.q;
       if(r.part.type==="mcq"){
+        const correctLetter = ansGetter ? ansGetter.getCorrect(pi,qi) : null;
+        const expl = ansGetter ? ansGetter.getExpl(pi,qi) : "";
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
           <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}`;
         q.options.forEach(opt=>{
           let cls="review-mc-opt";
-          if(opt.l===q.correct) cls+=" correct-ans";
+          if(correctLetter && opt.l===correctLetter) cls+=" correct-ans";
           else if(opt.l===d.userAns) cls+=" wrong-selected";
-          html += `<div class="${cls}">${opt.l}. ${escHtml(opt.t)}${opt.l===q.correct?' ✓ (đáp án đúng)':''}${(opt.l===d.userAns && opt.l!==q.correct)?' ✕ (bạn đã chọn)':''}</div>`;
+          html += `<div class="${cls}">${opt.l}. ${escHtml(opt.t)}${(correctLetter && opt.l===correctLetter)?' ✓ (đáp án đúng)':''}${(opt.l===d.userAns && opt.l!==correctLetter)?' ✕ (bạn đã chọn)':''}</div>`;
         });
-        if(q.expl) html += `<div class="review-body"><div class="expl">${escHtml(q.expl)}</div></div>`;
+        if(expl) html += `<div class="review-body"><div class="expl">${escHtml(expl)}</div></div>`;
         html += `</div>`;
       } else if(r.part.type==="tf"){
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.correctCount}/4 ý đúng · ${d.pts.toFixed(2)} đ</span></div>
           <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}`;
-        q.statements.forEach((st,si)=>{
+        q.statements.forEach((_st,si)=>{
           const userVal = d.userAns[si];
-          const isOk = userVal===st.correct;
+          const correctVal = ansGetter ? ansGetter.stmtCorrect(pi,qi,si) : null;
+          const isOk = correctVal !== null ? userVal===correctVal : false;
           const userTxt = userVal===null ? "chưa chọn" : (userVal? "Đúng":"Sai");
-          const correctTxt = st.correct? "Đúng":"Sai";
+          const correctTxt = correctVal===null ? "—" : (correctVal? "Đúng":"Sai");
+          const stExpl = ansGetter ? ansGetter.stmtExpl(pi,qi,si) : "";
           html += `<div class="statement" style="border-top:1px dashed var(--paper-line);">
             <div class="mark ${isOk?'ok':'no'}" style="margin-right:8px;">${isOk?'✓':'✕'}</div>
             <div class="review-body" style="flex:1;">
-              <div class="st-text"><span class="st-label">${labels[si]})</span>${escHtml(st.text)}</div>
+              <div class="st-text"><span class="st-label">${labels[si]})</span>${escHtml(_st.text)}</div>
               <div class="meta">Bạn chọn: <b>${userTxt}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${correctTxt}</b></div>
-              ${st.expl?`<div class="expl">${escHtml(st.expl)}</div>`:""}
+              ${stExpl?`<div class="expl">${escHtml(stExpl)}</div>`:""}
             </div></div>`;
         });
         html += `</div>`;
       } else if(r.part.type==="short"){
+        const correctAns = ansGetter ? ansGetter.getAnswer(pi,qi) : null;
+        const expl = ansGetter ? ansGetter.getExpl(pi,qi) : "";
+        const correctDisplay = correctAns !== null ? String(correctAns).replace(".", ",") : "—";
         html += `<div class="card review-q">
           <div class="review-head"><span class="q-tag" style="margin-bottom:0;">Câu ${qNo(r.part,qi)}</span>
           <span class="qscore">${d.ok? '+'+d.pts.toFixed(2)+' đ':'0 đ'}</span></div>
           <div class="q-content">${rich(q.content)}</div>${imgHtml(q)}
-          <div class="meta">Bạn trả lời: <b>${(""+d.userAns).trim()===""?"chưa trả lời":escHtml(d.userAns)}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${String(q.answer).replace(".", ",")}</b></div>
-          ${q.expl?`<div class="expl" style="margin-top:8px;">${escHtml(q.expl)}</div>`:""}
+          <div class="meta">Bạn trả lời: <b>${(""+d.userAns).trim()===""?"chưa trả lời":escHtml(d.userAns)}</b> &nbsp;·&nbsp; Đáp án đúng: <b>${correctDisplay}</b></div>
+          ${expl?`<div class="expl" style="margin-top:8px;">${escHtml(expl)}</div>`:""}
         </div>`;
       }
     });
