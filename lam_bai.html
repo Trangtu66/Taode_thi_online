@@ -3,131 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Kiểm Định Học Liệu Số - THPT Vĩnh Thạnh</title>
+    <title>Hệ Thống Kiểm Định Học Liệu Số Cao Cấp - THPT Vĩnh Thạnh</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f5f7fa; color: #333; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h2 { color: #0056b3; text-align: center; margin-bottom: 25px; }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-weight: bold; margin-bottom: 6px; }
-        input[type="text"], select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        .checkbox-group { display: flex; align-items: center; gap: 8px; margin: 15px 0; background: #eef5fc; padding: 10px; border-radius: 6px; }
-        .btn-submit { width: 100%; padding: 14px; background-color: #28a745; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
-        .btn-submit:hover { background-color: #218838; }
-        .btn-submit:disabled { background-color: #6c757d; cursor: not-allowed; }
+        :root { --primary: #0056b3; --success: #28a745; --warning: #ffc107; --danger: #dc3545; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: var(--bg); color: #333; line-height: 1.6; }
+        .wrapper { max-width: 900px; margin: 0 auto; }
+        .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 25px; border-top: 5px solid var(--primary); }
+        .card-teacher { border-top-color: var(--warning); }
+        h2, h3 { color: var(--primary); margin-top: 0; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #495057; }
+        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; box-sizing: border-box; font-size: 15px; transition: border-color 0.2s; }
+        input[type="text"]:focus, select:focus { border-color: var(--primary); outline: none; }
+        .checkbox-container { display: flex; align-items: center; gap: 10px; background: #eef5fc; padding: 12px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--primary); }
+        .checkbox-container label { margin-bottom: 0; cursor: pointer; color: #004085; }
+        .btn { width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; color: #fff; cursor: pointer; transition: all 0.2s; display: block; text-align: center; }
+        .btn-primary { background-color: var(--primary); }
+        .btn-primary:hover { background-color: #004094; }
+        .btn-success { background-color: var(--success); }
+        .btn-success:hover { background-color: #218838; }
+        .btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+        .badge-warning { background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; border: 1px solid #ffeeba; margin-top: 8px; display: none; font-size: 14px; font-weight: 500; }
+        .question-box { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>📝 CỔNG LÀM BÀI TRỰC TUYẾN BẢO MẬT NGẦM</h2>
+<div class="wrapper">
     
-    <!-- KHU VỰC ĐỊNH DANH HỌC SINH -->
-    <div class="form-group">
-        <label for="txt_hoten">🧑‍🎓 Họ và tên Học sinh:</label>
-        <input type="text" id="txt_hoten" placeholder="Nhập đầy đủ họ và tên của em...">
-    </div>
-    
-    <div class="form-group">
-        <label for="sel_lop">🏫 Chọn Lớp học:</label>
-        <select id="sel_lop">
-            <option value="">-- Bấm vào đây để chọn Lớp --</option>
-            <option value="TD_Nhom_TuDo">Lớp: Học sinh tự do (Trường ngoài)</option>
-            <!-- Con trai thầy giữ nguyên cụm danh sách 21 lớp chính khóa cũ ở đây -->
-            <option value="10A1">Lớp 10A1</option>
-            <option value="11A1">Lớp 11A1</option>
-            <option value="12A1">Lớp 12A1</option>
-        </select>
+    <!-- ========================================================================= -->
+    <!-- PHÂN HỆ 1: GIAO DIỆN TẠO ĐỀ THI VÀ QUY HOẠCH KHO LƯU TRỮ (DÀNH CHO GIÁO VIÊN) -->
+    <!-- ========================================================================= -->
+    <div class="card card-teacher">
+        <h2>🛠️ BẢNG ĐIỀU HÀNH TẠO ĐỀ & QUY HOẠCH KHO LƯU TRỮ</h2>
+        
+        <div class="form-group">
+            <label for="txt_magv">🔑 Mã định danh Giáo viên:</label>
+            <input type="text" id="txt_magv" placeholder="Ví dụ: GV01, GV45...">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="chk_is_guest" onchange="cauHinhGiaoVienTuDo()">
+            <label for="chk_is_guest"><b>🌐 Tôi là Giáo viên tự do / Trường ngoài (Tự chủ quản lý kho lưu trữ riêng)</b></label>
+        </div>
+
+        <div class="form-group" id="div_url_sheet_ca_nhan" style="display: none;">
+            <label style="color: var(--danger);" for="txt_url_sheet_input">🔗 Đường link WebApp Google Sheet cá nhân của thầy/cô:</label>
+            <input type="text" id="txt_url_sheet_input" placeholder="https://google.com">
+            <small style="color: #6c757d;">(Hệ thống sẽ tự động rẽ nhánh dữ liệu, đẩy điểm số của học sinh về thẳng Drive của riêng thầy/cô)</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txt_tende_input">📄 Tên đề thi (Gõ tiếng Việt không dấu hoặc có dấu ngắn gọn):</label>
+            <input type="text" id="txt_tende_input" placeholder="Ví dụ: Kiem_tra_giua_ky_Toan_11">
+        </div>
+
+        <div class="form-group">
+            <label for="sel_mucde">📂 Phân loại danh mục lưu trữ (Ngăn tủ):</label>
+            <select id="sel_mucde">
+                <option value="luyen_tap">📂 Mục 1: Luyện tập theo bài học / chuyên đề</option>
+                <option value="on_chuong">📂 Mục 2: Ôn tập chương định kỳ</option>
+                <option value="dinh_ky">📂 Mục 3: Đề kiểm tra Giữa kỳ / Cuối kỳ trường</option>
+                <option value="tot_nghiep">📂 Mục 4: Kho tài liệu luyện thi Tốt nghiệp THPT</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="txt_vung_word">📝 Nội dung bộ câu hỏi (Hệ thống tự động trộn nội dung trần từ file Word):</label>
+            <textarea id="txt_vung_word" rows="5" placeholder="Nội dung phôi đề bài sau khi đọc file Word..."></textarea>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="xuLyTaoDeVaGhiMucThucDia()">📦 XUẤT BẢN ĐỀ THI & PHÂN PHỐI KHO LƯU TRỮ</button>
     </div>
 
-    <!-- CÁC Ô CHỨA DỮ LIỆU ĐỀ VÀ PHÂN LUỒNG ẨN (NÉN TRONG LINK) -->
-    <input type="hidden" id="txt_made" value="De_OnTap_Thang10">
-    <input type="hidden" id="txt_magv_hidden" value="GV01"> 
-    <input type="hidden" id="txt_sheet_hidden" value="">
+    <!-- ========================================================================= -->
+    <!-- PHÂN HỆ 2: GIAO DIỆN LÀM BÀI TRỰC TUYẾN BẢO MẬT ZERO-TRUST (DÀNH CHO HỌC SINH) -->
+    <!-- ========================================================================= -->
+    <div class="card">
+        <h2>📝 CỔNG LÀM BÀI TRỰC TUYẾN CHẤM NGẦM BẢO MẬT ĐÁM MÂY</h2>
+        
+        <div class="form-group">
+            <label for="txt_hoten">🧑‍🎓 Họ và tên Học sinh:</label>
+            <input type="text" id="txt_hoten" placeholder="Học sinh nhập đầy đủ họ và tên cá nhân...">
+        </div>
 
-    <!-- KHU VỰC HIỂN THỊ NỘI DUNG CÂU HỎI TRẦN (KHÔNG CHỨA ĐÁP ÁN ĐÚNG) -->
-    <div id="vung_chua_cau_hoi">
-        <!-- Mã JavaScript cũ của thầy tự động đổ câu hỏi Word thô vào đây -->
-        <p><b>Câu 1:</b> Nội dung câu hỏi trắc nghiệm hiển thị trần tại đây...</p>
+        <div class="form-group">
+            <label for="sel_lop">🏫 Chọn Lớp học / Nhóm học tập:</label>
+            <select id="sel_lop" onchange="kiemTraDatTenLopTrungLap()">
+                <option value="">-- Bấm vào đây để chọn Lớp của em --</option>
+                <option value="Hoc_Sinh_Tu_Do">🌐 Lớp: Học sinh tự do (Trường ngoài đăng ký tự học)</option>
+                <!-- Hệ thống danh sách lớp chính khóa của nhà trường -->
+                <option value="10A1">Khối 10 ➔ Lớp 10A1</option>
+                <option value="11A1">Khối 11 ➔ Lớp 11A1</option>
+                <option value="12A1">Khối 12 ➔ Lớp 12A1</option>
+            </select>
+        </div>
+
+        <!-- Ô nhập thông tin cho nhóm tự do của giáo viên -->
+        <div class="form-group" id="div_dat_ten_lop_rieng" style="display:none;">
+            <label for="txt_lop_tu_do" style="color: var(--success);">✏️ Nhập tên nhóm/lớp dạy thêm riêng của thầy/cô:</label>
+            <input type="text" id="txt_lop_tu_do" placeholder="Ví dụ: TD_Toan_ThayTrang_Nhom1, PD_Van_CoThao...">
+            <div id="lbl_canh_bao_trung_lop" class="badge-warning"></div>
+        </div>
+
+        <!-- CÁC Ô CHỨA THAM SỐ ĐỂ ĐẤU NỐI ĐƯỜNG TRUYỀN NGẦM (ẨN) -->
+        <input type="hidden" id="txt_made_hidden" value="DE_MAC_DINH_01">
+        <input type="hidden" id="txt_magv_hidden" value="THPT_VINHTHANH">
+        <input type="hidden" id="txt_sheet_hidden" value="">
+
+        <!-- VÙNG HIỂN THỊ CÂU HỎI TRẦN - KHÔNG CHỨA BẤT KỲ ĐÁP ÁN ĐÚNG NÀO TRÊN MÁY HỌC SINH -->
+        <div id="vung_chua_cau_hoi_tran" style="margin: 25px 0; border-top: 1px dashed #ccc; padding-top: 20px;">
+            <div class="question-box">
+                <p><b>Câu 1 (Trả lời ngắn):</b> Nhập kết quả bài toán dưới dạng số thập phân:</p>
+                <input type="text" id="txt_ans_cau1" maxlength="4" style="max-width: 150px;" oninput="xuLyCanhBaoKyTuThoiGianThuc(this)">
+                <div class="badge-warning" style="display:none;"></div>
+            </div>
+        </div>
+
+        <button type="button" id="btn_nopbai_cloud" class="btn btn-success" onclick="xuLyNopBaiKhongGhiDapAnClient()">🚀 BẤM NỘP BÀI KHẢO SÁT CHẤM NGẦM</button>
     </div>
 
-    <button type="button" id="btn_nopbai" class="btn-submit" onclick="xuLyNopBaiBaoMat()">🚀 BẤM NỘP BÀI CHẤM NGẦM</button>
 </div>
 
 <script>
 // =========================================================================
-// LUỒNG XỬ LÝ NỘP BÀI BẢO MẬT SERVER-SIDE CHỐNG GIAN LẬN ĐIỂM
+// LOGIC ĐIỀU HÀNH 1: PHÂN LUỒNG GIÁO VIÊN VÀ QUY HOẠCH NGĂN TỦ PHÂN MẢNH KHO ĐỀ
 // =========================================================================
-function xuLyNopBaiBaoMat() {
-    const hoTen = document.getElementById("txt_hoten").value.trim();
-    const lop = document.getElementById("sel_lop").value;
-    const maDe = document.getElementById("txt_made").value;
-    
-    // Đọc tham số bảo mật phân luồng nhúng ngầm
-    const maGV_Goc = document.getElementById("txt_magv_hidden").value; 
-    const urlSheetRieng = document.getElementById("txt_sheet_hidden").value; 
+function cauHinhGiaoVienTuDo() {
+    const chkIsGuest = document.getElementById("chk_is_guest");
+    const divUrlSheetRieng = document.getElementById("div_url_sheet_ca_nhan");
+    const txtMaGV = document.getElementById("txt_magv");
 
-    if (!hoTen || !lop) {
-        alert("Vui lòng nhập Họ tên và chọn đúng Lớp học để lưu điểm số!");
-        return;
+    if (chkIsGuest && chkIsGuest.checked) {
+        txtMaGV.value = "GUEST";
+        txtMaGV.disabled = true;
+        if (divUrlSheetRieng) divUrlSheetRieng.style.display = "block";
+    } else {
+        txtMaGV.disabled = false;
+        txtMaGV.value = "";
+        if (divUrlSheetRieng) divUrlSheetRieng.style.display = "none";
     }
-
-    // 1. THU THẬP CHUỖI ĐÁP ÁN TRẦN - TUYỆT ĐỐI KHÔNG CHẤM ĐIỂM TẠI MÁY HỌC SINH
-    let chuoiDapAnTran = {
-        phan1: [], // Chỉ lưu mảng đáp án học sinh chọn: ["A", "B", "D", ...]
-        phan2: [], // Chỉ lưu mảng đúng sai: [["Đ","S","S","Đ"], ...]
-        phan3: []  // Chỉ lưu đáp án điền số trả lời ngắn: ["4.56", "12", ...]
-    };
-
-    // [Giữ nguyên cấu trúc các vòng lặp for quét radio/checkbox cũ của con trai thầy tại đây]
-    // Ví dụ gom mẫu câu trả lời Phần I:
-    // chuoiDapAnTran.phan1.push("A"); 
-
-    // 2. PHÂN LUỒNG ĐƯỜNG TRUYỀN POST NGẦM THÔNG MINH
-    // Mặc định chạy về Sheet tổng của nhà trường Vĩnh Thạnh
-    let webAppUrl = "https://google.com";
-    
-    // Nếu link sinh ra từ Giáo viên tự do (GUEST), máy tự động rẽ nhánh đẩy điểm về Drive riêng của họ
-    if (maGV_Goc === "GUEST" && urlSheetRieng) {
-        webAppUrl = urlSheetRieng; 
-    }
-
-    const payload = {
-        maDe: maDe,
-        maGV: maGV_Goc,
-        hoTen: hoTen,
-        lop: lop,
-        answers: chuoiDapAnTran // Gửi chuỗi trần trọc, Server Google tự đối chiếu đáp án gốc lưu ngầm để chấm
-    };
-
-    // Khóa cứng nút nộp bài chống học sinh bấm liên tục phá hoại bom gói tin
-    const btnNop = document.getElementById("btn_nopbai");
-    if(btnNop) {
-        btnNop.disabled = true;
-        btnNop.innerText = "⏳ Đang nạp bài lên hệ thống kiểm định ngầm...";
-    }
-
-    // Kích hoạt luồng truyền HTTP POST ngầm bảo mật
-    fetch(webAppUrl, {
-        method: "POST",
-        mode: "no-cors", 
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
-        alert("🚀 Nộp bài thành công! Bài làm của em đã được chuyển về máy chủ của Giáo viên để thẩm định và chấm điểm ngầm.");
-        
-        // Tắt hoàn toàn tính năng xem điểm tức thì để chống lộ điểm real-time
-        // Chuyển hướng học sinh sang trang thông báo hoàn thành bài thi sạch sẽ
-        window.location.href = "hoan_thanh.html";
-    })
-    .catch(error => {
-        console.error("Lỗi kết nối mạng:", error);
-        alert("Nghẽn mạng cục bộ, vui lòng thử bấm nộp lại bài!");
-        if(btnNop) { btnNop.disabled = false; btnNop.innerText = "BẤM NỘP BÀI CHẤM NGẦM"; }
-    });
 }
-</script>
 
-</body>
-</html>
+function kiemTraDatTenLopTrungLap() {
+    const selLop = document.getElementById("sel_lop").value;
+    const divLopRieng = document.getElementById("div_dat_ten_lop_rieng");
+    if (selLop === "Hoc_Sinh_Tu_Do") {
+        if (divLopRieng) divLopRieng.style.display = "block";
+    } else {
+        if (divLopRieng) divLopRieng.style.display = "none";
+    }
+}
+
+// Xử lý tự động chuyển đổi dấu phẩy thành dấu chấm và ẩn cảnh báo khi số hợp lệ
+function xuLyCanhBaoKyTuThoiGianThuc(inputElement) {
+    let value = inputElement.value;
+    // Tự động chuẩn hóa dấu phẩy thành dấu chấm toán học
+    if (value.includes(',')) {
+        value = value.replace(/,/g, '.');
+        inputElement.value = value;
+    }
+    
+    const containerWarning = inputElement.nextElementSibling;
+    // Regex kiểm tra số nguyên hoặc số thập phân hợp lệ dài 4 ký tự (Ví dụ: 4.56, -1.2, 0.75)
+    const patternSoHocHopLe = /^-?\d+(\.\d+)?$/;
+
+    if (value.length >= 4) {
+        if (patternSoHocHopLe.test(value)) {
+            containerWarning.style.display = "none"; // Ẩn cảnh báo vì là định dạng số thập phân hợp lệ
+        } else {
+            containerWarning.style.display = "block";
+            containerWarning.innerText = "⚠️ Hệ thống ghi nhận chuỗi nhập đạt 4 ký tự. Vui lòng rà soát lỗi khoảng trắng thừa!";
+        }
