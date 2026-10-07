@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Kiểm Định Học Liệu Số Cao Cấp - THPT Vĩnh Thạnh</title>
+    <title>Hệ Thống Khảo Sát & Tạo Đề Thi Trực Tuyến - THPT Vĩnh Thạnh</title>
     
-    <!-- NHÚNG BỘ THÔNG DỊCH ĐỌC FILE WORD TỰ ĐỘNG CHUẨN QUỐC TẾ -->
+    <!-- THƯ VIỆN ĐỌC FILE WORD (.DOCX) CHUẨN CỦA HỆ THỐNG CŨ -->
     <script src="https://cloudflare.com"></script>
 
     <style>
-        :root { --primary: #0056b3; --success: #28a745; --warning: #ffc107; --danger: #dc3545; --bg: #f8f9fa; }
+        :root { --primary: #0056b3; --success: #28a745; --warning: #ffc107; --bg: #f8f9fa; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: var(--bg); color: #333; line-height: 1.6; }
         .wrapper { max-width: 1000px; margin: 0 auto; }
         .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 25px; border-top: 5px solid var(--primary); }
@@ -17,23 +17,24 @@
         h2, h3 { color: var(--primary); margin-top: 0; }
         .form-group { margin-bottom: 20px; }
         label { display: block; font-weight: 600; margin-bottom: 8px; color: #495057; }
-        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; box-sizing: border-box; font-size: 15px; transition: border-color 0.2s; }
-        input[type="text"]:focus, select:focus, textarea:focus { border-color: var(--primary); outline: none; }
+        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; box-sizing: border-box; font-size: 15px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .checkbox-container { display: flex; align-items: center; gap: 10px; background: #eef5fc; padding: 12px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--primary); }
-        .checkbox-container label { margin-bottom: 0; cursor: pointer; color: #004085; }
+        .checkbox-container label { margin-bottom: 0; cursor: pointer; color: #004085; font-weight: bold; }
         .btn { width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; color: #fff; cursor: pointer; transition: all 0.2s; display: block; text-align: center; }
         .btn-primary { background-color: var(--primary); }
         .btn-primary:hover { background-color: #004094; }
         .btn-success { background-color: var(--success); }
         .btn-success:hover { background-color: #218838; }
-        .btn-warning { background-color: #e0a800; color: #fff; }
-        .btn:disabled { background-color: #6c757d; cursor: not-allowed; }
         
-        /* GIAO DIỆN KHU VỰC CHỈNH SỬA ĐỀ HOÀN CHỈNH CHO GIÁO VIÊN */
-        .editor-box { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 5px solid var(--primary); }
-        .option-edit-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .option-edit-row input[type="radio"] { width: 20px; hieght: 20px; cursor: pointer; }
+        /* MÀN HÌNH CHỈNH SỬA VÀ THIẾT LẬP ĐÁP ÁN NGUYÊN BẢN CŨ */
+        .workspace-box { background: #fafafa; border: 2px dashed #ccc; border-radius: 8px; padding: 20px; min-height: 150px; margin-top: 10px; }
+        .question-editor-item { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .question-title { font-weight: bold; color: #212529; margin-bottom: 12px; font-size: 16px; }
+        .options-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; background: #f8f9fa; padding: 12px; border-radius: 6px; }
+        .option-select-item { display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #495057; }
+        .option-select-item input[type="radio"] { width: 18px; height: 18px; cursor: pointer; }
+        .badge-warning { background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; border: 1px solid #ffeeba; margin-top: 8px; display: none; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -41,135 +42,122 @@
 <div class="wrapper">
     
     <!-- ========================================================================= -->
-    <!-- PHÂN HỆ 1: BẢNG ĐIỀU HÀNH VÀ MÀN HÌNH CHỈNH SỬA ĐỀ HOÀN CHỈNH (GIÁO VIÊN) -->
+    <!-- PHÂN HỆ 1: TRÌNH TẠO ĐỀ CŨ VÀ MÀN HÌNH CẤU HÌNH ĐÁP ÁN ĐẦU VÀO (GIÁO VIÊN) -->
     <!-- ========================================================================= -->
     <div class="card card-teacher">
-        <h2>🛠️ BẢNG ĐIỀU HÀNH TẠO ĐỀ & QUY HOẠCH KHO LƯU TRỮ</h2>
+        <h2>🛠️ BẢNG ĐIỀU HÀNH TẠO ĐỀ VÀ THIẾT LẬP ĐÁP ÁN GỐC (CÁCH CŨ)</h2>
         
         <div class="form-group">
-            <label for="txt_magv">🔑 Mã định danh Giáo viên:</label>
-            <input type="text" id="txt_magv" placeholder="Ví dụ: GV01, GV45...">
+            <label for="txt_magv">🔑 Nhập Mã số Giáo viên:</label>
+            <input type="text" id="txt_magv" placeholder="Ví dụ: GV01, GV23...">
         </div>
 
         <div class="checkbox-container">
             <input type="checkbox" id="chk_is_guest" onchange="cauHinhGiaoVienTuDo()">
-            <label for="chk_is_guest"><b>🌐 Tôi là Giáo viên tự do / Trường ngoài (Tự chủ quản lý sổ điểm cá nhân riêng)</b></label>
+            <label for="chk_is_guest">🌐 Tôi là Giáo viên tự do / Ngoài trường (Tự cấu hình sổ điểm riêng)</label>
         </div>
 
         <div class="form-group" id="div_url_sheet_ca_nhan" style="display: none;">
-            <label style="color: var(--danger);" for="txt_url_sheet_input">🔗 Đường link WebApp Google Sheet cá nhân của thầy/cô:</label>
+            <label style="color: #dc3545;" for="txt_url_sheet_input">🔗 Dán link WebApp Google Sheet cá nhân của thầy/cô:</label>
             <input type="text" id="txt_url_sheet_input" placeholder="https://google.com">
         </div>
 
         <div class="form-group">
-            <label for="txt_tende_input">📄 Tên đề thi (Gõ tiếng Việt ngắn gọn):</label>
-            <input type="text" id="txt_tende_input" placeholder="Ví dụ: Kiem_tra_giua_ky_Toan_11">
+            <label for="txt_tende_input">📄 Đặt tên tiêu đề đề thi:</label>
+            <input type="text" id="txt_tende_input" placeholder="Ví dụ: Bai_tap_chuong1_GiaiTich_12">
         </div>
 
         <div class="form-group">
-            <label for="sel_mucde">📂 Phân loại danh mục lưu trữ (Ngăn tủ):</label>
+            <label for="sel_mucde">📂 Chọn mục phân loại ngăn tủ lưu trữ:</label>
             <select id="sel_mucde">
-                <option value="luyen_tap">📂 Mục 1: Luyện tập theo bài học / chuyên đề</option>
-                <option value="on_chuong">📂 Mục 2: Ôn tập chương định kỳ</option>
-                <option value="dinh_ky">📂 Mục 3: Đề kiểm tra Giữa kỳ / Cuối kỳ trường</option>
-                <option value="tot_nghiep">📂 Mục 4: Kho tài liệu luyện thi Tốt nghiệp THPT</option>
+                <option value="luyen_tap">📂 Mục 1: Luyện tập chuyên đề học tập</option>
+                <option value="on_chuong">📂 Mục 2: Ôn tập kiểm tra định kỳ chương</option>
+                <option value="dinh_ky">📂 Mục 3: Đề thi Giữa kỳ / Cuối kỳ toàn trường</option>
+                <option value="tot_nghiep">📂 Mục 4: Đề luyện thi Tốt nghiệp THPT Quốc gia</option>
             </select>
         </div>
 
-        <!-- BỘ NẠP DỮ LIỆU ĐẦU VÀO KÉP (WORD & JSON) -->
+        <!-- BỘ NẠP DỮ LIỆU ĐẦU VÀO KÉP CŨ CỦA GIÁO VIÊN -->
         <div class="grid-2">
             <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
-                <label style="color: #856404; margin-bottom: 8px;">📥 Cách 1: Nạp đề từ file Word gốc (.docx):</label>
-                <input type="file" id="file_word_dau_vao" accept=".docx" onchange="docVaTrichXuatFileWord(this)" style="font-size: 13px; width: 100%;">
+                <label style="color: #856404; margin-bottom: 8px;">📥 Cách 1: Tải lên file Word câu hỏi thô (.docx):</label>
+                <input type="file" id="file_word_dau_vao" accept=".docx" onchange="docVaTrichXuatFileWordCachCu(this)" style="font-size: 13px; width: 100%;">
             </div>
             <div style="background: #d1ecf1; padding: 15px; border-radius: 8px; border: 1px solid #bee5eb;">
-                <label style="color: #0c5460; margin-bottom: 8px;">🔄 Cách 2: Phục hồi đề cũ từ file phôi (.json):</label>
-                <input type="file" id="file_json_dau_vao" accept=".json" onchange="docVaPhucHoiFileJson(this)" style="font-size: 13px; width: 100%;">
+                <label style="color: #0c5460; margin-bottom: 8px;">🔄 Cách 2: Phục hồi phôi đề cũ từ file (.json):</label>
+                <input type="file" id="file_json_dau_vao" accept=".json" onchange="docVaPhucHoiFileJsonCachCu(this)" style="font-size: 13px; width: 100%;">
             </div>
         </div>
 
-        <!-- MÀN HÌNH CHỈNH SỬA ĐỀ HOÀN CHỈNH CHO GIÁO VIÊN (DANH SÁCH BÓC TÁCH TRỰC QUAN) -->
+        <!-- MÀN HÌNH CHỈNH SỬA HOÀN CHỈNH CỦA GIÁO VIÊN -->
         <div class="form-group">
-            <label style="color: var(--primary);">📋 MÀN HÌNH CHỈNH SỬA VÀ THIẾT LẬP ĐÁP ÁN HOÀN CHỈNH:</label>
-            <div id="vung_chinh_sua_truoc_khi_tao" style="background: #fafafa; border: 1px dashed #bbb; padding: 15px; border-radius: 8px; min-height: 100px;">
-                <p style="color: #666; text-align: center; margin-top: 40px;">(Hệ thống đang chờ nạp file Word để tự động dàn dựng giao diện câu hỏi chỉnh sửa...)</p>
+            <label>📋 MÀN HÌNH CHỈNH SỬA VÀ THIẾT LẬP ĐÁP ÁN ĐẦU VÀO HOÀN CHỈNH:</label>
+            <div id="vung_chinh_sua_truc_quan" class="workspace-box">
+                <div style="text-align: center; color: #6c757d; padding-top: 40px;" id="lbl_waiting_msg">
+                    (Màn hình đang chờ nạp file Word để tự động dàn dựng danh sách câu hỏi chỉnh sửa...)
+                </div>
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary" onclick="xuLyTaoDeVaQuyHoachKhoLuuTru()">📦 XUẤT BẢN ĐỀ THI & PHÂN PHỐI KHO LƯU TRỮ</button>
+        <button type="button" class="btn btn-primary" onclick="xuLyTaoDeVaQuyHoachCachCu()">📦 BẤM NÚT TẠO ĐỀ THI & XUẤT BẢN FILE LƯU KHO</button>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PHÂN HỆ 2: GIAO DIỆN LÀM BÀI TRỰC TUYẾN DÀNH CHO HỌC SINH -->
+    <!-- ========================================================================= -->
+    <div class="card">
+        <h2>📝 CỔNG LÀM BÀI TRỰC TUYẾN HỌC SINH (CHẤM ĐIỂM HOÀN CHỈNH)</h2>
+        <div class="form-group">
+            <label for="txt_hoten">Họ và tên Học sinh:</label>
+            <input type="text" id="txt_hoten" placeholder="Học sinh nhập đầy đủ họ và tên...">
+        </div>
+        <div class="form-group">
+            <label for="sel_lop">Chọn Lớp học / Phân ban:</label>
+            <select id="sel_lop" onchange="kiemTraPhanLuongHocSinhTuDo()">
+                <option value="">-- Bấm vào đây để chọn Lớp học --</option>
+                <option value="Hoc_Sinh_Tu_Do">🌐 Nhóm: Học sinh tự do (Dạy thêm / Ngoài trường)</option>
+                <option value="10A1">Khối 10 ➔ Lớp 10A1</option>
+                <option value="11A1">Khối 11 ➔ Lớp 11A1</option>
+                <option value="12A1">Khối 12 ➔ Lớp 12A1</option>
+            </select>
+        </div>
+        <div class="form-group" id="div_dat_ten_lop_rieng" style="display:none;">
+            <label style="color: var(--success);">✏️ Đặt tên lớp dạy thêm tự do riêng (Không đặt trùng tên lớp trường):</label>
+            <input type="text" id="txt_lop_tu_do" placeholder="Ví dụ: TD_Toan_ThayTrang_K12, LT_DaiHoc_NhomA...">
+        </div>
+        
+        <input type="hidden" id="txt_made_hidden" value="DE_MAC_DINH_CŨ">
+        <input type="hidden" id="txt_magv_hidden" value="THPT_VINHTHANH">
+        <input type="hidden" id="txt_sheet_hidden" value="">
+
+        <div id="vung_chua_cau_hoi_tran" style="margin: 25px 0; border-top: 1px dashed #ccc; padding-top: 20px;">
+            <!-- Học sinh mở link đề sinh ra sẽ hiện danh sách câu hỏi ở đây -->
+        </div>
+
+        <button type="button" id="btn_nopbai_cloud" class="btn btn-success" onclick="xuLyHocSinhNopBaiCachCu()">🚀 BẤM NỘP BÀI GỬI SỔ ĐIỂM VỀ GIÁO VIÊN</button>
     </div>
 
 </div>
 
 <script>
-// Biến toàn cầu lưu trữ cấu trúc mảng câu hỏi sau khi Parse để sẵn sàng đóng gói
-window.danhSachCauHoiDaParse = [];
+// Biến lưu trữ cấu trúc mảng câu hỏi toàn cục
+window.mangCauHoiGlobal = [];
 
 function cauHinhGiaoVienTuDo() {
     const chkIsGuest = document.getElementById("chk_is_guest");
     const divUrlSheetRieng = document.getElementById("div_url_sheet_ca_nhan");
     const txtMaGV = document.getElementById("txt_magv");
-    if (chkIsGuest && chkIsGuest.checked) { txtMaGV.value = "GUEST"; txtMaGV.disabled = true; if (divUrlSheetRieng) divUrlSheetRieng.style.display = "block"; } 
-    else { txtMaGV.disabled = false; txtMaGV.value = ""; if (divUrlSheetRieng) divUrlSheetRieng.style.display = "none"; }
+    if (chkIsGuest && chkIsGuest.checked) {
+        txtMaGV.value = "GUEST"; txtMaGV.disabled = true;
+        if (divUrlSheetRieng) divUrlSheetRieng.style.display = "block";
+    } else {
+        txtMaGV.disabled = false; txtMaGV.value = "";
+        if (divUrlSheetRieng) divUrlSheetRieng.style.display = "none";
+    }
 }
 
-// =========================================================================
-// THUẬT TOÁN QUÉT VÀ TỰ ĐỘNG DÀN DỰNG MÀN HÌNH CHỈNH SỬA (PARSER & RENDERER)
-// =========================================================================
-function docVaTrichXuatFileWord(input) {
-    const file = input.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(loadEvent) {
-        const arrayBuffer = loadEvent.target.result;
-        mammoth.extractRawText({ arrayBuffer: arrayBuffer })
-        .then(function(result) {
-            const vanBanTran = result.value;
-            parseVaDungManHinhChinhSua(vanBanTran);
-        })
-        .catch(function(err) {
-            alert("Định dạng file Word không hợp lệ!");
-        });
-    };
-    reader.readAsArrayBuffer(file);
+function kiemTraPhanLuongHocSinhTuDo() {
+    const selLop = document.getElementById("sel_lop").value;
+    const divLopRieng = document.getElementById("div_dat_ten_lop_rieng");
+    divLopRieng.style.display = (selLop === "Hoc_Sinh_Tu_Do") ? "block" : "none";
 }
-
-// Bộ bóc tách phân tích cú pháp tự động để dựng màn hình chỉnh sửa cho giáo viên
-function parseVaDungManHinhChinhSua(text) {
-    const vungChinhSua = document.getElementById("vung_chinh_sua_truoc_khi_tao");
-    vungChinhSua.innerHTML = ""; // Xóa dòng thông báo chờ
-    window.danhSachCauHoiDaParse = [];
-
-    // Tách văn bản thô theo từ khóa "Câu X" hoặc "Cau X"
-    const cacDoanCauHoi = text.split(/(?=Câu\s*\d+\s*[:.]|Cau\s*\d+\s*[:.])/i);
-    let indexCau = 1;
-
-    cacDoanCauHoi.forEach(doan => {
-        if (!doan.trim()) return;
-
-        // Bóc tách nội dung câu hỏi và các phương án A, B, C, D bằng Regex
-        const dongCauHoi = doan.match(/(?:Câu|Cau)\s*\d+\s*[:.]([\s\S]*?)(?=A\s*[:.]|B\s*[:.]|$)/i);
-        const noiDungCau = dongCauHoi ? dongCauHoi[1].trim() : doan.trim();
-
-        const optA = doan.match(/A\s*[:.]([\s\S]*?)(?=B\s*[:.]|C\s*[:.]|D\s*[:.]|$)/i);
-        const optB = doan.match(/B\s*[:.]([\s\S]*?)(?=C\s*[:.]|D\s*[:.]|$)/i);
-        const optC = doan.match(/C\s*[:.]([\s\S]*?)(?=D\s*[:.]|$)/i);
-        const optD = doan.match(/D\s*[:.]([\s\S]*?)(?=$)/i);
-
-        const cauHoiObj = {
-            id: indexCau,
-            deBai: noiDungCau,
-            options: [
-                optA ? optA[1].trim() : "",
-                optB ? optB[1].trim() : "",
-                optC ? optC[1].trim() : "",
-                optD ? optD[1].trim() : ""
-            ]
-        };
-        window.danhSachCauHoiDaParse.push(cauHoiObj);
-
-        // DÀN DỰNG BIỂU MẪU GIAO DIỆN CHỈNH SỬA HOÀN CHỈNH LÊN MÀN HÌNH
-        const editorCard = document.createElement("div");
-        editorCard.className = "editor-box";
-        editorCard.innerHTML = `
-            <p style="margin-top:0; font-weight:bold; color:var(--primary);">Câu ${indexCau}: Chỉnh sửa nội dung đề bài:</p>
