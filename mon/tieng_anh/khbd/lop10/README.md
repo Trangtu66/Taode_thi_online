@@ -87,3 +87,59 @@ mindmap
       ["Traditional music project"]:::c2
       ["Love Vietnamese music"]:::c2
 ```
+
+### Unit 4. For a better community
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10}, "mindmap": {"padding": 10}, "themeVariables": {"fontSize": "15px", "primaryColor": "#002060", "primaryTextColor": "#FFFFFF", "lineColor": "#548235"}, "themeCSS": ".goc rect,.goc circle,.goc ellipse,.goc path{fill:#002060 !important;stroke:#000B1E !important} .goc .nodeLabel,.goc text{fill:#FFFFFF !important;color:#FFFFFF !important;font-weight:700} .c1a rect,.c1a ellipse,.c1a path,.c1a circle{fill:#E2EFDA !important;stroke:#375623 !important;stroke-width:3px} .c1b rect,.c1b ellipse,.c1b path,.c1b circle{fill:#FFF2CC !important;stroke:#BF8F00 !important;stroke-width:3px} .c1a .nodeLabel,.c1b .nodeLabel{color:#000 !important;font-weight:700} .c2 rect,.c2 path{fill:#F5F9FF !important;stroke:#8EA9DB !important} .c2 .nodeLabel{color:#000 !important}"}}%%
+mindmap
+  root(("UNIT 4 FOR<br/>A BETTER COMMUNITY")):::goc
+    ("Vocabulary"):::c1a
+      ["donate, volunteer,<br/>generous"]:::c2
+      ["remote, benefit"]:::c2
+      ["-ed / -ing: excited,<br/>exciting"]:::c2
+      ["-ful / -less: useful,<br/>useless"]:::c2
+    ("Grammar &<br/>Pronunciation"):::c1b
+      ["★ Past continuous: longer<br/>action"]:::c2
+      ["★ Past simple: interrupting<br/>action"]:::c2
+      ["when / while"]:::c2
+      ["'record (n) – re'cord<br/>(v)"]:::c2
+    ("Skills"):::c1a
+      ["Reading: a volunteer club"]:::c2
+      ["Speaking: benefits of<br/>volunteering"]:::c2
+      ["Listening: volunteer<br/>positions"]:::c2
+      ["Writing: application<br/>letter"]:::c2
+    ("Culture & Project"):::c1b
+      ["Expressing feelings"]:::c2
+      ["Save the Children"]:::c2
+      ["A volunteer project"]:::c2
+      ["Kindness & sharing"]:::c2
+```
+
+### Unit 5. Inventions
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10}, "mindmap": {"padding": 10}, "themeVariables": {"fontSize": "15px", "primaryColor": "#002060", "primaryTextColor": "#FFFFFF", "lineColor": "#548235"}, "themeCSS": ".goc rect,.goc circle,.goc ellipse,.goc path{fill:#002060 !important;stroke:#000B1E !important} .goc .nodeLabel,.goc text{fill:#FFFFFF !important;color:#FFFFFF !important;font-weight:700} .c1a rect,.c1a ellipse,.c1a path,.c1a circle{fill:#E2EFDA !important;stroke:#375623 !important;stroke-width:3px} .c1b rect,.c1b ellipse,.c1b path,.c1b circle{fill:#FFF2CC !important;stroke:#BF8F00 !important;stroke-width:3px} .c1a .nodeLabel,.c1b .nodeLabel{color:#000 !important;font-weight:700} .c2 rect,.c2 path{fill:#F5F9FF !important;stroke:#8EA9DB !important} .c2 .nodeLabel{color:#000 !important}"}}%%
+mindmap
+  root(("UNIT 5 INVENTIONS")):::goc
+    ("Vocabulary"):::c1a
+      ["experiment, laboratory"]:::c2
+      ["devices, equipment"]:::c2
+      ["hardware, software"]:::c2
+      ["useful, convenient,<br/>valuable"]:::c2
+    ("Grammar &<br/>Pronunciation"):::c1b
+      ["★ Present perfect: have/has<br/>+ V3"]:::c2
+      ["★ enjoy/avoid/finish + V-ing"]:::c2
+      ["★ want/decide/allow + to-inf"]:::c2
+      ["in'vention · 'holiday"]:::c2
+    ("Skills"):::c1a
+      ["Reading: Artificial<br/>Intelligence"]:::c2
+      ["Speaking: inventions &<br/>uses"]:::c2
+      ["Listening: RoboVacuum"]:::c2
+      ["Writing: benefits of an<br/>invention"]:::c2
+    ("Communication &<br/>Project"):::c1b
+      ["Making requests"]:::c2
+      ["Computer hardware (CLIL)"]:::c2
+      ["Inventions for the<br/>classroom"]:::c2
+      ["Use AI responsibly"]:::c2
+```

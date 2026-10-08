@@ -425,6 +425,34 @@ window.MON_DEMO = {
     "nguon": "Tiếng Anh 10 Global Success, 28–37"
    },
    {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Unit 4. For a better community",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit4_k10.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop10/anh_cc_unit4_k10.docx",
+    "nguon": "Tiếng Anh 10 Global Success, 42–51"
+   },
+   {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Unit 5. Inventions",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit5_k10.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop10/anh_cc_unit5_k10.docx",
+    "nguon": "Tiếng Anh 10 Global Success, 52–61"
+   },
+   {
     "khu": "matran",
     "khoi": 12,
     "ten": "Ma trận, bản đặc tả đề ôn thi TN THPT – Tiếng Anh (theo đề 2026)",

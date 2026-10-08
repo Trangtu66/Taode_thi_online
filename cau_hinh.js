@@ -39,6 +39,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 1. Family life", ma: "Củng cố – Tiếng Anh 10 · Unit 1: Family life", link: "anh_cc_unit1_k10.html" },
   { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 2. Humans and the environment", ma: "Củng cố – Tiếng Anh 10 · Unit 2: Humans and the environment", link: "anh_cc_unit2_k10.html" },
   { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 3. Music", ma: "Củng cố – Tiếng Anh 10 · Unit 3: Music", link: "anh_cc_unit3_k10.html" },
+  { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 4. For a better community", ma: "Củng cố – Tiếng Anh 10 · Unit 4: For a better community", link: "anh_cc_unit4_k10.html" },
+  { khoi: 10, nhom: "Tiếng Anh 10 · Củng cố", ten: "Unit 5. Inventions", ma: "Củng cố – Tiếng Anh 10 · Unit 5: Inventions", link: "anh_cc_unit5_k10.html" },
   { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Chùm thơ hai-cư Nhật Bản; Thu hứng (Đỗ Phủ)", ma: "Củng cố – Ngữ văn 10 · Bài 2: Chùm thơ hai-cư; Thu hứng (Đỗ Phủ)", link: "van_cc_bai2_k10.html" },
   { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 2. Mùa xuân chín (Hàn Mặc Tử); Bản hoà âm ngôn từ trong Tiếng thu", ma: "Củng cố – Ngữ văn 10 · Bài 2: Mùa xuân chín (Hàn Mặc Tử)", link: "van_cc_muaxuanchin_k10.html" },
   { khoi: 10, nhom: "Ngữ văn 10 · Củng cố đọc hiểu", ten: "Bài 3. Hiền tài là nguyên khí của quốc gia; Yêu và đồng cảm", ma: "Củng cố – Ngữ văn 10 · Bài 3: Hiền tài là nguyên khí của quốc gia; Yêu và đồng cảm", link: "van_cc_bai3_k10.html" },
