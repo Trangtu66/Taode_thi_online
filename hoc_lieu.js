@@ -5,10 +5,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 10. (TH). Báo cáo dân cư",
+"ten": "DIALY12 Bài 10 TH Bao Cao Dan Cu (tiết 20)",
 "file": "KHBD_DIALY12_Bai10_TH_BaoCaoDanCu_T20.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai10_TH_BaoCaoDanCu_T20.docx",
-"kb": 40,
+"kb": 441,
 "ngay": "2026-10-08"
 },
 {
@@ -16,10 +16,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 11. Chuyển dịch cơ cấu kinh tế",
+"ten": "DIALY12 Bài 11 Chuyen Dich Co Cau Kinh Te (tiết 21)",
 "file": "KHBD_DIALY12_Bai11_ChuyenDichCoCauKinhTe_T21.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai11_ChuyenDichCoCauKinhTe_T21.docx",
-"kb": 41,
+"kb": 237,
 "ngay": "2026-10-08"
 },
 {
@@ -27,10 +27,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 12. Vấn đề phát triển nông nghiệp",
+"ten": "DIALY12 Bài 12 Van De Nong Nghiep (tiết 22-24)",
 "file": "KHBD_DIALY12_Bai12_VanDeNongNghiep_T22-24.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai12_VanDeNongNghiep_T22-24.docx",
-"kb": 41,
+"kb": 434,
 "ngay": "2026-10-08"
 },
 {
@@ -38,10 +38,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 13. Lâm nghiệp và thủy sản",
+"ten": "DIALY12 Bài 13 Lam Nghiep Thuy San (tiết 25-26)",
 "file": "KHBD_DIALY12_Bai13_LamNghiepThuySan_T25-26.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai13_LamNghiepThuySan_T25-26.docx",
-"kb": 41,
+"kb": 249,
 "ngay": "2026-10-08"
 },
 {
@@ -49,10 +49,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 14. Tổ chức lãnh thổ NN",
+"ten": "DIALY12 Bài 14 To Chuc Lanh Tho Nong Nghiep (tiết 27)",
 "file": "KHBD_DIALY12_Bai14_ToChucLanhThoNongNghiep_T27.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai14_ToChucLanhThoNongNghiep_T27.docx",
-"kb": 41,
+"kb": 398,
 "ngay": "2026-10-08"
 },
 {
@@ -60,10 +60,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 15. (TH). Vẽ biểu đồ NN",
+"ten": "DIALY12 Bài 15 TH Ve Cho Bieu Do (tiết 28)",
 "file": "KHBD_DIALY12_Bai15_TH_VeChoBieuDo_T28.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai15_TH_VeChoBieuDo_T28.docx",
-"kb": 41,
+"kb": 234,
 "ngay": "2026-10-08"
 },
 {
@@ -71,10 +71,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 16. Chuyển dịch cơ cấu CN",
+"ten": "DIALY12 Bài 16 Chuyen Dich Co Cau Cong Nghiep (tiết 29)",
 "file": "KHBD_DIALY12_Bai16_ChuyenDichCoCauCongNghiep_T29.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai16_ChuyenDichCoCauCongNghiep_T29.docx",
-"kb": 41,
+"kb": 236,
 "ngay": "2026-10-08"
 },
 {
@@ -82,10 +82,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 17. Một số ngành CN quan trọng",
+"ten": "DIALY12 Bài 17 Mot So Nganh Cong Nghiep (tiết 30-32)",
 "file": "KHBD_DIALY12_Bai17_MotSoNganhCongNghiep_T30-32.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai17_MotSoNganhCongNghiep_T30-32.docx",
-"kb": 41,
+"kb": 232,
 "ngay": "2026-10-08"
 },
 {
@@ -93,10 +93,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 18. Tổ chức lãnh thổ CN",
+"ten": "DIALY12 Bài 18 To Chuc Lanh Tho Cong Nghiep (tiết 33)",
 "file": "KHBD_DIALY12_Bai18_ToChucLanhThoCongNghiep_T33.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai18_ToChucLanhThoCongNghiep_T33.docx",
-"kb": 41,
+"kb": 225,
 "ngay": "2026-10-08"
 },
 {
@@ -104,10 +104,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 19. (TH). Vẽ biểu đồ CN",
+"ten": "DIALY12 Bài 19 TH Ve Cho Bieu Do Cong Nghiep (tiết 34)",
 "file": "KHBD_DIALY12_Bai19_TH_VeChoBieuDoCongNghiep_T34.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai19_TH_VeChoBieuDoCongNghiep_T34.docx",
-"kb": 41,
+"kb": 241,
 "ngay": "2026-10-08"
 },
 {
@@ -115,10 +115,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 1. Vị trí địa lí và phạm vi lãnh thổ",
+"ten": "DIALY12 Bài 1 Vi Tri Diali Pham Vi Lanh Tho (tiết 1-2)",
 "file": "KHBD_DIALY12_Bai1_ViTriDialiPhamViLanhTho_T1-2.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai1_ViTriDialiPhamViLanhTho_T1-2.docx",
-"kb": 42,
+"kb": 244,
 "ngay": "2026-10-08"
 },
 {
@@ -126,10 +126,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 2. Thiên nhiên nhiệt đới ẩm gió mùa",
+"ten": "DIALY12 Bài 2 Thien Nhien Nhiet Doi Am Gio Mua (tiết 3-6)",
 "file": "KHBD_DIALY12_Bai2_ThienNhienNhietDoiAmGioMua_T3-6.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai2_ThienNhienNhietDoiAmGioMua_T3-6.docx",
-"kb": 42,
+"kb": 228,
 "ngay": "2026-10-08"
 },
 {
@@ -137,10 +137,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 3. Sự phân hoá đa dạng của thiên nhiên",
+"ten": "DIALY12 Bài 3 Su Phan Hoa Da Dang Thien Nhien (tiết 7-10)",
 "file": "KHBD_DIALY12_Bai3_SuPhanHoaDaDangThienNhien_T7-10.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai3_SuPhanHoaDaDangThienNhien_T7-10.docx",
-"kb": 42,
+"kb": 249,
 "ngay": "2026-10-08"
 },
 {
@@ -148,10 +148,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 4. (TH). Báo cáo phân hoá thiên nhiên",
+"ten": "DIALY12 Bài 4 TH Bao Cao Su Phan Hoa (tiết 11)",
 "file": "KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.docx",
-"kb": 41,
+"kb": 244,
 "ngay": "2026-10-08"
 },
 {
@@ -159,10 +159,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 5. Sử dụng hợp lí TN và BVMT",
+"ten": "DIALY12 Bài 5 Van De SDHop Li TNTNva BVMT (tiết 12)",
 "file": "KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.docx",
-"kb": 41,
+"kb": 238,
 "ngay": "2026-10-08"
 },
 {
@@ -170,10 +170,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 6. (TH). Tuyên truyền BVMT",
+"ten": "DIALY12 Bài 6 TH Tuyen Truyen BVMT (tiết 13)",
 "file": "KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.docx",
-"kb": 41,
+"kb": 421,
 "ngay": "2026-10-08"
 },
 {
@@ -181,10 +181,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 7. Dân số Việt Nam",
+"ten": "DIALY12 Bài 7 Dan So Viet Nam (tiết 14-15)",
 "file": "KHBD_DIALY12_Bai7_DanSoVietNam_T14-15.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai7_DanSoVietNam_T14-15.docx",
-"kb": 41,
+"kb": 238,
 "ngay": "2026-10-08"
 },
 {
@@ -192,10 +192,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 8. Lao động và việc làm",
+"ten": "DIALY12 Bài 8 Lao Dong Va Viec Lam (tiết 16)",
 "file": "KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16.docx",
-"kb": 41,
+"kb": 239,
 "ngay": "2026-10-08"
 },
 {
@@ -203,10 +203,10 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 9. Đô thị hoá",
+"ten": "DIALY12 Bài 9 Do Thi Hoa (tiết 19)",
 "file": "KHBD_DIALY12_Bai9_DoThiHoa_T19.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai9_DoThiHoa_T19.docx",
-"kb": 41,
+"kb": 236,
 "ngay": "2026-10-08"
 },
 {
@@ -217,7 +217,7 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Tọa độ địa lí; phạm vi lãnh thổ 3 vùng; ảnh hưởng vị trí địa lí đến tự nhiên và KT–XH.",
 "file": "KHBD_DIALY12_OnTapGiuaKi1_T17.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_OnTapGiuaKi1_T17.docx",
-"kb": 39,
+"kb": 40,
 "ngay": "2026-10-08"
 },
 {
@@ -228,7 +228,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 10 TH Bao Cao Dan Cu (tiết 20)",
 "file": "SoDoTuDuy_DIALY12_Bai10_TH_BaoCaoDanCu_T20.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai10_TH_BaoCaoDanCu_T20.png",
-"kb": 202,
+"kb": 213,
 "ngay": "2026-10-08"
 },
 {
@@ -239,7 +239,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 11 Chuyen Dich Co Cau Kinh Te (tiết 21)",
 "file": "SoDoTuDuy_DIALY12_Bai11_ChuyenDichCoCauKinhTe_T21.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai11_ChuyenDichCoCauKinhTe_T21.png",
-"kb": 212,
+"kb": 208,
 "ngay": "2026-10-08"
 },
 {
@@ -250,7 +250,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 12 Van De Nong Nghiep (tiết 22-24)",
 "file": "SoDoTuDuy_DIALY12_Bai12_VanDeNongNghiep_T22-24.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai12_VanDeNongNghiep_T22-24.png",
-"kb": 207,
+"kb": 209,
 "ngay": "2026-10-08"
 },
 {
@@ -261,7 +261,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 13 Lam Nghiep Thuy San (tiết 25-26)",
 "file": "SoDoTuDuy_DIALY12_Bai13_LamNghiepThuySan_T25-26.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai13_LamNghiepThuySan_T25-26.png",
-"kb": 211,
+"kb": 219,
 "ngay": "2026-10-08"
 },
 {
@@ -272,7 +272,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 14 To Chuc Lanh Tho NN (tiết 27)",
 "file": "SoDoTuDuy_DIALY12_Bai14_ToChucLanhThoNN_T27.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai14_ToChucLanhThoNN_T27.png",
-"kb": 204,
+"kb": 191,
 "ngay": "2026-10-08"
 },
 {
@@ -283,7 +283,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 15 TH Ve Cho Bieu Do NN (tiết 28)",
 "file": "SoDoTuDuy_DIALY12_Bai15_TH_VeChoBieuDoNN_T28.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai15_TH_VeChoBieuDoNN_T28.png",
-"kb": 208,
+"kb": 203,
 "ngay": "2026-10-08"
 },
 {
@@ -294,7 +294,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 16 Chuyen Dich Co Cau CN (tiết 29)",
 "file": "SoDoTuDuy_DIALY12_Bai16_ChuyenDichCoCauCN_T29.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai16_ChuyenDichCoCauCN_T29.png",
-"kb": 209,
+"kb": 208,
 "ngay": "2026-10-08"
 },
 {
@@ -305,7 +305,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 17 Mot So Nganh CN (tiết 30-32)",
 "file": "SoDoTuDuy_DIALY12_Bai17_MotSoNganhCN_T30-32.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai17_MotSoNganhCN_T30-32.png",
-"kb": 210,
+"kb": 201,
 "ngay": "2026-10-08"
 },
 {
@@ -316,7 +316,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 18 To Chuc Lanh Tho CN (tiết 33)",
 "file": "SoDoTuDuy_DIALY12_Bai18_ToChucLanhThoCN_T33.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai18_ToChucLanhThoCN_T33.png",
-"kb": 211,
+"kb": 194,
 "ngay": "2026-10-08"
 },
 {
@@ -327,7 +327,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 19 TH Ve Cho Bieu Do CN (tiết 34)",
 "file": "SoDoTuDuy_DIALY12_Bai19_TH_VeChoBieuDoCN_T34.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai19_TH_VeChoBieuDoCN_T34.png",
-"kb": 207,
+"kb": 211,
 "ngay": "2026-10-08"
 },
 {
@@ -338,7 +338,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 1 Vi Tri Lanh Tho (tiết 1-2)",
 "file": "SoDoTuDuy_DIALY12_Bai1_ViTriLanhTho_T1-2.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai1_ViTriLanhTho_T1-2.png",
-"kb": 211,
+"kb": 214,
 "ngay": "2026-10-08"
 },
 {
@@ -349,7 +349,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 2 Thien Nhien Nhiet Doi Am Gio Mua (tiết 3-6)",
 "file": "SoDoTuDuy_DIALY12_Bai2_ThienNhienNhietDoiAmGioMua_T3-6.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai2_ThienNhienNhietDoiAmGioMua_T3-6.png",
-"kb": 203,
+"kb": 197,
 "ngay": "2026-10-08"
 },
 {
@@ -360,7 +360,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 3 Su Phan Hoa Thien Nhien (tiết 7-10)",
 "file": "SoDoTuDuy_DIALY12_Bai3_SuPhanHoaThienNhien_T7-10.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai3_SuPhanHoaThienNhien_T7-10.png",
-"kb": 210,
+"kb": 217,
 "ngay": "2026-10-08"
 },
 {
@@ -371,7 +371,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 4 TH Bao Cao Phan Hoa (tiết 11)",
 "file": "SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoPhanHoa_T11.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoPhanHoa_T11.png",
-"kb": 204,
+"kb": 214,
 "ngay": "2026-10-08"
 },
 {
@@ -382,7 +382,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 5 Van De SDTNBVMT (tiết 12)",
 "file": "SoDoTuDuy_DIALY12_Bai5_VanDeSDTNBVMT_T12.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai5_VanDeSDTNBVMT_T12.png",
-"kb": 204,
+"kb": 209,
 "ngay": "2026-10-08"
 },
 {
@@ -393,7 +393,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 6 TH Tuyen Truyen BVMT (tiết 13)",
 "file": "SoDoTuDuy_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.png",
-"kb": 204,
+"kb": 202,
 "ngay": "2026-10-08"
 },
 {
@@ -404,7 +404,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 7 Dan So Viet Nam (tiết 14-15)",
 "file": "SoDoTuDuy_DIALY12_Bai7_DanSoVietNam_T14-15.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai7_DanSoVietNam_T14-15.png",
-"kb": 212,
+"kb": 209,
 "ngay": "2026-10-08"
 },
 {
@@ -415,7 +415,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 8 Lao Dong Viec Lam (tiết 16)",
 "file": "SoDoTuDuy_DIALY12_Bai8_LaoDongViecLam_T16.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai8_LaoDongViecLam_T16.png",
-"kb": 208,
+"kb": 210,
 "ngay": "2026-10-08"
 },
 {
@@ -426,7 +426,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 9 Do Thi Hoa (tiết 19)",
 "file": "SoDoTuDuy_DIALY12_Bai9_DoThiHoa_T19.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai9_DoThiHoa_T19.png",
-"kb": 205,
+"kb": 207,
 "ngay": "2026-10-08"
 },
 {
@@ -437,7 +437,7 @@ window.HOC_LIEU = [
 "ten": "Bài 10. (TH). Báo cáo dân cư",
 "file": "Slide_DIALY12_Bài_10_TH_Báo_cáo_dân_cư_TT20.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_10_TH_Báo_cáo_dân_cư_TT20.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -448,7 +448,7 @@ window.HOC_LIEU = [
 "ten": "Bài 11. Chuyển dịch cơ cấu kinh tế",
 "file": "Slide_DIALY12_Bài_11_Chuyển_dịch_cơ_cấu_kinh_tế_TT21.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_11_Chuyển_dịch_cơ_cấu_kinh_tế_TT21.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -459,7 +459,7 @@ window.HOC_LIEU = [
 "ten": "Bài 12. Vấn đề phát triển nông nghiệp",
 "file": "Slide_DIALY12_Bài_12_Vấn_đề_phát_triển_nông_nghiệp_TT22-24.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_12_Vấn_đề_phát_triển_nông_nghiệp_TT22-24.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -470,7 +470,7 @@ window.HOC_LIEU = [
 "ten": "Bài 13. Lâm nghiệp và thủy sản",
 "file": "Slide_DIALY12_Bài_13_Lâm_nghiệp_và_thủy_sản_TT25-26.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_13_Lâm_nghiệp_và_thủy_sản_TT25-26.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -481,7 +481,7 @@ window.HOC_LIEU = [
 "ten": "Bài 14. Tổ chức lãnh thổ NN",
 "file": "Slide_DIALY12_Bài_14_Tổ_chức_lãnh_thổ_NN_TT27.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_14_Tổ_chức_lãnh_thổ_NN_TT27.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -492,7 +492,7 @@ window.HOC_LIEU = [
 "ten": "Bài 15. (TH). Vẽ biểu đồ NN",
 "file": "Slide_DIALY12_Bài_15_TH_Vẽ_biểu_đồ_NN_TT28.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_15_TH_Vẽ_biểu_đồ_NN_TT28.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -503,7 +503,7 @@ window.HOC_LIEU = [
 "ten": "Bài 16. Chuyển dịch cơ cấu CN",
 "file": "Slide_DIALY12_Bài_16_Chuyển_dịch_cơ_cấu_CN_TT29.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_16_Chuyển_dịch_cơ_cấu_CN_TT29.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -514,7 +514,7 @@ window.HOC_LIEU = [
 "ten": "Bài 17. Một số ngành CN quan trọng",
 "file": "Slide_DIALY12_Bài_17_Một_số_ngành_CN_quan_trọng_TT30-32.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_17_Một_số_ngành_CN_quan_trọng_TT30-32.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -525,7 +525,7 @@ window.HOC_LIEU = [
 "ten": "Bài 18. Tổ chức lãnh thổ CN",
 "file": "Slide_DIALY12_Bài_18_Tổ_chức_lãnh_thổ_CN_TT33.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_18_Tổ_chức_lãnh_thổ_CN_TT33.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -536,7 +536,7 @@ window.HOC_LIEU = [
 "ten": "Bài 19. (TH). Vẽ biểu đồ CN",
 "file": "Slide_DIALY12_Bài_19_TH_Vẽ_biểu_đồ_CN_TT34.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_19_TH_Vẽ_biểu_đồ_CN_TT34.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -547,7 +547,7 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Vị trí địa lí và phạm vi lãnh thổ",
 "file": "Slide_DIALY12_Bài_1_Vị_trí_địa_lí_và_phạm_vi_lãnh_thổ_TT1-2.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_1_Vị_trí_địa_lí_và_phạm_vi_lãnh_thổ_TT1-2.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -558,7 +558,7 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Thiên nhiên nhiệt đới ẩm gió mùa",
 "file": "Slide_DIALY12_Bài_2_Thiên_nhiên_nhiệt_đới_ẩm_gió_mùa_TT3-6.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_2_Thiên_nhiên_nhiệt_đới_ẩm_gió_mùa_TT3-6.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -569,7 +569,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Sự phân hoá thiên nhiên",
 "file": "Slide_DIALY12_Bài_3_Sự_phân_hoá_thiên_nhiên_TT7-10.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_3_Sự_phân_hoá_thiên_nhiên_TT7-10.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -580,7 +580,7 @@ window.HOC_LIEU = [
 "ten": "Bài 4. (TH). Báo cáo phân hoá thiên nhiên",
 "file": "Slide_DIALY12_Bài_4_TH_Báo_cáo_phân_hoá_thiên_nhiên_TT11.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_4_TH_Báo_cáo_phân_hoá_thiên_nhiên_TT11.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -591,7 +591,7 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Sử dụng TN và BVMT",
 "file": "Slide_DIALY12_Bài_5_Sử_dụng_TN_và_BVMT_TT12.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_5_Sử_dụng_TN_và_BVMT_TT12.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -602,7 +602,7 @@ window.HOC_LIEU = [
 "ten": "Bài 6. (TH). Tuyên truyền BVMT",
 "file": "Slide_DIALY12_Bài_6_TH_Tuyên_truyền_BVMT_TT13.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_6_TH_Tuyên_truyền_BVMT_TT13.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -613,7 +613,7 @@ window.HOC_LIEU = [
 "ten": "Bài 7. Dân số Việt Nam",
 "file": "Slide_DIALY12_Bài_7_Dân_số_Việt_Nam_TT14-15.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_7_Dân_số_Việt_Nam_TT14-15.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -624,7 +624,7 @@ window.HOC_LIEU = [
 "ten": "Bài 8. Lao động và việc làm",
 "file": "Slide_DIALY12_Bài_8_Lao_động_và_việc_làm_TT16.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_8_Lao_động_và_việc_làm_TT16.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -635,7 +635,7 @@ window.HOC_LIEU = [
 "ten": "Bài 9. Đô thị hoá",
 "file": "Slide_DIALY12_Bài_9_Đô_thị_hoá_TT19.pptx",
 "url": "mon/dia_li/slide/lop12/Slide_DIALY12_Bài_9_Đô_thị_hoá_TT19.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -646,7 +646,7 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Thành phần của nguyên tử",
 "file": "KHBD_HOAHOC10_Bai1_ThanhPhanNguyenTu_T3-4.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai1_ThanhPhanNguyenTu_T3-4.docx",
-"kb": 48,
+"kb": 327,
 "ngay": "2026-10-08"
 },
 {
@@ -657,7 +657,7 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Nguyên tố hoá học",
 "file": "KHBD_HOAHOC10_Bai2_NguyenToHoaHoc_T5-6.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai2_NguyenToHoaHoc_T5-6.docx",
-"kb": 47,
+"kb": 277,
 "ngay": "2026-10-08"
 },
 {
@@ -668,7 +668,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 3 Cau Truc Lop Vo Electron (tiết 7-10)",
 "file": "KHBD_HOAHOC10_Bai3_CauTrucLopVoElectron_T7-10.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai3_CauTrucLopVoElectron_T7-10.docx",
-"kb": 47,
+"kb": 343,
 "ngay": "2026-10-08"
 },
 {
@@ -679,7 +679,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 4 On Tap Chuong1 (tiết 11-12)",
 "file": "KHBD_HOAHOC10_Bai4_OnTapChuong1_T11-12.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai4_OnTapChuong1_T11-12.docx",
-"kb": 44,
+"kb": 310,
 "ngay": "2026-10-08"
 },
 {
@@ -690,7 +690,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 5 Cau Tao Bang Tuan Hoan (tiết 13-14)",
 "file": "KHBD_HOAHOC10_Bai5_CauTaoBangTuanHoan_T13-14.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai5_CauTaoBangTuanHoan_T13-14.docx",
-"kb": 45,
+"kb": 329,
 "ngay": "2026-10-08"
 },
 {
@@ -701,7 +701,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 6 Xu Huong Bien Doi Tinh Chat (tiết 17-19)",
 "file": "KHBD_HOAHOC10_Bai6_XuHuongBienDoiTinhChat_T17-19.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai6_XuHuongBienDoiTinhChat_T17-19.docx",
-"kb": 45,
+"kb": 299,
 "ngay": "2026-10-08"
 },
 {
@@ -712,7 +712,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 7 Xu Huong Bien Doi Hop Chat (tiết 20)",
 "file": "KHBD_HOAHOC10_Bai7_XuHuongBienDoiHopChat_T20.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai7_XuHuongBienDoiHopChat_T20.docx",
-"kb": 41,
+"kb": 292,
 "ngay": "2026-10-08"
 },
 {
@@ -723,7 +723,7 @@ window.HOC_LIEU = [
 "ten": "HOAHOC10 Bài 8 Dinh Luat Tuan Hoan (tiết 21)",
 "file": "KHBD_HOAHOC10_Bai8_DinhLuatTuanHoan_T21.docx",
 "url": "mon/hoa_hoc/khbd/lop10/KHBD_HOAHOC10_Bai8_DinhLuatTuanHoan_T21.docx",
-"kb": 41,
+"kb": 293,
 "ngay": "2026-10-08"
 },
 {
@@ -734,7 +734,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 1 Thanh Phan Nguyen Tu",
 "file": "SoDoTuDuy_HOAHOC10_Bai1_ThanhPhanNguyenTu.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai1_ThanhPhanNguyenTu.png",
-"kb": 168,
+"kb": 289,
 "ngay": "2026-10-08"
 },
 {
@@ -745,7 +745,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 2 Nguyen To Hoa Hoc",
 "file": "SoDoTuDuy_HOAHOC10_Bai2_NguyenToHoaHoc.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai2_NguyenToHoaHoc.png",
-"kb": 163,
+"kb": 240,
 "ngay": "2026-10-08"
 },
 {
@@ -756,7 +756,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 3 Cau Truc Lop Vo Electron",
 "file": "SoDoTuDuy_HOAHOC10_Bai3_CauTrucLopVoElectron.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai3_CauTrucLopVoElectron.png",
-"kb": 168,
+"kb": 303,
 "ngay": "2026-10-08"
 },
 {
@@ -767,7 +767,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 4 On Tap Chuong1",
 "file": "SoDoTuDuy_HOAHOC10_Bai4_OnTapChuong1.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai4_OnTapChuong1.png",
-"kb": 166,
+"kb": 274,
 "ngay": "2026-10-08"
 },
 {
@@ -778,7 +778,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 5 Cau Tao Bang Tuan Hoan",
 "file": "SoDoTuDuy_HOAHOC10_Bai5_CauTaoBangTuanHoan.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai5_CauTaoBangTuanHoan.png",
-"kb": 223,
+"kb": 291,
 "ngay": "2026-10-08"
 },
 {
@@ -789,7 +789,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 6 Xu Huong Bien Doi Tinh Chat",
 "file": "SoDoTuDuy_HOAHOC10_Bai6_XuHuongBienDoiTinhChat.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai6_XuHuongBienDoiTinhChat.png",
-"kb": 220,
+"kb": 262,
 "ngay": "2026-10-08"
 },
 {
@@ -800,7 +800,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 7 Xu Huong Bien Doi Hop Chat",
 "file": "SoDoTuDuy_HOAHOC10_Bai7_XuHuongBienDoiHopChat.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai7_XuHuongBienDoiHopChat.png",
-"kb": 210,
+"kb": 258,
 "ngay": "2026-10-08"
 },
 {
@@ -811,7 +811,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy HOAHOC10 Bài 8 Dinh Luat Tuan Hoan",
 "file": "SoDoTuDuy_HOAHOC10_Bai8_DinhLuatTuanHoan.png",
 "url": "mon/hoa_hoc/khbd/lop10/SoDoTuDuy_HOAHOC10_Bai8_DinhLuatTuanHoan.png",
-"kb": 221,
+"kb": 260,
 "ngay": "2026-10-08"
 },
 {
@@ -822,7 +822,7 @@ window.HOC_LIEU = [
 "ten": "Chương 1. Ester – Lipid",
 "file": "KHBD_HOAHOC12_Bai1_EsterLipid_T1-2.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai1_EsterLipid_T1-2.docx",
-"kb": 903,
+"kb": 905,
 "ngay": "2026-10-08"
 },
 {
@@ -833,7 +833,7 @@ window.HOC_LIEU = [
 "ten": "Chương 1. Ester – Lipid",
 "file": "KHBD_HOAHOC12_Bai2_XaPhongVaChatGiatRua_T3.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai2_XaPhongVaChatGiatRua_T3.docx",
-"kb": 708,
+"kb": 710,
 "ngay": "2026-10-08"
 },
 {
@@ -844,7 +844,7 @@ window.HOC_LIEU = [
 "ten": "Chương 1. Ester – Lipid",
 "file": "KHBD_HOAHOC12_Bai3_OnTapChuong1_T4.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai3_OnTapChuong1_T4.docx",
-"kb": 726,
+"kb": 728,
 "ngay": "2026-10-08"
 },
 {
@@ -855,7 +855,7 @@ window.HOC_LIEU = [
 "ten": "Chương 2. Carbohydrate",
 "file": "KHBD_HOAHOC12_Bai4_CarbohydrateGlucoseFructose_T5-6.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai4_CarbohydrateGlucoseFructose_T5-6.docx",
-"kb": 484,
+"kb": 485,
 "ngay": "2026-10-08"
 },
 {
@@ -866,7 +866,7 @@ window.HOC_LIEU = [
 "ten": "Chương 2. Carbohydrate",
 "file": "KHBD_HOAHOC12_Bai5_SaccharoseMaltose_T7.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai5_SaccharoseMaltose_T7.docx",
-"kb": 491,
+"kb": 493,
 "ngay": "2026-10-08"
 },
 {
@@ -877,7 +877,7 @@ window.HOC_LIEU = [
 "ten": "Chương 2. Carbohydrate",
 "file": "KHBD_HOAHOC12_Bai6_TinhBotVaCellulose_T8-9.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai6_TinhBotVaCellulose_T8-9.docx",
-"kb": 437,
+"kb": 438,
 "ngay": "2026-10-08"
 },
 {
@@ -888,7 +888,7 @@ window.HOC_LIEU = [
 "ten": "Chương 2. Carbohydrate",
 "file": "KHBD_HOAHOC12_Bai7_OnTapChuong2_T10.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai7_OnTapChuong2_T10.docx",
-"kb": 744,
+"kb": 746,
 "ngay": "2026-10-08"
 },
 {
@@ -899,7 +899,7 @@ window.HOC_LIEU = [
 "ten": "Chương 3. Hợp chất chứa nitrogen",
 "file": "KHBD_HOAHOC12_Bai8_Amine_T11-12.docx",
 "url": "mon/hoa_hoc/khbd/lop12/KHBD_HOAHOC12_Bai8_Amine_T11-12.docx",
-"kb": 523,
+"kb": 524,
 "ngay": "2026-10-08"
 },
 {
@@ -1083,10 +1083,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 10. Công cuộc Đổi mới từ 1986",
+"ten": "LICHSU12 Bài 10 Doi Moi Tu1986 (tiết 28-29)",
 "file": "KHBD_LICHSU12_Bai10_DoiMoiTu1986_T28-29.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai10_DoiMoiTu1986_T28-29.docx",
-"kb": 41,
+"kb": 263,
 "ngay": "2026-10-08"
 },
 {
@@ -1094,10 +1094,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 11. Thành tựu công cuộc Đổi mới",
+"ten": "LICHSU12 Bài 11 Thanh Tuu Doi Moi (tiết 30-32)",
 "file": "KHBD_LICHSU12_Bai11_ThanhTuuDoiMoi_T30-32.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai11_ThanhTuuDoiMoi_T30-32.docx",
-"kb": 41,
+"kb": 266,
 "ngay": "2026-10-08"
 },
 {
@@ -1105,10 +1105,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 1. Liên hợp quốc",
+"ten": "LICHSU12 Bài 1 Lien Hop Quoc (tiết 1-2)",
 "file": "KHBD_LICHSU12_Bai1_LienHopQuoc_T1-2.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai1_LienHopQuoc_T1-2.docx",
-"kb": 41,
+"kb": 274,
 "ngay": "2026-10-08"
 },
 {
@@ -1116,10 +1116,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 2. Trật tự Chiến tranh lạnh",
+"ten": "LICHSU12 Bài 2 Trat Tu Chien Tranh Lanh (tiết 3-4)",
 "file": "KHBD_LICHSU12_Bai2_TratTuChienTranhLanh_T3-4.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai2_TratTuChienTranhLanh_T3-4.docx",
-"kb": 41,
+"kb": 247,
 "ngay": "2026-10-08"
 },
 {
@@ -1127,10 +1127,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 3. Trật tự sau Chiến tranh lạnh",
+"ten": "LICHSU12 Bài 3 Trat Tu Sau Chien Tranh Lanh (tiết 5-6)",
 "file": "KHBD_LICHSU12_Bai3_TratTuSauChienTranhLanh_T5-6.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai3_TratTuSauChienTranhLanh_T5-6.docx",
-"kb": 41,
+"kb": 257,
 "ngay": "2026-10-08"
 },
 {
@@ -1138,10 +1138,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 4. ASEAN – Ra đời và phát triển",
+"ten": "LICHSU12 Bài 4 ASEAN Ra Doi Phat Trien (tiết 9-11)",
 "file": "KHBD_LICHSU12_Bai4_ASEAN_RaDoiPhatTrien_T9-11.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai4_ASEAN_RaDoiPhatTrien_T9-11.docx",
-"kb": 41,
+"kb": 251,
 "ngay": "2026-10-08"
 },
 {
@@ -1149,10 +1149,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 5. Cộng đồng ASEAN",
+"ten": "LICHSU12 Bài 5 Cong Dong ASEAN (tiết 12-13)",
 "file": "KHBD_LICHSU12_Bai5_CongDongASEAN_T12-13.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai5_CongDongASEAN_T12-13.docx",
-"kb": 41,
+"kb": 250,
 "ngay": "2026-10-08"
 },
 {
@@ -1160,10 +1160,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 6. Cách mạng tháng Tám 1945",
+"ten": "LICHSU12 Bài 6 Cach Mang Thang Tam1945 (tiết 15-16)",
 "file": "KHBD_LICHSU12_Bai6_CachMangThangTam1945_T15-16.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai6_CachMangThangTam1945_T15-16.docx",
-"kb": 41,
+"kb": 254,
 "ngay": "2026-10-08"
 },
 {
@@ -1171,10 +1171,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 7. Kháng chiến chống Pháp",
+"ten": "LICHSU12 Bài 7 Khang Chien Chong Phap (tiết 18-20)",
 "file": "KHBD_LICHSU12_Bai7_KhangChienChongPhap_T18-20.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai7_KhangChienChongPhap_T18-20.docx",
-"kb": 41,
+"kb": 262,
 "ngay": "2026-10-08"
 },
 {
@@ -1182,10 +1182,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 8. Kháng chiến chống Mỹ",
+"ten": "LICHSU12 Bài 8 Khang Chien Chong My (tiết 21-23)",
 "file": "KHBD_LICHSU12_Bai8_KhangChienChongMy_T21-23.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai8_KhangChienChongMy_T21-23.docx",
-"kb": 41,
+"kb": 267,
 "ngay": "2026-10-08"
 },
 {
@@ -1193,10 +1193,10 @@ window.HOC_LIEU = [
 "tenMon": "Lịch sử",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Bài 9. Bảo vệ Tổ quốc sau 1975",
+"ten": "LICHSU12 Bài 9 Bao Ve To Quoc Sau1975 (tiết 24-25)",
 "file": "KHBD_LICHSU12_Bai9_BaoVeToQuocSau1975_T24-25.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_Bai9_BaoVeToQuocSau1975_T24-25.docx",
-"kb": 41,
+"kb": 255,
 "ngay": "2026-10-08"
 },
 {
@@ -1207,7 +1207,7 @@ window.HOC_LIEU = [
 "ten": "LICHSU12 Kiem Tra Cuoi HK1 (tiết 35)",
 "file": "KHBD_LICHSU12_KiemTraCuoiHK1_T35.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_KiemTraCuoiHK1_T35.docx",
-"kb": 37,
+"kb": 39,
 "ngay": "2026-10-08"
 },
 {
@@ -1218,7 +1218,7 @@ window.HOC_LIEU = [
 "ten": "Bài 1. –2 (LHQ, Trật tự Yalta)",
 "file": "KHBD_LICHSU12_KiemTraGiuaHK1_T17.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_KiemTraGiuaHK1_T17.docx",
-"kb": 38,
+"kb": 39,
 "ngay": "2026-10-08"
 },
 {
@@ -1229,7 +1229,7 @@ window.HOC_LIEU = [
 "ten": "LICHSU12 TH1 The Gioi Trong Sau Chien Tranh Lanh (tiết 7-8)",
 "file": "KHBD_LICHSU12_TH1_TheGioiTrongSauChienTranhLanh_T7-8.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_TH1_TheGioiTrongSauChienTranhLanh_T7-8.docx",
-"kb": 41,
+"kb": 255,
 "ngay": "2026-10-08"
 },
 {
@@ -1240,7 +1240,7 @@ window.HOC_LIEU = [
 "ten": "LICHSU12 TH2 ASEAN Nhung Chang Duong (tiết 14)",
 "file": "KHBD_LICHSU12_TH2_ASEAN_NhungChangDuong_T14.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_TH2_ASEAN_NhungChangDuong_T14.docx",
-"kb": 40,
+"kb": 238,
 "ngay": "2026-10-08"
 },
 {
@@ -1251,7 +1251,7 @@ window.HOC_LIEU = [
 "ten": "LICHSU12 TH3 CMTASau Chien Tranh (tiết 26-27)",
 "file": "KHBD_LICHSU12_TH3_CMTASauChienTranh_T26-27.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_TH3_CMTASauChienTranh_T26-27.docx",
-"kb": 41,
+"kb": 248,
 "ngay": "2026-10-08"
 },
 {
@@ -1262,7 +1262,7 @@ window.HOC_LIEU = [
 "ten": "LICHSU12 TH4 Doi Moi Viet Nam (tiết 33-34)",
 "file": "KHBD_LICHSU12_TH4_DoiMoiVietNam_T33-34.docx",
 "url": "mon/lich_su/khbd/lop12/KHBD_LICHSU12_TH4_DoiMoiVietNam_T33-34.docx",
-"kb": 41,
+"kb": 432,
 "ngay": "2026-10-08"
 },
 {
@@ -1273,7 +1273,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 10 Doi Moi Tu1986 (tiết 28-29)",
 "file": "SoDoTuDuy_LICHSU12_Bai10_DoiMoiTu1986_T28-29.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai10_DoiMoiTu1986_T28-29.png",
-"kb": 207,
+"kb": 233,
 "ngay": "2026-10-08"
 },
 {
@@ -1284,7 +1284,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 11 Thanh Tuu Doi Moi (tiết 30-32)",
 "file": "SoDoTuDuy_LICHSU12_Bai11_ThanhTuuDoiMoi_T30-32.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai11_ThanhTuuDoiMoi_T30-32.png",
-"kb": 202,
+"kb": 236,
 "ngay": "2026-10-08"
 },
 {
@@ -1295,7 +1295,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 1 Lien Hop Quoc (tiết 1-2)",
 "file": "SoDoTuDuy_LICHSU12_Bai1_LienHopQuoc_T1-2.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai1_LienHopQuoc_T1-2.png",
-"kb": 206,
+"kb": 244,
 "ngay": "2026-10-08"
 },
 {
@@ -1306,7 +1306,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 2 Trat Tu Chien Tranh Lanh (tiết 3-4)",
 "file": "SoDoTuDuy_LICHSU12_Bai2_TratTuChienTranhLanh_T3-4.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai2_TratTuChienTranhLanh_T3-4.png",
-"kb": 202,
+"kb": 217,
 "ngay": "2026-10-08"
 },
 {
@@ -1317,7 +1317,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 3 Trat Tu Sau CTL (tiết 5-6)",
 "file": "SoDoTuDuy_LICHSU12_Bai3_TratTuSauCTL_T5-6.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai3_TratTuSauCTL_T5-6.png",
-"kb": 202,
+"kb": 227,
 "ngay": "2026-10-08"
 },
 {
@@ -1328,7 +1328,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 4 ASEAN Ra Doi Phat Trien (tiết 9-11)",
 "file": "SoDoTuDuy_LICHSU12_Bai4_ASEAN_RaDoiPhatTrien_T9-11.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai4_ASEAN_RaDoiPhatTrien_T9-11.png",
-"kb": 212,
+"kb": 220,
 "ngay": "2026-10-08"
 },
 {
@@ -1339,7 +1339,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 5 Cong Dong ASEAN (tiết 12-13)",
 "file": "SoDoTuDuy_LICHSU12_Bai5_CongDongASEAN_T12-13.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai5_CongDongASEAN_T12-13.png",
-"kb": 198,
+"kb": 220,
 "ngay": "2026-10-08"
 },
 {
@@ -1350,7 +1350,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 6 CMThang Tam1945 (tiết 15-16)",
 "file": "SoDoTuDuy_LICHSU12_Bai6_CMThangTam1945_T15-16.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai6_CMThangTam1945_T15-16.png",
-"kb": 202,
+"kb": 224,
 "ngay": "2026-10-08"
 },
 {
@@ -1361,7 +1361,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 7 Khang Chien Chong Phap (tiết 18-20)",
 "file": "SoDoTuDuy_LICHSU12_Bai7_KhangChienChongPhap_T18-20.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai7_KhangChienChongPhap_T18-20.png",
-"kb": 213,
+"kb": 232,
 "ngay": "2026-10-08"
 },
 {
@@ -1372,7 +1372,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 8 Khang Chien Chong My (tiết 21-23)",
 "file": "SoDoTuDuy_LICHSU12_Bai8_KhangChienChongMy_T21-23.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai8_KhangChienChongMy_T21-23.png",
-"kb": 212,
+"kb": 237,
 "ngay": "2026-10-08"
 },
 {
@@ -1383,7 +1383,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 Bài 9 Bao Ve To Quoc Sau1975 (tiết 24-25)",
 "file": "SoDoTuDuy_LICHSU12_Bai9_BaoVeToQuocSau1975_T24-25.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_Bai9_BaoVeToQuocSau1975_T24-25.png",
-"kb": 215,
+"kb": 225,
 "ngay": "2026-10-08"
 },
 {
@@ -1394,7 +1394,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 TH1 The Gioi Trong Sau CTL (tiết 7-8)",
 "file": "SoDoTuDuy_LICHSU12_TH1_TheGioiTrongSauCTL_T7-8.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_TH1_TheGioiTrongSauCTL_T7-8.png",
-"kb": 201,
+"kb": 223,
 "ngay": "2026-10-08"
 },
 {
@@ -1405,7 +1405,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 TH2 ASEAN Nhung Chang Duong (tiết 14)",
 "file": "SoDoTuDuy_LICHSU12_TH2_ASEAN_NhungChangDuong_T14.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_TH2_ASEAN_NhungChangDuong_T14.png",
-"kb": 201,
+"kb": 210,
 "ngay": "2026-10-08"
 },
 {
@@ -1416,7 +1416,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 TH3 CMThang Tam (tiết 26-27)",
 "file": "SoDoTuDuy_LICHSU12_TH3_CMThangTam_T26-27.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_TH3_CMThangTam_T26-27.png",
-"kb": 196,
+"kb": 218,
 "ngay": "2026-10-08"
 },
 {
@@ -1427,7 +1427,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy LICHSU12 TH4 Doi Moi Viet Nam (tiết 33-34)",
 "file": "SoDoTuDuy_LICHSU12_TH4_DoiMoiVietNam_T33-34.png",
 "url": "mon/lich_su/khbd/lop12/SoDoTuDuy_LICHSU12_TH4_DoiMoiVietNam_T33-34.png",
-"kb": 203,
+"kb": 208,
 "ngay": "2026-10-08"
 },
 {
@@ -1438,7 +1438,7 @@ window.HOC_LIEU = [
 "ten": "Bài 10. Công cuộc Đổi mới từ 1986",
 "file": "Slide_LICHSU12_Bài_10_Công_cuộc_Đổi_mới_từ_1986_TT28-29.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_10_Công_cuộc_Đổi_mới_từ_1986_TT28-29.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1449,7 +1449,7 @@ window.HOC_LIEU = [
 "ten": "Bài 11. Thành tựu công cuộc Đổi mới",
 "file": "Slide_LICHSU12_Bài_11_Thành_tựu_công_cuộc_Đổi_mới_TT30-32.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_11_Thành_tựu_công_cuộc_Đổi_mới_TT30-32.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1460,7 +1460,7 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Liên hợp quốc",
 "file": "Slide_LICHSU12_Bài_1_Liên_hợp_quốc_TT1-2.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_1_Liên_hợp_quốc_TT1-2.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1471,7 +1471,7 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Trật tự Chiến tranh lạnh",
 "file": "Slide_LICHSU12_Bài_2_Trật_tự_Chiến_tranh_lạnh_TT3-4.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_2_Trật_tự_Chiến_tranh_lạnh_TT3-4.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1482,7 +1482,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Trật tự sau Chiến tranh lạnh",
 "file": "Slide_LICHSU12_Bài_3_Trật_tự_sau_Chiến_tranh_lạnh_TT5-6.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_3_Trật_tự_sau_Chiến_tranh_lạnh_TT5-6.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1493,7 +1493,7 @@ window.HOC_LIEU = [
 "ten": "Bài 4. ASEAN – Ra đời và phát triển",
 "file": "Slide_LICHSU12_Bài_4_ASEAN_–_Ra_đời_và_phát_triển_TT9-11.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_4_ASEAN_–_Ra_đời_và_phát_triển_TT9-11.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1504,7 +1504,7 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Cộng đồng ASEAN",
 "file": "Slide_LICHSU12_Bài_5_Cộng_đồng_ASEAN_TT12-13.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_5_Cộng_đồng_ASEAN_TT12-13.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1515,7 +1515,7 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Cách mạng tháng Tám 1945",
 "file": "Slide_LICHSU12_Bài_6_Cách_mạng_tháng_Tám_1945_TT15-16.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_6_Cách_mạng_tháng_Tám_1945_TT15-16.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1526,7 +1526,7 @@ window.HOC_LIEU = [
 "ten": "Bài 7. Kháng chiến chống Pháp",
 "file": "Slide_LICHSU12_Bài_7_Kháng_chiến_chống_Pháp_TT18-20.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_7_Kháng_chiến_chống_Pháp_TT18-20.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1537,7 +1537,7 @@ window.HOC_LIEU = [
 "ten": "Bài 8. Kháng chiến chống Mỹ",
 "file": "Slide_LICHSU12_Bài_8_Kháng_chiến_chống_Mỹ_TT21-23.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_8_Kháng_chiến_chống_Mỹ_TT21-23.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1548,7 +1548,7 @@ window.HOC_LIEU = [
 "ten": "Bài 9. Bảo vệ Tổ quốc sau 1975",
 "file": "Slide_LICHSU12_Bài_9_Bảo_vệ_Tổ_quốc_sau_1975_TT24-25.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_Bài_9_Bảo_vệ_Tổ_quốc_sau_1975_TT24-25.pptx",
-"kb": 41,
+"kb": 43,
 "ngay": "2026-10-08"
 },
 {
@@ -1559,7 +1559,7 @@ window.HOC_LIEU = [
 "ten": "TH1. Thế giới trong và sau CTL",
 "file": "Slide_LICHSU12_TH1_Thế_giới_trong_và_sau_CTL_TT7-8.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_TH1_Thế_giới_trong_và_sau_CTL_TT7-8.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1570,7 +1570,7 @@ window.HOC_LIEU = [
 "ten": "TH2. ASEAN – Những chặng đường",
 "file": "Slide_LICHSU12_TH2_ASEAN_–_Những_chặng_đường_TT14.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_TH2_ASEAN_–_Những_chặng_đường_TT14.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1581,7 +1581,7 @@ window.HOC_LIEU = [
 "ten": "TH3. CM tháng Tám và hai KC",
 "file": "Slide_LICHSU12_TH3_CM_tháng_Tám_và_hai_KC_TT26-27.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_TH3_CM_tháng_Tám_và_hai_KC_TT26-27.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1592,7 +1592,7 @@ window.HOC_LIEU = [
 "ten": "TH4. Đổi mới và hội nhập VN",
 "file": "Slide_LICHSU12_TH4_Đổi_mới_và_hội_nhập_VN_TT33-34.pptx",
 "url": "mon/lich_su/slide/lop12/Slide_LICHSU12_TH4_Đổi_mới_và_hội_nhập_VN_TT33-34.pptx",
-"kb": 41,
+"kb": 42,
 "ngay": "2026-10-08"
 },
 {
@@ -1603,8 +1603,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Sức hấp dẫn của truyện kể",
 "file": "KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.docx",
-"kb": 1143,
-"ngay": "2026-10-01"
+"kb": 1406,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1614,8 +1614,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Vẻ đẹp của thơ ca",
 "file": "KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
-"kb": 1126,
-"ngay": "2026-10-01"
+"kb": 1398,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1625,8 +1625,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
-"kb": 1143,
-"ngay": "2026-10-01"
+"kb": 1428,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1636,8 +1636,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Sức hấp dẫn của truyện kể",
 "file": "SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
-"kb": 143,
-"ngay": "2026-10-01"
+"kb": 272,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1647,8 +1647,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Vẻ đẹp của thơ ca",
 "file": "SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
-"kb": 142,
-"ngay": "2026-10-01"
+"kb": 283,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1658,8 +1658,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
-"kb": 156,
-"ngay": "2026-10-01"
+"kb": 293,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1669,8 +1669,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "KHBD_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.docx",
-"kb": 1141,
-"ngay": "2026-10-01"
+"kb": 1429,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1680,8 +1680,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Cấu tứ và hình ảnh trong thơ trữ tình",
 "file": "KHBD_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.docx",
-"kb": 1129,
-"ngay": "2026-10-01"
+"kb": 1401,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1691,8 +1691,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Cấu trúc của văn bản nghị luận",
 "file": "KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
-"kb": 1131,
-"ngay": "2026-10-01"
+"kb": 1407,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1702,8 +1702,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
-"kb": 151,
-"ngay": "2026-10-01"
+"kb": 298,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1713,8 +1713,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Cấu tứ và hình ảnh trong thơ trữ tình",
 "file": "SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
-"kb": 145,
-"ngay": "2026-10-01"
+"kb": 283,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1724,8 +1724,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Cấu trúc của văn bản nghị luận",
 "file": "SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
-"kb": 144,
-"ngay": "2026-10-01"
+"kb": 286,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1735,8 +1735,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.docx",
-"kb": 1133,
-"ngay": "2026-10-01"
+"kb": 1419,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1746,8 +1746,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Những thế giới thơ",
 "file": "KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.docx",
-"kb": 1138,
-"ngay": "2026-10-01"
+"kb": 1406,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1757,8 +1757,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Lập luận trong văn bản nghị luận",
 "file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
-"kb": 1135,
-"ngay": "2026-10-01"
+"kb": 1437,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1768,7 +1768,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
-"kb": 208,
+"kb": 296,
 "ngay": "2026-10-08"
 },
 {
@@ -1779,7 +1779,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Những thế giới thơ",
 "file": "SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
-"kb": 201,
+"kb": 278,
 "ngay": "2026-10-08"
 },
 {
@@ -1790,7 +1790,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Lập luận trong văn bản nghị luận",
 "file": "SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
-"kb": 207,
+"kb": 311,
 "ngay": "2026-10-08"
 },
 {
@@ -1801,8 +1801,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Sức hấp dẫn của truyện kể",
 "file": "Slide_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.pptx",
 "url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.pptx",
-"kb": 254,
-"ngay": "2026-10-01"
+"kb": 256,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1812,8 +1812,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Vẻ đẹp của thơ ca",
 "file": "Slide_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.pptx",
 "url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.pptx",
-"kb": 271,
-"ngay": "2026-10-01"
+"kb": 273,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1823,8 +1823,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
 "url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
-"kb": 285,
-"ngay": "2026-10-01"
+"kb": 287,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1834,8 +1834,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "Slide_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.pptx",
 "url": "mon/ngu_van/slide/lop11/Slide_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.pptx",
-"kb": 293,
-"ngay": "2026-10-01"
+"kb": 294,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1845,8 +1845,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Cấu tứ và hình ảnh trong thơ trữ tình",
 "file": "Slide_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.pptx",
 "url": "mon/ngu_van/slide/lop11/Slide_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.pptx",
-"kb": 256,
-"ngay": "2026-10-01"
+"kb": 258,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1856,8 +1856,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Cấu trúc của văn bản nghị luận",
 "file": "Slide_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.pptx",
 "url": "mon/ngu_van/slide/lop11/Slide_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.pptx",
-"kb": 255,
-"ngay": "2026-10-01"
+"kb": 257,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1867,8 +1867,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "Slide_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.pptx",
 "url": "mon/ngu_van/slide/lop12/Slide_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.pptx",
-"kb": 277,
-"ngay": "2026-10-01"
+"kb": 279,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1878,8 +1878,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Những thế giới thơ",
 "file": "Slide_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.pptx",
 "url": "mon/ngu_van/slide/lop12/Slide_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.pptx",
-"kb": 269,
-"ngay": "2026-10-01"
+"kb": 271,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1889,8 +1889,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Lập luận trong văn bản nghị luận",
 "file": "Slide_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.pptx",
 "url": "mon/ngu_van/slide/lop12/Slide_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.pptx",
-"kb": 259,
-"ngay": "2026-10-01"
+"kb": 261,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1900,8 +1900,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 10",
 "file": "MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
-"kb": 39,
-"ngay": "2026-10-01"
+"kb": 41,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1922,8 +1922,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 11",
 "file": "MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
-"kb": 39,
-"ngay": "2026-10-01"
+"kb": 41,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1944,8 +1944,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 12",
 "file": "MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
-"kb": 39,
-"ngay": "2026-10-01"
+"kb": 41,
+"ngay": "2026-10-08"
 },
 {
 "mon": "ngu_van",
@@ -1966,8 +1966,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.docx",
 "url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.docx",
-"kb": 1917,
-"ngay": "2026-10-01"
+"kb": 2212,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -1977,8 +1977,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.docx",
 "url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.docx",
-"kb": 1817,
-"ngay": "2026-10-01"
+"kb": 2080,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -1988,8 +1988,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.docx",
 "url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.docx",
-"kb": 1913,
-"ngay": "2026-10-01"
+"kb": 2228,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -1999,8 +1999,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.docx",
 "url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.docx",
-"kb": 1901,
-"ngay": "2026-10-01"
+"kb": 2190,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2010,8 +2010,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
-"kb": 164,
-"ngay": "2026-10-01"
+"kb": 304,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2021,8 +2021,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.png",
-"kb": 141,
-"ngay": "2026-10-01"
+"kb": 284,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2032,8 +2032,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.png",
-"kb": 163,
-"ngay": "2026-10-01"
+"kb": 324,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2043,8 +2043,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.png",
-"kb": 151,
-"ngay": "2026-10-01"
+"kb": 296,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2054,8 +2054,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "KHBD_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.docx",
 "url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.docx",
-"kb": 1904,
-"ngay": "2026-10-01"
+"kb": 2185,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2065,8 +2065,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
 "file": "KHBD_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.docx",
 "url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.docx",
-"kb": 1895,
-"ngay": "2026-10-02"
+"kb": 2170,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2076,8 +2076,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
 "file": "KHBD_SINH11_Bai4_QuangHopOThucVat_T8-10.docx",
 "url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai4_QuangHopOThucVat_T8-10.docx",
-"kb": 1907,
-"ngay": "2026-10-02"
+"kb": 2188,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2087,8 +2087,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.docx",
 "url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.docx",
-"kb": 1901,
-"ngay": "2026-10-02"
+"kb": 2174,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2098,8 +2098,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.png",
-"kb": 154,
-"ngay": "2026-10-01"
+"kb": 291,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2109,8 +2109,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
 "file": "SoDoTuDuy_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.png",
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.png",
-"kb": 143,
-"ngay": "2026-10-02"
+"kb": 285,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2120,8 +2120,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
 "file": "SoDoTuDuy_SINH11_Bai4_QuangHopOThucVat_T8-10.png",
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai4_QuangHopOThucVat_T8-10.png",
-"kb": 157,
-"ngay": "2026-10-02"
+"kb": 290,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2131,8 +2131,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.png",
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.png",
-"kb": 149,
-"ngay": "2026-10-02"
+"kb": 283,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2142,8 +2142,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
 "file": "KHBD_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.docx",
 "url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.docx",
-"kb": 1908,
-"ngay": "2026-10-02"
+"kb": 2199,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2153,8 +2153,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "KHBD_SINH12_Bai3_DieuHoaBieuHienGene_T5.docx",
 "url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai3_DieuHoaBieuHienGene_T5.docx",
-"kb": 1902,
-"ngay": "2026-10-02"
+"kb": 2181,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2164,8 +2164,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "KHBD_SINH12_Bai4_DotBienGene_T6-7.docx",
 "url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_Bai4_DotBienGene_T6-7.docx",
-"kb": 1888,
-"ngay": "2026-10-02"
+"kb": 2158,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2175,8 +2175,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "KHBD_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
 "url": "mon/sinh_hoc/khbd/lop12/KHBD_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.docx",
-"kb": 1910,
-"ngay": "2026-10-01"
+"kb": 2185,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2186,7 +2186,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
 "file": "SoDoTuDuy_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.png",
 "url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.png",
-"kb": 220,
+"kb": 300,
 "ngay": "2026-10-08"
 },
 {
@@ -2197,7 +2197,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "SoDoTuDuy_SINH12_Bai3_DieuHoaBieuHienGene_T5.png",
 "url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai3_DieuHoaBieuHienGene_T5.png",
-"kb": 209,
+"kb": 288,
 "ngay": "2026-10-08"
 },
 {
@@ -2208,7 +2208,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH12_Bai4_DotBienGene_T6-7.png",
 "url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_Bai4_DotBienGene_T6-7.png",
-"kb": 205,
+"kb": 279,
 "ngay": "2026-10-08"
 },
 {
@@ -2219,7 +2219,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "SoDoTuDuy_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
 "url": "mon/sinh_hoc/khbd/lop12/SoDoTuDuy_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.png",
-"kb": 228,
+"kb": 283,
 "ngay": "2026-10-08"
 },
 {
@@ -2230,8 +2230,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.pptx",
-"kb": 248,
-"ngay": "2026-10-01"
+"kb": 250,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2241,8 +2241,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 2. PHƯƠNG PHÁP NGHIÊN CỨU VÀ HỌC TẬP MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.pptx",
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai2_PhuongPhapNghienCuuVaHocTapMonSinhHoc_T3-4.pptx",
-"kb": 219,
-"ngay": "2026-10-01"
+"kb": 220,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2252,8 +2252,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 3. CÁC CẤP ĐỘ TỔ CHỨC CỦA THẾ GIỚI SỐNG Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.pptx",
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai3_CacCapDoToChucCuaTheGioiSong_T5-6.pptx",
-"kb": 238,
-"ngay": "2026-10-01"
+"kb": 240,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2263,8 +2263,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.pptx",
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.pptx",
-"kb": 229,
-"ngay": "2026-10-01"
+"kb": 231,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2274,8 +2274,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
-"kb": 221,
-"ngay": "2026-10-01"
+"kb": 223,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2285,8 +2285,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 2. TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 04 tiết",
 "file": "Slide_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.pptx",
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai2_TraoDoiNuocVaKhoangOThucVat_T2-5.pptx",
-"kb": 218,
-"ngay": "2026-10-02"
+"kb": 219,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2296,8 +2296,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 03 tiết",
 "file": "Slide_SINH11_Bai4_QuangHopOThucVat_T8-10.pptx",
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai4_QuangHopOThucVat_T8-10.pptx",
-"kb": 236,
-"ngay": "2026-10-02"
+"kb": 238,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2307,8 +2307,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Thực hành: trao đổi nước và khoáng ở thực vật (bài học stem) sinh học 11 – kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.pptx",
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_STEM_Bai3_ThucHanhTraoDoiNuocVaKhoang_T6-7.pptx",
-"kb": 221,
-"ngay": "2026-10-02"
+"kb": 223,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2318,8 +2318,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền sinh học 12 – kết nối tri thức với cuộc sống · 03 tiết",
 "file": "Slide_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.pptx",
 "url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai2_GeneHeGeneVaTruyenDatThongTinDiTruyen_T2-4.pptx",
-"kb": 238,
-"ngay": "2026-10-02"
+"kb": 240,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2329,8 +2329,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 3. ĐIỀU HOÀ BIỂU HIỆN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "Slide_SINH12_Bai3_DieuHoaBieuHienGene_T5.pptx",
 "url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai3_DieuHoaBieuHienGene_T5.pptx",
-"kb": 216,
-"ngay": "2026-10-02"
+"kb": 218,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2340,8 +2340,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 4. ĐỘT BIẾN GENE Sinh học 12 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "Slide_SINH12_Bai4_DotBienGene_T6-7.pptx",
 "url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_Bai4_DotBienGene_T6-7.pptx",
-"kb": 202,
-"ngay": "2026-10-02"
+"kb": 204,
+"ngay": "2026-10-08"
 },
 {
 "mon": "sinh_hoc",
@@ -2351,8 +2351,8 @@ window.HOC_LIEU = [
 "ten": "BÀI 1. DNA VÀ CƠ CHẾ TÁI BẢN DNA (BÀI HỌC STEM) Sinh học 12 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "Slide_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
 "url": "mon/sinh_hoc/slide/lop12/Slide_SINH12_STEM_Bai1_DNAVaCoCheTaiBanDNA_T1.pptx",
-"kb": 219,
-"ngay": "2026-10-01"
+"kb": 221,
+"ngay": "2026-10-08"
 },
 {
 "mon": "tieng_anh",
@@ -2362,8 +2362,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề ôn thi tốt nghiệp THPT – môn Tiếng Anh",
 "file": "MaTran_DacTa_OnThiTN_TiengAnh_2026-2027.docx",
 "url": "mon/tieng_anh/ma_tran/MaTran_DacTa_OnThiTN_TiengAnh_2026-2027.docx",
-"kb": 39,
-"ngay": "2026-10-01"
+"kb": 41,
+"ngay": "2026-10-08"
 },
 {
 "mon": "tieng_anh",
@@ -2384,8 +2384,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Mệnh đề (bản 4)",
 "file": "KHBD_Bai1_MenhDe_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai1_MenhDe_Toan10_v4.docx",
-"kb": 1360,
-"ngay": "2026-09-30"
+"kb": 1576,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2395,8 +2395,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Tập hợp và các phép toán (bản 4)",
 "file": "KHBD_Bai2_TapHop_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai2_TapHop_Toan10_v4.docx",
-"kb": 2399,
-"ngay": "2026-09-30"
+"kb": 2631,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2406,8 +2406,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Bất phương trình bậc nhất hai ẩn (bản 2)",
 "file": "KHBD_Bai3_BPT_BacNhatHaiAn_Toan10_v2.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai3_BPT_BacNhatHaiAn_Toan10_v2.docx",
-"kb": 1571,
-"ngay": "2026-09-30"
+"kb": 1802,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2428,8 +2428,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I (bản 4)",
 "file": "KHBD_BaiTapCuoiChuong1_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_BaiTapCuoiChuong1_Toan10_v4.docx",
-"kb": 1074,
-"ngay": "2026-09-30"
+"kb": 1321,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2439,8 +2439,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Hệ phương trình bậc nhất ba ẩn",
 "file": "KHBD_CD1_Bai1_HePT_BacNhatBaAn_Toan10.docx",
 "url": "mon/toan/khbd/lop10/KHBD_CD1_Bai1_HePT_BacNhatBaAn_Toan10.docx",
-"kb": 809,
-"ngay": "2026-09-30"
+"kb": 1024,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2450,8 +2450,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_STEM_Bai4_HeBPT_KhauPhanAn_Toan10.docx",
 "url": "mon/toan/khbd/lop10/KHBD_STEM_Bai4_HeBPT_KhauPhanAn_Toan10.docx",
-"kb": 578,
-"ngay": "2026-09-30"
+"kb": 803,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2461,8 +2461,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "KHBD_TOAN10_Bai5_T16-17.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_T16-17.docx",
-"kb": 1753,
-"ngay": "2026-09-30"
+"kb": 2001,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2472,8 +2472,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Hệ thức lượng trong tam giác",
 "file": "KHBD_TOAN10_Bai6_T18-21.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai6_T18-21.docx",
-"kb": 1657,
-"ngay": "2026-09-30"
+"kb": 1893,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2483,8 +2483,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương II",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
-"kb": 1064,
-"ngay": "2026-09-30"
+"kb": 1287,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2494,7 +2494,7 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương III",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
-"kb": 897,
+"kb": 1145,
 "ngay": "2026-10-08"
 },
 {
@@ -2505,7 +2505,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Mệnh đề",
 "file": "SoDoTuDuy_TOAN10_Bai1_MenhDe_T1-4.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai1_MenhDe_T1-4.png",
-"kb": 199,
+"kb": 228,
 "ngay": "2026-10-08"
 },
 {
@@ -2516,7 +2516,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Tập hợp và các phép toán",
 "file": "SoDoTuDuy_TOAN10_Bai2_TapHop_T5-8.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai2_TapHop_T5-8.png",
-"kb": 199,
+"kb": 245,
 "ngay": "2026-10-08"
 },
 {
@@ -2527,7 +2527,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Bất phương trình bậc nhất hai ẩn",
 "file": "SoDoTuDuy_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11.png",
-"kb": 210,
+"kb": 242,
 "ngay": "2026-10-08"
 },
 {
@@ -2538,7 +2538,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "SoDoTuDuy_TOAN10_Bai5_HeThuLuongTrongTamGiac_T16-17.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai5_HeThuLuongTrongTamGiac_T16-17.png",
-"kb": 219,
+"kb": 259,
 "ngay": "2026-10-08"
 },
 {
@@ -2549,7 +2549,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 6. Hệ thức lượng trong tam giác",
 "file": "SoDoTuDuy_TOAN10_Bai6_DinhLiCosin_Sin_T18-21.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai6_DinhLiCosin_Sin_T18-21.png",
-"kb": 209,
+"kb": 247,
 "ngay": "2026-10-08"
 },
 {
@@ -2560,7 +2560,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài tập cuối chương I",
 "file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong1_T9.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_BaiTapCuoiChuong1_T9.png",
-"kb": 204,
+"kb": 258,
 "ngay": "2026-10-08"
 },
 {
@@ -2571,7 +2571,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài tập cuối chương II",
 "file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong2_T15.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_BaiTapCuoiChuong2_T15.png",
-"kb": 202,
+"kb": 234,
 "ngay": "2026-10-08"
 },
 {
@@ -2582,7 +2582,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài tập cuối chương III",
 "file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong3_T22.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_BaiTapCuoiChuong3_T22.png",
-"kb": 203,
+"kb": 259,
 "ngay": "2026-10-08"
 },
 {
@@ -2593,7 +2593,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Hệ phương trình bậc nhất ba ẩn",
 "file": "SoDoTuDuy_TOAN10_CD1_Bai1_HePT_BacNhatBaAn.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_CD1_Bai1_HePT_BacNhatBaAn.png",
-"kb": 205,
+"kb": 227,
 "ngay": "2026-10-08"
 },
 {
@@ -2615,7 +2615,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "SoDoTuDuy_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14.png",
-"kb": 203,
+"kb": 235,
 "ngay": "2026-10-08"
 },
 {
@@ -2626,8 +2626,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Giá trị lượng giác của góc lượng giác (bản 3)",
 "file": "KHBD_Bai1_GTLG_GocLuongGiac_Toan11_v3.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai1_GTLG_GocLuongGiac_Toan11_v3.docx",
-"kb": 1568,
-"ngay": "2026-09-30"
+"kb": 1825,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2637,8 +2637,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Công thức lượng giác (bản 2)",
 "file": "KHBD_Bai2_CongThucLuongGiac_Toan11_v2.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai2_CongThucLuongGiac_Toan11_v2.docx",
-"kb": 590,
-"ngay": "2026-09-30"
+"kb": 795,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2648,8 +2648,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Hàm số lượng giác (bản 2)",
 "file": "KHBD_Bai3_HamSoLuongGiac_Toan11_v2.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai3_HamSoLuongGiac_Toan11_v2.docx",
-"kb": 904,
-"ngay": "2026-09-30"
+"kb": 1097,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2659,8 +2659,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Phương trình lượng giác cơ bản",
 "file": "KHBD_Bai4_PTLG_CoBan_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai4_PTLG_CoBan_Toan11.docx",
-"kb": 1601,
-"ngay": "2026-09-30"
+"kb": 1767,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2670,8 +2670,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép biến hình",
 "file": "KHBD_CD1_Bai1_PhepBienHinh_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai1_PhepBienHinh_Toan11.docx",
-"kb": 1088,
-"ngay": "2026-09-30"
+"kb": 1292,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2681,8 +2681,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép tịnh tiến",
 "file": "KHBD_CD1_Bai2_PhepTinhTien_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai2_PhepTinhTien_Toan11.docx",
-"kb": 1263,
-"ngay": "2026-09-30"
+"kb": 1465,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2692,8 +2692,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép đối xứng trục",
 "file": "KHBD_CD1_Bai3_PhepDoiXungTruc_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai3_PhepDoiXungTruc_Toan11.docx",
-"kb": 1238,
-"ngay": "2026-09-30"
+"kb": 1448,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2703,8 +2703,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép quay và phép đối xứng tâm",
 "file": "KHBD_CD1_Bai4_PhepQuay_DoiXungTam_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai4_PhepQuay_DoiXungTam_Toan11.docx",
-"kb": 1232,
-"ngay": "2026-09-30"
+"kb": 1446,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2714,8 +2714,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
-"kb": 413,
-"ngay": "2026-09-30"
+"kb": 616,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2725,8 +2725,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Cấp số cộng",
 "file": "KHBD_TOAN11_Bai6_T13-14.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai6_T13-14.docx",
-"kb": 598,
-"ngay": "2026-09-30"
+"kb": 786,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2736,8 +2736,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7. Cấp số nhân",
 "file": "KHBD_TOAN11_Bai7_T15-16.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai7_T15-16.docx",
-"kb": 410,
-"ngay": "2026-09-30"
+"kb": 602,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2747,8 +2747,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
-"kb": 538,
-"ngay": "2026-09-30"
+"kb": 776,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2758,7 +2758,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Giá trị lượng giác của góc lượng giác",
 "file": "SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
-"kb": 205,
+"kb": 267,
 "ngay": "2026-10-08"
 },
 {
@@ -2769,7 +2769,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. Công thức lượng giác",
 "file": "SoDoTuDuy_TOAN11_Bai2_CongThucLuongGiac_T4-5.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai2_CongThucLuongGiac_T4-5.png",
-"kb": 203,
+"kb": 216,
 "ngay": "2026-10-08"
 },
 {
@@ -2780,7 +2780,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Hàm số lượng giác",
 "file": "SoDoTuDuy_TOAN11_Bai3_HamSoLuongGiac_T6-7.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai3_HamSoLuongGiac_T6-7.png",
-"kb": 202,
+"kb": 205,
 "ngay": "2026-10-08"
 },
 {
@@ -2791,7 +2791,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 4. Phương trình lượng giác cơ bản",
 "file": "SoDoTuDuy_TOAN11_Bai4_PTLuongGiacCoBan_T8-9.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai4_PTLuongGiacCoBan_T8-9.png",
-"kb": 203,
+"kb": 178,
 "ngay": "2026-10-08"
 },
 {
@@ -2802,7 +2802,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 5. Dãy số",
 "file": "SoDoTuDuy_TOAN11_Bai5_DaySo_T11-12.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai5_DaySo_T11-12.png",
-"kb": 204,
+"kb": 215,
 "ngay": "2026-10-08"
 },
 {
@@ -2813,7 +2813,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 6. Cấp số cộng",
 "file": "SoDoTuDuy_TOAN11_Bai6_CapSoCong_T13-14.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai6_CapSoCong_T13-14.png",
-"kb": 202,
+"kb": 200,
 "ngay": "2026-10-08"
 },
 {
@@ -2824,7 +2824,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 7. Cấp số nhân",
 "file": "SoDoTuDuy_TOAN11_Bai7_CapSoNhan_T15-16.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai7_CapSoNhan_T15-16.png",
-"kb": 200,
+"kb": 204,
 "ngay": "2026-10-08"
 },
 {
@@ -2835,7 +2835,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài tập cuối chương I",
 "file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong1_T10.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong1_T10.png",
-"kb": 205,
+"kb": 250,
 "ngay": "2026-10-08"
 },
 {
@@ -2846,7 +2846,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Phép biến hình",
 "file": "SoDoTuDuy_TOAN11_CD1_Bai1_PhepBienHinh.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai1_PhepBienHinh.png",
-"kb": 200,
+"kb": 215,
 "ngay": "2026-10-08"
 },
 {
@@ -2857,7 +2857,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Phép tịnh tiến",
 "file": "SoDoTuDuy_TOAN11_CD1_Bai2_PhepTinhTien.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai2_PhepTinhTien.png",
-"kb": 202,
+"kb": 214,
 "ngay": "2026-10-08"
 },
 {
@@ -2868,7 +2868,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Phép đối xứng trục",
 "file": "SoDoTuDuy_TOAN11_CD1_Bai3_PhepDoiXungTruc.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai3_PhepDoiXungTruc.png",
-"kb": 207,
+"kb": 222,
 "ngay": "2026-10-08"
 },
 {
@@ -2879,7 +2879,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Phép quay và phép đối xứng tâm",
 "file": "SoDoTuDuy_TOAN11_CD1_Bai4_PhepQuay_DoiXungTam.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai4_PhepQuay_DoiXungTam.png",
-"kb": 213,
+"kb": 225,
 "ngay": "2026-10-08"
 },
 {
@@ -2890,8 +2890,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Tính đơn điệu và cực trị của hàm số (bản 3)",
 "file": "KHBD_Bai1_Toan12_DonDieu_CucTri_v3.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai1_Toan12_DonDieu_CucTri_v3.docx",
-"kb": 2740,
-"ngay": "2026-09-30"
+"kb": 2974,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2901,8 +2901,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. GTLN và GTNN của hàm số (bản 4)",
 "file": "KHBD_Bai2_GTLN_GTNN_Toan12_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai2_GTLN_GTNN_Toan12_v4.docx",
-"kb": 764,
-"ngay": "2026-09-30"
+"kb": 1226,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2912,8 +2912,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Đường tiệm cận của đồ thị hàm số (bản 4)",
 "file": "KHBD_Bai3_DuongTiemCan_Toan12_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai3_DuongTiemCan_Toan12_v4.docx",
-"kb": 940,
-"ngay": "2026-09-30"
+"kb": 1149,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2923,8 +2923,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số (bản 3)",
 "file": "KHBD_Bai4_Toan12_KhaoSatHamSo_v3.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai4_Toan12_KhaoSatHamSo_v3.docx",
-"kb": 1864,
-"ngay": "2026-09-30"
+"kb": 2102,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2934,8 +2934,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số (bản 4)",
 "file": "KHBD_Bai4_Toan12_KhaoSatHamSo_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai4_Toan12_KhaoSatHamSo_v4.docx",
-"kb": 400,
-"ngay": "2026-10-07"
+"kb": 639,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2945,8 +2945,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Biến ngẫu nhiên rời rạc và các số đặc trưng",
 "file": "KHBD_CD1_Bai1_Toan12_BienNgauNhienRoiRac.docx",
 "url": "mon/toan/khbd/lop12/KHBD_CD1_Bai1_Toan12_BienNgauNhienRoiRac.docx",
-"kb": 1207,
-"ngay": "2026-09-30"
+"kb": 1424,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -2956,7 +2956,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "SoDoTuDuy_TOAN12_Bai1_DonDieuCucTri.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai1_DonDieuCucTri.png",
-"kb": 197,
+"kb": 247,
 "ngay": "2026-10-08"
 },
 {
@@ -2967,7 +2967,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 2. GTLN và GTNN của hàm số",
 "file": "SoDoTuDuy_TOAN12_Bai2_GTLN_GTNN.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai2_GTLN_GTNN.png",
-"kb": 208,
+"kb": 243,
 "ngay": "2026-10-08"
 },
 {
@@ -2978,7 +2978,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 3. Đường tiệm cận của đồ thị hàm số",
 "file": "SoDoTuDuy_TOAN12_Bai3_DuongTiemCan.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai3_DuongTiemCan.png",
-"kb": 197,
+"kb": 221,
 "ngay": "2026-10-08"
 },
 {
@@ -2989,7 +2989,18 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
 "file": "SoDoTuDuy_TOAN12_Bai4_KhaoSatHamSo.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai4_KhaoSatHamSo.png",
-"kb": 205,
+"kb": 250,
+"ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Biến ngẫu nhiên rời rạc và các số đặc trưng",
+"file": "SoDoTuDuy_TOAN12_CD1_Bai1.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai1.png",
+"kb": 229,
 "ngay": "2026-10-08"
 },
 {
@@ -3000,8 +3011,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Mệnh đề",
 "file": "Slide_TOAN10_Bai1_T1-4.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_Bai1_T1-4.pptx",
-"kb": 1109,
-"ngay": "2026-09-30"
+"kb": 1110,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3011,8 +3022,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Tập hợp và các phép toán",
 "file": "Slide_TOAN10_Bai2_T5-8.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_Bai2_T5-8.pptx",
-"kb": 2036,
-"ngay": "2026-09-30"
+"kb": 2038,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3022,8 +3033,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Bất phương trình bậc nhất hai ẩn",
 "file": "Slide_TOAN10_Bai3_T10-11.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_Bai3_T10-11.pptx",
-"kb": 1159,
-"ngay": "2026-09-30"
+"kb": 1161,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3033,8 +3044,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "Slide_TOAN10_Bai5_T16-17.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_Bai5_T16-17.pptx",
-"kb": 1603,
-"ngay": "2026-09-30"
+"kb": 1605,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3044,8 +3055,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Hệ thức lượng trong tam giác",
 "file": "Slide_TOAN10_Bai6_T18-21.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_Bai6_T18-21.pptx",
-"kb": 1312,
-"ngay": "2026-09-30"
+"kb": 1314,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3055,8 +3066,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I",
 "file": "Slide_TOAN10_BaiTapCuoiChuong1_T9.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_BaiTapCuoiChuong1_T9.pptx",
-"kb": 833,
-"ngay": "2026-09-30"
+"kb": 835,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3066,8 +3077,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương II",
 "file": "Slide_TOAN10_BaiTapCuoiChuong2_T15.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_BaiTapCuoiChuong2_T15.pptx",
-"kb": 667,
-"ngay": "2026-09-30"
+"kb": 669,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3077,7 +3088,7 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương III",
 "file": "Slide_TOAN10_BaiTapCuoiChuong3_T22.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_BaiTapCuoiChuong3_T22.pptx",
-"kb": 269,
+"kb": 271,
 "ngay": "2026-10-08"
 },
 {
@@ -3088,8 +3099,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Hệ phương trình bậc nhất ba ẩn",
 "file": "Slide_TOAN10_CD1_Bai1_T1-5.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_CD1_Bai1_T1-5.pptx",
-"kb": 495,
-"ngay": "2026-09-30"
+"kb": 496,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3099,8 +3110,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "Slide_TOAN10_STEM_Bai4_T12-14.pptx",
 "url": "mon/toan/slide/lop10/Slide_TOAN10_STEM_Bai4_T12-14.pptx",
-"kb": 226,
-"ngay": "2026-09-30"
+"kb": 229,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3110,8 +3121,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Giá trị lượng giác của góc lượng giác",
 "file": "Slide_TOAN11_Bai1_T1-3.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai1_T1-3.pptx",
-"kb": 820,
-"ngay": "2026-09-27"
+"kb": 821,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3121,8 +3132,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Công thức lượng giác",
 "file": "Slide_TOAN11_Bai2_T4-5.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai2_T4-5.pptx",
-"kb": 441,
-"ngay": "2026-09-27"
+"kb": 443,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3132,8 +3143,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Hàm số lượng giác",
 "file": "Slide_TOAN11_Bai3_T6-7.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai3_T6-7.pptx",
-"kb": 752,
-"ngay": "2026-09-27"
+"kb": 753,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3143,8 +3154,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Phương trình lượng giác cơ bản",
 "file": "Slide_TOAN11_Bai4_T8-9.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai4_T8-9.pptx",
-"kb": 789,
-"ngay": "2026-09-27"
+"kb": 790,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3154,8 +3165,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Dãy số",
 "file": "Slide_TOAN11_Bai5_T11-12.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai5_T11-12.pptx",
-"kb": 454,
-"ngay": "2026-09-30"
+"kb": 455,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3165,8 +3176,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Cấp số cộng",
 "file": "Slide_TOAN11_Bai6_T13-14.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai6_T13-14.pptx",
-"kb": 601,
-"ngay": "2026-09-30"
+"kb": 602,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3176,8 +3187,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7. Cấp số nhân",
 "file": "Slide_TOAN11_Bai7_T15-16.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_Bai7_T15-16.pptx",
-"kb": 421,
-"ngay": "2026-09-30"
+"kb": 423,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3187,8 +3198,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I",
 "file": "Slide_TOAN11_BaiTapCuoiChuong1_T10.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_BaiTapCuoiChuong1_T10.pptx",
-"kb": 408,
-"ngay": "2026-09-27"
+"kb": 410,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3198,8 +3209,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép biến hình",
 "file": "Slide_TOAN11_CD1_Bai1_T1-2.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_CD1_Bai1_T1-2.pptx",
-"kb": 894,
-"ngay": "2026-09-27"
+"kb": 896,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3209,8 +3220,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép tịnh tiến",
 "file": "Slide_TOAN11_CD1_Bai2_T3-4.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_CD1_Bai2_T3-4.pptx",
-"kb": 785,
-"ngay": "2026-09-27"
+"kb": 786,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3220,8 +3231,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép đối xứng trục",
 "file": "Slide_TOAN11_CD1_Bai3_T5-6.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_CD1_Bai3_T5-6.pptx",
-"kb": 590,
-"ngay": "2026-09-27"
+"kb": 591,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3231,8 +3242,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Phép quay và phép đối xứng tâm",
 "file": "Slide_TOAN11_CD1_Bai4_T7-8.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_CD1_Bai4_T7-8.pptx",
-"kb": 589,
-"ngay": "2026-09-27"
+"kb": 590,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3242,8 +3253,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "Slide_TOAN12_Bai1_T1-6.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_Bai1_T1-6.pptx",
-"kb": 956,
-"ngay": "2026-09-30"
+"kb": 958,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3253,8 +3264,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. GTLN và GTNN của hàm số",
 "file": "Slide_TOAN12_Bai2_T7-9.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_Bai2_T7-9.pptx",
-"kb": 418,
-"ngay": "2026-09-30"
+"kb": 420,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3264,8 +3275,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Đường tiệm cận của đồ thị hàm số",
 "file": "Slide_TOAN12_Bai3_T10-13.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_Bai3_T10-13.pptx",
-"kb": 599,
-"ngay": "2026-09-30"
+"kb": 601,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3275,8 +3286,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
 "file": "Slide_TOAN12_Bai4_T14-18.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_Bai4_T14-18.pptx",
-"kb": 615,
-"ngay": "2026-10-07"
+"kb": 616,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3286,8 +3297,8 @@ window.HOC_LIEU = [
 "ten": "Chuyên đề 1 – Biến ngẫu nhiên rời rạc và các số đặc trưng",
 "file": "Slide_TOAN12_CD1_Bai1_T1-5.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_CD1_Bai1_T1-5.pptx",
-"kb": 708,
-"ngay": "2026-09-30"
+"kb": 710,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3297,8 +3308,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bảng đặc tả đề luyện tập, ôn tập, kiểm tra định kỳ",
 "file": "MaTran_DacTa_LuyenTap_Toan10_2026-2027.docx",
 "url": "mon/toan/ma_tran/MaTran_DacTa_LuyenTap_Toan10_2026-2027.docx",
-"kb": 61,
-"ngay": "2026-09-30"
+"kb": 63,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3308,8 +3319,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bảng đặc tả đề luyện tập, ôn tập, kiểm tra định kỳ",
 "file": "MaTran_DacTa_LuyenTap_Toan11_2026-2027.docx",
 "url": "mon/toan/ma_tran/MaTran_DacTa_LuyenTap_Toan11_2026-2027.docx",
-"kb": 62,
-"ngay": "2026-09-30"
+"kb": 64,
+"ngay": "2026-10-08"
 },
 {
 "mon": "toan",
@@ -3319,8 +3330,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bảng đặc tả đề luyện tập, ôn tập, kiểm tra định kỳ",
 "file": "MaTran_DacTa_LuyenTap_Toan12_2026-2027.docx",
 "url": "mon/toan/ma_tran/MaTran_DacTa_LuyenTap_Toan12_2026-2027.docx",
-"kb": 55,
-"ngay": "2026-09-30"
+"kb": 57,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3330,8 +3341,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.docx",
-"kb": 5175,
-"ngay": "2026-10-07"
+"kb": 5487,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3341,8 +3352,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.docx",
-"kb": 5157,
-"ngay": "2026-10-07"
+"kb": 5444,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3352,8 +3363,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.docx",
-"kb": 5168,
-"ngay": "2026-10-07"
+"kb": 5461,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3363,8 +3374,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.docx",
-"kb": 5153,
-"ngay": "2026-10-07"
+"kb": 5708,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3374,8 +3385,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai5_NhietNongChayRieng_T9-10.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai5_NhietNongChayRieng_T9-10.docx",
-"kb": 5157,
-"ngay": "2026-10-07"
+"kb": 5436,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3385,8 +3396,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "KHBD_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.docx",
 "url": "mon/vat_li/khbd/lop12/KHBD_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.docx",
-"kb": 5150,
-"ngay": "2026-10-07"
+"kb": 5419,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3396,7 +3407,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.png",
-"kb": 196,
+"kb": 321,
 "ngay": "2026-10-08"
 },
 {
@@ -3407,7 +3418,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.png",
-"kb": 202,
+"kb": 296,
 "ngay": "2026-10-08"
 },
 {
@@ -3418,7 +3429,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.png",
-"kb": 196,
+"kb": 302,
 "ngay": "2026-10-08"
 },
 {
@@ -3429,7 +3440,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.png",
-"kb": 193,
+"kb": 289,
 "ngay": "2026-10-08"
 },
 {
@@ -3440,7 +3451,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai5_NhietNongChayRieng_T9-10.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai5_NhietNongChayRieng_T9-10.png",
-"kb": 198,
+"kb": 289,
 "ngay": "2026-10-08"
 },
 {
@@ -3451,7 +3462,7 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy – Chương I: Vật lí nhiệt",
 "file": "SoDoTuDuy_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.png",
 "url": "mon/vat_li/khbd/lop12/SoDoTuDuy_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.png",
-"kb": 194,
+"kb": 279,
 "ngay": "2026-10-08"
 },
 {
@@ -3462,8 +3473,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai1_CauTrucChatSuChuyenThe_T1-2.pptx",
-"kb": 213,
-"ngay": "2026-10-07"
+"kb": 217,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3473,8 +3484,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai2_NoiNang_DinhLuatI_NDLH_T3-4.pptx",
-"kb": 198,
-"ngay": "2026-10-07"
+"kb": 201,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3484,8 +3495,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai3_NhietDo_ThangDoNhietDo_T5-6.pptx",
-"kb": 210,
-"ngay": "2026-10-07"
+"kb": 213,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3495,8 +3506,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai4_NhietDungRieng_PhuongTrinhNhietLuong_T7-8.pptx",
-"kb": 195,
-"ngay": "2026-10-07"
+"kb": 198,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3506,8 +3517,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai5_NhietNongChayRieng_T9-10.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai5_NhietNongChayRieng_T9-10.pptx",
-"kb": 197,
-"ngay": "2026-10-07"
+"kb": 200,
+"ngay": "2026-10-08"
 },
 {
 "mon": "vat_li",
@@ -3517,8 +3528,8 @@ window.HOC_LIEU = [
 "ten": "Chương I: Vật lí nhiệt",
 "file": "Slide_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.pptx",
 "url": "mon/vat_li/slide/lop12/Slide_VATLY12_Bai6_NhietHoaHoiRieng_T11-12.pptx",
-"kb": 191,
-"ngay": "2026-10-07"
+"kb": 195,
+"ngay": "2026-10-08"
 }
 ];
 window.TEN_MON = {"toan": "Toán", "ngu_van": "Ngữ văn", "vat_li": "Vật lí", "hoa_hoc": "Hóa học", "sinh_hoc": "Sinh học", "lich_su": "Lịch sử", "dia_li": "Địa lí", "gdkt_pl": "GDKT&PL", "tieng_anh": "Tiếng Anh", "tin_hoc": "Tin học", "cong_nghe": "Công nghệ"};
