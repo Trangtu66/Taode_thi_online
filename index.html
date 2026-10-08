@@ -7,7 +7,7 @@
   // Link bài làm cũ (mã QR) mở trang chủ kèm đề nén "#e=…": chuyển sang trang làm bài. KHÔNG XOÁ.
   if (/^#e=/.test(location.hash)) location.replace("lam_bai.html" + location.hash);
 </script>
-<title>Học tập trực tuyến – THPT Vĩnh Thạnh</title>
+<title>Học tập trực tuyến – Trường THPT</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="giao_dien.css">
 <style>
@@ -120,7 +120,7 @@
 </head>
 <body>
 <header class="top"><div class="in">
-  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT Vĩnh Thạnh – Gia Lai</small></span></a>
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
   <nav class="nav" aria-label="Điều hướng chính">
     <a href="index.html" class="on">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="lam_bai.html">Tạo đề Online</a>
     <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
@@ -133,7 +133,7 @@
     <div class="hero-text">
       <p class="hero-eyebrow">Chuyển đổi số trong dạy học · GDPT 2018</p>
       <h1>Học tập &amp; Kiểm tra<br>mọi lúc, mọi nơi</h1>
-      <p class="sub">THPT Vĩnh Thạnh – Gia Lai · Năm học 2026–2027</p>
+      <p class="sub">Trường THPT · Năm học 2026–2027</p>
     </div>
     <div class="hero-form">
       <p class="lbl">Nhập mã bài tập hoặc dán link QR</p>
@@ -226,7 +226,7 @@
   <div id="gate-modal">
     <div class="gate-logo">
       <span class="dot">VT</span>
-      <span><b>THPT Vĩnh Thạnh – Gia Lai</b><small>Hệ thống học tập trực tuyến</small></span>
+      <span><b>Trường THPT</b><small>Hệ thống học tập trực tuyến</small></span>
     </div>
 
     <!-- STEP 1: Chọn vai trò + nhập email -->
@@ -282,7 +282,7 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
 
 <footer class="foot"><div class="in">
-  <span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai · Học tập trực tuyến – chuyển đổi số trong dạy học</span>
+  <span>© 2026 Trường THPT · Biên soạn: TTT · Học tập trực tuyến – chuyển đổi số trong dạy học</span>
   <span><a href="huong_dan.html">Hướng dẫn sử dụng</a> · <a href="bao_cao_cds.html">Báo cáo chuyển đổi số</a></span>
 </div></footer>
 
@@ -514,7 +514,7 @@ window.submitGate = async function() {
     document.getElementById('gate-step2-title').textContent = 'Chào mừng Giáo viên nhà trường!';
     document.getElementById('gate-step2-desc').textContent =
       'Đã mở toàn quyền quản trị. Trình duyệt ghi nhớ mã – lần sau không cần nhập lại.';
-    document.getElementById('gate-ns-label').textContent = '— THPT Vĩnh Thạnh (luồng chính) —';
+    document.getElementById('gate-ns-label').textContent = '— Trường THPT (luồng chính) —';
     document.getElementById('gate-gv-note').hidden = false;
     return;
   }
