@@ -453,6 +453,76 @@ window.MON_DEMO = {
     "nguon": "Tiếng Anh 10 Global Success, 52–61"
    },
    {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Unit 1. A long and healthy life",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit1_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cc_unit1_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, 8–17"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Unit 2. The generation gap",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit2_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cc_unit2_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, 18–27"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Unit 3. Cities of the future",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit3_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cc_unit3_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, 28–37"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Unit 4. ASEAN and Viet Nam",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit4_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cc_unit4_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, 42–51"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Unit 5. Global warming",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit5_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cc_unit5_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, 52–61"
+   },
+   {
     "khu": "matran",
     "khoi": 12,
     "ten": "Ma trận, bản đặc tả đề ôn thi TN THPT – Tiếng Anh (theo đề 2026)",
