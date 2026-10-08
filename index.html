@@ -232,7 +232,7 @@
     <!-- STEP 1: Chọn vai trò + nhập email -->
     <div id="gate-step1">
       <h2 id="gate-title">Xin chào! Bạn là ai? 👋</h2>
-      <p class="gate-sub">Nhập email để hệ thống nhận ra bạn và cấp mã truy cập miễn phí.</p>
+      <p class="gate-sub">Nhập <strong>mã GV nhà trường (VT-…)</strong> để mở toàn quyền, hoặc <strong>email</strong> để lấy mã khách miễn phí.</p>
       <div class="gate-roles">
         <button class="gate-role-btn sel" data-role="HS" id="grb-hs" onclick="pickRole('HS')">
           <span class="ri">🎓</span>
@@ -246,14 +246,19 @@
         </button>
       </div>
       <div class="gate-email-wrap">
-        <label for="gate-email">Địa chỉ Email</label>
-        <input type="email" id="gate-email" placeholder="ten@truong.edu.vn hoặc gmail.com"
-               autocomplete="email" spellcheck="false"
-               onkeydown="if(event.key==='Enter')submitGate()">
+        <label for="gate-email" id="gate-input-label">Mã GV nhà trường (VT-...) hoặc Email</label>
+        <div style="position:relative">
+          <input type="text" id="gate-email" placeholder="VT-XXXX hoặc email@truong.edu.vn"
+                 autocomplete="off" spellcheck="false"
+                 onkeydown="if(event.key==='Enter')submitGate()"
+                 oninput="gateAutoDetect(this.value)">
+          <span id="gate-detect-badge" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);
+            font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;display:none"></span>
+        </div>
       </div>
       <p id="gate-err"></p>
       <button id="gate-submit" onclick="submitGate()">Xác nhận &amp; Lấy mã truy cập</button>
-      <p class="gate-hint">🔒 Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.</p>
+      <p class="gate-hint">🔒 Mã GV / Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.</p>
     </div>
 
     <!-- STEP 2: Hiện mã cấp -->
@@ -375,9 +380,9 @@ function readSession() {
     const raw = localStorage.getItem(GATE_LS_KEY);
     if (!raw) return null;
     const s = JSON.parse(raw);
-    // Huỷ phiên cũ nếu phiên bản cấu trúc thay đổi
     if (s.v !== GATE_VERSION) return null;
-    if (Date.now() - s.ts > GATE_TTL_MS) return null;
+    // Phiên VT_ADMIN (GV nhà trường) không bao giờ hết hạn tự động
+    if (s.role !== 'VT_ADMIN' && Date.now() - s.ts > GATE_TTL_MS) return null;
     return s;
   } catch(_) { return null; }
 }
@@ -386,11 +391,22 @@ function writeSession(email, role, code) {
   const sess = { v: GATE_VERSION, email, role, code, ts: Date.now() };
   try {
     localStorage.setItem(GATE_LS_KEY, JSON.stringify(sess));
-    // Expose riêng để các trang khác (lam_bai, quan_ly) đọc dễ
     localStorage.setItem('vt_guest_code', code);
     localStorage.setItem('vt_guest_role', role);
     // Namespace cách ly: tất cả đề / kết quả GV-GUEST ghi dưới prefix này
     if (role === 'GV') localStorage.setItem('vt_guest_ns', code);
+  } catch(_) {}
+}
+
+function writeSchoolSession(vtCode) {
+  const code = vtCode.toUpperCase();
+  const sess = { v: GATE_VERSION, email: code, role: 'VT_ADMIN', code, ts: Date.now() };
+  try {
+    localStorage.setItem(GATE_LS_KEY, JSON.stringify(sess));
+    localStorage.setItem('vt_school_code', code);  // mã nội bộ gốc
+    localStorage.setItem('vt_guest_code', code);   // tương thích trang lam_bai / quan_ly
+    localStorage.setItem('vt_guest_role', 'VT_ADMIN');
+    localStorage.removeItem('vt_guest_ns');         // VT_ADMIN không dùng namespace riêng
   } catch(_) {}
 }
 
@@ -442,40 +458,89 @@ window.copyGateCode = function() {
   }).catch(() => {});
 };
 
-/* ── Submit gate ─────────────────────────────────────────────────────────*/
-window.submitGate = async function() {
-  const emailEl = document.getElementById('gate-email');
-  const errEl   = document.getElementById('gate-err');
-  const submitBtn = document.getElementById('gate-submit');
-  const email = emailEl.value.trim().toLowerCase();
+/* ── Tự nhận diện loại đầu vào (VT- / Email / khác) ─────────────────────*/
+window.gateAutoDetect = function(val) {
+  const badge = document.getElementById('gate-detect-badge');
+  const roles = document.querySelector('.gate-roles');
+  const hint  = document.querySelector('.gate-hint');
+  const v = val.trim();
+  const isVT    = /^VT-/i.test(v);
+  const isEmail = v.includes('@') && v.length > 5;
 
-  // Validate email cơ bản
+  if (isVT) {
+    badge.textContent = '🏫 Nội bộ';
+    badge.style.background = '#DCFCE7';
+    badge.style.color = '#166534';
+    badge.style.display = 'inline-block';
+    if (roles) roles.style.display = 'none';
+    if (hint) hint.textContent = '🔑 Mã GV nhà trường – xác nhận để mở toàn quyền quản trị luồng chính.';
+  } else if (isEmail) {
+    badge.textContent = '📧 Email khách';
+    badge.style.background = '#DBEAFE';
+    badge.style.color = '#1E40AF';
+    badge.style.display = 'inline-block';
+    if (roles) roles.style.display = '';
+    if (hint) hint.textContent = '🔒 Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.';
+  } else {
+    badge.style.display = 'none';
+    if (roles) roles.style.display = '';
+    if (hint) hint.textContent = '🔒 Mã GV / Email chỉ dùng để sinh mã – không gửi spam.';
+  }
+};
+
+/* ── Submit gate – 3 luồng ───────────────────────────────────────────────*/
+window.submitGate = async function() {
+  const emailEl   = document.getElementById('gate-email');
+  const errEl     = document.getElementById('gate-err');
+  const submitBtn = document.getElementById('gate-submit');
+  const val = emailEl.value.trim();
+  errEl.textContent = '';
+
+  // ── Luồng 1: Mã GV nhà trường (VT-…) ──────────────────────────────────
+  if (/^VT-/i.test(val)) {
+    if (!/^VT-[A-Z0-9]{3,12}$/i.test(val)) {
+      errEl.textContent = '⚠️ Định dạng mã không hợp lệ – ví dụ: VT-ABCD hoặc VT-12345.';
+      emailEl.focus();
+      return;
+    }
+    const code = val.toUpperCase();
+    writeSchoolSession(code);
+
+    document.getElementById('gate-step1').hidden = true;
+    const step2 = document.getElementById('gate-step2');
+    step2.hidden = false;
+    document.getElementById('gate-code-val').textContent = code;
+    document.getElementById('gate-ic').textContent = '🏫';
+    document.getElementById('gate-step2-title').textContent = 'Chào mừng Giáo viên nhà trường!';
+    document.getElementById('gate-step2-desc').textContent =
+      'Đã mở toàn quyền quản trị. Trình duyệt ghi nhớ mã – lần sau không cần nhập lại.';
+    document.getElementById('gate-ns-label').textContent = '— THPT Vĩnh Thạnh (luồng chính) —';
+    document.getElementById('gate-gv-note').hidden = false;
+    return;
+  }
+
+  // ── Luồng 2: Email khách (GV tự do / HS ngoài) ─────────────────────────
+  const email = val.toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    errEl.textContent = '⚠️ Email chưa đúng định dạng – hãy kiểm tra lại.';
+    errEl.textContent = '⚠️ Nhập Mã GV (VT-...) hoặc địa chỉ Email hợp lệ.';
     emailEl.focus();
     return;
   }
-  errEl.textContent = '';
+
   submitBtn.disabled = true;
   submitBtn.textContent = 'Đang xử lý…';
 
   try {
     const role = _selectedRole;
     const code = await genCode(email, role);
-
-    // Ghi session
     writeSession(email, role, code);
-
-    // Log bất đồng bộ sang GAS (không chờ)
     logToGAS({ email, role, code, action: 'gate_enter',
                ts: new Date().toISOString(),
                ua: navigator.userAgent.slice(0, 120) });
 
-    // Chuyển sang Step 2
     document.getElementById('gate-step1').hidden = true;
     const step2 = document.getElementById('gate-step2');
     step2.hidden = false;
-
     document.getElementById('gate-code-val').textContent = code;
 
     if (role === 'GV') {
@@ -483,9 +548,8 @@ window.submitGate = async function() {
       document.getElementById('gate-step2-title').textContent = 'Không gian làm việc riêng của bạn';
       document.getElementById('gate-step2-desc').textContent =
         'Đề bài và kết quả nhóm bạn hoàn toàn tách biệt khỏi kho dữ liệu nhà trường.';
-      const gvNote = document.getElementById('gate-gv-note');
       document.getElementById('gate-ns-label').textContent = code;
-      gvNote.hidden = false;
+      document.getElementById('gate-gv-note').hidden = false;
     } else {
       document.getElementById('gate-ic').textContent = '✅';
       document.getElementById('gate-step2-title').textContent = 'Chào mừng bạn đến hệ thống!';
