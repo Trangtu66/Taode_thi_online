@@ -454,6 +454,34 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 10,
+    "ten": "Ôn tập cuối kì I (Unit 1–5)",
+    "phut": 45,
+    "cau": [
+     30,
+     5,
+     0
+    ],
+    "link": "anh_cuoiki1_k10.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop10/anh_cuoiki1_k10.docx",
+    "nguon": "Tiếng Anh 10 Global Success, Unit 1–5"
+   },
+   {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Ôn tập giữa kì I (Unit 1–3)",
+    "phut": 30,
+    "cau": [
+     18,
+     3,
+     0
+    ],
+    "link": "anh_giuaki1_k10.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop10/anh_giuaki1_k10.docx",
+    "nguon": "Tiếng Anh 10 Global Success, Unit 1–3"
+   },
+   {
+    "khu": "cc",
     "khoi": 11,
     "ten": "Unit 1. A long and healthy life",
     "phut": 12,
@@ -524,6 +552,34 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 11,
+    "ten": "Ôn tập cuối kì I (Unit 1–5)",
+    "phut": 45,
+    "cau": [
+     30,
+     5,
+     0
+    ],
+    "link": "anh_cuoiki1_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_cuoiki1_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, Unit 1–5"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Ôn tập giữa kì I (Unit 1–3)",
+    "phut": 30,
+    "cau": [
+     18,
+     3,
+     0
+    ],
+    "link": "anh_giuaki1_k11.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop11/anh_giuaki1_k11.docx",
+    "nguon": "Tiếng Anh 11 Global Success, Unit 1–3"
+   },
+   {
+    "khu": "cc",
     "khoi": 12,
     "ten": "Unit 1. Life stories we admire",
     "phut": 12,
@@ -591,6 +647,34 @@ window.MON_DEMO = {
     "link": "anh_cc_unit5_k12.html",
     "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit5_k12.docx",
     "nguon": "Tiếng Anh 12 Global Success, 60–71"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Ôn tập cuối kì I (Unit 1–5)",
+    "phut": 45,
+    "cau": [
+     30,
+     5,
+     0
+    ],
+    "link": "anh_cuoiki1_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cuoiki1_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, Unit 1–5"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Ôn tập giữa kì I (Unit 1–3)",
+    "phut": 30,
+    "cau": [
+     18,
+     3,
+     0
+    ],
+    "link": "anh_giuaki1_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_giuaki1_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, Unit 1–3"
    },
    {
     "khu": "matran",
