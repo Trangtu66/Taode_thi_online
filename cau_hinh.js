@@ -143,6 +143,14 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 16. Chuyển dịch cơ cấu ngành công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 16: Chuyển dịch cơ cấu ngành công nghiệp", link: "dia_cc_bai16_k12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 17. Một số ngành công nghiệp quan trọng", ma: "Củng cố – Địa lí 12 · Bài 17: Một số ngành công nghiệp quan trọng", link: "dia_cc_bai17_k12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 18. Tổ chức lãnh thổ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 18: Tổ chức lãnh thổ công nghiệp", link: "dia_cc_bai18_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 1. Ester – Lipid", ma: "Củng cố – Hóa học 12 · Bài 1: Ester – Lipid", link: "hoa_cc_bai1_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 2. Xà phòng và chất giặt rửa", ma: "Củng cố – Hóa học 12 · Bài 2: Xà phòng và chất giặt rửa", link: "hoa_cc_bai2_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 3. Ôn tập chương 1 (Ester – Lipid)", ma: "Củng cố – Hóa học 12 · Bài 3: Ôn tập chương 1 (Ester – Lipid)", link: "hoa_cc_bai3_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 4. Giới thiệu về carbohydrate. Glucose và fructose", ma: "Củng cố – Hóa học 12 · Bài 4: Carbohydrate. Glucose và fructose", link: "hoa_cc_bai4_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 5. Saccharose và maltose", ma: "Củng cố – Hóa học 12 · Bài 5: Saccharose và maltose", link: "hoa_cc_bai5_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 6. Tinh bột và cellulose", ma: "Củng cố – Hóa học 12 · Bài 6: Tinh bột và cellulose", link: "hoa_cc_bai6_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 7. Ôn tập chương 2 (Carbohydrate)", ma: "Củng cố – Hóa học 12 · Bài 7: Ôn tập chương 2 (Carbohydrate)", link: "hoa_cc_bai7_k12.html" },
+  { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 8. Amine", ma: "Củng cố – Hóa học 12 · Bài 8: Amine", link: "hoa_cc_bai8_k12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

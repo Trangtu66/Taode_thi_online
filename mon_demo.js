@@ -19,6 +19,118 @@ window.MON_DEMO = {
     "link": "hoa_cc_bai1_k10.html",
     "word": "mon/hoa_hoc/trac_nghiem/lop10/hoa_cc_bai1_k10.docx",
     "nguon": "SGK Hóa học 10 (KNTT), tr.13 – 16"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. Ester – Lipid",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai1_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai1_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.6–13"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 2. Xà phòng và chất giặt rửa",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai2_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai2_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.14–17"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 3. Ôn tập chương 1 (Ester – Lipid)",
+    "phut": 15,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai3_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai3_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.18–19"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 4. Giới thiệu về carbohydrate. Glucose và fructose",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai4_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai4_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.20–24"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 5. Saccharose và maltose",
+    "phut": 10,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai5_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai5_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.25–27"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 6. Tinh bột và cellulose",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai6_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai6_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.28–32"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 7. Ôn tập chương 2 (Carbohydrate)",
+    "phut": 15,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai7_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai7_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.33–34"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 8. Amine",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "hoa_cc_bai8_k12.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai8_k12.docx",
+    "nguon": "SGK Hóa học 12 (KNTT), tr.35–40"
    }
   ]
  },
