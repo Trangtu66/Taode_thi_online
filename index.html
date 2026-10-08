@@ -44,6 +44,78 @@
   [hidden] { display:none !important; }
   @media (max-width:860px){ .hero-sec .in{grid-template-columns:1fr;gap:22px;padding:30px 16px 28px;} .mon-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:640px){ .role-bar{grid-template-columns:1fr;} .hero-sec h1{font-size:26px;} }
+
+/* ═══════════════════════════════════════════════════════════════
+   GATE MODAL – Email-gated SaaS entry  (z-index 9500+)
+════════════════════════════════════════════════════════════════*/
+#gate-overlay{position:fixed;inset:0;z-index:9500;display:none;
+  background:rgba(15,23,42,.72);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:16px;}
+#gate-overlay.show{display:flex;animation:gate-in .22s ease;}
+@keyframes gate-in{from{opacity:0}to{opacity:1}}
+#gate-modal{
+  background:#fff;border-radius:20px;padding:36px 32px 28px;
+  max-width:440px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.28);
+  position:relative;max-height:calc(100vh - 32px);overflow-y:auto;}
+.gate-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.gate-logo .dot{display:inline-grid;place-items:center;width:38px;height:38px;
+  border-radius:10px;background:#1E40AF;color:#fff;font-weight:800;font-size:16px;}
+.gate-logo b{font-size:15px;color:#1E293B;}
+.gate-logo small{display:block;color:#64748B;font-size:12px;font-weight:400;}
+#gate-modal h2{font-size:21px;margin:0 0 8px;color:#1E293B;line-height:1.3;}
+#gate-modal .gate-sub{color:#64748B;font-size:14px;margin:0 0 22px;}
+/* Role picker */
+.gate-roles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.gate-role-btn{border:2px solid #E2E8F0;border-radius:12px;padding:14px 10px;
+  background:#F8FAFC;cursor:pointer;font:inherit;transition:border .15s,background .15s;
+  text-align:center;}
+.gate-role-btn .ri{font-size:28px;display:block;margin-bottom:4px;}
+.gate-role-btn b{display:block;font-size:14px;color:#1E293B;}
+.gate-role-btn small{color:#64748B;font-size:12px;}
+.gate-role-btn.sel{border-color:#1E40AF;background:#EFF6FF;}
+.gate-role-btn:hover:not(.sel){border-color:#93C5FD;background:#F0F9FF;}
+/* Email input */
+.gate-email-wrap{position:relative;margin-bottom:14px;}
+.gate-email-wrap label{display:block;font-size:13px;font-weight:700;
+  color:#374151;margin-bottom:6px;}
+.gate-email-wrap input{width:100%;box-sizing:border-box;padding:12px 14px;
+  border:1.5px solid #D1D5DB;border-radius:10px;font:inherit;font-size:15px;
+  color:#1E293B;outline:none;transition:border .15s;}
+.gate-email-wrap input:focus{border-color:#1E40AF;box-shadow:0 0 0 3px #DBEAFE;}
+#gate-err{color:#DC2626;font-size:13px;margin:0 0 10px;min-height:18px;}
+/* Submit button */
+#gate-submit{width:100%;padding:13px;border:none;border-radius:11px;
+  background:#1E40AF;color:#fff;font:inherit;font-size:16px;font-weight:700;
+  cursor:pointer;transition:background .15s;}
+#gate-submit:hover{background:#1E3A8A;}
+#gate-submit:disabled{background:#93C5FD;cursor:default;}
+.gate-hint{margin:14px 0 0;font-size:12.5px;color:#94A3B8;text-align:center;}
+/* Step 2 – code display */
+#gate-step2{text-align:center;}
+.gate-success-ic{font-size:48px;margin-bottom:12px;}
+#gate-step2 h3{font-size:18px;margin:0 0 6px;color:#1E293B;}
+#gate-step2 p{color:#64748B;font-size:14px;margin:0 0 20px;}
+.gate-code-box{background:#F0F9FF;border:2px solid #BFDBFE;border-radius:12px;
+  padding:14px 16px;margin:0 0 16px;display:flex;align-items:center;gap:10px;}
+.gate-code-box span{flex:1;font-size:20px;font-weight:800;letter-spacing:.08em;
+  color:#1E40AF;font-variant-numeric:tabular-nums;}
+.gate-code-box button{padding:7px 13px;border:none;border-radius:8px;
+  background:#1E40AF;color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer;}
+.gate-code-box button:hover{background:#1E3A8A;}
+.gate-gv-note{background:#FFFBEB;border:1px solid #FCD34D;border-radius:10px;
+  padding:12px 14px;margin-bottom:16px;font-size:13px;color:#92400E;text-align:left;}
+.gate-gv-note strong{display:block;margin-bottom:4px;color:#78350F;}
+#gate-go{width:100%;padding:13px;border:none;border-radius:11px;
+  background:#059669;color:#fff;font:inherit;font-size:16px;font-weight:700;
+  cursor:pointer;transition:background .15s;}
+#gate-go:hover{background:#047857;}
+/* Badge dưới màn hình */
+#guest-badge{position:fixed;bottom:12px;right:12px;background:#1E40AF;color:#fff;
+  font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;z-index:8800;
+  cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:background .15s;}
+#guest-badge:hover{background:#1E3A8A;}
+@media(max-width:500px){#gate-modal{padding:28px 18px 22px;}
+  .gate-roles{grid-template-columns:1fr 1fr;}.gate-code-box span{font-size:16px;}}
 </style>
 </head>
 <body>
@@ -149,6 +221,61 @@
   <div class="mon-grid" id="ds-mon"></div>
 </main>
 
+<!-- ═══════════════════════════════ GATE MODAL HTML ══════════════════════════════ -->
+<div id="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div id="gate-modal">
+    <div class="gate-logo">
+      <span class="dot">VT</span>
+      <span><b>THPT Vĩnh Thạnh – Gia Lai</b><small>Hệ thống học tập trực tuyến</small></span>
+    </div>
+
+    <!-- STEP 1: Chọn vai trò + nhập email -->
+    <div id="gate-step1">
+      <h2 id="gate-title">Xin chào! Bạn là ai? 👋</h2>
+      <p class="gate-sub">Nhập email để hệ thống nhận ra bạn và cấp mã truy cập miễn phí.</p>
+      <div class="gate-roles">
+        <button class="gate-role-btn sel" data-role="HS" id="grb-hs" onclick="pickRole('HS')">
+          <span class="ri">🎓</span>
+          <b>Học sinh</b>
+          <small>Làm bài, ôn luyện</small>
+        </button>
+        <button class="gate-role-btn" data-role="GV" id="grb-gv" onclick="pickRole('GV')">
+          <span class="ri">👩‍🏫</span>
+          <b>Giáo viên tự do</b>
+          <small>Tạo đề, quản lý lớp</small>
+        </button>
+      </div>
+      <div class="gate-email-wrap">
+        <label for="gate-email">Địa chỉ Email</label>
+        <input type="email" id="gate-email" placeholder="ten@truong.edu.vn hoặc gmail.com"
+               autocomplete="email" spellcheck="false"
+               onkeydown="if(event.key==='Enter')submitGate()">
+      </div>
+      <p id="gate-err"></p>
+      <button id="gate-submit" onclick="submitGate()">Xác nhận &amp; Lấy mã truy cập</button>
+      <p class="gate-hint">🔒 Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.</p>
+    </div>
+
+    <!-- STEP 2: Hiện mã cấp -->
+    <div id="gate-step2" hidden>
+      <div class="gate-success-ic" id="gate-ic">✅</div>
+      <h3 id="gate-step2-title">Mã truy cập của bạn</h3>
+      <p id="gate-step2-desc">Lưu mã này – dùng để truy cập lại trên thiết bị khác.</p>
+      <div class="gate-code-box">
+        <span id="gate-code-val"></span>
+        <button onclick="copyGateCode()" id="gate-copy-btn">Sao chép</button>
+      </div>
+      <div class="gate-gv-note" id="gate-gv-note" hidden>
+        <strong>🏫 Dành cho Giáo viên tự do</strong>
+        Mọi đề bạn tạo &amp; kết quả học sinh của nhóm bạn được lưu riêng biệt dưới không gian
+        <b id="gate-ns-label"></b>. Không ảnh hưởng đến kho dữ liệu chính của nhà trường.
+      </div>
+      <button id="gate-go" onclick="closeGate()">Vào học ngay →</button>
+    </div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+
 <footer class="foot"><div class="in">
   <span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai · Học tập trực tuyến – chuyển đổi số trong dạy học</span>
   <span><a href="huong_dan.html">Hướng dẫn sử dụng</a> · <a href="bao_cao_cds.html">Báo cáo chuyển đổi số</a></span>
@@ -195,6 +322,197 @@ document.getElementById("mo-link").onclick = ()=>{
   if(/^https:\/\/trangtu66\.github\.io\/Taode_thi_online\//.test(s) || /^[\w.-]+\.html/.test(s)) location.href = s;
   else document.getElementById("link-loi").textContent = "Đường link không đúng – hãy quét mã QR hoặc hỏi lại giáo viên.";
 };
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+  GATE: Email-gated SaaS entry · GV-GUEST / HS-GUEST namespace isolation
+  Để kết nối Google Apps Script, điền URL vào GAS_LOG_URL bên dưới.
+══════════════════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+/* ── Config ─────────────────────────────────────────────────────────────── */
+const GATE_LS_KEY  = 'vt_guest_session';   // LocalStorage key
+const GATE_TTL_MS  = 30 * 24 * 3600 * 1e3; // 30 ngày
+const GATE_VERSION = 1;                    // tăng lên để buộc re-gate mọi phiên cũ
+const GAS_LOG_URL  = '';  // ← Dán URL Apps Script doPost của bạn vào đây
+                          //   Ví dụ: 'https://script.google.com/macros/s/AKfycb.../exec'
+
+/* ── Trạng thái nội bộ ───────────────────────────────────────────────────*/
+let _selectedRole = 'HS';
+
+/* ── Tiện ích: SHA-256 → hex ─────────────────────────────────────────────*/
+async function sha256hex(str) {
+  const buf = await crypto.subtle.digest(
+    'SHA-256', new TextEncoder().encode(str)
+  );
+  return Array.from(new Uint8Array(buf))
+    .map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ── Sinh mã từ email + role ─────────────────────────────────────────────*/
+async function genCode(email, role) {
+  const hex = await sha256hex(email.toLowerCase().trim() + '|VT2026|' + role);
+  // 8 ký tự hex đầu = 4 byte = ~4 tỉ khả năng, đủ để định danh
+  const suffix = hex.slice(0, 8).toUpperCase();
+  return (role === 'GV' ? 'GV-GUEST-' : 'HS-GUEST-') + suffix;
+}
+
+/* ── Ghi nhật ký sang Google Apps Script (fire-and-forget) ──────────────*/
+function logToGAS(payload) {
+  if (!GAS_LOG_URL) return;
+  try {
+    fetch(GAS_LOG_URL, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify(payload),
+      mode   : 'no-cors'   // GAS cross-origin: chấp nhận no-cors
+    });
+  } catch(_) { /* không chặn người dùng nếu mạng lỗi */ }
+}
+
+/* ── Đọc / ghi phiên ─────────────────────────────────────────────────────*/
+function readSession() {
+  try {
+    const raw = localStorage.getItem(GATE_LS_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    // Huỷ phiên cũ nếu phiên bản cấu trúc thay đổi
+    if (s.v !== GATE_VERSION) return null;
+    if (Date.now() - s.ts > GATE_TTL_MS) return null;
+    return s;
+  } catch(_) { return null; }
+}
+
+function writeSession(email, role, code) {
+  const sess = { v: GATE_VERSION, email, role, code, ts: Date.now() };
+  try {
+    localStorage.setItem(GATE_LS_KEY, JSON.stringify(sess));
+    // Expose riêng để các trang khác (lam_bai, quan_ly) đọc dễ
+    localStorage.setItem('vt_guest_code', code);
+    localStorage.setItem('vt_guest_role', role);
+    // Namespace cách ly: tất cả đề / kết quả GV-GUEST ghi dưới prefix này
+    if (role === 'GV') localStorage.setItem('vt_guest_ns', code);
+  } catch(_) {}
+}
+
+/* ── Badge hiển thị mã dưới góc màn hình ────────────────────────────────*/
+function showBadge(code) {
+  if (document.getElementById('guest-badge')) return;
+  const b = document.createElement('button');
+  b.id = 'guest-badge';
+  b.title = 'Mã truy cập của bạn – nhấn để sao chép';
+  b.textContent = code;
+  b.addEventListener('click', () => {
+    navigator.clipboard?.writeText(code).then(() => {
+      const orig = b.textContent;
+      b.textContent = '✅ Đã sao chép!';
+      setTimeout(() => { b.textContent = orig; }, 1600);
+    }).catch(() => {});
+  });
+  document.body.appendChild(b);
+}
+
+/* ── Mở / đóng gate ─────────────────────────────────────────────────────*/
+function openGate() {
+  document.getElementById('gate-overlay').classList.add('show');
+  setTimeout(() => document.getElementById('gate-email').focus(), 120);
+}
+
+window.closeGate = function() {
+  const ov = document.getElementById('gate-overlay');
+  ov.style.opacity = '0';
+  ov.style.transition = 'opacity .18s';
+  setTimeout(() => { ov.classList.remove('show'); ov.style.opacity = ''; }, 200);
+};
+
+/* ── Chọn vai trò ────────────────────────────────────────────────────────*/
+window.pickRole = function(role) {
+  _selectedRole = role;
+  document.querySelectorAll('.gate-role-btn').forEach(btn => {
+    btn.classList.toggle('sel', btn.dataset.role === role);
+  });
+};
+
+/* ── Sao chép mã ─────────────────────────────────────────────────────────*/
+window.copyGateCode = function() {
+  const code = document.getElementById('gate-code-val').textContent;
+  navigator.clipboard?.writeText(code).then(() => {
+    const btn = document.getElementById('gate-copy-btn');
+    btn.textContent = '✅ Đã sao!';
+    setTimeout(() => { btn.textContent = 'Sao chép'; }, 1600);
+  }).catch(() => {});
+};
+
+/* ── Submit gate ─────────────────────────────────────────────────────────*/
+window.submitGate = async function() {
+  const emailEl = document.getElementById('gate-email');
+  const errEl   = document.getElementById('gate-err');
+  const submitBtn = document.getElementById('gate-submit');
+  const email = emailEl.value.trim().toLowerCase();
+
+  // Validate email cơ bản
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    errEl.textContent = '⚠️ Email chưa đúng định dạng – hãy kiểm tra lại.';
+    emailEl.focus();
+    return;
+  }
+  errEl.textContent = '';
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Đang xử lý…';
+
+  try {
+    const role = _selectedRole;
+    const code = await genCode(email, role);
+
+    // Ghi session
+    writeSession(email, role, code);
+
+    // Log bất đồng bộ sang GAS (không chờ)
+    logToGAS({ email, role, code, action: 'gate_enter',
+               ts: new Date().toISOString(),
+               ua: navigator.userAgent.slice(0, 120) });
+
+    // Chuyển sang Step 2
+    document.getElementById('gate-step1').hidden = true;
+    const step2 = document.getElementById('gate-step2');
+    step2.hidden = false;
+
+    document.getElementById('gate-code-val').textContent = code;
+
+    if (role === 'GV') {
+      document.getElementById('gate-ic').textContent = '🏫';
+      document.getElementById('gate-step2-title').textContent = 'Không gian làm việc riêng của bạn';
+      document.getElementById('gate-step2-desc').textContent =
+        'Đề bài và kết quả nhóm bạn hoàn toàn tách biệt khỏi kho dữ liệu nhà trường.';
+      const gvNote = document.getElementById('gate-gv-note');
+      document.getElementById('gate-ns-label').textContent = code;
+      gvNote.hidden = false;
+    } else {
+      document.getElementById('gate-ic').textContent = '✅';
+      document.getElementById('gate-step2-title').textContent = 'Chào mừng bạn đến hệ thống!';
+      document.getElementById('gate-step2-desc').textContent =
+        'Lưu mã này lại – dùng khi cần truy cập trên thiết bị khác.';
+    }
+  } catch(err) {
+    errEl.textContent = '❌ Có lỗi xảy ra – hãy thử lại.';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Xác nhận & Lấy mã truy cập';
+  }
+};
+
+/* ── Khởi chạy khi DOM sẵn sàng ─────────────────────────────────────────*/
+document.addEventListener('DOMContentLoaded', function() {
+  const sess = readSession();
+  if (sess) {
+    // Phiên còn hạn → không show gate, chỉ show badge
+    showBadge(sess.code);
+    return;
+  }
+  // Phiên hết hạn hoặc chưa có → show gate
+  openGate();
+});
+
+})(); // IIFE – không rò biến ra global
 </script>
 </body>
 </html>
