@@ -523,6 +523,76 @@ window.MON_DEMO = {
     "nguon": "Tiếng Anh 11 Global Success, 52–61"
    },
    {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Unit 1. Life stories we admire",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit1_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit1_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, 8–19"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Unit 2. A multicultural world",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit2_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit2_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, 20–31"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Unit 3. Green living",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit3_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit3_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, 32–43"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Unit 4. Urbanisation",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit4_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit4_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, 48–59"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Unit 5. The world of work",
+    "phut": 12,
+    "cau": [
+     6,
+     1,
+     0
+    ],
+    "link": "anh_cc_unit5_k12.html",
+    "word": "mon/tieng_anh/trac_nghiem/lop12/anh_cc_unit5_k12.docx",
+    "nguon": "Tiếng Anh 12 Global Success, 60–71"
+   },
+   {
     "khu": "matran",
     "khoi": 12,
     "ten": "Ma trận, bản đặc tả đề ôn thi TN THPT – Tiếng Anh (theo đề 2026)",
