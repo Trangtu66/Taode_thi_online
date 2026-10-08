@@ -483,3 +483,83 @@ Hệ thức lượng trong tam giác"]
     style g4d fill:#DCFCE7
 ```
 
+
+## 🗺️ Sơ đồ tư duy – Lịch sử 12 Học kì I
+
+```mermaid
+graph TD
+    A["🌍 LỊCH SỬ 12 – HỌC KÌ I"]:::root
+    A --> B["🌐 Chủ đề 1<br/>Thế giới sau CTTG II"]:::chu1
+    A --> C["🤝 Chủ đề 2<br/>ASEAN"]:::chu2
+    A --> D["🇻🇳 Chủ đề 3<br/>Cách mạng & Kháng chiến"]:::chu3
+    A --> E["🔄 Chủ đề 4<br/>Đổi mới & Hội nhập"]:::chu4
+
+    B --> B1["Bài 1. Liên hợp quốc<br/>1945 – 193 thành viên"]:::bai
+    B --> B2["Bài 2. Trật tự Chiến tranh lạnh<br/>Hai cực Mỹ–Liên Xô"]:::bai
+    B --> B3["Bài 3. Sau Chiến tranh lạnh<br/>Toàn cầu hóa đa cực"]:::bai
+    B --> B4["TH1. Thế giới 2 giai đoạn"]:::th
+
+    C --> C1["Bài 4. Ra đời ASEAN 1967<br/>5→10 thành viên"]:::bai
+    C --> C2["Bài 5. Cộng đồng ASEAN 2015<br/>3 trụ cột"]:::bai
+    C --> C3["TH2. Niên biểu ASEAN"]:::th
+
+    D --> D1["Bài 6. CMTT 1945<br/>2/9/1945 Độc lập"]:::bai
+    D --> D2["Bài 7. KC chống Pháp<br/>ĐBP 7/5/1954"]:::bai
+    D --> D3["Bài 8. KC chống Mỹ<br/>30/4/1975 Thống nhất"]:::bai
+    D --> D4["Bài 9. Bảo vệ TQ sau 1975<br/>Biên giới TN & Bắc"]:::bai
+    D --> D5["TH3. So sánh 3 sự kiện"]:::th
+
+    E --> E1["Bài 10. Đổi mới từ 1986<br/>Đại hội VI"]:::bai
+    E --> E2["Bài 11. Thành tựu Đổi mới<br/>GDP, hội nhập"]:::bai
+    E --> E3["TH4. Hành trình hội nhập"]:::th
+
+    classDef root fill:#1E40AF,color:#fff,stroke:#1E40AF,rx:12
+    classDef chu1 fill:#0369A1,color:#fff,stroke:#0369A1,rx:8
+    classDef chu2 fill:#0F766E,color:#fff,stroke:#0F766E,rx:8
+    classDef chu3 fill:#9A3412,color:#fff,stroke:#9A3412,rx:8
+    classDef chu4 fill:#166534,color:#fff,stroke:#166534,rx:8
+    classDef bai  fill:#F0F9FF,color:#1E293B,stroke:#7DD3FC,rx:6
+    classDef th   fill:#FEF9C3,color:#713F12,stroke:#FDE047,rx:6
+```
+
+## 🗺️ Sơ đồ tư duy – Địa lí 12 Học kì I
+
+```mermaid
+graph TD
+    Z["🌏 ĐỊA LÍ 12 – HỌC KÌ I"]:::root
+    Z --> ZA["🌡️ TN – Môi trường<br/>Bài 1–6"]:::nhom
+    Z --> ZB["👥 Dân cư – Lao động<br/>Bài 7–10"]:::nhom
+    Z --> ZC["🌾 Kinh tế tổng quan<br/>Bài 11"]:::nhom
+    Z --> ZD["🌱 Nông–Lâm–Thủy sản<br/>Bài 12–15"]:::nhom
+    Z --> ZE["🏭 Công nghiệp<br/>Bài 16–19"]:::nhom
+
+    ZA --> ZA1["Bài 1. Vị trí địa lí<br/>Lãnh thổ 331 212 km²"]:::bai
+    ZA --> ZA2["Bài 2. Nhiệt đới ẩm<br/>Gió mùa 4 mùa"]:::bai
+    ZA --> ZA3["Bài 3. Phân hoá thiên nhiên<br/>3 miền địa lí"]:::bai
+    ZA --> ZA4["TH. Báo cáo phân hoá"]:::th
+    ZA --> ZA5["Bài 5. Sử dụng TN & BVMT"]:::bai
+    ZA --> ZA6["TH. Tuyên truyền BVMT"]:::th
+
+    ZB --> ZB1["Bài 7. Dân số ~100 triệu<br/>Cơ cấu vàng"]:::bai
+    ZB --> ZB2["Bài 8. Lao động & việc làm<br/>52 triệu LĐ"]:::bai
+    ZB --> ZB3["Bài 9. Đô thị hoá 40%"]:::bai
+    ZB --> ZB4["TH. Phân tích dân cư"]:::th
+
+    ZC --> ZC1["GDP: NN12%–CN36%–DV42%"]:::bai
+    ZC --> ZC2["4 vùng KTTĐ"]:::bai
+
+    ZD --> ZD1["Bài 12. Nông nghiệp CNC<br/>Gạo top 3 TG"]:::bai
+    ZD --> ZD2["Bài 13. Lâm–Thủy sản<br/>Che phủ 42%, 9.3 triệu tấn"]:::bai
+    ZD --> ZD3["Bài 14. Tổ chức lãnh thổ NN<br/>7 vùng"]:::bai
+    ZD --> ZD4["TH. Vẽ biểu đồ NN"]:::th
+
+    ZE --> ZE1["Bài 16. Cơ cấu CN<br/>Điện tử top 1 XK"]:::bai
+    ZE --> ZE2["Bài 17. Các ngành CN<br/>Dầu khí, điện, dệt may"]:::bai
+    ZE --> ZE3["Bài 18. Tổ chức lãnh thổ CN<br/>400 KCN, KKT Nhơn Hội"]:::bai
+    ZE --> ZE4["TH. Vẽ biểu đồ CN"]:::th
+
+    classDef root fill:#1E40AF,color:#fff,stroke:#1E40AF,rx:12
+    classDef nhom fill:#0F766E,color:#fff,stroke:#0F766E,rx:8
+    classDef bai  fill:#F0FDF4,color:#1E293B,stroke:#86EFAC,rx:6
+    classDef th   fill:#FEF9C3,color:#713F12,stroke:#FDE047,rx:6
+```
