@@ -134,7 +134,7 @@ function veMon(ma) {
     + `<section class="khu"><h3>🗂️ Phân khu 1: Củng cố cuối bài</h3><p class="mota">Trắc nghiệm theo dạng thức đề mới, soạn bám sát SGK Kết nối tri thức; có lời giải chi tiết sau khi nộp bài.</p>${ds.map(hang2).join("")}</section>`
     + (tn.length ? `<section class="khu"><h3>🎓 Phân khu 2: Ôn thi tốt nghiệp THPT</h3><p class="mota">Đề thi chính thức và đề ôn theo cấu trúc đề thi tốt nghiệp; làm trong thời gian thật, xem giải thích sau khi nộp.</p>${tn.map(d => `<div class="row"><div class="txt"><div class="ten"><span class="k">Khối ${d.khoi}</span>${esc(d.ten)}</div><div class="meta">${d.phut} phút · ${d.cau[0]} câu · ${esc(d.nguon)}</div></div><div class="btns"><a class="btn go" href="${esc(d.link)}">Làm đề</a></div></div>`).join("")}</section>`
        : `<section class="khu"><h3>🗂️ Phân khu 2: Ôn tập theo chủ đề, chương</h3><p class="mota">Tổ ${esc(m.ten)} bổ sung đề ôn tập 45 phút theo ma trận của tổ.</p><div class="row"><div class="txt meta">Tổ chuyên môn đang cập nhật.</div></div></section>`)
-    + (mt.length ? `<section class="khu"><h3>🗂️ Ma trận đề</h3>${mt.map(d => `<div class="row"><div class="txt"><div class="ten"><span class="k">Khối ${d.khoi}</span>${esc(d.ten)}</div></div><div class="btns"><a class="btn go" href="${esc(d.pdf)}">Xem PDF</a><a class="btn doc" href="${esc(d.word)}">Tải Word</a></div></div>`).join("")}</section>` : "")
+    + (mt.length ? `<section class="khu"><h3>🗂️ Ma trận đề</h3>${mt.map(d => `<div class="row"><div class="txt"><div class="ten"><span class="k">Khối ${d.khoi}</span>${esc(d.ten)}</div></div><div class="btns"><a class="btn go" href="${esc(d.pdf)}">Xem PDF</a><a class="btn doc" href="${esc(d.word)}">Tải Word</a><button type="button" class="xem" data-url="${esc(d.word)}" data-ten="${esc(d.ten)}">👁 Xem trước</button></div></div>`).join("")}</section>` : "")
     + `<section class="khu"><h3>🗂️ Phân khu 3: Kho học liệu của tổ</h3><p class="mota">Kế hoạch bài dạy, slide, đề và ma trận xếp theo khối trong thư mục <b>${esc(m.kho)}/</b> (khbd · slide · trac_nghiem · ma_tran).</p>
        <div class="row"><div class="txt"><div class="ten">Thư mục môn ${esc(m.ten)} trên GitHub</div></div><div class="btns"><a class="btn doc" href="${kho}">Mở kho học liệu</a></div></div></section>`
     + `<div class="note">Bản demo do Tổ Toán dựng để minh hoạ hệ thống; câu hỏi cần Tổ ${esc(m.ten)} thẩm định trước khi dùng chính thức.</div></div>`;
@@ -157,5 +157,8 @@ function theoHash() { const h = location.hash.slice(1); if (VE[h]) MON = h; ve()
 window.addEventListener("hashchange", theoHash);
 theoHash();
 </script>
+<script src="xem_truoc.js"></script>
+<script>document.addEventListener("click", e => { const b = e.target.closest(".xem[data-url]"); if (!b) return;
+  XemTruoc.mo({url: b.dataset.url, file: b.dataset.url.split("/").pop(), ten: b.dataset.ten}); });</script>
 </body>
 </html>

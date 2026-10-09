@@ -17,6 +17,7 @@
   .bai { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 16px; display:grid; gap:8px; }
   .bai .tt { font-weight:700; } .bai .meta { font-size:13px; color:var(--muted); }
   .files { display:flex; flex-wrap:wrap; gap:8px; }
+  .cap { display:inline-flex; gap:4px; align-items:stretch; flex-wrap:wrap; }
   .f { display:inline-flex; gap:6px; align-items:center; text-decoration:none; font-size:14px; font-weight:600; border-radius:8px; padding:6px 11px; border:1px solid; }
   .f small { font-weight:400; opacity:.8; font-variant-numeric:tabular-nums; }
   .f.khbd { color:#1E40AF; border-color:#BFDBFE; background:#EFF6FF; }
@@ -39,7 +40,7 @@
 
 <main class="wrap">
   <h1>Kho học liệu</h1>
-  <p class="lead">Kế hoạch bài dạy (Word), slide bài giảng (PowerPoint), sơ đồ tư duy và ma trận đề của các tổ chuyên môn. Chọn môn, khối rồi bấm vào file để tải về. Đề có đáp án không đặt ở đây (chỉ giáo viên giữ).</p>
+  <p class="lead">Kế hoạch bài dạy (Word), slide bài giảng (PowerPoint), sơ đồ tư duy và ma trận đề của các tổ chuyên môn. Chọn môn, khối rồi bấm “👁 Xem trước” để xem ngay trên web (Word, PowerPoint, sơ đồ tư duy) hoặc bấm vào file để tải về. Đề có đáp án không đặt ở đây (chỉ giáo viên giữ).</p>
   <div class="loc card">
     <div class="hang" id="l-mon"><b>Môn</b></div>
     <div class="hang" id="l-khoi"><b>Khối</b></div>
@@ -53,6 +54,8 @@
 <footer class="foot"><div class="in"><span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai</span><span><a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
 
 <script src="hoc_lieu.js"></script>
+<script src="so_do_mermaid.js"></script>
+<script src="xem_truoc.js"></script>
 <script>
 const HL = window.HOC_LIEU || [], TEN = window.TEN_MON || {};
 const LOAI = [["", "Tất cả"], ["khbd", "Kế hoạch bài dạy"], ["slide", "Slide"], ["sodo", "Sơ đồ tư duy"], ["ma_tran", "Ma trận, đặc tả"]];
@@ -61,7 +64,7 @@ const NHAN = {khbd: "📄 KHBD", slide: "📊 Slide", sodo: "🧠 Sơ đồ tư 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const kd = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
 const DUOI = f => f.split(".").pop().toUpperCase();
-const ST = {mon: "", khoi: "", loai: "", q: ""};
+const ST = {mon: "", khoi: "", loai: "", q: ""}, XEM = [];
 try { Object.assign(ST, JSON.parse(localStorage.getItem("hoc_lieu_loc") || "{}"), {q: ""}); } catch (e) {}
 const h0 = location.hash.slice(1); if (TEN[h0]) ST.mon = h0;
 
@@ -82,6 +85,7 @@ function chips(id, ds, khoaST, bo) {
   el.querySelectorAll(".chip").forEach(b => b.onclick = () => { ST[khoaST] = b.dataset.v; ve(); });
 }
 function ve() {
+  XEM.length = 0;
   try { localStorage.setItem("hoc_lieu_loc", JSON.stringify({mon: ST.mon, khoi: ST.khoi, loai: ST.loai})); } catch (e) {}
   const mons = [...new Set(HL.map(x => x.mon))].sort((a, b) => (a === "toan" ? -1 : b === "toan" ? 1 : (TEN[a] || a).localeCompare(TEN[b] || b, "vi")));
   chips("l-mon", [["", "Tất cả"]].concat(mons.map(m => [m, TEN[m] || m])), "mon", "mon");
@@ -105,9 +109,12 @@ function ve() {
     if (n !== nhom) { html += (nhom ? "</div>" : "") + `<h2 class="nhom">${esc(n)}</h2><div class="ds">`; nhom = n; }
     html += `<div class="bai"><div><div class="tt">${esc(t.ten)}</div><div class="meta">Cập nhật ${t.ngay.split("-").reverse().join("/")}</div></div><div class="files">` +
       t.fs.map(x => { const l = loaiCua(x), ph = (x.ten.match(/\((bản \d+)\)$/) || [])[1];
-        return `<a class="f ${l}" href="${esc(x.url)}" download title="${esc(x.file)}">${NHAN[l]}${ph ? " · " + ph : ""} <small>${DUOI(x.file)} · ${x.kb >= 1024 ? (x.kb / 1024).toFixed(1).replace(".", ",") + " MB" : x.kb + " KB"}</small></a>`; }).join("") + `</div></div>`;
+        const xem = window.XemTruoc && XemTruoc.xemDuoc(x.file) ? `<button type="button" class="xem" data-i="${XEM.push(x) - 1}" title="Xem trước ${esc(x.file)} ngay trên web">👁 Xem trước</button>` : "";
+        return `<span class="cap"><a class="f ${l}" href="${esc(x.url)}" download title="Tải về ${esc(x.file)}">${NHAN[l]}${ph ? " · " + ph : ""} <small>${DUOI(x.file)} · ${x.kb >= 1024 ? (x.kb / 1024).toFixed(1).replace(".", ",") + " MB" : x.kb + " KB"}</small></a>${xem}</span>`; }).join("") + `</div></div>`;
   });
   document.getElementById("ket-qua").innerHTML = html + "</div>";
+  document.querySelectorAll("#ket-qua .xem").forEach(b => b.onclick = () => { const x = XEM[+b.dataset.i];
+    XemTruoc.mo({url: x.url, file: x.file, ten: x.ten + " · " + NHAN[loaiCua(x)].replace(/^\S+ /, "")}); });
 }
 document.getElementById("tim").oninput = e => { ST.q = e.target.value.trim(); ve(); };
 ve();
