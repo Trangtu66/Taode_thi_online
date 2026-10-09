@@ -160,12 +160,7 @@
   <!-- ===================== HỌC SINH (3 cards) ===================== -->
   <!-- không đặt hidden: section học sinh là mặc định, tránh flash khi JS chưa chạy -->
   <section id="v-hs" role="tabpanel" aria-labelledby="tab-hs" tabindex="0">
-    <div class="grid">
-      <div class="card task">
-        <span class="ic">📱</span><h3>1. Làm bài ngay</h3>
-        <p>Quét <b>mã QR</b> trên màn hình bằng camera hoặc Zalo khi giáo viên chiếu lên bảng. Hoặc dán link giáo viên gửi vào ô bên trên.</p>
-        <div class="go"><a class="btn" href="lam_bai.html">Mở trang làm bài</a></div>
-      </div>
+    
       <div class="card task">
         <span class="ic">📚</span><h3>2. Tự ôn luyện theo môn</h3>
         <p>Bài củng cố theo tiết học, đề luyện tập 3 dạng thức (cấu trúc GDPT 2018), ôn tập chương, ôn thi tốt nghiệp THPT.</p>
@@ -181,13 +176,7 @@
 
   <!-- ===================== GIÁO VIÊN (4 cards) ===================== -->
   <section id="v-gv" role="tabpanel" aria-labelledby="tab-gv" tabindex="0" hidden>
-    <div class="grid">
-      <div class="card task">
-        <span class="ic">📱</span><h3><span class="num">1</span>Giao bài &amp; Tạo QR chiếu lớp</h3>
-        <p>Chiếu mã QR để cả lớp quét và làm bài trực tiếp trên điện thoại trong 10–15 phút cuối tiết.</p>
-        <ol class="steps"><li>Vào Quản lý, nhập <b>mã GV</b></li><li>Chọn khối → bài → lớp</li><li>Bấm "📱 Mã QR" và chiếu lên bảng</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Vào Quản lý</a></div>
-      </div>
+    
       <div class="card task">
         <span class="ic">✍️</span><h3><span class="num">2</span>Tạo đề thi Online</h3>
         <p>Soạn trực tiếp hoặc <b>nhập từ file Word</b>; đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
@@ -240,44 +229,7 @@
 
   <!-- DANH MỤC MÔN HỌC (4-column grid) -->
   <h2>Danh mục môn học</h2>
-  <div class="mon-grid" id="ds-mon"></div>
-</main>
-
-<!-- ═══════════════════════════════ GATE MODAL HTML ══════════════════════════════ -->
-<div id="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div id="gate-modal">
-    <div class="gate-logo">
-      <span class="dot">VT</span>
-      <span><b>Trường THPT</b><small>Hệ thống học tập trực tuyến</small></span>
-    </div>
-
-    <!-- STEP 1: Chọn vai trò + nhập email -->
-    <div id="gate-step1">
-      <h2 id="gate-title">Cổng Đăng Nhập Hệ Thống 👋</h2>
-      <p class="gate-sub">Nhập <strong>mã GV nhà trường (VT-…)</strong> để mở toàn quyền, hoặc <strong>email</strong> để lấy mã khách miễn phí.</p>
-      <div class="gate-roles">
-        <button class="gate-role-btn sel" data-role="HS" id="grb-hs" onclick="pickRole('HS')">
-          <span class="ri">🎓</span>
-          <b>Học sinh</b>
-          <small>Làm bài, ôn luyện</small>
-        </button>
-        <button class="gate-role-btn" data-role="GV" id="grb-gv" onclick="pickRole('GV')">
-          <span class="ri">👩‍🏫</span>
-          <b>Giáo viên tự do</b>
-          <small>Tạo đề, quản lý lớp</small>
-        </button>
-      </div>
-      <div class="gate-email-wrap">
-        <label for="gate-email" id="gate-input-label">Mã GV nhà trường (VT-...) hoặc Email</label>
-        <div style="position:relative">
-          <input type="text" id="gate-email" placeholder="VT-XXXX hoặc email@truong.edu.vn"
-                 autocomplete="off" spellcheck="false"
-                 onkeydown="if(event.key==='Enter')submitGate()"
-                 oninput="gateAutoDetect(this.value)">
-          <span id="gate-detect-badge" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);
-            font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;display:none"></span>
-        </div>
-      </div>
+  
       <p id="gate-err"></p>
       <button id="gate-submit" onclick="submitGate()">Xác nhận &amp; Lấy mã truy cập</button>
       <p class="gate-hint">🔒 Mã GV / Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.</p>
