@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)",
-    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "subtitle": "Trường THPT – GV: TTT",
     "timeMinutes": 7,
     "requireName": true,
     "shuffleOptions": true,
@@ -134,7 +134,7 @@
           "expl": "$S=\\dfrac{1}{2}ac\\sin B=\\dfrac{1}{2}\\cdot4\\cdot2\\cdot\\sin135^\\circ=4\\cdot\\dfrac{\\sqrt{2}}{2}=2\\sqrt{2}$."
         },
         {
-          "content": "Từ điểm $A$ trên đỉnh đồi Vĩnh Thạnh, nhìn hai mốc $B$, $C$ ở chân đồi với $\\widehat{BAC}=60^\\circ$, $AB=200$ m, $AC=300$ m. Khoảng cách $BC$ gần bằng",
+          "content": "Từ điểm $A$ trên đỉnh đồi ở địa phương, nhìn hai mốc $B$, $C$ ở chân đồi với $\\widehat{BAC}=60^\\circ$, $AB=200$ m, $AC=300$ m. Khoảng cách $BC$ gần bằng",
           "imageUrl": "",
           "options": [
             {
@@ -165,7 +165,7 @@
       "maxPoints": 4,
       "questions": [
         {
-          "content": "(Vận dụng – thực tiễn) Hồ nước tự nhiên hình tam giác $ABC$ ở Vĩnh Thạnh có $AB=500$ m, $AC=700$ m, $\\widehat{A}=60^\\circ$. Xét tính đúng/sai của các khẳng định:",
+          "content": "(Vận dụng – thực tiễn) Hồ nước tự nhiên hình tam giác $ABC$ ở địa phương có $AB=500$ m, $AC=700$ m, $\\widehat{A}=60^\\circ$. Xét tính đúng/sai của các khẳng định:",
           "imageUrl": "",
           "statements": [
             {

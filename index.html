@@ -216,6 +216,28 @@
     </div>
   </section>
 
+  <!-- ĐỀ CƯƠNG ÔN TẬP (sinh tự động bởi de_cuong.py → de_cuong.js) -->
+  <section id="de-cuong" class="card" style="margin:22px 0">
+    <h2 style="margin-top:0">📘 Đề cương ôn tập có lời giải</h2>
+    <p class="muted" style="margin:0 0 10px">Chọn môn, khối và kì kiểm tra. Mỗi đề cương gồm 3 phần: <b>(1)</b> tóm tắt lý thuyết theo Chương trình 2018,
+      <b>(2)</b> bài tập luyện tập gấp đôi ma trận, <b>(3)</b> một đề minh họa đúng ma trận – đủ đáp án và lời giải chi tiết. Đề cuối kì giảm tải phần đã thi giữa kì.</p>
+    <div class="dc-loc">
+      <label>Môn <select id="dc-mon"></select></label>
+      <label>Khối <select id="dc-khoi"><option value="">Tất cả</option><option>10</option><option>11</option><option>12</option></select></label>
+      <label>Kì thi <select id="dc-ky"><option value="">Tất cả</option><option value="gk1">Giữa kì I</option><option value="ck1">Cuối kì I</option><option value="gk2">Giữa kì II</option><option value="ck2">Cuối kì II</option></select></label>
+    </div>
+    <div id="dc-ds" class="dc-ds"></div>
+  </section>
+  <style>
+    .dc-loc{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}.dc-loc label{display:flex;gap:6px;align-items:center;font-weight:600;font-size:14px}
+    .dc-loc select{font:inherit;padding:6px 8px;border:1px solid #CBD5E1;border-radius:8px;background:#fff}
+    .dc-ds{display:grid;gap:8px}.dc-the{border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:#fff}
+    .dc-the b{font-size:15px}.dc-the small{color:var(--muted);display:block}.dc-nut{display:flex;flex-wrap:wrap;gap:6px}
+    .dc-nut a{font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid;text-decoration:none}
+    .dc-nut a.w{color:#1E40AF;border-color:#BFDBFE;background:#EFF6FF}.dc-nut a.p{color:#B45309;border-color:#FDE68A;background:#FFFBEB}
+    @media (max-width:640px){.dc-the{flex-direction:column;align-items:flex-start}}
+  </style>
+
   <!-- DANH MỤC MÔN HỌC (4-column grid) -->
   <h2>Danh mục môn học</h2>
   <div class="mon-grid" id="ds-mon"></div>
@@ -468,7 +490,9 @@ window.gateAutoDetect = function(val) {
   const isEmail = v.includes('@') && v.length > 5;
 
   if (isVT) {
-    badge.textContent = '🏫 Nội bộ';
+    const err = document.getElementById('gate-err');            // badge Nội bộ bật → ẩn cảnh báo đỏ
+    if (err) { err.textContent = ''; err.hidden = true; }
+    badge.textContent = '🔒 Nội bộ';
     badge.style.background = '#DCFCE7';
     badge.style.color = '#166534';
     badge.style.display = 'inline-block';
@@ -495,11 +519,13 @@ window.submitGate = async function() {
   const submitBtn = document.getElementById('gate-submit');
   const val = emailEl.value.trim();
   errEl.textContent = '';
+  errEl.hidden = false;
 
   // ── Luồng 1: Mã GV nhà trường (VT-…) ──────────────────────────────────
   if (/^VT-/i.test(val)) {
-    if (!/^VT-[A-Z0-9]{3,12}$/i.test(val)) {
-      errEl.textContent = '⚠️ Định dạng mã không hợp lệ – ví dụ: VT-ABCD hoặc VT-12345.';
+    if (!/^VT-[A-Z0-9-]+$/i.test(val) || val.length < 5 || val.length > 30) {
+      errEl.hidden = false;
+      errEl.textContent = '⚠️ Mã nội bộ có dạng VT-… (5 – 30 kí tự: chữ, số, dấu gạch ngang), ví dụ VT-GV08-UXDTG4.';
       emailEl.focus();
       return;
     }
@@ -576,6 +602,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 })(); // IIFE – không rò biến ra global
+</script>
+<script src="de_cuong.js"></script>
+<script src="xem_truoc.js"></script>
+<script>
+(function () {
+  const DS = window.DE_CUONG || [], el = id => document.getElementById(id);
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const mons = [...new Map(DS.map(x => [x.mon, x.tenMon])).entries()];
+  el("dc-mon").innerHTML = '<option value="">Tất cả</option>' + mons.map(([m, t]) => `<option value="${m}">${esc(t)}</option>`).join("");
+  function ve() {
+    const m = el("dc-mon").value, k = el("dc-khoi").value, y = el("dc-ky").value;
+    const ds = DS.filter(x => (!m || x.mon === m) && (!k || String(x.khoi) === k) && (!y || x.ky === y));
+    el("dc-ds").innerHTML = ds.length ? ds.map((x, i) => `<div class="dc-the"><div><b>${esc(x.tenMon)} ${x.khoi} · ${esc(x.tenKy)}</b>
+      <small>${x.bai} bài · ${x.cau[0]} câu nhiều lựa chọn, ${x.cau[1]} câu đúng sai, ${x.cau[2]} câu trả lời ngắn · cập nhật ${x.ngay.split("-").reverse().join("/")}</small></div>
+      <div class="dc-nut"><button type="button" class="xem" data-u="${esc(x.docx)}" data-t="${esc("Đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">👁 Xem trước</button>
+      <a class="w" href="${esc(x.docx)}" download>📄 Word</a><a class="p" href="${esc(x.pptx)}" download>📊 PowerPoint</a>
+      <button type="button" class="xem" data-u="${esc(x.pptx)}" data-t="${esc("Slide đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">👁 Xem slide</button></div></div>`).join("")
+      : '<p class="muted">Chưa có đề cương phù hợp – đề cương được biên soạn dần theo tiến độ bài học.</p>';
+    el("dc-ds").querySelectorAll(".xem").forEach(b => b.onclick = () => XemTruoc.mo({url: b.dataset.u, file: b.dataset.u.split("/").pop(), ten: b.dataset.t}));
+  }
+  ["dc-mon", "dc-khoi", "dc-ky"].forEach(id => el(id).onchange = ve); ve();
+})();
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Giao diện chung – Hệ thống học tập trực tuyến THPT Vĩnh Thạnh (trang chính, kho học liệu, hướng dẫn) */
+/* Giao diện chung – Hệ thống học tập trực tuyến Trường THPT (trang chính, kho học liệu, hướng dẫn) */
 :root { --blue:#1E40AF; --blue2:#1D4ED8; --blue-bg:#EFF4FF; --red:#991B1B; --red-bg:#FEF2F2; --green:#166534; --green-bg:#ECFDF3;
         --amber:#B45309; --amber-bg:#FFFBEB; --ink:#1E293B; --muted:#5B6474; --bg:#F6F7FB; --card:#FFFFFF; --line:#E2E8F0; }
 * { box-sizing:border-box; }

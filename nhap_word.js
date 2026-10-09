@@ -1,5 +1,5 @@
 /* =====================================================================
- * NHẬP ĐỀ TỪ FILE WORD (.docx) – Taode_thi_online (THPT Vĩnh Thạnh)
+ * NHẬP ĐỀ TỪ FILE WORD (.docx) – Taode_thi_online (Trường THPT)
  * - Đọc công thức MathType (OLE Equation.DSMT) → LaTeX
  * - Đọc công thức Equation của Word (OMML) → LaTeX
  * - Nhận dạng: Câu N; phương án A–D (đáp án đúng GẠCH CHÂN);

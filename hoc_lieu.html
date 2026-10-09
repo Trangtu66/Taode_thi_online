@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kho học liệu – THPT Vĩnh Thạnh</title>
+<title>Kho học liệu – Trường THPT</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="giao_dien.css">
 <style>
@@ -24,6 +24,7 @@
   .f.slide { color:#B45309; border-color:#FDE68A; background:#FFFBEB; }
   .f.sodo { color:#166534; border-color:#BBF7D0; background:#F0FDF4; }
   .f.ma_tran { color:#6B21A8; border-color:#E9D5FF; background:#FAF5FF; }
+  .f.de_cuong { color:#8B0A2A; border-color:#FBCFE8; background:#FFF1F3; }
   .ds { display:grid; gap:10px; }
   .nhom { margin:18px 0 8px; font-size:15px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
   .rong { padding:24px; text-align:center; color:var(--muted); background:#fff; border:1px dashed #CBD5E1; border-radius:12px; }
@@ -31,7 +32,7 @@
 </head>
 <body>
 <header class="top"><div class="in">
-  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT Vĩnh Thạnh – Gia Lai</small></span></a>
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
   <nav class="nav" aria-label="Điều hướng chính">
     <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html" class="on">Kho học liệu</a><a href="lam_bai.html">Tạo đề Online</a>
     <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
@@ -51,16 +52,16 @@
   <div id="ket-qua"></div>
   <div class="note blue" style="margin-top:22px">Muốn đưa KHBD, slide của mình vào kho? Xem <a href="huong_dan.html#dong-gop">Hướng dẫn đóng góp học liệu</a>.</div>
 </main>
-<footer class="foot"><div class="in"><span>© 2026 Trường THPT Vĩnh Thạnh, Gia Lai</span><span><a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
+<footer class="foot"><div class="in"><span>© 2026 Trường THPT</span><span><a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
 
 <script src="hoc_lieu.js"></script>
 <script src="so_do_mermaid.js"></script>
 <script src="xem_truoc.js"></script>
 <script>
 const HL = window.HOC_LIEU || [], TEN = window.TEN_MON || {};
-const LOAI = [["", "Tất cả"], ["khbd", "Kế hoạch bài dạy"], ["slide", "Slide"], ["sodo", "Sơ đồ tư duy"], ["ma_tran", "Ma trận, đặc tả"]];
+const LOAI = [["", "Tất cả"], ["khbd", "Kế hoạch bài dạy"], ["slide", "Slide"], ["sodo", "Sơ đồ tư duy"], ["ma_tran", "Ma trận, đặc tả"], ["de_cuong", "Đề cương ôn tập"]];
 const loaiCua = x => x.loai === "khbd" && /^SoDoTuDuy_/.test(x.file) ? "sodo" : x.loai;
-const NHAN = {khbd: "📄 KHBD", slide: "📊 Slide", sodo: "🧠 Sơ đồ tư duy", ma_tran: "📋 Ma trận"};
+const NHAN = {khbd: "📄 KHBD", slide: "📊 Slide", sodo: "🧠 Sơ đồ tư duy", ma_tran: "📋 Ma trận", de_cuong: "📘 Đề cương"};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const kd = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
 const DUOI = f => f.split(".").pop().toUpperCase();
@@ -72,7 +73,7 @@ const h0 = location.hash.slice(1); if (TEN[h0]) ST.mon = h0;
 function khoaBai(x) {
   const g = x.file.replace(/\.[^.]+$/, "").replace(/^(KHBD|Slide|SoDoTuDuy|MaTran_DacTa)_/, "").replace(/_v\d+$/, "");
   const m = g.match(/CD(\d+)_Bai(\d+)/) || g.match(/BaiTapCuoiChuong(\d+)/) || g.match(/Bai(\d+)/);
-  return x.mon + "|" + x.khoi + "|" + (x.loai === "ma_tran" ? "mt|" + g : (m ? m[0] : g));
+  return x.mon + "|" + x.khoi + "|" + (x.loai === "ma_tran" || x.loai === "de_cuong" ? "mt|" + g : (m ? m[0] : g));
 }
 function locBo(bo) { return HL.filter(x => (bo !== "mon" && ST.mon && x.mon !== ST.mon) ? false
   : (bo !== "khoi" && ST.khoi && String(x.khoi) !== ST.khoi) ? false
@@ -94,7 +95,7 @@ function ve() {
   const ds = locBo(null), bai = new Map();
   ds.forEach(x => { const k = khoaBai(x); if (!bai.has(k)) bai.set(k, []); bai.get(k).push(x); });
   const the = [...bai.values()].map(fs => {
-    fs.sort((a, b) => ["khbd", "slide", "sodo", "ma_tran"].indexOf(loaiCua(a)) - ["khbd", "slide", "sodo", "ma_tran"].indexOf(loaiCua(b)));
+    fs.sort((a, b) => ["khbd", "slide", "sodo", "ma_tran", "de_cuong"].indexOf(loaiCua(a)) - ["khbd", "slide", "sodo", "ma_tran", "de_cuong"].indexOf(loaiCua(b)));
     const chinh = fs.find(x => loaiCua(x) === "slide") || fs.find(x => loaiCua(x) === "khbd") || fs[0];
     return {fs, ten: chinh.ten.replace(/^Sơ đồ tư duy – /, "").replace(/ \((bản \d+|PDF)\)$/, ""), mon: chinh.mon, khoi: chinh.khoi,
             ngay: fs.map(x => x.ngay).sort().pop()};

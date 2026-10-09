@@ -2388,6 +2388,72 @@ window.HOC_LIEU = [
 "ngay": "2026-10-08"
 },
 {
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 10,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 10",
+"file": "DeCuong_SINH10_GK1.docx",
+"url": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.docx",
+"kb": 67,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 10,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 10",
+"file": "DeCuong_SINH10_GK1.pptx",
+"url": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.pptx",
+"kb": 1595,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 11,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 11",
+"file": "DeCuong_SINH11_GK1.docx",
+"url": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.docx",
+"kb": 55,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 11,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 11",
+"file": "DeCuong_SINH11_GK1.pptx",
+"url": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.pptx",
+"kb": 1210,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 12",
+"file": "DeCuong_SINH12_GK1.docx",
+"url": "mon/sinh_hoc/de_cuong/lop12/DeCuong_SINH12_GK1.docx",
+"kb": 55,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì I – Sinh học 12",
+"file": "DeCuong_SINH12_GK1.pptx",
+"url": "mon/sinh_hoc/de_cuong/lop12/DeCuong_SINH12_GK1.pptx",
+"kb": 1219,
+"ngay": "2026-10-09"
+},
+{
 "mon": "tieng_anh",
 "tenMon": "Tiếng Anh",
 "loai": "khbd",
@@ -3959,6 +4025,72 @@ window.HOC_LIEU = [
 "url": "mon/toan/ma_tran/MaTran_DacTa_LuyenTap_Toan12_2026-2027.docx",
 "kb": 57,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 10,
+"ten": "Đề cương ôn tập giữa kì I – Toán 10",
+"file": "DeCuong_TOAN10_GK1.docx",
+"url": "mon/toan/de_cuong/lop10/DeCuong_TOAN10_GK1.docx",
+"kb": 72,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 10,
+"ten": "Đề cương ôn tập giữa kì I – Toán 10",
+"file": "DeCuong_TOAN10_GK1.pptx",
+"url": "mon/toan/de_cuong/lop10/DeCuong_TOAN10_GK1.pptx",
+"kb": 95,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 11,
+"ten": "Đề cương ôn tập giữa kì I – Toán 11",
+"file": "DeCuong_TOAN11_GK1.docx",
+"url": "mon/toan/de_cuong/lop11/DeCuong_TOAN11_GK1.docx",
+"kb": 73,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 11,
+"ten": "Đề cương ôn tập giữa kì I – Toán 11",
+"file": "DeCuong_TOAN11_GK1.pptx",
+"url": "mon/toan/de_cuong/lop11/DeCuong_TOAN11_GK1.pptx",
+"kb": 665,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì I – Toán 12",
+"file": "DeCuong_TOAN12_GK1.docx",
+"url": "mon/toan/de_cuong/lop12/DeCuong_TOAN12_GK1.docx",
+"kb": 61,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì I – Toán 12",
+"file": "DeCuong_TOAN12_GK1.pptx",
+"url": "mon/toan/de_cuong/lop12/DeCuong_TOAN12_GK1.pptx",
+"kb": 418,
+"ngay": "2026-10-09"
 },
 {
 "mon": "vat_li",
