@@ -22,17 +22,31 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Khái niệm về cân bằng hoá học",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     2
+    ],
+    "link": "hoa_cc_bai1_k11.html",
+    "word": "mon/hoa_hoc/trac_nghiem/lop11/hoa_cc_bai1_k11.docx",
+    "nguon": "SGK Hóa học 11 (KNTT), tr.6 – 15"
+   },
+   {
+    "khu": "cc",
     "khoi": 12,
     "ten": "Bài 1. Ester – Lipid",
-    "phut": 12,
+    "phut": 15,
     "cau": [
-     6,
+     8,
      1,
-     0
+     2
     ],
     "link": "hoa_cc_bai1_k12.html",
     "word": "mon/hoa_hoc/trac_nghiem/lop12/hoa_cc_bai1_k12.docx",
-    "nguon": "SGK Hóa học 12 (KNTT), tr.6–13"
+    "nguon": "SGK Hóa học 12 (KNTT), tr.6 – 13"
    },
    {
     "khu": "cc",
@@ -146,9 +160,9 @@ window.MON_DEMO = {
     "ten": "Bài 1. Giới thiệu khái quát môn Sinh học",
     "phut": 15,
     "cau": [
-     10,
+     8,
      1,
-     1
+     2
     ],
     "link": "sinh_cc_bai1_k10.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai1_k10.docx",
@@ -228,11 +242,11 @@ window.MON_DEMO = {
     "khu": "cc",
     "khoi": 11,
     "ten": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng",
-    "phut": 10,
+    "phut": 15,
     "cau": [
-     10,
+     8,
      1,
-     0
+     2
     ],
     "link": "sinh_cc_bai1_k11.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai1_k11.docx",
@@ -326,11 +340,11 @@ window.MON_DEMO = {
     "khu": "cc",
     "khoi": 12,
     "ten": "Bài 1. DNA và cơ chế tái bản DNA",
-    "phut": 10,
+    "phut": 15,
     "cau": [
-     10,
+     8,
      1,
-     1
+     2
     ],
     "link": "sinh_cc_bai1_k12.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop12/sinh_cc_bai1_k12.docx",
@@ -392,13 +406,41 @@ window.MON_DEMO = {
     "ten": "Bài 1. Hiện thực lịch sử và lịch sử được con người nhận thức",
     "phut": 12,
     "cau": [
-     10,
+     8,
      1,
      0
     ],
     "link": "su_cc_bai1_k10.html",
     "word": "mon/lich_su/trac_nghiem/lop10/su_cc_bai1_k10.docx",
     "nguon": "SGK Lịch sử 10 (KNTT), tr.6 – 10"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Một số vấn đề chung về cách mạng tư sản",
+    "phut": 12,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "su_cc_bai1_k11.html",
+    "word": "mon/lich_su/trac_nghiem/lop11/su_cc_bai1_k11.docx",
+    "nguon": "SGK Lịch sử 11 (KNTT), tr.6 – 11"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. Liên hợp quốc",
+    "phut": 12,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "su_cc_bai1_k12.html",
+    "word": "mon/lich_su/trac_nghiem/lop12/su_cc_bai1_k12.docx",
+    "nguon": "SGK Lịch sử 12 (KNTT), tr.6 – 12"
    }
   ]
  },
@@ -412,15 +454,43 @@ window.MON_DEMO = {
     "khu": "cc",
     "khoi": 10,
     "ten": "Bài 1. Môn Địa lí với định hướng nghề nghiệp",
-    "phut": 12,
+    "phut": 10,
     "cau": [
-     10,
+     8,
      1,
      0
     ],
     "link": "dia_cc_bai1_k10.html",
     "word": "mon/dia_li/trac_nghiem/lop10/dia_cc_bai1_k10.docx",
     "nguon": "SGK Địa lí 10 (KNTT), tr.5 – 6"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Sự khác biệt về trình độ phát triển kinh tế – xã hội của các nhóm nước",
+    "phut": 12,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai1_k11.html",
+    "word": "mon/dia_li/trac_nghiem/lop11/dia_cc_bai1_k11.docx",
+    "nguon": "SGK Địa lí 11 (KNTT), tr.5 – 8"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. Vị trí địa lí và phạm vi lãnh thổ",
+    "phut": 12,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai1_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai1_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.5 – 9"
    }
   ]
  },
@@ -791,6 +861,34 @@ window.MON_DEMO = {
   "de": [
    {
     "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 1. Làm quen với Vật lí",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     2
+    ],
+    "link": "ly_cc_bai1_k10.html",
+    "word": "mon/vat_li/trac_nghiem/lop10/ly_cc_bai1_k10.docx",
+    "nguon": "SGK Vật lí 10 (KNTT), tr.6 – 11"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Dao động điều hoà",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     2
+    ],
+    "link": "ly_cc_bai1_k11.html",
+    "word": "mon/vat_li/trac_nghiem/lop11/ly_cc_bai1_k11.docx",
+    "nguon": "SGK Vật lí 11 (KNTT), tr.6 – 9"
+   },
+   {
+    "khu": "cc",
     "khoi": 12,
     "ten": "Bài 1. Cấu trúc của chất. Sự chuyển thể",
     "phut": 15,
@@ -872,6 +970,56 @@ window.MON_DEMO = {
     "link": "ly_cc_bai6_k12.html",
     "word": "mon/vat_li/trac_nghiem/lop12/ly_cc_bai6_k12.docx",
     "nguon": "SGK Vật lí 12 (KNTT), tr.27 – 29"
+   }
+  ]
+ },
+ "cong_nghe": {
+  "ten": "Công nghệ",
+  "mau": "#B45309",
+  "bieu_tuong": "🛠️",
+  "kho": "mon/cong_nghe",
+  "de": [
+   {
+    "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 1. Giới thiệu về trồng trọt",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "cn_cc_bai1_k10.html",
+    "word": "mon/cong_nghe/trac_nghiem/lop10/cn_cc_bai1_k10.docx",
+    "nguon": "SGK Công nghệ 10 – Công nghệ trồng trọt (KNTT), tr.6 – 13"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 1. Vai trò và triển vọng của chăn nuôi",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "cn_cc_bai1_k11.html",
+    "word": "mon/cong_nghe/trac_nghiem/lop11/cn_cc_bai1_k11.docx",
+    "nguon": "SGK Công nghệ 11 – Công nghệ chăn nuôi (KNTT), tr.7 – 12"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 1. Vai trò và triển vọng của lâm nghiệp",
+    "phut": 15,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "cn_cc_bai1_k12.html",
+    "word": "mon/cong_nghe/trac_nghiem/lop12/cn_cc_bai1_k12.docx",
+    "nguon": "SGK Công nghệ 12 – Lâm nghiệp, Thuỷ sản (KNTT), tr.7 – 11"
    }
   ]
  }
