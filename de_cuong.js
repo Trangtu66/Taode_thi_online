@@ -70,18 +70,16 @@ window.DE_CUONG = [
   "tenKy": "Giữa học kì I",
   "docx": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.docx",
   "pptx": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.pptx",
-  "bai": 5,
+  "bai": 6,
   "cau": [
-   50,
-   5,
+   54,
+   6,
    1
   ],
   "thieu": [
-   "phần bài tập còn thiếu 4 câu nhiều lựa chọn",
-   "phần bài tập còn thiếu 7 câu đúng sai",
+   "phần bài tập còn thiếu 6 câu đúng sai",
    "đề minh họa còn thiếu 5 câu trả lời ngắn",
-   "phần bài tập còn thiếu 12 câu trả lời ngắn",
-   "chưa có ngân hàng câu hỏi của: sinh_cc_bai6_k10"
+   "phần bài tập còn thiếu 12 câu trả lời ngắn"
   ],
   "ngay": "2026-10-09"
  },
@@ -93,18 +91,16 @@ window.DE_CUONG = [
   "tenKy": "Giữa học kì I",
   "docx": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.docx",
   "pptx": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.pptx",
-  "bai": 4,
+  "bai": 7,
   "cau": [
-   40,
-   4,
+   54,
+   7,
    0
   ],
   "thieu": [
-   "phần bài tập còn thiếu 14 câu nhiều lựa chọn",
-   "phần bài tập còn thiếu 8 câu đúng sai",
+   "phần bài tập còn thiếu 5 câu đúng sai",
    "đề minh họa còn thiếu 6 câu trả lời ngắn",
-   "phần bài tập còn thiếu 12 câu trả lời ngắn",
-   "chưa có ngân hàng câu hỏi của: sinh_cc_bai5_k11, sinh_cc_bai6_k11, sinh_cc_bai7_k11"
+   "phần bài tập còn thiếu 12 câu trả lời ngắn"
   ],
   "ngay": "2026-10-09"
  },

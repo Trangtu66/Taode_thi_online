@@ -212,6 +212,20 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 6. Thực hành: Nhận biết một số phân tử sinh học",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai6_k10.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai6_k10.docx",
+    "nguon": "SGK Sinh học 10 (KNTT), tr.41 – 42"
+   },
+   {
+    "khu": "cc",
     "khoi": 11,
     "ten": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng",
     "phut": 10,
@@ -265,6 +279,48 @@ window.MON_DEMO = {
     "link": "sinh_cc_bai4_k11.html",
     "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai4_k11.docx",
     "nguon": "SGK Sinh học 11 (KNTT), tr.26 – 34"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 5. Thực hành: Quang hợp ở thực vật",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai5_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai5_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.35 – 37"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 6. Hô hấp ở thực vật",
+    "phut": 10,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai6_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai6_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.38 – 43"
+   },
+   {
+    "khu": "cc",
+    "khoi": 11,
+    "ten": "Bài 7. Thực hành: Hô hấp ở thực vật",
+    "phut": 8,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai7_k11.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop11/sinh_cc_bai7_k11.docx",
+    "nguon": "SGK Sinh học 11 (KNTT), tr.44 – 45"
    },
    {
     "khu": "cc",

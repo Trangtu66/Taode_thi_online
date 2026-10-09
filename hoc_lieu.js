@@ -2018,6 +2018,17 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 10,
+"ten": "BÀI 6. THỰC HÀNH: NHẬN BIẾT MỘT SỐ PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.docx",
+"kb": 2048,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
@@ -2072,6 +2083,17 @@ window.HOC_LIEU = [
 "mon": "sinh_hoc",
 "tenMon": "Sinh học",
 "loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 6. THỰC HÀNH: NHẬN BIẾT MỘT SỐ PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.png",
+"kb": 296,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
 "khoi": 11,
 "ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "KHBD_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.docx",
@@ -2100,6 +2122,39 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai4_QuangHopOThucVat_T8-10.docx",
 "kb": 2188,
 "ngay": "2026-10-08"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "BÀI 5. THỰC HÀNH: QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.docx",
+"kb": 2047,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "BÀI 6. HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "KHBD_SINH11_Bai6_HoHapOThucVat_T13-14.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai6_HoHapOThucVat_T13-14.docx",
+"kb": 2023,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "BÀI 7. THỰC HÀNH: HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "KHBD_SINH11_Bai7_TH_HoHapOThucVat_T15.docx",
+"url": "mon/sinh_hoc/khbd/lop11/KHBD_SINH11_Bai7_TH_HoHapOThucVat_T15.docx",
+"kb": 2003,
+"ngay": "2026-10-09"
 },
 {
 "mon": "sinh_hoc",
@@ -2144,6 +2199,39 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai4_QuangHopOThucVat_T8-10.png",
 "kb": 290,
 "ngay": "2026-10-08"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 5. THỰC HÀNH: QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.png",
+"kb": 296,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 6. HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "SoDoTuDuy_SINH11_Bai6_HoHapOThucVat_T13-14.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai6_HoHapOThucVat_T13-14.png",
+"kb": 272,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – BÀI 7. THỰC HÀNH: HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "SoDoTuDuy_SINH11_Bai7_TH_HoHapOThucVat_T15.png",
+"url": "mon/sinh_hoc/khbd/lop11/SoDoTuDuy_SINH11_Bai7_TH_HoHapOThucVat_T15.png",
+"kb": 255,
+"ngay": "2026-10-09"
 },
 {
 "mon": "sinh_hoc",
@@ -2303,6 +2391,17 @@ window.HOC_LIEU = [
 "mon": "sinh_hoc",
 "tenMon": "Sinh học",
 "loai": "slide",
+"khoi": 10,
+"ten": "BÀI 6. THỰC HÀNH: NHẬN BIẾT MỘT SỐ PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai6_TH_NhanBietPhanTuSinhHoc_T14-15.pptx",
+"kb": 361,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
 "khoi": 11,
 "ten": "BÀI 1. KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
 "file": "Slide_SINH11_Bai1_KhaiQuatTraoDoiChatChuyenHoaNangLuong_T1.pptx",
@@ -2331,6 +2430,39 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai4_QuangHopOThucVat_T8-10.pptx",
 "kb": 238,
 "ngay": "2026-10-08"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 5. THỰC HÀNH: QUANG HỢP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai5_TH_QuangHopOThucVat_T11-12.pptx",
+"kb": 360,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 6. HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 02 tiết",
+"file": "Slide_SINH11_Bai6_HoHapOThucVat_T13-14.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai6_HoHapOThucVat_T13-14.pptx",
+"kb": 341,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 11,
+"ten": "BÀI 7. THỰC HÀNH: HÔ HẤP Ở THỰC VẬT Sinh học 11 – Kết nối tri thức với cuộc sống · 01 tiết",
+"file": "Slide_SINH11_Bai7_TH_HoHapOThucVat_T15.pptx",
+"url": "mon/sinh_hoc/slide/lop11/Slide_SINH11_Bai7_TH_HoHapOThucVat_T15.pptx",
+"kb": 305,
+"ngay": "2026-10-09"
 },
 {
 "mon": "sinh_hoc",
@@ -2395,7 +2527,7 @@ window.HOC_LIEU = [
 "ten": "Đề cương ôn tập giữa kì I – Sinh học 10",
 "file": "DeCuong_SINH10_GK1.docx",
 "url": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.docx",
-"kb": 67,
+"kb": 69,
 "ngay": "2026-10-09"
 },
 {
@@ -2406,7 +2538,7 @@ window.HOC_LIEU = [
 "ten": "Đề cương ôn tập giữa kì I – Sinh học 10",
 "file": "DeCuong_SINH10_GK1.pptx",
 "url": "mon/sinh_hoc/de_cuong/lop10/DeCuong_SINH10_GK1.pptx",
-"kb": 1595,
+"kb": 1882,
 "ngay": "2026-10-09"
 },
 {
@@ -2417,7 +2549,7 @@ window.HOC_LIEU = [
 "ten": "Đề cương ôn tập giữa kì I – Sinh học 11",
 "file": "DeCuong_SINH11_GK1.docx",
 "url": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.docx",
-"kb": 55,
+"kb": 62,
 "ngay": "2026-10-09"
 },
 {
@@ -2428,7 +2560,7 @@ window.HOC_LIEU = [
 "ten": "Đề cương ôn tập giữa kì I – Sinh học 11",
 "file": "DeCuong_SINH11_GK1.pptx",
 "url": "mon/sinh_hoc/de_cuong/lop11/DeCuong_SINH11_GK1.pptx",
-"kb": 1210,
+"kb": 2003,
 "ngay": "2026-10-09"
 },
 {
