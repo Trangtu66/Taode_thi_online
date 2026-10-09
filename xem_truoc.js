@@ -16,24 +16,24 @@
   const css = `
   .xt-nen{position:fixed;inset:0;background:rgba(15,23,42,.62);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
   .xt-nen.mo{display:flex}
-  .xt-hop{background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.35);width:min(1180px,100%);height:min(92vh,900px);display:flex;flex-direction:column;overflow:hidden}
+  .xt-hop{font-family:"Be Vietnam Pro",Calibri,"Segoe UI",Arial,sans-serif;max-width:100%;background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.35);width:min(1180px,100%);height:min(92vh,900px);display:flex;flex-direction:column;overflow:hidden;min-width:0}
   .xt-dau{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid #E2E8F0;background:linear-gradient(90deg,#001233,#0B3D91 55%,#7A0F2E)}
-  .xt-dau h2{flex:1;margin:0;font-size:16px;color:#fff;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .xt-dau h2{flex:1;min-width:0;margin:0;font-size:16px;color:#fff;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .xt-dau a,.xt-dau button{font:inherit;font-size:13px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.12);color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap}
   .xt-dau a:hover,.xt-dau button:hover{background:rgba(255,255,255,.25)}
   .xt-tab{display:flex;gap:6px;padding:8px 14px;border-bottom:1px solid #E2E8F0;background:#F8FAFC;flex-wrap:wrap}
   .xt-tab button{font:inherit;font-size:13px;font-weight:600;border:1px solid #CBD5E1;background:#fff;color:#1E293B;border-radius:999px;padding:5px 12px;cursor:pointer}
   .xt-tab button.on{background:#1E40AF;border-color:#1E40AF;color:#fff}
-  .xt-than{flex:1;position:relative;background:#F1F5F9;overflow:auto}
+  .xt-than{flex:1;min-height:0;min-width:0;position:relative;background:#F1F5F9;overflow:auto}
   .xt-than iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
   .xt-than img{display:block;max-width:100%;margin:0 auto;background:#fff}
-  .xt-sd{padding:12px;min-height:100%;background:#fff;display:flex;align-items:center;justify-content:center}
-  .xt-sd svg{max-width:100%;height:auto}
+  .xt-sd{width:100%;box-sizing:border-box;padding:12px;min-height:100%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .xt-sd svg{display:block;min-width:0;flex:1 1 0;max-width:100% !important;width:100% !important;height:auto}
   .xt-cho{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5B6474;font-size:14px;pointer-events:none}
   .xt-tb{max-width:560px;margin:40px auto;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;color:#1E293B;font-size:15px;line-height:1.6}
   .xem{display:inline-flex;gap:5px;align-items:center;font:inherit;font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid #CBD5E1;background:#fff;color:#0B3D91;cursor:pointer}
   .xem:hover{background:#EFF4FF;border-color:#93C5FD}
-  @media (max-width:640px){.xt-nen{padding:0}.xt-hop{height:100%;border-radius:0}.xt-dau h2{font-size:14px}.xt-dau .xt-an{display:none}}`;
+  @media (max-width:640px){.xt-nen{padding:0}.xt-hop{height:100%;border-radius:0}.xt-dau h2{font-size:14px}.xt-dau .xt-an{display:none}.xt-dau{padding:8px 10px;gap:6px}.xt-dau a,.xt-dau button{padding:5px 8px;font-size:12px}.xt-tab{padding:6px 10px}}`;
   let nen, hop, than, tab, tieuDe, taiVe, moTab, dong, truoc = null;
 
   function dung() {
