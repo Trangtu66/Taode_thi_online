@@ -57,6 +57,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Sinh học 10 · Ôn tập chương", ten: "Phần mở đầu", ma: "Ôn tập Phần mở đầu (Sinh học 10)", link: "oc_sinh10_modau.html" },
   { khoi: 10, nhom: "Sinh học 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 10 (không phải đề thi chính thức)", link: "kt_sinh10_gki.html" },
   { khoi: 10, nhom: "Toán 10", ten: "chuong3", ma: "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_chuong3_t10.html" },
+  { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 5. Các phân tử sinh học", ma: "Củng cố – Sinh học 10 · Bài 5: Các phân tử sinh học", link: "sinh_cc_bai5_k10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
@@ -95,6 +96,8 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Tiếng Anh 11 · Củng cố", ten: "Unit 5. Global warming", ma: "Củng cố – Tiếng Anh 11 · Unit 5: Global warming", link: "anh_cc_unit5_k11.html" },
   { khoi: 11, nhom: "Tiếng Anh 11 · Củng cố", ten: "Ôn tập giữa kì I (Unit 1–3)", ma: "Tiếng Anh 11 · Ôn tập giữa kì I (Unit 1–3)", link: "anh_giuaki1_k11.html" },
   { khoi: 11, nhom: "Tiếng Anh 11 · Củng cố", ten: "Ôn tập cuối kì I (Unit 1–5)", ma: "Tiếng Anh 11 · Ôn tập cuối kì I (Unit 1–5)", link: "anh_cuoiki1_k11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "Bài 8. Mẫu số liệu ghép nhóm", ma: "Củng cố – Bài 8. Mẫu số liệu ghép nhóm (Toán 11)", link: "cc_bai8_t11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "Bài 9. Các số đặc trưng đo xu thế trung tâm", ma: "Củng cố – Bài 9. Các số đặc trưng đo xu thế trung tâm (Toán 11)", link: "cc_bai9_t11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
@@ -171,6 +174,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 6. Tinh bột và cellulose", ma: "Củng cố – Hóa học 12 · Bài 6: Tinh bột và cellulose", link: "hoa_cc_bai6_k12.html" },
   { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 7. Ôn tập chương 2 (Carbohydrate)", ma: "Củng cố – Hóa học 12 · Bài 7: Ôn tập chương 2 (Carbohydrate)", link: "hoa_cc_bai7_k12.html" },
   { khoi: 12, nhom: "Hóa học 12 · Củng cố", ten: "Bài 8. Amine", ma: "Củng cố – Hóa học 12 · Bài 8: Amine", link: "hoa_cc_bai8_k12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 5. Ứng dụng đạo hàm", ma: "Củng cố – Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề thực tiễn (Toán 12)", link: "cc_bai5_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

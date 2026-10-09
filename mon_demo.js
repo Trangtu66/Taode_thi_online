@@ -198,6 +198,20 @@ window.MON_DEMO = {
    },
    {
     "khu": "cc",
+    "khoi": 10,
+    "ten": "Bài 5. Các phân tử sinh học",
+    "phut": 12,
+    "cau": [
+     10,
+     1,
+     0
+    ],
+    "link": "sinh_cc_bai5_k10.html",
+    "word": "mon/sinh_hoc/trac_nghiem/lop10/sinh_cc_bai5_k10.docx",
+    "nguon": "SGK Sinh học 10 (KNTT), tr.28 – 40"
+   },
+   {
+    "khu": "cc",
     "khoi": 11,
     "ten": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng",
     "phut": 10,

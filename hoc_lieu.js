@@ -2007,6 +2007,17 @@ window.HOC_LIEU = [
 "tenMon": "Sinh học",
 "loai": "khbd",
 "khoi": 10,
+"ten": "BÀI 5. CÁC PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 05 tiết",
+"file": "KHBD_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.docx",
+"url": "mon/sinh_hoc/khbd/lop10/KHBD_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.docx",
+"kb": 2086,
+"ngay": "2026-10-09"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – BÀI 1. GIỚI THIỆU KHÁI QUÁT MÔN SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 02 tiết",
 "file": "SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai1_GioiThieuKhaiQuatMonSinhHoc_T1-2.png",
@@ -2045,6 +2056,17 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.png",
 "kb": 296,
 "ngay": "2026-10-08"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – BÀI 5. CÁC PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 05 tiết",
+"file": "SoDoTuDuy_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.png",
+"url": "mon/sinh_hoc/khbd/lop10/SoDoTuDuy_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.png",
+"kb": 327,
+"ngay": "2026-10-09"
 },
 {
 "mon": "sinh_hoc",
@@ -2265,6 +2287,17 @@ window.HOC_LIEU = [
 "url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai4_CacNguyenToHoaHocVaNuoc_T7-8.pptx",
 "kb": 231,
 "ngay": "2026-10-08"
+},
+{
+"mon": "sinh_hoc",
+"tenMon": "Sinh học",
+"loai": "slide",
+"khoi": 10,
+"ten": "BÀI 5. CÁC PHÂN TỬ SINH HỌC Sinh học 10 – Kết nối tri thức với cuộc sống · 05 tiết",
+"file": "Slide_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.pptx",
+"url": "mon/sinh_hoc/slide/lop10/Slide_SINH10_Bai5_CacPhanTuSinhHoc_T9-13.pptx",
+"kb": 452,
+"ngay": "2026-10-09"
 },
 {
 "mon": "sinh_hoc",
@@ -3239,6 +3272,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 8. Mẫu số liệu ghép nhóm",
+"file": "KHBD_TOAN11_Bai8_MauSoLieuGhepNhom_T18.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai8_MauSoLieuGhepNhom_T18.docx",
+"kb": 469,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Bài 9. Các số đặc trưng đo xu thế trung tâm",
+"file": "KHBD_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.docx",
+"kb": 547,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
@@ -3321,6 +3376,28 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai7_CapSoNhan_T15-16.png",
 "kb": 204,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – Bài 8. Mẫu số liệu ghép nhóm",
+"file": "SoDoTuDuy_TOAN11_Bai8_MauSoLieuGhepNhom_T18.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai8_MauSoLieuGhepNhom_T18.png",
+"kb": 292,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy – Bài 9. Các số đặc trưng đo xu thế trung tâm",
+"file": "SoDoTuDuy_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.png",
+"kb": 274,
+"ngay": "2026-10-09"
 },
 {
 "mon": "toan",
@@ -3448,6 +3525,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+"file": "KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
+"kb": 906,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Sơ đồ tư duy – Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "SoDoTuDuy_TOAN12_Bai1_DonDieuCucTri.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai1_DonDieuCucTri.png",
@@ -3486,6 +3574,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai4_KhaoSatHamSo.png",
 "kb": 250,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+"file": "SoDoTuDuy_TOAN12_Bai5_UngDungDaoHam_T19-20.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai5_UngDungDaoHam_T19-20.png",
+"kb": 329,
+"ngay": "2026-10-09"
 },
 {
 "mon": "toan",
@@ -3690,6 +3789,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "slide",
 "khoi": 11,
+"ten": "Bài 8. Mẫu số liệu ghép nhóm",
+"file": "Slide_TOAN11_Bai8_MauSoLieuGhepNhom_T18.pptx",
+"url": "mon/toan/slide/lop11/Slide_TOAN11_Bai8_MauSoLieuGhepNhom_T18.pptx",
+"kb": 863,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "slide",
+"khoi": 11,
+"ten": "Bài 9. Các số đặc trưng đo xu thế trung tâm",
+"file": "Slide_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.pptx",
+"url": "mon/toan/slide/lop11/Slide_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.pptx",
+"kb": 967,
+"ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "slide",
+"khoi": 11,
 "ten": "Bài tập cuối chương I",
 "file": "Slide_TOAN11_BaiTapCuoiChuong1_T10.pptx",
 "url": "mon/toan/slide/lop11/Slide_TOAN11_BaiTapCuoiChuong1_T10.pptx",
@@ -3783,6 +3904,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/slide/lop12/Slide_TOAN12_Bai4_T14-18.pptx",
 "kb": 616,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "slide",
+"khoi": 12,
+"ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+"file": "Slide_TOAN12_Bai5_UngDungDaoHam_T19-20.pptx",
+"url": "mon/toan/slide/lop12/Slide_TOAN12_Bai5_UngDungDaoHam_T19-20.pptx",
+"kb": 714,
+"ngay": "2026-10-09"
 },
 {
 "mon": "toan",
