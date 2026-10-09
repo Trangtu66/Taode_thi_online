@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)",
+    "subtitle": "Trường THPT Vĩnh Thạnh – GV: Trương Tử Trang",
+    "timeMinutes": 7,
+    "requireName": true,
+    "shuffleOptions": true,
+    "shuffleQuestions": true
+  },
+  "parts": [
+    {
+      "type": "mcq",
+      "title": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn",
+      "pointsPerQuestion": 1,
+      "questions": [
+        {
+          "content": "Tính $M = \\sin 60^\\circ \\cdot \\cos 30^\\circ + \\cos 60^\\circ \\cdot \\sin 30^\\circ$.",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$1$"
+            },
+            {
+              "l": "B",
+              "t": "$\\dfrac{\\sqrt{3}}{2}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\dfrac{1}{2}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\sqrt{3}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$M = \\sin(60^\\circ+30^\\circ)=\\sin 90^\\circ=1$ (dùng công thức cộng góc)."
+        },
+        {
+          "content": "Trong tam giác $ABC$, gọi $R$ là bán kính đường tròn ngoại tiếp. Công thức nào đúng?",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$R = \\dfrac{a}{2\\sin A}$"
+            },
+            {
+              "l": "B",
+              "t": "$R = \\dfrac{2S}{a+b+c}$"
+            },
+            {
+              "l": "C",
+              "t": "$R = \\dfrac{a}{2\\cos A}$"
+            },
+            {
+              "l": "D",
+              "t": "$R = \\dfrac{abc}{2S}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "Định lí sin: $\\dfrac{a}{\\sin A}=2R$, suy ra $R=\\dfrac{a}{2\\sin A}$. Chú ý: $r=\\dfrac{2S}{a+b+c}$ (nội tiếp, không phải ngoại tiếp); $R=\\dfrac{abc}{4S}$."
+        },
+        {
+          "content": "Cho tam giác $ABC$ có $a=6$, $b=4$, $C=60^\\circ$. Cạnh $c$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\sqrt{7}$"
+            },
+            {
+              "l": "B",
+              "t": "$4\\sqrt{3}$"
+            },
+            {
+              "l": "C",
+              "t": "$2\\sqrt{13}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\sqrt{52}$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$c^2=a^2+b^2-2ab\\cos C=36+16-24=28$, nên $c=2\\sqrt{7}$."
+        },
+        {
+          "content": "Tam giác đều cạnh $a=6$. Bán kính đường tròn nội tiếp $r$ bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\sqrt{3}$"
+            },
+            {
+              "l": "B",
+              "t": "$\\sqrt{3}$"
+            },
+            {
+              "l": "C",
+              "t": "$3\\sqrt{3}$"
+            },
+            {
+              "l": "D",
+              "t": "$\\dfrac{3\\sqrt{3}}{2}$"
+            }
+          ],
+          "correct": "B",
+          "expl": "$S=\\dfrac{36\\sqrt{3}}{4}=9\\sqrt{3}$; $p=9$; $r=\\dfrac{S}{p}=\\sqrt{3}$."
+        },
+        {
+          "content": "Tam giác $ABC$ có $\\widehat{B}=135^\\circ$, $a=4$, $c=2$. Diện tích tam giác bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$2\\sqrt{2}$"
+            },
+            {
+              "l": "B",
+              "t": "$4\\sqrt{2}$"
+            },
+            {
+              "l": "C",
+              "t": "$\\sqrt{2}$"
+            },
+            {
+              "l": "D",
+              "t": "$4$"
+            }
+          ],
+          "correct": "A",
+          "expl": "$S=\\dfrac{1}{2}ac\\sin B=\\dfrac{1}{2}\\cdot4\\cdot2\\cdot\\sin135^\\circ=4\\cdot\\dfrac{\\sqrt{2}}{2}=2\\sqrt{2}$."
+        },
+        {
+          "content": "Từ điểm $A$ trên đỉnh đồi Vĩnh Thạnh, nhìn hai mốc $B$, $C$ ở chân đồi với $\\widehat{BAC}=60^\\circ$, $AB=200$ m, $AC=300$ m. Khoảng cách $BC$ gần bằng",
+          "imageUrl": "",
+          "options": [
+            {
+              "l": "A",
+              "t": "$278$ m"
+            },
+            {
+              "l": "B",
+              "t": "$316$ m"
+            },
+            {
+              "l": "C",
+              "t": "$250$ m"
+            },
+            {
+              "l": "D",
+              "t": "$261$ m"
+            }
+          ],
+          "correct": "D",
+          "expl": "$BC^2=200^2+300^2-2\\cdot200\\cdot300\\cos60^\\circ=130\\,000-60\\,000=70\\,000$; $BC=100\\sqrt{7}\\approx264{,}6$ m, chọn $261$ m (làm tròn)."
+        }
+      ]
+    },
+    {
+      "type": "tf",
+      "title": "PHẦN II. Câu trắc nghiệm đúng sai",
+      "maxPoints": 4,
+      "questions": [
+        {
+          "content": "(Vận dụng – thực tiễn) Hồ nước tự nhiên hình tam giác $ABC$ ở Vĩnh Thạnh có $AB=500$ m, $AC=700$ m, $\\widehat{A}=60^\\circ$. Xét tính đúng/sai của các khẳng định:",
+          "imageUrl": "",
+          "statements": [
+            {
+              "text": "$BC^2 = AB^2 + AC^2 - AB \\cdot AC = 250\\,000 + 490\\,000 - 350\\,000 = 390\\,000$.",
+              "correct": true,
+              "expl": "$BC^2 = 500^2+700^2-2\\cdot500\\cdot700\\cos60^\\circ=740\\,000-350\\,000=390\\,000$ ✓."
+            },
+            {
+              "text": "Diện tích $S = \\dfrac{1}{2}\\cdot500\\cdot700\\cdot\\sin60^\\circ = \\dfrac{175\\,000\\sqrt{3}}{2}$ m$^2$.",
+              "correct": true,
+              "expl": "$S=\\dfrac{1}{2}\\cdot500\\cdot700\\cdot\\dfrac{\\sqrt{3}}{2}=\\dfrac{175\\,000\\sqrt{3}}{2}\\approx151\\,554$ m$^2$ ✓."
+            },
+            {
+              "text": "Bán kính đường tròn ngoại tiếp $R = \\dfrac{BC}{2\\sin A} > 400$ m.",
+              "correct": false,
+              "expl": "$BC=\\sqrt{390\\,000}\\approx624$ m; $R=\\dfrac{624}{2\\sin60^\\circ}=\\dfrac{624}{\\sqrt{3}}\\approx360$ m $<400$ m."
+            },
+            {
+              "text": "Chu vi tam giác vượt $1\\,800$ m.",
+              "correct": true,
+              "expl": "$AB+AC+BC=500+700+624=1\\,824$ m $>1\\,800$ m ✓."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "leaderboard": {
+    "formUrl": "",
+    "entryName": "",
+    "entryScore": "",
+    "entryDetail": "",
+    "sheetUrl": ""
+  }
+}
