@@ -48,5 +48,4 @@ const data = [
   {ten: 'Bài 1: Khái quát về công nghệ', mon: 'Công nghệ', khoi: 'Lớp 10', loai: 'Kế hoạch bài dạy', file: 'mon/cong_nghe/KHBD_CongNghe10_Bai1.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'},
   {ten: 'Bài 1: Khái quát về thế giới sinh vật', mon: 'Sinh học', khoi: 'Lớp 10', loai: 'Kế hoạch bài dạy', file: 'mon/sinh_hoc/KHBD_Sinh10_Bai1.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'}
 ];
-const MON = ["Toán", "Ngữ văn", "Tiếng Anh", "Vật lí", "Hóa học", "Sinh học", "Lịch sử", "Địa lí"];
-if (typeof module !== "undefined") module.exports = danh_sach_hoc_lieu;
+if (typeof module !== "undefined") module.exports = hoc_lieu;
