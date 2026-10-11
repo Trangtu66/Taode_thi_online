@@ -1,5 +1,5 @@
 // Cập nhật 11/10/2026 - Kho học liệu tinh khiết Bài 1 thí điểm
-const danh_sach_hoc_lieu = [
+const MON = [
   {ten: 'Bài 1: Mệnh đề toán học', mon: 'Toán', khoi: 'Lớp 10', loai: 'Kế hoạch bài dạy', file: 'mon/toan/KHBD_Toan10_Bai1.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'},
   {ten: 'Bài 1: Khái niệm về cân bằng hóa học', mon: 'Hóa học', khoi: 'Lớp 11', loai: 'Kế hoạch bài dạy', file: 'mon/hoa_hoc/KHBD_Hoa11_Bai1.docx', nguon: 'SGK Chân trời sáng tạo', cap_nhat: '11/10/2026'},
   {ten: 'Bài 1: Vị trí địa lí và phạm vi lãnh thổ', mon: 'Địa lí', khoi: 'Lớp 12', loai: 'Kế hoạch bài dạy', file: 'mon/dia_li/KHBD_DIALY12_Bai1_VitriDiaLiVaPhamViLanhTho_T1-2.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'},
@@ -9,4 +9,4 @@ const danh_sach_hoc_lieu = [
   {ten: 'Bài 1: Khái quát về công nghệ', mon: 'Công nghệ', khoi: 'Lớp 10', loai: 'Kế hoạch bài dạy', file: 'mon/cong_nghe/KHBD_CongNghe10_Bai1.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'},
   {ten: 'Bài 1: Khái quát về thế giới sinh vật', mon: 'Sinh học', khoi: 'Lớp 10', loai: 'Kế hoạch bài dạy', file: 'mon/sinh_hoc/KHBD_Sinh10_Bai1.docx', nguon: 'SGK Kết nối tri thức', cap_nhat: '11/10/2026'}
 ];
-if (typeof module !== "undefined") module.exports = danh_sach_hoc_lieu;
+if (typeof module !== "undefined") module.exports = MON;
