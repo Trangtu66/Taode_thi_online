@@ -59,4 +59,5 @@ var data = [
   {ten: "Bài 1: Khái quát về thế giới sinh vật", mon: "Sinh học", khoi: "Lớp 10", loai: "Kế hoạch bài dạy", file: "mon/sinh_hoc/KHBD_Sinh10_Bai1.docx", nguon: "Sách giáo khoa Sinh học 10", cap_nhat: "11/10/2026"}
 ];
 var MON = ["Toán", "Ngữ văn", "Tiếng Anh", "Vật lí", "Hóa học", "Sinh học", "Lịch sử", "Địa lí"];
+var danh_sach_mon = ["Toán", "Ngữ văn", "Tiếng Anh", "Vật lí", "Hóa học", "Sinh học", "Lịch sử", "Địa lí"];
 if (typeof module !== "undefined") module.exports = HL;
