@@ -1370,6 +1370,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài 17. Hàm số liên tục *(Tiết 45–46)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 17<br/>Hàm số<br/>liên tục"]:::root
+    G --> A["① Liên tục tại một điểm"]:::n1
+    G --> B["② Trên khoảng, đoạn"]:::n2
+    G --> C["③ Tính chất"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["★ lim f(x) = f(x0)"]:::l1
+    A --> A2["⇔ hai giới hạn một bên = f(x0)"]:::l1
+    A --> A3["Không liên tục: gián đoạn"]:::l1
+    A --> A4["Hàm dấu gián đoạn tại 0"]:::l1
+
+    B --> B1["Liên tục tại mọi điểm của khoảng"]:::l2
+    B --> B2["Đoạn: thêm liên tục phải tại a, trái tại b"]:::l2
+    B --> B3["Đồ thị là đường liền"]:::l2
+    B --> B4["★ Đa thức, sin, cos liên tục trên R"]:::l2
+
+    C --> C1["Tổng, hiệu, tích liên tục"]:::l3
+    C --> C2["Thương liên tục nếu g(x0) ≠ 0"]:::l3
+    C --> C3["★ f liên tục [a; b], f(a)f(b) < 0 ⇒ có c: f(c) = 0"]:::l3
+    C --> C4["Chứng minh phương trình có nghiệm"]:::l3
+
+    D --> D1["Vận tốc xe 60 km/h"]:::l4
+    D --> D2["Cước taxi"]:::l4
+    D --> D3["Giá thu mua theo bậc"]:::l4
+    D --> D4["Tìm m để liên tục"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai17_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*

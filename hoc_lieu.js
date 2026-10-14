@@ -3899,6 +3899,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 17 Ham So Lien Tuc (tiết 45-46)",
+"file": "KHBD_TOAN11_Bai17_HamSoLienTuc_T45-46.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai17_HamSoLienTuc_T45-46.docx",
+"kb": 673,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
@@ -4090,6 +4101,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
 "kb": 325,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bài 17 Ham So Lien Tuc (tiết 45-46)",
+"file": "SoDoTuDuy_TOAN11_Bai17_HamSoLienTuc_T45-46.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai17_HamSoLienTuc_T45-46.png",
+"kb": 351,
 "ngay": "2026-10-15"
 },
 {
