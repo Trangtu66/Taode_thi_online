@@ -4196,6 +4196,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 8 Bieu Thuc Toa Do (tiết 37-39)",
+"file": "KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39.docx",
+"kb": 1318,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 8 Bieu Thuc Toa Do (tiết 37-39) Hoa Nhap",
+"file": "KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39_HoaNhap.docx",
+"kb": 1321,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
@@ -4453,6 +4475,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
 "kb": 357,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bài 8 Bieu Thuc Toa Do (tiết 37-39)",
+"file": "SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
+"kb": 343,
 "ngay": "2026-10-14"
 },
 {

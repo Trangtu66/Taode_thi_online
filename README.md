@@ -1066,6 +1066,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 8. Biểu thức toạ độ của các phép toán vectơ *(Tiết 37–39)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 8<br/>Biểu thức toạ độ<br/>các phép toán vectơ"]:::root
+    G --> A["① Cộng, trừ, nhân số"]:::n1
+    G --> B["② Trung điểm, trọng tâm"]:::n2
+    G --> C["③ Tích vô hướng"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["★ a ± b = (x ± x'; y ± y'; z ± z')"]:::l1
+    A --> A2["ka = (kx; ky; kz)"]:::l1
+    A --> A3["Cùng phương: a = kb"]:::l1
+    A --> A4["Vectơ đối: (–x; –y; –z)"]:::l1
+
+    B --> B1["★ Trung điểm: trung bình cộng toạ độ 2 điểm"]:::l2
+    B --> B2["★ Trọng tâm: trung bình cộng toạ độ 3 đỉnh"]:::l2
+    B --> B3["Tìm đỉnh còn lại"]:::l2
+    B --> B4["Kiểm tra thẳng hàng"]:::l2
+
+    C --> C1["★ a·b = xx' + yy' + zz'"]:::l3
+    C --> C2["a ⊥ b ⇔ xx' + yy' + zz' = 0"]:::l3
+    C --> C3["|a| = √(x² + y² + z²)"]:::l3
+    C --> C4["cos(a, b) = a·b : (|a|·|b|)"]:::l3
+
+    D --> D1["Độ dài AB, chu vi, góc"]:::l4
+    D --> D2["Vị trí máy bay theo radar"]:::l4
+    D --> D3["Khoảng cách khinh khí cầu"]:::l4
+    D --> D4["Kích thước nhà gỗ"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai8_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
