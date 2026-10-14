@@ -3822,6 +3822,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 10 Duong Thang Mat Phang (tiết 26-28)",
+"file": "KHBD_TOAN11_Bai10_DuongThangMatPhang_T26-28.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai10_DuongThangMatPhang_T26-28.docx",
+"kb": 784,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
@@ -3914,6 +3925,17 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
 "kb": 390,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bài 10 Duong Thang Mat Phang (tiết 26-28)",
+"file": "SoDoTuDuy_TOAN11_Bai10_DuongThangMatPhang_T26-28.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai10_DuongThangMatPhang_T26-28.png",
+"kb": 388,
 "ngay": "2026-10-15"
 },
 {
