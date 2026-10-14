@@ -4042,6 +4042,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 3. Đường tiệm cận của đồ thị hàm số",
+"file": "KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
+"kb": 1152,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
+"file": "KHBD_TOAN12_Bai4_KhaoSatHamSo_T14-18_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai4_KhaoSatHamSo_T14-18_HoaNhap.docx",
+"kb": 642,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
 "file": "KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
@@ -4053,10 +4075,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+"file": "KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20_HoaNhap.docx",
+"kb": 911,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
 "kb": 639,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài tập cuối chương I",
+"file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24_HoaNhap.docx",
+"kb": 643,
 "ngay": "2026-10-14"
 },
 {
@@ -4075,10 +4119,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "On Tap Giua Ki1 (tiết 25) Hoa Nhap",
+"file": "KHBD_TOAN12_OnTapGiuaKi1_T25_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_OnTapGiuaKi1_T25_HoaNhap.docx",
+"kb": 407,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "STEM Thiet Ke Hop (tiết 21-22)",
 "file": "KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
 "kb": 542,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "STEM Thiet Ke Hop (tiết 21-22) Hoa Nhap",
+"file": "KHBD_TOAN12_STEM_ThietKeHop_T21-22_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_STEM_ThietKeHop_T21-22_HoaNhap.docx",
+"kb": 547,
 "ngay": "2026-10-14"
 },
 {
