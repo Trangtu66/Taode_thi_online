@@ -3910,6 +3910,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "On Tap Giua Ki1 (tiết 22-23)",
+"file": "KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
+"kb": 390,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – Bài 1. Giá trị lượng giác của góc lượng giác",
 "file": "SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
@@ -4080,6 +4091,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai4_PhepQuay_DoiXungTam.png",
 "kb": 225,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 On Tap Giua Ki1 (tiết 22-23)",
+"file": "SoDoTuDuy_TOAN11_OnTapGiuaKi1_T22-23.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_OnTapGiuaKi1_T22-23.png",
+"kb": 327,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",

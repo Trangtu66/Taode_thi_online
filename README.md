@@ -890,6 +890,54 @@ graph TD
 
 ---
 
+### Toán 11 – Ôn tập giữa kì I *(Tiết 22–23)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>ÔN TẬP<br/>GIỮA KÌ I"]:::root
+    G --> A["① Chương I – Lượng giác"]:::n1
+    G --> B["② Chương II – Dãy số"]:::n2
+    G --> C["③ Chương III – Thống kê"]:::n3
+    G --> D["④ Đề giữa kì 90 phút"]:::n4
+
+    A --> A1["Góc lượng giác, radian"]:::l1
+    A --> A2["★ Giá trị LG, công thức LG"]:::l1
+    A --> A3["Hàm số LG: TXĐ, chu kì"]:::l1
+    A --> A4["★ PTLG cơ bản"]:::l1
+
+    B --> B1["Dãy số tăng, giảm, bị chặn"]:::l2
+    B --> B2["★ CSC: un, Sn"]:::l2
+    B --> B3["★ CSN: un, Sn"]:::l2
+    B --> B4["Bài toán thực tiễn"]:::l2
+
+    C --> C1["Mẫu ghép nhóm, giá trị đại diện"]:::l3
+    C --> C2["★ Số trung bình"]:::l3
+    C --> C3["Trung vị, tứ phân vị"]:::l3
+    C --> C4["★ Mốt"]:::l3
+
+    D --> D1["Phần I: 12 câu (3 điểm)"]:::l4
+    D --> D2["Phần II: 4 câu đúng – sai (4 điểm)"]:::l4
+    D --> D3["Phần III: 6 câu trả lời ngắn (3 điểm)"]:::l4
+    D --> D4["Phạm vi Bài 1 – Bài 9"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapgk1_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
