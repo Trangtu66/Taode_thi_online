@@ -1258,6 +1258,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài tập cuối Chương III. Các số đặc trưng đo mức độ phân tán *(Tiết 45)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG III<br/>Các số đặc trưng đo<br/>mức độ phân tán"]:::root
+    G --> A["① Khoảng biến thiên"]:::n1
+    G --> B["② Khoảng tứ phân vị"]:::n2
+    G --> C["③ Phương sai, độ lệch chuẩn"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ R = a(k+1) – a1"]:::l1
+    A --> A2["Dễ tính"]:::l1
+    A --> A3["Bị ảnh hưởng giá trị bất thường"]:::l1
+    A --> A4["Xấp xỉ R mẫu gốc"]:::l1
+
+    B --> B1["Nhóm chứa Qr, công thức Qr"]:::l2
+    B --> B2["★ ΔQ = Q3 – Q1"]:::l2
+    B --> B3["Không bị ảnh hưởng giá trị bất thường"]:::l2
+    B --> B4["Phát hiện giá trị bất thường"]:::l2
+
+    C --> C1["Giá trị đại diện, x̄"]:::l3
+    C --> C2["★ s² = Σmi xi² : n – x̄²"]:::l3
+    C --> C3["★ s = √s², cùng đơn vị"]:::l3
+    C --> C4["Đo phân tán quanh x̄"]:::l3
+
+    D --> D1["So sánh độ ổn định"]:::l4
+    D --> D2["Đo độ rủi ro đầu tư"]:::l4
+    D --> D3["Trung bình khác nhiều: dùng CV"]:::l4
+    D --> D4["Số liệu sản xuất ở địa phương"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong3_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
