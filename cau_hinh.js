@@ -193,6 +193,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Bài 6. Vectơ trong không gian", ma: "Củng cố – Bài 6. Vectơ trong không gian (Toán 12)", link: "cc_bai6_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 7. Hệ trục toạ độ trong không gian", ma: "Củng cố – Bài 7. Hệ trục toạ độ trong không gian (Toán 12)", link: "cc_bai7_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 8. Biểu thức toạ độ của các phép toán vectơ", ma: "Củng cố – Bài 8. Biểu thức toạ độ của các phép toán vectơ (Toán 12)", link: "cc_bai8_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối Chương II", ma: "Củng cố – Bài tập cuối Chương II. Vectơ và hệ trục toạ độ trong không gian (Toán 12)", link: "cc_chuong2_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

@@ -1114,6 +1114,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài tập cuối Chương II. Vectơ và hệ trục toạ độ trong không gian *(Tiết 40–41)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG II<br/>Vectơ và hệ trục<br/>toạ độ trong không gian"]:::root
+    G --> A["① Vectơ trong không gian"]:::n1
+    G --> B["② Hệ trục toạ độ"]:::n2
+    G --> C["③ Biểu thức toạ độ"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Bằng nhau, đối nhau"]:::l1
+    A --> A2["★ Quy tắc ba điểm, hình hộp"]:::l1
+    A --> A3["Trọng tâm tam giác, tứ diện"]:::l1
+    A --> A4["★ a·b = |a|·|b|·cos(a, b)"]:::l1
+
+    B --> B1["Oxyz, i, j, k"]:::l2
+    B --> B2["★ M(x; y; z) ⇔ OM = xi + yj + zk"]:::l2
+    B --> B3["Hình chiếu trên trục, mặt phẳng"]:::l2
+    B --> B4["MN = (xN – xM; …)"]:::l2
+
+    C --> C1["Cộng, trừ, nhân số theo từng toạ độ"]:::l3
+    C --> C2["★ Trung điểm, trọng tâm"]:::l3
+    C --> C3["★ a·b = xx' + yy' + zz'"]:::l3
+    C --> C4["Độ dài, góc, vuông góc"]:::l3
+
+    D --> D1["Lực, vận tốc, công"]:::l4
+    D --> D2["Vị trí đèn, camera, drone"]:::l4
+    D --> D3["Máy bay, radar"]:::l4
+    D --> D4["Nhà kho, phòng học"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong2_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
