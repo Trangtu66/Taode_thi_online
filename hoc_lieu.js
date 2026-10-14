@@ -3877,6 +3877,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 15 Gioi Han Day So (tiết 41-42)",
+"file": "KHBD_TOAN11_Bai15_GioiHanDaySo_T41-42.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai15_GioiHanDaySo_T41-42.docx",
+"kb": 550,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
@@ -4046,6 +4057,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai14_PhepChieuSongSong_T38-39.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai14_PhepChieuSongSong_T38-39.png",
 "kb": 346,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bài 15 Gioi Han Day So (tiết 41-42)",
+"file": "SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
+"kb": 319,
 "ngay": "2026-10-15"
 },
 {

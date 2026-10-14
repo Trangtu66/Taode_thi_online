@@ -1274,6 +1274,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài 15. Giới hạn của dãy số *(Tiết 41–42)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 15<br/>Giới hạn<br/>của dãy số"]:::root
+    G --> A["① Giới hạn hữu hạn"]:::n1
+    G --> B["② Quy tắc tính"]:::n2
+    G --> C["③ Cấp số nhân lùi vô hạn"]:::n3
+    G --> D["④ Giới hạn vô cực"]:::n4
+
+    A --> A1["★ lim un = 0: |un| nhỏ tuỳ ý"]:::l1
+    A --> A2["lim 1/n^k = 0; lim q^n = 0 (|q| < 1)"]:::l1
+    A --> A3["lim un = a ⇔ lim (un − a) = 0"]:::l1
+    A --> A4["lim c = c"]:::l1
+
+    B --> B1["Tổng, hiệu, tích, thương"]:::l2
+    B --> B2["lim √un = √a"]:::l2
+    B --> B3["★ Chia tử, mẫu cho n bậc cao nhất"]:::l2
+    B --> B4["Nhân liên hợp"]:::l2
+
+    C --> C1["|q| < 1"]:::l3
+    C --> C2["★ S = u1 : (1 − q)"]:::l3
+    C --> C3["Số thập phân tuần hoàn"]:::l3
+    C --> C4["Nghịch lí Zeno"]:::l3
+
+    D --> D1["lim n^k = +∞; lim q^n = +∞ (q > 1)"]:::l4
+    D --> D2["a : (±∞) → 0"]:::l4
+    D --> D3["a > 0 chia 0⁺ → +∞"]:::l4
+    D --> D4["+∞ · a (a > 0) → +∞"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai15_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
