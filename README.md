@@ -986,6 +986,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài 11. Hai đường thẳng song song *(Tiết 29–31)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 11<br/>Hai đường thẳng<br/>song song"]:::root
+    G --> A["① Vị trí tương đối"]:::n1
+    G --> B["② Tính chất"]:::n2
+    G --> C["③ Ba đường giao tuyến"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Đồng phẳng: cắt nhau, song song, trùng"]:::l1
+    A --> A2["★ Chéo nhau: không đồng phẳng"]:::l1
+    A --> A3["Không có điểm chung: song song hoặc chéo"]:::l1
+    A --> A4["Có đúng 1 mặt phẳng chứa 2 đường song song"]:::l1
+
+    B --> B1["★ Qua 1 điểm có đúng 1 đường song song"]:::l2
+    B --> B2["★ Cùng song song đường thứ ba ⇒ song song"]:::l2
+    B --> B3["Đường trung bình, hình bình hành"]:::l2
+    B --> B4["Trên mỗi mặt phẳng dùng hình học phẳng"]:::l2
+
+    C --> C1["★ Đồng quy hoặc đôi một song song"]:::l3
+    C --> C2["Hệ quả: giao tuyến song song 2 đường song song"]:::l3
+    C --> C3["Tìm giao tuyến qua S song song AB"]:::l3
+    C --> C4["Chứng minh song song"]:::l3
+
+    D --> D1["Cầu vượt, đường trên cao"]:::l4
+    D --> D2["Khung cửi, tia laser"]:::l4
+    D --> D3["Cánh cửa sổ"]:::l4
+    D --> D4["Mặt hyperbol"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai11_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
