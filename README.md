@@ -1162,6 +1162,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 9. Khoảng biến thiên và khoảng tứ phân vị *(Tiết 42)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 9<br/>Khoảng biến thiên<br/>và khoảng tứ phân vị"]:::root
+    G --> A["① Khoảng biến thiên"]:::n1
+    G --> B["② Tứ phân vị"]:::n2
+    G --> C["③ Khoảng tứ phân vị"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ R = a(k+1) – a1"]:::l1
+    A --> A2["Nhóm đầu, nhóm cuối có tần số > 0"]:::l1
+    A --> A3["Xấp xỉ R của mẫu gốc (lớn hơn)"]:::l1
+    A --> A4["Bị ảnh hưởng bởi giá trị bất thường"]:::l1
+
+    B --> B1["Xác định nhóm chứa Qr"]:::l2
+    B --> B2["★ Qr = ap + (rn/4 – cộng dồn trước) : mp · h"]:::l2
+    B --> B3["Q1, Q2, Q3"]:::l2
+    B --> B4["n = m1 + … + mk"]:::l2
+
+    C --> C1["★ ΔQ = Q3 – Q1"]:::l3
+    C --> C2["Đo phân tán nửa giữa"]:::l3
+    C --> C3["Không bị ảnh hưởng giá trị bất thường"]:::l3
+    C --> C4["Càng lớn càng phân tán"]:::l3
+
+    D --> D1["So sánh nhiệt độ hai tháng"]:::l4
+    D --> D2["Thời gian chờ khám bệnh"]:::l4
+    D --> D3["Thu nhập, chiều cao"]:::l4
+    D --> D4["Năng suất cà phê"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai9_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*

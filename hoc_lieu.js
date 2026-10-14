@@ -4218,6 +4218,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 9 Khoang Bien Thien Tu Phan Vi (tiết 42)",
+"file": "KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.docx",
+"kb": 556,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 9 Khoang Bien Thien Tu Phan Vi (tiết 42) Hoa Nhap",
+"file": "KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42_HoaNhap.docx",
+"kb": 559,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
@@ -4507,6 +4529,17 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy TOAN12 Bài 8 Bieu Thuc Toa Do (tiết 37-39)",
 "file": "SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
+"kb": 343,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bài 9 Khoang Bien Thien Tu Phan Vi (tiết 42)",
+"file": "SoDoTuDuy_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.png",
 "kb": 343,
 "ngay": "2026-10-14"
 },
