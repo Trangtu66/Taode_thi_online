@@ -3470,6 +3470,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 3. Bất phương trình bậc nhất hai ẩn",
+"file": "KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
+"kb": 1806,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_TOAN10_Bai4,5_T15-21.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai4,5_T15-21.docx",
@@ -3482,9 +3493,31 @@ window.HOC_LIEU = [
 "loai": "khbd",
 "khoi": 10,
 "ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
+"file": "KHBD_TOAN10_Bai5_GTLG_T16-17_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_GTLG_T16-17_HoaNhap.docx",
+"kb": 3527,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "KHBD_TOAN10_Bai5_T16-17.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_T16-17.docx",
 "kb": 3684,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 6. Hệ thức lượng trong tam giác",
+"file": "KHBD_TOAN10_Bai6_HeThucLuong_T18-21_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai6_HeThucLuong_T18-21_HoaNhap.docx",
+"kb": 1896,
 "ngay": "2026-10-14"
 },
 {
@@ -3514,10 +3547,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài tập cuối chương II",
+"file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15_HoaNhap.docx",
+"kb": 1291,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài tập cuối chương III",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
 "kb": 313,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài tập cuối chương III",
+"file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22_HoaNhap.docx",
+"kb": 300,
 "ngay": "2026-10-14"
 },
 {
@@ -3540,6 +3595,17 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_CHUONGIII.pdf",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_CHUONGIII.pdf",
 "kb": 723,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
+"file": "KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
+"kb": 808,
 "ngay": "2026-10-14"
 },
 {
