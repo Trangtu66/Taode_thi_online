@@ -1082,6 +1082,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài 13. Hai mặt phẳng song song *(Tiết 34, 37)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 13<br/>Hai mặt phẳng<br/>song song"]:::root
+    G --> A["① Định nghĩa"]:::n1
+    G --> B["② Điều kiện, tính chất"]:::n2
+    G --> C["③ Định lí Thalès"]:::n3
+    G --> D["④ Lăng trụ, hình hộp"]:::n4
+
+    A --> A1["★ (α) // (β): không có điểm chung"]:::l1
+    A --> A2["d ⊂ (α) // (β) ⇒ d // (β)"]:::l1
+    A --> A3["Mặt bậc thang, ruộng bậc thang"]:::l1
+    A --> A4["Tháp Pisa: sàn không song song mặt đất"]:::l1
+
+    B --> B1["★ (α) chứa 2 đường cắt nhau // (β)"]:::l2
+    B --> B2["Qua 1 điểm có duy nhất 1 mặt phẳng song song"]:::l2
+    B --> B3["★ (R) cắt (P) // (Q) ⇒ hai giao tuyến song song"]:::l2
+    B --> B4["Cùng song song mặt thứ ba ⇒ song song"]:::l2
+
+    C --> C1["★ Ba mặt phẳng song song chắn đoạn tỉ lệ"]:::l3
+    C --> C2["AB : A'B' = BC : B'C' = AC : A'C'"]:::l3
+    C --> C3["Chia đoạn theo tỉ lệ"]:::l3
+    C --> C4["Đo mực nước"]:::l3
+
+    D --> D1["Mặt bên là hình bình hành"]:::l4
+    D --> D2["Cạnh bên song song, bằng nhau"]:::l4
+    D --> D3["★ Hình hộp: 4 đường chéo đồng quy"]:::l4
+    D --> D4["Mặt đối diện song song"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai13_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
