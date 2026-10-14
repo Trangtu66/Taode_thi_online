@@ -3397,7 +3397,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai1_MenhDe_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai1_MenhDe_Toan10_v4.docx",
 "kb": 1576,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3408,7 +3408,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai2_TapHop_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai2_TapHop_Toan10_v4.docx",
 "kb": 2631,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3419,7 +3419,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai3_BPT_BacNhatHaiAn_Toan10_v2.docx",
 "url": "mon/toan/khbd/lop10/KHBD_Bai3_BPT_BacNhatHaiAn_Toan10_v2.docx",
 "kb": 1802,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3440,8 +3440,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I (bản 4)",
 "file": "KHBD_BaiTapCuoiChuong1_Toan10_v4.docx",
 "url": "mon/toan/khbd/lop10/KHBD_BaiTapCuoiChuong1_Toan10_v4.docx",
-"kb": 1321,
-"ngay": "2026-10-08"
+"kb": 1320,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3452,7 +3452,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai1_HePT_BacNhatBaAn_Toan10.docx",
 "url": "mon/toan/khbd/lop10/KHBD_CD1_Bai1_HePT_BacNhatBaAn_Toan10.docx",
 "kb": 1024,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3463,7 +3463,7 @@ window.HOC_LIEU = [
 "file": "KHBD_STEM_Bai4_HeBPT_KhauPhanAn_Toan10.docx",
 "url": "mon/toan/khbd/lop10/KHBD_STEM_Bai4_HeBPT_KhauPhanAn_Toan10.docx",
 "kb": 803,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3474,7 +3474,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
 "kb": 1806,
-"ngay": "2026-10-14"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3484,8 +3484,8 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_TOAN10_Bai4,5_T15-21.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai4,5_T15-21.docx",
-"kb": 3684,
-"ngay": "2026-10-14"
+"kb": 3678,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3496,7 +3496,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_Bai5_GTLG_T16-17_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_GTLG_T16-17_HoaNhap.docx",
 "kb": 3527,
-"ngay": "2026-10-14"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3506,8 +3506,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "KHBD_TOAN10_Bai5_T16-17.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_T16-17.docx",
-"kb": 3684,
-"ngay": "2026-10-14"
+"kb": 3678,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3517,8 +3517,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6. Hệ thức lượng trong tam giác",
 "file": "KHBD_TOAN10_Bai6_HeThucLuong_T18-21_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai6_HeThucLuong_T18-21_HoaNhap.docx",
-"kb": 1896,
-"ngay": "2026-10-14"
+"kb": 1897,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3529,7 +3529,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_Bai6_T18-21.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai6_T18-21.docx",
 "kb": 1893,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3539,8 +3539,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương II",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
-"kb": 1287,
-"ngay": "2026-10-08"
+"kb": 1286,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3551,7 +3551,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15_HoaNhap.docx",
 "kb": 1291,
-"ngay": "2026-10-14"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3561,8 +3561,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương III",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
-"kb": 313,
-"ngay": "2026-10-14"
+"kb": 308,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3573,7 +3573,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22_HoaNhap.docx",
 "kb": 300,
-"ngay": "2026-10-14"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3583,8 +3583,8 @@ window.HOC_LIEU = [
 "ten": "CHUONGIII",
 "file": "KHBD_TOAN10_CHUONGIII.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_CHUONGIII.docx",
-"kb": 3965,
-"ngay": "2026-10-14"
+"kb": 3958,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3606,7 +3606,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
 "kb": 808,
-"ngay": "2026-10-14"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3737,8 +3737,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Giá trị lượng giác của góc lượng giác (bản 3)",
 "file": "KHBD_Bai1_GTLG_GocLuongGiac_Toan11_v3.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai1_GTLG_GocLuongGiac_Toan11_v3.docx",
-"kb": 1825,
-"ngay": "2026-10-08"
+"kb": 1824,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3749,7 +3749,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai2_CongThucLuongGiac_Toan11_v2.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai2_CongThucLuongGiac_Toan11_v2.docx",
 "kb": 795,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3760,7 +3760,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai3_HamSoLuongGiac_Toan11_v2.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai3_HamSoLuongGiac_Toan11_v2.docx",
 "kb": 1097,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3771,7 +3771,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai4_PTLG_CoBan_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_Bai4_PTLG_CoBan_Toan11.docx",
 "kb": 1767,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3782,7 +3782,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai1_PhepBienHinh_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai1_PhepBienHinh_Toan11.docx",
 "kb": 1292,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3793,7 +3793,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai2_PhepTinhTien_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai2_PhepTinhTien_Toan11.docx",
 "kb": 1465,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3804,7 +3804,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai3_PhepDoiXungTruc_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai3_PhepDoiXungTruc_Toan11.docx",
 "kb": 1448,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3815,7 +3815,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai4_PhepQuay_DoiXungTam_Toan11.docx",
 "url": "mon/toan/khbd/lop11/KHBD_CD1_Bai4_PhepQuay_DoiXungTam_Toan11.docx",
 "kb": 1446,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3826,7 +3826,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
 "kb": 616,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3837,7 +3837,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_Bai6_T13-14.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai6_T13-14.docx",
 "kb": 786,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3847,8 +3847,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7. Cấp số nhân",
 "file": "KHBD_TOAN11_Bai7_T15-16.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai7_T15-16.docx",
-"kb": 602,
-"ngay": "2026-10-08"
+"kb": 489,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3859,7 +3859,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_Bai8_MauSoLieuGhepNhom_T18.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai8_MauSoLieuGhepNhom_T18.docx",
 "kb": 469,
-"ngay": "2026-10-09"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3870,7 +3870,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai9_CacSoDacTrungDoXuTheTrungTam_T19-20.docx",
 "kb": 547,
-"ngay": "2026-10-09"
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3881,7 +3881,18 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong1_T10.docx",
 "kb": 776,
-"ngay": "2026-10-08"
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Bai Tap Cuoi Chuong2 (tiết 17)",
+"file": "KHBD_TOAN11_BaiTapCuoiChuong2_T17.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong2_T17.docx",
+"kb": 807,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
@@ -3992,6 +4003,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong1_T10.png",
 "kb": 250,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bai Tap Cuoi Chuong2 (tiết 17)",
+"file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong2_T17.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong2_T17.png",
+"kb": 327,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",

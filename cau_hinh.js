@@ -109,6 +109,7 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Công nghệ 11 · Củng cố", ten: "Bài 1. Vai trò và triển vọng của chăn nuôi", ma: "Củng cố – Công nghệ 11 · Bài 1: Vai trò và triển vọng của chăn nuôi", link: "cn_cc_bai1_k11.html" },
   { khoi: 11, nhom: "Lịch sử 11 · Củng cố", ten: "Bài 1. Một số vấn đề chung về cách mạng tư sản", ma: "Củng cố – Lịch sử 11 · Bài 1: Một số vấn đề chung về cách mạng tư sản", link: "su_cc_bai1_k11.html" },
   { khoi: 11, nhom: "Địa lí 11 · Củng cố", ten: "Bài 1. Sự khác biệt về trình độ phát triển kinh tế – xã hội của các nhóm nước", ma: "Củng cố – Địa lí 11 · Bài 1: Sự khác biệt về trình độ phát triển kinh tế – xã hội của các nhóm nước", link: "dia_cc_bai1_k11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "Bài tập cuối Chương II", ma: "Củng cố – Bài tập cuối Chương II. Dãy số. Cấp số cộng và cấp số nhân (Toán 11)", link: "cc_chuong2_t11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
