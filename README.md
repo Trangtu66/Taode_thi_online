@@ -1306,6 +1306,54 @@ graph TD
 
 ---
 
+### Toán 12 – Ôn tập kiểm tra cuối kì I *(Tiết 46–47)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>ÔN TẬP<br/>CUỐI KÌ I"]:::root
+    G --> A["① Chương I – Hàm số"]:::n1
+    G --> B["② Chương II – Vectơ"]:::n2
+    G --> C["③ Chương III – Thống kê"]:::n3
+    G --> D["④ Đề cuối kì 90 phút"]:::n4
+
+    A --> A1["★ Đơn điệu, cực trị: dấu f'"]:::l1
+    A --> A2["GTLN – GTNN trên đoạn"]:::l1
+    A --> A3["Tiệm cận đứng, ngang, xiên"]:::l1
+    A --> A4["Khảo sát, bài toán tối ưu"]:::l1
+
+    B --> B1["Quy tắc ba điểm, hình hộp"]:::l2
+    B --> B2["★ Toạ độ điểm, vectơ trong Oxyz"]:::l2
+    B --> B3["★ a·b = xx' + yy' + zz'"]:::l2
+    B --> B4["Trung điểm, trọng tâm, độ dài, góc"]:::l2
+
+    C --> C1["Khoảng biến thiên R"]:::l3
+    C --> C2["★ ΔQ = Q3 – Q1"]:::l3
+    C --> C3["★ s² = Σmi xi² : n – x̄², s = √s²"]:::l3
+    C --> C4["So sánh phân tán, rủi ro"]:::l3
+
+    D --> D1["Phần I: 12 câu (3 điểm)"]:::l4
+    D --> D2["Phần II: 4 câu đúng – sai (4 điểm)"]:::l4
+    D --> D3["Phần III: 6 câu trả lời ngắn (3 điểm)"]:::l4
+    D --> D4["Phạm vi Bài 1 – Bài 10"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapck1_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
