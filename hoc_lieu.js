@@ -3844,6 +3844,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 12 Duong Thang Song Song Mat Phang (tiết 32-33)",
+"file": "KHBD_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.docx",
+"kb": 676,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
@@ -3958,6 +3969,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.png",
 "kb": 376,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bài 12 Duong Thang Song Song Mat Phang (tiết 32-33)",
+"file": "SoDoTuDuy_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.png",
+"kb": 349,
 "ngay": "2026-10-15"
 },
 {
