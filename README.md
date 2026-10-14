@@ -842,6 +842,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài tập cuối Chương III. Các số đặc trưng đo xu thế trung tâm *(Tiết 21)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG III<br/>Các số đặc trưng đo<br/>xu thế trung tâm"]:::root
+    G --> A["① Mẫu số liệu ghép nhóm"]:::n1
+    G --> B["② Số trung bình"]:::n2
+    G --> C["③ Trung vị, tứ phân vị"]:::n3
+    G --> D["④ Mốt"]:::n4
+
+    A --> A1["Nhóm [a; b), tần số"]:::l1
+    A --> A2["Giá trị đại diện (a + b) : 2"]:::l1
+    A --> A3["Ghép nhóm: không quá nhiều, quá ít nhóm"]:::l1
+    A --> A4["Hiệu chỉnh nhóm rời rạc k1 – k2"]:::l1
+
+    B --> B1["★ x̄ = Σmi xi : n"]:::l2
+    B --> B2["Xấp xỉ trung bình mẫu gốc"]:::l2
+    B --> B3["Đại diện cho mức trung bình"]:::l2
+    B --> B4["Bị ảnh hưởng giá trị bất thường"]:::l2
+
+    C --> C1["Nhóm chứa Qr: tần số tích luỹ"]:::l3
+    C --> C2["★ Qr = ap + (rn/4 – cộng dồn trước) : mp · h"]:::l3
+    C --> C3["Q2 là trung vị"]:::l3
+    C --> C4["Ngưỡng 25%, 50%, 75%"]:::l3
+
+    D --> D1["Nhóm có tần số lớn nhất"]:::l4
+    D --> D2["★ Mo = aj + (mj – mj–1) : [(mj – mj–1) + (mj – mj+1)] · h"]:::l4
+    D --> D3["Nhóm cùng độ dài"]:::l4
+    D --> D4["Giá trị xuất hiện nhiều nhất"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong3_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*

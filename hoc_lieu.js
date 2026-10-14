@@ -3899,6 +3899,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bai Tap Cuoi Chuong3 (tiết 21)",
+"file": "KHBD_TOAN11_BaiTapCuoiChuong3_T21.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong3_T21.docx",
+"kb": 525,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – Bài 1. Giá trị lượng giác của góc lượng giác",
 "file": "SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai1_GocLuongGiac_T1-3.png",
@@ -4013,6 +4024,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong2_T17.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong2_T17.png",
 "kb": 327,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bai Tap Cuoi Chuong3 (tiết 21)",
+"file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong3_T21.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong3_T21.png",
+"kb": 375,
 "ngay": "2026-10-15"
 },
 {
