@@ -4496,7 +4496,7 @@ window.HOC_LIEU = [
 "ten": "Ôn tập giữa kì I",
 "file": "Slide_TOAN12_OnTapGiuaKi1_T25.pptx",
 "url": "mon/toan/slide/lop12/Slide_TOAN12_OnTapGiuaKi1_T25.pptx",
-"kb": 441,
+"kb": 443,
 "ngay": "2026-10-14"
 },
 {
