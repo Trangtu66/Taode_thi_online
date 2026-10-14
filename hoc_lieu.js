@@ -4108,10 +4108,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
+"file": "KHDH_Bai4_KhaoSatHamSo_Lop12_KT_VanDong_Nhin.docx",
+"url": "mon/toan/khbd/lop12/KHDH_Bai4_KhaoSatHamSo_Lop12_KT_VanDong_Nhin.docx",
+"kb": 644,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
 "file": "KHDH_Bai5_UngDungDaoHam_Lop12_KT.docx",
 "url": "mon/toan/khbd/lop12/KHDH_Bai5_UngDungDaoHam_Lop12_KT.docx",
 "kb": 909,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
+"file": "KHDH_Bai5_UngDungDaoHam_Lop12_KT_VanDong_Nhin.docx",
+"url": "mon/toan/khbd/lop12/KHDH_Bai5_UngDungDaoHam_Lop12_KT_VanDong_Nhin.docx",
+"kb": 911,
 "ngay": "2026-10-14"
 },
 {
@@ -4130,6 +4152,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài tập cuối chương I",
+"file": "KHDH_BaiTapCuoiChuong1_Lop12_KT_VanDong_Nhin.docx",
+"url": "mon/toan/khbd/lop12/KHDH_BaiTapCuoiChuong1_Lop12_KT_VanDong_Nhin.docx",
+"kb": 644,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "KHDH On Tap Giua Ki1 Lop12 KT",
 "file": "KHDH_OnTapGiuaKi1_Lop12_KT.docx",
 "url": "mon/toan/khbd/lop12/KHDH_OnTapGiuaKi1_Lop12_KT.docx",
@@ -4141,10 +4174,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "KHDH On Tap Giua Ki1 Lop12 KT Van Dong Nhin",
+"file": "KHDH_OnTapGiuaKi1_Lop12_KT_VanDong_Nhin.docx",
+"url": "mon/toan/khbd/lop12/KHDH_OnTapGiuaKi1_Lop12_KT_VanDong_Nhin.docx",
+"kb": 408,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "KHDH STEM Thiet Ke Hop Lop12 KT",
 "file": "KHDH_STEM_ThietKeHop_Lop12_KT.docx",
 "url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT.docx",
 "kb": 545,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "KHDH STEM Thiet Ke Hop Lop12 KT Van Dong Nhin",
+"file": "KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
+"url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
+"kb": 547,
 "ngay": "2026-10-14"
 },
 {
