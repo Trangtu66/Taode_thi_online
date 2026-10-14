@@ -1178,6 +1178,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài 14. Phép chiếu song song *(Tiết 38–39)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 14<br/>Phép chiếu<br/>song song"]:::root
+    G --> A["① Định nghĩa"]:::n1
+    G --> B["② Tính chất"]:::n2
+    G --> C["③ Hình biểu diễn"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Mặt phẳng chiếu (α), phương chiếu Δ"]:::l1
+    A --> A2["★ M' = (α) ∩ đường qua M song song Δ"]:::l1
+    A --> A3["Hình chiếu của hình H"]:::l1
+    A --> A4["Đường cùng phương Δ: chiếu thành điểm"]:::l1
+
+    B --> B1["★ Giữ thẳng hàng và thứ tự"]:::l2
+    B --> B2["★ Song song → song song (hoặc trùng)"]:::l2
+    B --> B3["★ Giữ tỉ số đoạn cùng giá / giá song song"]:::l2
+    B --> B4["Trung điểm → trung điểm"]:::l2
+
+    C --> C1["Tam giác → tam giác"]:::l3
+    C --> C2["Hình vuông, chữ nhật, thoi → hình bình hành"]:::l3
+    C --> C3["Hình thang → hình thang (giữ tỉ số đáy)"]:::l3
+    C --> C4["★ Hình tròn → elip"]:::l3
+
+    D --> D1["Bóng nắng, bóng thang"]:::l4
+    D --> D2["Công nghệ goal-line"]:::l4
+    D --> D3["Chữ nổi 3D"]:::l4
+    D --> D4["Phép chiếu xuyên tâm, luật xa gần"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai14_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
