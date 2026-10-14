@@ -3888,6 +3888,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 16 Gioi Han Ham So (tiết 43-44)",
+"file": "KHBD_TOAN11_Bai16_GioiHanHamSo_T43-44.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai16_GioiHanHamSo_T43-44.docx",
+"kb": 562,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Bài 5. Dãy số",
 "file": "KHBD_TOAN11_Bai5_T11-12.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai5_T11-12.docx",
@@ -4068,6 +4079,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
 "kb": 319,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bài 16 Gioi Han Ham So (tiết 43-44)",
+"file": "SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
+"kb": 325,
 "ngay": "2026-10-15"
 },
 {
