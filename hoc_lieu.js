@@ -1834,8 +1834,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Vẻ đẹp của thơ ca",
 "file": "KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
-"kb": 1398,
-"ngay": "2026-10-08"
+"kb": 1410,
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
@@ -1845,8 +1845,8 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
-"kb": 1428,
-"ngay": "2026-10-08"
+"kb": 1435,
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
@@ -1868,7 +1868,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.png",
 "kb": 283,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
@@ -1879,7 +1879,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
 "kb": 293,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
@@ -2032,8 +2032,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Vẻ đẹp của thơ ca",
 "file": "Slide_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.pptx",
 "url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.pptx",
-"kb": 273,
-"ngay": "2026-10-08"
+"kb": 286,
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
@@ -2044,7 +2044,7 @@ window.HOC_LIEU = [
 "file": "Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
 "url": "mon/ngu_van/slide/lop10/Slide_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.pptx",
 "kb": 287,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "ngu_van",
