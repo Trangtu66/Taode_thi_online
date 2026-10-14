@@ -1210,6 +1210,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 10. Phương sai và độ lệch chuẩn *(Tiết 43–44)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 10<br/>Phương sai và<br/>độ lệch chuẩn"]:::root
+    G --> A["① Phương sai"]:::n1
+    G --> B["② Độ lệch chuẩn"]:::n2
+    G --> C["③ Độ rủi ro"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Giá trị đại diện xi = (ai + ai+1) : 2"]:::l1
+    A --> A2["★ s² = [m1(x1 – x̄)² + … + mk(xk – x̄)²] : n"]:::l1
+    A --> A3["s² = (m1x1² + … + mkxk²) : n – x̄²"]:::l1
+    A --> A4["Ŝ²: chia cho n – 1"]:::l1
+
+    B --> B1["★ s = √s²"]:::l2
+    B --> B2["Cùng đơn vị với số liệu"]:::l2
+    B --> B3["Càng lớn càng phân tán"]:::l2
+    B --> B4["Xấp xỉ cho mẫu gốc"]:::l2
+
+    C --> C1["Độ lệch chuẩn của lợi nhuận"]:::l3
+    C --> C2["★ s càng lớn càng rủi ro"]:::l3
+    C --> C3["Trung bình khác nhiều: không dùng s"]:::l3
+    C --> C4["Hệ số biến thiên CV = s : x̄"]:::l3
+
+    D --> D1["Máy đo độ ẩm"]:::l4
+    D --> D2["Cân nặng khi ăn kiêng"]:::l4
+    D --> D3["Đầu tư lĩnh vực A, B"]:::l4
+    D --> D4["Cà phê hay hồ tiêu"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai10_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*

@@ -4108,6 +4108,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 10 Phuong Sai Do Lech Chuan (tiết 43-44)",
+"file": "KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.docx",
+"kb": 511,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 10 Phuong Sai Do Lech Chuan (tiết 43-44) Hoa Nhap",
+"file": "KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44_HoaNhap.docx",
+"kb": 514,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 3. Đường tiệm cận của đồ thị hàm số",
 "file": "KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
@@ -4442,6 +4464,17 @@ window.HOC_LIEU = [
 "file": "KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
 "url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
 "kb": 548,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bài 10 Phuong Sai Do Lech Chuan (tiết 43-44)",
+"file": "SoDoTuDuy_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.png",
+"kb": 331,
 "ngay": "2026-10-14"
 },
 {
