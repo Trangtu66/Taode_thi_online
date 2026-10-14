@@ -4394,6 +4394,72 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "TNGang Tay (tiết 53-54)",
+"file": "KHBD_TOAN12_TNGangTay_T53-54.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGangTay_T53-54.docx",
+"kb": 658,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "TNGang Tay (tiết 53-54) Hoa Nhap",
+"file": "KHBD_TOAN12_TNGangTay_T53-54_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGangTay_T53-54_HoaNhap.docx",
+"kb": 661,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "TNGeo Gebra Khao Sat Ham So (tiết 50-51)",
+"file": "KHBD_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51.docx",
+"kb": 597,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "TNGeo Gebra Khao Sat Ham So (tiết 50-51) Hoa Nhap",
+"file": "KHBD_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51_HoaNhap.docx",
+"kb": 600,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "TNGeo Gebra Vecto Tong (tiết 52)",
+"file": "KHBD_TOAN12_TNGeoGebra_VectoTong_T52.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGeoGebra_VectoTong_T52.docx",
+"kb": 552,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "TNGeo Gebra Vecto Tong (tiết 52) Hoa Nhap",
+"file": "KHBD_TOAN12_TNGeoGebra_VectoTong_T52_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_TNGeoGebra_VectoTong_T52_HoaNhap.docx",
+"kb": 555,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 3. Đường tiệm cận của đồ thị hàm số",
 "file": "KHDH_Bai3_DuongTiemCan_Lop12_KT.docx",
 "url": "mon/toan/khbd/lop12/KHDH_Bai3_DuongTiemCan_Lop12_KT.docx",
@@ -4663,6 +4729,39 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_OnTapCuoiKi1_T46-47.png",
 "kb": 354,
 "ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 TNGang Tay (tiết 53-54)",
+"file": "SoDoTuDuy_TOAN12_TNGangTay_T53-54.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_TNGangTay_T53-54.png",
+"kb": 308,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 TNGeo Gebra Khao Sat Ham So (tiết 50-51)",
+"file": "SoDoTuDuy_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_TNGeoGebra_KhaoSatHamSo_T50-51.png",
+"kb": 325,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 TNGeo Gebra Vecto Tong (tiết 52)",
+"file": "SoDoTuDuy_TOAN12_TNGeoGebra_VectoTong_T52.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_TNGeoGebra_VectoTong_T52.png",
+"kb": 306,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",

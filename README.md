@@ -1354,6 +1354,150 @@ graph TD
 
 ---
 
+### Toán 12 – Thực hành: Khảo sát và vẽ đồ thị hàm số với GeoGebra *(Tiết 50–51)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>THỰC HÀNH<br/>Khảo sát hàm số<br/>với GeoGebra"]:::root
+    G --> A["① Đạo hàm"]:::n1
+    G --> B["② Cực trị – GTLN, GTNN"]:::n2
+    G --> C["③ Tiệm cận"]:::n3
+    G --> D["④ Vẽ đồ thị"]:::n4
+
+    A --> A1["★ Derivative(f) – DaoHam"]:::l1
+    A --> A2["Derivative(f, n): cấp n"]:::l1
+    A --> A3["f(a): đạo hàm tại điểm"]:::l1
+    A --> A4["Kiểm tra lời giải tay"]:::l1
+
+    B --> B1["★ Extremum(f) – CucTri"]:::l2
+    B --> B2["Extremum(f, a, b)"]:::l2
+    B --> B3["Max(f, a, b), Min(f, a, b)"]:::l2
+    B --> B4["(?, ?): không có cực trị"]:::l2
+
+    C --> C1["★ Asymptote(f) – TiemCan"]:::l3
+    C --> C2["{ }: không có tiệm cận"]:::l3
+    C --> C3["TCĐ, TCN, TCX"]:::l3
+    C --> C4["Đối chiếu chia đa thức"]:::l3
+
+    D --> D1["View → Graphics 2"]:::l4
+    D --> D2["Nhập hàm vào ô lệnh"]:::l4
+    D --> D3["Vẽ tiệm cận trước"]:::l4
+    D --> D4["Phóng to, thu nhỏ quan sát"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_geogebra_hamso_t12.html>
+
+---
+
+### Toán 12 – Thực hành: Vẽ vectơ tổng của ba vectơ trong không gian bằng GeoGebra *(Tiết 52)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>THỰC HÀNH<br/>Vectơ tổng của ba vectơ<br/>với GeoGebra 3D"]:::root
+    G --> A["① Chuẩn bị"]:::n1
+    G --> B["② Dựng AE"]:::n2
+    G --> C["③ Dựng AF"]:::n3
+    G --> D["④ Mở rộng"]:::n4
+
+    A --> A1["Phối cảnh – Vẽ đồ hoạ 3D"]:::l1
+    A --> A2["Ẩn/hiện hệ trục"]:::l1
+    A --> A3["Điểm mới A, B, C, D"]:::l1
+    A --> A4["Di chuyển điểm 4 chiều, 2 chiều"]:::l1
+
+    B --> B1["Vectơ qua 2 điểm: AB, AC"]:::l2
+    B --> B2["Đường song song"]:::l2
+    B --> B3["Giao điểm E"]:::l2
+    B --> B4["★ AE = AB + AC"]:::l2
+
+    C --> C1["Song song với AD, AE"]:::l3
+    C --> C2["Giao điểm F"]:::l3
+    C --> C3["★ AF = AE + AD"]:::l3
+    C --> C4["★ u = AB + AC + AD"]:::l3
+
+    D --> D1["Quy tắc hình hộp"]:::l4
+    D --> D2["Nhập toạ độ, kiểm chứng"]:::l4
+    D --> D3["Hợp lực ba sợi dây"]:::l4
+    D --> D4["Lưu file .ggb"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_geogebra_vecto_t12.html>
+
+---
+
+### Toán 12 – Thực hành trải nghiệm: Độ dài gang tay *(Tiết 53–54)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>TRẢI NGHIỆM<br/>Độ dài gang tay"]:::root
+    G --> A["① Thu thập dữ liệu"]:::n1
+    G --> B["② Tóm tắt dữ liệu"]:::n2
+    G --> C["③ Phân tích"]:::n3
+    G --> D["④ Công nghệ"]:::n4
+
+    A --> A1["Thước có vạch cm"]:::l1
+    A --> A2["Ngón cái ở vạch 0"]:::l1
+    A --> A3["Dãn ngón út tối đa"]:::l1
+    A --> A4["Phiếu Google Forms"]:::l1
+
+    B --> B1["Bảng tần số ghép nhóm"]:::l2
+    B --> B2["Nhóm [16;17), …, [23;24)"]:::l2
+    B --> B3["Biểu đồ tần số"]:::l2
+    B --> B4["Tách nam, nữ"]:::l2
+
+    C --> C1["★ x̄ = Σmi xi : n"]:::l3
+    C --> C2["★ s², s; CV = s : x̄"]:::l3
+    C --> C3["So sánh nam – nữ"]:::l3
+    C --> C4["Q1, Q3, ΔQ"]:::l3
+
+    D --> D1["Excel: AVERAGE, SUM"]:::l4
+    D --> D2["SQRT tính s"]:::l4
+    D --> D3["Bảng T.2: x̄ ≈ 18,71; s ≈ 1,05 (nữ)"]:::l4
+    D --> D4["Bàn phím piano DS5.5, DS6.0"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_gangtay_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
