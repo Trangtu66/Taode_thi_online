@@ -1226,6 +1226,54 @@ graph TD
 
 ---
 
+### Toán 11 – Bài tập cuối Chương IV. Quan hệ song song trong không gian *(Tiết 40)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG IV<br/>Quan hệ song song<br/>trong không gian"]:::root
+    G --> A["① Đường thẳng – mặt phẳng"]:::n1
+    G --> B["② Hai đường thẳng song song"]:::n2
+    G --> C["③ Đường thẳng // mặt phẳng; 2 mặt phẳng //"]:::n3
+    G --> D["④ Phép chiếu song song"]:::n4
+
+    A --> A1["Tính chất thừa nhận"]:::l1
+    A --> A2["★ Giao tuyến: 2 điểm chung"]:::l1
+    A --> A3["★ Giao điểm: qua mặt phẳng phụ"]:::l1
+    A --> A4["Hình chóp, tứ diện"]:::l1
+
+    B --> B1["Cắt, song song, chéo"]:::l2
+    B --> B2["Bắc cầu"]:::l2
+    B --> B3["★ Ba đường giao tuyến"]:::l2
+    B --> B4["Giao tuyến song song"]:::l2
+
+    C --> C1["★ a // b ⊂ (P), a ⊄ (P)"]:::l3
+    C --> C2["★ 2 đường cắt nhau // (β)"]:::l3
+    C --> C3["Thalès trong không gian"]:::l3
+    C --> C4["Lăng trụ, hình hộp"]:::l3
+
+    D --> D1["Giữ thẳng hàng, song song"]:::l4
+    D --> D2["Giữ tỉ số"]:::l4
+    D --> D3["Hình biểu diễn"]:::l4
+    D --> D4["Bóng nắng"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong4_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*

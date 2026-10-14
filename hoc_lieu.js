@@ -3965,6 +3965,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bai Tap Cuoi Chuong4 (tiết 40)",
+"file": "KHBD_TOAN11_BaiTapCuoiChuong4_T40.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuong4_T40.docx",
+"kb": 486,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "On Tap Giua Ki1 (tiết 22-23)",
 "file": "KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
@@ -4167,6 +4178,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong3_T21.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong3_T21.png",
 "kb": 375,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bai Tap Cuoi Chuong4 (tiết 40)",
+"file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuong4_T40.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuong4_T40.png",
+"kb": 338,
 "ngay": "2026-10-15"
 },
 {
