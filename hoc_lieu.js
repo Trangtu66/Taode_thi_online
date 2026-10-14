@@ -4046,7 +4046,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai1_Toan12_DonDieu_CucTri_v3.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai1_Toan12_DonDieu_CucTri_v3.docx",
 "kb": 2974,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4057,7 +4057,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai2_GTLN_GTNN_Toan12_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai2_GTLN_GTNN_Toan12_v4.docx",
 "kb": 1226,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4068,7 +4068,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai3_DuongTiemCan_Toan12_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai3_DuongTiemCan_Toan12_v4.docx",
 "kb": 1149,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4079,7 +4079,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai4_Toan12_KhaoSatHamSo_v3.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai4_Toan12_KhaoSatHamSo_v3.docx",
 "kb": 2102,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4090,7 +4090,7 @@ window.HOC_LIEU = [
 "file": "KHBD_Bai4_Toan12_KhaoSatHamSo_v4.docx",
 "url": "mon/toan/khbd/lop12/KHBD_Bai4_Toan12_KhaoSatHamSo_v4.docx",
 "kb": 639,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4101,7 +4101,7 @@ window.HOC_LIEU = [
 "file": "KHBD_CD1_Bai1_Toan12_BienNgauNhienRoiRac.docx",
 "url": "mon/toan/khbd/lop12/KHBD_CD1_Bai1_Toan12_BienNgauNhienRoiRac.docx",
 "kb": 1424,
-"ngay": "2026-10-08"
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4122,7 +4122,7 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
 "file": "KHBD_TOAN12_Bai4_KhaoSatHamSo_T14-18_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai4_KhaoSatHamSo_T14-18_HoaNhap.docx",
-"kb": 642,
+"kb": 643,
 "ngay": "2026-10-14"
 },
 {
@@ -4133,8 +4133,8 @@ window.HOC_LIEU = [
 "ten": "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn",
 "file": "KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20.docx",
-"kb": 906,
-"ngay": "2026-10-09"
+"kb": 907,
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -4174,10 +4174,32 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 7 He Truc Toa Do (tiết 34-36)",
+"file": "KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36.docx",
+"kb": 1123,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 7 He Truc Toa Do (tiết 34-36) Hoa Nhap",
+"file": "KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36_HoaNhap.docx",
+"kb": 1127,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24.docx",
-"kb": 639,
+"kb": 640,
 "ngay": "2026-10-14"
 },
 {
@@ -4188,7 +4210,7 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương I",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong1_T23-24_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuong1_T23-24_HoaNhap.docx",
-"kb": 643,
+"kb": 644,
 "ngay": "2026-10-14"
 },
 {
@@ -4221,7 +4243,7 @@ window.HOC_LIEU = [
 "ten": "STEM Thiet Ke Hop (tiết 21-22)",
 "file": "KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
-"kb": 542,
+"kb": 543,
 "ngay": "2026-10-14"
 },
 {
@@ -4265,7 +4287,7 @@ window.HOC_LIEU = [
 "ten": "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị hàm số",
 "file": "KHDH_Bai4_KhaoSatHamSo_Lop12_KT_VanDong_Nhin.docx",
 "url": "mon/toan/khbd/lop12/KHDH_Bai4_KhaoSatHamSo_Lop12_KT_VanDong_Nhin.docx",
-"kb": 644,
+"kb": 645,
 "ngay": "2026-10-14"
 },
 {
@@ -4353,7 +4375,7 @@ window.HOC_LIEU = [
 "ten": "KHDH STEM Thiet Ke Hop Lop12 KT Van Dong Nhin",
 "file": "KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
 "url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
-"kb": 547,
+"kb": 548,
 "ngay": "2026-10-14"
 },
 {
@@ -4420,6 +4442,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
 "kb": 331,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bài 7 He Truc Toa Do (tiết 34-36)",
+"file": "SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
+"kb": 357,
 "ngay": "2026-10-14"
 },
 {
