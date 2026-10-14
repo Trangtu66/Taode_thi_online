@@ -970,6 +970,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 6. Vectơ trong không gian *(Tiết 28–33)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 6<br/>Vectơ trong không gian"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Tổng, hiệu"]:::n2
+    G --> C["③ Tích với một số"]:::n3
+    G --> D["④ Tích vô hướng"]:::n4
+
+    A --> A1["Đoạn thẳng có hướng"]:::l1
+    A --> A2["Cùng phương: giá song song hoặc trùng"]:::l1
+    A --> A3["★ Bằng nhau: cùng độ dài, cùng hướng"]:::l1
+    A --> A4["Vectơ-không"]:::l1
+
+    B --> B1["Quy tắc ba điểm"]:::l2
+    B --> B2["Quy tắc hình bình hành"]:::l2
+    B --> B3["★ Quy tắc hình hộp"]:::l2
+    B --> B4["OB – OA = AB"]:::l2
+
+    C --> C1["k > 0 cùng hướng, k < 0 ngược hướng"]:::l3
+    C --> C2["Độ dài |k|·|a|"]:::l3
+    C --> C3["★ a, b cùng phương ⇔ a = kb"]:::l3
+    C --> C4["Trọng tâm tam giác, tứ diện"]:::l3
+
+    D --> D1["Góc (a, b) từ 0° đến 180°"]:::l4
+    D --> D2["★ a·b = |a|·|b|·cos(a, b)"]:::l4
+    D --> D3["a ⊥ b ⇔ a·b = 0"]:::l4
+    D --> D4["Công A = F·MN"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai6_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*

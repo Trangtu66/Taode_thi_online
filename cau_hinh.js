@@ -190,6 +190,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Củng cố – Bài tập cuối Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số (Toán 12)", link: "cc_chuong1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "STEM: Thiết kế hộp có thể tích lớn nhất với lượng vật liệu cho trước", ma: "Củng cố – STEM: Thiết kế hộp có thể tích lớn nhất với lượng vật liệu cho trước (Toán 12)", link: "cc_stem_hop_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Ôn tập giữa kì I. Chương I – Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Củng cố – Ôn tập giữa kì I. Chương I – Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số (Toán 12)", link: "cc_ontapgk1_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 6. Vectơ trong không gian", ma: "Củng cố – Bài 6. Vectơ trong không gian (Toán 12)", link: "cc_bai6_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

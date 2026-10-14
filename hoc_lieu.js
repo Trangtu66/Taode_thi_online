@@ -4111,7 +4111,7 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Đường tiệm cận của đồ thị hàm số",
 "file": "KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai3_DuongTiemCan_T10-13_HoaNhap.docx",
-"kb": 1152,
+"kb": 1154,
 "ngay": "2026-10-14"
 },
 {
@@ -4145,6 +4145,28 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai5_UngDungDaoHam_T19-20_HoaNhap.docx",
 "kb": 911,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 6 Vecto Trong Khong Gian (tiết 28-33)",
+"file": "KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33.docx",
+"kb": 1905,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 6 Vecto Trong Khong Gian (tiết 28-33) Hoa Nhap",
+"file": "KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33_HoaNhap.docx",
+"kb": 1909,
 "ngay": "2026-10-14"
 },
 {
@@ -4388,6 +4410,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai5_UngDungDaoHam_T19-20.png",
 "kb": 329,
 "ngay": "2026-10-09"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bài 6 Vecto Trong Khong Gian (tiết 28-33)",
+"file": "SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
+"kb": 331,
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
