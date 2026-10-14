@@ -3470,11 +3470,22 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
+"file": "KHBD_TOAN10_Bai4,5_T15-21.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai4,5_T15-21.docx",
+"kb": 3684,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°",
 "file": "KHBD_TOAN10_Bai5_T16-17.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai5_T16-17.docx",
-"kb": 2001,
-"ngay": "2026-10-08"
+"kb": 3684,
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
@@ -3506,8 +3517,30 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương III",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong3_T22.docx",
-"kb": 1145,
-"ngay": "2026-10-08"
+"kb": 313,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "CHUONGIII",
+"file": "KHBD_TOAN10_CHUONGIII.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_CHUONGIII.docx",
+"kb": 3965,
+"ngay": "2026-10-14"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "CHUONGIII (PDF)",
+"file": "KHBD_TOAN10_CHUONGIII.pdf",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_CHUONGIII.pdf",
+"kb": 723,
+"ngay": "2026-10-14"
 },
 {
 "mon": "toan",
