@@ -1131,6 +1131,102 @@ graph TD
 
 ---
 
+### Toán 10 – Chuyên đề 1, Bài 2. Ứng dụng của hệ phương trình bậc nhất ba ẩn *(Tiết 6–9 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ1 – BÀI 2<br/>Ứng dụng của hệ<br/>phương trình bậc nhất ba ẩn"]:::root
+    G --> A["① Ba bước giải"]:::n1
+    G --> B["② Hoá học"]:::n2
+    G --> C["③ Vật lí"]:::n3
+    G --> D["④ Cung – cầu"]:::n4
+
+    A --> A1["B1: chọn ẩn, đặt điều kiện, lập hệ"]:::l1
+    A --> A2["B2: giải hệ (Gauss, máy tính)"]:::l1
+    A --> A3["★ B3: kiểm tra điều kiện, kết luận"]:::l1
+    A --> A4["Gà giống, rừng ngập mặn"]:::l1
+
+    B --> B1["Bảo toàn số nguyên tử mỗi nguyên tố"]:::l2
+    B --> B2["Vô số nghiệm: chọn nguyên dương nhỏ nhất"]:::l2
+    B --> B3["★ 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"]:::l2
+    B --> B4["Đốt octane, methane"]:::l2
+
+    C --> C1["Tại nút: I₁ = I₂ + I₃"]:::l3
+    C --> C2["Định luật Ohm: U = I·R"]:::l3
+    C --> C3["Nhánh song song: cùng hiệu điện thế"]:::l3
+    C --> C4["★ Lập hệ ẩn I₁, I₂, I₃"]:::l3
+
+    D --> D1["Hàm cung QS, hàm cầu QD"]:::l4
+    D --> D2["★ QSᵢ = QDᵢ (i = 1, 2, 3)"]:::l4
+    D --> D3["Giá hợp lí nhất cho người mua, người bán"]:::l4
+    D --> D4["Mô hình Leontief"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd1bai2_t10.html>
+
+---
+
+### Toán 10 – Bài tập cuối chuyên đề 1. Hệ phương trình bậc nhất ba ẩn *(Tiết 10–11 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 1<br/>Hệ PT bậc nhất ba ẩn"]:::root
+    G --> A["① Giải hệ ba ẩn"]:::n1
+    G --> B["② Bài toán toán học"]:::n2
+    G --> C["③ Liên môn"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Dạng tam giác: thế ngược"]:::l1
+    A --> A2["★ Gauss: khử dần ẩn"]:::l1
+    A --> A3["Duy nhất / vô nghiệm / vô số nghiệm"]:::l1
+    A --> A4["Máy tính cầm tay kiểm tra"]:::l1
+
+    B --> B1["Đồng nhất hệ số (1.16)"]:::l2
+    B --> B2["★ Parabol qua 3 điểm (1.17)"]:::l2
+    B --> B3["Đường tròn qua 3 điểm (1.18)"]:::l2
+    B --> B4["Lập hệ từ điều kiện"]:::l2
+
+    C --> C1["Cân bằng phản ứng (1.22)"]:::l3
+    C --> C2["Pha dung dịch acid (1.23)"]:::l3
+    C --> C3["Mạch điện: nút, Ohm (1.24)"]:::l3
+    C --> C4["Cân bằng cung – cầu"]:::l3
+
+    D --> D1["★ Lập hệ – giải – kiểm tra"]:::l4
+    D --> D2["Xe chở gạo cứu trợ (1.19)"]:::l4
+    D --> D3["Trộn cà phê, chia đất (1.20, 1.21)"]:::l4
+    D --> D4["Bài toán dân gian (1.25, 1.26)"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd1_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*

@@ -75,6 +75,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "HĐTN. Tìm hiểu một số kiến thức về tài chính", ma: "Củng cố – HĐTN. Tìm hiểu một số kiến thức về tài chính (Toán 10)", link: "cc_taichinh_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "HĐTN. Mạng xã hội: lợi và hại", ma: "Củng cố – HĐTN. Mạng xã hội: lợi và hại (Toán 10)", link: "cc_mxh_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Ôn tập giữa kì I. Bài 1 – Bài 6", ma: "Củng cố – Ôn tập giữa kì I. Bài 1 – Bài 6 (Toán 10)", link: "cc_ontapgk1_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Chuyên đề 1, Bài 2. Ứng dụng của hệ phương trình bậc nhất ba ẩn", ma: "Củng cố – Chuyên đề 1, Bài 2. Ứng dụng của hệ phương trình bậc nhất ba ẩn (Toán 10)", link: "cc_cd1bai2_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối chuyên đề 1. Hệ phương trình bậc nhất ba ẩn", ma: "Củng cố – Bài tập cuối chuyên đề 1. Hệ phương trình bậc nhất ba ẩn (Toán 10)", link: "cc_btcccd1_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
