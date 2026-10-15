@@ -73,6 +73,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương V", ma: "Củng cố – Bài tập cuối Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm (Toán 10)", link: "cc_chuong5_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Ôn tập cuối kì I. Bài 1 – Bài 14", ma: "Củng cố – Ôn tập cuối kì I. Bài 1 – Bài 14 (Toán 10)", link: "cc_ontapck1_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "HĐTN. Tìm hiểu một số kiến thức về tài chính", ma: "Củng cố – HĐTN. Tìm hiểu một số kiến thức về tài chính (Toán 10)", link: "cc_taichinh_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "HĐTN. Mạng xã hội: lợi và hại", ma: "Củng cố – HĐTN. Mạng xã hội: lợi và hại (Toán 10)", link: "cc_mxh_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },

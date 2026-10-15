@@ -3822,6 +3822,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "HDTN Mang Xa Hoi (tiết 53-54)",
+"file": "KHBD_TOAN10_HDTN_MangXaHoi_T53-54.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_MangXaHoi_T53-54.docx",
+"kb": 1723,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "HDTN Mang Xa Hoi (tiết 53-54) Hoa Nhap",
+"file": "KHBD_TOAN10_HDTN_MangXaHoi_T53-54_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_MangXaHoi_T53-54_HoaNhap.docx",
+"kb": 1727,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "HDTN Tai Chinh (tiết 51-52)",
 "file": "KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
@@ -4091,6 +4113,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_ChuongIII.png",
 "kb": 160,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 HDTN Mang Xa Hoi (tiết 53-54)",
+"file": "SoDoTuDuy_TOAN10_HDTN_MangXaHoi_T53-54.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_HDTN_MangXaHoi_T53-54.png",
+"kb": 283,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",

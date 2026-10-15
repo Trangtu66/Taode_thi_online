@@ -1043,6 +1043,50 @@ graph TD
 
 ---
 
+### Toán 10 – HĐTN. Mạng xã hội: lợi và hại *(Tiết 53–54)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>HĐTN<br/>Mạng xã hội:<br/>lợi và hại"]:::root
+    G --> A["① Thu thập dữ liệu"]:::n1
+    G --> B["② Xử lí số liệu"]:::n2
+    G --> C["③ Công nghệ thông tin"]:::n3
+    G --> D["④ Kết luận, hành động"]:::n4
+
+    A --> A1["Phiếu khảo sát 4 câu hỏi"]:::l1
+    A --> A2["★ Ít nhất 30 phiếu"]:::l1
+    A --> A3["Google Forms – trung thực"]:::l1
+
+    B --> B1["★ Bảng tần số lợi ích/bất lợi"]:::l2
+    B --> B2["Số trung bình, trung vị, Q1, Q3, mốt"]:::l2
+    B --> B3["★ R, ΔQ, độ lệch chuẩn"]:::l2
+
+    C --> C1["Máy tính cầm tay: MODE 3 1"]:::l3
+    C --> C2["★ AVERAGE, MEDIAN, QUARTILE"]:::l3
+    C --> C3["STDEVP, VARP; Data Analysis"]:::l3
+
+    D --> D1["So sánh nam – nữ"]:::l4
+    D --> D2["Giá trị bất thường"]:::l4
+    D --> D3["Dùng mạng xã hội an toàn"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_mxh_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*
