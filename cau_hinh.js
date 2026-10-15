@@ -66,6 +66,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài 9. Tích của một vectơ với một số", ma: "Củng cố – Bài 9. Tích của một vectơ với một số (Toán 10)", link: "cc_bai9_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 10. Vectơ trong mặt phẳng toạ độ", ma: "Củng cố – Bài 10. Vectơ trong mặt phẳng toạ độ (Toán 10)", link: "cc_bai10_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 11. Tích vô hướng của hai vectơ", ma: "Củng cố – Bài 11. Tích vô hướng của hai vectơ (Toán 10)", link: "cc_bai11_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương IV. Vectơ", ma: "Củng cố – Bài tập cuối Chương IV. Vectơ (Toán 10)", link: "cc_chuong4_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
