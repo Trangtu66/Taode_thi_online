@@ -677,6 +677,53 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 11. Tích vô hướng của hai vectơ *(Tiết 35–37)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 11<br/>Tích vô hướng<br/>của hai vectơ"]:::root
+    G --> A["① Góc giữa hai vectơ"]:::n1
+    G --> B["② Tích vô hướng"]:::n2
+    G --> C["③ Biểu thức toạ độ"]:::n3
+    G --> D["④ Tính chất – ứng dụng"]:::n4
+
+    A --> A1["Vẽ chung gốc: (u→, v→) = góc BAC"]:::l1
+    A --> A2["Từ 0° đến 180°"]:::l1
+    A --> A3["★ 0°: cùng hướng; 180°: ngược hướng"]:::l1
+    A --> A4["u→ ⊥ v→ ⇔ góc 90°"]:::l1
+
+    B --> B1["★ u→·v→ = |u→|·|v→|·cos(u→, v→)"]:::l2
+    B --> B2["★ u→ ⊥ v→ ⇔ u→·v→ = 0"]:::l2
+    B --> B3["u→² = |u→|²"]:::l2
+    B --> B4["Công A = F→·MN→"]:::l2
+
+    C --> C1["★ u→·v→ = xx' + yy'"]:::l3
+    C --> C2["★ cos(u→, v→) = (xx' + yy') / (|u→|·|v→|)"]:::l3
+    C --> C3["Vuông góc: xx' + yy' = 0"]:::l3
+
+    D --> D1["Giao hoán, phân phối"]:::l4
+    D --> D2["(u→ ± v→)² = u→² ± 2u→·v→ + v→²"]:::l4
+    D --> D3["Trực tâm, giải tam giác"]:::l4
+    D --> D4["Công của lực thành phần"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai11_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*
