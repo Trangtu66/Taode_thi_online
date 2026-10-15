@@ -104,11 +104,6 @@
   .dap-an a{color:inherit;cursor:pointer;text-decoration:underline dotted;}
   .xac-nhan{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-weight:600;}
   .xac-nhan input{margin-top:3px;width:18px;height:18px;}
-  .claude-bar{display:none;margin-top:10px;padding:10px 12px;border-radius:10px;background:#F0EEFF;border:1px solid #D9D3FF;}
-  .claude-bar .btn-primary{background:#6D5DF6;}
-  .claude-note{font-size:12.5px;margin:0 0 8px;padding:5px 9px;border-radius:6px;background:#F0EEFF;color:#4338CA;}
-  .claude-note.lech{background:#FFF3D6;color:#92400E;font-weight:600;}
-  .claude-note.loi{background:#FBE3DE;color:#C62828;}
   .dap-an td .lech{display:block;color:#9A6A12;font-weight:600;margin-top:2px;}
   .word-box{border:2px dashed var(--celadon);border-radius:12px;padding:14px 16px;background:#F2F7FF;}
   .word-box input[type=file]{margin:8px 0;}
@@ -281,16 +276,11 @@
         <ul class="word-rules">
           <li>Mỗi câu bắt đầu bằng <b>Câu 1.</b>, <b>Câu 2:</b> …; theo thứ tự PHẦN I, PHẦN II, PHẦN III.</li>
           <li>Phần I: phương án <b>A. B. C. D.</b>; Phần II: các ý <b>a) b) c) d)</b>; Phần III: câu hỏi trả lời ngắn (đáp án tối đa 4 kí tự).</li>
-          <li><b>Không cần đánh đáp án</b>: sau khi nhập, bấm <b>🤖 Nhờ Claude giải</b> để Claude tự giải, gán đáp án và viết lời giải. Nếu file đã có đáp án (gạch chân chữ cái/nhãn ý Đúng, dòng <b>Đáp án: …</b>) thì Claude dùng để đối chiếu.</li>
+          <li><b>Đánh dấu đáp án đúng</b> trong file: gạch chân chữ cái đúng (Phần I), gạch chân nhãn ý Đúng (Phần II), hoặc ghi dòng <b>Đáp án: …</b> ngay sau câu. Câu chưa có đáp án thì chọn đáp án trực tiếp trên trang sau khi nhập.</li>
           <li><b>Mỗi câu phải có lời giải</b>: ghi dòng <b>Lời giải</b> ngay sau câu hỏi, nội dung lời giải ở các dòng tiếp theo (câu Đúng/Sai: lời giải từng ý bắt đầu bằng a) b) c) d)). Học sinh xem lời giải sau khi nộp bài.</li>
           <li>Sau khi nhập, trang hiện <b>Bảng đối chiếu đáp án</b>: giáo viên phải kiểm tra lại và đánh dấu xác nhận mới tạo được đề.</li>
           <li>Công thức MathType hoặc Equation của Word đều đọc được; hình PNG/JPG được nhúng vào đề.</li>
         </ul>
-        <div class="claude-bar" id="claude-bar">
-          <button class="btn-primary" id="nho-claude" type="button">🤖 Nhờ Claude giải &amp; gán đáp án</button>
-          <span style="font-size:12.5px;color:var(--ink-soft);margin-left:6px">Claude giải từng câu, điền đáp án và lời giải còn trống; câu nào khác đáp án gạch chân trong Word sẽ được đánh dấu để thầy cô quyết định. Cần nhập Mã giáo viên ở ô 🔑 cuối trang.</span>
-          <div id="claude-status"></div>
-        </div>
         <div id="word-report"></div>
       </div>
       <div class="field" style="margin-top:14px;">
@@ -789,8 +779,6 @@ document.getElementById("load-word-input").addEventListener("change", async (e)=
     populateFormFromExam(r.exam);
     capNhatAnh();
     TU_WORD = true;
-    document.getElementById("claude-bar").style.display = "block";
-    document.getElementById("claude-status").innerHTML = st.chuaDA ? `<div class="warn-box">Có <b>${st.chuaDA}</b> câu chưa có đáp án trong file Word – hãy bấm <b>🤖 Nhờ Claude giải</b>.</div>` : "";
     const w = r.warnings.map(x=>`<li><b>Câu ${x.cau}:</b> ${escHtml(x.msg)}</li>`).join("");
     box.innerHTML = `<div class="ok-box">✅ Đã nhập <b>${st.mcq}</b> câu nhiều lựa chọn, <b>${st.tf}</b> câu đúng sai, <b>${st.short}</b> câu trả lời ngắn · ${st.mathtype + st.omml} công thức · ${st.images} hình.<br>Hãy xem lại từng câu bên dưới (đặc biệt đáp án đúng), sửa nếu cần rồi bấm <b>Tạo đề &amp; Lấy link</b>.</div>`
       + (w ? `<div class="warn-box">⚠ Cần kiểm tra:<ul style="margin:6px 0 0 18px;padding:0">${w}</ul></div>` : "")
@@ -864,110 +852,6 @@ let hen = 0;
   const cb = document.getElementById("xac-nhan-da"); if(cb && cb.checked && trongCau && (ev==="input" || e.target.matches('[data-role="stmt-correct"],[data-role="correct"],[data-remove-card]'))) cb.checked = false;   // sửa câu hỏi thì phải xác nhận lại
   clearTimeout(hen); hen = setTimeout(veBangDapAn, 400);
 }));
-
-/* ============== MỚI: NHỜ CLAUDE GIẢI ĐỀ ============== */
-function deBaiThe(k, c){
-  const v = sel => (c.querySelector(sel)||{}).value?.trim() || "";
-  const img = v('[data-role="image"]'), coHinh = img ? "\n(Câu hỏi có kèm hình ở trên.)" : "";
-  const stem = v('[data-role="content"]') + coHinh;
-  if(k==="p1") return "CÂU TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN (chỉ có một phương án đúng)\n" + stem + "\n" + ["A","B","C","D"].map(l=> l + ". " + v(`[data-role="opt"][data-letter="${l}"]`)).join("\n")
-    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu:\n<dap_an>một chữ A, B, C hoặc D</dap_an>\n<loi_giai>lời giải ngắn gọn cho học sinh (2–6 câu), công thức trong $…$. KHÔNG nhắc tới chữ cái A, B, C, D vì thứ tự phương án sẽ bị đảo; nếu cần hãy gọi phương án theo nội dung.</loi_giai>";
-  if(k==="p2") return "CÂU TRẮC NGHIỆM ĐÚNG/SAI: xét tính đúng sai của từng ý a), b), c), d).\n" + stem + "\n" + [0,1,2,3].map(si=> "abcd"[si] + ") " + v(`[data-role="stmt-text"][data-si="${si}"]`)).join("\n")
-    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu (mỗi ý ghi Đúng hoặc Sai):\n<y_a>Đúng hoặc Sai</y_a><giai_a>giải thích ngắn cho ý a</giai_a>\n<y_b>…</y_b><giai_b>…</giai_b>\n<y_c>…</y_c><giai_c>…</giai_c>\n<y_d>…</y_d><giai_d>…</giai_d>\nCông thức trong $…$.";
-  return "CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN: đáp án là một số, viết tối đa 4 kí tự (kể cả dấu trừ và dấu phẩy thập phân kiểu Việt Nam, ví dụ 3,08 hoặc -1,5), làm tròn đúng theo yêu cầu của đề.\n" + stem
-    + "\n\nHãy giải nháp cẩn thận trong thẻ <nhap>…</nhap> và tự kiểm tra lại. Sau đó trả lời đúng mẫu:\n<dap_an>số, tối đa 4 kí tự</dap_an>\n<loi_giai>lời giải ngắn gọn cho học sinh (2–6 câu), công thức trong $…$</loi_giai>";
-}
-function ganGhiChu(c, cls, txt){
-  let n = c.querySelector(".claude-note");
-  if(!n){ n = document.createElement("div"); n.className = "claude-note"; c.querySelector(".qcard-head").after(n); }
-  n.className = "claude-note " + (cls||""); n.textContent = txt;
-}
-function apDungKetQua(k, c, r){
-  const the = (t, tag) => { const m = t.match(new RegExp("<" + tag + ">([\\s\\S]*?)</" + tag + ">", "i")); return m ? m[1].trim() : ""; };
-  if(!r || r.loi){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Claude chưa giải được câu này: " + (r && r.loi || "lỗi") + ". Bấm “Nhờ Claude giải” lần nữa để thử lại."); return "loi"; }
-  const t = (r.text || "").replace(/<nhap>[\s\S]*?<\/nhap>/i, "");
-  const expl = c.querySelector('[data-role="expl"]');
-  let lech = "";
-  if(k==="p1"){
-    const da = (the(t, "dap_an").match(/[A-D]/) || [])[0]; const lg = the(t, "loi_giai");
-    if(!da){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đáp án Claude trả về – thử lại."); return "loi"; }
-    const cur = c.querySelector('[data-role="correct"]:checked');
-    if(!cur){ c.querySelector(`[data-role="correct"][value="${da}"]`).checked = true; }
-    else if(cur.value !== da) lech = "Claude giải ra " + da + ", khác đáp án đang lưu " + cur.value;
-    if(expl && !expl.value.trim() && lg) expl.value = lg;
-    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra và chọn lại nếu cần." : "🤖 Claude: đáp án " + da);
-  } else if(k==="p2"){
-    const res = [0,1,2,3].map(si=>{ const y = the(t, "y_" + "abcd"[si]); return /đúng|dung|true/i.test(y) ? true : /sai|false/i.test(y) ? false : null; });
-    if(res.some(x=>x===null)){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đủ 4 ý Claude trả về – thử lại."); return "loi"; }
-    const khac = [];
-    res.forEach((val, si)=>{
-      const btnT = c.querySelector(`[data-role="stmt-correct"][data-si="${si}"][data-val="true"]`), btnF = c.querySelector(`[data-role="stmt-correct"][data-si="${si}"][data-val="false"]`);
-      const cur = btnT.classList.contains("sel-true") ? true : btnF.classList.contains("sel-false") ? false : null;
-      if(cur === null) (val ? btnT : btnF).click(); else if(cur !== val) khac.push("abcd"[si] + ") " + (val ? "Đúng" : "Sai"));
-      const ex = c.querySelector(`[data-role="stmt-expl"][data-si="${si}"]`), g = the(t, "giai_" + "abcd"[si]);
-      if(ex && !ex.value.trim() && g) ex.value = g;
-    });
-    if(khac.length) lech = "Claude giải ra " + khac.join(", ") + ", khác đáp án đang lưu";
-    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra lại." : "🤖 Claude: " + res.map((x,si)=>"abcd"[si] + (x?"Đ":"S")).join(" "));
-  } else {
-    let da = the(t, "dap_an").replace(/\s+/g, "").replace(/\$/g, "").replace(".", ",");
-    const lg = the(t, "loi_giai"), ans = c.querySelector('[data-role="answer"]');
-    if(!da || isNaN(parseFloat(da.replace(",", ".")))){ c.dataset.claude = "loi"; ganGhiChu(c, "loi", "🤖 Không đọc được đáp án số Claude trả về – thử lại."); return "loi"; }
-    if(da.length > 4) da = da.slice(0, 4);
-    if(!ans.value.trim()) ans.value = da;
-    else if(Math.abs(parseFloat(ans.value.replace(",", ".")) - parseFloat(da.replace(",", "."))) > 1e-9) lech = "Claude giải ra " + da + ", khác đáp án đang lưu " + ans.value;
-    if(expl && !expl.value.trim() && lg) expl.value = lg;
-    ganGhiChu(c, lech ? "lech" : "", lech ? "⚠ " + lech + " — thầy cô kiểm tra lại." : "🤖 Claude: đáp án " + da);
-  }
-  if(lech) c.dataset.lech = lech; else delete c.dataset.lech;
-  c.dataset.claude = lech ? "lech" : "ok";
-  return c.dataset.claude;
-}
-let DANG_GIAI = false;
-document.getElementById("nho-claude").addEventListener("click", async ()=>{
-  if(DANG_GIAI) return;
-  const st = document.getElementById("claude-status"), key = document.getElementById("gv-key").value.trim();
-  if(!key){ alert("Hãy nhập Mã giáo viên ở ô 🔑 (phía trên nút “Tạo đề & Lấy link”) rồi bấm lại."); document.getElementById("gv-key").focus(); return; }
-  let ds = danhSachThe().map((x,i)=>({...x, i}));
-  const conLai = ds.filter(x=> x.c.dataset.claude !== "ok" && x.c.dataset.claude !== "lech");
-  if(!conLai.length){ if(!confirm("Claude đã giải tất cả các câu. Giải lại toàn bộ?")) return; ds.forEach(x=>{ delete x.c.dataset.claude; }); } else ds = conLai;
-  DANG_GIAI = true; const btn = document.getElementById("nho-claude"); btn.disabled = true;
-  const t0 = Date.now(), dem = ()=> Math.round((Date.now()-t0)/1000);
-  const hien = (html)=> st.innerHTML = `<div class="ok-box">${html}</div>`;
-  try{
-    hien("⏳ Đang kiểm tra mã giáo viên…");
-    await jsonp({action:"all", key, quiz:"__kiem_tra__"}, 20000);
-    const job = Array.from(crypto.getRandomValues(new Uint8Array(10))).map(b=>"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[b % 32]).join("");
-    const guiMot = (x)=> fetch(apiGoc(), {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body: JSON.stringify({action:"giaiCau", key, job, i:x.i, de: deBaiThe(x.k, x.c), anh: [(x.c.querySelector('[data-role="image"]')||{}).value || ""].filter(u=>u.startsWith("data:image"))})}).catch(()=>{});
-    // gửi tối đa 6 câu cùng lúc
-    const hang = ds.slice(); let dangChay = 0, xong = 0;
-    const chay = ()=> new Promise(res=>{ const tiep = ()=>{ if(!hang.length && !dangChay) return res(); while(dangChay < 6 && hang.length){ const x = hang.shift(); dangChay++; guiMot(x).finally(()=>{ dangChay--; tiep(); }); } }; tiep(); });
-    const guiXong = chay();
-    const n = danhSachThe().length, daAp = new Set(); let ketThuc = false; guiXong.then(()=> ketThuc = true);
-    for(;;){
-      await new Promise(r=>setTimeout(r, 5000));
-      let kq = []; try{ kq = (await jsonp({action:"ketQuaGiai", job, n}, 30000)).kq; }catch(e){}
-      ds.forEach(x=>{ if(!daAp.has(x.i) && kq[x.i]){ daAp.add(x.i); apDungKetQua(x.k, x.c, kq[x.i]); } });
-      xong = daAp.size;
-      hien(`🤖 Claude đang giải… <b>${xong}/${ds.length}</b> câu (${dem()} giây). Có thể mất vài phút, thầy cô vui lòng không đóng trang.`);
-      if(xong >= ds.length) break;
-      if(ketThuc && dem() > 60 && xong < ds.length){ // đã gửi hết mà vẫn thiếu: chờ thêm 1 lượt rồi dừng
-        await new Promise(r=>setTimeout(r, 6000));
-        try{ kq = (await jsonp({action:"ketQuaGiai", job, n}, 30000)).kq; }catch(e){}
-        ds.forEach(x=>{ if(!daAp.has(x.i)){ if(kq[x.i]){ daAp.add(x.i); apDungKetQua(x.k, x.c, kq[x.i]); } else { x.c.dataset.claude = "loi"; ganGhiChu(x.c, "loi", "🤖 Chưa nhận được lời giải (hết thời gian) – bấm “Nhờ Claude giải” lần nữa."); } } });
-        break;
-      }
-      if(dem() > 600) break;
-    }
-    const all = danhSachThe(), ok = all.filter(c=>c.c.dataset.claude==="ok").length, lech = all.filter(c=>c.c.dataset.claude==="lech").length, loi = all.filter(c=>c.c.dataset.claude==="loi").length;
-    const cb = document.getElementById("xac-nhan-da"); if(cb) cb.checked = false;
-    veBangDapAn();
-    st.innerHTML = `<div class="${loi||lech?"warn-box":"ok-box"}">🤖 Claude đã giải xong: <b>${ok}</b> câu khớp/đã gán${lech?`, <b>${lech}</b> câu <b>khác đáp án trong file Word</b> (đánh dấu vàng)`:""}${loi?`, <b>${loi}</b> câu lỗi – bấm nút lần nữa để giải lại các câu này`:""}.<br>Đáp án do AI giải có thể sai ở câu khó: thầy cô xem Bảng đối chiếu, kiểm tra lời giải rồi đánh dấu xác nhận.</div>`;
-  }catch(err){
-    st.innerHTML = `<div class="warn-box">⚠ ${escHtml(String(err))}</div>`;
-  }finally{ DANG_GIAI = false; btn.disabled = false; }
-});
 
 /* ============== BUILDER: TẠO LINK / QR ============== */
 try{ document.getElementById("gv-key").value = localStorage.getItem("ql_ma_gv") || sessionStorage.getItem("ql_ma_gv") || ""; }catch(e){}
