@@ -71,6 +71,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài 13. Các số đặc trưng đo xu thế trung tâm", ma: "Củng cố – Bài 13. Các số đặc trưng đo xu thế trung tâm (Toán 10)", link: "cc_bai13_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 14. Các số đặc trưng đo độ phân tán", ma: "Củng cố – Bài 14. Các số đặc trưng đo độ phân tán (Toán 10)", link: "cc_bai14_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương V", ma: "Củng cố – Bài tập cuối Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm (Toán 10)", link: "cc_chuong5_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Ôn tập cuối kì I. Bài 1 – Bài 14", ma: "Củng cố – Ôn tập cuối kì I. Bài 1 – Bài 14 (Toán 10)", link: "cc_ontapck1_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },

@@ -951,6 +951,54 @@ graph TD
 
 ---
 
+### Toán 10 – Ôn tập kiểm tra cuối kì I *(Tiết 47–48)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>ÔN TẬP<br/>CUỐI KÌ I"]:::root
+    G --> A["① Chương I – II"]:::n1
+    G --> B["② Chương III – Tam giác"]:::n2
+    G --> C["③ Chương IV – Vectơ"]:::n3
+    G --> D["④ Chương V – Thống kê"]:::n4
+
+    A --> A1["Mệnh đề, phủ định"]:::l1
+    A --> A2["★ Phép toán tập hợp"]:::l1
+    A --> A3["Miền nghiệm BPT, hệ BPT"]:::l1
+    A --> A4["★ Max – min F = ax + by"]:::l1
+
+    B --> B1["★ GTLG góc 0° – 180°"]:::l2
+    B --> B2["★ Định lí côsin, sin"]:::l2
+    B --> B3["Diện tích, R, đường cao"]:::l2
+    B --> B4["Đo đạc thực tế"]:::l2
+
+    C --> C1["Quy tắc ba điểm, HBH, hiệu"]:::l3
+    C --> C2["★ Toạ độ vectơ, trung điểm, trọng tâm"]:::l3
+    C --> C3["★ Tích vô hướng, vuông góc"]:::l3
+    C --> C4["Góc giữa hai vectơ"]:::l3
+
+    D --> D1["Số gần đúng, quy tròn"]:::l4
+    D --> D2["★ Trung bình, trung vị, tứ phân vị, mốt"]:::l4
+    D --> D3["★ R, ΔQ, s², s"]:::l4
+    D --> D4["Giá trị bất thường"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapck1_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*
