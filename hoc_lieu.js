@@ -3536,6 +3536,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 13 Xu The Trung Tam (tiết 41-42)",
+"file": "KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42.docx",
+"kb": 812,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 13 Xu The Trung Tam (tiết 41-42) Hoa Nhap",
+"file": "KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42_HoaNhap.docx",
+"kb": 816,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 3. Bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
@@ -3793,6 +3815,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
 "kb": 305,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 Bài 13 Xu The Trung Tam (tiết 41-42)",
+"file": "SoDoTuDuy_TOAN10_Bai13_XuTheTrungTam_T41-42.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai13_XuTheTrungTam_T41-42.png",
+"kb": 302,
 "ngay": "2026-10-15"
 },
 {

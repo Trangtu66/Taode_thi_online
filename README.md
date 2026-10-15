@@ -816,6 +816,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 13. Các số đặc trưng đo xu thế trung tâm *(Tiết 41–42)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 13<br/>Các số đặc trưng<br/>đo xu thế trung tâm"]:::root
+    G --> A["① Số trung bình"]:::n1
+    G --> B["② Trung vị Me"]:::n2
+    G --> C["③ Tứ phân vị"]:::n3
+    G --> D["④ Mốt"]:::n4
+
+    A --> A1["★ x̄ = (x₁ + … + xₙ) / n"]:::l1
+    A --> A2["Bảng tần số: x̄ = (m₁x₁ + … + mₖxₖ) / n"]:::l1
+    A --> A3["Bị ảnh hưởng bởi giá trị bất thường"]:::l1
+
+    B --> B1["Sắp xếp không giảm"]:::l2
+    B --> B2["★ n lẻ: giá trị chính giữa; n chẵn: TB hai giá trị giữa"]:::l2
+    B --> B3["Dùng khi có giá trị bất thường"]:::l2
+
+    C --> C1["★ Q₂ = Me"]:::l3
+    C --> C2["★ Q₁, Q₃: trung vị nửa trái, nửa phải"]:::l3
+    C --> C3["Chia mẫu thành 4 phần, mỗi phần 25%"]:::l3
+
+    D --> D1["★ Giá trị có tần số lớn nhất"]:::l4
+    D --> D2["Có thể nhiều mốt hoặc không có"]:::l4
+    D --> D3["Dùng cả cho dữ liệu định tính"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai13_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*
