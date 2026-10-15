@@ -3888,6 +3888,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "On Tap Giua Ki1 (tiết 23)",
+"file": "KHBD_TOAN10_OnTapGiuaKi1_T23.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapGiuaKi1_T23.docx",
+"kb": 332,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "On Tap Giua Ki1 (tiết 23) Hoa Nhap",
+"file": "KHBD_TOAN10_OnTapGiuaKi1_T23_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapGiuaKi1_T23_HoaNhap.docx",
+"kb": 336,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 4. Hệ bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
@@ -4145,6 +4167,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_OnTapCuoiKi1_T47-48.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_OnTapCuoiKi1_T47-48.png",
 "kb": 321,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 On Tap Giua Ki1 (tiết 23)",
+"file": "SoDoTuDuy_TOAN10_OnTapGiuaKi1_T23.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_OnTapGiuaKi1_T23.png",
+"kb": 270,
 "ngay": "2026-10-15"
 },
 {
