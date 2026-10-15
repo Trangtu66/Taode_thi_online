@@ -3558,6 +3558,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 8 Tong Hieu Hai Vecto (tiết 28-29)",
+"file": "KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29.docx",
+"kb": 1042,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 8 Tong Hieu Hai Vecto (tiết 28-29) Hoa Nhap",
+"file": "KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29_HoaNhap.docx",
+"kb": 1046,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài tập cuối chương II",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
@@ -3694,6 +3716,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
 "kb": 287,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 Bài 8 Tong Hieu Hai Vecto (tiết 28-29)",
+"file": "SoDoTuDuy_TOAN10_Bai8_TongHieuHaiVecto_T28-29.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai8_TongHieuHaiVecto_T28-29.png",
+"kb": 280,
 "ngay": "2026-10-15"
 },
 {
