@@ -34,7 +34,7 @@
 <header class="top"><div class="in">
   <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
   <nav class="nav" aria-label="Điều hướng chính">
-    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="lam_bai.html">Tạo đề Online</a>
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
     <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html" class="on">Hướng dẫn</a>
   </nav>
 </div></header>
@@ -102,27 +102,28 @@
           <tr><th>Muốn xem</th><th>Bấm</th></tr>
           <tr><td>Thứ hạng, điểm cả lớp (chiếu cho HS)</td><td>🏆 Bảng xếp hạng</td></tr>
           <tr><td>Bài làm từng em, đúng sai từng câu</td><td>📋 Kết quả từng học sinh (bấm vào tên)</td></tr>
-          <tr><td>Câu nào nhiều em sai để chữa</td><td>📊 Thống kê câu hỏi</td></tr>
-          <tr><td>Em nào chưa làm bài</td><td>👥 Chưa nộp bài (cần danh sách lớp trong Google Sheet, trang tính <code>DanhSachHS</code>)</td></tr>
-          <tr><td>Lấy điểm vào sổ</td><td>⬇️ Xuất Excel</td></tr>
+          <tr><td>Câu nào nhiều em sai để chữa</td><td>Thống kê câu hỏi; Trình chiếu chữa bài</td></tr>
+          <tr><td>Em nào chưa làm bài</td><td>Chưa nộp bài (cần danh sách lớp trong Google Sheet, trang tính <code>DanhSachHS</code>)</td></tr>
+          <tr><td>Lấy điểm vào sổ</td><td>Xuất Excel</td></tr>
         </table></div>
         <p class="muted" style="margin:10px 0 0;font-size:14px">Thanh <b>Lớp</b> phía dưới mục ② để lọc riêng từng lớp; ô “Cách tính điểm” chọn lần làm đầu tiên hay lần cao nhất.</p>
       </section>
 
       <section class="hd card" id="chua-bai">
-        <h2>4. Chữa bài – mở, khoá đáp án</h2>
-        <p class="vi-tri">Học sinh nộp bài chỉ thấy điểm. Đáp án, lời giải chỉ hiện khi giáo viên mở.</p>
+        <h2>4. Chữa bài trên lớp – trình chiếu và mở, khoá đáp án</h2>
+        <p class="vi-tri">Quy trình đối chiếu đề gốc và trình chiếu chữa bài trên lớp (không cần nạp lại file .json).</p>
         <ol class="buoc">
-          <li>Quản lý → chọn bài → <b>“🔓 Mở / khoá đáp án”</b> → bấm <b>“Mở đáp án cho học sinh”</b>.</li>
-          <li>Học sinh mở lại đúng link (hoặc quét lại QR) → bấm <b>“📖 Xem lại bài làm của em và lời giải”</b>. Giáo viên chiếu bài và bấm “📋 Xem đáp án, lời giải (chữa bài)”.</li>
-          <li>Chữa xong bấm <b>“🔒 Khoá đáp án”</b>. Danh sách các bài đang mở hiện bên dưới để khoá nhanh.</li>
+          <li><b>Bước 1 (Tra cứu kết quả):</b> Quản lý → chọn bài, chọn lớp → <b>“Thống kê câu hỏi”</b> để xem phương án trả lời của học sinh và các câu có tỉ lệ sai cao.</li>
+          <li><b>Bước 2 (Trình chiếu):</b> chọn <b>“Trình chiếu chữa bài”</b> → <b>“Chiếu toàn màn hình”</b>. Hệ thống tự tải đề gốc, hiển thị từng câu kèm tỉ lệ học sinh chọn từng phương án; câu có tỉ lệ đúng dưới 50% được viền đỏ.</li>
+          <li><b>Bước 3 (Giải chi tiết):</b> cho học sinh thảo luận, sau đó bấm <b>“Hiện đáp án và lời giải”</b> (phím cách); phím ← → để chuyển câu.</li>
+          <li>Nếu muốn học sinh tự xem lại bài làm của mình: chọn <b>“Mở / khoá đáp án”</b> → <b>“Mở đáp án cho học sinh”</b>; học sinh mở lại đúng link (hoặc quét lại mã QR) và bấm “Xem lại bài làm của em và lời giải”. Chữa xong bấm <b>“Khoá đáp án”</b>.</li>
         </ol>
-        <p class="note" style="margin:12px 0 0">Đề được xáo trộn câu và phương án cho từng em – khi chữa, gọi theo <b>nội dung</b> câu, phương án, không gọi “câu 3”, “phương án C”.</p>
+        <p class="note" style="margin:12px 0 0">Đề được xáo trộn câu và phương án cho từng em; màn hình trình chiếu luôn hiển thị theo thứ tự trong đề gốc. Khi chữa, gọi theo <b>nội dung</b> câu, phương án.</p>
       </section>
 
       <section class="hd card" id="tao-de">
         <h2>5. Tạo đề kiểm tra trực tuyến</h2>
-        <p class="vi-tri">Ở <a href="lam_bai.html#tao">✍️ Trình tạo đề</a>. Đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
+        <p class="vi-tri">Ở <a href="tao_de.html">Trình soạn đề</a>. Đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
         <p style="margin:0 0 6px"><b>Cách A – Nhập từ file Word (nhanh nhất)</b></p>
         <ol class="buoc">
           <li>Soạn đề trong Word (.docx): mỗi câu bắt đầu <b>Câu 1.</b>, <b>Câu 2.</b>…; theo thứ tự PHẦN I, II, III. Phần I có <b>A. B. C. D.</b>; Phần II có các ý <b>a) b) c) d)</b>; Phần III đáp án tối đa 4 kí tự.</li>
@@ -160,7 +161,7 @@
         <h2>Dành cho học sinh</h2>
         <ol class="buoc">
           <li>Quét <b>mã QR</b> giáo viên chiếu (camera hoặc Zalo), hoặc mở link giáo viên gửi.</li>
-          <li>Chọn đúng <b>lớp</b>, gõ đủ <b>họ và tên</b> như danh sách lớp (gõ không dấu cũng được, máy tự sửa). Bấm “▶ Bắt đầu làm bài”.</li>
+          <li>Chọn đúng <b>lớp</b>, nhập đầy đủ <b>họ và tên</b> như danh sách lớp (có dấu hoặc không dấu). Hệ thống hiển thị họ tên chuẩn có dấu – kiểm tra đúng rồi bấm OK để bắt đầu làm bài.</li>
           <li>Phần trả lời ngắn: tối đa 4 kí tự, kể cả dấu “−” và dấu phẩy, ví dụ <code>-1,5</code>.</li>
           <li>Bấm “Nộp bài” → xem điểm. Đáp án, lời giải hiện khi giáo viên mở lúc chữa bài: mở lại đúng link và bấm “📖 Xem lại bài làm của em và lời giải” (dùng đúng điện thoại đã làm bài).</li>
         </ol>

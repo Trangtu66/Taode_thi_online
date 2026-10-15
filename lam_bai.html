@@ -425,7 +425,8 @@
       <table class="brief-table" id="landing-brief"></table>
       <div class="name-field" id="landing-name-field">
         <label for="student-name">Họ tên thí sinh <span class="req">(bắt buộc)</span></label>
-        <input id="student-name" type="text" placeholder="Nhập họ tên của bạn...">
+        <input id="student-name" type="text" placeholder="Nhập đầy đủ họ, tên đệm và tên..." autocomplete="name">
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Gõ đầy đủ họ tên như trong danh sách lớp (có dấu hoặc không dấu đều được); hệ thống sẽ hiện họ tên chuẩn để em xác nhận.</div>
         <div class="field-error" id="name-error">Vui lòng nhập họ tên trước khi bắt đầu làm bài.</div>
         <label for="student-lop" style="margin-top:10px;">Lớp <span class="req">(bắt buộc)</span></label>
         <input id="student-lop" type="text" placeholder="Ví dụ: 10A1" maxlength="12" list="ds-lop" autocomplete="off"><datalist id="ds-lop"></datalist>
@@ -1207,7 +1208,12 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
       jsonp({action:"ktHS", lop, ten:name}, 15000).then(d=>{
         btn.disabled = false; btn.textContent = "▶ Bắt đầu làm bài";
         if(d.coDS && !d.ok){ nameInput.classList.add("error"); err.textContent = d.loi; err.classList.add("show"); nameInput.focus(); return; }
-        if(d.coDS && d.ten){ studentName = d.ten; }
+        if(d.coDS && d.ten){
+          /* Máy chủ trả về họ tên chuẩn (có dấu) trong danh sách lớp – học sinh xác nhận đúng mình rồi mới làm bài,
+             để điểm ghép đúng sổ điểm (danh sách lớp không gửi về máy học sinh). */
+          if(!confirm("Xác nhận thông tin của em:\n\nHọ tên: " + d.ten + "\nLớp: " + lop + "\n\nBấm OK nếu đúng, bấm Hủy để nhập lại.")){ nameInput.focus(); return; }
+          studentName = d.ten;
+        }
         err.textContent = cu; startExam();
       }).catch(()=>{ btn.disabled = false; btn.textContent = "▶ Bắt đầu làm bài"; startExam(); });
       return;
@@ -1594,76 +1600,56 @@ function rutGon(s){
 }
 
 function guiKetQua(score10, total, maxPoints, partResults, auto){
-    const statusEl = document.getElementById("save-status");
-    if(statusEl) {
-        statusEl.classList.remove("hidden");
-        statusEl.textContent = "⏳ Đang gửi kết quả cho giáo viên...";
-    }
-
-    // CHUẨN HÓA THÔNG TIN ĐỊNH DANH HỌC SINH CHUẨN SƯ PHẠM
-    const hoTen = studentName ? studentName.trim() : "";
-    let lop = studentLop ? studentLop.trim().toUpperCase().replace(/\s+/g, '') : "";
-    
-    // Đọc tham số mã đề, mã GV nhúng ngầm ẩn trong phôi đề thi
-    const maDe = maBai();
-    const maGV_Goc = (window.EXAM && window.EXAM.meta && window.EXAM.meta.maGv) ? window.EXAM.meta.maGv : "THPT_VINHTHANH";
-    const urlSheetRieng = (window.EXAM && window.EXAM.meta && window.EXAM.meta.urlSheet) ? window.EXAM.meta.urlSheet : "";
-
-    // Phân luồng rẽ nhánh bảng điểm độc lập cho Giáo viên tự do / Trường ngoài
-    if (maGV_Goc === "GUEST") {
-        lop = "GUEST_" + lop;
-    }
-
-    // ĐÓNG GÓI CHUỖI ĐÁP ÁN TRẦN TRỌC - TUYỆT ĐỐI KHÔNG CHỨA ĐÁP ÁN ĐÚNG TRÊN TRÌNH DUYỆT HỌC SINH ĐỂ CHỐNG HACK
-    let chuoiDapAnTran = { phan1: [], phan2: [], phan3: [] };
-
-    if (partResults && partResults.length > 0) {
-        partResults.forEach((part, pIdx) => {
-            if (part && part.details) {
-                part.details.forEach(q => {
-                    if (pIdx === 0) chuoiDapAnTran.phan1.push(q.userAns || "");
-                    else if (pIdx === 1) chuoiDapAnTran.phan2.push(q.userAns || [null,null,null,null]);
-                    else if (pIdx === 2) chuoiDapAnTran.phan3.push(q.userAns || "");
-                });
-            }
-        });
-    }
-
-    // ĐƯỜNG TRUYỀN POST NGẦM PHÂN LUỒNG TỰ ĐỘNG LÊN SERVER GOOGLE SHEET CỦA TRƯỜNG HOẶC GUEST
-    let webAppUrl = ketQuaApi(); // Bốc mặc định từ hàm ketQuaApi() sẵn có của hai thầy trò
-    if (maGV_Goc === "GUEST" && urlSheetRieng) {
-        webAppUrl = urlSheetRieng; // Tự động bứt tốc rẽ nhánh điểm về Drive riêng của giáo viên tự do ngoài trường
-    }
-
-    // Đóng gói hồ sơ kết quả đóng gửi ngầm lên Cloud
-    const payload = {
-        quizId: maDe,
-        title: EXAM.meta.title || "de-kiem-tra",
-        score10: score10.toFixed(2),
-        total: total,
-        max: maxPoints,
-        parts: partResults.map((r, i) => `P${i + 1}:${r.score.toFixed(2)}đ`),
-        timeUsed: Math.round((Date.now() - examStarts) / 1000),
-        auto: !!auto,
-        answers: chuoiDapAnTran, // Thêm chuỗi bài làm trần trọc gửi ngầm an toàn 100% chống cheat F12
-        clientId: maThietBi()
-    };
-
-    // Kích hoạt luồng truyền HTTP POST ẩn an ninh số cao cấp của hệ thống cũ
-    fetch(webAppUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
-        if(statusEl) statusEl.textContent = "✓ Đã gửi kết quả cho giáo viên.";
-        alert("🚀 Nộp bài thành công! Bài làm của em đã được chuyển về Server đám mây để chấm điểm ngầm bảo mật tuyệt đối.");
-    })
-    .catch(error => {
-        console.error("Lỗi đường truyền:", error);
-        if(statusEl) statusEl.textContent = "❌ Nghẽn mạng cục bộ, vui lòng thử lại!";
+  const statusEl = document.getElementById("save-status");
+  statusEl.classList.remove("hidden");
+  statusEl.textContent = "Đang gửi kết quả cho giáo viên...";
+  /* Chi tiết từng câu theo thứ tự câu trong đề gốc (q._i): phương án được ghi bằng nội dung (không bằng chữ cái
+     vì thứ tự phương án đã đảo cho từng học sinh) – trang Quản lý dùng để thống kê và trình chiếu chữa bài. */
+  const answers = [];
+  partResults.forEach((r,pi)=>{
+    r.details.forEach((d,qi)=>{
+      const q = d.q, a = {p:pi+1, c:(q._i===undefined?qi:q._i)+1, q:rutGon(q.content), pts:+d.pts.toFixed(2)};
+      if(r.part.type==="mcq"){
+        const chon = (q.options.find(o=>o.l===d.userAns)||{}).t;
+        a.chon = chon===undefined ? "" : rutGon(chon);
+        a.dung = rutGon((q.options.find(o=>o.l===_ans.getCorrect(pi,qi))||{}).t);
+        a.ok = !!d.ok;
+      } else if(r.part.type==="tf"){
+        a.chon = (d.userAns||[]).map(v=> v===null?"-":(v?"Đ":"S")).join("");
+        a.dung = q.statements.map((_st,si)=> _ans.stmtCorrect(pi,qi,si)?"Đ":"S").join("");
+        a.soYDung = d.correctCount; a.ok = d.correctCount===4;
+      } else {
+        a.chon = rutGon(d.userAns); a.dung = String(_ans.getAnswer(pi,qi)); a.ok = !!d.ok;
+      }
+      answers.push(a);
     });
+  });
+  answers.sort((x,y)=> x.p-y.p || x.c-y.c);
+  /* Đề của giáo viên tự do (meta.maGv = "GUEST" và meta.urlSheet là Web App riêng): kết quả gửi về bảng tính riêng của GV đó. */
+  const meta = EXAM.meta || {};
+  const rieng = meta.maGv === "GUEST" && /^https:\/\/script\.google(usercontent)?\.com\//.test(meta.urlSheet || "");
+  const api = rieng ? meta.urlSheet : ketQuaApi();
+  const payload = {
+    quizId: maBai(), title: meta.title || "", name: studentName, lop: studentLop,
+    score10: +score10.toFixed(2), total: +total.toFixed(2), max: maxPoints,
+    parts: partResults.map((r,i)=>`P${i+1}: ${r.score.toFixed(2)}đ`),
+    timeUsed: Math.round((Date.now()-examStartTs)/1000), auto: !!auto,
+    answers, clientId: maThietBi()
+  };
+  const rankUrl = "xep_hang.html?q=" + encodeURIComponent(maBai()) + (studentLop ? "&lop=" + encodeURIComponent(studentLop) : "");
+  const gui = (lan)=> fetch(api, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(payload)})
+    .then(()=>{
+      statusEl.textContent = "✓ Đã gửi kết quả cho giáo viên.";
+      if(!rieng){
+        document.getElementById("rank-card").classList.remove("hidden");
+        document.getElementById("rank-link").href = rankUrl;
+      }
+    })
+    .catch(()=>{
+      if(lan<3){ statusEl.textContent = "Kết nối mạng không ổn định, đang gửi lại lần " + (lan+1) + "..."; setTimeout(()=>gui(lan+1), 2500*lan); }
+      else statusEl.textContent = "⚠ Chưa gửi được kết quả (mất kết nối mạng). Em hãy chụp màn hình điểm và báo giáo viên.";
+    });
+  gui(1);
 }
 /* ============== REVIEW ============== */
 function renderReview(partResults, ansGetter){

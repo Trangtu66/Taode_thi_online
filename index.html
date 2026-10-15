@@ -10,6 +10,7 @@
 <title>Học tập trực tuyến – Trường THPT</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="giao_dien.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 <style>
   /* Hero Banner */
   .hero-sec { background:linear-gradient(135deg,#1E3A8A 0%,#1E40AF 55%,#2563EB 100%); color:#fff; }
@@ -27,13 +28,32 @@
   .role-bar { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:22px 0 10px; }
   .who { border:2px solid var(--line); border-radius:14px; padding:16px 18px; background:#fff; cursor:pointer; text-align:left; font:inherit; color:inherit;
          display:flex; gap:14px; align-items:center; }
-  .who .ic { font-size:36px; flex-shrink:0; }
+  .who .ic { width:34px; height:34px; flex-shrink:0; color:#1E40AF; stroke-width:1.6; }
+  .task .ic { width:28px; height:28px; color:#1E40AF; stroke-width:1.7; }
+  .ic-inline { width:16px; height:16px; vertical-align:-3px; color:#1E40AF; }
+  .hd-btn { display:inline-flex; align-items:center; gap:5px; background:none; border:1px solid var(--line); border-radius:9px; padding:7px 11px;
+            font:inherit; font-size:13.5px; color:#1E40AF; cursor:pointer; }
+  .hd-btn svg { width:16px; height:16px; }
+  .hd-btn:hover { background:#EFF6FF; border-color:#BFDBFE; }
+  #hd-overlay { position:fixed; inset:0; z-index:9000; background:rgba(15,23,42,.55); display:flex; align-items:center; justify-content:center; padding:16px; }
+  #hd-overlay[hidden] { display:none !important; }
+  #hd-modal { background:#fff; border-radius:16px; max-width:560px; width:100%; padding:22px 22px 18px; position:relative; max-height:calc(100vh - 32px); overflow:auto; box-shadow:0 20px 50px rgba(0,0,0,.25); }
+  #hd-modal h3 { margin:0 34px 10px 0; font-size:18px; color:#1E293B; }
+  #hd-modal ol { margin:0; padding-left:20px; } #hd-modal li { margin:6px 0; line-height:1.5; }
+  #hd-dong { position:absolute; top:12px; right:12px; border:0; background:#F1F5F9; border-radius:8px; width:32px; height:32px; cursor:pointer; display:grid; place-items:center; }
+  #hd-dong svg { width:18px; height:18px; }
+  .mon-grid a svg { width:20px; height:20px; color:#1E40AF; flex-shrink:0; }
+  .gate-pass { position:relative; }
+  .gate-pass button { position:absolute; right:10px; top:50%; transform:translateY(-50%); border:0; background:none; cursor:pointer; color:#64748B; padding:6px; }
+  .gate-pass button svg { width:20px; height:20px; }
+  #guest-menu { position:fixed; bottom:52px; right:12px; background:#fff; border:1px solid #E2E8F0; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.18); padding:6px; z-index:8801; min-width:200px; }
+  #guest-menu button { display:flex; gap:8px; align-items:center; width:100%; border:0; background:none; padding:9px 10px; border-radius:8px; font:inherit; font-size:14px; cursor:pointer; color:#1E293B; text-align:left; }
+  #guest-menu button:hover { background:#F1F5F9; } #guest-menu svg { width:16px; height:16px; }
   .who b { font-size:17px; display:block; }
   .who span { color:var(--muted); font-size:13.5px; }
   .who.on { border-color:var(--blue); box-shadow:0 0 0 3px #DBEAFE; }
   /* Task cards */
   .task { display:flex; flex-direction:column; gap:6px; }
-  .task .ic { font-size:26px; line-height:1; }
   .task p { margin:0; color:var(--muted); font-size:14px; }
   .task .go { margin-top:auto; padding-top:8px; display:flex; gap:8px; flex-wrap:wrap; }
   .num { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:12px; font-weight:700; margin-right:5px; }
@@ -81,6 +101,8 @@
   cursor:pointer;transition:background .15s;}
 #gate-submit:hover{background:#1E3A8A;}
 #gate-submit:disabled{background:#93C5FD;cursor:default;}
+.gate-hs{width:100%;margin-top:10px;padding:12px;border:1.5px solid #CBD5E1;border-radius:14px;background:#fff;color:#1E293B;font:inherit;font-size:15px;font-weight:700;cursor:pointer;}
+.gate-hs:hover{background:#F8FAFC;}
 .gate-hint{margin:14px 0 0;font-size:12.5px;color:#94A3B8;text-align:center;}
 /* Step 2 – code display */
 #gate-step2{text-align:center;}
@@ -115,7 +137,7 @@
 <header class="top"><div class="in">
   <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
   <nav class="nav" aria-label="Điều hướng chính">
-    <a href="index.html" class="on">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="lam_bai.html">Tạo đề Online</a>
+    <a href="index.html" class="on">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
     <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
   </nav>
 </div></header>
@@ -143,75 +165,80 @@
   <!-- ROLE TOGGLE (WAI-ARIA Tabs) -->
   <div class="role-bar" role="tablist" aria-label="Chọn vai trò">
     <button class="who" data-v="hs" role="tab" id="tab-hs" aria-controls="v-hs" aria-selected="true">
-      <span class="ic">🎓</span><span><b>Dành cho Học sinh</b><span>Làm bài, ôn luyện, xem lại lời giải</span></span>
+      <i class="ic" data-lucide="graduation-cap" aria-hidden="true"></i><span><b>Dành cho Học sinh</b><span>Làm bài, ôn luyện, xem lại lời giải</span></span>
     </button>
     <button class="who" data-v="gv" role="tab" id="tab-gv" aria-controls="v-gv" aria-selected="false">
-      <span class="ic">👩‍🏫</span><span><b>Dành cho Giáo viên</b><span>Giao bài, tạo đề, quản lý kết quả</span></span>
+      <i class="ic" data-lucide="presentation" aria-hidden="true"></i><span><b>Dành cho Giáo viên</b><span>Giao bài, soạn đề, quản lý kết quả</span></span>
     </button>
   </div>
 
-  <!-- ===================== HỌC SINH (3 cards) ===================== -->
-  <!-- không đặt hidden: section học sinh là mặc định, tránh flash khi JS chưa chạy -->
+  <!-- ===================== HỌC SINH (3 thẻ) ===================== -->
+  <!-- không đặt hidden: phần học sinh là mặc định, tránh nhấp nháy khi JS chưa chạy -->
   <section id="v-hs" role="tabpanel" aria-labelledby="tab-hs" tabindex="0">
     <div class="grid">
       <div class="card task">
-        <span class="ic">📱</span><h3>1. Làm bài ngay</h3>
-        <p>Quét <b>mã QR</b> trên màn hình bằng camera hoặc Zalo khi giáo viên chiếu lên bảng. Hoặc dán link giáo viên gửi vào ô bên trên.</p>
-        <div class="go"><a class="btn" href="lam_bai.html">Mở trang làm bài</a></div>
+        <i class="ic" data-lucide="smartphone" aria-hidden="true"></i><h3>Làm bài kiểm tra</h3>
+        <p>Quét mã QR giáo viên chiếu trên bảng hoặc mở đường link giáo viên gửi.</p>
+        <div class="go"><a class="btn" href="lam_bai.html">Mở trang làm bài</a><button type="button" class="hd-btn" data-hd="hs-lam" aria-label="Hướng dẫn nhanh: làm bài kiểm tra"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <span class="ic">📚</span><h3>2. Tự ôn luyện theo môn</h3>
-        <p>Bài củng cố theo tiết học, đề luyện tập 3 dạng thức (cấu trúc GDPT 2018), ôn tập chương, ôn thi tốt nghiệp THPT.</p>
+        <i class="ic" data-lucide="book-open" aria-hidden="true"></i><h3>Tự ôn luyện theo môn</h3>
+        <p>Bài củng cố theo tiết học, đề luyện tập 3 dạng thức, ôn tập chương và ôn thi tốt nghiệp.</p>
         <div class="go"><a class="btn" href="luyen_thi.html">Chọn môn ôn luyện</a></div>
       </div>
       <div class="card task">
-        <span class="ic">📖</span><h3>3. Xem lại lịch sử &amp; Lời giải</h3>
-        <p>Đáp án và lời giải hiện ra sau khi giáo viên chữa bài. Mở lại đúng link (hoặc quét lại QR) rồi bấm <b>"Xem lại bài làm của em và lời giải"</b>.</p>
+        <i class="ic" data-lucide="history" aria-hidden="true"></i><h3>Xem lại bài làm và lời giải</h3>
+        <p>Đáp án, lời giải hiển thị sau khi giáo viên chữa bài trên lớp.</p>
+        <div class="go"><button type="button" class="hd-btn" data-hd="hs-xem" aria-label="Hướng dẫn nhanh: xem lại bài làm"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
     </div>
-    <div class="note blue" style="margin-top:16px">Khi làm bài: chọn đúng <b>lớp</b>, gõ đủ <b>họ và tên</b> như trong danh sách lớp (không cần gõ dấu). Làm bài trung thực – điểm được gửi thẳng cho giáo viên.</div>
+    <div class="note blue" style="margin-top:16px">Khi làm bài, em chọn đúng <b>lớp</b> và nhập đầy đủ <b>họ và tên</b> như trong danh sách lớp; hệ thống hiển thị họ tên chuẩn để em xác nhận trước khi làm bài. Kết quả được gửi trực tiếp cho giáo viên.</div>
   </section>
 
-  <!-- ===================== GIÁO VIÊN (4 cards) ===================== -->
+  <!-- ===================== GIÁO VIÊN (4 thẻ) ===================== -->
   <section id="v-gv" role="tabpanel" aria-labelledby="tab-gv" tabindex="0" hidden>
     <div class="grid">
       <div class="card task">
-        <span class="ic">📱</span><h3><span class="num">1</span>Giao bài &amp; Tạo QR chiếu lớp</h3>
-        <p>Chiếu mã QR để cả lớp quét và làm bài trực tiếp trên điện thoại trong 10–15 phút cuối tiết.</p>
-        <ol class="steps"><li>Vào Quản lý, nhập <b>mã GV</b></li><li>Chọn khối → bài → lớp</li><li>Bấm "📱 Mã QR" và chiếu lên bảng</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Vào Quản lý</a></div>
+        <i class="ic" data-lucide="qr-code" aria-hidden="true"></i><h3>Giao bài bằng mã QR</h3>
+        <p>Chiếu mã QR để học sinh làm bài trên điện thoại trong 10 – 15 phút cuối tiết.</p>
+        <div class="go"><a class="btn" href="quan_ly.html">Vào trang Quản lý</a><button type="button" class="hd-btn" data-hd="gv-qr" aria-label="Hướng dẫn nhanh: giao bài bằng mã QR"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <span class="ic">✍️</span><h3><span class="num">2</span>Tạo đề thi Online</h3>
-        <p>Soạn trực tiếp hoặc <b>nhập từ file Word</b>; đủ 3 dạng thức: nhiều lựa chọn, đúng sai, trả lời ngắn.</p>
-        <ol class="steps"><li>Mở Trình tạo đề → "Tạo đề mới"</li><li>Soạn câu hoặc nhập file Word</li><li>Nhập mã GV → "Tạo đề &amp; Lấy link"</li></ol>
-        <div class="go"><a class="btn" href="lam_bai.html">Mở trình tạo đề</a><a class="btn ghost" href="huong_dan.html#tao-de">Hướng dẫn</a></div>
+        <i class="ic" data-lucide="pen-line" aria-hidden="true"></i><h3>Soạn đề trực tuyến</h3>
+        <p>Soạn trực tiếp hoặc nhập từ file Word, đủ 3 dạng thức câu hỏi theo GDPT 2018.</p>
+        <div class="go"><a class="btn" href="tao_de.html">Mở trình soạn đề</a><button type="button" class="hd-btn" data-hd="gv-de" aria-label="Hướng dẫn nhanh: soạn đề"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <span class="ic">📊</span><h3><span class="num">3</span>Quản lý, Thống kê &amp; Đáp án</h3>
-        <p>Điểm từng em, xếp hạng, ai chưa nộp, câu sai nhiều, xuất Excel. Mở/Khoá đáp án sau khi chữa bài xong.</p>
-        <ol class="steps"><li>Vào Quản lý (mã GV)</li><li>Chọn bài, chọn lớp</li><li>"🔓 Mở / khoá đáp án" sau khi chữa</li></ol>
-        <div class="go"><a class="btn" href="quan_ly.html">Xem kết quả</a></div>
+        <i class="ic" data-lucide="chart-column" aria-hidden="true"></i><h3>Kết quả và trình chiếu chữa bài</h3>
+        <p>Thống kê điểm, học sinh chưa nộp, trình chiếu từng câu kèm tỉ lệ lựa chọn của lớp.</p>
+        <div class="go"><a class="btn" href="quan_ly.html">Xem kết quả</a><button type="button" class="hd-btn" data-hd="gv-chua" aria-label="Hướng dẫn nhanh: chữa bài trên lớp"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <span class="ic">📂</span><h3><span class="num">4</span>Ngân hàng đề &amp; Kho học liệu</h3>
-        <p>KHBD, slide, sơ đồ tư duy, ma trận – lọc theo môn, khối. Đề trực tuyến tự vào ngân hàng khi lưu bằng mã GV.</p>
-        <ol class="steps"><li>Kho học liệu: KHBD, slide, tài liệu</li><li>Ngân hàng: Quản lý → "📚 Đề của tôi"</li><li>Đóng góp: đặt tên đúng quy ước</li></ol>
-        <div class="go"><a class="btn" href="hoc_lieu.html">Kho học liệu</a><a class="btn ghost" href="huong_dan.html#dong-gop">Cách đóng góp</a></div>
+        <i class="ic" data-lucide="library" aria-hidden="true"></i><h3>Ngân hàng đề và kho học liệu</h3>
+        <p>Kế hoạch bài dạy, slide, sơ đồ tư duy, ma trận đề theo môn và khối lớp.</p>
+        <div class="go"><a class="btn" href="hoc_lieu.html">Mở kho học liệu</a><button type="button" class="hd-btn" data-hd="gv-kho" aria-label="Hướng dẫn nhanh: ngân hàng đề"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
     </div>
-    <div class="note" style="margin-top:16px">🔑 <b>Mã giáo viên</b> do quản trị hệ thống cấp riêng cho từng thầy cô (in trong danh sách ký nhận). Mã dùng để xem kết quả, mở đáp án và lưu đề – <b>không đưa mã cho học sinh</b>.</div>
-    <div class="instruction-box" style="background:#f8f9fa; border-left:5px solid #0056b3; padding:15px; margin-top:15px; border-radius:4px;">
-      <h4 style="color:#0056b3; margin-top:0;">👩‍🏫 HƯỚNG DẪN 3 BƯỚC GIÁO VIÊN VỪA NHÌN ĐỀ GỐC VỪA CHỮA BÀI (SIÊU NHÀN)</h4>
-      <p><strong>• Bước 1 (Xem bài làm học sinh):</strong> Thầy cô mở file Google Sheet sổ điểm cá nhân ra để xem chuỗi đáp án bài làm trần của học sinh (Ví dụ: Câu 1: A, Câu 2: B...).</p>
-      <p><strong>• Bước 2 (Nạp phôi bảo mật):</strong> Truy cập vào cổng <strong>Tạo đề Online</strong> trên trang chủ, bấm vào nút màu xanh dương: <strong>🔄 Cách 2: Phục hồi đề thi từ file phôi (.json)</strong>. Duyệt chọn đúng file .json của đề đó đã lưu trong máy tính.</p>
-      <p><strong>• Bước 3 (Chữa bài thực địa):</strong> Trình duyệt sẽ lập tức bung lụa <strong>Toàn bộ nội dung câu hỏi gốc, công thức và hình ảnh kèm dấu tích đỏ 🎯 (Đáp án đúng) hiện hình rực rỡ</strong>. Thầy cô chỉ việc đối chiếu chuỗi bài làm của học sinh với đề gốc trên màn hình để chữa bài cho các em tăm tắp trong 1 nốt nhạc!</p>
-    </div>
+    <div class="note" style="margin-top:16px"><i data-lucide="key-round" class="ic-inline" aria-hidden="true"></i> <b>Mã giáo viên</b> do quản trị hệ thống cấp riêng cho từng thầy cô. Ô nhập mã luôn được che kí tự; khi dạy trên máy chiếu, thầy cô nên bấm <b>Đăng xuất</b> sau tiết học và không đưa mã cho học sinh.</div>
   </section>
+
+  <!-- HƯỚNG DẪN NHANH (cửa sổ nổi) -->
+  <div id="hd-overlay" role="dialog" aria-modal="true" aria-labelledby="hd-title" hidden>
+    <div id="hd-modal">
+      <button type="button" id="hd-dong" aria-label="Đóng hướng dẫn"><i data-lucide="x" aria-hidden="true"></i></button>
+      <div id="hd-noidung"></div>
+    </div>
+  </div>
+  <template id="hd-hs-lam"><h3 id="hd-title">Làm bài kiểm tra</h3><ol class="steps"><li>Quét mã QR giáo viên chiếu (camera hoặc Zalo), hoặc mở đường link được gửi.</li><li>Chọn lớp, nhập họ tên; kiểm tra họ tên chuẩn hệ thống hiển thị rồi bấm OK.</li><li>Làm bài trong thời gian quy định và bấm Nộp bài; điểm được gửi trực tiếp cho giáo viên.</li></ol></template>
+  <template id="hd-hs-xem"><h3 id="hd-title">Xem lại bài làm và lời giải</h3><ol class="steps"><li>Đáp án, lời giải chỉ mở sau khi giáo viên chữa bài trên lớp.</li><li>Mở lại đúng đường link (hoặc quét lại mã QR) trên thiết bị đã làm bài.</li><li>Bấm “Xem lại bài làm của em và lời giải”.</li></ol></template>
+  <template id="hd-gv-qr"><h3 id="hd-title">Giao bài bằng mã QR</h3><ol class="steps"><li>Vào trang Quản lý, nhập mã giáo viên (kí tự được che).</li><li>Chọn khối, chọn bài, chọn lớp.</li><li>Chọn “Mã QR cho học sinh” và trình chiếu lên bảng.</li></ol></template>
+  <template id="hd-gv-de"><h3 id="hd-title">Soạn đề trực tuyến</h3><ol class="steps"><li>Mở trình soạn đề, chọn “Tạo đề mới”.</li><li>Soạn từng câu hoặc nhập đề từ file Word (.docx).</li><li>Nhập mã giáo viên rồi bấm “Tạo đề &amp; Lấy link”: đề được lưu trên hệ thống (Ngân hàng đề) kèm đường link và mã QR.</li></ol></template>
+  <template id="hd-gv-chua"><h3 id="hd-title">Quy trình đối chiếu đề gốc và trình chiếu chữa bài trên lớp</h3><ol class="steps"><li><b>Bước 1 (Tra cứu kết quả):</b> vào trang Quản lý, chọn bài và lớp; mục “Thống kê câu hỏi” cho biết chi tiết phương án trả lời và các câu có tỉ lệ sai cao.</li><li><b>Bước 2 (Mở chế độ trình chiếu):</b> chọn “Trình chiếu chữa bài”, bấm “Chiếu toàn màn hình”. Hệ thống tự tải đề gốc, không cần nạp lại file .json.</li><li><b>Bước 3 (Trình chiếu và giải chi tiết):</b> hệ thống hiển thị đầy đủ câu hỏi, công thức kèm tỉ lệ học sinh chọn từng phương án; câu có tỉ lệ đúng dưới 50% được viền đỏ. Bấm “Hiện đáp án và lời giải” (hoặc phím cách) sau khi học sinh thảo luận; dùng phím ← → để chuyển câu.</li></ol><p class="muted" style="margin:8px 0 0">Sau khi chữa bài, chọn “Mở / khoá đáp án” để học sinh tự xem lại bài làm của mình.</p></template>
+  <template id="hd-gv-kho"><h3 id="hd-title">Ngân hàng đề và kho học liệu</h3><ol class="steps"><li>Kho học liệu: kế hoạch bài dạy, slide, tài liệu – lọc theo môn, khối.</li><li>Ngân hàng đề: trang Quản lý → “Ngân hàng đề của tôi” (đề lưu bằng mã giáo viên).</li><li>Đóng góp học liệu: đặt tên file đúng quy ước trong trang Hướng dẫn.</li></ol></template>
 
   <!-- ĐỀ CƯƠNG ÔN TẬP (sinh tự động bởi de_cuong.py → de_cuong.js) -->
   <section id="de-cuong" class="card" style="margin:22px 0">
-    <h2 style="margin-top:0">📘 Đề cương ôn tập có lời giải</h2>
+    <h2 style="margin-top:0"><i data-lucide="book-marked" class="ic-inline" style="width:22px;height:22px" aria-hidden="true"></i> Đề cương ôn tập có lời giải</h2>
     <p class="muted" style="margin:0 0 10px">Chọn môn, khối và kì kiểm tra. Mỗi đề cương gồm 3 phần: <b>(1)</b> tóm tắt lý thuyết theo Chương trình 2018,
       <b>(2)</b> bài tập luyện tập gấp đôi ma trận, <b>(3)</b> một đề minh họa đúng ma trận – đủ đáp án và lời giải chi tiết. Đề cuối kì giảm tải phần đã thi giữa kì.</p>
     <div class="dc-loc">
@@ -227,6 +254,7 @@
     .dc-ds{display:grid;gap:8px}.dc-the{border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:#fff}
     .dc-the b{font-size:15px}.dc-the small{color:var(--muted);display:block}.dc-nut{display:flex;flex-wrap:wrap;gap:6px}
     .dc-nut a{font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid;text-decoration:none}
+    .dc-nut button{font:inherit;font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid #CBD5E1;background:#fff;color:#334155;cursor:pointer}
     .dc-nut a.w{color:#1E40AF;border-color:#BFDBFE;background:#EFF6FF}.dc-nut a.p{color:#B45309;border-color:#FDE68A;background:#FFFBEB}
     @media (max-width:640px){.dc-the{flex-direction:column;align-items:flex-start}}
   </style>
@@ -246,24 +274,26 @@
 
     <!-- STEP 1: một ô nhập duy nhất – tự nhận diện Mã GV (VT-…) hay Email, không cần chọn vai trò -->
     <div id="gate-step1">
-      <h2 id="gate-title">Chào mừng thầy cô 👋</h2>
-      <p class="gate-sub">Hệ thống tự nhận diện mã giáo viên nhà trường hoặc email.</p>
-      <div class="gate-email-wrap">
-        <input type="text" id="gate-email" placeholder="Mã GV (VT-...) hoặc Email của bạn"
+      <h2 id="gate-title">Chào mừng thầy cô</h2>
+      <p class="gate-sub">Hệ thống tự nhận diện mã giáo viên nhà trường hoặc email. Học sinh bấm “Vào với vai trò học sinh”.</p>
+      <div class="gate-email-wrap gate-pass">
+        <input type="password" id="gate-email" placeholder="Mã GV (VT-...) hoặc Email của bạn"
                aria-label="Mã GV (VT-...) hoặc Email của bạn"
                autocomplete="off" spellcheck="false" autocapitalize="off"
                onkeydown="if(event.key==='Enter')submitGate()"
                oninput="gateAutoDetect(this.value)">
+        <button type="button" id="gate-mat" aria-label="Hiện mã đã nhập" onclick="gateMat()"><i data-lucide="eye" aria-hidden="true"></i></button>
         <span id="gate-detect-badge"></span>
       </div>
       <p id="gate-err"></p>
-      <button id="gate-submit" onclick="submitGate()">BẮT ĐẦU VÀO HỆ THỐNG</button>
-      <p class="gate-hint">🔒 Mã GV / Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.</p>
+      <button id="gate-submit" onclick="submitGate()">VÀO HỆ THỐNG</button>
+      <button type="button" class="gate-hs" onclick="vaoHocSinh()">Vào với vai trò học sinh</button>
+      <p class="gate-hint">Mã nhập vào được che kí tự để an toàn khi trình chiếu. Email chỉ dùng để sinh mã định danh, không lưu mật khẩu.</p>
     </div>
 
     <!-- STEP 2: Hiện mã cấp -->
     <div id="gate-step2" hidden>
-      <div class="gate-success-ic" id="gate-ic">✅</div>
+      <div class="gate-success-ic" id="gate-ic"><i data-lucide="shield-check" style="width:48px;height:48px;color:#059669" aria-hidden="true"></i></div>
       <h3 id="gate-step2-title">Mã truy cập của bạn</h3>
       <p id="gate-step2-desc">Lưu mã này – dùng để truy cập lại trên thiết bị khác.</p>
       <div class="gate-code-box">
@@ -271,11 +301,11 @@
         <button onclick="copyGateCode()" id="gate-copy-btn">Sao chép</button>
       </div>
       <div class="gate-gv-note" id="gate-gv-note" hidden>
-        <strong>🏫 Dành cho Giáo viên tự do</strong>
+        <strong>Không gian dữ liệu</strong>
         Mọi đề bạn tạo &amp; kết quả học sinh của nhóm bạn được lưu riêng biệt dưới không gian
         <b id="gate-ns-label"></b>. Không ảnh hưởng đến kho dữ liệu chính của nhà trường.
       </div>
-      <button id="gate-go" onclick="closeGate()">Vào học ngay →</button>
+      <button id="gate-go" onclick="closeGate()">Vào hệ thống</button>
     </div>
   </div>
 </div>
@@ -287,10 +317,25 @@
 </div></footer>
 
 <script>
-const MON = [["toan","📐 Toán","luyen_thi.html#toan"],["van","📚 Ngữ văn","luyen_thi.html#van"],["hoa_hoc","⚗️ Hóa học","luyen_thi.html#hoa_hoc"],
-  ["sinh_hoc","🧬 Sinh học","luyen_thi.html#sinh_hoc"],["lich_su","🏛️ Lịch sử","luyen_thi.html#lich_su"],["dia_li","🌏 Địa lí","luyen_thi.html#dia_li"],
-  ["gdkt_pl","⚖️ GDKT&PL","luyen_thi.html#gdkt_pl"],["tieng_anh","🔤 Tiếng Anh","luyen_thi.html#tieng_anh"],["ly","⚡ Vật lí","luyen_thi.html#ly"]];
-document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}">${m[1]}</a>`).join("");
+const MON = [["calculator","Toán","luyen_thi.html#toan"],["book-open-text","Ngữ văn","luyen_thi.html#van"],["flask-conical","Hóa học","luyen_thi.html#hoa_hoc"],
+  ["dna","Sinh học","luyen_thi.html#sinh_hoc"],["landmark","Lịch sử","luyen_thi.html#lich_su"],["globe","Địa lí","luyen_thi.html#dia_li"],
+  ["scale","GDKT&amp;PL","luyen_thi.html#gdkt_pl"],["languages","Tiếng Anh","luyen_thi.html#tieng_anh"],["zap","Vật lí","luyen_thi.html#ly"]];
+document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}"><i data-lucide="${m[0]}" aria-hidden="true"></i>${m[1]}</a>`).join("");
+/* Hướng dẫn nhanh: các bước chi tiết hiện trong cửa sổ nổi thay vì chiếm chỗ trên thẻ */
+(function(){
+  const ov = document.getElementById("hd-overlay"), nd = document.getElementById("hd-noidung");
+  let truoc = null;
+  const dong = ()=>{ ov.hidden = true; if(truoc) truoc.focus(); };
+  document.querySelectorAll(".hd-btn").forEach(b=> b.onclick = ()=>{
+    truoc = b; nd.innerHTML = document.getElementById("hd-" + b.dataset.hd).innerHTML; ov.hidden = false;
+    try{ window.lucide && lucide.createIcons(); }catch(e){}
+    document.getElementById("hd-dong").focus();
+  });
+  document.getElementById("hd-dong").onclick = dong;
+  ov.addEventListener("click", e=>{ if(e.target === ov) dong(); });
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !ov.hidden) dong(); });
+})();
+window.addEventListener("load", ()=>{ try{ window.lucide && lucide.createIcons(); }catch(e){} });
 function chon(v){
   document.querySelectorAll(".who").forEach(b=>{
     const on = b.dataset.v === v;
@@ -410,22 +455,58 @@ function writeSchoolSession(vtCode) {
   } catch(_) {}
 }
 
-/* ── Badge hiển thị mã dưới góc màn hình ────────────────────────────────*/
-function showBadge(code) {
+/* ── Nút phiên đăng nhập ở góc màn hình: chỉ hiện mã đã che (an toàn khi chiếu lớp), có Đăng xuất ──*/
+function cheMa(code) {
+  const s = String(code || '');
+  return s.length <= 6 ? '••••••' : s.slice(0, 3) + '••••••' + s.slice(-2);
+}
+function dangXuat() {
+  try {
+    [GATE_LS_KEY, 'vt_guest_code', 'vt_guest_role', 'vt_guest_ns', 'vt_school_code', 'ql_ma_gv'].forEach(k => localStorage.removeItem(k));
+    sessionStorage.removeItem('ql_ma_gv');
+  } catch(_) {}
+  location.reload();
+}
+function showBadge(code, role) {
   if (document.getElementById('guest-badge')) return;
   const b = document.createElement('button');
   b.id = 'guest-badge';
-  b.title = 'Mã truy cập của bạn – nhấn để sao chép';
-  b.textContent = code;
+  b.title = 'Phiên đăng nhập – bấm để sao chép mã hoặc đăng xuất';
+  b.textContent = role === 'HS' ? 'Học sinh' : 'GV: ' + cheMa(code);
+  b.setAttribute('aria-haspopup', 'true');
   b.addEventListener('click', () => {
-    navigator.clipboard?.writeText(code).then(() => {
-      const orig = b.textContent;
-      b.textContent = '✅ Đã sao chép!';
-      setTimeout(() => { b.textContent = orig; }, 1600);
-    }).catch(() => {});
+    const cu = document.getElementById('guest-menu');
+    if (cu) { cu.remove(); return; }
+    const m = document.createElement('div');
+    m.id = 'guest-menu';
+    m.innerHTML = (role === 'HS' ? '' : '<button type="button" data-a="copy"><i data-lucide="copy" aria-hidden="true"></i>Sao chép mã truy cập</button>') +
+      '<button type="button" data-a="out"><i data-lucide="log-out" aria-hidden="true"></i>' + (role === 'HS' ? 'Đổi vai trò / đăng nhập giáo viên' : 'Đăng xuất') + '</button>';
+    m.addEventListener('click', e => {
+      const a = e.target.closest('button'); if (!a) return;
+      if (a.dataset.a === 'out') return dangXuat();
+      navigator.clipboard?.writeText(code).then(() => { a.lastChild.textContent = 'Đã sao chép'; setTimeout(() => m.remove(), 900); }).catch(() => {});
+    });
+    document.body.appendChild(m);
+    try { window.lucide && lucide.createIcons(); } catch(_) {}
   });
   document.body.appendChild(b);
 }
+/* Hiện / ẩn kí tự trong ô mã */
+window.gateMat = function() {
+  const el = document.getElementById('gate-email'), b = document.getElementById('gate-mat');
+  const hien = el.type === 'password';
+  el.type = hien ? 'text' : 'password';
+  b.setAttribute('aria-label', hien ? 'Ẩn mã đã nhập' : 'Hiện mã đã nhập');
+  b.innerHTML = '<i data-lucide="' + (hien ? 'eye-off' : 'eye') + '" aria-hidden="true"></i>';
+  try { window.lucide && lucide.createIcons(); } catch(_) {}
+};
+/* Học sinh: không cần mã – ghi nhớ vai trò để cửa sổ không hiện lại */
+window.vaoHocSinh = function() {
+  try { localStorage.setItem(GATE_LS_KEY, JSON.stringify({ v: GATE_VERSION, email: '', role: 'HS', code: '', ts: Date.now() })); localStorage.setItem('vai_tro', 'hs'); } catch(_) {}
+  document.querySelector('.who[data-v="hs"]')?.click();
+  closeGate();
+  showBadge('', 'HS');
+};
 
 /* ── Mở / đóng gate ─────────────────────────────────────────────────────*/
 function openGate() {
@@ -445,7 +526,7 @@ window.copyGateCode = function() {
   const code = document.getElementById('gate-code-val').textContent;
   navigator.clipboard?.writeText(code).then(() => {
     const btn = document.getElementById('gate-copy-btn');
-    btn.textContent = '✅ Đã sao!';
+    btn.textContent = 'Đã sao chép';
     setTimeout(() => { btn.textContent = 'Sao chép'; }, 1600);
   }).catch(() => {});
 };
@@ -461,20 +542,20 @@ window.gateAutoDetect = function(val) {
   if (isVT) {
     const err = document.getElementById('gate-err');            // badge Nội bộ bật → ẩn cảnh báo đỏ
     if (err) { err.textContent = ''; err.hidden = true; }
-    badge.textContent = '🔒 Nội bộ';
+    badge.textContent = 'Nội bộ';
     badge.style.background = '#DCFCE7';
     badge.style.color = '#166534';
     badge.style.display = 'inline-block';
-    if (hint) hint.textContent = '🔑 Mã GV nhà trường – xác nhận để mở toàn quyền quản trị luồng chính.';
+    if (hint) hint.textContent = 'Mã giáo viên nhà trường – kí tự được che để an toàn khi trình chiếu.';
   } else if (isEmail) {
-    badge.textContent = '📧 Email khách';
+    badge.textContent = 'Email';
     badge.style.background = '#DBEAFE';
     badge.style.color = '#1E40AF';
     badge.style.display = 'inline-block';
-    if (hint) hint.textContent = '🔒 Email chỉ dùng để sinh mã định danh – không lưu mật khẩu, không gửi spam.';
+    if (hint) hint.textContent = 'Email chỉ dùng để sinh mã định danh, không lưu mật khẩu.';
   } else {
     badge.style.display = 'none';
-    if (hint) hint.textContent = '🔒 Mã GV / Email chỉ dùng để sinh mã – không gửi spam.';
+    if (hint) hint.textContent = 'Mã nhập vào được che kí tự để an toàn khi trình chiếu.';
   }
 };
 
@@ -491,7 +572,7 @@ window.submitGate = async function() {
   if (/^VT-/i.test(val)) {
     if (!/^VT-[A-Z0-9-]+$/i.test(val) || val.length < 5 || val.length > 30) {
       errEl.hidden = false;
-      errEl.textContent = '⚠️ Mã nội bộ có dạng VT-… (5 – 30 kí tự: chữ, số, dấu gạch ngang), ví dụ VT-GV08-UXDTG4.';
+      errEl.textContent = 'Mã nội bộ có dạng VT-… (5 – 30 kí tự gồm chữ, số, dấu gạch ngang), ví dụ VT-GV01-XXXXXX.';
       emailEl.focus();
       return;
     }
@@ -502,7 +583,6 @@ window.submitGate = async function() {
     const step2 = document.getElementById('gate-step2');
     step2.hidden = false;
     document.getElementById('gate-code-val').textContent = code;
-    document.getElementById('gate-ic').textContent = '🏫';
     document.getElementById('gate-step2-title').textContent = 'Chào mừng Giáo viên nhà trường!';
     document.getElementById('gate-step2-desc').textContent =
       'Đã mở toàn quyền quản trị. Trình duyệt ghi nhớ mã – lần sau không cần nhập lại.';
@@ -514,7 +594,7 @@ window.submitGate = async function() {
   // ── Luồng 2: Email khách (GV tự do / HS ngoài) ─────────────────────────
   const email = val.toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    errEl.textContent = '⚠️ Nhập Mã GV (VT-...) hoặc địa chỉ Email hợp lệ.';
+    errEl.textContent = 'Nhập mã giáo viên (VT-...) hoặc địa chỉ email hợp lệ.';
     emailEl.focus();
     return;
   }
@@ -536,22 +616,20 @@ window.submitGate = async function() {
     document.getElementById('gate-code-val').textContent = code;
 
     if (role === 'GV') {
-      document.getElementById('gate-ic').textContent = '🏫';
       document.getElementById('gate-step2-title').textContent = 'Không gian làm việc riêng của bạn';
       document.getElementById('gate-step2-desc').textContent =
         'Đề bài và kết quả nhóm bạn hoàn toàn tách biệt khỏi kho dữ liệu nhà trường.';
       document.getElementById('gate-ns-label').textContent = code;
       document.getElementById('gate-gv-note').hidden = false;
     } else {
-      document.getElementById('gate-ic').textContent = '✅';
       document.getElementById('gate-step2-title').textContent = 'Chào mừng bạn đến hệ thống!';
       document.getElementById('gate-step2-desc').textContent =
         'Lưu mã này lại – dùng khi cần truy cập trên thiết bị khác.';
     }
   } catch(err) {
-    errEl.textContent = '❌ Có lỗi xảy ra – hãy thử lại.';
+    errEl.textContent = 'Có lỗi xảy ra, thầy cô vui lòng thử lại.';
     submitBtn.disabled = false;
-    submitBtn.textContent = 'BẮT ĐẦU VÀO HỆ THỐNG';
+    submitBtn.textContent = 'VÀO HỆ THỐNG';
   }
 };
 
@@ -560,7 +638,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const sess = readSession();
   if (sess) {
     // Phiên còn hạn → không show gate, chỉ show badge
-    showBadge(sess.code);
+    showBadge(sess.code, sess.role);
     return;
   }
   // Phiên hết hạn hoặc chưa có → show gate
@@ -582,9 +660,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const ds = DS.filter(x => (!m || x.mon === m) && (!k || String(x.khoi) === k) && (!y || x.ky === y));
     el("dc-ds").innerHTML = ds.length ? ds.map((x, i) => `<div class="dc-the"><div><b>${esc(x.tenMon)} ${x.khoi} · ${esc(x.tenKy)}</b>
       <small>${x.bai} bài · ${x.cau[0]} câu nhiều lựa chọn, ${x.cau[1]} câu đúng sai, ${x.cau[2]} câu trả lời ngắn · cập nhật ${x.ngay.split("-").reverse().join("/")}</small></div>
-      <div class="dc-nut"><button type="button" class="xem" data-u="${esc(x.docx)}" data-t="${esc("Đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">👁 Xem trước</button>
-      <a class="w" href="${esc(x.docx)}" download>📄 Word</a><a class="p" href="${esc(x.pptx)}" download>📊 PowerPoint</a>
-      <button type="button" class="xem" data-u="${esc(x.pptx)}" data-t="${esc("Slide đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">👁 Xem slide</button></div></div>`).join("")
+      <div class="dc-nut"><button type="button" class="xem" data-u="${esc(x.docx)}" data-t="${esc("Đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">Xem trước</button>
+      <a class="w" href="${esc(x.docx)}" download>Tải Word</a><a class="p" href="${esc(x.pptx)}" download>Tải PowerPoint</a>
+      <button type="button" class="xem" data-u="${esc(x.pptx)}" data-t="${esc("Slide đề cương " + x.tenMon + " " + x.khoi + " · " + x.tenKy)}">Xem slide</button></div></div>`).join("")
       : '<p class="muted">Chưa có đề cương phù hợp – đề cương được biên soạn dần theo tiến độ bài học.</p>';
     el("dc-ds").querySelectorAll(".xem").forEach(b => b.onclick = () => XemTruoc.mo({url: b.dataset.u, file: b.dataset.u.split("/").pop(), ten: b.dataset.t}));
   }
