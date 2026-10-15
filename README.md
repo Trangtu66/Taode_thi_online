@@ -632,6 +632,51 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 10. Vectơ trong mặt phẳng toạ độ *(Tiết 32–34)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 10<br/>Vectơ trong mặt<br/>phẳng toạ độ"]:::root
+    G --> A["① Toạ độ của vectơ"]:::n1
+    G --> B["② Phép toán theo toạ độ"]:::n2
+    G --> C["③ Điểm – độ dài"]:::n3
+    G --> D["④ Trung điểm – trọng tâm – ứng dụng"]:::n4
+
+    A --> A1["Hệ trục Oxy, vectơ đơn vị i→, j→"]:::l1
+    A --> A2["★ u→ = x·i→ + y·j→ ⇔ u→ = (x; y)"]:::l1
+    A --> A3["Hai vectơ bằng nhau ⇔ cùng toạ độ"]:::l1
+
+    B --> B1["★ u→ ± v→ = (x ± x'; y ± y')"]:::l2
+    B --> B2["★ k·u→ = (kx; ky)"]:::l2
+    B --> B3["Cùng phương: x' = kx, y' = ky"]:::l2
+
+    C --> C1["★ OM→ = (x; y), |OM→| = √(x² + y²)"]:::l3
+    C --> C2["★ MN→ = (x' − x; y' − y)"]:::l3
+    C --> C3["MN = √((x' − x)² + (y' − y)²)"]:::l3
+
+    D --> D1["★ Trung điểm ((x_A + x_B)/2; (y_A + y_B)/2)"]:::l4
+    D --> D2["★ Trọng tâm: trung bình cộng 3 đỉnh"]:::l4
+    D --> D3["Dự báo vị trí tâm bão"]:::l4
+    D --> D4["Chuyển động tàu thuỷ, quân mã"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai10_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*

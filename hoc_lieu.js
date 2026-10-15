@@ -3470,6 +3470,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34)",
+"file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
+"kb": 1048,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34) Hoa Nhap",
+"file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
+"kb": 1052,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 3. Bất phương trình bậc nhất hai ẩn",
 "file": "KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai3_BPT_BacNhatHaiAn_T10-11_HoaNhap.docx",
@@ -3672,6 +3694,17 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_STEM_Bai4_HeBPT_KhauPhanAn_T12-14_HoaNhap.docx",
 "kb": 808,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34)",
+"file": "SoDoTuDuy_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.png",
+"kb": 318,
 "ngay": "2026-10-15"
 },
 {
