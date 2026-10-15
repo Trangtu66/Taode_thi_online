@@ -3822,6 +3822,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "HDTN Tai Chinh (tiết 51-52)",
+"file": "KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
+"kb": 1185,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "HDTN Tai Chinh (tiết 51-52) Hoa Nhap",
+"file": "KHBD_TOAN10_HDTN_TaiChinh_T51-52_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_TaiChinh_T51-52_HoaNhap.docx",
+"kb": 1189,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "On Tap Cuoi Ki1 (tiết 47-48)",
 "file": "KHBD_TOAN10_OnTapCuoiKi1_T47-48.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapCuoiKi1_T47-48.docx",
@@ -4069,6 +4091,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_ChuongIII.png",
 "kb": 160,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 HDTN Tai Chinh (tiết 51-52)",
+"file": "SoDoTuDuy_TOAN10_HDTN_TaiChinh_T51-52.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_HDTN_TaiChinh_T51-52.png",
+"kb": 283,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
