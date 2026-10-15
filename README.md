@@ -860,6 +860,52 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 14. Các số đặc trưng đo độ phân tán *(Tiết 43–45)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 14<br/>Các số đặc trưng<br/>đo độ phân tán"]:::root
+    G --> A["① Khoảng biến thiên R"]:::n1
+    G --> B["② Khoảng tứ phân vị"]:::n2
+    G --> C["③ Phương sai – độ lệch chuẩn"]:::n3
+    G --> D["④ Giá trị bất thường"]:::n4
+
+    A --> A1["★ R = giá trị lớn nhất − giá trị nhỏ nhất"]:::l1
+    A --> A2["Đơn giản, dễ tính"]:::l1
+    A --> A3["Dễ bị ảnh hưởng bởi giá trị bất thường"]:::l1
+
+    B --> B1["★ ΔQ = Q₃ − Q₁"]:::l2
+    B --> B2["Độ trải của 50% số liệu chính giữa"]:::l2
+    B --> B3["Ít bị ảnh hưởng bởi giá trị bất thường"]:::l2
+
+    C --> C1["★ s² = Σ(xᵢ − x̄)² / n"]:::l3
+    C --> C2["★ s = √s²"]:::l3
+    C --> C3["Dùng mọi giá trị của mẫu"]:::l3
+    C --> C4["Càng lớn càng phân tán"]:::l3
+
+    D --> D1["★ x > Q₃ + 1,5·ΔQ"]:::l4
+    D --> D2["★ x < Q₁ − 1,5·ΔQ"]:::l4
+    D --> D3["Biểu đồ hộp"]:::l4
+    D --> D4["Do nhầm lẫn, sai sót"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai14_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*
