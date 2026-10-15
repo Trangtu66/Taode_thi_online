@@ -122,6 +122,7 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11", ten: "Bài 15. Giới hạn của dãy số", ma: "Củng cố – Bài 15. Giới hạn của dãy số (Toán 11)", link: "cc_bai15_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 16. Giới hạn của hàm số", ma: "Củng cố – Bài 16. Giới hạn của hàm số (Toán 11)", link: "cc_bai16_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 17. Hàm số liên tục", ma: "Củng cố – Bài 17. Hàm số liên tục (Toán 11)", link: "cc_bai17_t11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "Bài tập cuối Chương V", ma: "Củng cố – Bài tập cuối Chương V. Giới hạn. Hàm số liên tục (Toán 11)", link: "cc_chuong5_t11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
