@@ -4592,6 +4592,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Chuyên đề 2: Làm quen với một vài khái niệm của lí thuyết đồ thị",
+"file": "KHBD_TOAN11_CD2_Bai8_KhaiNiemDoThi_T15-17.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_CD2_Bai8_KhaiNiemDoThi_T15-17.docx",
+"kb": 856,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Chuyên đề 2: Làm quen với một vài khái niệm của lí thuyết đồ thị",
+"file": "KHBD_TOAN11_CD2_Bai9_EulerHamilton_T18-20.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_CD2_Bai9_EulerHamilton_T18-20.docx",
+"kb": 980,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "On Tap Giua Ki1 (tiết 22-23)",
 "file": "KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
@@ -4937,6 +4959,28 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_CD1_Bai7_PhepDongDang_T12.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai7_PhepDongDang_T12.png",
 "kb": 341,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 CD2 Bài 8 Khai Niem Do Thi (tiết 15-17)",
+"file": "SoDoTuDuy_TOAN11_CD2_Bai8_KhaiNiemDoThi_T15-17.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD2_Bai8_KhaiNiemDoThi_T15-17.png",
+"kb": 362,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 CD2 Bài 9 Euler Hamilton (tiết 18-20)",
+"file": "SoDoTuDuy_TOAN11_CD2_Bai9_EulerHamilton_T18-20.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD2_Bai9_EulerHamilton_T18-20.png",
+"kb": 391,
 "ngay": "2026-10-15"
 },
 {

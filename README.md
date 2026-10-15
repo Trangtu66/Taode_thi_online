@@ -2389,6 +2389,102 @@ graph TD
 
 ---
 
+### Toán 11 – Chuyên đề 2, Bài 8. Một vài khái niệm cơ bản *(Tiết 15–17 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ2 – BÀI 8<br/>Một vài khái niệm<br/>cơ bản của đồ thị"]:::root
+    G --> A["① Đồ thị"]:::n1
+    G --> B["② Bậc của đỉnh"]:::n2
+    G --> C["③ Đường đi, chu trình"]:::n3
+    G --> D["④ Liên thông"]:::n4
+
+    A --> A1["G = (V, E): đỉnh, cạnh"]:::l1
+    A --> A2["Khuyên, hai đỉnh kề nhau"]:::l1
+    A --> A3["★ Đơn đồ thị, đa đồ thị"]:::l1
+    A --> A4["Đầy đủ Kₙ: n(n – 1) : 2 cạnh"]:::l1
+
+    B --> B1["Đỉnh bậc n: đầu mút của n cạnh"]:::l2
+    B --> B2["Bậc 0: cô lập; bậc 1: treo"]:::l2
+    B --> B3["★ Tổng các bậc = 2 × số cạnh"]:::l2
+    B --> B4["Số đỉnh bậc lẻ là số chẵn"]:::l2
+
+    C --> C1["Dãy cạnh nối tiếp"]:::l3
+    C --> C2["Chu trình: đường đi khép kín"]:::l3
+    C --> C3["Độ dài: số cạnh"]:::l3
+    C --> C4["Sơ cấp, đơn giản"]:::l3
+
+    D --> D1["★ Mọi cặp đỉnh có đường đi nối"]:::l4
+    D --> D2["Cầu, thành phần liên thông"]:::l4
+    D --> D3["2n đỉnh, bậc ≥ n: liên thông"]:::l4
+    D --> D4["Bắt tay, giải đấu, mạng đường"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd2bai8_t11.html>
+
+---
+
+### Toán 11 – Chuyên đề 2, Bài 9. Đường đi Euler và đường đi Hamilton *(Tiết 18–20 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ2 – BÀI 9<br/>Đường đi Euler và<br/>đường đi Hamilton"]:::root
+    G --> A["① Đường đi Euler"]:::n1
+    G --> B["② Đường đi Hamilton"]:::n2
+    G --> C["③ Điều kiện đủ"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["Qua mọi cạnh, mỗi cạnh một lần"]:::l1
+    A --> A2["★ Chu trình Euler: liên thông, mọi bậc chẵn"]:::l1
+    A --> A3["★ Đường đi Euler A → B: chỉ A, B bậc lẻ"]:::l1
+    A --> A4["Vẽ hình bằng một nét liền"]:::l1
+
+    B --> B1["Qua mọi đỉnh, mỗi đỉnh một lần"]:::l2
+    B --> B2["Chu trình Hamilton: sơ cấp, chứa mọi đỉnh"]:::l2
+    B --> B3["Đỉnh bậc 2: phải đi qua cả hai cạnh"]:::l2
+    B --> B4["Không có tiêu chuẩn cần và đủ"]:::l2
+
+    C --> C1["★ Ore: không kề nhau, tổng bậc ≥ n"]:::l3
+    C --> C2["Dirac: mọi bậc ≥ n : 2"]:::l3
+    C --> C3["Bậc ≥ (n – 1) : 2: có đường đi Hamilton"]:::l3
+    C --> C4["Kₙ (n ≥ 3) có chu trình Hamilton"]:::l3
+
+    D --> D1["Bảy cây cầu Königsberg"]:::l4
+    D --> D2["Đi qua mọi tuyến đường: thu gom rác"]:::l4
+    D --> D3["Tham quan mọi điểm du lịch"]:::l4
+    D --> D4["Euler – cha đẻ lí thuyết đồ thị"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd2bai9_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*
