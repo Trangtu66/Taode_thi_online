@@ -2197,6 +2197,198 @@ graph TD
 
 ---
 
+### Toán 11 – Chuyên đề 1, Bài 5. Phép dời hình *(Tiết 9 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ1 – BÀI 5<br/>Phép dời hình"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Tính chất"]:::n2
+    G --> C["③ Hợp thành"]:::n3
+    G --> D["④ Thiết kế đồ hoạ"]:::n4
+
+    A --> A1["★ Bảo toàn khoảng cách giữa hai điểm"]:::l1
+    A --> A2["Tịnh tiến, đối xứng trục, quay, đối xứng tâm"]:::l1
+    A --> A3["Kiểm tra: M′N′ = MN"]:::l1
+    A --> A4["Có phép dời hình không thuộc 4 loại trên"]:::l1
+
+    B --> B1["Đoạn thẳng → đoạn thẳng bằng nó"]:::l2
+    B --> B2["Tam giác → tam giác bằng nó"]:::l2
+    B --> B3["Đường tròn → đường tròn cùng bán kính"]:::l2
+    B --> B4["★ Thẳng hàng → thẳng hàng, giữ thứ tự"]:::l2
+
+    C --> C1["★ h trước, g sau: vẫn là phép dời hình"]:::l3
+    C --> C2["Đối xứng trục rồi tịnh tiến"]:::l3
+    C --> C3["Hai hình bằng nhau: có phép dời hình"]:::l3
+    C --> C4["Ví dụ: tứ giác AMND, CNMB"]:::l3
+
+    D --> D1["Cầu Vàng, Đà Nẵng"]:::l4
+    D --> D2["Tranh Kị binh của Escher"]:::l4
+    D --> D3["Lát gạch: 17 loại “túi”"]:::l4
+    D --> D4["Hoa văn thổ cẩm Gia Lai"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd1bai5_t11.html>
+
+---
+
+### Toán 11 – Chuyên đề 1, Bài 6. Phép vị tự *(Tiết 10–11 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ1 – BÀI 6<br/>Phép vị tự"]:::root
+    G --> A["① Định nghĩa"]:::n1
+    G --> B["② Tính chất"]:::n2
+    G --> C["③ Ảnh của hình"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ OM′ = k·OM (vectơ), k ≠ 0"]:::l1
+    A --> A2["O: tâm vị tự, k: tỉ số"]:::l1
+    A --> A3["V(O, 1): đồng nhất"]:::l1
+    A --> A4["V(O, –1): đối xứng tâm O"]:::l1
+
+    B --> B1["★ M′N′ = k·MN (vectơ)"]:::l2
+    B --> B2["Độ dài: M′N′ = |k|·MN"]:::l2
+    B --> B3["Thẳng hàng → thẳng hàng, giữ thứ tự"]:::l2
+    B --> B4["Đường thẳng → song song hoặc trùng"]:::l2
+
+    C --> C1["Đoạn thẳng a → |k|a"]:::l3
+    C --> C2["★ Đường tròn R → |k|R, tâm là ảnh của tâm"]:::l3
+    C --> C3["Tam giác → đồng dạng tỉ số |k|"]:::l3
+    C --> C4["Diện tích nhân k²"]:::l3
+
+    D --> D1["Tranh Đông Hồ phóng to"]:::l4
+    D --> D2["Quỹ tích trọng tâm (Ví dụ 3)"]:::l4
+    D --> D3["Phóng to, thu nhỏ ảnh"]:::l4
+    D --> D4["Ruộng bậc thang (Vận dụng 2)"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd1bai6_t11.html>
+
+---
+
+### Toán 11 – Chuyên đề 1, Bài 7. Phép đồng dạng *(Tiết 12 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ1 – BÀI 7<br/>Phép đồng dạng"]:::root
+    G --> A["① Định nghĩa"]:::n1
+    G --> B["② Hợp thành"]:::n2
+    G --> C["③ Hai hình đồng dạng"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["★ M′N′ = k·MN, k > 0"]:::l1
+    A --> A2["k: tỉ số đồng dạng"]:::l1
+    A --> A3["Phép dời hình: k = 1"]:::l1
+    A --> A4["Phép vị tự tỉ số t: k = |t|"]:::l1
+
+    B --> B1["★ Dời hình rồi vị tự V(O, k): tỉ số |k|"]:::l2
+    B --> B2["Tỉ số k₁ rồi k₂: tỉ số k₁·k₂"]:::l2
+    B --> B3["Ví dụ: đối xứng trục d rồi V(O; –2)"]:::l2
+    B --> B4["Quỹ tích: P thuộc đường thẳng cố định"]:::l2
+
+    C --> C1["Có phép đồng dạng biến H thành H′"]:::l3
+    C --> C2["★ Đồng dạng là quan hệ hai chiều"]:::l3
+    C --> C3["Tam giác: các cạnh tỉ lệ"]:::l3
+    C --> C4["Góc được bảo toàn"]:::l3
+
+    D --> D1["Ảnh Dinh Thống Nhất"]:::l4
+    D --> D2["Thác Bản Giốc"]:::l4
+    D --> D3["Bản đồ, bản vẽ tỉ lệ"]:::l4
+    D --> D4["Bông tuyết Koch, fractal"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd1bai7_t11.html>
+
+---
+
+### Toán 11 – Bài tập cuối chuyên đề 1. Phép biến hình phẳng *(Tiết 13 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 1<br/>Phép biến hình phẳng"]:::root
+    G --> A["① Phép dời hình"]:::n1
+    G --> B["② Phép vị tự"]:::n2
+    G --> C["③ Phép đồng dạng"]:::n3
+    G --> D["④ Vận dụng"]:::n4
+
+    A --> A1["Tịnh tiến: M′ = M + u"]:::l1
+    A --> A2["Đối xứng trục, đối xứng tâm"]:::l1
+    A --> A3["Phép quay tâm O góc α"]:::l1
+    A --> A4["★ Bảo toàn khoảng cách"]:::l1
+
+    B --> B1["★ OM′ = k·OM"]:::l2
+    B --> B2["Đường tròn: tâm ảnh, bán kính |k|R"]:::l2
+    B --> B3["Đường thẳng → song song hoặc trùng"]:::l2
+    B --> B4["Quỹ tích: ảnh của đường cố định"]:::l2
+
+    C --> C1["★ M′N′ = k·MN, k > 0"]:::l3
+    C --> C2["Dời hình rồi vị tự"]:::l3
+    C --> C3["Hai hình đồng dạng"]:::l3
+    C --> C4["Tỉ lệ bản đồ, ảnh chụp"]:::l3
+
+    D --> D1["★ MA + MB nhỏ nhất: dùng đối xứng trục"]:::l4
+    D --> D2["AE + BF nhỏ nhất: tịnh tiến, đối xứng"]:::l4
+    D --> D3["Quỹ tích điểm (1.32, 1.33)"]:::l4
+    D --> D4["Nhận biết hình đồng dạng"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd1_t11.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 12
 
 ### Toán 12 – Bài 1. Tính đơn điệu và Cực trị *(Tiết 1–6)*

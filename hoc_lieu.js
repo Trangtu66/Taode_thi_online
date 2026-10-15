@@ -4548,6 +4548,50 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Chuyên đề 1: Phép biến hình phẳng",
+"file": "KHBD_TOAN11_BaiTapCuoiChuyenDe1_T13.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_BaiTapCuoiChuyenDe1_T13.docx",
+"kb": 736,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Chuyên đề 1: Phép biến hình phẳng",
+"file": "KHBD_TOAN11_CD1_Bai5_PhepDoiHinh_T9.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_CD1_Bai5_PhepDoiHinh_T9.docx",
+"kb": 1549,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Chuyên đề 1: Phép biến hình phẳng",
+"file": "KHBD_TOAN11_CD1_Bai6_PhepViTu_T10-11.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_CD1_Bai6_PhepViTu_T10-11.docx",
+"kb": 1557,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Chuyên đề 1: Phép biến hình phẳng",
+"file": "KHBD_TOAN11_CD1_Bai7_PhepDongDang_T12.docx",
+"url": "mon/toan/khbd/lop11/KHBD_TOAN11_CD1_Bai7_PhepDongDang_T12.docx",
+"kb": 1643,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "On Tap Giua Ki1 (tiết 22-23)",
 "file": "KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_OnTapGiuaKi1_T22-23.docx",
@@ -4812,6 +4856,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 Bai Tap Cuoi Chuyen De1 (tiết 13)",
+"file": "SoDoTuDuy_TOAN11_BaiTapCuoiChuyenDe1_T13.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_BaiTapCuoiChuyenDe1_T13.png",
+"kb": 354,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – Phép biến hình",
 "file": "SoDoTuDuy_TOAN11_CD1_Bai1_PhepBienHinh.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai1_PhepBienHinh.png",
@@ -4850,6 +4905,39 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai4_PhepQuay_DoiXungTam.png",
 "kb": 225,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 CD1 Bài 5 Phep Doi Hinh (tiết 9)",
+"file": "SoDoTuDuy_TOAN11_CD1_Bai5_PhepDoiHinh_T9.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai5_PhepDoiHinh_T9.png",
+"kb": 361,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 CD1 Bài 6 Phep Vi Tu (tiết 10-11)",
+"file": "SoDoTuDuy_TOAN11_CD1_Bai6_PhepViTu_T10-11.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai6_PhepViTu_T10-11.png",
+"kb": 337,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy TOAN11 CD1 Bài 7 Phep Dong Dang (tiết 12)",
+"file": "SoDoTuDuy_TOAN11_CD1_Bai7_PhepDongDang_T12.png",
+"url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_CD1_Bai7_PhepDongDang_T12.png",
+"kb": 341,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
