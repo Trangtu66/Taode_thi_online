@@ -15,7 +15,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
-<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="bieu_tuong.js"></script>
 <style>
   :root{--paper:#F3F8FF;--line:#D9E4F5;--ink:#1F2A44;--soft:#5A6B85;--cel:#2F6FEB;--deep:#1D4ED8;--gold:#F59E0B;--good:#16A34A;--bad:#E5484D;--pale:#E8F0FE;--grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%)}
   *{box-sizing:border-box}
@@ -508,7 +508,7 @@ async function veDapAn(){
         <div class="msg">${mo ? "Đáp án, lời giải ĐANG MỞ: học sinh mở lại link/quét lại mã QR sẽ xem được bài làm kèm lời giải." : "Đáp án ĐANG KHOÁ: học sinh nộp bài chỉ thấy điểm."}</div></div>
       <button class="btn" id="btn-doi-da" style="font-size:16px;padding:12px 20px;${mo ? "background:#991B1B" : "background:#166534"}">${mo ? "Khoá đáp án" : "Mở đáp án cho học sinh"}</button>
     </div>
-    <p class="msg" style="font-size:13px">Gợi ý khi chữa bài: bấm “Mở đáp án”, cho học sinh bấm “Xem lại bài làm của em và lời giải”; giáo viên mở bài trên máy chiếu và bấm “Xem đáp án, lời giải (chữa bài)”. Chữa xong bấm “Khoá đáp án”.</p>
+    <p class="msg" style="font-size:13px">Gợi ý khi chữa bài: dùng “Trình chiếu chữa bài” để chiếu từng câu kèm tỉ lệ lựa chọn của lớp. Khi muốn học sinh tự xem lại bài làm của mình, bấm “Mở đáp án”; học sinh mở lại đúng link và bấm “Xem lại bài làm của em và lời giải”. Chữa xong bấm “Khoá đáp án”.</p>
     <h3 style="margin:14px 0 6px;font-size:15px">Các bài đang mở đáp án (${ds.length})</h3>
     ${ds.length ? `<div class="tbl"><table><thead><tr><th>Bài</th><th>Mở lúc</th><th>Giáo viên mở</th><th></th></tr></thead><tbody>${ds.map((x,i)=>`<tr><td>${esc(tenBai(x.quiz))}</td><td class="num">${x.t ? ngay(x.t) : ""}</td><td>${esc(x.gv)}</td><td><button class="btn ghost khoa-nhanh" data-i="${i}">Khoá</button></td></tr>`).join("")}</tbody></table></div>` : '<span class="msg">Chưa có bài nào đang mở.</span>'}`;
   const doi = async (quiz, val, btn)=>{ btn.disabled = true; btn.textContent = "Đang lưu…";
