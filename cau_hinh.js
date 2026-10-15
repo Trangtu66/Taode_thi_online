@@ -229,6 +229,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Thực hành: Khảo sát và vẽ đồ thị hàm số với GeoGebra", ma: "Củng cố – Thực hành: Khảo sát và vẽ đồ thị hàm số với GeoGebra (Toán 12)", link: "cc_geogebra_hamso_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Thực hành: Vẽ vectơ tổng của ba vectơ bằng GeoGebra", ma: "Củng cố – Thực hành: Vẽ vectơ tổng của ba vectơ trong không gian bằng GeoGebra (Toán 12)", link: "cc_geogebra_vecto_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Thực hành trải nghiệm: Độ dài gang tay", ma: "Củng cố – Thực hành trải nghiệm: Độ dài gang tay (Toán 12)", link: "cc_gangtay_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng", ma: "Củng cố – Chuyên đề 1, Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng (Toán 12)", link: "cc_cd1bai2_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

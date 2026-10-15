@@ -2805,6 +2805,54 @@ graph TD
 
 ---
 
+### Toán 12 – Chuyên đề 1, Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng *(Tiết 6–10 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ1 – BÀI 2<br/>Phân bố nhị thức<br/>và áp dụng"]:::root
+    G --> A["① Phép thử lặp"]:::n1
+    G --> B["② Công thức Bernoulli"]:::n2
+    G --> C["③ Phân bố nhị thức"]:::n3
+    G --> D["④ Kì vọng, phương sai"]:::n4
+
+    A --> A1["Lặp lại T n lần độc lập"]:::l1
+    A --> A2["Mỗi lần P(E) = p, 0 < p < 1"]:::l1
+    A --> A3["Gieo xúc xắc, tung đồng xu"]:::l1
+    A --> A4["Kiểm tra sản phẩm, hạt giống"]:::l1
+
+    B --> B1["★ P(Eₖ) = Cₙᵏpᵏ(1–p)ⁿ⁻ᵏ"]:::l2
+    B --> B2["Eₖ: E xuất hiện đúng k lần"]:::l2
+    B --> B3["“Ít nhất”: dùng biến cố đối"]:::l2
+    B --> B4["Mở đầu: chọn phương án 2"]:::l2
+
+    C --> C1["★ X ~ B(n, p)"]:::l3
+    C --> C2["X: số lần E xuất hiện trong n lần"]:::l3
+    C --> C3["P(X ≤ k), P(X ≥ k): cộng các số hạng"]:::l3
+    C --> C4["Ber(p): trường hợp n = 1"]:::l3
+
+    D --> D1["★ E(X) = np"]:::l4
+    D --> D2["V(X) = np(1 – p)"]:::l4
+    D --> D3["σ(X) = √(np(1 – p))"]:::l4
+    D --> D4["Thi trắc nghiệm: trung bình 2,5 điểm"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd1bai2_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*

@@ -5098,6 +5098,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
+"file": "KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
+"kb": 663,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
+"file": "KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10_HoaNhap.docx",
+"kb": 667,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "On Tap Cuoi Ki1 (tiết 46-47)",
 "file": "KHBD_TOAN12_OnTapCuoiKi1_T46-47.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_OnTapCuoiKi1_T46-47.docx",
@@ -5488,6 +5510,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai1.png",
 "kb": 229,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD1 Bài 2 Phan Bo Nhi Thuc (tiết 6-10)",
+"file": "SoDoTuDuy_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.png",
+"kb": 352,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",
