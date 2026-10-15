@@ -3536,6 +3536,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27)",
+"file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
+"kb": 770,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27) Hoa Nhap",
+"file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
+"kb": 774,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài tập cuối chương II",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong2_T15.docx",
@@ -3662,6 +3684,17 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai6_DinhLiCosin_Sin_T18-21.png",
 "kb": 247,
 "ngay": "2026-10-08"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 Bài 7 Cac Khai Niem Mo Dau (tiết 26-27)",
+"file": "SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
+"kb": 287,
+"ngay": "2026-10-15"
 },
 {
 "mon": "toan",

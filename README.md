@@ -496,6 +496,51 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 7. Các khái niệm mở đầu *(Tiết 26–27)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 7<br/>Các khái niệm<br/>mở đầu"]:::root
+    G --> A["① Vectơ"]:::n1
+    G --> B["② Cùng phương"]:::n2
+    G --> C["③ Cùng hướng – bằng nhau"]:::n3
+    G --> D["④ Vectơ-không"]:::n4
+
+    A --> A1["★ Đoạn thẳng có hướng"]:::l1
+    A --> A2["Kí hiệu AB→, a→"]:::l1
+    A --> A3["★ Độ dài |AB→| = AB"]:::l1
+    A --> A4["Biểu diễn lực, vận tốc"]:::l1
+
+    B --> B1["Giá của vectơ"]:::l2
+    B --> B2["★ Giá song song hoặc trùng nhau"]:::l2
+    B --> B3["A, B, C thẳng hàng ⇔ AB→, AC→ cùng phương"]:::l2
+
+    C --> C1["Cùng phương thì cùng hoặc ngược hướng"]:::l3
+    C --> C2["★ a→ = b→: cùng độ dài, cùng hướng"]:::l3
+    C --> C3["Mỗi O, a→: duy nhất A với OA→ = a→"]:::l3
+
+    D --> D1["AA→, BB→ = 0→"]:::l4
+    D --> D2["★ Độ dài 0"]:::l4
+    D --> D3["Cùng hướng với mọi vectơ"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai7_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*

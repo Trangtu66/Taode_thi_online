@@ -61,6 +61,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 6. Thực hành: Nhận biết một số phân tử sinh học", ma: "Củng cố – Sinh học 10 · Bài 6: Thực hành nhận biết một số phân tử sinh học", link: "sinh_cc_bai6_k10.html" },
   { khoi: 10, nhom: "Vật lí 10 · Củng cố", ten: "Bài 1. Làm quen với Vật lí", ma: "Củng cố – Vật lí 10 · Bài 1: Làm quen với Vật lí", link: "ly_cc_bai1_k10.html" },
   { khoi: 10, nhom: "Công nghệ 10 · Củng cố", ten: "Bài 1. Giới thiệu về trồng trọt", ma: "Củng cố – Công nghệ 10 · Bài 1: Giới thiệu về trồng trọt", link: "cn_cc_bai1_k10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 7. Các khái niệm mở đầu", ma: "Củng cố – Bài 7. Các khái niệm mở đầu (Toán 10)", link: "cc_bai7_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
