@@ -771,6 +771,51 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 12. Số gần đúng và sai số *(Tiết 39–40)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 12<br/>Số gần đúng<br/>và sai số"]:::root
+    G --> A["① Số gần đúng"]:::n1
+    G --> B["② Sai số tuyệt đối"]:::n2
+    G --> C["③ Sai số tương đối"]:::n3
+    G --> D["④ Quy tròn"]:::n4
+
+    A --> A1["Số đúng a̅, số gần đúng a"]:::l1
+    A --> A2["Kết quả đo đạc, tính toán"]:::l1
+    A --> A3["Máy tính cầm tay: π, √a"]:::l1
+
+    B --> B1["★ Δa = |a − a̅|"]:::l2
+    B --> B2["★ a̅ = a ± d ⇔ a − d ≤ a̅ ≤ a + d"]:::l2
+    B --> B3["d: độ chính xác"]:::l2
+    B --> B4["Đo: d = nửa đơn vị thước"]:::l2
+
+    C --> C1["★ δa = Δa / |a| ≤ d / |a|"]:::l3
+    C --> C2["Viết dạng phần trăm"]:::l3
+    C --> C3["So sánh chất lượng phép đo"]:::l3
+
+    D --> D1["Chữ số sau < 5: giữ; ≥ 5: tăng 1"]:::l4
+    D --> D2["★ Sai số ≤ nửa đơn vị hàng làm tròn"]:::l4
+    D --> D3["★ Biết d: tròn đến hàng thấp nhất mà d < 1 đơn vị"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai12_t10.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Toán 11
 
 ### Toán 11 – Bài 1. Góc lượng giác – Giá trị lượng giác *(Tiết 1–4)*

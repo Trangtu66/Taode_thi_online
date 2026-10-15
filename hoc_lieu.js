@@ -3473,7 +3473,7 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34)",
 "file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
-"kb": 1048,
+"kb": 1158,
 "ngay": "2026-10-15"
 },
 {
@@ -3484,7 +3484,7 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
-"kb": 1052,
+"kb": 1163,
 "ngay": "2026-10-15"
 },
 {
@@ -3507,6 +3507,28 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN10_Bai11_TichVoHuong_T35-37_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai11_TichVoHuong_T35-37_HoaNhap.docx",
 "kb": 683,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 12 So Gan Dung Sai So (tiết 39-40)",
+"file": "KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40.docx",
+"kb": 1062,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 12 So Gan Dung Sai So (tiết 39-40) Hoa Nhap",
+"file": "KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40_HoaNhap.docx",
+"url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40_HoaNhap.docx",
+"kb": 1067,
 "ngay": "2026-10-15"
 },
 {
@@ -3583,7 +3605,7 @@ window.HOC_LIEU = [
 "ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27)",
 "file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
-"kb": 770,
+"kb": 810,
 "ngay": "2026-10-15"
 },
 {
@@ -3594,7 +3616,7 @@ window.HOC_LIEU = [
 "ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
-"kb": 774,
+"kb": 814,
 "ngay": "2026-10-15"
 },
 {
@@ -3760,6 +3782,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai11_TichVoHuong_T35-37.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai11_TichVoHuong_T35-37.png",
 "kb": 315,
+"ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy TOAN10 Bài 12 So Gan Dung Sai So (tiết 39-40)",
+"file": "SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
+"url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
+"kb": 305,
 "ngay": "2026-10-15"
 },
 {
