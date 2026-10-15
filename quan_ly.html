@@ -53,6 +53,14 @@
   .bai .so{font-size:12.5px;color:var(--soft)}
   .bai .so b{color:var(--deep)}
   .khoi-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .mon-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .mon{padding:8px 14px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--deep);text-align:left}
+  .mon small{display:block;font-weight:400;font-size:11.5px;color:var(--soft)}
+  .mon:hover{border-color:#A9C4F5}
+  .mon.on{background:var(--deep);border-color:var(--deep);color:#fff}.mon.on small{color:#DBEAFE}
+  .khoi.trong{opacity:.45;cursor:default}
+  .tim-bai{margin:0 0 12px}.tim-bai input{width:100%;max-width:460px}
+  .nhom-bai{margin-bottom:14px}.nhom-bai h3{margin:0 0 8px;font-size:14px;color:var(--soft);text-transform:uppercase;letter-spacing:.3px}.nhom-bai h3 span{font-weight:400}
   .khoi{flex:1;min-width:110px;padding:11px 12px;border-radius:12px;border:2px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;font-size:16px;font-weight:700;color:var(--deep)}
   .khoi small{display:block;font-weight:400;font-size:12px;color:var(--soft);margin-top:2px}
   .khoi.on{background:var(--gold);border-color:var(--gold);color:#fff}
@@ -173,9 +181,11 @@
 
   <div id="noi-dung" class="hidden">
     <div class="card">
-      <h2>① Chọn khối và bài</h2>
-      <div class="khoi-tabs" id="ds-khoi"></div>
-      <div class="bai-grid" id="ds-bai"></div>
+      <h2>① Chọn môn, khối và bài</h2>
+      <div class="mon-tabs" id="ds-mon" role="group" aria-label="Chọn môn"></div>
+      <div class="khoi-tabs" id="ds-khoi" role="group" aria-label="Chọn khối"></div>
+      <div class="tim-bai"><input id="tim-bai" type="search" placeholder="Tìm nhanh tên bài trong môn, khối đã chọn…" aria-label="Tìm tên bài"></div>
+      <div id="ds-bai"></div>
     </div>
     <div class="card">
       <h2>② Chọn chức năng</h2>
@@ -261,44 +271,78 @@ async function vaoCongKhai(){
   $("dang-nhap").style.order = "9"; $("noi-dung").after($("dang-nhap"));
   await taiDanhSach();
 }
-/* ---------- danh sách bài ---------- */
+/* ---------- danh sách bài: chọn Môn → Khối → bài (gom nhóm theo loại bài) ---------- */
+let MON = doc("ql_mon") || "", TIM = "";
+const THU_TU_MON = ["Toán","Ngữ văn","Tiếng Anh","Vật lí","Hóa học","Sinh học","Lịch sử","Địa lí","Giáo dục kinh tế và pháp luật","Công nghệ","Tin học"];
+// "Địa lí 12 · Củng cố" → môn "Địa lí", loại "Củng cố"; "Toán 12" → loại "Củng cố"
+function tachNhom(b){
+  const nhom = String(b.nhom || ""), m = nhom.match(/^(.*?)\s*\b(10|11|12)\b\s*(?:·\s*(.*))?$/);
+  b.mon = m && m[1] ? m[1].trim() : "Khác";
+  b.loai = m && m[3] ? m[3].trim() : "Củng cố";
+  if(/^Chuyên đề|^Bài tập cuối chuyên đề/i.test(String(b.ten||""))) b.loai = "Chuyên đề học tập";
+}
 async function taiDanhSach(){
   let qz = [];
   try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes; }catch(e){}
   const cfg = (window.DANH_SACH_BAI || []).map(b=>({...b}));
   cfg.forEach(b=>{ const q = qz.find(x=>x.quizId===b.ma); b.count = q ? q.count : 0; b.last = q ? q.last : 0; });
-  qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\(?(Toán\s*(10|11|12))\b\)?/i);
-    cfg.push({nhom:(m ? m[1] + " · " : "") + "chưa có trong danh sách", ten:t.replace(/^Củng cố\s*[–-]\s*/,"").replace(/\s*\(Toán\s*\d+\)\s*$/,""), ma:q.quizId, khoi:m ? m[2] : "", count:q.count, last:q.last}); });
-  cfg.forEach(b=>{ if(!b.khoi){ const m = String(b.nhom||"").concat(" ", b.ma||"").match(/\b(10|11|12)\b/); b.khoi = m ? m[1] : "khac"; } b.khoi = String(b.khoi); });
+  qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\(([^()]*?)\s*(10|11|12)\)\s*$/);
+    cfg.push({nhom:(m ? m[1].trim() + " " + m[2] + " · " : "") + "Đề tự tạo (chưa có trong danh sách)", ten:t.replace(/^Củng cố\s*[–-]\s*/,"").replace(/\s*\([^()]*\d{2}\)\s*$/,""), ma:q.quizId, khoi:m ? m[2] : "", count:q.count, last:q.last}); });
+  cfg.forEach(b=>{ if(!b.khoi){ const m = String(b.nhom||"").concat(" ", b.ma||"").match(/\b(10|11|12)\b/); b.khoi = m ? m[1] : "khac"; } b.khoi = String(b.khoi); tachNhom(b); });
   BAI = cfg;
+  if(!MON || !BAI.some(b=>b.mon===MON)){
+    const moi = BAI.slice().sort((a,b)=>(b.last||0)-(a.last||0))[0];
+    MON = moi ? moi.mon : "Toán";
+  }
   if(!CHON && BAI.length){
-    const pool = KHOI ? BAI.filter(b=>b.khoi===KHOI) : BAI;
-    const moi = (pool.length ? pool : BAI).slice().sort((a,b)=>(b.last||0)-(a.last||0))[0];
-    CHON = moi.ma; if(!KHOI) KHOI = moi.khoi;
+    const pool = BAI.filter(b=>b.mon===MON && (!KHOI || b.khoi===KHOI));
+    const moi = (pool.length ? pool : BAI.filter(b=>b.mon===MON)).slice().sort((a,b)=>(b.last||0)-(a.last||0))[0];
+    if(moi){ CHON = moi.ma; if(!KHOI || !pool.length) KHOI = moi.khoi; }
   }
   if(!KHOI) KHOI = "10";
   veDanhSach();
-  await taiBai();
+  if(CHON) await taiBai();
 }
-function chonKhoi(k){
-  KHOI = k; try{ localStorage.setItem("ql_khoi", k); }catch(e){}
-  const ds = BAI.filter(b=>b.khoi===k);
+function chonBaiMacDinh(){
+  const ds = BAI.filter(b=>b.mon===MON && b.khoi===KHOI);
   if(!ds.find(b=>b.ma===CHON)){
     const moi = ds.slice().sort((a,b)=>(b.last||0)-(a.last||0))[0];
     CHON = moi ? moi.ma : ""; LOP = ""; ROWS = []; DANG_XEM = "";
   }
   veDanhSach();
-  if(CHON) taiBai(); else { $("tieu-de").textContent = ""; $("lopbar").innerHTML = ""; $("noi-dung-chinh").innerHTML = `<div class="msg" style="padding:20px;text-align:center">Khối ${esc(k)} chưa có bài củng cố nào. Khi soạn bài mới cho khối ${esc(k)}, bài sẽ tự hiện ở đây.</div>`; }
+  if(CHON) taiBai(); else { $("tieu-de").textContent = ""; $("lopbar").innerHTML = ""; $("noi-dung-chinh").innerHTML = `<div class="msg" style="padding:20px;text-align:center">${esc(MON)} khối ${esc(KHOI)} chưa có bài trực tuyến nào. Khi có bài mới, bài sẽ tự hiện ở đây.</div>`; }
+}
+function chonMon(m){
+  MON = m; TIM = ""; try{ localStorage.setItem("ql_mon", m); }catch(e){}
+  // giữ khối đang chọn nếu môn này có bài ở khối đó, nếu không chuyển sang khối có bài mới nhất
+  if(!BAI.some(b=>b.mon===m && b.khoi===KHOI)){
+    const moi = BAI.filter(b=>b.mon===m).sort((a,b)=>(b.last||0)-(a.last||0))[0];
+    if(moi) KHOI = moi.khoi;
+  }
+  chonBaiMacDinh();
+}
+function chonKhoi(k){
+  KHOI = k; TIM = ""; try{ localStorage.setItem("ql_khoi", k); }catch(e){}
+  chonBaiMacDinh();
 }
 function veDanhSach(){
-  const khois = ["10","11","12"].concat(BAI.some(b=>b.khoi==="khac") ? ["khac"] : []);
-  $("ds-khoi").innerHTML = khois.map(k=>{ const ds = BAI.filter(b=>b.khoi===k), n = ds.reduce((a,b)=>a+(b.count||0),0);
-    return `<button class="khoi ${k===KHOI?'on':''}" data-k="${k}">${k==="khac" ? "Khác" : "Khối " + k}<small>${ds.length} bài · ${n} lượt nộp</small></button>`; }).join("");
+  const mons = [...new Set(BAI.map(b=>b.mon))].sort((a,b)=>{ const i = THU_TU_MON.indexOf(a), j = THU_TU_MON.indexOf(b); return (i<0?99:i)-(j<0?99:j) || a.localeCompare(b,"vi"); });
+  $("ds-mon").innerHTML = mons.map(m=>{ const ds = BAI.filter(b=>b.mon===m), n = ds.reduce((a,b)=>a+(b.count||0),0);
+    return `<button class="mon ${m===MON?'on':''}" data-m="${esc(m)}">${esc(m)}<small>${ds.length} bài${n ? " · " + n + " lượt nộp" : ""}</small></button>`; }).join("");
+  document.querySelectorAll(".mon").forEach(el=> el.onclick = ()=> chonMon(el.dataset.m));
+  const cuaMon = BAI.filter(b=>b.mon===MON);
+  const khois = ["10","11","12"].concat(cuaMon.some(b=>b.khoi==="khac") ? ["khac"] : []);
+  $("ds-khoi").innerHTML = khois.map(k=>{ const ds = cuaMon.filter(b=>b.khoi===k), n = ds.reduce((a,b)=>a+(b.count||0),0);
+    return `<button class="khoi ${k===KHOI?'on':''} ${ds.length?'':'trong'}" data-k="${k}" ${ds.length?'':'disabled'}>${k==="khac" ? "Khác" : "Khối " + k}<small>${ds.length ? ds.length + " bài · " + n + " lượt nộp" : "chưa có bài"}</small></button>`; }).join("");
   document.querySelectorAll(".khoi").forEach(el=> el.onclick = ()=> chonKhoi(el.dataset.k));
-  const ds = BAI.filter(b=>b.khoi===KHOI);
-  $("ds-bai").innerHTML = (ds.length ? "" : `<span class="msg">Khối ${esc(KHOI)} chưa có bài.</span>`) + ds.map(b=>`<button class="bai ${b.ma===CHON?'on':''}" data-ma="${esc(b.ma)}">
-    <div class="nhom">${esc(b.nhom||"")}</div><div class="ten">${esc(b.ten)}</div>
-    <div class="so">${b.count ? `<b>${b.count}</b> lượt nộp · mới nhất ${ngay(b.last)}` : 'Chưa có bài nộp'}</div></button>`).join("");
+  const tim = TIM.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d");
+  const khop = b => !tim || String(b.ten).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").includes(tim);
+  const ds = cuaMon.filter(b=>b.khoi===KHOI && khop(b));
+  const loais = [...new Set(ds.map(b=>b.loai))].sort((a,b)=> (a==="Củng cố" ? -1 : b==="Củng cố" ? 1 : a.localeCompare(b,"vi")));
+  const the = b=>`<button class="bai ${b.ma===CHON?'on':''}" data-ma="${esc(b.ma)}"><div class="ten">${esc(b.ten)}</div>
+    <div class="so">${b.count ? `<b>${b.count}</b> lượt nộp · mới nhất ${ngay(b.last)}` : 'Chưa có bài nộp'}</div></button>`;
+  $("ds-bai").innerHTML = !ds.length ? `<span class="msg">${TIM ? "Không có bài nào khớp “" + esc(TIM) + "”." : esc(MON) + " khối " + esc(KHOI) + " chưa có bài."}</span>`
+    : loais.map(l=>{ const nh = ds.filter(b=>b.loai===l); return `<div class="nhom-bai"><h3>${esc(l)} <span>(${nh.length})</span></h3><div class="bai-grid">${nh.map(the).join("")}</div></div>`; }).join("");
   document.querySelectorAll(".bai").forEach(el=> el.onclick = ()=>{ CHON = el.dataset.ma; LOP = ""; veDanhSach(); taiBai(); });
 }
 /* ---------- dữ liệu ---------- */
@@ -580,6 +624,7 @@ function xuatCSV(){
 }
 /* ---------- sự kiện ---------- */
 $("btn-vao").onclick = vao;
+$("tim-bai").addEventListener("input", e=>{ TIM = e.target.value.trim(); veDanhSach(); });
 $("ma-gv").addEventListener("keydown", e=>{ if(e.key==="Enter") vao(); });
 document.querySelectorAll(".cn").forEach(el=> el.onclick = ()=>{ VIEW = el.dataset.v; ve(); });
 $("chon-cach").onchange = ve;
