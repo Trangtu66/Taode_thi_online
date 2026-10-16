@@ -452,6 +452,7 @@ function writeSchoolSession(vtCode) {
     localStorage.setItem('vt_guest_code', code);   // tương thích trang lam_bai / quan_ly
     localStorage.setItem('vt_guest_role', 'VT_ADMIN');
     localStorage.removeItem('vt_guest_ns');         // VT_ADMIN không dùng namespace riêng
+    localStorage.setItem('ql_ma_gv', code);         // khoá mã GV mà quan_ly.html, lam_bai.html đọc – đăng nhập một lần dùng chung
   } catch(_) {}
 }
 
@@ -638,6 +639,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const sess = readSession();
   if (sess) {
     // Phiên còn hạn → không show gate, chỉ show badge
+    // Phiên mã nội bộ lưu từ trước khi đồng bộ khoá: bổ sung ql_ma_gv cho quan_ly.html, lam_bai.html
+    if (sess.role === 'VT_ADMIN') { try { if (!localStorage.getItem('ql_ma_gv')) localStorage.setItem('ql_ma_gv', sess.code); } catch(_) {} }
     showBadge(sess.code, sess.role);
     return;
   }

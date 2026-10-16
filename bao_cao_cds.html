@@ -100,7 +100,7 @@ table.mini th:first-child,table.mini td:first-child{text-align:left}
 table.mini th{font-weight:600; color:var(--muted); font-size:.78rem}
 
 /* timeline */
-.tl{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,1fr); position:relative; gap:12px}
+.tl{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(7,1fr); position:relative; gap:12px}
 .tl::before{content:""; position:absolute; left:0; right:0; top:9px; height:2px; background:var(--line)}
 .tl li{position:relative; padding-top:28px; display:grid; gap:4px; align-content:start}
 .tl li::before{content:""; position:absolute; top:3px; left:0; width:14px; height:14px; border-radius:50%; background:var(--surface); border:3px solid var(--blue)}
@@ -226,8 +226,8 @@ a{color:var(--blue)} a:focus-visible{outline:2px solid var(--blue); outline-offs
       <li><span class="who-chip gv">GIÁO VIÊN</span><h3>Biên soạn đề củng cố</h3><p>6 câu nhiều lựa chọn + 1 câu đúng sai; đáp số kiểm chứng trước khi dùng.</p></li>
       <li><span class="who-chip ht">HỆ THỐNG</span><h3>Đưa lên GitHub</h3><p>Đề nén vào đường link trang <span class="mono">cc_…html</span>; tạo mã QR, thêm vào danh sách quản lý.</p></li>
       <li><span class="who-chip hs">HỌC SINH</span><h3>Quét QR, làm bài</h3><p>Nhập họ tên, lớp; 7 phút; câu hỏi và phương án được trộn cho từng em.</p></li>
-      <li><span class="who-chip ht">HỆ THỐNG</span><h3>Chấm, phản hồi</h3><p>Chấm thang 10, hiện lời giải từng câu; gửi kết quả về Google Sheets.</p></li>
-      <li><span class="who-chip gv">GIÁO VIÊN</span><h3>Phân tích, điều chỉnh</h3><p>Xem phổ điểm, xếp hạng, câu sai nhiều để chữa bài tiết sau.</p></li>
+      <li><span class="who-chip ht">HỆ THỐNG</span><h3>Chấm, phản hồi</h3><p>Chấm thang 10, gửi kết quả về Google Sheets; đáp án niêm phong, giáo viên chủ động khoá / mở lời giải.</p></li>
+      <li><span class="who-chip gv">GIÁO VIÊN</span><h3>Trình chiếu chữa bài</h3><p>Chiếu tỉ lệ chọn từng phương án, câu dưới 50% đúng viền đỏ; chữa câu sai nhiều đầu tiết sau.</p></li>
     </ol>
   </section>
 
@@ -235,9 +235,10 @@ a{color:var(--blue)} a:focus-visible{outline:2px solid var(--blue); outline-offs
     <div style="display:grid; gap:20px">
       <h2><span class="tag">Sản phẩm</span>Các trang của hệ thống</h2>
       <div class="pages">
-        <div class="page"><div class="f">lam_bai.html<span>Trình tạo đề, làm bài</span></div><p>Trang tạo đề cho giáo viên và hiển thị đề cho học sinh: câu nhiều lựa chọn, đúng sai, trả lời ngắn; nhập đề từ file Word (công thức MathType, Equation), xử lý ngay trên máy, không gửi file đi đâu.</p></div>
+        <div class="page"><div class="f">tao_de.html<span>Trình soạn đề</span></div><p>Giáo viên soạn câu nhiều lựa chọn, đúng sai, trả lời ngắn hoặc nhập đề từ file Word (công thức MathType, Equation), xử lý ngay trên máy; bảng đối chiếu đáp án bắt buộc xác nhận trước khi lấy link.</p></div>
+        <div class="page"><div class="f">lam_bai.html<span>Trang làm bài</span></div><p>Hiển thị đề cho học sinh; đáp án niêm phong, không đọc được bằng F12; trả lời ngắn tối đa 4 kí tự theo quy chế; tự lưu bài làm dở khi lỡ tải lại trang.</p></div>
         <div class="page"><div class="f">cc_bai…_t11.html<span>Trang làm bài</span></div><p>Mỗi bài học một trang, mở bằng mã QR; hiển thị công thức toán, đếm giờ, chấm điểm và lời giải.</p></div>
-        <div class="page"><div class="f">quan_ly.html<span>Quản lý bài củng cố</span></div><p>Chọn khối và bài, lấy đường link, mã QR để chiếu trên lớp; xem bảng xếp hạng, phổ điểm.</p></div>
+        <div class="page"><div class="f">quan_ly.html<span>Góc Giáo viên</span></div><p>Chọn môn, khối, bài; lấy link, mã QR; xem xếp hạng, phổ điểm, học sinh chưa nộp. <b>Trình chiếu chữa bài</b> tự tải đề gốc, vẽ tỉ lệ chọn từng phương án, phím ← → chuyển câu; <b>Mở / khoá đáp án</b> để học sinh xem lời giải đúng lúc giáo viên chọn.</p></div>
         <div class="page"><div class="f">ket_qua.html · xep_hang.html<span>Kết quả, xếp hạng</span></div><p>Phổ điểm, bảng xếp hạng, thống kê tỉ lệ đúng từng câu; xuất bảng kết quả ra Excel.</p></div>
       </div>
     </div>
@@ -271,7 +272,8 @@ a{color:var(--blue)} a:focus-visible{outline:2px solid var(--blue); outline-offs
       <li><time>25/9/2026</time><b>Bài củng cố đầu tiên</b><span>Toán 12, Toán 10; trang quản lý, kết quả, xếp hạng.</span></li>
       <li><time>26/9/2026</time><b>Mở rộng Toán 11</b><span>Chương I và Chuyên đề 1 (Bài 1–4).</span></li>
       <li><time>27/9/2026</time><b>Kho học liệu</b><span>Đồng bộ toàn bộ KHBD và slide ba khối lên kho.</span></li>
-      <li class="now"><time>30/9/2026</time><b>Chuẩn hóa</b><span>Bài 5–7 Toán 11; slide đề/lời giải; mã năng lực theo Phụ lục 1.</span></li>
+      <li><time>30/9/2026</time><b>Chuẩn hóa</b><span>Bài 5–7 Toán 11; slide đề/lời giải; mã năng lực theo Phụ lục 1.</span></li>
+      <li class="now"><time>15/10/2026</time><b>Chữa bài trên lớp</b><span>Trình chiếu chữa bài, khoá / mở đáp án; tự lưu bài làm dở; đăng nhập giáo viên dùng chung.</span></li>
     </ol>
   </section>
 

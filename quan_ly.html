@@ -16,6 +16,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 <script defer src="bieu_tuong.js"></script>
+<script defer src="hien_ma.js"></script>
 <style>
   :root{--paper:#F3F8FF;--line:#D9E4F5;--ink:#1F2A44;--soft:#5A6B85;--cel:#2F6FEB;--deep:#1D4ED8;--gold:#F59E0B;--good:#16A34A;--bad:#E5484D;--pale:#E8F0FE;--grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%)}
   *{box-sizing:border-box}
@@ -172,7 +173,7 @@
   <div class="card" id="dang-nhap">
     <h2>Đăng nhập giáo viên</h2>
     <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-      <input id="ma-gv" type="password" placeholder="Mã giáo viên" autocomplete="current-password">
+      <input id="ma-gv" type="password" data-hien-ma placeholder="Mã giáo viên" autocomplete="current-password">
       <label style="font-size:13.5px"><input type="checkbox" id="nho" checked style="padding:0"> Ghi nhớ trên máy này</label>
       <button class="btn" id="btn-vao">Vào trang quản lý</button>
       <span class="err" id="loi-vao"></span>
@@ -480,11 +481,11 @@ async function veNganHang(){
   try{ const d = await jsonp({action:"dsDe", key:MA}); if(d.ok === false) throw d.loi; ds = d.ds || []; }
   catch(e){ box.innerHTML = `<span class="err">⚠ ${esc(e)}</span>`; return; }
   const goc = new URL("lam_bai.html", location.href).href;
-  box.innerHTML = `<p class="msg" style="margin:0 0 10px">Đề tạo bằng <a href="lam_bai.html#tao" target="_blank" rel="noopener">Trình tạo đề</a> và bấm “Tạo đề &amp; Lấy link” (có mã GV) sẽ tự lưu vào đây. ${GV && GV.admin ? "Quản trị thấy đề của mọi giáo viên." : ""}</p>
+  box.innerHTML = `<p class="msg" style="margin:0 0 10px">Đề tạo bằng <a href="tao_de.html" target="_blank" rel="noopener">Trình soạn đề</a> và bấm “Tạo đề &amp; Lấy link” (có mã GV) sẽ tự lưu vào đây. ${GV && GV.admin ? "Quản trị thấy đề của mọi giáo viên." : ""}</p>
     ${ds.length ? `<div class="tbl"><table><thead><tr><th>#</th><th>Tên đề</th>${GV && GV.admin ? "<th>Giáo viên</th>" : ""}<th>Ngày tạo</th><th></th></tr></thead><tbody>${ds.map((x,i)=>`<tr><td class="num">${i+1}</td><td>${esc(x.tieuDe || x.id)}</td>${GV && GV.admin ? `<td>${esc(x.gv)}</td>` : ""}<td class="num">${x.t ? ngay(x.t) : ""}</td>
       <td style="white-space:nowrap"><button class="btn ghost nh-qr" data-i="${i}">Mã QR</button> <a class="btn ghost" style="text-decoration:none;display:inline-block" href="${esc(goc + "?de=" + x.id)}" target="_blank" rel="noopener">Mở</a></td></tr>`).join("")}</tbody></table></div>
       <div id="nh-qr-box" style="margin-top:14px"></div>`
-    : '<div class="msg" style="padding:20px;text-align:center">Thầy cô chưa lưu đề nào. Mở <a href="lam_bai.html#tao" target="_blank" rel="noopener">Trình tạo đề</a> → soạn hoặc nhập file Word → nhập mã GV → “Tạo đề &amp; Lấy link”.</div>'}
+    : '<div class="msg" style="padding:20px;text-align:center">Thầy cô chưa lưu đề nào. Mở <a href="tao_de.html" target="_blank" rel="noopener">Trình soạn đề</a> → soạn hoặc nhập file Word → nhập mã GV → “Tạo đề &amp; Lấy link”.</div>'}
     <p class="msg" style="font-size:12.5px;margin-top:10px">Kết quả học sinh làm các đề này hiện trong danh sách bài ở mục ① (nhóm “chưa có trong danh sách”) sau khi có em nộp bài.</p>`;
   document.querySelectorAll(".nh-qr").forEach(el=> el.onclick = ()=>{
     const x = ds[+el.dataset.i], url = goc + "?de=" + x.id, q = $("nh-qr-box");
@@ -630,9 +631,12 @@ document.querySelectorAll(".cn").forEach(el=> el.onclick = ()=>{ VIEW = el.datas
 $("chon-cach").onchange = ve;
 $("btn-tai").onclick = taiBai;
 $("btn-full").onclick = ()=>{ const k = $("khung"); if(document.fullscreenElement) document.exitFullscreen(); else if(k.requestFullscreen) k.requestFullscreen(); };
-$("btn-thoat").onclick = ()=>{ try{ localStorage.removeItem("ql_ma_gv"); sessionStorage.removeItem("ql_ma_gv"); }catch(e){} location.reload(); };
+// Đăng xuất: xoá cả phiên đăng nhập của trang chủ (dùng chung mã GV), giống nút Đăng xuất ở trang chủ
+$("btn-thoat").onclick = ()=>{ try{ ["ql_ma_gv","vt_guest_session","vt_guest_code","vt_guest_role","vt_guest_ns","vt_school_code"].forEach(k=>localStorage.removeItem(k)); sessionStorage.removeItem("ql_ma_gv"); }catch(e){} location.reload(); };
 setInterval(()=>{ if((MA || CONG_KHAI) && !document.hidden && (VIEW==="xephang" || VIEW==="cau")) taiBai(); }, 20000);
 window.addEventListener("load", ()=>{ try{ window.lucide && lucide.createIcons(); }catch(e){} });
+// Đã đăng nhập mã nội bộ ở trang chủ nhưng chưa vào trang này lần nào: điền sẵn mã (GV chỉ cần bấm Vào)
+if(!MA){ try{ $("ma-gv").value = localStorage.getItem("vt_school_code") || ""; }catch(e){} }
 if(MA) vao(); else if(CONG_KHAI) vaoCongKhai();
 </script>
 </body>

@@ -14,7 +14,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="hien_ma.js"></script>
 <style>
+  /* Thanh điều hướng chung (giống trang Quản lý); ẩn khi học sinh làm bài */
+  .topnav{background:#1E40AF;color:#fff}
+  .topnav .in{max-width:1180px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .topnav .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+  .topnav .logo b{font-size:17px;letter-spacing:.2px}.topnav .logo small{display:block;opacity:.85;font-size:12.5px}
+  .topnav .logo .dot{width:36px;height:36px;border-radius:10px;background:#fff;color:#1E40AF;display:grid;place-items:center;font-weight:800;font-size:17px}
+  .topnav nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav nav a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:8px;font-size:14px;opacity:.92}
+  .topnav nav a:hover,.topnav nav a.on{background:rgba(255,255,255,.16);opacity:1}
+  .topnav nav a:focus-visible{outline:3px solid #93C5FD;outline-offset:2px}
+  @media(max-width:640px){.topnav nav{margin-left:0}}
+  body.hoc-sinh .topnav{display:none}
   :root{
     --paper:#F3F8FF; --paper-line:#D5E2F4; --ink:#1F2A44; --ink-soft:#5A6B85;
     --celadon:#2F6FEB; --celadon-deep:#1D4ED8; --gold:#F59E0B; --good:#16A34A; --bad:#E5484D;
@@ -234,6 +247,13 @@
 </style>
 </head>
 <body>
+<div class="topnav"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html" class="on">Soạn đề (GV)</a>
+    <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
+  </nav>
+</div></div>
 <div class="wrap">
   <header class="top">
     <div class="eyebrow" style="color:#DCE6FF;">TRÌNH TẠO ĐỀ KIỂM TRA TRỰC TUYẾN</div>
@@ -385,7 +405,7 @@
     </div>
 
     <div class="key-row">
-      <div class="field"><label for="gv-key">🔑 Mã giáo viên (để lưu đề — có link ngắn và mã QR gọn)</label><input type="password" id="gv-key" placeholder="Ví dụ: VT-GV01-…" autocomplete="off"></div>
+      <div class="field"><label for="gv-key">🔑 Mã giáo viên (để lưu đề — có link ngắn và mã QR gọn)</label><input type="password" id="gv-key" data-hien-ma placeholder="Ví dụ: VT-GV01-…" autocomplete="off"></div>
     </div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" id="generate-btn">🔗 Tạo đề & Lấy link</button>
@@ -854,7 +874,8 @@ let hen = 0;
 }));
 
 /* ============== BUILDER: TẠO LINK / QR ============== */
-try{ document.getElementById("gv-key").value = localStorage.getItem("ql_ma_gv") || sessionStorage.getItem("ql_ma_gv") || ""; }catch(e){}
+// Mã GV: lấy từ trang Quản lý (ql_ma_gv) hoặc mã nội bộ đã đăng nhập ở trang chủ (vt_school_code)
+try{ document.getElementById("gv-key").value = localStorage.getItem("ql_ma_gv") || sessionStorage.getItem("ql_ma_gv") || localStorage.getItem("vt_school_code") || ""; }catch(e){}
 async function luuDeLenMay(examObj, key){
   await jsonp({action:"all", key, quiz:"__kiem_tra__"}, 20000);            // kiểm tra mã giáo viên
   const id = Array.from(crypto.getRandomValues(new Uint8Array(8))).map(b=>"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789"[b % 56]).join("");
@@ -971,7 +992,7 @@ document.getElementById("go-builder-btn").addEventListener("click", ()=>{
   addP2Question();
   addP3Question();
 });
-// Link "lam_bai.html#tao" (từ trang chính, trang quản lý) mở thẳng trình tạo đề
+// Link soạn đề tao_de.html chuyển về "lam_bai.html#tao" → mở thẳng trình tạo đề
 if(location.hash === "#tao" && !location.search) document.getElementById("go-builder-btn").click();
 
 /* ============== HỌC SINH: LÀM BÀI ============== */
@@ -1011,6 +1032,7 @@ let timeLeft = 0, timerInt = null;
 
 function initStudentFlow(examObj){
   EXAM = examObj;
+  document.body.classList.add("hoc-sinh"); // ẩn thanh điều hướng của giáo viên
   document.getElementById("screen-entry").classList.add("hidden");
   document.getElementById("screen-builder").classList.add("hidden");
   document.getElementById("screen-landing").classList.remove("hidden");
@@ -1049,6 +1071,7 @@ function initStudentFlow(examObj){
   } else {
     document.getElementById("landing-name-field").classList.remove("hidden");
   }
+  hoiLamTiep(); // có bài làm dở (lỡ tải lại trang) thì hỏi làm tiếp
 }
 
 function computeMaxPoints(examObj){
@@ -1151,21 +1174,82 @@ function shuffleMcqOptions(examObj){
   });
 }
 
-function startExam(){
-  shuffleMcqOptions(EXAM);
+function startExam(tam){
+  // tam: bài làm dở đã lưu tạm (phục hồi sau khi tải lại trang) – giữ đúng thứ tự câu, phương án đã đảo lúc đầu
+  if(!(tam && apThuTu(EXAM, tam.thuTu))){ tam = null; shuffleMcqOptions(EXAM); }
   _ans = sealAnswers(EXAM); // gọi SAU shuffle để đáp án khớp với thứ tự phương án đã đảo
-  examStartTs = Date.now();
-  studentAnswers = EXAM.parts.map(part=>{
+  examStartTs = tam ? tam.ts : Date.now();
+  studentAnswers = tam ? tam.tl : EXAM.parts.map(part=>{
     if(part.type==="mcq") return part.questions.map(()=>null);
     if(part.type==="tf") return part.questions.map(()=>[null,null,null,null]);
     if(part.type==="short") return part.questions.map(()=>"");
   });
-  timeLeft = Math.round((EXAM.meta.timeMinutes||60) * 60);
+  timeLeft = Math.round((EXAM.meta.timeMinutes||60) * 60) - (tam ? Math.floor((Date.now()-tam.ts)/1000) : 0);
+  if(tam) TAM_THU_TU = tam.thuTu; else { TAM_THU_TU = layThuTu(EXAM); luuTam(); }
   document.getElementById("screen-landing").classList.add("hidden");
   document.getElementById("screen-quiz").classList.remove("hidden");
   renderQuizBody();
   buildJumpNav();
   startTimer();
+}
+
+/* ===== Tự lưu tạm bài làm (sessionStorage) – lỡ tải lại trang, rớt mạng vẫn khôi phục được =====
+   Lưu: họ tên, lớp, giờ bắt đầu, thứ tự câu/phương án đã đảo, các câu đã chọn. Xoá ngay khi nộp bài.
+   sessionStorage chỉ sống trong thẻ trình duyệt đang mở, không dùng chung giữa các máy. */
+let TAM_THU_TU = null;
+function khoaTam(){
+  const s = location.pathname + location.search + location.hash;
+  let h = 5381; for(let i=0;i<s.length;i++) h = (h*33 ^ s.charCodeAt(i)) >>> 0;
+  return "lb_tam_" + h.toString(36);
+}
+function layThuTu(ex){
+  return ex.parts.map(part=> part.questions.map(q=>({i:q._i, o: part.type==="mcq" && q.options ? q.options.map(o=>o.t) : null})));
+}
+/* Áp lại thứ tự đã lưu lên đề gốc; trả về false nếu đề đã bị sửa (không khớp) */
+function apThuTu(ex, thuTu){
+  try{
+    if(!Array.isArray(thuTu) || thuTu.length!==ex.parts.length) return false;
+    const L = ["A","B","C","D"], moi = [];
+    for(let pi=0; pi<ex.parts.length; pi++){
+      const qs = ex.parts[pi].questions, tt = thuTu[pi];
+      if(!Array.isArray(tt) || tt.length!==qs.length) return false;
+      qs.forEach((q,i)=>{ if(q._i===undefined) q._i = i; });
+      const ds = tt.map(x=> qs.find(q=>q._i===x.i));
+      if(ds.some(q=>!q) || new Set(ds).size!==qs.length) return false;
+      for(let k=0;k<ds.length;k++){
+        const q = ds[k], o = tt[k].o;
+        if(!o) continue;
+        if(!Array.isArray(q.options) || o.length!==q.options.length) return false;
+        const conLai = q.options.slice();
+        const opts = o.map(t=>{ const j = conLai.findIndex(x=>x.t===t); return j<0 ? null : conLai.splice(j,1)[0]; });
+        if(opts.some(x=>!x)) return false;
+        moi.push([q, opts.map((x,j)=>({l:L[j], t:x.t})), q.options.find(x=>x.l===q.correct)]);
+      }
+      tt._ds = ds;
+    }
+    ex.parts.forEach((part,pi)=>{ part.questions = thuTu[pi]._ds; delete thuTu[pi]._ds; });
+    moi.forEach(([q, opts, dung])=>{ q.options = opts; if(dung){ const k = opts.findIndex(x=>x.t===dung.t); if(k>=0) q.correct = L[k]; } });
+    return true;
+  }catch(e){ return false; }
+}
+function luuTam(){
+  try{ sessionStorage.setItem(khoaTam(), JSON.stringify({ten:studentName, lop:studentLop, ts:examStartTs, thuTu:TAM_THU_TU, tl:studentAnswers})); }catch(e){}
+}
+function docTam(){
+  try{ const t = JSON.parse(sessionStorage.getItem(khoaTam()) || "null"); return t && t.thuTu && t.tl ? t : null; }catch(e){ return null; }
+}
+function xoaTam(){ try{ sessionStorage.removeItem(khoaTam()); }catch(e){} }
+/* Mở lại trang khi đang làm dở: hỏi học sinh có làm tiếp không */
+function hoiLamTiep(){
+  const t = docTam(); if(!t) return;
+  const conLai = Math.round((EXAM.meta.timeMinutes||60)*60 - (Date.now()-t.ts)/1000);
+  const msg = "Em đang làm dở bài này" + (t.ten ? " (" + t.ten + (t.lop ? " – " + t.lop : "") + ")" : "") + ".\n" +
+    (conLai > 0 ? "Còn khoảng " + Math.ceil(conLai/60) + " phút. " : "Đã hết giờ làm bài – bài sẽ được nộp ngay. ") +
+    "Bấm OK để khôi phục các câu đã chọn, bấm Hủy để làm lại từ đầu.";
+  if(!confirm(msg)){ xoaTam(); return; }
+  studentName = t.ten || "Học sinh"; studentLop = t.lop || "";
+  startExam(t);
+  if(timeLeft<=0){ clearInterval(timerInt); submitExam(true); }
 }
 
 function buildJumpNav(){
@@ -1195,6 +1279,7 @@ function updateTimerDisplay(){
 }
 
 function updateProgress(){
+  if(TAM_THU_TU) luuTam();
   let done=0, total=0;
   EXAM.parts.forEach((part,pi)=>{
     part.questions.forEach((q,qi)=>{
@@ -1233,7 +1318,7 @@ function renderQuizBody(){
       if(part.type==="mcq"){
         html += `<div class="mc-options">`;
         q.options.forEach(opt=>{
-          html += `<div class="mc-option" data-p="${pi}" data-q="${qi}" data-opt="${opt.l}">
+          html += `<div class="mc-option${studentAnswers[pi][qi]===opt.l?' selected':''}" data-p="${pi}" data-q="${qi}" data-opt="${opt.l}">
             <span class="opt-label">${opt.l}.</span><span>${escHtml(opt.t)}</span></div>`;
         });
         html += `</div>`;
@@ -1242,14 +1327,14 @@ function renderQuizBody(){
           html += `<div class="statement">
             <div class="st-text"><span class="st-label">${labels[si]})</span>${escHtml(st.text)}</div>
             <div class="toggle">
-              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="true">Đúng</button>
-              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="false">Sai</button>
+              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="true"${studentAnswers[pi][qi][si]===true?' class="sel-true"':''}>Đúng</button>
+              <button data-p="${pi}" data-q="${qi}" data-si="${si}" data-val="false"${studentAnswers[pi][qi][si]===false?' class="sel-false"':''}>Sai</button>
             </div></div>`;
         });
       } else if(part.type==="short"){
         html += `<div class="short-answer">
           <div class="sa-row">
-            <input type="text" inputmode="decimal" maxlength="4" autocomplete="off" spellcheck="false" data-p="${pi}" data-q="${qi}" data-sa="1" placeholder="Nhập đáp án..." aria-describedby="sa-warn-${pi}-${qi}">
+            <input type="text" inputmode="decimal" maxlength="4" autocomplete="off" spellcheck="false" data-p="${pi}" data-q="${qi}" data-sa="1" value="${escHtml(studentAnswers[pi][qi]||"")}" placeholder="Nhập đáp án..." aria-describedby="sa-warn-${pi}-${qi}">
             <button type="button" class="sa-sign" data-p="${pi}" data-q="${qi}" title="Đổi dấu âm/dương (bàn phím điện thoại có thể không có dấu -)">±</button>
           </div>
           <div class="hint">Tối đa 4 kí tự (kể cả dấu “-” và dấu phẩy), ví dụ: 3,08 · -0,3 · 250. Gõ dấu chấm sẽ tự đổi thành dấu phẩy.</div>
@@ -1354,6 +1439,7 @@ function parseNum(str){
 
 function submitExam(auto){
   clearInterval(timerInt);
+  TAM_THU_TU = null; xoaTam();
 
   const partResults = EXAM.parts.map((part,pi)=>{
     let score = 0;
