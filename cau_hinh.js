@@ -56,7 +56,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Toán 10 (không phải đề thi chính thức)", link: "kt_toan10_gki.html" },
   { khoi: 10, nhom: "Sinh học 10 · Ôn tập chương", ten: "Phần mở đầu", ma: "Ôn tập Phần mở đầu (Sinh học 10)", link: "oc_sinh10_modau.html" },
   { khoi: 10, nhom: "Sinh học 10 · Ôn luyện định kỳ", ten: "kiểm tra giữa kỳ I", ma: "Đề ôn luyện kiểm tra giữa kỳ I – Sinh học 10 (không phải đề thi chính thức)", link: "kt_sinh10_gki.html" },
-  { khoi: 10, nhom: "Toán 10", ten: "chuong3", ma: "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_chuong3_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương III. Hệ thức lượng trong tam giác", ma: "Củng cố – Bài tập cuối Chương III. Hệ thức lượng trong tam giác (Toán 10)", link: "cc_chuong3_t10.html" },
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 5. Các phân tử sinh học", ma: "Củng cố – Sinh học 10 · Bài 5: Các phân tử sinh học", link: "sinh_cc_bai5_k10.html" },
   { khoi: 10, nhom: "Sinh học 10 · Củng cố", ten: "Bài 6. Thực hành: Nhận biết một số phân tử sinh học", ma: "Củng cố – Sinh học 10 · Bài 6: Thực hành nhận biết một số phân tử sinh học", link: "sinh_cc_bai6_k10.html" },
   { khoi: 10, nhom: "Vật lí 10 · Củng cố", ten: "Bài 1. Làm quen với Vật lí", ma: "Củng cố – Vật lí 10 · Bài 1: Làm quen với Vật lí", link: "ly_cc_bai1_k10.html" },
