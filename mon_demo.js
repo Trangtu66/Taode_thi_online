@@ -491,6 +491,76 @@ window.MON_DEMO = {
     "link": "dia_cc_bai1_k12.html",
     "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai1_k12.docx",
     "nguon": "SGK Địa lí 12 (KNTT), tr.5 – 9"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 4 (TH). Báo cáo sự phân hoá thiên nhiên",
+    "phut": 10,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai4_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai4_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.17 – 27"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 5. Sử dụng hợp lí tài nguyên thiên nhiên và BVMT",
+    "phut": 10,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai5_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai5_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.28 – 32"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 6 (TH). Tuyên truyền bảo vệ môi trường",
+    "phut": 10,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai6_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai6_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.28 – 33"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 7. Dân số Việt Nam",
+    "phut": 12,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai7_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai7_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.34 – 38"
+   },
+   {
+    "khu": "cc",
+    "khoi": 12,
+    "ten": "Bài 8. Lao động và việc làm",
+    "phut": 10,
+    "cau": [
+     8,
+     1,
+     0
+    ],
+    "link": "dia_cc_bai8_k12.html",
+    "word": "mon/dia_li/trac_nghiem/lop12/dia_cc_bai8_k12.docx",
+    "nguon": "SGK Địa lí 12 (KNTT), tr.39 – 42"
    }
   ]
  },

@@ -269,55 +269,110 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "DIALY12 Bài 4 TH Bao Cao Su Phan Hoa (tiết 11)",
+"ten": "Bài 4. Thực hành: viết báo cáo về sự phân hoá tự nhiên việt nam",
 "file": "KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.docx",
-"kb": 244,
-"ngay": "2026-10-08"
+"kb": 3063,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "DIALY12 Bài 5 Van De SDHop Li TNTNva BVMT (tiết 12)",
+"ten": "Bài 4. Thực hành: viết báo cáo về sự phân hoá tự nhiên việt nam",
+"file": "KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11_HoaNhap.docx",
+"url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11_HoaNhap.docx",
+"kb": 3065,
+"ngay": "2026-10-16"
+},
+{
+"mon": "dia_li",
+"tenMon": "Địa lí",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 5. Vấn đề sử dụng hợp lí tài nguyên thiên nhiên và bảo vệ môi trường",
 "file": "KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.docx",
-"kb": 238,
-"ngay": "2026-10-08"
+"kb": 4560,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "DIALY12 Bài 6 TH Tuyen Truyen BVMT (tiết 13)",
+"ten": "Bài 5. Vấn đề sử dụng hợp lí tài nguyên thiên nhiên và bảo vệ môi trường",
+"file": "KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12_HoaNhap.docx",
+"url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12_HoaNhap.docx",
+"kb": 4563,
+"ngay": "2026-10-16"
+},
+{
+"mon": "dia_li",
+"tenMon": "Địa lí",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 6. Thực hành: tuyên truyền sử dụng hợp lí tài nguyên thiên nhiên hoặc bảo vệ môi trường ở địa phương",
 "file": "KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.docx",
-"kb": 421,
-"ngay": "2026-10-08"
+"kb": 3087,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "DIALY12 Bài 7 Dan So Viet Nam (tiết 14-15)",
+"ten": "Bài 6. Thực hành: tuyên truyền sử dụng hợp lí tài nguyên thiên nhiên hoặc bảo vệ môi trường ở địa phương",
+"file": "KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13_HoaNhap.docx",
+"url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13_HoaNhap.docx",
+"kb": 3090,
+"ngay": "2026-10-16"
+},
+{
+"mon": "dia_li",
+"tenMon": "Địa lí",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 7. Dân số việt nam",
 "file": "KHBD_DIALY12_Bai7_DanSoVietNam_T14-15.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai7_DanSoVietNam_T14-15.docx",
-"kb": 238,
-"ngay": "2026-10-08"
+"kb": 5396,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "DIALY12 Bài 8 Lao Dong Va Viec Lam (tiết 16)",
+"ten": "Bài 7. Dân số việt nam",
+"file": "KHBD_DIALY12_Bai7_DanSoVietNam_T14-15_HoaNhap.docx",
+"url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai7_DanSoVietNam_T14-15_HoaNhap.docx",
+"kb": 5399,
+"ngay": "2026-10-16"
+},
+{
+"mon": "dia_li",
+"tenMon": "Địa lí",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 8. Lao động và việc làm",
 "file": "KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16.docx",
 "url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16.docx",
-"kb": 239,
-"ngay": "2026-10-08"
+"kb": 3398,
+"ngay": "2026-10-16"
+},
+{
+"mon": "dia_li",
+"tenMon": "Địa lí",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 8. Lao động và việc làm",
+"file": "KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16_HoaNhap.docx",
+"url": "mon/dia_li/khbd/lop12/KHBD_DIALY12_Bai8_LaoDongVaViecLam_T16_HoaNhap.docx",
+"kb": 3400,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
@@ -500,22 +555,22 @@ window.HOC_LIEU = [
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Sơ đồ tư duy DIALY12 Bài 4 TH Bao Cao Phan Hoa (tiết 11)",
-"file": "SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoPhanHoa_T11.png",
-"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoPhanHoa_T11.png",
-"kb": 214,
-"ngay": "2026-10-08"
+"ten": "Sơ đồ tư duy DIALY12 Bài 4 TH Bao Cao Su Phan Hoa (tiết 11)",
+"file": "SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.png",
+"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai4_TH_BaoCaoSuPhanHoa_T11.png",
+"kb": 283,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Sơ đồ tư duy DIALY12 Bài 5 Van De SDTNBVMT (tiết 12)",
-"file": "SoDoTuDuy_DIALY12_Bai5_VanDeSDTNBVMT_T12.png",
-"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai5_VanDeSDTNBVMT_T12.png",
-"kb": 209,
-"ngay": "2026-10-08"
+"ten": "Sơ đồ tư duy DIALY12 Bài 5 Van De SDHop Li TNTNva BVMT (tiết 12)",
+"file": "SoDoTuDuy_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.png",
+"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai5_VanDeSDHopLiTNTNvaBVMT_T12.png",
+"kb": 339,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
@@ -525,8 +580,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 6 TH Tuyen Truyen BVMT (tiết 13)",
 "file": "SoDoTuDuy_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai6_TH_TuyenTruyenBVMT_T13.png",
-"kb": 202,
-"ngay": "2026-10-08"
+"kb": 307,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
@@ -536,19 +591,19 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy DIALY12 Bài 7 Dan So Viet Nam (tiết 14-15)",
 "file": "SoDoTuDuy_DIALY12_Bai7_DanSoVietNam_T14-15.png",
 "url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai7_DanSoVietNam_T14-15.png",
-"kb": 209,
-"ngay": "2026-10-08"
+"kb": 319,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
 "tenMon": "Địa lí",
 "loai": "khbd",
 "khoi": 12,
-"ten": "Sơ đồ tư duy DIALY12 Bài 8 Lao Dong Viec Lam (tiết 16)",
-"file": "SoDoTuDuy_DIALY12_Bai8_LaoDongViecLam_T16.png",
-"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai8_LaoDongViecLam_T16.png",
-"kb": 210,
-"ngay": "2026-10-08"
+"ten": "Sơ đồ tư duy DIALY12 Bài 8 Lao Dong Va Viec Lam (tiết 16)",
+"file": "SoDoTuDuy_DIALY12_Bai8_LaoDongVaViecLam_T16.png",
+"url": "mon/dia_li/khbd/lop12/SoDoTuDuy_DIALY12_Bai8_LaoDongVaViecLam_T16.png",
+"kb": 327,
+"ngay": "2026-10-16"
 },
 {
 "mon": "dia_li",
