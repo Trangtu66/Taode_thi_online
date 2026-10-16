@@ -166,6 +166,7 @@
       <a href="tao_de.html" target="_blank" rel="noopener">Soạn đề mới</a>
       <a href="huong_dan.html" target="_blank" rel="noopener">Hướng dẫn</a>
       <a id="lnk-sheet" class="hidden" href="#" target="_blank" rel="noopener">Google Sheet</a>
+      <a id="lnk-admin" class="hidden" href="admin.html">Quản trị dữ liệu</a>
       <button id="btn-thoat" class="hidden">Đăng xuất</button>
     </div>
   </header>
@@ -183,6 +184,11 @@
   <div id="noi-dung" class="hidden">
     <div class="card">
       <h2>① Chọn môn, khối và bài</h2>
+      <div id="nguon-box" class="hidden" style="margin:-2px 0 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px">
+        <label for="nguon">Dữ liệu:</label>
+        <select id="nguon"><option value="">Học kỳ hiện tại</option></select>
+        <span class="msg" id="nguon-ghi"></span>
+      </div>
       <div class="mon-tabs" id="ds-mon" role="group" aria-label="Chọn môn"></div>
       <div class="khoi-tabs" id="ds-khoi" role="group" aria-label="Chọn khối"></div>
       <div class="tim-bai"><input id="tim-bai" type="search" placeholder="Tìm nhanh tên bài trong môn, khối đã chọn…" aria-label="Tìm tên bài"></div>
@@ -223,7 +229,9 @@ const doc = k => { try{ return localStorage.getItem(k) || sessionStorage.getItem
 let KHOI = doc("ql_khoi") || "";
 const CONG_KHAI = window.CONG_KHAI_KET_QUA === true;
 let MA = doc("ql_ma_gv"), BAI = [], CHON = "", VIEW = "xephang", LOP = "", ROWS = [], LIST = [];
+let NGUON = "";   // "" = học kỳ hiện tại; "LichSu_…" = kết quả học kỳ đã lưu trữ (trang admin.html)
 function jsonp(params){
+  if(NGUON && ["all","quizzes","rank"].includes(params.action) && params.quiz!=="__kiem_tra__") params = {...params, nguon: NGUON};
   return new Promise((res, rej)=>{
     const api = window.KQ_API || "";
     if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(api)) return rej("Chưa cấu hình địa chỉ nhận kết quả trong cau_hinh.js.");
@@ -261,6 +269,7 @@ async function vao(){
     try{ ($("nho").checked ? localStorage : sessionStorage).setItem("ql_ma_gv", MA); }catch(e){}
     $("dang-nhap").classList.add("hidden"); $("noi-dung").classList.remove("hidden"); $("btn-thoat").classList.remove("hidden");
     hienGV();
+    if(GV && GV.admin) $("lnk-admin").classList.remove("hidden");
     if(window.KQ_SHEET && (!GV || GV.admin)){ $("lnk-sheet").href = window.KQ_SHEET; $("lnk-sheet").classList.remove("hidden"); }
     await taiDanhSach();
   }catch(e){ MA = ""; try{ localStorage.removeItem("ql_ma_gv"); sessionStorage.removeItem("ql_ma_gv"); }catch(x){} $("loi-vao").textContent = "⚠ " + e; }
@@ -282,7 +291,18 @@ function tachNhom(b){
   b.loai = m && m[3] ? m[3].trim() : "Củng cố";
   if(/^Chuyên đề|^Bài tập cuối chuyên đề/i.test(String(b.ten||""))) b.loai = "Chuyên đề học tập";
 }
+/* Kết quả các học kỳ đã lưu trữ: chỉ hiện ô chọn khi máy chủ có trang LichSu_… */
+let DA_TAI_NGUON = false;
+function taiNguon(){
+  if(DA_TAI_NGUON) return; DA_TAI_NGUON = true;
+  jsonp({action:"dsNguon"}).then(d=>{
+    if(!d.ds || !d.ds.length) return;
+    $("nguon").innerHTML = '<option value="">Học kỳ hiện tại</option>' + d.ds.map(n=>`<option value="${esc(n)}">Lưu trữ: ${esc(n.replace(/^LichSu_/,"").replace(/_/g," "))}</option>`).join("");
+    $("nguon-box").classList.remove("hidden");
+  }).catch(()=>{});
+}
 async function taiDanhSach(){
+  taiNguon();
   let qz = [];
   try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes; }catch(e){}
   const cfg = (window.DANH_SACH_BAI || []).map(b=>({...b}));
@@ -399,6 +419,7 @@ function ve(){
   const box = $("noi-dung-chinh");
   if(VIEW==="qr") return veQR();
   if(VIEW==="dapan") return veDapAn();
+  if(VIEW==="chuanop" && NGUON){ $("noi-dung-chinh").innerHTML = '<span class="msg">“Chưa nộp bài” chỉ tính cho học kỳ hiện tại. Chọn lại Dữ liệu: Học kỳ hiện tại.</span>'; return; }
   if(VIEW==="chuanop") return veChuaNop();
   if(VIEW==="nganhang") return veNganHang();
   if(VIEW==="trinhchieu") return veTrinhChieu();
@@ -629,6 +650,11 @@ $("tim-bai").addEventListener("input", e=>{ TIM = e.target.value.trim(); veDanhS
 $("ma-gv").addEventListener("keydown", e=>{ if(e.key==="Enter") vao(); });
 document.querySelectorAll(".cn").forEach(el=> el.onclick = ()=>{ VIEW = el.dataset.v; ve(); });
 $("chon-cach").onchange = ve;
+$("nguon").onchange = async ()=>{
+  NGUON = $("nguon").value; DANG_XEM = "";
+  $("nguon-ghi").textContent = NGUON ? "Đang xem kết quả đã lưu trữ (chỉ đọc)." : "";
+  await taiDanhSach();   // tự vẽ lại danh sách bài và tải lại bài đang chọn
+};
 $("btn-tai").onclick = taiBai;
 $("btn-full").onclick = ()=>{ const k = $("khung"); if(document.fullscreenElement) document.exitFullscreen(); else if(k.requestFullscreen) k.requestFullscreen(); };
 // Đăng xuất: xoá cả phiên đăng nhập của trang chủ (dùng chung mã GV), giống nút Đăng xuất ở trang chủ

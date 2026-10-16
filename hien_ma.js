@@ -7,12 +7,14 @@
   function gan(inp){
     if(inp.dataset.hienMaXong) return;
     inp.dataset.hienMaXong = "1";
+    // Ô chiếm hết dòng (vd. .field input{width:100%}) thì lớp bọc cũng rộng hết dòng; ô trong hàng flex giữ cỡ riêng
+    var cha = inp.parentNode, rongHet = cha.clientWidth > 0 && inp.offsetWidth >= cha.clientWidth - 4;
     var boc = document.createElement("span");
-    boc.style.cssText = "position:relative;display:inline-block;max-width:100%;" + (inp.style.width || getComputedStyle(inp).display === "block" ? "width:100%;" : "");
-    inp.parentNode.insertBefore(boc, inp);
+    boc.style.cssText = "position:relative;display:inline-block;max-width:100%;vertical-align:middle;" + (rongHet ? "width:100%;" : "");
+    cha.insertBefore(boc, inp);
     boc.appendChild(inp);
     inp.style.paddingRight = "40px";
-    if(getComputedStyle(inp).display === "block") inp.style.width = "100%";
+    if(rongHet) inp.style.width = "100%";
     var b = document.createElement("button");
     b.type = "button";
     b.style.cssText = "position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;cursor:pointer;color:#64748B;padding:4px;line-height:0;box-shadow:none;";

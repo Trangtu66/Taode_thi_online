@@ -70,7 +70,7 @@
 
   .field{margin-bottom:14px;}
   .field label{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
-  .field input[type=text], .field input[type=number], .field textarea, .field input[type=url]{
+  .field input[type=text], .field input[type=password], .field input[type=number], .field textarea, .field input[type=url]{
     width:100%;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:8px;font-size:14.5px;font-family:inherit;background:#F7FAFF;
   }
   .field input:focus, .field textarea:focus{border-color:var(--celadon);outline:none;}
@@ -1538,9 +1538,27 @@ function kiemTraDapAn(){
   return jsonp({action:"dapAn", quiz: maBai()}, 15000).then(d=> !!d.mo).catch(()=> false);
 }
 function khoaLuu(){ return "tdt_bailam_" + maBai(); }
+/* Tự dọn bộ nhớ máy học sinh: bài làm đã nộp chỉ giữ 180 ngày và tối đa 40 bài gần nhất;
+   bộ nhớ đầy thì xoá dần bài cũ nhất rồi lưu lại. (Xoá tay: trang admin.html → Xoá bộ nhớ đệm) */
+const BL_GIU_NGAY = 180, BL_GIU_TOI_DA = 40;
+function dsBaiLamLuu(){
+  const ds = [];
+  try{ for(let i=0;i<localStorage.length;i++){ const k = localStorage.key(i);
+    if(k && k.indexOf("tdt_bailam_")===0){ let ts = 0; try{ ts = JSON.parse(localStorage.getItem(k)).ts || 0; }catch(e){} ds.push({k, ts}); } } }catch(e){}
+  return ds.sort((a,b)=> a.ts - b.ts);   // cũ nhất trước
+}
+function donBaiLamCu(giuLai){
+  const ds = dsBaiLamLuu(), han = Date.now() - BL_GIU_NGAY*864e5;
+  ds.forEach((x,i)=>{ if(x.k!==giuLai && (x.ts < han || ds.length - i > BL_GIU_TOI_DA)) try{ localStorage.removeItem(x.k); }catch(e){} });
+}
 function luuBaiLam(partResults, diem){
-  try{ localStorage.setItem(khoaLuu(), JSON.stringify({ten: studentName, lop: studentLop, diem, ts: Date.now(),
-    parts: partResults.map(r=>({part: r.part, score: r.score, details: r.details}))})); }catch(e){}
+  const k = khoaLuu(), s = JSON.stringify({ten: studentName, lop: studentLop, diem, ts: Date.now(),
+    parts: partResults.map(r=>({part: r.part, score: r.score, details: r.details}))});
+  donBaiLamCu(k);
+  for(let lan=0; lan<10; lan++){
+    try{ localStorage.setItem(k, s); return; }
+    catch(e){ const cu = dsBaiLamLuu().filter(x=>x.k!==k); if(!cu.length) return; try{ localStorage.removeItem(cu[0].k); }catch(x){} }
+  }
 }
 function docBaiLam(){ try{ return JSON.parse(localStorage.getItem(khoaLuu()) || "null"); }catch(e){ return null; } }
 function hienKetQuaDaLuu(bl, cheDo){

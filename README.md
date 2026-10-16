@@ -36,7 +36,10 @@ Mã QR in trên slide, KHBD và các link đã gửi học sinh trỏ thẳng v�
 | `luyen_thi.html` | Cổng luyện thi toàn trường: chọn môn |
 | `luyen_tap.html` | Luyện tập Toán theo bài, chương, định kỳ, tốt nghiệp |
 | `lam_bai.html` | Trang làm bài và chấm điểm (dùng chung mọi môn) |
-| `quan_ly.html`, `ket_qua.html`, `xep_hang.html` | Quản lí bài, kết quả, xếp hạng |
+| `quan_ly.html`, `ket_qua.html`, `xep_hang.html` | Quản lí bài, kết quả, xếp hạng (ô “Dữ liệu” xem học kỳ đã lưu trữ) |
+| `tao_de.html` | Địa chỉ Trình soạn đề cho giáo viên (mở `lam_bai.html#tao`) |
+| `admin.html` | Quản trị dữ liệu: xoá bộ nhớ đệm (mọi người); sao lưu .json, lưu trữ cuối học kỳ `KetQua → LichSu_…` (mã quản trị) |
+| `hien_ma.js`, `bieu_tuong.js` | Nút hiện/ẩn mã GV; biểu tượng SVG dùng chung |
 | `cau_hinh.js` | Danh sách bài + địa chỉ nhận kết quả |
 | `de_luyen_tap.js`, `van_demo.js`, `mon_demo.js` | Danh mục đề hiển thị trên cổng |
 | `cc_*.html` | Bài củng cố cuối tiết (Toán) – đích của mã QR |

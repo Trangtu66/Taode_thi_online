@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quản trị dữ liệu</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<script src="cau_hinh.js"></script>
+<script defer src="hien_ma.js"></script>
+<!-- Trang quản trị dữ liệu dài hạn: xoá bộ nhớ đệm (mọi người), sao lưu – lưu trữ cuối học kỳ (chỉ mã quản trị).
+     Mã quản trị được máy chủ (Apps Script) kiểm tra, không lưu trong trang này. -->
+<style>
+  :root{--paper:#F3F8FF;--line:#D9E4F5;--ink:#1F2A44;--soft:#5A6B85;--cel:#2F6FEB;--deep:#1D4ED8;--gold:#F59E0B;--good:#16A34A;--bad:#E5484D;--pale:#E8F0FE;--grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Be Vietnam Pro","Segoe UI",Roboto,Arial,sans-serif;font-size:15px}
+  .wrap{max-width:1000px;margin:0 auto;padding:18px 16px 40px}
+  header.top{background:#1E40AF;color:#fff}
+  header.top .in{max-width:1180px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+  .logo b{font-size:18px;letter-spacing:.2px}.logo small{display:block;opacity:.85;font-size:12.5px}
+  .logo .dot{width:38px;height:38px;border-radius:10px;background:#fff;color:#1E40AF;display:grid;place-items:center;font-weight:800;font-size:18px}
+  .nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .nav a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:8px;font-size:14px;opacity:.92}
+  .nav a:hover,.nav a.on{background:rgba(255,255,255,.16);opacity:1}
+  .nav a:focus-visible{outline:3px solid #93C5FD;outline-offset:2px}
+  @media(max-width:640px){.nav{margin-left:0}}
+  .tieu-de{background:var(--grad);color:#fff;border-radius:14px;padding:18px 22px;margin-bottom:14px}
+  .tieu-de h1{margin:0;font-size:22px}.tieu-de p{margin:4px 0 0;opacity:.9;font-size:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+  h2{font-size:15px;margin:0 0 10px;color:var(--deep);text-transform:uppercase;letter-spacing:.3px}
+  h2 .so{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--deep);color:#fff;font-size:13px;margin-right:6px}
+  p{line-height:1.55}
+  .hidden{display:none!important}
+  input,select{padding:9px 11px;border:1.5px solid var(--line);border-radius:8px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--ink)}
+  .btn{padding:10px 16px;border:0;border-radius:9px;background:var(--cel);color:#fff;font-size:14.5px;cursor:pointer;font-family:inherit;font-weight:600}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn.ghost{background:#fff;color:var(--deep);border:1.5px solid var(--line)}
+  .btn.do{background:#B91C1C}
+  .hang{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .err{color:var(--bad)} .msg{color:var(--soft)} .ok{color:var(--good)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--soft);font-weight:600;font-size:13px}
+  td.so,th.so{text-align:right;white-space:nowrap}
+  .the{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12.5px;font-weight:600}
+  .the.xanh{background:#DCFCE7;color:#166534}.the.vang{background:#FEF3C7;color:#92400E}.the.do{background:#FEE2E2;color:#991B1B}
+  .canh{border-left:4px solid var(--gold);background:#FFFBEB;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:14px}
+  .canh.do{border-color:#B91C1C;background:#FEF2F2}
+  .tien-do{height:10px;background:#EEF3FB;border-radius:6px;overflow:hidden;margin:8px 0}
+  .tien-do i{display:block;height:100%;width:0;background:var(--cel);transition:width .2s}
+  label.chon{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:14px}
+  label.chon input{margin-top:3px;padding:0}
+  ol.buoc{margin:6px 0 0;padding-left:20px;line-height:1.6;font-size:14px}
+  code{background:#EEF3FB;border-radius:5px;padding:1px 5px;font-size:13px}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
+    <a href="quan_ly.html">Góc Giáo viên</a><a href="huong_dan.html">Hướng dẫn</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <div class="tieu-de">
+    <h1>Quản trị dữ liệu</h1>
+    <p>Dọn bộ nhớ đệm trên máy; sao lưu và lưu trữ kết quả cuối học kỳ để hệ thống luôn chạy nhanh.</p>
+  </div>
+
+  <!-- ===== 1. BỘ NHỚ ĐỆM (mọi người dùng được) ===== -->
+  <section class="card" id="bo-nho" aria-labelledby="h-bn">
+    <h2 id="h-bn"><span class="so">1</span>Xoá bộ nhớ đệm trên máy này</h2>
+    <p class="msg" style="margin-top:0">Dùng khi trang bị kẹt phiên đăng nhập, hiện sai tên, hoặc máy báo đầy bộ nhớ. Chỉ xoá dữ liệu của hệ thống này trên trình duyệt đang dùng, không ảnh hưởng điểm đã nộp về máy chủ.</p>
+    <table>
+      <thead><tr><th style="width:34px"></th><th>Loại dữ liệu</th><th class="so">Số mục</th><th class="so">Dung lượng</th></tr></thead>
+      <tbody id="bn-bang"></tbody>
+    </table>
+    <div class="hang" style="margin-top:12px">
+      <button class="btn" id="bn-xoa" type="button">Xoá mục đã chọn</button>
+      <button class="btn ghost" id="bn-het" type="button">Xoá tất cả và đăng xuất</button>
+      <span id="bn-tb" role="status"></span>
+    </div>
+    <p class="msg" style="font-size:13px;margin-bottom:0">Bài làm dở (đang làm thì lỡ tải lại trang) chỉ lưu trong thẻ trình duyệt đang làm bài và tự mất khi đóng thẻ đó. Bài đã nộp lưu trên máy tối đa 180 ngày, 40 bài gần nhất, hệ thống tự dọn bài cũ hơn.</p>
+  </section>
+
+  <!-- ===== 2. ĐĂNG NHẬP QUẢN TRỊ ===== -->
+  <section class="card" id="dang-nhap" aria-labelledby="h-dn">
+    <h2 id="h-dn"><span class="so">2</span>Đăng nhập quản trị</h2>
+    <p class="msg" style="margin-top:0">Sao lưu, lưu trữ dữ liệu toàn trường chỉ dành cho mã quản trị. Mã giáo viên thường không mở được phần này.</p>
+    <div class="hang">
+      <input id="ma-qt" type="password" data-hien-ma placeholder="Mã quản trị" autocomplete="current-password" style="min-width:240px">
+      <button class="btn" id="btn-vao" type="button">Vào quản trị</button>
+      <button class="btn ghost hidden" id="btn-thoat" type="button">Thoát quản trị</button>
+      <span id="dn-tb" role="status"></span>
+    </div>
+    <div id="can-cap-nhat" class="canh do hidden">
+      <b>Máy chủ chưa có chức năng quản trị.</b> Cần cập nhật mã Apps Script một lần:
+      <ol class="buoc">
+        <li>Mở Google Sheet nhận kết quả → <b>Tiện ích mở rộng → Apps Script</b>.</li>
+        <li>Dán toàn bộ nội dung file <code>NHAN_KET_QUA/Code.gs</code> mới (giữ nguyên các mã GV), bấm Lưu.</li>
+        <li><b>Triển khai → Quản lý triển khai</b> → biểu tượng bút chì → Phiên bản: <b>Phiên bản mới</b> → Triển khai. Địa chỉ web không đổi.</li>
+        <li>Tải lại trang này và đăng nhập lại.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div id="phan-qt" class="hidden">
+    <!-- ===== 3. TÌNH TRẠNG ===== -->
+    <section class="card" aria-labelledby="h-tt">
+      <h2 id="h-tt"><span class="so">3</span>Tình trạng dữ liệu trên máy chủ</h2>
+      <div class="hang" style="justify-content:space-between;margin-bottom:6px"><span class="msg" id="tt-bang"></span><button class="btn ghost" id="tt-tai" type="button">Tải lại</button></div>
+      <div id="tt-canh"></div>
+      <table>
+        <thead><tr><th>Trang tính</th><th>Nội dung</th><th class="so">Số dòng</th><th>Đánh giá</th></tr></thead>
+        <tbody id="tt-ds"></tbody>
+      </table>
+    </section>
+
+    <!-- ===== 4. SAO LƯU ===== -->
+    <section class="card" aria-labelledby="h-sl">
+      <h2 id="h-sl"><span class="so">4</span>Sao lưu về máy (.json)</h2>
+      <p class="msg" style="margin-top:0">Tải toàn bộ cấu hình bài củng cố và dữ liệu trên máy chủ về một file. Nên sao lưu cuối mỗi tháng và <b>bắt buộc trước khi lưu trữ cuối học kỳ</b>. Cất file vào Google Drive hoặc ổ cứng riêng.</p>
+      <div id="sl-chon"></div>
+      <div class="hang" style="margin-top:10px">
+        <button class="btn" id="sl-tai" type="button">Tải bản sao lưu</button>
+        <span id="sl-tb" role="status"></span>
+      </div>
+      <div class="tien-do hidden" id="sl-td"><i></i></div>
+    </section>
+
+    <!-- ===== 5. LƯU TRỮ CUỐI HỌC KỲ ===== -->
+    <section class="card" aria-labelledby="h-lt">
+      <h2 id="h-lt"><span class="so">5</span>Lưu trữ cuối học kỳ (dọn trang KetQua)</h2>
+      <p class="msg" style="margin-top:0">Đổi tên trang <code>KetQua</code> thành <code>LichSu_&lt;nhãn&gt;</code> và tạo trang <code>KetQua</code> trống cho học kỳ mới. Đề đã lưu (<code>DeThi</code>), trạng thái mở đáp án, danh sách học sinh giữ nguyên; mã QR, link bài làm không đổi. Kết quả cũ vẫn xem được ở Góc Giáo viên → ô <b>Dữ liệu</b>.</p>
+      <div class="hang">
+        <label for="lt-nhan">Nhãn:</label>
+        <input id="lt-nhan" maxlength="40" style="min-width:220px" placeholder="HocKy1_2026-2027">
+      </div>
+      <label class="chon"><input type="checkbox" id="lt-da-sl"> Tôi đã tải bản sao lưu có trang KetQua và cất giữ an toàn.</label>
+      <div class="hang">
+        <label for="lt-xn">Gõ <b>LUU TRU</b> để xác nhận:</label>
+        <input id="lt-xn" maxlength="10" autocomplete="off" style="width:140px">
+        <button class="btn do" id="lt-chay" type="button" disabled>Lưu trữ và làm sạch</button>
+      </div>
+      <p id="lt-tb" role="status"></p>
+      <div id="lt-ls"></div>
+    </section>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const kb = n => n < 1024 ? n + " B" : n < 1048576 ? (n/1024).toFixed(1) + " KB" : (n/1048576).toFixed(2) + " MB";
+
+/* ================= 1. BỘ NHỚ ĐỆM ================= */
+// Chỉ các khoá của hệ thống này (trangtu66.github.io dùng chung cho mọi kho của tác giả – không xoá bừa)
+const NHOM_BN = [
+  {id:"dn",  ten:"Phiên đăng nhập (mã giáo viên, vai trò)", chon:true,
+   khop:k=>["vt_guest_session","vt_guest_code","vt_guest_role","vt_guest_ns","vt_school_code","ql_ma_gv","kq_ma_gv","vai_tro","ad_ma_qt"].includes(k)},
+  {id:"bl",  ten:"Bài làm đã nộp lưu trên máy (xem lại lời giải)", chon:false, khop:k=>k.indexOf("tdt_bailam_")===0},
+  {id:"tam", ten:"Bài làm dở trong thẻ này", chon:true, khop:k=>k.indexOf("lb_tam_")===0},
+  {id:"tc",  ten:"Lựa chọn hiển thị (môn, khối, bộ lọc đã chọn)", chon:true, khop:k=>["ql_mon","ql_khoi","hoc_lieu_loc"].includes(k)},
+  {id:"tb",  ten:"Mã thiết bị (giúp giáo viên nhận ra bài nộp từ cùng một máy)", chon:false, khop:k=>k==="tdt_client"}
+];
+function quetBN(){
+  const kq = NHOM_BN.map(g=>({...g, muc:[]}));
+  [["l", ()=>localStorage], ["s", ()=>sessionStorage]].forEach(([loai, lay])=>{
+    let st; try{ st = lay(); }catch(e){ return; }
+    for(let i=0;i<st.length;i++){ const k = st.key(i), g = kq.find(x=>x.khop(k)); if(g) g.muc.push({loai, k, n:(k.length + (st.getItem(k)||"").length)*2}); }
+  });
+  return kq;
+}
+function veBN(){
+  const kq = quetBN();
+  $("bn-bang").innerHTML = kq.map(g=>`<tr><td><input type="checkbox" data-g="${g.id}" ${g.chon && g.muc.length ? "checked" : ""} ${g.muc.length ? "" : "disabled"} aria-label="${esc(g.ten)}" style="padding:0"></td>
+    <td>${esc(g.ten)}</td><td class="so">${g.muc.length}</td><td class="so">${g.muc.length ? kb(g.muc.reduce((a,m)=>a+m.n,0)) : "—"}</td></tr>`).join("");
+}
+function xoaBN(ids){
+  let dem = 0;
+  quetBN().filter(g=>ids.includes(g.id)).forEach(g=> g.muc.forEach(m=>{ try{ (m.loai==="l" ? localStorage : sessionStorage).removeItem(m.k); dem++; }catch(e){} }));
+  return dem;
+}
+$("bn-xoa").onclick = ()=>{
+  const ids = [...document.querySelectorAll("#bn-bang input:checked")].map(x=>x.dataset.g);
+  if(!ids.length){ $("bn-tb").innerHTML = '<span class="msg">Chưa chọn mục nào.</span>'; return; }
+  const dem = xoaBN(ids); veBN();
+  $("bn-tb").innerHTML = `<span class="ok">Đã xoá ${dem} mục.</span>`;
+  if(ids.includes("dn")) thoatQT(true);
+};
+$("bn-het").onclick = ()=>{
+  if(!confirm("Xoá toàn bộ dữ liệu của hệ thống trên trình duyệt này (kể cả bài đã nộp lưu trên máy) và đăng xuất?")) return;
+  const dem = xoaBN(NHOM_BN.map(g=>g.id)); veBN(); thoatQT(true);
+  $("bn-tb").innerHTML = `<span class="ok">Đã xoá ${dem} mục và đăng xuất.</span>`;
+};
+veBN();
+
+/* ================= máy chủ ================= */
+function jsonp(params, ms){
+  return new Promise((res, rej)=>{
+    const api = window.KQ_API || "";
+    if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(api)) return rej("Chưa cấu hình địa chỉ máy chủ (KQ_API) trong cau_hinh.js.");
+    const cb = "cb_" + Math.random().toString(36).slice(2);
+    const s = document.createElement("script");
+    const t = setTimeout(()=>{ cleanup(); rej("Máy chủ không phản hồi (kiểm tra mạng)."); }, ms || 60000);
+    function cleanup(){ clearTimeout(t); delete window[cb]; s.remove(); }
+    window[cb] = d => { cleanup(); d && d.ok ? res(d) : rej((d && d.loi) || "Lỗi dữ liệu"); };
+    s.onerror = ()=>{ cleanup(); rej("Không kết nối được máy chủ (kiểm tra mạng)."); };
+    s.src = api + "?" + new URLSearchParams({...params, callback: cb}).toString();
+    document.body.appendChild(s);
+  });
+}
+
+/* ================= 2. ĐĂNG NHẬP ================= */
+let MA = "", TT = null;
+try{ MA = sessionStorage.getItem("ad_ma_qt") || ""; }catch(e){}
+async function vaoQT(){
+  const m = MA || $("ma-qt").value.trim();
+  if(!m){ $("dn-tb").innerHTML = '<span class="err">Nhập mã quản trị.</span>'; return; }
+  $("dn-tb").innerHTML = '<span class="msg">Đang kiểm tra…</span>'; $("can-cap-nhat").classList.add("hidden");
+  try{
+    const d = await jsonp({action:"quanTri", key:m}, 30000);
+    if(!d.phienBan){ $("dn-tb").textContent = ""; $("can-cap-nhat").classList.remove("hidden"); MA = ""; return; }
+    MA = m; TT = d; try{ sessionStorage.setItem("ad_ma_qt", MA); }catch(e){}
+    $("dn-tb").innerHTML = `<span class="ok">Đã vào quản trị · máy chủ phiên bản ${esc(d.phienBan)}</span>`;
+    $("btn-vao").classList.add("hidden"); $("ma-qt").disabled = true; $("btn-thoat").classList.remove("hidden");
+    $("phan-qt").classList.remove("hidden");
+    veTT(); veSaoLuu(); veLichSu(); veBN();
+  }catch(e){
+    MA = ""; try{ sessionStorage.removeItem("ad_ma_qt"); }catch(x){}
+    $("dn-tb").innerHTML = `<span class="err">⚠ ${esc(e)}</span>`;
+  }
+}
+function thoatQT(imLang){
+  MA = ""; TT = null; try{ sessionStorage.removeItem("ad_ma_qt"); }catch(e){}
+  $("phan-qt").classList.add("hidden"); $("btn-thoat").classList.add("hidden"); $("btn-vao").classList.remove("hidden");
+  $("ma-qt").disabled = false; $("ma-qt").value = "";
+  if(!imLang) $("dn-tb").innerHTML = '<span class="msg">Đã thoát quản trị.</span>'; else $("dn-tb").textContent = "";
+}
+$("btn-vao").onclick = vaoQT;
+$("btn-thoat").onclick = ()=> thoatQT(false);
+$("ma-qt").addEventListener("keydown", e=>{ if(e.key==="Enter") vaoQT(); });
+
+/* ================= 3. TÌNH TRẠNG ================= */
+const MO_TA = {KetQua:"Bài nộp học kỳ hiện tại", DeThi:"Đề giáo viên tự soạn (link ngắn ?de=…)", MoDapAn:"Trạng thái mở / khoá đáp án",
+  DanhSachHS:"Danh sách học sinh các lớp", NhatKyQuanTri:"Nhật ký sao lưu, lưu trữ"};
+const NGUONG = {KetQua:[3000, 8000]};  // số bài nộp: dưới 3000 tốt; 3000–8000 nên lưu trữ cuối kỳ; trên 8000 cần lưu trữ ngay
+function danhGia(t){
+  const g = NGUONG[t.ten]; if(!g) return '<span class="the xanh">Bình thường</span>';
+  return t.dong < g[0] ? '<span class="the xanh">Nhanh</span>' : t.dong < g[1] ? '<span class="the vang">Nên lưu trữ cuối kỳ</span>' : '<span class="the do">Cần lưu trữ ngay</span>';
+}
+function veTT(){
+  if(!TT) return;
+  $("tt-bang").textContent = "Bảng tính: " + TT.tenBang;
+  $("tt-ds").innerHTML = TT.trang.map(t=>`<tr><td><b>${esc(t.ten)}</b></td><td>${esc(MO_TA[t.ten] || (t.ten.indexOf("LichSu_")===0 ? "Kết quả học kỳ đã lưu trữ (chỉ đọc)" : "Trang khác"))}</td>
+    <td class="so">${t.dong.toLocaleString("vi-VN")}</td><td>${danhGia(t)}</td></tr>`).join("");
+  const kq = TT.trang.find(t=>t.ten==="KetQua");
+  $("tt-canh").innerHTML = kq && kq.dong >= NGUONG.KetQua[0]
+    ? `<div class="canh ${kq.dong >= NGUONG.KetQua[1] ? "do" : ""}">Trang KetQua có ${kq.dong.toLocaleString("vi-VN")} bài nộp – mỗi lần mở trang Quản lý, Xếp hạng máy chủ phải đọc hết. Hãy sao lưu (mục 4) rồi lưu trữ (mục 5) khi kết thúc học kỳ.</div>` : "";
+}
+$("tt-tai").onclick = async ()=>{ try{ TT = await jsonp({action:"quanTri", key:MA}, 30000); veTT(); veSaoLuu(); veLichSu(); }catch(e){ $("tt-bang").textContent = "⚠ " + e; } };
+
+/* ================= 4. SAO LƯU ================= */
+const KHUC = t => t==="DeThi" ? 40 : (t==="KetQua" || t.indexOf("LichSu_")===0) ? 300 : 1000;  // DeThi mỗi dòng tới 40.000 kí tự
+function veSaoLuu(){
+  if(!TT) return;
+  $("sl-chon").innerHTML = TT.trang.map(t=>`<label class="chon"><input type="checkbox" data-t="${esc(t.ten)}" ${t.ten.indexOf("LichSu_")===0 ? "" : "checked"}>
+    <span><b>${esc(t.ten)}</b> – ${t.dong.toLocaleString("vi-VN")} dòng${t.ten==="DanhSachHS" ? " (có họ tên học sinh – giữ file cẩn thận)" : ""}</span></label>`).join("")
+    + '<label class="chon"><input type="checkbox" checked disabled><span><b>Cấu hình bài củng cố</b> – danh sách bài, mở đáp án (cau_hinh.js)</span></label>';
+}
+function ngayGio(){ const d = new Date(), p = n=>String(n).padStart(2,"0"); return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"_"+p(d.getHours())+p(d.getMinutes()); }
+$("sl-tai").onclick = async ()=>{
+  const ds = [...document.querySelectorAll("#sl-chon input[data-t]:checked")].map(x=>x.dataset.t);
+  const tongDong = ds.reduce((a,t)=> a + (TT.trang.find(x=>x.ten===t)||{dong:0}).dong, 0) || 1;
+  const btn = $("sl-tai"); btn.disabled = true; $("sl-td").classList.remove("hidden");
+  const out = {heThong:"Taode_thi_online", thoiDiem:new Date().toISOString(), bangTinh:TT.tenBang, phienBanMayChu:TT.phienBan,
+    cauHinh:{DANH_SACH_BAI: window.DANH_SACH_BAI || [], MO_DAP_AN: window.MO_DAP_AN || [], CONG_KHAI_KET_QUA: window.CONG_KHAI_KET_QUA, KQ_SHEET: window.KQ_SHEET || ""},
+    trangTinh:{}};
+  let daTai = 0;
+  try{
+    for(const t of ds){
+      let tu = 0, tieuDe = [], rows = [], tong = 0;
+      do{
+        $("sl-tb").innerHTML = `<span class="msg">Đang tải ${esc(t)}: ${rows.length.toLocaleString("vi-VN")} dòng…</span>`;
+        const d = await jsonp({action:"saoLuu", key:MA, trang:t, tu, n:KHUC(t)});
+        tieuDe = d.tieuDe; tong = d.tong; rows.push(...d.rows); tu += d.rows.length; daTai += d.rows.length;
+        $("sl-td").firstElementChild.style.width = Math.min(100, daTai / tongDong * 100) + "%";
+        if(!d.rows.length) break;
+      }while(tu < tong);
+      out.trangTinh[t] = {tieuDe, soDong: rows.length, dong: rows};
+    }
+    const blob = new Blob([JSON.stringify(out)], {type:"application/json"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "SaoLuu_Taode_thi_online_" + ngayGio() + ".json";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+    $("sl-td").firstElementChild.style.width = "100%";
+    $("sl-tb").innerHTML = `<span class="ok">Đã tải ${a.download} (${kb(blob.size)}).</span>`;
+    if(ds.includes("KetQua")) $("lt-da-sl").checked = true;
+    capNutLT();
+  }catch(e){ $("sl-tb").innerHTML = `<span class="err">⚠ Sao lưu chưa xong: ${esc(e)}. Thử lại.</span>`; }
+  btn.disabled = false;
+};
+
+/* ================= 5. LƯU TRỮ ================= */
+(function(){ const d = new Date(), y = d.getFullYear(), m = d.getMonth()+1;   // tháng 8–12, 1: học kỳ I; tháng 2–7: học kỳ II
+  $("lt-nhan").value = (m >= 8 || m === 1) ? `HocKy1_${m===1 ? y-1 : y}-${m===1 ? y : y+1}` : `HocKy2_${y-1}-${y}`; })();
+function capNutLT(){ $("lt-chay").disabled = !($("lt-da-sl").checked && $("lt-xn").value.trim().toUpperCase()==="LUU TRU" && /^[A-Za-z0-9_-]{2,40}$/.test($("lt-nhan").value.trim())); }
+["lt-da-sl","lt-xn","lt-nhan"].forEach(id=> $(id).addEventListener("input", capNutLT));
+$("lt-da-sl").addEventListener("change", capNutLT);
+function veLichSu(){
+  const ls = (TT && TT.lichSu) || [];
+  $("lt-ls").innerHTML = ls.length ? `<p class="msg" style="margin-bottom:4px">Các học kỳ đã lưu trữ:</p><ul style="margin:0;padding-left:20px">${ls.map(n=>{ const t = TT.trang.find(x=>x.ten===n);
+    return `<li><b>${esc(n)}</b> – ${t ? t.dong.toLocaleString("vi-VN") : "?"} bài nộp</li>`; }).join("")}</ul>` : "";
+}
+$("lt-chay").onclick = async ()=>{
+  const nhan = $("lt-nhan").value.trim();
+  if(!confirm(`Đổi trang KetQua thành LichSu_${nhan} và bắt đầu trang KetQua trống?\n\nBảng xếp hạng, thống kê học kỳ hiện tại sẽ bắt đầu lại từ 0 (kết quả cũ xem ở Góc Giáo viên → ô Dữ liệu).`)) return;
+  const btn = $("lt-chay"); btn.disabled = true; $("lt-tb").innerHTML = '<span class="msg">Đang lưu trữ…</span>';
+  try{
+    const d = await jsonp({action:"luuTru", key:MA, ten:nhan, xacNhan:"LUU TRU"});
+    $("lt-tb").innerHTML = `<span class="ok">Xong: ${d.soDong.toLocaleString("vi-VN")} bài nộp đã chuyển sang ${esc(d.ten)}; trang KetQua mới đã sẵn sàng.</span>`;
+    $("lt-xn").value = ""; $("lt-da-sl").checked = false;
+    TT = await jsonp({action:"quanTri", key:MA}, 30000); veTT(); veSaoLuu(); veLichSu();
+  }catch(e){ $("lt-tb").innerHTML = `<span class="err">⚠ ${esc(e)}</span>`; }
+  capNutLT();
+};
+
+if(MA) vaoQT();
+</script>
+</body>
+</html>
