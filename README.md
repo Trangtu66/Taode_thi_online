@@ -3432,6 +3432,198 @@ graph TD
 
 ---
 
+### Toán 12 – Chuyên đề 3, Bài 5. Tiền tệ. Lãi suất *(Tiết 25–27 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ3 – BÀI 5<br/>Tiền tệ.<br/>Lãi suất"]:::root
+    G --> A["① Tiền tệ"]:::n1
+    G --> B["② Lãi đơn"]:::n2
+    G --> C["③ Lãi kép"]:::n3
+    G --> D["④ Lạm phát"]:::n4
+
+    A --> A1["Phương tiện thanh toán chính quy"]:::l1
+    A --> A2["3 chức năng: đo giá trị, trao đổi, tích luỹ"]:::l1
+    A --> A3["Tính chất: đồng nhất, tin tưởng"]:::l1
+    A --> A4["Nguyên tắc tổng tiền bằng 0"]:::l1
+
+    B --> B1["★ I = Prt; A = P(1 + rt)"]:::l2
+    B --> B2["Lãi mỗi kì bằng nhau"]:::l2
+    B --> B3["Khoản ngắn hạn (< 1 năm)"]:::l2
+    B --> B4["Theo ngày: I = Prt/365"]:::l2
+
+    C --> C1["★ A = P(1 + r/n)^(nt)"]:::l3
+    C --> C2["Lãi nhập vốn sau mỗi kì"]:::l3
+    C --> C3["n lớn → A lớn hơn"]:::l3
+    C --> C4["Mở đầu: chọn phương án 2"]:::l3
+
+    D --> D1["Sức mua: A = P(1 – g)ⁿ"]:::l4
+    D --> D2["★ r thực = (r – g)/(1 + g)"]:::l4
+    D --> D3["g nhỏ: r thực ≈ r – g"]:::l4
+    D --> D4["Lãi suất thực âm khi r < g"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd3bai5_t12.html>
+
+---
+
+### Toán 12 – Chuyên đề 3, Bài 6. Tín dụng. Vay nợ *(Tiết 28–30 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ3 – BÀI 6<br/>Tín dụng.<br/>Vay nợ"]:::root
+    G --> A["① Thẻ tín dụng"]:::n1
+    G --> B["② Tính lãi thẻ"]:::n2
+    G --> C["③ Vay lãi đơn, lãi kép"]:::n3
+    G --> D["④ Vay trả góp"]:::n4
+
+    A --> A1["Thanh toán chậm, rút tiền, trả góp"]:::l1
+    A --> A2["Phí: phát hành, thường niên, chậm trả"]:::l1
+    A --> A3["★ Miễn lãi 45 – 50 ngày nếu trả đủ"]:::l1
+    A --> A4["Rút tiền mặt: phí 3 – 5%"]:::l1
+
+    B --> B1["★ Lãi = dư nợ · r/365 · số ngày"]:::l2
+    B --> B2["Chia dư nợ theo từng khoảng"]:::l2
+    B --> B3["Trả tối thiểu vẫn bị tính lãi"]:::l2
+    B --> B4["Chi tiêu trong khả năng trả nợ"]:::l2
+
+    C --> C1["Ngắn hạn: A = P(1 + rt)"]:::l3
+    C --> C2["Trung, dài hạn: A = P(1 + r/n)^(nt)"]:::l3
+    C --> C3["So sánh để chọn khoản vay"]:::l3
+    C --> C4["Bài 3.10, 3.11"]:::l3
+
+    D --> D1["★ P = V·i/[1 – (1 + i)^(–n)]"]:::l4
+    D --> D2["Tổng trả = P·n"]:::l4
+    D --> D3["Tiền lãi = P·n – V"]:::l4
+    D --> D4["Mở đầu: anh Hùng mua ô tô"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd3bai6_t12.html>
+
+---
+
+### Toán 12 – Chuyên đề 3, Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân *(Tiết 31–33 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ3 – BÀI 7<br/>Đầu tư tài chính.<br/>Kế hoạch tài chính"]:::root
+    G --> A["① Đầu tư"]:::n1
+    G --> B["② Giá trị hiện tại"]:::n2
+    G --> C["③ Kế hoạch tài chính"]:::n3
+    G --> D["④ Niên kim"]:::n4
+
+    A --> A1["Tiết kiệm, vàng, bất động sản, chứng khoán"]:::l1
+    A --> A2["Lợi nhuận đi cùng rủi ro"]:::l1
+    A --> A3["★ r = n(ᴺ√(A/P) – 1)"]:::l1
+    A --> A4["★ N = log₁₊ᵣ/ₙ (A/P)"]:::l1
+
+    B --> B1["★ P = A(1 + r/n)^(–nt)"]:::l2
+    B --> B2["Luôn nhỏ hơn A"]:::l2
+    B --> B3["Trái phiếu, khoản tiền tương lai"]:::l2
+    B --> B4["Mở đầu: xổ số trả dần"]:::l2
+
+    C --> C1["B1: Mục tiêu, thời hạn"]:::l3
+    C --> C2["B2: Theo dõi thu – chi"]:::l3
+    C --> C3["B3: Quy tắc 80/10/10"]:::l3
+    C --> C4["B4: Tuân thủ, điều chỉnh"]:::l3
+
+    D --> D1["★ A = P[(1 + i)ⁿ – 1]/i"]:::l4
+    D --> D2["★ V = P[1 – (1 + i)^(–n)]/i"]:::l4
+    D --> D3["Truy hồi Aₙ = (1 + i)Aₙ₋₁ + P"]:::l4
+    D --> D4["Máy tính cầm tay, Excel"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd3bai7_t12.html>
+
+---
+
+### Toán 12 – Bài tập cuối chuyên đề 3. Ứng dụng toán học trong một số vấn đề liên quan đến tài chính *(Tiết 34 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 3<br/>Toán học và tài chính"]:::root
+    G --> A["① Lãi đơn – lãi kép"]:::n1
+    G --> B["② Lạm phát"]:::n2
+    G --> C["③ Đầu tư, niên kim"]:::n3
+    G --> D["④ Vay trả góp"]:::n4
+
+    A --> A1["I = Prt; A = P(1 + rt)"]:::l1
+    A --> A2["★ A = P(1 + r/n)^(nt)"]:::l1
+    A --> A3["So sánh: quy về cùng 1 năm"]:::l1
+    A --> A4["Bài 3.19, 3.20"]:::l1
+
+    B --> B1["Sức mua A = P(1 – g)ⁿ"]:::l2
+    B --> B2["★ r thực = (r – g)/(1 + g)"]:::l2
+    B --> B3["Học phí, CPI tăng (1 + g)ⁿ"]:::l2
+    B --> B4["Bài 3.22"]:::l2
+
+    C --> C1["★ N = log₁₊ᵣ/ₙ (A/P), làm tròn lên"]:::l3
+    C --> C2["Giá trị hiện tại P = A(1 + r/n)^(–nt)"]:::l3
+    C --> C3["A = P[(1 + i)ⁿ – 1]/i"]:::l3
+    C --> C4["Bài 3.21, 3.23"]:::l3
+
+    D --> D1["★ P = V·i/[1 – (1 + i)^(–n)]"]:::l4
+    D --> D2["Tổng trả, tổng lãi"]:::l4
+    D --> D3["Vay hay tự tích luỹ?"]:::l4
+    D --> D4["Bài 3.24"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd3_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*

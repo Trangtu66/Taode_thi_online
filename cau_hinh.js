@@ -242,6 +242,10 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 2, Bài 3. Vận dụng hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính", ma: "Củng cố – Chuyên đề 2, Bài 3. Vận dụng hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính (Toán 12)", link: "cc_cd2bai3_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 2, Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu", ma: "Củng cố – Chuyên đề 2, Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu (Toán 12)", link: "cc_cd2bai4_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối chuyên đề 2. Ứng dụng toán học để giải quyết một số bài toán tối ưu", ma: "Củng cố – Bài tập cuối chuyên đề 2. Ứng dụng toán học để giải quyết một số bài toán tối ưu (Toán 12)", link: "cc_btcccd2_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 3, Bài 5. Tiền tệ. Lãi suất", ma: "Củng cố – Chuyên đề 3, Bài 5. Tiền tệ. Lãi suất (Toán 12)", link: "cc_cd3bai5_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 3, Bài 6. Tín dụng. Vay nợ", ma: "Củng cố – Chuyên đề 3, Bài 6. Tín dụng. Vay nợ (Toán 12)", link: "cc_cd3bai6_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 3, Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân", ma: "Củng cố – Chuyên đề 3, Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân (Toán 12)", link: "cc_cd3bai7_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối chuyên đề 3. Ứng dụng toán học trong một số vấn đề liên quan đến tài chính", ma: "Củng cố – Bài tập cuối chuyên đề 3. Ứng dụng toán học trong một số vấn đề liên quan đến tài chính (Toán 12)", link: "cc_btcccd3_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

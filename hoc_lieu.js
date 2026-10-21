@@ -5395,6 +5395,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe3_T34.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe3_T34.docx",
+"kb": 485,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe3_T34_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe3_T34_HoaNhap.docx",
+"kb": 487,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
 "file": "KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
@@ -5454,6 +5476,72 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22_HoaNhap.docx",
 "kb": 1855,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27.docx",
+"kb": 899,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27_HoaNhap.docx",
+"kb": 903,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai6_TinDungVayNo_T28-30.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai6_TinDungVayNo_T28-30.docx",
+"kb": 593,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai6_TinDungVayNo_T28-30_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai6_TinDungVayNo_T28-30_HoaNhap.docx",
+"kb": 596,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33.docx",
+"kb": 770,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 3: Ứng dụng toán học trong một số vấn đề liên quan đến tài chính",
+"file": "KHBD_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33_HoaNhap.docx",
+"kb": 773,
 "ngay": "2026-10-21"
 },
 {
@@ -5868,6 +5956,17 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bai Tap Cuoi Chuyen De3 (tiết 34)",
+"file": "SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe3_T34.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe3_T34.png",
+"kb": 318,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Sơ đồ tư duy – Biến ngẫu nhiên rời rạc và các số đặc trưng",
 "file": "SoDoTuDuy_TOAN12_CD1_Bai1.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai1.png",
@@ -5905,6 +6004,39 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.png",
 "kb": 356,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD3 Bài 5 Tien Te Lai Suat (tiết 25-27)",
+"file": "SoDoTuDuy_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD3_Bai5_TienTeLaiSuat_T25-27.png",
+"kb": 329,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD3 Bài 6 Tin Dung Vay No (tiết 28-30)",
+"file": "SoDoTuDuy_TOAN12_CD3_Bai6_TinDungVayNo_T28-30.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD3_Bai6_TinDungVayNo_T28-30.png",
+"kb": 350,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD3 Bài 7 Dau Tu Tai Chinh (tiết 31-33)",
+"file": "SoDoTuDuy_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD3_Bai7_DauTuTaiChinh_T31-33.png",
+"kb": 327,
 "ngay": "2026-10-21"
 },
 {
