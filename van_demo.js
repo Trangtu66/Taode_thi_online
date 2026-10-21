@@ -268,6 +268,62 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 4. Hải khẩu linh từ – Đền thiêng cửa bể (Đoàn Thị Điểm)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai4_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_bai4_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.92 – 105"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 4. Muối của rừng (Nguyễn Huy Thiệp)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_muoicuarung_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_muoicuarung_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.106 – 113"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 5. Nhân vật quan trọng (Trích Quan thanh tra – Gô-gôn)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai5_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_bai5_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.130 – 140"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Bài 5. Giấu của (Trích Quẫn – Lộng Chương)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_giaucua_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_giaucua_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.140 – 146"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

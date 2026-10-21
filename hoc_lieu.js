@@ -1890,7 +1890,7 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11_HoaNhap.docx",
 "kb": 1412,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -1912,7 +1912,7 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22_HoaNhap.docx",
 "kb": 1415,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -1934,7 +1934,7 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35_HoaNhap.docx",
 "kb": 1441,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2055,7 +2055,7 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11_HoaNhap.docx",
 "kb": 1430,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2077,7 +2077,7 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22_HoaNhap.docx",
 "kb": 1418,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2099,7 +2099,51 @@ window.HOC_LIEU = [
 "file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34_HoaNhap.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34_HoaNhap.docx",
 "kb": 1446,
-"ngay": "2026-10-21"
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 4. Yếu tố kì ảo trong truyện kể",
+"file": "KHBD_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43.docx",
+"kb": 1454,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 4. Yếu tố kì ảo trong truyện kể",
+"file": "KHBD_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43_HoaNhap.docx",
+"kb": 1459,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 5. Tiếng cười của hài kịch",
+"file": "KHBD_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.docx",
+"kb": 1421,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 5. Tiếng cười của hài kịch",
+"file": "KHBD_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51_HoaNhap.docx",
+"kb": 1425,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2133,6 +2177,28 @@ window.HOC_LIEU = [
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
 "kb": 311,
 "ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy NGUVAN12 Bài 4 Yeu To Ki Ao Trong Truyen Ke (tiết 35-43)",
+"file": "SoDoTuDuy_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai4_YeuToKiAoTrongTruyenKe_T35-43.png",
+"kb": 309,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy NGUVAN12 Bài 5 Tieng Cuoi Cua Hai Kich (tiết 44-51)",
+"file": "SoDoTuDuy_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.png",
+"kb": 288,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2241,8 +2307,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 10",
 "file": "MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
-"kb": 41,
-"ngay": "2026-10-08"
+"kb": 39,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2263,8 +2329,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 11",
 "file": "MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
-"kb": 41,
-"ngay": "2026-10-08"
+"kb": 39,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -2285,8 +2351,8 @@ window.HOC_LIEU = [
 "ten": "Ma trận và bản đặc tả đề kiểm tra định kỳ học kỳ I – Ngữ văn 12",
 "file": "MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
-"kb": 41,
-"ngay": "2026-10-08"
+"kb": 39,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
