@@ -1886,6 +1886,17 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 1. Sức hấp dẫn của truyện kể",
+"file": "KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11_HoaNhap.docx",
+"kb": 1412,
+"ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 2. Vẻ đẹp của thơ ca",
 "file": "KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22.docx",
@@ -1897,11 +1908,33 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 2. Vẻ đẹp của thơ ca",
+"file": "KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai2_VeDepCuaThoCa_T12-22_HoaNhap.docx",
+"kb": 1415,
+"ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
 "file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
 "url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.docx",
 "kb": 1435,
 "ngay": "2026-10-14"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 3. Nghệ thuật thuyết phục trong văn nghị luận",
+"file": "KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35_HoaNhap.docx",
+"kb": 1441,
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2010,8 +2043,19 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.docx",
-"kb": 1419,
-"ngay": "2026-10-08"
+"kb": 1426,
+"ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
+"file": "KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11_HoaNhap.docx",
+"kb": 1430,
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2021,8 +2065,19 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Những thế giới thơ",
 "file": "KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.docx",
-"kb": 1406,
-"ngay": "2026-10-08"
+"kb": 1412,
+"ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 2. Những thế giới thơ",
+"file": "KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai2_NhungTheGioiTho_T12-22_HoaNhap.docx",
+"kb": 1418,
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2032,8 +2087,19 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Lập luận trong văn bản nghị luận",
 "file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.docx",
-"kb": 1437,
-"ngay": "2026-10-08"
+"kb": 1442,
+"ngay": "2026-10-21"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 3. Lập luận trong văn bản nghị luận",
+"file": "KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34_HoaNhap.docx",
+"kb": 1446,
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2044,7 +2110,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
 "kb": 296,
-"ngay": "2026-10-08"
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2055,7 +2121,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai2_NhungTheGioiTho_T12-22.png",
 "kb": 278,
-"ngay": "2026-10-08"
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
@@ -2066,7 +2132,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai3_LapLuanTrongVanBanNghiLuan_T23-34.png",
 "kb": 311,
-"ngay": "2026-10-08"
+"ngay": "2026-10-21"
 },
 {
 "mon": "ngu_van",
