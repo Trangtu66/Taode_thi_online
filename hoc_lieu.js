@@ -5352,6 +5352,50 @@ window.HOC_LIEU = [
 "loai": "khbd",
 "khoi": 12,
 "ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe1_T11.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe1_T11.docx",
+"kb": 509,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe1_T11_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe1_T11_HoaNhap.docx",
+"kb": 512,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe2_T23.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe2_T23.docx",
+"kb": 1254,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_BaiTapCuoiChuyenDe2_T23_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_BaiTapCuoiChuyenDe2_T23_HoaNhap.docx",
+"kb": 1257,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 1: Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc",
 "file": "KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.docx",
 "kb": 663,
@@ -5367,6 +5411,50 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10_HoaNhap.docx",
 "kb": 667,
 "ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17.docx",
+"kb": 1533,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17_HoaNhap.docx",
+"kb": 1537,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.docx",
+"kb": 1852,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: Ứng dụng toán học để giải quyết một số bài toán tối ưu",
+"file": "KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22_HoaNhap.docx",
+"url": "mon/toan/khbd/lop12/KHBD_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22_HoaNhap.docx",
+"kb": 1855,
+"ngay": "2026-10-21"
 },
 {
 "mon": "toan",
@@ -5758,6 +5846,28 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bai Tap Cuoi Chuyen De1 (tiết 11)",
+"file": "SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe1_T11.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe1_T11.png",
+"kb": 338,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 Bai Tap Cuoi Chuyen De2 (tiết 23)",
+"file": "SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe2_T23.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_BaiTapCuoiChuyenDe2_T23.png",
+"kb": 350,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Sơ đồ tư duy – Biến ngẫu nhiên rời rạc và các số đặc trưng",
 "file": "SoDoTuDuy_TOAN12_CD1_Bai1.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai1.png",
@@ -5774,6 +5884,28 @@ window.HOC_LIEU = [
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD1_Bai2_PhanBoNhiThuc_T6-10.png",
 "kb": 352,
 "ngay": "2026-10-15"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD2 Bài 3 Quy Hoach Tuyen Tinh (tiết 13-17)",
+"file": "SoDoTuDuy_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD2_Bai3_QuyHoachTuyenTinh_T13-17.png",
+"kb": 341,
+"ngay": "2026-10-21"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy TOAN12 CD2 Bài 4 Dao Ham Toi Uu (tiết 18-22)",
+"file": "SoDoTuDuy_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.png",
+"url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_CD2_Bai4_DaoHamToiUu_T18-22.png",
+"kb": 356,
+"ngay": "2026-10-21"
 },
 {
 "mon": "toan",

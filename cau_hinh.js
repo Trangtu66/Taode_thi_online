@@ -238,6 +238,10 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Thực hành: Vẽ vectơ tổng của ba vectơ bằng GeoGebra", ma: "Củng cố – Thực hành: Vẽ vectơ tổng của ba vectơ trong không gian bằng GeoGebra (Toán 12)", link: "cc_geogebra_vecto_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Thực hành trải nghiệm: Độ dài gang tay", ma: "Củng cố – Thực hành trải nghiệm: Độ dài gang tay (Toán 12)", link: "cc_gangtay_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 1, Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng", ma: "Củng cố – Chuyên đề 1, Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng (Toán 12)", link: "cc_cd1bai2_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối chuyên đề 1. Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc", ma: "Củng cố – Bài tập cuối chuyên đề 1. Biến ngẫu nhiên rời rạc (Toán 12)", link: "cc_btcccd1_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 2, Bài 3. Vận dụng hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính", ma: "Củng cố – Chuyên đề 2, Bài 3. Vận dụng hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính (Toán 12)", link: "cc_cd2bai3_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 2, Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu", ma: "Củng cố – Chuyên đề 2, Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu (Toán 12)", link: "cc_cd2bai4_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối chuyên đề 2. Ứng dụng toán học để giải quyết một số bài toán tối ưu", ma: "Củng cố – Bài tập cuối chuyên đề 2. Ứng dụng toán học để giải quyết một số bài toán tối ưu (Toán 12)", link: "cc_btcccd2_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

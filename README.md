@@ -3240,6 +3240,198 @@ graph TD
 
 ---
 
+### Toán 12 – Bài tập cuối chuyên đề 1. Biến ngẫu nhiên rời rạc. Các số đặc trưng của biến ngẫu nhiên rời rạc *(Tiết 11 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 1<br/>Biến ngẫu nhiên rời rạc"]:::root
+    G --> A["① Bảng phân bố"]:::n1
+    G --> B["② Số đặc trưng"]:::n2
+    G --> C["③ Phân bố nhị thức"]:::n3
+    G --> D["④ Ra quyết định"]:::n4
+
+    A --> A1["★ Tổng các xác suất bằng 1"]:::l1
+    A --> A2["Liệt kê giá trị của X"]:::l1
+    A --> A3["Đếm kết quả thuận lợi"]:::l1
+    A --> A4["Bài 1.13, 1.14"]:::l1
+
+    B --> B1["★ E(X) = Σ xᵢpᵢ"]:::l2
+    B --> B2["V(X) = Σ xᵢ²pᵢ – [E(X)]²"]:::l2
+    B --> B3["σ(X) = √V(X)"]:::l2
+    B --> B4["Bài 1.15, 1.18: so sánh kì vọng"]:::l2
+
+    C --> C1["★ X ~ B(n, p): độc lập, cùng p"]:::l3
+    C --> C2["P(X = k) = Cₙᵏpᵏ(1 – p)ⁿ⁻ᵏ"]:::l3
+    C --> C3["E(X) = np, V(X) = np(1 – p)"]:::l3
+    C --> C4["Bài 1.16, 1.17"]:::l3
+
+    D --> D1["Chọn phương án có E lớn hơn"]:::l4
+    D --> D2["Chọn câu hỏi nào trước (1.15)"]:::l4
+    D --> D3["Mấy xe cho thuê (1.18)"]:::l4
+    D --> D4["Hệ 5 hay 3 thành phần (1.17)"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd1_t12.html>
+
+---
+
+### Toán 12 – Chuyên đề 2, Bài 3. Vận dụng hệ bất phương trình bậc nhất hai ẩn để giải quyết một số bài toán quy hoạch tuyến tính *(Tiết 13–17 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ2 – BÀI 3<br/>Quy hoạch<br/>tuyến tính"]:::root
+    G --> A["① Bài toán QHTT"]:::n1
+    G --> B["② Miền đa giác"]:::n2
+    G --> C["③ Miền không là đa giác"]:::n3
+    G --> D["④ 5 bước giải"]:::n4
+
+    A --> A1["★ F(x; y) = Ax + By → max (min)"]:::l1
+    A --> A2["Ràng buộc: hệ BPT bậc nhất"]:::l1
+    A --> A3["Phương án chấp nhận được"]:::l1
+    A --> A4["Phương án tối ưu, giá trị tối ưu"]:::l1
+
+    B --> B1["★ Tối ưu tại một điểm cực biên"]:::l2
+    B --> B2["Tính F tại các đỉnh"]:::l2
+    B --> B3["Có thể vô số phương án (VD4)"]:::l2
+    B --> B4["Bài toán vitamin, sản xuất"]:::l2
+
+    C --> C1["A, B > 0; x, y ≥ 0"]:::l3
+    C --> C2["★ Có min, không có max"]:::l3
+    C --> C3["Đường mức dₘ: Ax + By = m"]:::l3
+    C --> C4["Khẩu phần ăn, thuê xe"]:::l3
+
+    D --> D1["1. Đặt biến"]:::l4
+    D --> D2["2. Hàm mục tiêu"]:::l4
+    D --> D3["3. Hệ ràng buộc"]:::l4
+    D --> D4["4. Miền nghiệm, điểm cực biên → 5. Kết luận"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd2bai3_t12.html>
+
+---
+
+### Toán 12 – Chuyên đề 2, Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu *(Tiết 18–22 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CĐ2 – BÀI 4<br/>Đạo hàm và<br/>bài toán tối ưu"]:::root
+    G --> A["① 5 bước giải"]:::n1
+    G --> B["② Tối ưu thực tiễn"]:::n2
+    G --> C["③ Hàm kinh tế"]:::n3
+    G --> D["④ Đại lượng biên"]:::n4
+
+    A --> A1["1. Hiểu vấn đề"]:::l1
+    A --> A2["2. Giới thiệu kí hiệu"]:::l1
+    A --> A3["3. Lập hàm số L = f(x), miền xác định"]:::l1
+    A --> A4["★ 4. Phát biểu → 5. Tìm GTLN, GTNN"]:::l1
+
+    B --> B1["Thời gian ngắn nhất (đánh cá)"]:::l2
+    B --> B2["Ném xiên: tầm xa lớn nhất α = 45°"]:::l2
+    B --> B3["Phản xạ: góc tới = góc phản xạ"]:::l2
+    B --> B4["Khúc xạ: định luật Snell"]:::l2
+
+    C --> C1["Chi phí C(x), cầu p(x)"]:::l3
+    C --> C2["★ Doanh thu R(x) = x·p(x)"]:::l3
+    C --> C3["★ Lợi nhuận P(x) = R(x) – C(x)"]:::l3
+    C --> C4["Chi phí trung bình c(x) = C(x)/x"]:::l3
+
+    D --> D1["Chi phí biên C′(x)"]:::l4
+    D --> D2["Doanh thu biên R′(x)"]:::l4
+    D --> D3["Lợi nhuận lớn nhất: R′(x) = C′(x)"]:::l4
+    D --> D4["x nguyên: so sánh hai số lân cận"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd2bai4_t12.html>
+
+---
+
+### Toán 12 – Bài tập cuối chuyên đề 2. Ứng dụng toán học để giải quyết một số bài toán tối ưu *(Tiết 23 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 2<br/>Bài toán tối ưu"]:::root
+    G --> A["① Quy hoạch tuyến tính"]:::n1
+    G --> B["② Đạo hàm – thực tiễn"]:::n2
+    G --> C["③ Đạo hàm – kinh tế"]:::n3
+    G --> D["④ Lưu ý khi kết luận"]:::n4
+
+    A --> A1["Đặt biến, hàm mục tiêu"]:::l1
+    A --> A2["★ Hệ ràng buộc: “ít nhất” ≥, “không quá” ≤"]:::l1
+    A --> A3["Điểm cực biên của miền"]:::l1
+    A --> A4["Bài 2.11, 2.12, 2.13"]:::l1
+
+    B --> B1["Lập hàm một biến, miền xác định"]:::l2
+    B --> B2["★ So sánh giá trị tại đầu mút"]:::l2
+    B --> B3["Góc nhìn, chiếu sáng, lực kéo"]:::l2
+    B --> B4["Bài 2.14, 2.15, 2.16"]:::l2
+
+    C --> C1["R(x) = x·p(x)"]:::l3
+    C --> C2["★ P(x) = R(x) – C(x)"]:::l3
+    C --> C3["R′(x) = C′(x) khi lợi nhuận lớn nhất"]:::l3
+    C --> C4["Bài 2.17"]:::l3
+
+    D --> D1["Biến nguyên: so sánh lân cận"]:::l4
+    D --> D2["Miền không bị chặn: có min, không max"]:::l4
+    D --> D3["Vô số phương án tối ưu"]:::l4
+    D --> D4["Diễn giải theo thực tế"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd2_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
