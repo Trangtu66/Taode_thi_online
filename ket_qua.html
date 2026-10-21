@@ -225,7 +225,9 @@ $("chon-lop").addEventListener("change", hienThi);
 $("chon-cach").addEventListener("change", hienThi);
 $("btn-tai").addEventListener("click", taiBai);
 $("btn-excel").addEventListener("click", xuatCSV);
-$("btn-thoat").addEventListener("click", ()=>{ try{ sessionStorage.removeItem("kq_ma_gv"); }catch(e){} location.reload(); });
+// Đăng xuất: xoá mã GV của mọi trang rồi về màn hình đăng nhập ở trang chủ
+$("btn-thoat").addEventListener("click", ()=>{ try{ ["ql_ma_gv","kq_ma_gv","ad_ma_qt","vt_guest_session","vt_guest_code","vt_guest_role","vt_guest_ns","vt_school_code"].forEach(k=>{ localStorage.removeItem(k); sessionStorage.removeItem(k); }); }catch(e){} location.replace("index.html"); });// Đã đăng xuất mà bấm Quay lại: trình duyệt lấy trang cũ trong bộ nhớ – tải lại để không còn hiện dữ liệu GV
+window.addEventListener("pageshow", e=>{ if(e.persisted) location.reload(); });
 if(MA) vao(); else if(CONG_KHAI) vaoCongKhai();
 </script>
 </body>

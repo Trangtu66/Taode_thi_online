@@ -463,10 +463,11 @@ function cheMa(code) {
 }
 function dangXuat() {
   try {
-    [GATE_LS_KEY, 'vt_guest_code', 'vt_guest_role', 'vt_guest_ns', 'vt_school_code', 'ql_ma_gv'].forEach(k => localStorage.removeItem(k));
-    sessionStorage.removeItem('ql_ma_gv');
+    [GATE_LS_KEY, 'vt_guest_code', 'vt_guest_role', 'vt_guest_ns', 'vt_school_code', 'ql_ma_gv', 'kq_ma_gv', 'ad_ma_qt']
+      .forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
+    localStorage.setItem('vai_tro', 'hs');   // về lại khung Học sinh, không để hở Góc GV trên máy chiếu
   } catch(_) {}
-  location.reload();
+  location.replace(location.pathname);   // bỏ #gv để trang mở lại sạch, cửa sổ đăng nhập hiện ra
 }
 function showBadge(code, role) {
   if (document.getElementById('guest-badge')) return;
