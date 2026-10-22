@@ -436,6 +436,48 @@ window.VAN_DEMO = [
  },
  {
   "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Ôn tập cuối học kì I (Bài 1 – Bài 5)",
+  "phut": 15,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_ontap_ck1_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_ontap_ck1_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), Bài 1 – Bài 5"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Ôn tập cuối học kì I (Bài 1 – Bài 5)",
+  "phut": 15,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_ontap_ck1_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_ontap_ck1_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), Bài 1 – Bài 5"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Ôn tập cuối học kì I (Bài 1 – Bài 5)",
+  "phut": 15,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_ontap_ck1_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_ontap_ck1_k12.docx",
+  "nguon": "SGK Ngữ văn 12, tập một (KNTT), Bài 1 – Bài 5"
+ },
+ {
+  "mon": "van",
   "khu": "matran",
   "khoi": 10,
   "ten": "Ma trận, bản đặc tả Giữa kỳ I và Cuối kỳ I – Ngữ văn 10",

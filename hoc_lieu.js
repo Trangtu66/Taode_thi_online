@@ -1985,6 +1985,28 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 1. Sức hấp dẫn của truyện kể",
+"file": "KHBD_NGUVAN10_OnTapCuoiKiI_T52.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_OnTapCuoiKiI_T52.docx",
+"kb": 1120,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 1. Sức hấp dẫn của truyện kể",
+"file": "KHBD_NGUVAN10_OnTapCuoiKiI_T52_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_OnTapCuoiKiI_T52_HoaNhap.docx",
+"kb": 1124,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – Bài 1. Sức hấp dẫn của truyện kể",
 "file": "SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
@@ -2034,6 +2056,17 @@ window.HOC_LIEU = [
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51.png",
 "kb": 293,
 "ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy NGUVAN10 On Tap Cuoi Ki I (tiết 52)",
+"file": "SoDoTuDuy_NGUVAN10_OnTapCuoiKiI_T52.png",
+"url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_OnTapCuoiKiI_T52.png",
+"kb": 142,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2095,6 +2128,17 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 11,
+"ten": "Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
+"file": "KHBD_NGUVAN11_OnTapCuoiKiI_T52.docx",
+"url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_OnTapCuoiKiI_T52.docx",
+"kb": 1122,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
 "ten": "Sơ đồ tư duy – Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
@@ -2143,6 +2187,17 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.png",
 "kb": 298,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy NGUVAN11 On Tap Cuoi Ki I (tiết 52)",
+"file": "SoDoTuDuy_NGUVAN11_OnTapCuoiKiI_T52.png",
+"url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_OnTapCuoiKiI_T52.png",
+"kb": 144,
 "ngay": "2026-10-23"
 },
 {
@@ -2260,6 +2315,28 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
+"file": "KHBD_NGUVAN12_OnTapCuoiKiI_T52.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_OnTapCuoiKiI_T52.docx",
+"kb": 1128,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
+"file": "KHBD_NGUVAN12_OnTapCuoiKiI_T52_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_OnTapCuoiKiI_T52_HoaNhap.docx",
+"kb": 1131,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Sơ đồ tư duy – Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai1_KhaNangLonLaoCuaTieuThuyet_T1-11.png",
@@ -2309,6 +2386,17 @@ window.HOC_LIEU = [
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.png",
 "kb": 288,
 "ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy NGUVAN12 On Tap Cuoi Ki I (tiết 52)",
+"file": "SoDoTuDuy_NGUVAN12_OnTapCuoiKiI_T52.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_OnTapCuoiKiI_T52.png",
+"kb": 150,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
