@@ -269,6 +269,34 @@ window.VAN_DEMO = [
  {
   "mon": "van",
   "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 4. Héc-to từ biệt Ăng-đrô-mác (Trích I-li-át – Hô-me-rơ)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai4_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_bai4_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.97 – 104"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 4. Đăm Săn đi bắt Nữ Thần Mặt Trời (Sử thi Ê-đê)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_damsan_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_damsan_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.105 – 111"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
   "khoi": 12,
   "ten": "Bài 4. Hải khẩu linh từ – Đền thiêng cửa bể (Đoàn Thị Điểm)",
   "phut": 12,
@@ -293,6 +321,34 @@ window.VAN_DEMO = [
   "link": "van_cc_muoicuarung_k12.html",
   "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_muoicuarung_k12.docx",
   "nguon": "SGK Ngữ văn 12, tập một (KNTT), tr.106 – 113"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 5. Xuý Vân giả dại (chèo Kim Nham); Huyện đường (tuồng Nghêu, Sò, Ốc, Hến)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai5_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_bai5_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.125 – 136"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 10,
+  "ten": "Bài 5. Múa rối nước – hiện đại soi bóng tiền nhân (Phạm Thuỳ Dung)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_roinuoc_k10.html",
+  "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_roinuoc_k10.docx",
+  "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.137 – 139"
  },
  {
   "mon": "van",

@@ -504,7 +504,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 7<BR/>CÁC<BR/>KHÁI<BR/>NIỆM<BR/>MỞ ĐẦU"]:::root
+    G["🎯<BR/>BÀI<BR/>7<BR/>CÁC<BR/>KHÁI<BR/>NIỆM<BR/>MỞ<BR/>ĐẦU"]:::root
     G --> A["① Vectơ"]:::n1
     G --> B["② Cùng phương"]:::n2
     G --> C["③ Cùng hướng –<br/>bằng nhau"]:::n3
@@ -549,7 +549,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 8<BR/>TỔNG<BR/>VÀ<BR/>HIỆU<BR/>CỦA HAI<BR/>VECTƠ"]:::root
+    G["🎯<BR/>BÀI<BR/>8<BR/>TỔNG<BR/>VÀ<BR/>HIỆU<BR/>CỦA<BR/>HAI<BR/>VECTƠ"]:::root
     G --> A["① Tổng hai vectơ"]:::n1
     G --> B["② Hiệu hai vectơ"]:::n2
     G --> C["③ Trung điểm –<br/>trọng tâm"]:::n3
@@ -594,7 +594,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 9<BR/>TÍCH CỦA<BR/>MỘT<BR/>VECTƠ<BR/>VỚI MỘT SỐ"]:::root
+    G["🎯<BR/>BÀI<BR/>9<BR/>TÍCH<BR/>CỦA<BR/>MỘT<BR/>VECTƠ<BR/>VỚI<BR/>MỘT<BR/>SỐ"]:::root
     G --> A["① Định nghĩa k·a→"]:::n1
     G --> B["② Tính chất"]:::n2
     G --> C["③ Cùng phương –<br/>phân tích"]:::n3
@@ -640,7 +640,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 10<BR/>VECTƠ<BR/>TRONG<BR/>MẶT<BR/>PHẲNG TOẠ<BR/>ĐỘ"]:::root
+    G["🎯<BR/>BÀI<BR/>10<BR/>VECTƠ<BR/>TRONG<BR/>MẶT<BR/>PHẲNG<BR/>TOẠ<BR/>ĐỘ"]:::root
     G --> A["① Toạ độ của<br/>vectơ"]:::n1
     G --> B["② Phép toán theo<br/>toạ độ"]:::n2
     G --> C["③ Điểm – độ<br/>dài"]:::n3
@@ -685,7 +685,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 11<BR/>TÍCH<BR/>VÔ<BR/>HƯỚNG<BR/>CỦA HAI<BR/>VECTƠ"]:::root
+    G["🎯<BR/>BÀI<BR/>11<BR/>TÍCH<BR/>VÔ<BR/>HƯỚNG<BR/>CỦA<BR/>HAI<BR/>VECTƠ"]:::root
     G --> A["① Góc giữa hai<br/>vectơ"]:::n1
     G --> B["② Tích vô hướng"]:::n2
     G --> C["③ Biểu thức toạ<br/>độ"]:::n3
@@ -779,7 +779,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 12<BR/>SỐ<BR/>GẦN<BR/>ĐÚNG<BR/>VÀ SAI SỐ"]:::root
+    G["🎯<BR/>BÀI<BR/>12<BR/>SỐ<BR/>GẦN<BR/>ĐÚNG<BR/>VÀ<BR/>SAI<BR/>SỐ"]:::root
     G --> A["① Số gần đúng"]:::n1
     G --> B["② Sai số tuyệt<br/>đối"]:::n2
     G --> C["③ Sai số tương<br/>đối"]:::n3
@@ -824,7 +824,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 13<BR/>CÁC SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO XU<BR/>THẾ<BR/>TRUNG<BR/>TÂM"]:::root
+    G["🎯<BR/>BÀI<BR/>13<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>XU<BR/>THẾ<BR/>TRUNG<BR/>TÂM"]:::root
     G --> A["① Số trung bình"]:::n1
     G --> B["② Trung vị Me"]:::n2
     G --> C["③ Tứ phân vị"]:::n3
@@ -868,7 +868,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 14<BR/>CÁC SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO ĐỘ PHÂN<BR/>TÁN"]:::root
+    G["🎯<BR/>BÀI<BR/>14<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>ĐỘ<BR/>PHÂN<BR/>TÁN"]:::root
     G --> A["① Khoảng biến thiên<br/>R"]:::n1
     G --> B["② Khoảng tứ phân<br/>vị"]:::n2
     G --> C["③ Phương sai –<br/>độ lệch chuẩn"]:::n3
@@ -914,7 +914,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG V<BR/>CÁC<BR/>SỐ<BR/>ĐẶC TRƯNG<BR/>CỦA MẪU<BR/>SỐ<BR/>LIỆU"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>V<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>CỦA<BR/>MẪU<BR/>SỐ<BR/>LIỆU"]:::root
     G --> A["① Số gần đúng<br/>– sai số"]:::n1
     G --> B["② Xu thế trung<br/>tâm"]:::n2
     G --> C["③ Độ phân tán"]:::n3
@@ -1051,7 +1051,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>HĐTN<BR/>MẠNG<BR/>XÃ<BR/>HỘI:<BR/>LỢI VÀ HẠI"]:::root
+    G["🎯<BR/>HĐTN<BR/>MẠNG<BR/>XÃ<BR/>HỘI:<BR/>LỢI<BR/>VÀ<BR/>HẠI"]:::root
     G --> A["① Thu thập dữ<br/>liệu"]:::n1
     G --> B["② Xử lí số<br/>liệu"]:::n2
     G --> C["③ Công nghệ thông<br/>tin"]:::n3
@@ -1139,7 +1139,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ1 – BÀI<BR/>2<BR/>ỨNG<BR/>DỤNG CỦA<BR/>HỆ<BR/>PHƯƠNG TRÌNH<BR/>BẬC<BR/>NHẤT<BR/>BA ẨN"]:::root
+    G["🎯<BR/>CĐ1<BR/>–<BR/>BÀI<BR/>2<BR/>ỨNG<BR/>DỤNG<BR/>CỦA<BR/>HỆ<BR/>PHƯƠNG<BR/>TRÌNH<BR/>BẬC<BR/>NHẤT<BR/>BA<BR/>ẨN"]:::root
     G --> A["① Ba bước giải"]:::n1
     G --> B["② Hoá học"]:::n2
     G --> C["③ Vật lí"]:::n3
@@ -1187,7 +1187,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN ĐỀ<BR/>1<BR/>HỆ<BR/>PT BẬC<BR/>NHẤT<BR/>BA ẨN"]:::root
+    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>1<BR/>HỆ<BR/>PT<BR/>BẬC<BR/>NHẤT<BR/>BA<BR/>ẨN"]:::root
     G --> A["① Giải hệ ba<br/>ẩn"]:::n1
     G --> B["② Bài toán toán<br/>học"]:::n2
     G --> C["③ Liên môn"]:::n3
@@ -1533,7 +1533,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG II<BR/>DÃY<BR/>SỐ.<BR/>CẤP<BR/>SỐ<BR/>CỘNG<BR/>VÀ<BR/>CẤP<BR/>SỐ NHÂN"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>II<BR/>DÃY<BR/>SỐ.<BR/>CẤP<BR/>SỐ<BR/>CỘNG<BR/>VÀ<BR/>CẤP<BR/>SỐ<BR/>NHÂN"]:::root
     G --> A["① Dãy số"]:::n1
     G --> B["② Cấp số cộng"]:::n2
     G --> C["③ Cấp số nhân"]:::n3
@@ -1581,7 +1581,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG III<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>XU<BR/>THẾ<BR/>TRUNG TÂM"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>III<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>XU<BR/>THẾ<BR/>TRUNG<BR/>TÂM"]:::root
     G --> A["① Mẫu số liệu<br/>ghép nhóm"]:::n1
     G --> B["② Số trung bình"]:::n2
     G --> C["③ Trung vị, tứ<br/>phân vị"]:::n3
@@ -1677,7 +1677,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 10<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
+    G["🎯<BR/>BÀI<BR/>10<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
     G --> A["① Khái niệm mở<br/>đầu"]:::n1
     G --> B["② Tính chất thừa<br/>nhận"]:::n2
     G --> C["③ Xác định mặt<br/>phẳng"]:::n3
@@ -1725,7 +1725,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 11<BR/>HAI<BR/>ĐƯỜNG<BR/>THẲNG<BR/>SONG<BR/>SONG"]:::root
+    G["🎯<BR/>BÀI<BR/>11<BR/>HAI<BR/>ĐƯỜNG<BR/>THẲNG<BR/>SONG<BR/>SONG"]:::root
     G --> A["① Vị trí tương<br/>đối"]:::n1
     G --> B["② Tính chất"]:::n2
     G --> C["③ Ba đường giao<br/>tuyến"]:::n3
@@ -1773,7 +1773,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 12<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>SONG<BR/>SONG"]:::root
+    G["🎯<BR/>BÀI<BR/>12<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>SONG<BR/>SONG"]:::root
     G --> A["① Vị trí tương<br/>đối"]:::n1
     G --> B["② Điều kiện"]:::n2
     G --> C["③ Tính chất"]:::n3
@@ -1821,7 +1821,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 13<BR/>HAI<BR/>MẶT<BR/>PHẲNG<BR/>SONG SONG"]:::root
+    G["🎯<BR/>BÀI<BR/>13<BR/>HAI<BR/>MẶT<BR/>PHẲNG<BR/>SONG<BR/>SONG"]:::root
     G --> A["① Định nghĩa"]:::n1
     G --> B["② Điều kiện, tính<br/>chất"]:::n2
     G --> C["③ Định lí Thalès"]:::n3
@@ -1869,7 +1869,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>STEM<BR/>MÔ HÌNH<BR/>MÁI<BR/>CHE<BR/>SÂN TRƯỜNG"]:::root
+    G["🎯<BR/>STEM<BR/>MÔ<BR/>HÌNH<BR/>MÁI<BR/>CHE<BR/>SÂN<BR/>TRƯỜNG"]:::root
     G --> A["① Xác định vấn<br/>đề"]:::n1
     G --> B["② Kiến thức nền"]:::n2
     G --> C["③ Thiết kế –<br/>Chế tạo"]:::n3
@@ -1965,7 +1965,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG IV<BR/>QUAN<BR/>HỆ<BR/>SONG SONG<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>IV<BR/>QUAN<BR/>HỆ<BR/>SONG<BR/>SONG<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
     G --> A["① Đường thẳng –<br/>mặt phẳng"]:::n1
     G --> B["② Hai đường thẳng<br/>song song"]:::n2
     G --> C["③ Đường thẳng //<br/>mặt phẳng; 2 mặt<br/>phẳng //"]:::n3
@@ -2013,7 +2013,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>15<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>DÃY SỐ"]:::root
+    G["🎯<BR/>BÀI<BR/>15<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>DÃY<BR/>SỐ"]:::root
     G --> A["① Giới hạn hữu<br/>hạn"]:::n1
     G --> B["② Quy tắc tính"]:::n2
     G --> C["③ Cấp số nhân<br/>lùi vô hạn"]:::n3
@@ -2061,7 +2061,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>16<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>HÀM SỐ"]:::root
+    G["🎯<BR/>BÀI<BR/>16<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>HÀM<BR/>SỐ"]:::root
     G --> A["① Tại một điểm"]:::n1
     G --> B["② Tại vô cực"]:::n2
     G --> C["③ Giới hạn vô<br/>cực"]:::n3
@@ -2157,7 +2157,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG<BR/>V<BR/>GIỚI<BR/>HẠN.<BR/>HÀM<BR/>SỐ LIÊN TỤC"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>V<BR/>GIỚI<BR/>HẠN.<BR/>HÀM<BR/>SỐ<BR/>LIÊN<BR/>TỤC"]:::root
     G --> A["① Giới hạn của<br/>dãy số"]:::n1
     G --> B["② Giới hạn của<br/>hàm số"]:::n2
     G --> C["③ Hàm số liên<br/>tục"]:::n3
@@ -2205,7 +2205,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ1 – BÀI<BR/>5<BR/>PHÉP<BR/>DỜI HÌNH"]:::root
+    G["🎯<BR/>CĐ1<BR/>–<BR/>BÀI<BR/>5<BR/>PHÉP<BR/>DỜI<BR/>HÌNH"]:::root
     G --> A["① Khái niệm"]:::n1
     G --> B["② Tính chất"]:::n2
     G --> C["③ Hợp thành"]:::n3
@@ -2253,7 +2253,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ1 – BÀI<BR/>6<BR/>PHÉP<BR/>VỊ TỰ"]:::root
+    G["🎯<BR/>CĐ1<BR/>–<BR/>BÀI<BR/>6<BR/>PHÉP<BR/>VỊ<BR/>TỰ"]:::root
     G --> A["① Định nghĩa"]:::n1
     G --> B["② Tính chất"]:::n2
     G --> C["③ Ảnh của hình"]:::n3
@@ -2301,7 +2301,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ1 – BÀI<BR/>7<BR/>PHÉP<BR/>ĐỒNG DẠNG"]:::root
+    G["🎯<BR/>CĐ1<BR/>–<BR/>BÀI<BR/>7<BR/>PHÉP<BR/>ĐỒNG<BR/>DẠNG"]:::root
     G --> A["① Định nghĩa"]:::n1
     G --> B["② Hợp thành"]:::n2
     G --> C["③ Hai hình đồng<br/>dạng"]:::n3
@@ -2349,7 +2349,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>1<BR/>PHÉP BIẾN HÌNH<BR/>PHẲNG"]:::root
+    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>1<BR/>PHÉP<BR/>BIẾN<BR/>HÌNH<BR/>PHẲNG"]:::root
     G --> A["① Phép dời hình"]:::n1
     G --> B["② Phép vị tự"]:::n2
     G --> C["③ Phép đồng dạng"]:::n3
@@ -2397,7 +2397,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ2 – BÀI<BR/>8<BR/>MỘT<BR/>VÀI KHÁI<BR/>NIỆM<BR/>CƠ BẢN<BR/>CỦA<BR/>ĐỒ<BR/>THỊ"]:::root
+    G["🎯<BR/>CĐ2<BR/>–<BR/>BÀI<BR/>8<BR/>MỘT<BR/>VÀI<BR/>KHÁI<BR/>NIỆM<BR/>CƠ<BR/>BẢN<BR/>CỦA<BR/>ĐỒ<BR/>THỊ"]:::root
     G --> A["① Đồ thị"]:::n1
     G --> B["② Bậc của đỉnh"]:::n2
     G --> C["③ Đường đi, chu<br/>trình"]:::n3
@@ -2445,7 +2445,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ2 – BÀI<BR/>9<BR/>ĐƯỜNG<BR/>ĐI EULER<BR/>VÀ<BR/>ĐƯỜNG ĐI<BR/>HAMILTON"]:::root
+    G["🎯<BR/>CĐ2<BR/>–<BR/>BÀI<BR/>9<BR/>ĐƯỜNG<BR/>ĐI<BR/>EULER<BR/>VÀ<BR/>ĐƯỜNG<BR/>ĐI<BR/>HAMILTON"]:::root
     G --> A["① Đường đi Euler"]:::n1
     G --> B["② Đường đi Hamilton"]:::n2
     G --> C["③ Điều kiện đủ"]:::n3
@@ -2669,7 +2669,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 6<BR/>VECTƠ<BR/>TRONG<BR/>KHÔNG GIAN"]:::root
+    G["🎯<BR/>BÀI<BR/>6<BR/>VECTƠ<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
     G --> A["① Khái niệm"]:::n1
     G --> B["② Tổng, hiệu"]:::n2
     G --> C["③ Tích với một<br/>số"]:::n3
@@ -2717,7 +2717,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 7<BR/>HỆ TRỤC<BR/>TOẠ<BR/>ĐỘ<BR/>TRONG KHÔNG<BR/>GIAN"]:::root
+    G["🎯<BR/>BÀI<BR/>7<BR/>HỆ<BR/>TRỤC<BR/>TOẠ<BR/>ĐỘ<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
     G --> A["① Hệ toạ độ<br/>Oxyz"]:::n1
     G --> B["② Toạ độ điểm"]:::n2
     G --> C["③ Toạ độ vectơ"]:::n3
@@ -2765,7 +2765,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 8<BR/>BIỂU<BR/>THỨC<BR/>TOẠ ĐỘ<BR/>CÁC PHÉP<BR/>TOÁN<BR/>VECTƠ"]:::root
+    G["🎯<BR/>BÀI<BR/>8<BR/>BIỂU<BR/>THỨC<BR/>TOẠ<BR/>ĐỘ<BR/>CÁC<BR/>PHÉP<BR/>TOÁN<BR/>VECTƠ"]:::root
     G --> A["① Cộng, trừ, nhân<br/>số"]:::n1
     G --> B["② Trung điểm, trọng<br/>tâm"]:::n2
     G --> C["③ Tích vô hướng"]:::n3
@@ -2813,7 +2813,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG II<BR/>VECTƠ<BR/>VÀ<BR/>HỆ TRỤC<BR/>TOẠ ĐỘ<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>II<BR/>VECTƠ<BR/>VÀ<BR/>HỆ<BR/>TRỤC<BR/>TOẠ<BR/>ĐỘ<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
     G --> A["① Vectơ trong không<br/>gian"]:::n1
     G --> B["② Hệ trục toạ<br/>độ"]:::n2
     G --> C["③ Biểu thức toạ<br/>độ"]:::n3
@@ -2861,7 +2861,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 9<BR/>KHOẢNG<BR/>BIẾN<BR/>THIÊN<BR/>VÀ KHOẢNG<BR/>TỨ<BR/>PHÂN<BR/>VỊ"]:::root
+    G["🎯<BR/>BÀI<BR/>9<BR/>KHOẢNG<BR/>BIẾN<BR/>THIÊN<BR/>VÀ<BR/>KHOẢNG<BR/>TỨ<BR/>PHÂN<BR/>VỊ"]:::root
     G --> A["① Khoảng biến thiên"]:::n1
     G --> B["② Tứ phân vị"]:::n2
     G --> C["③ Khoảng tứ phân<br/>vị"]:::n3
@@ -2909,7 +2909,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI 10<BR/>PHƯƠNG<BR/>SAI<BR/>VÀ<BR/>ĐỘ LỆCH CHUẨN"]:::root
+    G["🎯<BR/>BÀI<BR/>10<BR/>PHƯƠNG<BR/>SAI<BR/>VÀ<BR/>ĐỘ<BR/>LỆCH<BR/>CHUẨN"]:::root
     G --> A["① Phương sai"]:::n1
     G --> B["② Độ lệch chuẩn"]:::n2
     G --> C["③ Độ rủi ro"]:::n3
@@ -2957,7 +2957,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CHƯƠNG III<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>MỨC<BR/>ĐỘ<BR/>PHÂN TÁN"]:::root
+    G["🎯<BR/>CHƯƠNG<BR/>III<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>MỨC<BR/>ĐỘ<BR/>PHÂN<BR/>TÁN"]:::root
     G --> A["① Khoảng biến thiên"]:::n1
     G --> B["② Khoảng tứ phân<br/>vị"]:::n2
     G --> C["③ Phương sai, độ<br/>lệch chuẩn"]:::n3
@@ -3053,7 +3053,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>THỰC HÀNH<BR/>KHẢO<BR/>SÁT<BR/>HÀM SỐ<BR/>VỚI<BR/>GEOGEBRA"]:::root
+    G["🎯<BR/>THỰC<BR/>HÀNH<BR/>KHẢO<BR/>SÁT<BR/>HÀM<BR/>SỐ<BR/>VỚI<BR/>GEOGEBRA"]:::root
     G --> A["① Đạo hàm"]:::n1
     G --> B["② Cực trị –<br/>GTLN, GTNN"]:::n2
     G --> C["③ Tiệm cận"]:::n3
@@ -3149,7 +3149,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>TRẢI NGHIỆM<BR/>ĐỘ<BR/>DÀI<BR/>GANG TAY"]:::root
+    G["🎯<BR/>TRẢI<BR/>NGHIỆM<BR/>ĐỘ<BR/>DÀI<BR/>GANG<BR/>TAY"]:::root
     G --> A["① Thu thập dữ<br/>liệu"]:::n1
     G --> B["② Tóm tắt dữ<br/>liệu"]:::n2
     G --> C["③ Phân tích"]:::n3
@@ -3197,7 +3197,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ1 – BÀI<BR/>2<BR/>PHÂN<BR/>BỐ NHỊ<BR/>THỨC<BR/>VÀ ÁP<BR/>DỤNG"]:::root
+    G["🎯<BR/>CĐ1<BR/>–<BR/>BÀI<BR/>2<BR/>PHÂN<BR/>BỐ<BR/>NHỊ<BR/>THỨC<BR/>VÀ<BR/>ÁP<BR/>DỤNG"]:::root
     G --> A["① Phép thử lặp"]:::n1
     G --> B["② Công thức Bernoulli"]:::n2
     G --> C["③ Phân bố nhị<br/>thức"]:::n3
@@ -3245,7 +3245,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>1<BR/>BIẾN NGẪU<BR/>NHIÊN<BR/>RỜI<BR/>RẠC"]:::root
+    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>1<BR/>BIẾN<BR/>NGẪU<BR/>NHIÊN<BR/>RỜI<BR/>RẠC"]:::root
     G --> A["① Bảng phân bố"]:::n1
     G --> B["② Số đặc trưng"]:::n2
     G --> C["③ Phân bố nhị<br/>thức"]:::n3
@@ -3293,7 +3293,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ2 – BÀI<BR/>3<BR/>QUY<BR/>HOẠCH<BR/>TUYẾN<BR/>TÍNH"]:::root
+    G["🎯<BR/>CĐ2<BR/>–<BR/>BÀI<BR/>3<BR/>QUY<BR/>HOẠCH<BR/>TUYẾN<BR/>TÍNH"]:::root
     G --> A["① Bài toán QHTT"]:::n1
     G --> B["② Miền đa giác"]:::n2
     G --> C["③ Miền không là<br/>đa giác"]:::n3
@@ -3341,7 +3341,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ2 – BÀI<BR/>4<BR/>ĐẠO<BR/>HÀM VÀ<BR/>BÀI<BR/>TOÁN TỐI<BR/>ƯU"]:::root
+    G["🎯<BR/>CĐ2<BR/>–<BR/>BÀI<BR/>4<BR/>ĐẠO<BR/>HÀM<BR/>VÀ<BR/>BÀI<BR/>TOÁN<BR/>TỐI<BR/>ƯU"]:::root
     G --> A["① 5 bước giải"]:::n1
     G --> B["② Tối ưu thực<br/>tiễn"]:::n2
     G --> C["③ Hàm kinh tế"]:::n3
@@ -3389,7 +3389,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN ĐỀ<BR/>2<BR/>BÀI<BR/>TOÁN TỐI ƯU"]:::root
+    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>2<BR/>BÀI<BR/>TOÁN<BR/>TỐI<BR/>ƯU"]:::root
     G --> A["① Quy hoạch tuyến<br/>tính"]:::n1
     G --> B["② Đạo hàm –<br/>thực tiễn"]:::n2
     G --> C["③ Đạo hàm –<br/>kinh tế"]:::n3
@@ -3437,7 +3437,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ3 – BÀI<BR/>5<BR/>TIỀN<BR/>TỆ.<BR/>LÃI<BR/>SUẤT"]:::root
+    G["🎯<BR/>CĐ3<BR/>–<BR/>BÀI<BR/>5<BR/>TIỀN<BR/>TỆ.<BR/>LÃI<BR/>SUẤT"]:::root
     G --> A["① Tiền tệ"]:::n1
     G --> B["② Lãi đơn"]:::n2
     G --> C["③ Lãi kép"]:::n3
@@ -3485,7 +3485,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ3 – BÀI<BR/>6<BR/>TÍN<BR/>DỤNG.<BR/>VAY<BR/>NỢ"]:::root
+    G["🎯<BR/>CĐ3<BR/>–<BR/>BÀI<BR/>6<BR/>TÍN<BR/>DỤNG.<BR/>VAY<BR/>NỢ"]:::root
     G --> A["① Thẻ tín dụng"]:::n1
     G --> B["② Tính lãi thẻ"]:::n2
     G --> C["③ Vay lãi đơn,<br/>lãi kép"]:::n3
@@ -3533,7 +3533,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>CĐ3 – BÀI<BR/>7<BR/>ĐẦU<BR/>TƯ TÀI<BR/>CHÍNH.<BR/>KẾ HOẠCH<BR/>TÀI<BR/>CHÍNH"]:::root
+    G["🎯<BR/>CĐ3<BR/>–<BR/>BÀI<BR/>7<BR/>ĐẦU<BR/>TƯ<BR/>TÀI<BR/>CHÍNH.<BR/>KẾ<BR/>HOẠCH<BR/>TÀI<BR/>CHÍNH"]:::root
     G --> A["① Đầu tư"]:::n1
     G --> B["② Giá trị hiện<br/>tại"]:::n2
     G --> C["③ Kế hoạch tài<br/>chính"]:::n3
@@ -3581,7 +3581,7 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>3<BR/>TOÁN HỌC<BR/>VÀ<BR/>TÀI<BR/>CHÍNH"]:::root
+    G["🎯<BR/>BÀI<BR/>TẬP<BR/>CUỐI<BR/>CHUYÊN<BR/>ĐỀ<BR/>3<BR/>TOÁN<BR/>HỌC<BR/>VÀ<BR/>TÀI<BR/>CHÍNH"]:::root
     G --> A["① Lãi đơn –<br/>lãi kép"]:::n1
     G --> B["② Lạm phát"]:::n2
     G --> C["③ Đầu tư, niên<br/>kim"]:::n3

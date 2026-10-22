@@ -1941,6 +1941,50 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài 4. Sức sống của sử thi",
+"file": "KHBD_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44.docx",
+"kb": 1452,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 4. Sức sống của sử thi",
+"file": "KHBD_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44_HoaNhap.docx",
+"kb": 1456,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 5. Tích trò sân khấu dân gian",
+"file": "KHBD_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51.docx",
+"kb": 1423,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài 5. Tích trò sân khấu dân gian",
+"file": "KHBD_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop10/KHBD_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51_HoaNhap.docx",
+"kb": 1427,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Sơ đồ tư duy – Bài 1. Sức hấp dẫn của truyện kể",
 "file": "SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai1_SucHapDanCuaTruyenKe_T1-11.png",
@@ -1968,6 +2012,28 @@ window.HOC_LIEU = [
 "url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai3_NgheThuatThuyetPhucTrongVanNghiLuan_T23-35.png",
 "kb": 293,
 "ngay": "2026-10-14"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy NGUVAN10 Bài 4 Suc Song Cua Su Thi (tiết 36-44)",
+"file": "SoDoTuDuy_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44.png",
+"url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai4_SucSongCuaSuThi_T36-44.png",
+"kb": 301,
+"ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy NGUVAN10 Bài 5 Tich Tro San Khau Dan Gian (tiết 45-51)",
+"file": "SoDoTuDuy_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51.png",
+"url": "mon/ngu_van/khbd/lop10/SoDoTuDuy_NGUVAN10_Bai5_TichTroSanKhauDanGian_T45-51.png",
+"kb": 293,
+"ngay": "2026-10-22"
 },
 {
 "mon": "ngu_van",
@@ -5728,8 +5794,8 @@ window.HOC_LIEU = [
 "ten": "STEM Thiet Ke Hop (tiết 21-22)",
 "file": "KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_STEM_ThietKeHop_T21-22.docx",
-"kb": 543,
-"ngay": "2026-10-14"
+"kb": 542,
+"ngay": "2026-10-22"
 },
 {
 "mon": "toan",
@@ -5740,7 +5806,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_STEM_ThietKeHop_T21-22_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_STEM_ThietKeHop_T21-22_HoaNhap.docx",
 "kb": 547,
-"ngay": "2026-10-14"
+"ngay": "2026-10-22"
 },
 {
 "mon": "toan",
@@ -5916,7 +5982,7 @@ window.HOC_LIEU = [
 "file": "KHDH_STEM_ThietKeHop_Lop12_KT.docx",
 "url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT.docx",
 "kb": 545,
-"ngay": "2026-10-14"
+"ngay": "2026-10-22"
 },
 {
 "mon": "toan",
@@ -5927,7 +5993,7 @@ window.HOC_LIEU = [
 "file": "KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
 "url": "mon/toan/khbd/lop12/KHDH_STEM_ThietKeHop_Lop12_KT_VanDong_Nhin.docx",
 "kb": 548,
-"ngay": "2026-10-14"
+"ngay": "2026-10-22"
 },
 {
 "mon": "toan",
