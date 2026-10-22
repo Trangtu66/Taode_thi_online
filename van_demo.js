@@ -437,6 +437,34 @@ window.VAN_DEMO = [
  {
   "mon": "van",
   "khu": "doc",
+  "khoi": 12,
+  "ten": "Chuyên đề 1. Tập nghiên cứu và viết báo cáo về một vấn đề văn học hiện đại",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_cd1_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_cd1_k12.docx",
+  "nguon": "SGK Chuyên đề học tập Ngữ văn 12 (KNTT), tr.4 – 33"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 12,
+  "ten": "Chuyên đề 2. Tìm hiểu về một tác phẩm nghệ thuật chuyển thể từ văn học",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_cd2_k12.html",
+  "word": "mon/ngu_van/trac_nghiem/lop12/van_cc_cd2_k12.docx",
+  "nguon": "SGK Chuyên đề học tập Ngữ văn 12 (KNTT), tr.34 – 51"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
   "khoi": 10,
   "ten": "Ôn tập cuối học kì I (Bài 1 – Bài 5)",
   "phut": 15,

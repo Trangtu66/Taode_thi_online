@@ -180,6 +180,8 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 5. Nhân vật quan trọng (Trích Quan thanh tra – Gô-gôn)", ma: "Củng cố – Ngữ văn 12 · Bài 5: Nhân vật quan trọng (Gô-gôn)", link: "van_cc_bai5_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Củng cố đọc hiểu", ten: "Bài 5. Giấu của (Trích Quẫn – Lộng Chương)", ma: "Củng cố – Ngữ văn 12 · Bài 5: Giấu của (Lộng Chương)", link: "van_cc_giaucua_k12.html" },
   { khoi: 12, nhom: "Ngữ văn 12 · Ôn tập", ten: "Ôn tập cuối học kì I (Bài 1 – Bài 5)", ma: "Ôn tập – Ngữ văn 12 · Cuối học kì I", link: "van_ontap_ck1_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Chuyên đề học tập", ten: "Chuyên đề 1. Tập nghiên cứu và viết báo cáo về một vấn đề văn học hiện đại", ma: "Củng cố – Ngữ văn 12 · Chuyên đề 1: Nghiên cứu văn học hiện đại", link: "van_cc_cd1_k12.html" },
+  { khoi: 12, nhom: "Ngữ văn 12 · Chuyên đề học tập", ten: "Chuyên đề 2. Tìm hiểu về một tác phẩm nghệ thuật chuyển thể từ văn học", ma: "Củng cố – Ngữ văn 12 · Chuyên đề 2: Tác phẩm chuyển thể từ văn học", link: "van_cc_cd2_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 1. DNA và cơ chế tái bản DNA", ma: "Củng cố – Sinh học 12 · Bài 1: DNA và cơ chế tái bản DNA", link: "sinh_cc_bai1_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 2. Gene, hệ gene và quá trình truyền đạt thông tin di truyền", ma: "Củng cố – Sinh học 12 · Bài 2: Gene, hệ gene và quá trình truyền đạt thông tin di truyền", link: "sinh_cc_bai2_k12.html" },
   { khoi: 12, nhom: "Sinh học 12 · Củng cố", ten: "Bài 3. Điều hoà biểu hiện gene", ma: "Củng cố – Sinh học 12 · Bài 3: Điều hoà biểu hiện gene", link: "sinh_cc_bai3_k12.html" },

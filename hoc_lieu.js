@@ -2315,6 +2315,50 @@ window.HOC_LIEU = [
 "tenMon": "Ngữ văn",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Chuyên đề 1: tập nghiên cứu và viết báo cáo về một vấn đề văn học hiện đại",
+"file": "KHBD_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10.docx",
+"kb": 1134,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 1: tập nghiên cứu và viết báo cáo về một vấn đề văn học hiện đại",
+"file": "KHBD_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10_HoaNhap.docx",
+"kb": 1138,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: tìm hiểu về một tác phẩm nghệ thuật chuyển thể từ văn học",
+"file": "KHBD_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18.docx",
+"kb": 1146,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Chuyên đề 2: tìm hiểu về một tác phẩm nghệ thuật chuyển thể từ văn học",
+"file": "KHBD_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18_HoaNhap.docx",
+"url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18_HoaNhap.docx",
+"kb": 1150,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 1. Khả năng lớn lao của tiểu thuyết",
 "file": "KHBD_NGUVAN12_OnTapCuoiKiI_T52.docx",
 "url": "mon/ngu_van/khbd/lop12/KHBD_NGUVAN12_OnTapCuoiKiI_T52.docx",
@@ -2386,6 +2430,28 @@ window.HOC_LIEU = [
 "url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_Bai5_TiengCuoiCuaHaiKich_T44-51.png",
 "kb": 288,
 "ngay": "2026-10-22"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy NGUVAN12 Chuyen De1 Nghien Cuu Van Hoc Hien Dai (tiết 1-10)",
+"file": "SoDoTuDuy_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_ChuyenDe1_NghienCuuVanHocHienDai_T1-10.png",
+"kb": 150,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy NGUVAN12 Chuyen De2 Tac Pham Chuyen The Tu Van Hoc (tiết 11-18)",
+"file": "SoDoTuDuy_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18.png",
+"url": "mon/ngu_van/khbd/lop12/SoDoTuDuy_NGUVAN12_ChuyenDe2_TacPhamChuyenTheTuVanHoc_T11-18.png",
+"kb": 164,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
