@@ -2043,8 +2043,8 @@ window.HOC_LIEU = [
 "ten": "Bài 1. Câu chuyện và điểm nhìn trong truyện kể",
 "file": "KHBD_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.docx",
-"kb": 1429,
-"ngay": "2026-10-08"
+"kb": 1432,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2054,8 +2054,8 @@ window.HOC_LIEU = [
 "ten": "Bài 2. Cấu tứ và hình ảnh trong thơ trữ tình",
 "file": "KHBD_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.docx",
-"kb": 1401,
-"ngay": "2026-10-08"
+"kb": 1406,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2065,8 +2065,30 @@ window.HOC_LIEU = [
 "ten": "Bài 3. Cấu trúc của văn bản nghị luận",
 "file": "KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
 "url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.docx",
-"kb": 1407,
-"ngay": "2026-10-08"
+"kb": 1410,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Bài 4. Tự sự trong truyện thơ dân gian và trong thơ trữ tình",
+"file": "KHBD_NGUVAN11_Bai4_TuSuTrongTruyenThoVaThoTruTinh_T35-43.docx",
+"url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai4_TuSuTrongTruyenThoVaThoTruTinh_T35-43.docx",
+"kb": 1436,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Bài 5. Nhân vật và xung đột trong bi kịch",
+"file": "KHBD_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.docx",
+"url": "mon/ngu_van/khbd/lop11/KHBD_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.docx",
+"kb": 1433,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2077,7 +2099,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai1_CauChuyenVaDiemNhin_T1-11.png",
 "kb": 298,
-"ngay": "2026-10-08"
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2088,7 +2110,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai2_CauTuVaHinhAnhTrongThoTruTinh_T12-22.png",
 "kb": 283,
-"ngay": "2026-10-08"
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2099,7 +2121,29 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
 "url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai3_CauTrucCuaVanBanNghiLuan_T23-34.png",
 "kb": 286,
-"ngay": "2026-10-08"
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy NGUVAN11 Bài 4 Tu Su Trong Truyen Tho Va Tho Tru Tinh (tiết 35-43)",
+"file": "SoDoTuDuy_NGUVAN11_Bai4_TuSuTrongTruyenThoVaThoTruTinh_T35-43.png",
+"url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai4_TuSuTrongTruyenThoVaThoTruTinh_T35-43.png",
+"kb": 298,
+"ngay": "2026-10-23"
+},
+{
+"mon": "ngu_van",
+"tenMon": "Ngữ văn",
+"loai": "khbd",
+"khoi": 11,
+"ten": "Sơ đồ tư duy NGUVAN11 Bài 5 Nhan Vat Va Xung Dot Trong Bi Kich (tiết 44-51)",
+"file": "SoDoTuDuy_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.png",
+"url": "mon/ngu_van/khbd/lop11/SoDoTuDuy_NGUVAN11_Bai5_NhanVatVaXungDotTrongBiKich_T44-51.png",
+"kb": 298,
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2374,7 +2418,7 @@ window.HOC_LIEU = [
 "file": "MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan10_HK1_2026-2027.docx",
 "kb": 39,
-"ngay": "2026-10-22"
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2396,7 +2440,7 @@ window.HOC_LIEU = [
 "file": "MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan11_HK1_2026-2027.docx",
 "kb": 39,
-"ngay": "2026-10-22"
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",
@@ -2418,7 +2462,7 @@ window.HOC_LIEU = [
 "file": "MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
 "url": "mon/ngu_van/ma_tran/MaTran_DacTa_NguVan12_HK1_2026-2027.docx",
 "kb": 39,
-"ngay": "2026-10-22"
+"ngay": "2026-10-23"
 },
 {
 "mon": "ngu_van",

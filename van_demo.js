@@ -297,6 +297,34 @@ window.VAN_DEMO = [
  {
   "mon": "van",
   "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 4. Lời tiễn dặn (trích Tiễn dặn người yêu – truyện thơ dân tộc Thái)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai4_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_bai4_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.101 – 107"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 4. Dương phụ hành (Cao Bá Quát); Thuyền và biển (Xuân Quỳnh)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_thuyenbien_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_thuyenbien_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.107 – 112"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
   "khoi": 12,
   "ten": "Bài 4. Hải khẩu linh từ – Đền thiêng cửa bể (Đoàn Thị Điểm)",
   "phut": 12,
@@ -349,6 +377,34 @@ window.VAN_DEMO = [
   "link": "van_cc_roinuoc_k10.html",
   "word": "mon/ngu_van/trac_nghiem/lop10/van_cc_roinuoc_k10.docx",
   "nguon": "SGK Ngữ văn 10, tập một (KNTT), tr.137 – 139"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 5. Sống, hay không sống – đó là vấn đề (trích Hăm-lét – Sếch-xpia)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_bai5_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_bai5_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.125 – 131"
+ },
+ {
+  "mon": "van",
+  "khu": "doc",
+  "khoi": 11,
+  "ten": "Bài 5. Vĩnh biệt Cửu Trùng Đài (trích Vũ Như Tô – Nguyễn Huy Tưởng)",
+  "phut": 12,
+  "cau": [
+   10,
+   1
+  ],
+  "link": "van_cc_vunhuto_k11.html",
+  "word": "mon/ngu_van/trac_nghiem/lop11/van_cc_vunhuto_k11.docx",
+  "nguon": "SGK Ngữ văn 11, tập một (KNTT), tr.132 – 141"
  },
  {
   "mon": "van",
