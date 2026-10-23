@@ -263,6 +263,10 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 3, Bài 6. Tín dụng. Vay nợ", ma: "Củng cố – Chuyên đề 3, Bài 6. Tín dụng. Vay nợ (Toán 12)", link: "cc_cd3bai6_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Chuyên đề 3, Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân", ma: "Củng cố – Chuyên đề 3, Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân (Toán 12)", link: "cc_cd3bai7_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối chuyên đề 3. Ứng dụng toán học trong một số vấn đề liên quan đến tài chính", ma: "Củng cố – Bài tập cuối chuyên đề 3. Ứng dụng toán học trong một số vấn đề liên quan đến tài chính (Toán 12)", link: "cc_btcccd3_t12.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 1 (Toán 12)", link: "oc12c1_de1.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 2 (Toán 12)", link: "oc12c1_de2.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 3 (Toán 12)", link: "oc12c1_de3.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 4 (Toán 12)", link: "oc12c1_de4.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

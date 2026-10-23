@@ -98,5 +98,61 @@ window.DE_LUYEN_TAP = [
   ],
   "link": "tn_2026_0101.html",
   "word": "mon/toan/trac_nghiem/lop12/tn_2026_0101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Ôn tập Chương I – Đề số 1 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc12c1_de1.html",
+  "word": "mon/toan/trac_nghiem/lop12/oc12c1_de1.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Ôn tập Chương I – Đề số 2 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc12c1_de2.html",
+  "word": "mon/toan/trac_nghiem/lop12/oc12c1_de2.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Ôn tập Chương I – Đề số 3 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc12c1_de3.html",
+  "word": "mon/toan/trac_nghiem/lop12/oc12c1_de3.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Ôn tập Chương I – Đề số 4 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc12c1_de4.html",
+  "word": "mon/toan/trac_nghiem/lop12/oc12c1_de4.docx"
  }
 ];
