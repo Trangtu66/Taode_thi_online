@@ -266,5 +266,117 @@ window.DE_LUYEN_TAP = [
   ],
   "link": "kt12c1_104.html",
   "word": "mon/toan/trac_nghiem/lop12/kt12c1_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_104.docx"
  }
 ];
