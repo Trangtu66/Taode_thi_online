@@ -271,6 +271,10 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 2 (Toán 12)", link: "oc12c1_de2.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 3 (Toán 12)", link: "oc12c1_de3.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 4 (Toán 12)", link: "oc12c1_de4.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 101 (Toán 12)", link: "kt12c1_101.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 102 (Toán 12)", link: "kt12c1_102.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 103 (Toán 12)", link: "kt12c1_103.html" },
+  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 104 (Toán 12)", link: "kt12c1_104.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
