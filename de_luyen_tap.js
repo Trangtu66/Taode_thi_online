@@ -154,5 +154,61 @@ window.DE_LUYEN_TAP = [
   ],
   "link": "oc12c1_de4.html",
   "word": "mon/toan/trac_nghiem/lop12/oc12c1_de4.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương III. Hệ thức lượng trong tam giác",
+  "tieu_de": "Ôn tập Chương III – Mã đề 101 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc10c3_101.html",
+  "word": "mon/toan/trac_nghiem/lop10/oc10c3_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương III. Hệ thức lượng trong tam giác",
+  "tieu_de": "Ôn tập Chương III – Mã đề 102 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc10c3_102.html",
+  "word": "mon/toan/trac_nghiem/lop10/oc10c3_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương III. Hệ thức lượng trong tam giác",
+  "tieu_de": "Ôn tập Chương III – Mã đề 103 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc10c3_103.html",
+  "word": "mon/toan/trac_nghiem/lop10/oc10c3_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương III. Hệ thức lượng trong tam giác",
+  "tieu_de": "Ôn tập Chương III – Mã đề 104 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "oc10c3_104.html",
+  "word": "mon/toan/trac_nghiem/lop10/oc10c3_104.docx"
  }
 ];
