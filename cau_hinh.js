@@ -159,14 +159,6 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11", ten: "Bài tập cuối chuyên đề 1. Phép biến hình phẳng", ma: "Củng cố – Bài tập cuối chuyên đề 1. Phép biến hình phẳng (Toán 11)", link: "cc_btcccd1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 2, Bài 8. Một vài khái niệm cơ bản", ma: "Củng cố – Chuyên đề 2, Bài 8. Một vài khái niệm cơ bản của lí thuyết đồ thị (Toán 11)", link: "cc_cd2bai8_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Chuyên đề 2, Bài 9. Đường đi Euler và đường đi Hamilton", ma: "Củng cố – Chuyên đề 2, Bài 9. Đường đi Euler và đường đi Hamilton (Toán 11)", link: "cc_cd2bai9_t11.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Kiểm tra Chương II – Mã đề 101 (Toán 11)", link: "kt11c2_101.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Kiểm tra Chương II – Mã đề 102 (Toán 11)", link: "kt11c2_102.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Kiểm tra Chương II – Mã đề 103 (Toán 11)", link: "kt11c2_103.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương II. Dãy số. Cấp số cộng và cấp số nhân", ma: "Kiểm tra Chương II – Mã đề 104 (Toán 11)", link: "kt11c2_104.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 101 (Toán 11)", link: "kt11c3_101.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 102 (Toán 11)", link: "kt11c3_102.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 103 (Toán 11)", link: "kt11c3_103.html" },
-  { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 104 (Toán 11)", link: "kt11c3_104.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
@@ -279,10 +271,6 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 2 (Toán 12)", link: "oc12c1_de2.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 3 (Toán 12)", link: "oc12c1_de3.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Ôn tập Chương I – Đề số 4 (Toán 12)", link: "oc12c1_de4.html" },
-  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 101 (Toán 12)", link: "kt12c1_101.html" },
-  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 102 (Toán 12)", link: "kt12c1_102.html" },
-  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 103 (Toán 12)", link: "kt12c1_103.html" },
-  { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số", ma: "Kiểm tra Chương I – Mã đề 104 (Toán 12)", link: "kt12c1_104.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
