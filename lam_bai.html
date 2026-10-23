@@ -1527,9 +1527,15 @@ function ketQuaApi(){
 }
 /* MỚI: học sinh chỉ xem đáp án, lời giải khi GV cho phép (chữa bài).
    GV mở bằng cách thêm tên đề (meta.title) vào window.MO_DAP_AN trong cau_hinh.js ("*" = mở tất cả). */
-function duocXemDapAn(){   // mở sẵn trong cau_hinh.js (dự phòng)
-  const ds = window.MO_DAP_AN || [];
-  return ds.includes("*") || ds.includes(maBai());
+function duocXemDapAn(){   // mở sẵn trong cau_hinh.js (dự phòng). Ghi "Tên đề|2026-10-24 10:30" = tự khoá sau thời điểm đó
+  const ds = window.MO_DAP_AN || [], now = Date.now();
+  return ds.some(x => {
+    const [ten, han] = String(x).split("|");
+    if(!(ten.trim() === "*" || ten.trim() === maBai())) return false;
+    if(!han) return true;
+    const t = Date.parse(han.trim().replace(" ", "T"));
+    return isFinite(t) ? now <= t : false;
+  });
 }
 /* Hỏi máy chủ (Google Apps Script): GV đã bấm "Mở đáp án" trên trang Quản lý chưa? */
 function kiemTraDapAn(){

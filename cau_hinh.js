@@ -9,7 +9,8 @@ window.KQ_API = "https://script.google.com/macros/s/AKfycbz-yf2unZA961vY5ACGaedB
 window.CONG_KHAI_KET_QUA = true;
 
 // MỞ ĐÁP ÁN KHI CHỮA BÀI: cách chính là trang Quản lý → "🔓 Mở / khoá đáp án" (cần mã GV, có hiệu lực ngay).
-// Danh sách dưới đây chỉ là cách dự phòng: tên đề ghi ở đây luôn được mở ("*" = mở tất cả). Để trống = theo trang Quản lý.
+// Danh sách dưới đây chỉ là cách dự phòng ("*" = mở tất cả). Để trống = theo trang Quản lý (trang Quản lý TỰ KHOÁ sau 45 phút/thời hạn chọn).
+// NÊN ghi kèm hạn tự khoá: "Tên đề|2026-10-24 10:30" – quá giờ đó đáp án tự khoá, lớp sau không xem được.
 window.MO_DAP_AN = [
 ];
 

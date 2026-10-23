@@ -524,17 +524,22 @@ async function veDapAn(){
   try{ mo = (await jsonp({action:"dapAn", quiz:CHON})).mo; ds = (await jsonp({action:"dapAn"})).ds || []; }
   catch(e){ box.innerHTML = `<span class="err">⚠ ${esc(e)}. Nếu báo lỗi “Hành động không hợp lệ” hoặc không có phản hồi: cần dán bản Code.gs mới vào Apps Script và triển khai lại.</span>`; return; }
   const tenBai = ma => (BAI.find(x=>x.ma===ma) || {ten:ma}).ten;
+  const gio = ms => { const d = new Date(ms); return d.toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"}) + " " + d.toLocaleDateString("vi-VN"); };
+  const cur = ds.find(x=>x.quiz===CHON) || {};
   box.innerHTML = `<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:6px 0 14px">
       <div style="font-size:42px"><i data-lucide="${mo ? "lock-keyhole-open" : "lock-keyhole"}" style="width:42px;height:42px;color:${mo ? "#166534" : "#991B1B"}"></i></div>
       <div style="flex:1;min-width:240px"><div style="font-weight:700;font-size:17px">${esc(b.ten)}</div>
-        <div class="msg">${mo ? "Đáp án, lời giải ĐANG MỞ: học sinh mở lại link/quét lại mã QR sẽ xem được bài làm kèm lời giải." : "Đáp án ĐANG KHOÁ: học sinh nộp bài chỉ thấy điểm."}</div></div>
+        <div class="msg">${mo ? "Đáp án, lời giải ĐANG MỞ: học sinh mở lại link/quét lại mã QR sẽ xem được bài làm kèm lời giải." + (cur.han ? ` <b>Tự khoá lúc ${gio(cur.han)}</b>.` : "") : "Đáp án ĐANG KHOÁ: học sinh nộp bài chỉ thấy điểm."}</div></div>
+      ${mo ? "" : `<label class="msg" style="display:flex;gap:6px;align-items:center">Tự khoá sau
+        <select id="han-da" style="padding:8px;border-radius:8px"><option value="45" selected>45 phút (1 tiết)</option><option value="90">90 phút (2 tiết)</option><option value="180">3 giờ (cả buổi)</option><option value="15">15 phút</option></select></label>`}
       <button class="btn" id="btn-doi-da" style="font-size:16px;padding:12px 20px;${mo ? "background:#991B1B" : "background:#166534"}">${mo ? "Khoá đáp án" : "Mở đáp án cho học sinh"}</button>
     </div>
-    <p class="msg" style="font-size:13px">Gợi ý khi chữa bài: dùng “Trình chiếu chữa bài” để chiếu từng câu kèm tỉ lệ lựa chọn của lớp. Khi muốn học sinh tự xem lại bài làm của mình, bấm “Mở đáp án”; học sinh mở lại đúng link và bấm “Xem lại bài làm của em và lời giải”. Chữa xong bấm “Khoá đáp án”.</p>
+    <p class="msg" style="font-size:13px">Gợi ý khi chữa bài: dùng “Trình chiếu chữa bài” để chiếu từng câu kèm tỉ lệ lựa chọn của lớp. Khi muốn học sinh tự xem lại bài làm của mình, bấm “Mở đáp án”; học sinh mở lại đúng link và bấm “Xem lại bài làm của em và lời giải”. Chữa xong bấm “Khoá đáp án”. <b>Nếu quên khoá, đáp án tự khoá khi hết thời hạn đã chọn</b> (mặc định 45 phút) để lớp học sau không xem được.</p>
     <h3 style="margin:14px 0 6px;font-size:15px">Các bài đang mở đáp án (${ds.length})</h3>
-    ${ds.length ? `<div class="tbl"><table><thead><tr><th>Bài</th><th>Mở lúc</th><th>Giáo viên mở</th><th></th></tr></thead><tbody>${ds.map((x,i)=>`<tr><td>${esc(tenBai(x.quiz))}</td><td class="num">${x.t ? ngay(x.t) : ""}</td><td>${esc(x.gv)}</td><td><button class="btn ghost khoa-nhanh" data-i="${i}">Khoá</button></td></tr>`).join("")}</tbody></table></div>` : '<span class="msg">Chưa có bài nào đang mở.</span>'}`;
+    ${ds.length ? `<div class="tbl"><table><thead><tr><th>Bài</th><th>Mở lúc</th><th>Tự khoá lúc</th><th>Giáo viên mở</th><th></th></tr></thead><tbody>${ds.map((x,i)=>`<tr><td>${esc(tenBai(x.quiz))}</td><td class="num">${x.t ? ngay(x.t) : ""}</td><td class="num">${x.han ? gio(x.han) : ""}</td><td>${esc(x.gv)}</td><td><button class="btn ghost khoa-nhanh" data-i="${i}">Khoá</button></td></tr>`).join("")}</tbody></table></div>` : '<span class="msg">Chưa có bài nào đang mở.</span>'}`;
   const doi = async (quiz, val, btn)=>{ btn.disabled = true; btn.textContent = "Đang lưu…";
-    try{ await jsonp({action:"moDapAn", key:MA, quiz, mo: val ? "1" : "0"}); }catch(e){ alert("Không đổi được: " + e); }
+    const phut = ($("han-da") || {}).value || "45";
+    try{ await jsonp({action:"moDapAn", key:MA, quiz, mo: val ? "1" : "0", phut}); }catch(e){ alert("Không đổi được: " + e); }
     veDapAn(); };
   try{ window.lucide && lucide.createIcons(); }catch(e){}
   $("btn-doi-da").onclick = e => doi(CHON, !mo, e.currentTarget);
