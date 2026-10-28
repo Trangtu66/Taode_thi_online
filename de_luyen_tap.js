@@ -210,5 +210,75 @@ window.DE_LUYEN_TAP = [
   ],
   "link": "oc10c3_104.html",
   "word": "mon/toan/trac_nghiem/lop10/oc10c3_104.docx"
+ },
+ {
+  "khu": "dinhky",
+  "khoi": 12,
+  "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
+  "tieu_de": "Ôn tập cuối kì I – Đề số 1 (đề minh hoạ) – Toán 12",
+  "phut": 90,
+  "cau": [
+   12,
+   4,
+   6
+  ],
+  "link": "ck1t12_de1.html",
+  "word": "mon/toan/trac_nghiem/lop12/ck1t12_de1.docx"
+ },
+ {
+  "khu": "dinhky",
+  "khoi": 12,
+  "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
+  "tieu_de": "Ôn tập cuối kì I – Đề số 2 – Toán 12",
+  "phut": 90,
+  "cau": [
+   12,
+   4,
+   6
+  ],
+  "link": "ck1t12_de2.html",
+  "word": "mon/toan/trac_nghiem/lop12/ck1t12_de2.docx"
+ },
+ {
+  "khu": "dinhky",
+  "khoi": 12,
+  "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
+  "tieu_de": "Ôn tập cuối kì I – Đề số 3 – Toán 12",
+  "phut": 90,
+  "cau": [
+   12,
+   4,
+   6
+  ],
+  "link": "ck1t12_de3.html",
+  "word": "mon/toan/trac_nghiem/lop12/ck1t12_de3.docx"
+ },
+ {
+  "khu": "dinhky",
+  "khoi": 12,
+  "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
+  "tieu_de": "Ôn tập cuối kì I – Đề số 4 – Toán 12",
+  "phut": 90,
+  "cau": [
+   12,
+   4,
+   6
+  ],
+  "link": "ck1t12_de4.html",
+  "word": "mon/toan/trac_nghiem/lop12/ck1t12_de4.docx"
+ },
+ {
+  "khu": "dinhky",
+  "khoi": 12,
+  "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
+  "tieu_de": "Ôn tập cuối kì I – Đề số 5 – Toán 12",
+  "phut": 90,
+  "cau": [
+   12,
+   4,
+   6
+  ],
+  "link": "ck1t12_de5.html",
+  "word": "mon/toan/trac_nghiem/lop12/ck1t12_de5.docx"
  }
 ];
