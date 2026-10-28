@@ -212,6 +212,174 @@ window.DE_LUYEN_TAP = [
   "word": "mon/toan/trac_nghiem/lop10/oc10c3_104.docx"
  },
  {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Kiểm tra Chương I – Mã đề 101 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c1_101.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c1_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Kiểm tra Chương I – Mã đề 102 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c1_102.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c1_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Kiểm tra Chương I – Mã đề 103 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c1_103.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c1_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương I. Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
+  "tieu_de": "Kiểm tra Chương I – Mã đề 104 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c1_104.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c1_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương II. Dãy số. Cấp số cộng và cấp số nhân",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c2_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c2_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương III. Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c3_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c3_104.docx"
+ },
+ {
   "khu": "dinhky",
   "khoi": 12,
   "ten": "Ôn tập kiểm tra cuối học kì I (Chương I, II, III)",
@@ -280,5 +448,341 @@ window.DE_LUYEN_TAP = [
   ],
   "link": "ck1t12_de5.html",
   "word": "mon/toan/trac_nghiem/lop12/ck1t12_de5.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương II. Vectơ và hệ trục toạ độ trong không gian",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 101 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c2_101.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c2_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương II. Vectơ và hệ trục toạ độ trong không gian",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 102 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c2_102.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c2_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương II. Vectơ và hệ trục toạ độ trong không gian",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 103 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c2_103.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c2_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương II. Vectơ và hệ trục toạ độ trong không gian",
+  "tieu_de": "Kiểm tra Chương II – Mã đề 104 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c2_104.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c2_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 101 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c3_101.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c3_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 102 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c3_102.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c3_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 103 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c3_103.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c3_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 12,
+  "ten": "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm",
+  "tieu_de": "Kiểm tra Chương III – Mã đề 104 (Toán 12)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt12c3_104.html",
+  "word": "mon/toan/trac_nghiem/lop12/kt12c3_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương IV. Vectơ",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 101 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c4_101.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c4_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương IV. Vectơ",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 102 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c4_102.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c4_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương IV. Vectơ",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 103 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c4_103.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c4_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương IV. Vectơ",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 104 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c4_104.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c4_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 101 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c5_101.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c5_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 102 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c5_102.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c5_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 103 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c5_103.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c5_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 10,
+  "ten": "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 104 (Toán 10)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt10c5_104.html",
+  "word": "mon/toan/trac_nghiem/lop10/kt10c5_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương IV. Quan hệ song song trong không gian",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c4_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c4_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương IV. Quan hệ song song trong không gian",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c4_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c4_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương IV. Quan hệ song song trong không gian",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c4_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c4_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương IV. Quan hệ song song trong không gian",
+  "tieu_de": "Kiểm tra Chương IV – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c4_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c4_104.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương V. Giới hạn. hàm số liên tục",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 101 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c5_101.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c5_101.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương V. Giới hạn. hàm số liên tục",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 102 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c5_102.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c5_102.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương V. Giới hạn. hàm số liên tục",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 103 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c5_103.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c5_103.docx"
+ },
+ {
+  "khu": "chuong",
+  "khoi": 11,
+  "ten": "Chương V. Giới hạn. hàm số liên tục",
+  "tieu_de": "Kiểm tra Chương V – Mã đề 104 (Toán 11)",
+  "phut": 45,
+  "cau": [
+   6,
+   2,
+   3
+  ],
+  "link": "kt11c5_104.html",
+  "word": "mon/toan/trac_nghiem/lop11/kt11c5_104.docx"
  }
 ];
