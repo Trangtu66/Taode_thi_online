@@ -3924,8 +3924,8 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34)",
 "file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.docx",
-"kb": 1158,
-"ngay": "2026-10-15"
+"kb": 1161,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3935,8 +3935,8 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Vecto Trong Mat Phang Toa Do (tiết 32-34) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34_HoaNhap.docx",
-"kb": 1163,
-"ngay": "2026-10-15"
+"kb": 1165,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3946,8 +3946,8 @@ window.HOC_LIEU = [
 "ten": "Bài 11 Tich Vo Huong (tiết 35-37)",
 "file": "KHBD_TOAN10_Bai11_TichVoHuong_T35-37.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai11_TichVoHuong_T35-37.docx",
-"kb": 679,
-"ngay": "2026-10-15"
+"kb": 681,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3957,8 +3957,8 @@ window.HOC_LIEU = [
 "ten": "Bài 11 Tich Vo Huong (tiết 35-37) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai11_TichVoHuong_T35-37_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai11_TichVoHuong_T35-37_HoaNhap.docx",
-"kb": 683,
-"ngay": "2026-10-15"
+"kb": 686,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3968,8 +3968,8 @@ window.HOC_LIEU = [
 "ten": "Bài 12 So Gan Dung Sai So (tiết 39-40)",
 "file": "KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40.docx",
-"kb": 1062,
-"ngay": "2026-10-15"
+"kb": 1064,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3979,8 +3979,8 @@ window.HOC_LIEU = [
 "ten": "Bài 12 So Gan Dung Sai So (tiết 39-40) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai12_SoGanDungSaiSo_T39-40_HoaNhap.docx",
-"kb": 1067,
-"ngay": "2026-10-15"
+"kb": 1069,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -3990,8 +3990,8 @@ window.HOC_LIEU = [
 "ten": "Bài 13 Xu The Trung Tam (tiết 41-42)",
 "file": "KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42.docx",
-"kb": 812,
-"ngay": "2026-10-15"
+"kb": 814,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4001,8 +4001,8 @@ window.HOC_LIEU = [
 "ten": "Bài 13 Xu The Trung Tam (tiết 41-42) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai13_XuTheTrungTam_T41-42_HoaNhap.docx",
-"kb": 816,
-"ngay": "2026-10-15"
+"kb": 818,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4012,8 +4012,8 @@ window.HOC_LIEU = [
 "ten": "Bài 14 Do Phan Tan (tiết 43-45)",
 "file": "KHBD_TOAN10_Bai14_DoPhanTan_T43-45.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai14_DoPhanTan_T43-45.docx",
-"kb": 827,
-"ngay": "2026-10-15"
+"kb": 829,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4023,8 +4023,8 @@ window.HOC_LIEU = [
 "ten": "Bài 14 Do Phan Tan (tiết 43-45) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai14_DoPhanTan_T43-45_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai14_DoPhanTan_T43-45_HoaNhap.docx",
-"kb": 831,
-"ngay": "2026-10-15"
+"kb": 833,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4100,8 +4100,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27)",
 "file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.docx",
-"kb": 810,
-"ngay": "2026-10-15"
+"kb": 812,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4111,8 +4111,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7 Cac Khai Niem Mo Dau (tiết 26-27) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27_HoaNhap.docx",
-"kb": 814,
-"ngay": "2026-10-15"
+"kb": 816,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4122,8 +4122,8 @@ window.HOC_LIEU = [
 "ten": "Bài 8 Tong Hieu Hai Vecto (tiết 28-29)",
 "file": "KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29.docx",
-"kb": 1042,
-"ngay": "2026-10-15"
+"kb": 1044,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4133,8 +4133,8 @@ window.HOC_LIEU = [
 "ten": "Bài 8 Tong Hieu Hai Vecto (tiết 28-29) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai8_TongHieuHaiVecto_T28-29_HoaNhap.docx",
-"kb": 1046,
-"ngay": "2026-10-15"
+"kb": 1049,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4144,8 +4144,8 @@ window.HOC_LIEU = [
 "ten": "Bài 9 Tich Vecto Voi Mot So (tiết 30-31)",
 "file": "KHBD_TOAN10_Bai9_TichVectoVoiMotSo_T30-31.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai9_TichVectoVoiMotSo_T30-31.docx",
-"kb": 918,
-"ngay": "2026-10-15"
+"kb": 920,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4155,8 +4155,8 @@ window.HOC_LIEU = [
 "ten": "Bài 9 Tich Vecto Voi Mot So (tiết 30-31) Hoa Nhap",
 "file": "KHBD_TOAN10_Bai9_TichVectoVoiMotSo_T30-31_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_Bai9_TichVectoVoiMotSo_T30-31_HoaNhap.docx",
-"kb": 922,
-"ngay": "2026-10-15"
+"kb": 924,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4210,8 +4210,8 @@ window.HOC_LIEU = [
 "ten": "Bai Tap Cuoi Chuong4 (tiết 38)",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong4_T38.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong4_T38.docx",
-"kb": 464,
-"ngay": "2026-10-15"
+"kb": 466,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4221,8 +4221,8 @@ window.HOC_LIEU = [
 "ten": "Bai Tap Cuoi Chuong4 (tiết 38) Hoa Nhap",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong4_T38_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong4_T38_HoaNhap.docx",
-"kb": 468,
-"ngay": "2026-10-15"
+"kb": 470,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4232,8 +4232,8 @@ window.HOC_LIEU = [
 "ten": "Bai Tap Cuoi Chuong5 (tiết 46)",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong5_T46.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong5_T46.docx",
-"kb": 427,
-"ngay": "2026-10-15"
+"kb": 429,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4243,8 +4243,8 @@ window.HOC_LIEU = [
 "ten": "Bai Tap Cuoi Chuong5 (tiết 46) Hoa Nhap",
 "file": "KHBD_TOAN10_BaiTapCuoiChuong5_T46_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_BaiTapCuoiChuong5_T46_HoaNhap.docx",
-"kb": 430,
-"ngay": "2026-10-15"
+"kb": 432,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4320,8 +4320,8 @@ window.HOC_LIEU = [
 "ten": "HDTN Mang Xa Hoi (tiết 53-54)",
 "file": "KHBD_TOAN10_HDTN_MangXaHoi_T53-54.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_MangXaHoi_T53-54.docx",
-"kb": 1723,
-"ngay": "2026-10-15"
+"kb": 1725,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4331,8 +4331,8 @@ window.HOC_LIEU = [
 "ten": "HDTN Mang Xa Hoi (tiết 53-54) Hoa Nhap",
 "file": "KHBD_TOAN10_HDTN_MangXaHoi_T53-54_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_MangXaHoi_T53-54_HoaNhap.docx",
-"kb": 1727,
-"ngay": "2026-10-15"
+"kb": 1729,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4342,8 +4342,8 @@ window.HOC_LIEU = [
 "ten": "HDTN Tai Chinh (tiết 51-52)",
 "file": "KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_TaiChinh_T51-52.docx",
-"kb": 1185,
-"ngay": "2026-10-15"
+"kb": 1187,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4353,8 +4353,8 @@ window.HOC_LIEU = [
 "ten": "HDTN Tai Chinh (tiết 51-52) Hoa Nhap",
 "file": "KHBD_TOAN10_HDTN_TaiChinh_T51-52_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_HDTN_TaiChinh_T51-52_HoaNhap.docx",
-"kb": 1189,
-"ngay": "2026-10-15"
+"kb": 1191,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4364,8 +4364,8 @@ window.HOC_LIEU = [
 "ten": "On Tap Cuoi Ki1 (tiết 47-48)",
 "file": "KHBD_TOAN10_OnTapCuoiKi1_T47-48.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapCuoiKi1_T47-48.docx",
-"kb": 385,
-"ngay": "2026-10-15"
+"kb": 388,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4375,8 +4375,8 @@ window.HOC_LIEU = [
 "ten": "On Tap Cuoi Ki1 (tiết 47-48) Hoa Nhap",
 "file": "KHBD_TOAN10_OnTapCuoiKi1_T47-48_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapCuoiKi1_T47-48_HoaNhap.docx",
-"kb": 389,
-"ngay": "2026-10-15"
+"kb": 391,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4420,7 +4420,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai10_VectoTrongMatPhangToaDo_T32-34.png",
 "kb": 318,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4431,7 +4431,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai11_TichVoHuong_T35-37.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai11_TichVoHuong_T35-37.png",
 "kb": 315,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4442,7 +4442,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai12_SoGanDungSaiSo_T39-40.png",
 "kb": 305,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4453,7 +4453,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai13_XuTheTrungTam_T41-42.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai13_XuTheTrungTam_T41-42.png",
 "kb": 302,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4464,7 +4464,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai14_DoPhanTan_T43-45.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai14_DoPhanTan_T43-45.png",
 "kb": 304,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4530,7 +4530,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai7_CacKhaiNiemMoDau_T26-27.png",
 "kb": 287,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4541,7 +4541,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai8_TongHieuHaiVecto_T28-29.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai8_TongHieuHaiVecto_T28-29.png",
 "kb": 280,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4552,7 +4552,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_Bai9_TichVectoVoiMotSo_T30-31.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_Bai9_TichVectoVoiMotSo_T30-31.png",
 "kb": 298,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4596,7 +4596,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong4_T38.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_BaiTapCuoiChuong4_T38.png",
 "kb": 311,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4607,7 +4607,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong5_T46.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_BaiTapCuoiChuong5_T46.png",
 "kb": 277,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4662,7 +4662,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_HDTN_MangXaHoi_T53-54.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_HDTN_MangXaHoi_T53-54.png",
 "kb": 283,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4673,7 +4673,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_HDTN_TaiChinh_T51-52.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_HDTN_TaiChinh_T51-52.png",
 "kb": 283,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4684,7 +4684,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN10_OnTapCuoiKi1_T47-48.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_OnTapCuoiKi1_T47-48.png",
 "kb": 321,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5967,22 +5967,22 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
-"ten": "On Tap Giua Ki1 (tiết 25)",
+"ten": "Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "KHBD_TOAN12_OnTapGiuaKi1_T25.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_OnTapGiuaKi1_T25.docx",
-"kb": 403,
-"ngay": "2026-10-14"
+"kb": 494,
+"ngay": "2026-10-23"
 },
 {
 "mon": "toan",
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
-"ten": "On Tap Giua Ki1 (tiết 25) Hoa Nhap",
+"ten": "Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "KHBD_TOAN12_OnTapGiuaKi1_T25_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_OnTapGiuaKi1_T25_HoaNhap.docx",
-"kb": 407,
-"ngay": "2026-10-14"
+"kb": 497,
+"ngay": "2026-10-23"
 },
 {
 "mon": "toan",
