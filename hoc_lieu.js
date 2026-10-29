@@ -5530,8 +5530,8 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Phuong Sai Do Lech Chuan (tiết 43-44)",
 "file": "KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.docx",
-"kb": 511,
-"ngay": "2026-10-14"
+"kb": 514,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5541,8 +5541,8 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Phuong Sai Do Lech Chuan (tiết 43-44) Hoa Nhap",
 "file": "KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44_HoaNhap.docx",
-"kb": 514,
-"ngay": "2026-10-14"
+"kb": 517,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5596,8 +5596,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6 Vecto Trong Khong Gian (tiết 28-33)",
 "file": "KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33.docx",
-"kb": 1905,
-"ngay": "2026-10-14"
+"kb": 1907,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5607,8 +5607,8 @@ window.HOC_LIEU = [
 "ten": "Bài 6 Vecto Trong Khong Gian (tiết 28-33) Hoa Nhap",
 "file": "KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai6_VectoTrongKhongGian_T28-33_HoaNhap.docx",
-"kb": 1909,
-"ngay": "2026-10-14"
+"kb": 1911,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5618,8 +5618,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7 He Truc Toa Do (tiết 34-36)",
 "file": "KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36.docx",
-"kb": 1123,
-"ngay": "2026-10-14"
+"kb": 1125,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5629,8 +5629,8 @@ window.HOC_LIEU = [
 "ten": "Bài 7 He Truc Toa Do (tiết 34-36) Hoa Nhap",
 "file": "KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai7_HeTrucToaDo_T34-36_HoaNhap.docx",
-"kb": 1127,
-"ngay": "2026-10-14"
+"kb": 1129,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5640,8 +5640,8 @@ window.HOC_LIEU = [
 "ten": "Bài 8 Bieu Thuc Toa Do (tiết 37-39)",
 "file": "KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39.docx",
-"kb": 1318,
-"ngay": "2026-10-14"
+"kb": 1320,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5651,8 +5651,8 @@ window.HOC_LIEU = [
 "ten": "Bài 8 Bieu Thuc Toa Do (tiết 37-39) Hoa Nhap",
 "file": "KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai8_BieuThucToaDo_T37-39_HoaNhap.docx",
-"kb": 1321,
-"ngay": "2026-10-14"
+"kb": 1324,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5662,8 +5662,8 @@ window.HOC_LIEU = [
 "ten": "Bài 9 Khoang Bien Thien Tu Phan Vi (tiết 42)",
 "file": "KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.docx",
-"kb": 556,
-"ngay": "2026-10-14"
+"kb": 559,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5673,8 +5673,8 @@ window.HOC_LIEU = [
 "ten": "Bài 9 Khoang Bien Thien Tu Phan Vi (tiết 42) Hoa Nhap",
 "file": "KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42_HoaNhap.docx",
 "url": "mon/toan/khbd/lop12/KHBD_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42_HoaNhap.docx",
-"kb": 559,
-"ngay": "2026-10-14"
+"kb": 562,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -6202,7 +6202,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai10_PhuongSai_DoLechChuan_T43-44.png",
 "kb": 331,
-"ngay": "2026-10-14"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -6268,7 +6268,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai6_VectoTrongKhongGian_T28-33.png",
 "kb": 331,
-"ngay": "2026-10-14"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -6279,7 +6279,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai7_HeTrucToaDo_T34-36.png",
 "kb": 357,
-"ngay": "2026-10-14"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -6290,7 +6290,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai8_BieuThucToaDo_T37-39.png",
 "kb": 343,
-"ngay": "2026-10-14"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -6301,7 +6301,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.png",
 "url": "mon/toan/khbd/lop12/SoDoTuDuy_TOAN12_Bai9_KhoangBienThien_TuPhanVi_T42.png",
 "kb": 343,
-"ngay": "2026-10-14"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
