@@ -1677,31 +1677,31 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>10<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>TRONG<BR/>KHÔNG<BR/>GIAN"]:::root
-    G --> A["① Khái niệm mở<br/>đầu"]:::n1
-    G --> B["② Tính chất thừa<br/>nhận"]:::n2
-    G --> C["③ Xác định mặt<br/>phẳng"]:::n3
-    G --> D["④ Hình chóp, tứ<br/>diện"]:::n4
+    G["🎯<br/>BÀI 10<br/>Đường thẳng và mặt phẳng<br/>trong không gian"]:::root
+    G --> A["① Khái niệm mở đầu"]:::n1
+    G --> B["② Tính chất thừa nhận"]:::n2
+    G --> C["③ Xác định mặt phẳng"]:::n3
+    G --> D["④ Hình chóp, tứ diện"]:::n4
 
-    A --> A1["Mặt phẳng: không bề<br/>dày, không giới hạn"]:::l1
-    A --> A2["A ∈ (P), B<br/>∉ (P)"]:::l1
-    A --> A3["Hình biểu diễn: nét<br/>khuất đứt đoạn"]:::l1
+    A --> A1["Mặt phẳng: không bề dày, không giới hạn"]:::l1
+    A --> A2["A ∈ (P), B ∉ (P)"]:::l1
+    A --> A3["Hình biểu diễn: nét khuất đứt đoạn"]:::l1
     A --> A4["Điểm đồng phẳng"]:::l1
 
-    B --> B1["Một đường thẳng qua<br/>2 điểm"]:::l2
-    B --> B2["★ Một mặt phẳng<br/>qua 3 điểm không<br/>thẳng hàng"]:::l2
-    B --> B3["2 điểm thuộc (P)<br/>⇒ đường thẳng ⊂<br/>(P)"]:::l2
-    B --> B4["★ Giao tuyến: qua<br/>điểm chung"]:::l2
+    B --> B1["Một đường thẳng qua 2 điểm"]:::l2
+    B --> B2["★ Một mặt phẳng qua 3 điểm không thẳng hàng"]:::l2
+    B --> B3["2 điểm thuộc (P) ⇒ đường thẳng ⊂ (P)"]:::l2
+    B --> B4["★ Giao tuyến: qua điểm chung"]:::l2
 
-    C --> C1["3 điểm không thẳng<br/>hàng"]:::l3
-    C --> C2["Điểm và đường thẳng<br/>không qua nó"]:::l3
-    C --> C3["Hai đường thẳng cắt<br/>nhau"]:::l3
-    C --> C4["★ Tìm giao tuyến:<br/>2 điểm chung"]:::l3
+    C --> C1["3 điểm không thẳng hàng"]:::l3
+    C --> C2["Điểm và đường thẳng không qua nó"]:::l3
+    C --> C3["Hai đường thẳng cắt nhau"]:::l3
+    C --> C4["★ Tìm giao tuyến: 2 điểm chung"]:::l3
 
-    D --> D1["Đỉnh, mặt đáy, mặt<br/>bên"]:::l4
+    D --> D1["Đỉnh, mặt đáy, mặt bên"]:::l4
     D --> D2["Cạnh bên, cạnh đáy"]:::l4
-    D --> D3["Tứ diện: 4 mặt,<br/>6 cạnh"]:::l4
-    D --> D4["★ Giao điểm d<br/>và (P): qua đường<br/>trong (P)"]:::l4
+    D --> D3["Tứ diện: 4 mặt, 6 cạnh"]:::l4
+    D --> D4["★ Giao điểm d và (P): qua đường trong (P)"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -1725,28 +1725,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>11<BR/>HAI<BR/>ĐƯỜNG<BR/>THẲNG<BR/>SONG<BR/>SONG"]:::root
-    G --> A["① Vị trí tương<br/>đối"]:::n1
+    G["🎯<br/>BÀI 11<br/>Hai đường thẳng<br/>song song"]:::root
+    G --> A["① Vị trí tương đối"]:::n1
     G --> B["② Tính chất"]:::n2
-    G --> C["③ Ba đường giao<br/>tuyến"]:::n3
+    G --> C["③ Ba đường giao tuyến"]:::n3
     G --> D["④ Thực tiễn"]:::n4
 
-    A --> A1["Đồng phẳng: cắt nhau,<br/>song song, trùng"]:::l1
-    A --> A2["★ Chéo nhau: không<br/>đồng phẳng"]:::l1
-    A --> A3["Không có điểm chung:<br/>song song hoặc chéo"]:::l1
-    A --> A4["Có đúng 1 mặt<br/>phẳng chứa 2 đường<br/>song song"]:::l1
+    A --> A1["Đồng phẳng: cắt nhau, song song, trùng"]:::l1
+    A --> A2["★ Chéo nhau: không đồng phẳng"]:::l1
+    A --> A3["Không có điểm chung: song song hoặc chéo"]:::l1
+    A --> A4["Có đúng 1 mặt phẳng chứa 2 đường song song"]:::l1
 
-    B --> B1["★ Qua 1 điểm<br/>có đúng 1 đường<br/>song song"]:::l2
-    B --> B2["★ Cùng song song<br/>đường thứ ba ⇒<br/>song song"]:::l2
-    B --> B3["Đường trung bình, hình<br/>bình hành"]:::l2
-    B --> B4["Trên mỗi mặt phẳng<br/>dùng hình học phẳng"]:::l2
+    B --> B1["★ Qua 1 điểm có đúng 1 đường song song"]:::l2
+    B --> B2["★ Cùng song song đường thứ ba ⇒ song song"]:::l2
+    B --> B3["Đường trung bình, hình bình hành"]:::l2
+    B --> B4["Trên mỗi mặt phẳng dùng hình học phẳng"]:::l2
 
-    C --> C1["★ Đồng quy hoặc<br/>đôi một song song"]:::l3
-    C --> C2["Hệ quả: giao tuyến<br/>song song 2 đường<br/>song song"]:::l3
-    C --> C3["Tìm giao tuyến qua<br/>S song song AB"]:::l3
+    C --> C1["★ Đồng quy hoặc đôi một song song"]:::l3
+    C --> C2["Hệ quả: giao tuyến song song 2 đường song song"]:::l3
+    C --> C3["Tìm giao tuyến qua S song song AB"]:::l3
     C --> C4["Chứng minh song song"]:::l3
 
-    D --> D1["Cầu vượt, đường trên<br/>cao"]:::l4
+    D --> D1["Cầu vượt, đường trên cao"]:::l4
     D --> D2["Khung cửi, tia laser"]:::l4
     D --> D3["Cánh cửa sổ"]:::l4
     D --> D4["Mặt hyperbol"]:::l4
@@ -1773,28 +1773,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>12<BR/>ĐƯỜNG<BR/>THẲNG<BR/>VÀ<BR/>MẶT<BR/>PHẲNG<BR/>SONG<BR/>SONG"]:::root
-    G --> A["① Vị trí tương<br/>đối"]:::n1
+    G["🎯<br/>BÀI 12<br/>Đường thẳng và mặt phẳng<br/>song song"]:::root
+    G --> A["① Vị trí tương đối"]:::n1
     G --> B["② Điều kiện"]:::n2
     G --> C["③ Tính chất"]:::n3
     G --> D["④ Thực tiễn"]:::n4
 
-    A --> A1["★ d // (α):<br/>không có điểm chung"]:::l1
-    A --> A2["d ∩ (α) =<br/>{M}"]:::l1
-    A --> A3["d ⊂ (α): nhiều<br/>hơn 1 điểm chung"]:::l1
-    A --> A4["Hình ảnh: cầu, khung<br/>thành"]:::l1
+    A --> A1["★ d // (α): không có điểm chung"]:::l1
+    A --> A2["d ∩ (α) = {M}"]:::l1
+    A --> A3["d ⊂ (α): nhiều hơn 1 điểm chung"]:::l1
+    A --> A4["Hình ảnh: cầu, khung thành"]:::l1
 
-    B --> B1["★ a ⊄ (P),<br/>a // b ⊂<br/>(P) ⇒ a //<br/>(P)"]:::l2
+    B --> B1["★ a ⊄ (P), a // b ⊂ (P) ⇒ a // (P)"]:::l2
     B --> B2["Đường trung bình"]:::l2
-    B --> B3["a, b chéo: có<br/>duy nhất (P) ⊃<br/>a, (P) // b"]:::l2
-    B --> B4["Bỏ điều kiện a<br/>⊄ (P) thì sai"]:::l2
+    B --> B3["a, b chéo: có duy nhất (P) ⊃ a, (P) // b"]:::l2
+    B --> B4["Bỏ điều kiện a ⊄ (P) thì sai"]:::l2
 
-    C --> C1["★ a // (P),<br/>(Q) ⊃ a cắt<br/>(P) theo b ⇒<br/>b // a"]:::l3
-    C --> C2["Tìm giao tuyến song<br/>song"]:::l3
-    C --> C3["Thiết diện hình bình<br/>hành"]:::l3
-    C --> C4["Giao tuyến các mặt<br/>tứ diện"]:::l3
+    C --> C1["★ a // (P), (Q) ⊃ a cắt (P) theo b ⇒ b // a"]:::l3
+    C --> C2["Tìm giao tuyến song song"]:::l3
+    C --> C3["Thiết diện hình bình hành"]:::l3
+    C --> C4["Giao tuyến các mặt tứ diện"]:::l3
 
-    D --> D1["Dây nhợ khi xây<br/>tường"]:::l4
+    D --> D1["Dây nhợ khi xây tường"]:::l4
     D --> D2["Mép cửa ra vào"]:::l4
     D --> D3["Xà ngang khung thành"]:::l4
     D --> D4["Mái che, giàn tiêu"]:::l4
@@ -1821,31 +1821,31 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>13<BR/>HAI<BR/>MẶT<BR/>PHẲNG<BR/>SONG<BR/>SONG"]:::root
+    G["🎯<br/>BÀI 13<br/>Hai mặt phẳng<br/>song song"]:::root
     G --> A["① Định nghĩa"]:::n1
-    G --> B["② Điều kiện, tính<br/>chất"]:::n2
+    G --> B["② Điều kiện, tính chất"]:::n2
     G --> C["③ Định lí Thalès"]:::n3
-    G --> D["④ Lăng trụ, hình<br/>hộp"]:::n4
+    G --> D["④ Lăng trụ, hình hộp"]:::n4
 
-    A --> A1["★ (α) // (β):<br/>không có điểm chung"]:::l1
-    A --> A2["d ⊂ (α) //<br/>(β) ⇒ d //<br/>(β)"]:::l1
-    A --> A3["Mặt bậc thang, ruộng<br/>bậc thang"]:::l1
-    A --> A4["Tháp Pisa: sàn không<br/>song song mặt đất"]:::l1
+    A --> A1["★ (α) // (β): không có điểm chung"]:::l1
+    A --> A2["d ⊂ (α) // (β) ⇒ d // (β)"]:::l1
+    A --> A3["Mặt bậc thang, ruộng bậc thang"]:::l1
+    A --> A4["Tháp Pisa: sàn không song song mặt đất"]:::l1
 
-    B --> B1["★ (α) chứa 2<br/>đường cắt nhau //<br/>(β)"]:::l2
-    B --> B2["Qua 1 điểm có<br/>duy nhất 1 mặt<br/>phẳng song song"]:::l2
-    B --> B3["★ (R) cắt (P)<br/>// (Q) ⇒ hai<br/>giao tuyến song song"]:::l2
-    B --> B4["Cùng song song mặt<br/>thứ ba ⇒ song<br/>song"]:::l2
+    B --> B1["★ (α) chứa 2 đường cắt nhau // (β)"]:::l2
+    B --> B2["Qua 1 điểm có duy nhất 1 mặt phẳng song song"]:::l2
+    B --> B3["★ (R) cắt (P) // (Q) ⇒ hai giao tuyến song song"]:::l2
+    B --> B4["Cùng song song mặt thứ ba ⇒ song song"]:::l2
 
-    C --> C1["★ Ba mặt phẳng<br/>song song chắn đoạn<br/>tỉ lệ"]:::l3
-    C --> C2["AB : A'B' =<br/>BC : B'C' =<br/>AC : A'C'"]:::l3
-    C --> C3["Chia đoạn theo tỉ<br/>lệ"]:::l3
+    C --> C1["★ Ba mặt phẳng song song chắn đoạn tỉ lệ"]:::l3
+    C --> C2["AB : A'B' = BC : B'C' = AC : A'C'"]:::l3
+    C --> C3["Chia đoạn theo tỉ lệ"]:::l3
     C --> C4["Đo mực nước"]:::l3
 
-    D --> D1["Mặt bên là hình<br/>bình hành"]:::l4
-    D --> D2["Cạnh bên song song,<br/>bằng nhau"]:::l4
-    D --> D3["★ Hình hộp: 4<br/>đường chéo đồng quy"]:::l4
-    D --> D4["Mặt đối diện song<br/>song"]:::l4
+    D --> D1["Mặt bên là hình bình hành"]:::l4
+    D --> D2["Cạnh bên song song, bằng nhau"]:::l4
+    D --> D3["★ Hình hộp: 4 đường chéo đồng quy"]:::l4
+    D --> D4["Mặt đối diện song song"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -1917,31 +1917,31 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>14<BR/>PHÉP<BR/>CHIẾU<BR/>SONG<BR/>SONG"]:::root
+    G["🎯<br/>BÀI 14<br/>Phép chiếu<br/>song song"]:::root
     G --> A["① Định nghĩa"]:::n1
     G --> B["② Tính chất"]:::n2
     G --> C["③ Hình biểu diễn"]:::n3
     G --> D["④ Thực tiễn"]:::n4
 
-    A --> A1["Mặt phẳng chiếu (α),<br/>phương chiếu Δ"]:::l1
-    A --> A2["★ M' = (α)<br/>∩ đường qua M<br/>song song Δ"]:::l1
-    A --> A3["Hình chiếu của hình<br/>H"]:::l1
-    A --> A4["Đường cùng phương Δ:<br/>chiếu thành điểm"]:::l1
+    A --> A1["Mặt phẳng chiếu (α), phương chiếu Δ"]:::l1
+    A --> A2["★ M' = (α) ∩ đường qua M song song Δ"]:::l1
+    A --> A3["Hình chiếu của hình H"]:::l1
+    A --> A4["Đường cùng phương Δ: chiếu thành điểm"]:::l1
 
-    B --> B1["★ Giữ thẳng hàng<br/>và thứ tự"]:::l2
-    B --> B2["★ Song song →<br/>song song (hoặc trùng)"]:::l2
-    B --> B3["★ Giữ tỉ số<br/>đoạn cùng giá /<br/>giá song song"]:::l2
-    B --> B4["Trung điểm → trung<br/>điểm"]:::l2
+    B --> B1["★ Giữ thẳng hàng và thứ tự"]:::l2
+    B --> B2["★ Song song → song song (hoặc trùng)"]:::l2
+    B --> B3["★ Giữ tỉ số đoạn cùng giá / giá song song"]:::l2
+    B --> B4["Trung điểm → trung điểm"]:::l2
 
-    C --> C1["Tam giác → tam<br/>giác"]:::l3
-    C --> C2["Hình vuông, chữ nhật,<br/>thoi → hình bình<br/>hành"]:::l3
-    C --> C3["Hình thang → hình<br/>thang (giữ tỉ số<br/>đáy)"]:::l3
-    C --> C4["★ Hình tròn →<br/>elip"]:::l3
+    C --> C1["Tam giác → tam giác"]:::l3
+    C --> C2["Hình vuông, chữ nhật, thoi → hình bình hành"]:::l3
+    C --> C3["Hình thang → hình thang (giữ tỉ số đáy)"]:::l3
+    C --> C4["★ Hình tròn → elip"]:::l3
 
     D --> D1["Bóng nắng, bóng thang"]:::l4
     D --> D2["Công nghệ goal-line"]:::l4
     D --> D3["Chữ nổi 3D"]:::l4
-    D --> D4["Phép chiếu xuyên tâm,<br/>luật xa gần"]:::l4
+    D --> D4["Phép chiếu xuyên tâm, luật xa gần"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -2013,31 +2013,31 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>15<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>DÃY<BR/>SỐ"]:::root
-    G --> A["① Giới hạn hữu<br/>hạn"]:::n1
+    G["🎯<br/>BÀI 15<br/>Giới hạn<br/>của dãy số"]:::root
+    G --> A["① Giới hạn hữu hạn"]:::n1
     G --> B["② Quy tắc tính"]:::n2
-    G --> C["③ Cấp số nhân<br/>lùi vô hạn"]:::n3
-    G --> D["④ Giới hạn vô<br/>cực"]:::n4
+    G --> C["③ Cấp số nhân lùi vô hạn"]:::n3
+    G --> D["④ Giới hạn vô cực"]:::n4
 
-    A --> A1["★ lim un =<br/>0: |un| nhỏ tuỳ<br/>ý"]:::l1
-    A --> A2["lim 1/n^k = 0;<br/>lim q^n = 0<br/>(|q| < 1)"]:::l1
-    A --> A3["lim un = a<br/>⇔ lim (un −<br/>a) = 0"]:::l1
+    A --> A1["★ lim un = 0: |un| nhỏ tuỳ ý"]:::l1
+    A --> A2["lim 1/n^k = 0; lim q^n = 0 (|q| < 1)"]:::l1
+    A --> A3["lim un = a ⇔ lim (un − a) = 0"]:::l1
     A --> A4["lim c = c"]:::l1
 
     B --> B1["Tổng, hiệu, tích, thương"]:::l2
     B --> B2["lim √un = √a"]:::l2
-    B --> B3["★ Chia tử, mẫu<br/>cho n bậc cao<br/>nhất"]:::l2
+    B --> B3["★ Chia tử, mẫu cho n bậc cao nhất"]:::l2
     B --> B4["Nhân liên hợp"]:::l2
 
     C --> C1["|q| < 1"]:::l3
-    C --> C2["★ S = u1<br/>: (1 − q)"]:::l3
-    C --> C3["Số thập phân tuần<br/>hoàn"]:::l3
+    C --> C2["★ S = u1 : (1 − q)"]:::l3
+    C --> C3["Số thập phân tuần hoàn"]:::l3
     C --> C4["Nghịch lí Zeno"]:::l3
 
-    D --> D1["lim n^k = +∞;<br/>lim q^n = +∞<br/>(q > 1)"]:::l4
-    D --> D2["a : (±∞) →<br/>0"]:::l4
-    D --> D3["a > 0 chia<br/>0⁺ → +∞"]:::l4
-    D --> D4["+∞ · a (a<br/>> 0) → +∞"]:::l4
+    D --> D1["lim n^k = +∞; lim q^n = +∞ (q > 1)"]:::l4
+    D --> D2["a : (±∞) → 0"]:::l4
+    D --> D3["a > 0 chia 0⁺ → +∞"]:::l4
+    D --> D4["+∞ · a (a > 0) → +∞"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -2061,30 +2061,30 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>16<BR/>GIỚI<BR/>HẠN<BR/>CỦA<BR/>HÀM<BR/>SỐ"]:::root
+    G["🎯<br/>BÀI 16<br/>Giới hạn<br/>của hàm số"]:::root
     G --> A["① Tại một điểm"]:::n1
     G --> B["② Tại vô cực"]:::n2
-    G --> C["③ Giới hạn vô<br/>cực"]:::n3
+    G --> C["③ Giới hạn vô cực"]:::n3
     G --> D["④ Thực tiễn"]:::n4
 
-    A --> A1["★ xn → x0<br/>⇒ f(xn) → L"]:::l1
-    A --> A2["Quy tắc tổng, hiệu,<br/>tích, thương"]:::l1
-    A --> A3["Dạng 0/0: rút gọn,<br/>liên hợp"]:::l1
-    A --> A4["Một bên: x →<br/>x0⁺, x → x0⁻"]:::l1
+    A --> A1["★ xn → x0 ⇒ f(xn) → L"]:::l1
+    A --> A2["Quy tắc tổng, hiệu, tích, thương"]:::l1
+    A --> A3["Dạng 0/0: rút gọn, liên hợp"]:::l1
+    A --> A4["Một bên: x → x0⁺, x → x0⁻"]:::l1
 
     B --> B1["x → ±∞"]:::l2
-    B --> B2["lim c = c;<br/>lim 1/x^k = 0"]:::l2
-    B --> B3["★ Chia bậc cao<br/>nhất của x"]:::l2
-    B --> B4["a√b khi a <<br/>0"]:::l2
+    B --> B2["lim c = c; lim 1/x^k = 0"]:::l2
+    B --> B3["★ Chia bậc cao nhất của x"]:::l2
+    B --> B4["a√b khi a < 0"]:::l2
 
-    C --> C1["★ L/0 xét dấu<br/>mẫu"]:::l3
-    C --> C2["Tích với ±∞: xét<br/>dấu L"]:::l3
-    C --> C3["x^k → ±∞ theo<br/>k chẵn/lẻ"]:::l3
-    C --> C4["lim = L ⇔<br/>hai giới hạn một<br/>bên bằng L"]:::l3
+    C --> C1["★ L/0 xét dấu mẫu"]:::l3
+    C --> C2["Tích với ±∞: xét dấu L"]:::l3
+    C --> C3["x^k → ±∞ theo k chẵn/lẻ"]:::l3
+    C --> C4["lim = L ⇔ hai giới hạn một bên bằng L"]:::l3
 
-    D --> D1["Khối lượng tương đối<br/>Einstein"]:::l4
+    D --> D1["Khối lượng tương đối Einstein"]:::l4
     D --> D2["Hàm Heaviside"]:::l4
-    D --> D3["Đường cao tam giác<br/>vuông"]:::l4
+    D --> D3["Đường cao tam giác vuông"]:::l4
     D --> D4["Chi phí trung bình"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
@@ -2109,31 +2109,31 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>BÀI<BR/>17<BR/>HÀM<BR/>SỐ<BR/>LIÊN<BR/>TỤC"]:::root
-    G --> A["① Liên tục tại<br/>một điểm"]:::n1
+    G["🎯<br/>BÀI 17<br/>Hàm số<br/>liên tục"]:::root
+    G --> A["① Liên tục tại một điểm"]:::n1
     G --> B["② Trên khoảng, đoạn"]:::n2
     G --> C["③ Tính chất"]:::n3
     G --> D["④ Thực tiễn"]:::n4
 
-    A --> A1["★ lim f(x) =<br/>f(x0)"]:::l1
-    A --> A2["⇔ hai giới hạn<br/>một bên = f(x0)"]:::l1
-    A --> A3["Không liên tục: gián<br/>đoạn"]:::l1
-    A --> A4["Hàm dấu gián đoạn<br/>tại 0"]:::l1
+    A --> A1["★ lim f(x) = f(x0)"]:::l1
+    A --> A2["⇔ hai giới hạn một bên = f(x0)"]:::l1
+    A --> A3["Không liên tục: gián đoạn"]:::l1
+    A --> A4["Hàm dấu gián đoạn tại 0"]:::l1
 
-    B --> B1["Liên tục tại mọi<br/>điểm của khoảng"]:::l2
-    B --> B2["Đoạn: thêm liên tục<br/>phải tại a, trái<br/>tại b"]:::l2
-    B --> B3["Đồ thị là đường<br/>liền"]:::l2
-    B --> B4["★ Đa thức, sin,<br/>cos liên tục trên<br/>R"]:::l2
+    B --> B1["Liên tục tại mọi điểm của khoảng"]:::l2
+    B --> B2["Đoạn: thêm liên tục phải tại a, trái tại b"]:::l2
+    B --> B3["Đồ thị là đường liền"]:::l2
+    B --> B4["★ Đa thức, sin, cos liên tục trên R"]:::l2
 
-    C --> C1["Tổng, hiệu, tích liên<br/>tục"]:::l3
-    C --> C2["Thương liên tục nếu<br/>g(x0) ≠ 0"]:::l3
-    C --> C3["★ f liên tục<br/>[a; b], f(a)f(b) <<br/>0 ⇒ có c:<br/>f(c) = 0"]:::l3
-    C --> C4["Chứng minh phương trình<br/>có nghiệm"]:::l3
+    C --> C1["Tổng, hiệu, tích liên tục"]:::l3
+    C --> C2["Thương liên tục nếu g(x0) ≠ 0"]:::l3
+    C --> C3["★ f liên tục [a; b], f(a)f(b) < 0 ⇒ có c: f(c) = 0"]:::l3
+    C --> C4["Chứng minh phương trình có nghiệm"]:::l3
 
-    D --> D1["Vận tốc xe 60<br/>km/h"]:::l4
+    D --> D1["Vận tốc xe 60 km/h"]:::l4
     D --> D2["Cước taxi"]:::l4
-    D --> D3["Giá thu mua theo<br/>bậc"]:::l4
-    D --> D4["Tìm m để liên<br/>tục"]:::l4
+    D --> D3["Giá thu mua theo bậc"]:::l4
+    D --> D4["Tìm m để liên tục"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold

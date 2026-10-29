@@ -4804,8 +4804,8 @@ window.HOC_LIEU = [
 "ten": "Bài 10 Duong Thang Mat Phang (tiết 26-28)",
 "file": "KHBD_TOAN11_Bai10_DuongThangMatPhang_T26-28.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai10_DuongThangMatPhang_T26-28.docx",
-"kb": 784,
-"ngay": "2026-10-15"
+"kb": 786,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4815,8 +4815,8 @@ window.HOC_LIEU = [
 "ten": "Bài 11 Hai Duong Thang Song Song (tiết 29-31)",
 "file": "KHBD_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.docx",
-"kb": 1144,
-"ngay": "2026-10-15"
+"kb": 1146,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4826,8 +4826,8 @@ window.HOC_LIEU = [
 "ten": "Bài 12 Duong Thang Song Song Mat Phang (tiết 32-33)",
 "file": "KHBD_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.docx",
-"kb": 676,
-"ngay": "2026-10-15"
+"kb": 678,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4837,8 +4837,8 @@ window.HOC_LIEU = [
 "ten": "Bài 13 Hai Mat Phang Song Song (tiết 34-37)",
 "file": "KHBD_TOAN11_Bai13_HaiMatPhangSongSong_T34-37.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai13_HaiMatPhangSongSong_T34-37.docx",
-"kb": 1214,
-"ngay": "2026-10-15"
+"kb": 1216,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4848,8 +4848,8 @@ window.HOC_LIEU = [
 "ten": "Bài 14 Phep Chieu Song Song (tiết 38-39)",
 "file": "KHBD_TOAN11_Bai14_PhepChieuSongSong_T38-39.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai14_PhepChieuSongSong_T38-39.docx",
-"kb": 1015,
-"ngay": "2026-10-15"
+"kb": 1017,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4859,8 +4859,8 @@ window.HOC_LIEU = [
 "ten": "Bài 15 Gioi Han Day So (tiết 41-42)",
 "file": "KHBD_TOAN11_Bai15_GioiHanDaySo_T41-42.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai15_GioiHanDaySo_T41-42.docx",
-"kb": 550,
-"ngay": "2026-10-15"
+"kb": 552,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4870,8 +4870,8 @@ window.HOC_LIEU = [
 "ten": "Bài 16 Gioi Han Ham So (tiết 43-44)",
 "file": "KHBD_TOAN11_Bai16_GioiHanHamSo_T43-44.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai16_GioiHanHamSo_T43-44.docx",
-"kb": 562,
-"ngay": "2026-10-15"
+"kb": 564,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -4881,8 +4881,8 @@ window.HOC_LIEU = [
 "ten": "Bài 17 Ham So Lien Tuc (tiết 45-46)",
 "file": "KHBD_TOAN11_Bai17_HamSoLienTuc_T45-46.docx",
 "url": "mon/toan/khbd/lop11/KHBD_TOAN11_Bai17_HamSoLienTuc_T45-46.docx",
-"kb": 673,
-"ngay": "2026-10-15"
+"kb": 675,
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5091,7 +5091,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai10_DuongThangMatPhang_T26-28.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai10_DuongThangMatPhang_T26-28.png",
 "kb": 388,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5102,7 +5102,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai11_HaiDuongThangSongSong_T29-31.png",
 "kb": 376,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5113,7 +5113,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai12_DuongThangSongSongMatPhang_T32-33.png",
 "kb": 349,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5124,7 +5124,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai13_HaiMatPhangSongSong_T34-37.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai13_HaiMatPhangSongSong_T34-37.png",
 "kb": 378,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5135,7 +5135,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai14_PhepChieuSongSong_T38-39.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai14_PhepChieuSongSong_T38-39.png",
 "kb": 346,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5146,7 +5146,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai15_GioiHanDaySo_T41-42.png",
 "kb": 319,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5157,7 +5157,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai16_GioiHanHamSo_T43-44.png",
 "kb": 325,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
@@ -5168,7 +5168,7 @@ window.HOC_LIEU = [
 "file": "SoDoTuDuy_TOAN11_Bai17_HamSoLienTuc_T45-46.png",
 "url": "mon/toan/khbd/lop11/SoDoTuDuy_TOAN11_Bai17_HamSoLienTuc_T45-46.png",
 "kb": 351,
-"ngay": "2026-10-15"
+"ngay": "2026-10-29"
 },
 {
 "mon": "toan",
