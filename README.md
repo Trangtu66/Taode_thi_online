@@ -504,28 +504,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 7<br/>Các khái niệm<br/>mở đầu"]:::root
+    G["🎯<BR/>BÀI<BR/>7<BR/>CÁC<BR/>KHÁI<BR/>NIỆM<BR/>MỞ<BR/>ĐẦU"]:::root
     G --> A["① Vectơ"]:::n1
     G --> B["② Cùng phương"]:::n2
-    G --> C["③ Cùng hướng – bằng nhau"]:::n3
+    G --> C["③ Cùng hướng –<br/>bằng nhau"]:::n3
     G --> D["④ Vectơ-không"]:::n4
 
-    A --> A1["★ Đoạn thẳng có hướng"]:::l1
+    A --> A1["★ Đoạn thẳng có<br/>hướng"]:::l1
     A --> A2["Kí hiệu AB→, a→"]:::l1
-    A --> A3["★ Độ dài |AB→| = AB"]:::l1
-    A --> A4["Biểu diễn lực, vận tốc"]:::l1
+    A --> A3["★ Độ dài |AB→|<br/>= AB"]:::l1
+    A --> A4["Biểu diễn lực, vận<br/>tốc"]:::l1
 
     B --> B1["Giá của vectơ"]:::l2
-    B --> B2["★ Giá song song hoặc trùng nhau"]:::l2
-    B --> B3["A, B, C thẳng hàng ⇔ AB→, AC→ cùng phương"]:::l2
+    B --> B2["★ Giá song song<br/>hoặc trùng nhau"]:::l2
+    B --> B3["A, B, C thẳng<br/>hàng ⇔ AB→, AC→<br/>cùng phương"]:::l2
 
-    C --> C1["Cùng phương thì cùng hoặc ngược hướng"]:::l3
-    C --> C2["★ a→ = b→: cùng độ dài, cùng hướng"]:::l3
-    C --> C3["Mỗi O, a→: duy nhất A với OA→ = a→"]:::l3
+    C --> C1["Cùng phương thì cùng<br/>hoặc ngược hướng"]:::l3
+    C --> C2["★ a→ = b→:<br/>cùng độ dài, cùng<br/>hướng"]:::l3
+    C --> C3["Mỗi O, a→: duy<br/>nhất A với OA→<br/>= a→"]:::l3
 
     D --> D1["AA→, BB→ = 0→"]:::l4
     D --> D2["★ Độ dài 0"]:::l4
-    D --> D3["Cùng hướng với mọi vectơ"]:::l4
+    D --> D3["Cùng hướng với mọi<br/>vectơ"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -549,27 +549,27 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 8<br/>Tổng và hiệu<br/>của hai vectơ"]:::root
+    G["🎯<BR/>BÀI<BR/>8<BR/>TỔNG<BR/>VÀ<BR/>HIỆU<BR/>CỦA<BR/>HAI<BR/>VECTƠ"]:::root
     G --> A["① Tổng hai vectơ"]:::n1
     G --> B["② Hiệu hai vectơ"]:::n2
-    G --> C["③ Trung điểm – trọng tâm"]:::n3
+    G --> C["③ Trung điểm –<br/>trọng tâm"]:::n3
     G --> D["④ Ứng dụng"]:::n4
 
-    A --> A1["★ Quy tắc ba điểm: AB→ + BC→ = AC→"]:::l1
-    A --> A2["★ Quy tắc hình bình hành: AB→ + AD→ = AC→"]:::l1
+    A --> A1["★ Quy tắc ba<br/>điểm: AB→ + BC→<br/>= AC→"]:::l1
+    A --> A2["★ Quy tắc hình<br/>bình hành: AB→ +<br/>AD→ = AC→"]:::l1
     A --> A3["Giao hoán, kết hợp"]:::l1
-    A --> A4["a→ + 0→ = a→"]:::l1
+    A --> A4["a→ + 0→ =<br/>a→"]:::l1
 
     B --> B1["Vectơ đối −a→"]:::l2
-    B --> B2["a→ − b→ = a→ + (−b→)"]:::l2
-    B --> B3["★ Quy tắc hiệu: MN→ = ON→ − OM→"]:::l2
+    B --> B2["a→ − b→ =<br/>a→ + (−b→)"]:::l2
+    B --> B3["★ Quy tắc hiệu:<br/>MN→ = ON→ −<br/>OM→"]:::l2
 
-    C --> C1["★ I trung điểm AB: IA→ + IB→ = 0→"]:::l3
-    C --> C2["★ G trọng tâm: GA→ + GB→ + GC→ = 0→"]:::l3
+    C --> C1["★ I trung điểm<br/>AB: IA→ + IB→<br/>= 0→"]:::l3
+    C --> C2["★ G trọng tâm:<br/>GA→ + GB→ +<br/>GC→ = 0→"]:::l3
 
     D --> D1["Tổng hợp lực"]:::l4
     D --> D2["Tổng hợp vận tốc"]:::l4
-    D --> D3["Tàu qua sông nhanh nhất"]:::l4
+    D --> D3["Tàu qua sông nhanh<br/>nhất"]:::l4
     D --> D4["Kéo pháo lên dốc"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
@@ -594,29 +594,29 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 9<br/>Tích của một vectơ<br/>với một số"]:::root
+    G["🎯<BR/>BÀI<BR/>9<BR/>TÍCH<BR/>CỦA<BR/>MỘT<BR/>VECTƠ<BR/>VỚI<BR/>MỘT<BR/>SỐ"]:::root
     G --> A["① Định nghĩa k·a→"]:::n1
     G --> B["② Tính chất"]:::n2
-    G --> C["③ Cùng phương – phân tích"]:::n3
-    G --> D["④ Trung điểm – trọng tâm – khối tâm"]:::n4
+    G --> C["③ Cùng phương –<br/>phân tích"]:::n3
+    G --> D["④ Trung điểm –<br/>trọng tâm – khối<br/>tâm"]:::n4
 
-    A --> A1["★ k > 0: cùng hướng a→"]:::l1
-    A --> A2["★ k < 0: ngược hướng a→"]:::l1
+    A --> A1["★ k > 0:<br/>cùng hướng a→"]:::l1
+    A --> A2["★ k < 0:<br/>ngược hướng a→"]:::l1
     A --> A3["★ |k·a→| = |k|·|a→|"]:::l1
-    A --> A4["k·a→ = 0→ khi k = 0 hoặc a→ = 0→"]:::l1
+    A --> A4["k·a→ = 0→ khi<br/>k = 0 hoặc<br/>a→ = 0→"]:::l1
 
     B --> B1["k(t·a→) = (kt)·a→"]:::l2
-    B --> B2["(k + t)·a→ = k·a→ + t·a→"]:::l2
-    B --> B3["k(a→ ± b→) = k·a→ ± k·b→"]:::l2
-    B --> B4["1·a→ = a→; (−1)·a→ = −a→"]:::l2
+    B --> B2["(k + t)·a→ =<br/>k·a→ + t·a→"]:::l2
+    B --> B3["k(a→ ± b→) =<br/>k·a→ ± k·b→"]:::l2
+    B --> B4["1·a→ = a→; (−1)·a→<br/>= −a→"]:::l2
 
-    C --> C1["★ a→, b→ cùng phương ⇔ a→ = k·b→"]:::l3
-    C --> C2["A, B, C thẳng hàng ⇔ AC→ = t·AB→"]:::l3
-    C --> C3["★ u→ = x·a→ + y·b→ (duy nhất)"]:::l3
+    C --> C1["★ a→, b→ cùng<br/>phương ⇔ a→ =<br/>k·b→"]:::l3
+    C --> C2["A, B, C thẳng<br/>hàng ⇔ AC→ =<br/>t·AB→"]:::l3
+    C --> C3["★ u→ = x·a→<br/>+ y·b→ (duy nhất)"]:::l3
 
-    D --> D1["★ OA→ + OB→ = 2·OI→"]:::l4
-    D --> D2["★ OA→ + OB→ + OC→ = 3·OG→"]:::l4
-    D --> D3["Khối tâm: Σ mᵢ·MAᵢ→ = 0→"]:::l4
+    D --> D1["★ OA→ + OB→<br/>= 2·OI→"]:::l4
+    D --> D2["★ OA→ + OB→<br/>+ OC→ = 3·OG→"]:::l4
+    D --> D3["Khối tâm: Σ mᵢ·MAᵢ→<br/>= 0→"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -640,28 +640,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 10<br/>Vectơ trong mặt<br/>phẳng toạ độ"]:::root
-    G --> A["① Toạ độ của vectơ"]:::n1
-    G --> B["② Phép toán theo toạ độ"]:::n2
-    G --> C["③ Điểm – độ dài"]:::n3
-    G --> D["④ Trung điểm – trọng tâm – ứng dụng"]:::n4
+    G["🎯<BR/>BÀI<BR/>10<BR/>VECTƠ<BR/>TRONG<BR/>MẶT<BR/>PHẲNG<BR/>TOẠ<BR/>ĐỘ"]:::root
+    G --> A["① Toạ độ của<br/>vectơ"]:::n1
+    G --> B["② Phép toán theo<br/>toạ độ"]:::n2
+    G --> C["③ Điểm – độ<br/>dài"]:::n3
+    G --> D["④ Trung điểm –<br/>trọng tâm – ứng<br/>dụng"]:::n4
 
-    A --> A1["Hệ trục Oxy, vectơ đơn vị i→, j→"]:::l1
-    A --> A2["★ u→ = x·i→ + y·j→ ⇔ u→ = (x; y)"]:::l1
-    A --> A3["Hai vectơ bằng nhau ⇔ cùng toạ độ"]:::l1
+    A --> A1["Hệ trục Oxy, vectơ<br/>đơn vị i→, j→"]:::l1
+    A --> A2["★ u→ = x·i→<br/>+ y·j→ ⇔ u→<br/>= (x; y)"]:::l1
+    A --> A3["Hai vectơ bằng nhau<br/>⇔ cùng toạ độ"]:::l1
 
-    B --> B1["★ u→ ± v→ = (x ± x'; y ± y')"]:::l2
-    B --> B2["★ k·u→ = (kx; ky)"]:::l2
-    B --> B3["Cùng phương: x' = kx, y' = ky"]:::l2
+    B --> B1["★ u→ ± v→<br/>= (x ± x';<br/>y ± y')"]:::l2
+    B --> B2["★ k·u→ = (kx;<br/>ky)"]:::l2
+    B --> B3["Cùng phương: x' =<br/>kx, y' = ky"]:::l2
 
-    C --> C1["★ OM→ = (x; y), |OM→| = √(x² + y²)"]:::l3
-    C --> C2["★ MN→ = (x' − x; y' − y)"]:::l3
-    C --> C3["MN = √((x' − x)² + (y' − y)²)"]:::l3
+    C --> C1["★ OM→ = (x;<br/>y), |OM→| = √(x²<br/>+ y²)"]:::l3
+    C --> C2["★ MN→ = (x'<br/>− x; y' −<br/>y)"]:::l3
+    C --> C3["MN = √((x' −<br/>x)² + (y' −<br/>y)²)"]:::l3
 
-    D --> D1["★ Trung điểm ((x_A + x_B)/2; (y_A + y_B)/2)"]:::l4
-    D --> D2["★ Trọng tâm: trung bình cộng 3 đỉnh"]:::l4
-    D --> D3["Dự báo vị trí tâm bão"]:::l4
-    D --> D4["Chuyển động tàu thuỷ, quân mã"]:::l4
+    D --> D1["★ Trung điểm ((x_A<br/>+ x_B)/2; (y_A +<br/>y_B)/2)"]:::l4
+    D --> D2["★ Trọng tâm: trung<br/>bình cộng 3 đỉnh"]:::l4
+    D --> D3["Dự báo vị trí<br/>tâm bão"]:::l4
+    D --> D4["Chuyển động tàu thuỷ,<br/>quân mã"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -685,30 +685,30 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 11<br/>Tích vô hướng<br/>của hai vectơ"]:::root
-    G --> A["① Góc giữa hai vectơ"]:::n1
+    G["🎯<BR/>BÀI<BR/>11<BR/>TÍCH<BR/>VÔ<BR/>HƯỚNG<BR/>CỦA<BR/>HAI<BR/>VECTƠ"]:::root
+    G --> A["① Góc giữa hai<br/>vectơ"]:::n1
     G --> B["② Tích vô hướng"]:::n2
-    G --> C["③ Biểu thức toạ độ"]:::n3
-    G --> D["④ Tính chất – ứng dụng"]:::n4
+    G --> C["③ Biểu thức toạ<br/>độ"]:::n3
+    G --> D["④ Tính chất –<br/>ứng dụng"]:::n4
 
-    A --> A1["Vẽ chung gốc: (u→, v→) = góc BAC"]:::l1
+    A --> A1["Vẽ chung gốc: (u→,<br/>v→) = góc BAC"]:::l1
     A --> A2["Từ 0° đến 180°"]:::l1
-    A --> A3["★ 0°: cùng hướng; 180°: ngược hướng"]:::l1
-    A --> A4["u→ ⊥ v→ ⇔ góc 90°"]:::l1
+    A --> A3["★ 0°: cùng hướng;<br/>180°: ngược hướng"]:::l1
+    A --> A4["u→ ⊥ v→ ⇔<br/>góc 90°"]:::l1
 
-    B --> B1["★ u→·v→ = |u→|·|v→|·cos(u→, v→)"]:::l2
-    B --> B2["★ u→ ⊥ v→ ⇔ u→·v→ = 0"]:::l2
+    B --> B1["★ u→·v→ = |u→|·|v→|·cos(u→,<br/>v→)"]:::l2
+    B --> B2["★ u→ ⊥ v→<br/>⇔ u→·v→ = 0"]:::l2
     B --> B3["u→² = |u→|²"]:::l2
     B --> B4["Công A = F→·MN→"]:::l2
 
-    C --> C1["★ u→·v→ = xx' + yy'"]:::l3
-    C --> C2["★ cos(u→, v→) = (xx' + yy') / (|u→|·|v→|)"]:::l3
-    C --> C3["Vuông góc: xx' + yy' = 0"]:::l3
+    C --> C1["★ u→·v→ = xx'<br/>+ yy'"]:::l3
+    C --> C2["★ cos(u→, v→) =<br/>(xx' + yy') /<br/>(|u→|·|v→|)"]:::l3
+    C --> C3["Vuông góc: xx' +<br/>yy' = 0"]:::l3
 
     D --> D1["Giao hoán, phân phối"]:::l4
-    D --> D2["(u→ ± v→)² = u→² ± 2u→·v→ + v→²"]:::l4
-    D --> D3["Trực tâm, giải tam giác"]:::l4
-    D --> D4["Công của lực thành phần"]:::l4
+    D --> D2["(u→ ± v→)² =<br/>u→² ± 2u→·v→ +<br/>v→²"]:::l4
+    D --> D3["Trực tâm, giải tam<br/>giác"]:::l4
+    D --> D4["Công của lực thành<br/>phần"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -732,30 +732,30 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>CHƯƠNG IV<br/>Vectơ"]:::root
+    G["🎯<BR/>CHƯƠNG IV<BR/>VECTƠ"]:::root
     G --> A["① Khái niệm"]:::n1
     G --> B["② Phép toán"]:::n2
     G --> C["③ Toạ độ"]:::n3
     G --> D["④ Tích vô hướng"]:::n4
 
     A --> A1["Vectơ, độ dài, giá"]:::l1
-    A --> A2["★ Cùng phương, cùng hướng, bằng nhau"]:::l1
+    A --> A2["★ Cùng phương, cùng<br/>hướng, bằng nhau"]:::l1
     A --> A3["Vectơ-không"]:::l1
 
-    B --> B1["★ Quy tắc ba điểm, hình bình hành, hiệu"]:::l2
-    B --> B2["★ k·a→: hướng theo dấu k, độ dài |k|·|a→|"]:::l2
+    B --> B1["★ Quy tắc ba<br/>điểm, hình bình hành,<br/>hiệu"]:::l2
+    B --> B2["★ k·a→: hướng theo<br/>dấu k, độ dài<br/>|k|·|a→|"]:::l2
     B --> B3["Trung điểm, trọng tâm"]:::l2
-    B --> B4["Phân tích theo hai vectơ"]:::l2
+    B --> B4["Phân tích theo hai<br/>vectơ"]:::l2
 
-    C --> C1["★ u→ = (x; y), MN→ = (x' − x; y' − y)"]:::l3
+    C --> C1["★ u→ = (x;<br/>y), MN→ = (x'<br/>− x; y' −<br/>y)"]:::l3
     C --> C2["Độ dài, khoảng cách"]:::l3
-    C --> C3["Cùng phương: x' = kx, y' = ky"]:::l3
+    C --> C3["Cùng phương: x' =<br/>kx, y' = ky"]:::l3
     C --> C4["Trung điểm, trọng tâm"]:::l3
 
-    D --> D1["★ u→·v→ = |u→|·|v→|·cos(u→, v→)"]:::l4
-    D --> D2["★ u→·v→ = xx' + yy'"]:::l4
-    D --> D3["u→ ⊥ v→ ⇔ u→·v→ = 0"]:::l4
-    D --> D4["Công của lực, giải tam giác"]:::l4
+    D --> D1["★ u→·v→ = |u→|·|v→|·cos(u→,<br/>v→)"]:::l4
+    D --> D2["★ u→·v→ = xx'<br/>+ yy'"]:::l4
+    D --> D3["u→ ⊥ v→ ⇔<br/>u→·v→ = 0"]:::l4
+    D --> D4["Công của lực, giải<br/>tam giác"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -779,28 +779,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 12<br/>Số gần đúng<br/>và sai số"]:::root
+    G["🎯<BR/>BÀI<BR/>12<BR/>SỐ<BR/>GẦN<BR/>ĐÚNG<BR/>VÀ<BR/>SAI<BR/>SỐ"]:::root
     G --> A["① Số gần đúng"]:::n1
-    G --> B["② Sai số tuyệt đối"]:::n2
-    G --> C["③ Sai số tương đối"]:::n3
+    G --> B["② Sai số tuyệt<br/>đối"]:::n2
+    G --> C["③ Sai số tương<br/>đối"]:::n3
     G --> D["④ Quy tròn"]:::n4
 
-    A --> A1["Số đúng a̅, số gần đúng a"]:::l1
-    A --> A2["Kết quả đo đạc, tính toán"]:::l1
-    A --> A3["Máy tính cầm tay: π, √a"]:::l1
+    A --> A1["Số đúng a̅, số<br/>gần đúng a"]:::l1
+    A --> A2["Kết quả đo đạc,<br/>tính toán"]:::l1
+    A --> A3["Máy tính cầm tay:<br/>π, √a"]:::l1
 
-    B --> B1["★ Δa = |a − a̅|"]:::l2
-    B --> B2["★ a̅ = a ± d ⇔ a − d ≤ a̅ ≤ a + d"]:::l2
+    B --> B1["★ Δa = |a<br/>− a̅|"]:::l2
+    B --> B2["★ a̅ = a<br/>± d ⇔ a<br/>− d ≤ a̅<br/>≤ a + d"]:::l2
     B --> B3["d: độ chính xác"]:::l2
-    B --> B4["Đo: d = nửa đơn vị thước"]:::l2
+    B --> B4["Đo: d = nửa<br/>đơn vị thước"]:::l2
 
-    C --> C1["★ δa = Δa / |a| ≤ d / |a|"]:::l3
+    C --> C1["★ δa = Δa<br/>/ |a| ≤ d<br/>/ |a|"]:::l3
     C --> C2["Viết dạng phần trăm"]:::l3
-    C --> C3["So sánh chất lượng phép đo"]:::l3
+    C --> C3["So sánh chất lượng<br/>phép đo"]:::l3
 
-    D --> D1["Chữ số sau < 5: giữ; ≥ 5: tăng 1"]:::l4
-    D --> D2["★ Sai số ≤ nửa đơn vị hàng làm tròn"]:::l4
-    D --> D3["★ Biết d: tròn đến hàng thấp nhất mà d < 1 đơn vị"]:::l4
+    D --> D1["Chữ số sau <<br/>5: giữ; ≥ 5:<br/>tăng 1"]:::l4
+    D --> D2["★ Sai số ≤<br/>nửa đơn vị hàng<br/>làm tròn"]:::l4
+    D --> D3["★ Biết d: tròn<br/>đến hàng thấp nhất<br/>mà d < 1<br/>đơn vị"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -824,27 +824,27 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 13<br/>Các số đặc trưng<br/>đo xu thế trung tâm"]:::root
+    G["🎯<BR/>BÀI<BR/>13<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>XU<BR/>THẾ<BR/>TRUNG<BR/>TÂM"]:::root
     G --> A["① Số trung bình"]:::n1
     G --> B["② Trung vị Me"]:::n2
     G --> C["③ Tứ phân vị"]:::n3
     G --> D["④ Mốt"]:::n4
 
-    A --> A1["★ x̄ = (x₁ + … + xₙ) / n"]:::l1
-    A --> A2["Bảng tần số: x̄ = (m₁x₁ + … + mₖxₖ) / n"]:::l1
-    A --> A3["Bị ảnh hưởng bởi giá trị bất thường"]:::l1
+    A --> A1["★ x̄ = (x₁<br/>+ … + xₙ)<br/>/ n"]:::l1
+    A --> A2["Bảng tần số: x̄<br/>= (m₁x₁ + …<br/>+ mₖxₖ) / n"]:::l1
+    A --> A3["Bị ảnh hưởng bởi<br/>giá trị bất thường"]:::l1
 
     B --> B1["Sắp xếp không giảm"]:::l2
-    B --> B2["★ n lẻ: giá trị chính giữa; n chẵn: TB hai giá trị giữa"]:::l2
-    B --> B3["Dùng khi có giá trị bất thường"]:::l2
+    B --> B2["★ n lẻ: giá<br/>trị chính giữa; n<br/>chẵn: TB hai giá<br/>trị giữa"]:::l2
+    B --> B3["Dùng khi có giá<br/>trị bất thường"]:::l2
 
     C --> C1["★ Q₂ = Me"]:::l3
-    C --> C2["★ Q₁, Q₃: trung vị nửa trái, nửa phải"]:::l3
-    C --> C3["Chia mẫu thành 4 phần, mỗi phần 25%"]:::l3
+    C --> C2["★ Q₁, Q₃: trung<br/>vị nửa trái, nửa<br/>phải"]:::l3
+    C --> C3["Chia mẫu thành 4<br/>phần, mỗi phần 25%"]:::l3
 
-    D --> D1["★ Giá trị có tần số lớn nhất"]:::l4
-    D --> D2["Có thể nhiều mốt hoặc không có"]:::l4
-    D --> D3["Dùng cả cho dữ liệu định tính"]:::l4
+    D --> D1["★ Giá trị có<br/>tần số lớn nhất"]:::l4
+    D --> D2["Có thể nhiều mốt<br/>hoặc không có"]:::l4
+    D --> D3["Dùng cả cho dữ<br/>liệu định tính"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -868,29 +868,29 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>BÀI 14<br/>Các số đặc trưng<br/>đo độ phân tán"]:::root
-    G --> A["① Khoảng biến thiên R"]:::n1
-    G --> B["② Khoảng tứ phân vị"]:::n2
-    G --> C["③ Phương sai – độ lệch chuẩn"]:::n3
-    G --> D["④ Giá trị bất thường"]:::n4
+    G["🎯<BR/>BÀI<BR/>14<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>ĐO<BR/>ĐỘ<BR/>PHÂN<BR/>TÁN"]:::root
+    G --> A["① Khoảng biến thiên<br/>R"]:::n1
+    G --> B["② Khoảng tứ phân<br/>vị"]:::n2
+    G --> C["③ Phương sai –<br/>độ lệch chuẩn"]:::n3
+    G --> D["④ Giá trị bất<br/>thường"]:::n4
 
-    A --> A1["★ R = giá trị lớn nhất − giá trị nhỏ nhất"]:::l1
+    A --> A1["★ R = giá<br/>trị lớn nhất −<br/>giá trị nhỏ nhất"]:::l1
     A --> A2["Đơn giản, dễ tính"]:::l1
-    A --> A3["Dễ bị ảnh hưởng bởi giá trị bất thường"]:::l1
+    A --> A3["Dễ bị ảnh hưởng<br/>bởi giá trị bất<br/>thường"]:::l1
 
-    B --> B1["★ ΔQ = Q₃ − Q₁"]:::l2
-    B --> B2["Độ trải của 50% số liệu chính giữa"]:::l2
-    B --> B3["Ít bị ảnh hưởng bởi giá trị bất thường"]:::l2
+    B --> B1["★ ΔQ = Q₃<br/>− Q₁"]:::l2
+    B --> B2["Độ trải của 50%<br/>số liệu chính giữa"]:::l2
+    B --> B3["Ít bị ảnh hưởng<br/>bởi giá trị bất<br/>thường"]:::l2
 
-    C --> C1["★ s² = Σ(xᵢ − x̄)² / n"]:::l3
+    C --> C1["★ s² = Σ(xᵢ<br/>− x̄)² / n"]:::l3
     C --> C2["★ s = √s²"]:::l3
-    C --> C3["Dùng mọi giá trị của mẫu"]:::l3
-    C --> C4["Càng lớn càng phân tán"]:::l3
+    C --> C3["Dùng mọi giá trị<br/>của mẫu"]:::l3
+    C --> C4["Càng lớn càng phân<br/>tán"]:::l3
 
-    D --> D1["★ x > Q₃ + 1,5·ΔQ"]:::l4
-    D --> D2["★ x < Q₁ − 1,5·ΔQ"]:::l4
+    D --> D1["★ x > Q₃<br/>+ 1,5·ΔQ"]:::l4
+    D --> D2["★ x < Q₁<br/>− 1,5·ΔQ"]:::l4
     D --> D3["Biểu đồ hộp"]:::l4
-    D --> D4["Do nhầm lẫn, sai sót"]:::l4
+    D --> D4["Do nhầm lẫn, sai<br/>sót"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -914,28 +914,28 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>CHƯƠNG V<br/>Các số đặc trưng<br/>của mẫu số liệu"]:::root
-    G --> A["① Số gần đúng – sai số"]:::n1
-    G --> B["② Xu thế trung tâm"]:::n2
+    G["🎯<BR/>CHƯƠNG<BR/>V<BR/>CÁC<BR/>SỐ<BR/>ĐẶC<BR/>TRƯNG<BR/>CỦA<BR/>MẪU<BR/>SỐ<BR/>LIỆU"]:::root
+    G --> A["① Số gần đúng<br/>– sai số"]:::n1
+    G --> B["② Xu thế trung<br/>tâm"]:::n2
     G --> C["③ Độ phân tán"]:::n3
-    G --> D["④ Giá trị bất thường"]:::n4
+    G --> D["④ Giá trị bất<br/>thường"]:::n4
 
-    A --> A1["★ a̅ = a ± d"]:::l1
-    A --> A2["★ δa ≤ d / |a|"]:::l1
-    A --> A3["Quy tròn theo độ chính xác"]:::l1
+    A --> A1["★ a̅ = a<br/>± d"]:::l1
+    A --> A2["★ δa ≤ d<br/>/ |a|"]:::l1
+    A --> A3["Quy tròn theo độ<br/>chính xác"]:::l1
 
-    B --> B1["★ Số trung bình x̄"]:::l2
-    B --> B2["★ Trung vị, tứ phân vị"]:::l2
+    B --> B1["★ Số trung bình<br/>x̄"]:::l2
+    B --> B2["★ Trung vị, tứ<br/>phân vị"]:::l2
     B --> B3["Mốt"]:::l2
-    B --> B4["Có giá trị bất thường: dùng trung vị"]:::l2
+    B --> B4["Có giá trị bất<br/>thường: dùng trung vị"]:::l2
 
-    C --> C1["★ R, ΔQ = Q₃ − Q₁"]:::l3
-    C --> C2["★ s² = Σ(xᵢ − x̄)² / n, s = √s²"]:::l3
-    C --> C3["Càng lớn càng phân tán"]:::l3
+    C --> C1["★ R, ΔQ =<br/>Q₃ − Q₁"]:::l3
+    C --> C2["★ s² = Σ(xᵢ<br/>− x̄)² / n,<br/>s = √s²"]:::l3
+    C --> C3["Càng lớn càng phân<br/>tán"]:::l3
 
-    D --> D1["★ Ngoài [Q₁ − 1,5ΔQ; Q₃ + 1,5ΔQ]"]:::l4
+    D --> D1["★ Ngoài [Q₁ −<br/>1,5ΔQ; Q₃ + 1,5ΔQ]"]:::l4
     D --> D2["Biểu đồ hộp"]:::l4
-    D --> D3["Kiểm tra lại nguồn số liệu"]:::l4
+    D --> D3["Kiểm tra lại nguồn<br/>số liệu"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -959,30 +959,30 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>ÔN TẬP<br/>CUỐI KÌ I"]:::root
-    G --> A["① Chương I – II"]:::n1
-    G --> B["② Chương III – Tam giác"]:::n2
-    G --> C["③ Chương IV – Vectơ"]:::n3
-    G --> D["④ Chương V – Thống kê"]:::n4
+    G["🎯<BR/>ÔN TẬP<BR/>CUỐI KÌ I"]:::root
+    G --> A["① Chương I –<br/>II"]:::n1
+    G --> B["② Chương III –<br/>Tam giác"]:::n2
+    G --> C["③ Chương IV –<br/>Vectơ"]:::n3
+    G --> D["④ Chương V –<br/>Thống kê"]:::n4
 
     A --> A1["Mệnh đề, phủ định"]:::l1
-    A --> A2["★ Phép toán tập hợp"]:::l1
-    A --> A3["Miền nghiệm BPT, hệ BPT"]:::l1
-    A --> A4["★ Max – min F = ax + by"]:::l1
+    A --> A2["★ Phép toán tập<br/>hợp"]:::l1
+    A --> A3["Miền nghiệm BPT, hệ<br/>BPT"]:::l1
+    A --> A4["★ Max – min<br/>F = ax +<br/>by"]:::l1
 
-    B --> B1["★ GTLG góc 0° – 180°"]:::l2
-    B --> B2["★ Định lí côsin, sin"]:::l2
-    B --> B3["Diện tích, R, đường cao"]:::l2
+    B --> B1["★ GTLG góc 0°<br/>– 180°"]:::l2
+    B --> B2["★ Định lí côsin,<br/>sin"]:::l2
+    B --> B3["Diện tích, R, đường<br/>cao"]:::l2
     B --> B4["Đo đạc thực tế"]:::l2
 
-    C --> C1["Quy tắc ba điểm, HBH, hiệu"]:::l3
-    C --> C2["★ Toạ độ vectơ, trung điểm, trọng tâm"]:::l3
-    C --> C3["★ Tích vô hướng, vuông góc"]:::l3
+    C --> C1["Quy tắc ba điểm,<br/>HBH, hiệu"]:::l3
+    C --> C2["★ Toạ độ vectơ,<br/>trung điểm, trọng tâm"]:::l3
+    C --> C3["★ Tích vô hướng,<br/>vuông góc"]:::l3
     C --> C4["Góc giữa hai vectơ"]:::l3
 
-    D --> D1["Số gần đúng, quy tròn"]:::l4
-    D --> D2["★ Trung bình, trung vị, tứ phân vị, mốt"]:::l4
-    D --> D3["★ R, ΔQ, s², s"]:::l4
+    D --> D1["Số gần đúng, quy<br/>tròn"]:::l4
+    D --> D2["★ Trung bình, trung<br/>vị, tứ phân vị,<br/>mốt"]:::l4
+    D --> D3["★ R, ΔQ, s²,<br/>s"]:::l4
     D --> D4["Giá trị bất thường"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
@@ -1007,27 +1007,27 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>HĐTN<br/>Kiến thức<br/>tài chính"]:::root
+    G["🎯<BR/>HĐTN<BR/>KIẾN<BR/>THỨC<BR/>TÀI<BR/>CHÍNH"]:::root
     G --> A["① Tiết kiệm"]:::n1
-    G --> B["② Đầu tư cổ phiếu"]:::n2
-    G --> C["③ Thuế thu nhập cá nhân"]:::n3
-    G --> D["④ Quản lí tài chính cá nhân"]:::n4
+    G --> B["② Đầu tư cổ<br/>phiếu"]:::n2
+    G --> C["③ Thuế thu nhập<br/>cá nhân"]:::n3
+    G --> D["④ Quản lí tài<br/>chính cá nhân"]:::n4
 
-    A --> A1["★ Lãi kép: T = A(1 + r%)ⁿ"]:::l1
-    A --> A2["Kì hạn tháng: r/12 mỗi tháng"]:::l1
-    A --> A3["Lưu giữ giá trị, an toàn"]:::l1
+    A --> A1["★ Lãi kép: T<br/>= A(1 + r%)ⁿ"]:::l1
+    A --> A2["Kì hạn tháng: r/12<br/>mỗi tháng"]:::l1
+    A --> A3["Lưu giữ giá trị,<br/>an toàn"]:::l1
 
-    B --> B1["Đọc biểu đồ giá cổ phiếu"]:::l2
-    B --> B2["★ Tiền thu = số cổ phiếu × giá"]:::l2
-    B --> B3["Có thể lãi hoặc lỗ – rủi ro"]:::l2
+    B --> B1["Đọc biểu đồ giá<br/>cổ phiếu"]:::l2
+    B --> B2["★ Tiền thu =<br/>số cổ phiếu ×<br/>giá"]:::l2
+    B --> B3["Có thể lãi hoặc<br/>lỗ – rủi ro"]:::l2
 
-    C --> C1["★ TN tính thuế = TN chịu thuế − giảm trừ"]:::l3
-    C --> C2["★ Biểu thuế luỹ tiến 7 bậc"]:::l3
-    C --> C3["Hàm bậc nhất theo từng khoảng"]:::l3
+    C --> C1["★ TN tính thuế<br/>= TN chịu thuế<br/>− giảm trừ"]:::l3
+    C --> C2["★ Biểu thuế luỹ<br/>tiến 7 bậc"]:::l3
+    C --> C3["Hàm bậc nhất theo<br/>từng khoảng"]:::l3
 
-    D --> D1["So sánh tiết kiệm – đầu tư"]:::l4
-    D --> D2["Kế hoạch chi tiêu gia đình"]:::l4
-    D --> D3["Bán nông sản, gửi tiết kiệm"]:::l4
+    D --> D1["So sánh tiết kiệm<br/>– đầu tư"]:::l4
+    D --> D2["Kế hoạch chi tiêu<br/>gia đình"]:::l4
+    D --> D3["Bán nông sản, gửi<br/>tiết kiệm"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
@@ -1051,27 +1051,27 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<br/>HĐTN<br/>Mạng xã hội:<br/>lợi và hại"]:::root
-    G --> A["① Thu thập dữ liệu"]:::n1
-    G --> B["② Xử lí số liệu"]:::n2
-    G --> C["③ Công nghệ thông tin"]:::n3
-    G --> D["④ Kết luận, hành động"]:::n4
+    G["🎯<BR/>HĐTN<BR/>MẠNG<BR/>XÃ<BR/>HỘI:<BR/>LỢI<BR/>VÀ<BR/>HẠI"]:::root
+    G --> A["① Thu thập dữ<br/>liệu"]:::n1
+    G --> B["② Xử lí số<br/>liệu"]:::n2
+    G --> C["③ Công nghệ thông<br/>tin"]:::n3
+    G --> D["④ Kết luận, hành<br/>động"]:::n4
 
-    A --> A1["Phiếu khảo sát 4 câu hỏi"]:::l1
-    A --> A2["★ Ít nhất 30 phiếu"]:::l1
-    A --> A3["Google Forms – trung thực"]:::l1
+    A --> A1["Phiếu khảo sát 4<br/>câu hỏi"]:::l1
+    A --> A2["★ Ít nhất 30<br/>phiếu"]:::l1
+    A --> A3["Google Forms – trung<br/>thực"]:::l1
 
-    B --> B1["★ Bảng tần số lợi ích/bất lợi"]:::l2
-    B --> B2["Số trung bình, trung vị, Q1, Q3, mốt"]:::l2
-    B --> B3["★ R, ΔQ, độ lệch chuẩn"]:::l2
+    B --> B1["★ Bảng tần số<br/>lợi ích/bất lợi"]:::l2
+    B --> B2["Số trung bình, trung<br/>vị, Q1, Q3, mốt"]:::l2
+    B --> B3["★ R, ΔQ, độ<br/>lệch chuẩn"]:::l2
 
-    C --> C1["Máy tính cầm tay: MODE 3 1"]:::l3
+    C --> C1["Máy tính cầm tay:<br/>MODE 3 1"]:::l3
     C --> C2["★ AVERAGE, MEDIAN, QUARTILE"]:::l3
     C --> C3["STDEVP, VARP; Data Analysis"]:::l3
 
-    D --> D1["So sánh nam – nữ"]:::l4
+    D --> D1["So sánh nam –<br/>nữ"]:::l4
     D --> D2["Giá trị bất thường"]:::l4
-    D --> D3["Dùng mạng xã hội an toàn"]:::l4
+    D --> D3["Dùng mạng xã hội<br/>an toàn"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
