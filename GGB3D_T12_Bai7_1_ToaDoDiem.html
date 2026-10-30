@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 1 – Toạ độ của điểm</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 1 – Toạ độ của điểm</h1><div>Bài 7. Hệ trục toạ độ trong không gian – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB3D_T12_Bai7_1_ToaDoDiem.html" class=on>Toạ độ của điểm</a><a href="GGB3D_T12_Bai7_2_ToaDoVecto.html">Toạ độ vectơ theo hai đầu mút</a></nav>
+<p class="hd">Kéo thanh trượt x, y, z để di chuyển M(x; y; z). Hình hộp OADB.CFME nhận OM làm đường chéo; A, B, C là hình chiếu của M trên các trục; D, F, E là hình chiếu trên các mặt phẳng toạ độ.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["x=Slider(-4,4,1)", "y=Slider(-4,4,1)", "z=Slider(-4,4,1)", "SetValue(x,3)", "SetValue(y,4)", "SetValue(z,3)", "M=(x,y,z)", "SetColor(M,\"#DC2626\")", "O=(0,0,0)", "A=(x,0,0)", "B=(0,y,0)", "C=(0,0,z)", "D=(x,y,0)", "F=(x,0,z)", "E=(0,y,z)", "e0=Segment(O,A)", "SetLineStyle(e0,1)", "SetColor(e0,\"#64748B\")", "ShowLabel(e0,false)", "e1=Segment(O,B)", "SetLineStyle(e1,1)", "SetColor(e1,\"#64748B\")", "ShowLabel(e1,false)", "e2=Segment(O,C)", "SetLineStyle(e2,1)", "SetColor(e2,\"#64748B\")", "ShowLabel(e2,false)", "e3=Segment(A,D)", "SetLineStyle(e3,1)", "SetColor(e3,\"#64748B\")", "ShowLabel(e3,false)", "e4=Segment(B,D)", "SetLineStyle(e4,1)", "SetColor(e4,\"#64748B\")", "ShowLabel(e4,false)", "e5=Segment(A,F)", "SetLineStyle(e5,1)", "SetColor(e5,\"#64748B\")", "ShowLabel(e5,false)", "e6=Segment(C,F)", "SetLineStyle(e6,1)", "SetColor(e6,\"#64748B\")", "ShowLabel(e6,false)", "e7=Segment(B,E)", "SetLineStyle(e7,1)", "SetColor(e7,\"#64748B\")", "ShowLabel(e7,false)", "e8=Segment(C,E)", "SetLineStyle(e8,1)", "SetColor(e8,\"#64748B\")", "ShowLabel(e8,false)", "e9=Segment(D,M)", "SetLineStyle(e9,1)", "SetColor(e9,\"#64748B\")", "ShowLabel(e9,false)", "e10=Segment(F,M)", "SetLineStyle(e10,1)", "SetColor(e10,\"#64748B\")", "ShowLabel(e10,false)", "e11=Segment(E,M)", "SetLineStyle(e11,1)", "SetColor(e11,\"#64748B\")", "ShowLabel(e11,false)", "om=Vector(O,M)", "SetColor(om,\"#2563EB\")", "SetLineThickness(om,7)", "ShowLabel(om,false)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>

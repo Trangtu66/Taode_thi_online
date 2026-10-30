@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 2 – Di chuyển chiếc đèn (Bài 2.42)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 2 – Di chuyển chiếc đèn (Bài 2.42)</h1><div>Bài tập cuối chương II – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB3D_T12_BTCC2_1_ChiecDen.html" class=on>Di chuyển chiếc đèn (Bài 2.42)</a></nav>
+<p class="hd">Gốc O tại góc trần; Ox, Oy theo giao tuyến của trần với hai bức tường; Oz hướng xuống (m). D1(1,2; 1,6; 0,5) là vị trí cũ, D2(1,5; 1,5; 0,4) là vị trí mới; D1D2 ≈ 0,33 m.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["O=(0,0,0)", "D1=(1.2,1.6,0.5)", "D2=(1.5,1.5,0.4)", "SetColor(D1,\"#2563EB\")", "SetColor(D2,\"#DC2626\")", "t1=(1.2,1.6,0)", "t2=(1.5,1.5,0)", "d1=Segment(t1,D1)", "SetLineStyle(d1,1)", "SetColor(d1,\"#64748B\")", "ShowLabel(d1,false)", "d2=Segment(t2,D2)", "SetLineStyle(d2,1)", "SetColor(d2,\"#64748B\")", "ShowLabel(d2,false)", "k=Segment(D1,D2)", "SetColor(k,\"#EA580C\")", "SetLineThickness(k,6)", "khoangCach=Distance(D1,D2)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
