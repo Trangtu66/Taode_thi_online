@@ -14,11 +14,38 @@ p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margi
 <nav><a href="GGB3D_T12_Bai8_1_MayBay.html" class=on>Máy bay bay thẳng đều</a><a href="GGB3D_T12_Bai8_2_KhinhKhiCau.html">Hai khinh khí cầu</a></nav>
 <p class="hd">Máy bay tự bay từ A(800; 500; 7) qua B(940; 550; 8) (10 phút), giữ nguyên vận tốc và hướng. Vị trí sau t phút: M = A + (t/10)·AB. Bấm ⏸ ở thanh trượt t để dừng, kéo t để xem: t = 15 → C(1 010; 575; 8,5) (Ví dụ 5); t = 20 → D(1 080; 600; 9) (Luyện tập 5). Xoay hình bằng chuột/ngón tay để nhìn máy bay từ nhiều phía.</p><div id="loi"></div><div id="ggb"></div>
 <script>
-const CMDS = ["A=(800,500,7)", "B=(940,550,8)", "C=A+1.5*(B-A)", "D=A+2*(B-A)", "SetCaption(A,\"A (t = 0)\")", "SetCaption(B,\"B (t = 10 phút)\")", "SetCaption(C,\"C (t = 15 phút)\")", "SetCaption(D,\"D (t = 20 phút)\")", "SetLabelMode(A,3)", "SetLabelMode(B,3)", "SetLabelMode(C,3)", "SetLabelMode(D,3)", "SetColor(A,\"#1E40AF\")", "SetColor(B,\"#1E40AF\")", "SetColor(C,\"#16A34A\")", "SetColor(D,\"#16A34A\")", "d=Line(A,B)", "SetLineStyle(d,1)", "SetColor(d,\"#94A3B8\")", "ShowLabel(d,false)", "t=Slider(0,30,0.25)", "SetValue(t,0)", "SetAnimationSpeed(t,0.6)", "SetLabelMode(t,1)", "M=A+t/10*(B-A)", "SetPointSize(M,2)", "ShowLabel(M,false)", "vet=Segment(A,M)", "SetColor(vet,\"#F97316\")", "SetLineThickness(vet,8)", "ShowLabel(vet,false)", "u=UnitVector(B-A)", "w=UnitVector(Vector((-y(u),x(u),0)))", "h=Vector((0,0,1))", "SetVisibleInView(u,-1,false)", "SetVisibleInView(w,-1,false)", "SetVisibleInView(h,-1,false)", "than=Cylinder(M-12*u,M+7*u,2.2)", "SetColor(than,\"#E2E8F0\")", "mui=Cone(M+7*u,M+13*u,2.2)", "SetColor(mui,\"#DC2626\")", "canhT=Polygon(M+4*u,M-5*u+17*w,M-9*u+17*w,M-3*u)", "canhP=Polygon(M+4*u,M-5*u-17*w,M-9*u-17*w,M-3*u)", "SetColor(canhT,\"#2563EB\")", "SetColor(canhP,\"#2563EB\")", "duoiN=Polygon(M-9*u+6*w,M-12*u+6*w,M-12*u-6*w,M-9*u-6*w)", "SetColor(duoiN,\"#2563EB\")", "duoiD=Polygon(M-8*u,M-12*u,M-13*u+7*h)", "SetColor(duoiD,\"#DC2626\")", "ShowLabel(than,false)", "ShowLabel(mui,false)", "ShowLabel(canhT,false)", "ShowLabel(canhP,false)", "ShowLabel(duoiN,false)", "ShowLabel(duoiD,false)", "viTriMayBay=M", "quangDuong=Distance(A,M)", "ZoomIn(760,440,-40,1120,660,60)", "StartAnimation(t,true)"];
+// Lệnh dựng hình (định nghĩa đối tượng + định dạng). k = hệ số phóng to mô hình máy bay cho dễ nhìn.
+const CMDS = ["A=(800,500,7)", "B=(940,550,8)", "C=A+1.5*(B-A)", "D=A+2*(B-A)",
+  "SetCaption(A,\"A (t = 0)\")", "SetCaption(B,\"B (t = 10 phút)\")", "SetCaption(C,\"C (t = 15 phút)\")", "SetCaption(D,\"D (t = 20 phút)\")",
+  "SetLabelMode(A,3)", "SetLabelMode(B,3)", "SetLabelMode(C,3)", "SetLabelMode(D,3)",
+  "SetColor(A,\"#1E40AF\")", "SetColor(B,\"#1E40AF\")", "SetColor(C,\"#16A34A\")", "SetColor(D,\"#16A34A\")",
+  "d=Line(A,B)", "SetLineStyle(d,1)", "SetColor(d,\"#94A3B8\")", "ShowLabel(d,false)",
+  "t=Slider(0,30,0.25)", "SetValue(t,0)", "SetLabelMode(t,1)",
+  "M=A+t/10*(B-A)", "SetCaption(M,\"Máy bay\")", "SetPointSize(M,2)", "ShowLabel(M,false)",
+  "vet=Segment(A,M)", "SetColor(vet,\"#F97316\")", "SetLineThickness(vet,8)", "ShowLabel(vet,false)",
+  "quangDuong=Distance(A,M)",
+  "k=2.2", "u=UnitVector(B-A)", "w=UnitVector(Vector((-y(u),x(u),0)))", "h=Vector((0,0,1))",
+  "than=Cylinder(M-12*k*u,M+7*k*u,2.2*k)", "SetColor(than,\"#E2E8F0\")",
+  "mui=Cone(M+7*k*u,M+13*k*u,2.2*k)", "SetColor(mui,\"#DC2626\")",
+  "canhT=Polygon(M+4*k*u,M-5*k*u+17*k*w,M-9*k*u+17*k*w,M-3*k*u)",
+  "canhP=Polygon(M+4*k*u,M-5*k*u-17*k*w,M-9*k*u-17*k*w,M-3*k*u)",
+  "SetColor(canhT,\"#2563EB\")", "SetColor(canhP,\"#2563EB\")",
+  "duoiN=Polygon(M-9*k*u+6*k*w,M-12*k*u+6*k*w,M-12*k*u-6*k*w,M-9*k*u-6*k*w)", "SetColor(duoiN,\"#2563EB\")",
+  "duoiD=Polygon(M-8*k*u,M-12*k*u,M-13*k*u+7*k*h)", "SetColor(duoiD,\"#DC2626\")",
+  "ZoomIn(780,450,0,1120,660,20)", "SetViewDirection((-1,-3,1.2))"];
+// Chỉ các đối tượng này hiện trong danh sách đại số; phần dựng máy bay (thân, cánh, các cạnh tự sinh…) ẩn đi.
+const HIEN = ["A","B","C","D","t","M","quangDuong"];
 const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
 const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
-  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
-  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT", errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    api.getAllObjectNames().forEach(n=>{ if(!HIEN.includes(n)){ api.setAuxiliary(n,true); api.setLabelVisible(n,false); } });
+    ["k","u","w","h"].forEach(n=>api.setVisible(n,false));
+    ["A","B","C","D"].forEach(n=>api.setLabelVisible(n,true));
+    ["canhT","canhP","duoiN","duoiD"].forEach(n=>api.setFilling(n,0.85)); ["than","mui"].forEach(n=>api.setFilling(n,0.95));
+    api.setAnimationSpeed("t",0.6); api.setAnimating("t",true); api.startAnimation();
     if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
 window.addEventListener("load", ()=>app.inject("ggb"));
 </script></body></html>

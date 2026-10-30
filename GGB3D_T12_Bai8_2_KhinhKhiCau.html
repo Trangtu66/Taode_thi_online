@@ -4,7 +4,7 @@
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <style>
 body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
-header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
 nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
 nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
 nav a.on{background:#1E40AF;color:#fff}
@@ -14,11 +14,32 @@ p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margi
 <nav><a href="GGB3D_T12_Bai8_1_MayBay.html">Máy bay bay thẳng đều</a><a href="GGB3D_T12_Bai8_2_KhinhKhiCau.html" class=on>Hai khinh khí cầu</a></nav>
 <p class="hd">O là điểm xuất phát; Ox hướng nam, Oy hướng đông, Oz lên trời (km). Kéo thanh trượt độ cao h1, h2. Ban đầu K1(2; 1; 0,5), K2(−1; −1,5; 0,8): K1K2 ≈ 3,92 km.</p><div id="loi"></div><div id="ggb"></div>
 <script>
-const CMDS = ["h1=Slider(0,3,0.1)", "h2=Slider(0,3,0.1)", "SetValue(h1,0.5)", "SetValue(h2,0.8)", "O=(0,0,0)", "K1=(2,1,h1)", "K2=(-1,-1.5,h2)", "SetColor(K1,\"#DC2626\")", "SetColor(K2,\"#2563EB\")", "k=Segment(K1,K2)", "SetColor(k,\"#EA580C\")", "SetLineThickness(k,6)", "s1=Segment(O,K1)", "SetLineStyle(s1,1)", "SetColor(s1,\"#64748B\")", "ShowLabel(s1,false)", "s2=Segment(O,K2)", "SetLineStyle(s2,1)", "SetColor(s2,\"#64748B\")", "ShowLabel(s2,false)", "K1K2=Distance(K1,K2)", "OK1=Distance(O,K1)", "OK2=Distance(O,K2)"];
+const CMDS = ["h1=Slider(0,3,0.1)", "h2=Slider(0,3,0.1)", "SetValue(h1,0.5)", "SetValue(h2,0.8)",
+  "O=(0,0,0)", "K1=(2,1,h1)", "K2=(-1,-1.5,h2)", "SetColor(K1,\"#DC2626\")", "SetColor(K2,\"#2563EB\")",
+  "k=Segment(K1,K2)", "SetColor(k,\"#EA580C\")", "SetLineThickness(k,6)",
+  "s1=Segment(O,K1)", "SetLineStyle(s1,1)", "SetColor(s1,\"#64748B\")",
+  "s2=Segment(O,K2)", "SetLineStyle(s2,1)", "SetColor(s2,\"#64748B\")",
+  // Đường dóng xuống mặt đất để thấy độ cao
+  "g1=Segment(K1,(x(K1),y(K1),0))", "SetLineStyle(g1,2)", "SetColor(g1,\"#DC2626\")",
+  "g2=Segment(K2,(x(K2),y(K2),0))", "SetLineStyle(g2,2)", "SetColor(g2,\"#2563EB\")",
+  // Mô hình khinh khí cầu: quả cầu + giỏ treo ngay trên điểm K
+  "cau1=Sphere(K1+(0,0,0.42),0.3)", "SetColor(cau1,\"#F87171\")", "day1=Segment(K1,K1+(0,0,0.15))", "SetColor(day1,\"#7C2D12\")",
+  "cau2=Sphere(K2+(0,0,0.42),0.3)", "SetColor(cau2,\"#60A5FA\")", "day2=Segment(K2,K2+(0,0,0.15))", "SetColor(day2,\"#7C2D12\")",
+  "K1K2=Distance(K1,K2)", "OK1=Distance(O,K1)", "OK2=Distance(O,K2)",
+  // Hướng: Ox → nam, Oy → đông, Oz → lên trời
+  "tN=Text(\"Nam\",(4.3,0,0),true)", "tB=Text(\"Bắc\",(-3.6,0,0),true)", "tD=Text(\"Đông\",(0,3.6,0),true)", "tT=Text(\"Tây\",(0,-3.6,0),true)",
+  "tK=Text(\"K1K2 ≈ \"+K1K2+\" km\",Midpoint(K1,K2)+(0,0,0.3),true)", "SetColor(tK,\"#EA580C\")",
+  "ZoomIn(-4,-4,-0.5,5,4,3.5)", "SetViewDirection((-0.6,-1.6,0.8))"];
+const HIEN = ["h1","h2","K1","K2","K1K2","OK1","OK2"];
 const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
 const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
-  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
-  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT", errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    api.getAllObjectNames().forEach(n=>{ if(!HIEN.includes(n)) api.setAuxiliary(n,true); });
+    ["k","s1","s2","g1","g2","day1","day2","cau1","cau2"].forEach(n=>api.setLabelVisible(n,false));
+    ["cau1","cau2"].forEach(n=>api.setFilling(n,0.9));
     if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
 window.addEventListener("load", ()=>app.inject("ggb"));
 </script></body></html>
