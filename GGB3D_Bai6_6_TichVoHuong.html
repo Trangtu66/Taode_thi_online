@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 5 – Tích vô hướng (Luyện tập 11, Vận dụng 4)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 5 – Tích vô hướng (Luyện tập 11, Vận dụng 4)</h1><div>Bài 6. Vectơ trong không gian – Toán 12 (Kết nối tri thức) · GeoGebra 3D</div></header>
+<nav><a href="GGB3D_Bai6_1_VectoBangNhau.html">Hai vectơ bằng nhau trong hình hộp</a><a href="GGB3D_Bai6_2_QuyTacHinhHop.html">Quy tắc hình hộp</a><a href="GGB3D_Bai6_3_TichSoVoiVecto.html">Tích của một số với một vectơ</a><a href="GGB3D_Bai6_4_TrongTamTuDien.html">Trọng tâm tứ diện</a><a href="GGB3D_Bai6_5_GocGiuaHaiVecto.html">Góc giữa hai vectơ trong không gian</a><a href="GGB3D_Bai6_6_TichVoHuong.html" class=on>Tích vô hướng (Luyện tập 11, Vận dụng 4)</a></nav>
+<p class="hd">Hình lập phương cạnh 2: A&#x27;C (đỏ) và B&#x27;D&#x27; (xanh) vuông góc, tích vô hướng &#x27;tvh&#x27; = 0. Bên cạnh: lực F hợp với MN góc α – kéo thanh trượt α, công A = F·MN lớn nhất khi α = 0°.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(0,0,0)", "B=(2,0,0)", "C=(2,2,0)", "D=(0,2,0)", "A'=(0,0,2)", "B'=(2,0,2)", "C'=(2,2,2)", "D'=(0,2,2)", "e0=Segment(A,B)", "SetColor(e0,\"#475569\")", "SetLineThickness(e0,3)", "ShowLabel(e0,false)", "e1=Segment(B,C)", "SetColor(e1,\"#475569\")", "SetLineThickness(e1,3)", "ShowLabel(e1,false)", "e2=Segment(C,D)", "SetColor(e2,\"#475569\")", "SetLineThickness(e2,3)", "ShowLabel(e2,false)", "e3=Segment(D,A)", "SetColor(e3,\"#475569\")", "SetLineThickness(e3,3)", "ShowLabel(e3,false)", "e4=Segment(A',B')", "SetColor(e4,\"#475569\")", "SetLineThickness(e4,3)", "ShowLabel(e4,false)", "e5=Segment(B',C')", "SetColor(e5,\"#475569\")", "SetLineThickness(e5,3)", "ShowLabel(e5,false)", "e6=Segment(C',D')", "SetColor(e6,\"#475569\")", "SetLineThickness(e6,3)", "ShowLabel(e6,false)", "e7=Segment(D',A')", "SetColor(e7,\"#475569\")", "SetLineThickness(e7,3)", "ShowLabel(e7,false)", "e8=Segment(A,A')", "SetColor(e8,\"#475569\")", "SetLineThickness(e8,3)", "ShowLabel(e8,false)", "e9=Segment(B,B')", "SetColor(e9,\"#475569\")", "SetLineThickness(e9,3)", "ShowLabel(e9,false)", "e10=Segment(C,C')", "SetColor(e10,\"#475569\")", "SetLineThickness(e10,3)", "ShowLabel(e10,false)", "e11=Segment(D,D')", "SetColor(e11,\"#475569\")", "SetLineThickness(e11,3)", "ShowLabel(e11,false)", "u=Vector(A',C)", "SetColor(u,\"#DC2626\")", "SetLineThickness(u,9)", "ShowLabel(u,false)", "v=Vector(B',D')", "SetColor(v,\"#2563EB\")", "SetLineThickness(v,9)", "ShowLabel(v,false)", "tvh=u*v", "α=Slider(0°,180°,1°)", "SetValue(α,30°)", "M=(4,0,0)", "N=(9,0,0)", "mn=Vector(M,N)", "SetColor(mn,\"#2563EB\")", "SetLineThickness(mn,8)", "F=M+3*(cos(α),0,sin(α))", "SetVisibleInView(F,-1,false)", "f=Vector(M,F)", "SetColor(f,\"#DC2626\")", "SetLineThickness(f,8)", "congA=f*mn", "ShowAxes(3,false)", "ShowGrid(3,false)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>

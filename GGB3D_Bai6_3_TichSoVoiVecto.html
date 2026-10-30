@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 3 – Tích của một số với một vectơ</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 3 – Tích của một số với một vectơ</h1><div>Bài 6. Vectơ trong không gian – Toán 12 (Kết nối tri thức) · GeoGebra 3D</div></header>
+<nav><a href="GGB3D_Bai6_1_VectoBangNhau.html">Hai vectơ bằng nhau trong hình hộp</a><a href="GGB3D_Bai6_2_QuyTacHinhHop.html">Quy tắc hình hộp</a><a href="GGB3D_Bai6_3_TichSoVoiVecto.html" class=on>Tích của một số với một vectơ</a><a href="GGB3D_Bai6_4_TrongTamTuDien.html">Trọng tâm tứ diện</a><a href="GGB3D_Bai6_5_GocGiuaHaiVecto.html">Góc giữa hai vectơ trong không gian</a><a href="GGB3D_Bai6_6_TichVoHuong.html">Tích vô hướng (Luyện tập 11, Vận dụng 4)</a></nav>
+<p class="hd">Kéo thanh trượt k. Vectơ k·a (đỏ) cùng hướng a khi k &gt; 0, ngược hướng khi k &lt; 0, có độ dài |k|·|a|. Kéo điểm M để đổi vectơ a.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["k=Slider(-3,3,0.1)", "SetValue(k,2)", "O=(0,0,0)", "M=(1.5,1,1.2)", "a=Vector(O,M)", "SetColor(a,\"#2563EB\")", "SetLineThickness(a,9)", "Q=O+k*a", "SetVisibleInView(Q,-1,false)", "ka=Vector(O,Q)", "SetColor(ka,\"#DC2626\")", "SetLineThickness(ka,6)", "doDaiA=Length(a)", "doDaiKA=Length(ka)", "ShowAxes(3,true)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
