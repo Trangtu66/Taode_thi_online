@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 2 – Điểm khối tâm thanh đòn</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 2 – Điểm khối tâm thanh đòn</h1><div>Bài 9. Tích của một vectơ với một số – Toán 10 · GeoGebra</div></header>
+<nav><a href="GGB_T10_Bai9_1_TichVoiSo.html">Vectơ k·a</a><a href="GGB_T10_Bai9_2_KhoiTam.html" class=on>Điểm khối tâm thanh đòn</a></nav>
+<p class="hd">Kéo thanh trượt m1, m2 (khối lượng hai vật). M thoả m1·MA + m2·MB = 0 là vị trí đặt trụ đỡ – gần vật nặng hơn.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(0,0)", "B=(6,0)", "m1=Slider(1,10,1)", "m2=Slider(1,10,1)", "SetValue(m1,2)", "SetValue(m2,5)", "s=Segment(A,B)", "SetLineThickness(s,8)", "M=(m1*A+m2*B)/(m1+m2)", "SetColor(M,\"#DC2626\")", "c1=Circle(A,0.15*sqrt(m1))", "c2=Circle(B,0.15*sqrt(m2))", "AM=Distance(A,M)", "BM=Distance(B,M)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
