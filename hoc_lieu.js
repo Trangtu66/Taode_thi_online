@@ -4386,8 +4386,8 @@ window.HOC_LIEU = [
 "ten": "On Tap Giua Ki1 (tiết 23)",
 "file": "KHBD_TOAN10_OnTapGiuaKi1_T23.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapGiuaKi1_T23.docx",
-"kb": 332,
-"ngay": "2026-10-15"
+"kb": 344,
+"ngay": "2026-10-30"
 },
 {
 "mon": "toan",
@@ -4397,8 +4397,8 @@ window.HOC_LIEU = [
 "ten": "On Tap Giua Ki1 (tiết 23) Hoa Nhap",
 "file": "KHBD_TOAN10_OnTapGiuaKi1_T23_HoaNhap.docx",
 "url": "mon/toan/khbd/lop10/KHBD_TOAN10_OnTapGiuaKi1_T23_HoaNhap.docx",
-"kb": 336,
-"ngay": "2026-10-15"
+"kb": 348,
+"ngay": "2026-10-30"
 },
 {
 "mon": "toan",
@@ -4694,8 +4694,8 @@ window.HOC_LIEU = [
 "ten": "Sơ đồ tư duy TOAN10 On Tap Giua Ki1 (tiết 23)",
 "file": "SoDoTuDuy_TOAN10_OnTapGiuaKi1_T23.png",
 "url": "mon/toan/khbd/lop10/SoDoTuDuy_TOAN10_OnTapGiuaKi1_T23.png",
-"kb": 270,
-"ngay": "2026-10-15"
+"kb": 278,
+"ngay": "2026-10-30"
 },
 {
 "mon": "toan",

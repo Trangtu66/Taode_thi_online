@@ -1095,27 +1095,27 @@ graph TD
 ```mermaid
 %%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
 graph TD
-    G["🎯<BR/>ÔN TẬP<BR/>GIỮA KÌ I"]:::root
+    G["🎯<br/>ÔN TẬP<br/>GIỮA KÌ I"]:::root
     G --> A["① Mệnh đề"]:::n1
     G --> B["② Tập hợp"]:::n2
-    G --> C["③ BPT, hệ BPT<br/>bậc nhất hai ẩn"]:::n3
+    G --> C["③ BPT, hệ BPT bậc nhất hai ẩn"]:::n3
     G --> D["④ Hệ thức lượng"]:::n4
 
-    A --> A1["Mệnh đề, mệnh đề<br/>chứa biến"]:::l1
-    A --> A2["★ Phủ định; ∀,<br/>∃"]:::l1
-    A --> A3["Kéo theo, đảo, tương<br/>đương"]:::l1
+    A --> A1["Mệnh đề, mệnh đề chứa biến"]:::l1
+    A --> A2["★ Phủ định; ∀, ∃"]:::l1
+    A --> A3["★ Điều kiện cần, đủ; đảo, tương đương"]:::l1
 
-    B --> B1["Liệt kê, chỉ ra<br/>tính chất"]:::l2
-    B --> B2["★ Giao, hợp, hiệu,<br/>phần bù"]:::l2
-    B --> B3["★ Khoảng, đoạn trên<br/>trục số"]:::l2
+    B --> B1["Liệt kê; số tập con 2ⁿ"]:::l2
+    B --> B2["★ Giao, hợp, hiệu, phần bù"]:::l2
+    B --> B3["★ Đầu mút khoảng, đoạn; Ven"]:::l2
 
-    C --> C1["Biểu diễn miền nghiệm"]:::l3
-    C --> C2["★ Max – min<br/>F = ax +<br/>by tại đỉnh"]:::l3
-    C --> C3["Bài toán kinh tế,<br/>nông nghiệp"]:::l3
+    C --> C1["Biểu diễn miền nghiệm (bờ)"]:::l3
+    C --> C2["★ Max – min F = ax + by tại đỉnh"]:::l3
+    C --> C3["Bài toán trồng trọt, tiệm bánh"]:::l3
 
-    D --> D1["★ GTLG góc 0°<br/>– 180°"]:::l4
-    D --> D2["★ Định lí côsin,<br/>sin"]:::l4
-    D --> D3["Diện tích, R; đo<br/>đạc thực tế"]:::l4
+    D --> D1["★ GTLG góc 0° – 180°, góc bù"]:::l4
+    D --> D2["★ Định lí côsin, sin"]:::l4
+    D --> D3["Diện tích, R; đo khoảng cách"]:::l4
 
     classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
     classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
