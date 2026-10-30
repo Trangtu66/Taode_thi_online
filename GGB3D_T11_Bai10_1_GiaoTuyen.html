@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 2 – Giao tuyến của hai mặt phẳng (Ví dụ 3)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 2 – Giao tuyến của hai mặt phẳng (Ví dụ 3)</h1><div>Bài 10. Đường thẳng và mặt phẳng trong không gian – Toán 11 · GeoGebra</div></header>
+<nav><a href="GGB3D_T11_Bai10_1_GiaoTuyen.html" class=on>Giao tuyến của hai mặt phẳng (Ví dụ 3)</a><a href="GGB3D_T11_Bai10_2_GiaoDiem.html">Giao điểm của đường thẳng và mặt phẳng (Ví dụ 6, Luyện tập 6)</a></nav>
+<p class="hd">S nằm ngoài mặt phẳng (ABC); M, N là trung điểm AB, AC; G là trọng tâm tam giác ABC. Mặt phẳng (SBN) màu hồng, (SCM) màu xanh: hai điểm chung S và G nên giao tuyến là đường thẳng SG (đỏ). Kéo điểm S hoặc xoay hình để kiểm chứng.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(4,-1,0)", "B=(-1,-2,0)", "C=(0,3,0)", "S=(1.5,0.3,4)", "M=Midpoint(A,B)", "N=Midpoint(A,C)", "G=(A+B+C)/3", "SetColor(G,\"#DC2626\")", "SetColor(S,\"#DC2626\")", "p1=Polygon(S,B,N)", "SetColor(p1,\"#F472B6\")", "ShowLabel(p1,false)", "p2=Polygon(S,C,M)", "SetColor(p2,\"#22C55E\")", "ShowLabel(p2,false)", "day=Polygon(A,B,C)", "SetColor(day,\"#CBD5E1\")", "ShowLabel(day,false)", "giaoTuyen=Line(S,G)", "SetColor(giaoTuyen,\"#DC2626\")", "SetLineThickness(giaoTuyen,7)", "ShowLabel(giaoTuyen,false)", "sa=Segment(S,A)", "SetColor(sa,\"#1E293B\")", "ShowLabel(sa,false)", "sb=Segment(S,B)", "SetColor(sb,\"#1E293B\")", "ShowLabel(sb,false)", "sc=Segment(S,C)", "SetColor(sc,\"#1E293B\")", "ShowLabel(sc,false)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
