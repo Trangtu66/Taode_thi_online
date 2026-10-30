@@ -18,7 +18,10 @@ const CMDS = ["k=Slider(-3,3,0.5)", "SetValue(k,2)", "O=(0,0)", "A=(2,1)", "a=Ve
 const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
 const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
   showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
-  appletOnLoad:function(api){ const loi=[]; CMDS.forEach(c=>{ if(!api.evalCommand(c)) loi.push(c); });
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
     if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
 window.addEventListener("load", ()=>app.inject("ggb"));
 </script></body></html>
