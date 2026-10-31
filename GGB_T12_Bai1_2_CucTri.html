@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 4 – Điểm cực trị</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 4 – Điểm cực trị</h1><div>Bài 1. Tính đơn điệu và cực trị của hàm số – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB_T12_Bai1_1_DonDieu.html">Dấu của đạo hàm và tính đơn điệu</a><a href="GGB_T12_Bai1_2_CucTri.html" class=on>Điểm cực trị</a></nav>
+<p class="hd">Đồ thị y = x⁴ − 3x² + 1 (Luyện tập 5a). Các điểm cực đại (đỏ), cực tiểu (xanh) của đồ thị; tại đó tiếp tuyến nằm ngang và f&#x27;(x) đổi dấu.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["f(x)=x^4-3x^2+1", "SetColor(f,\"#F28C28\")", "SetLineThickness(f,6)", "CD=Max(f,-0.5,0.5)", "SetColor(CD,\"#DC2626\")", "CT1=Min(f,-2,-0.5)", "CT2=Min(f,0.5,2)", "SetColor(CT1,\"#1E40AF\")", "SetColor(CT2,\"#1E40AF\")", "g=Derivative(f)", "SetColor(g,\"#1E88C8\")", "SetLineStyle(g,1)", "ZoomIn(-3,-3,3,4)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
