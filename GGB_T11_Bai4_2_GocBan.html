@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 1 – Ví dụ 4: Góc bắn xa nhất</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 1 – Ví dụ 4: Góc bắn xa nhất</h1><div>Bài 4. Phương trình lượng giác cơ bản – Toán 11 · GeoGebra</div></header>
+<nav><a href="GGB_T11_Bai4_1_SinM.html">Nghiệm của phương trình sin x = m</a><a href="GGB_T11_Bai4_2_GocBan.html" class=on>Ví dụ 4: Góc bắn xa nhất</a></nav>
+<p class="hd">Kéo thanh trượt α (góc bắn). Quỹ đạo quả đạn y = −g/(2v₀²cos²α)·x² + x·tanα (v₀ = 20 m/s, g = 9,8 m/s²). Tầm xa L = v₀²sin2α/g lớn nhất khi α = 45°.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["α=Slider(5°,85°,1°)", "SetValue(α,30°)", "v0=20", "g=9.8", "q(x)=If(0<=x<=v0^2*sin(2α)/g,-g/(2v0^2 cos(α)^2)*x^2+x*tan(α))", "SetColor(q,\"#DC2626\")", "SetLineThickness(q,6)", "tamXa=v0^2*sin(2α)/g", "ZoomIn(-2,-2,45,22)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
