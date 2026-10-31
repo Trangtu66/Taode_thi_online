@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 1 – Góc và tích vô hướng</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 1 – Góc và tích vô hướng</h1><div>Bài 11. Tích vô hướng của hai vectơ – Toán 10 · GeoGebra</div></header>
+<nav><a href="GGB_T10_Bai11_1_GocTichVoHuong.html" class=on>Góc và tích vô hướng</a><a href="GGB_T10_Bai11_2_TrucTam.html">Trực tâm (Luyện tập 4)</a></nav>
+<p class="hd">Kéo A, B. Góc giữa u = OA và v = OB (độ) và tích vô hướng u·v = |u|·|v|·cos(u, v). Góc nhọn: u·v &gt; 0; góc vuông: u·v = 0; góc tù: u·v &lt; 0.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["O=(0,0)", "A=(4,1)", "B=(1,3)", "u=Vector(O,A)", "SetColor(u,\"#DC2626\")", "SetLineThickness(u,6)", "w=Vector(O,B)", "SetColor(w,\"#2563EB\")", "SetLineThickness(w,6)", "gocUV=acos(u*w/(Length(u)*Length(w)))*180/pi", "tichVoHuong=u*w", "doDaiU=Length(u)", "doDaiV=Length(w)", "ShowGrid(true)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
