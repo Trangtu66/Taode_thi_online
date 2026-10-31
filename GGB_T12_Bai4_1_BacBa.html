@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 2 – Đồ thị hàm số bậc ba</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 2 – Đồ thị hàm số bậc ba</h1><div>Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB_T12_Bai4_1_BacBa.html" class=on>Đồ thị hàm số bậc ba</a><a href="GGB_T12_Bai4_2_PhanThuc.html">Đồ thị hàm số phân thức</a></nav>
+<p class="hd">Kéo các thanh trượt a, b, c, d để thay đổi y = ax³ + bx² + cx + d. Quan sát số điểm cực trị và tâm đối xứng I (hoành độ x = −b/(3a), nơi y&#x27;&#x27; = 0).</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["a=Slider(-3,3,0.5)", "b=Slider(-5,5,0.5)", "c=Slider(-5,5,0.5)", "d=Slider(-5,5,0.5)", "SetValue(a,-1)", "SetValue(b,3)", "SetValue(c,0)", "SetValue(d,-4)", "f(x)=a*x^3+b*x^2+c*x+d", "SetColor(f,\"#F28C28\")", "SetLineThickness(f,6)", "I=(-b/(3a),f(-b/(3a)))", "SetColor(I,\"#DC2626\")", "ZoomIn(-4,-8,5,4)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
