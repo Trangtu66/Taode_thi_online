@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 1, 2 – Tiệm cận ngang, tiệm cận đứng</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 1, 2 – Tiệm cận ngang, tiệm cận đứng</h1><div>Bài 3. Đường tiệm cận của đồ thị hàm số – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB_T12_Bai3_1_NgangDung.html" class=on>Tiệm cận ngang, tiệm cận đứng</a><a href="GGB_T12_Bai3_2_Xien.html">Tiệm cận xiên</a></nav>
+<p class="hd">Đồ thị y = (2x + 1)/x với tiệm cận ngang y = 2 và tiệm cận đứng x = 0. Kéo thanh trượt a: khi a càng lớn, khoảng cách MH từ M(a; f(a)) đến đường y = 2 càng gần 0.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["f(x)=(2x+1)/x", "SetColor(f,\"#F28C28\")", "SetLineThickness(f,6)", "d1=Line((0,2),(1,2))", "SetColor(d1,\"#1E88C8\")", "a=Slider(0.2,20,0.1)", "SetValue(a,2)", "M=(a,f(a))", "H=(a,2)", "MH=Distance(M,H)", "s1=Segment(M,H)", "SetLineStyle(s1,1)", "ZoomIn(-6,-4,12,8)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
