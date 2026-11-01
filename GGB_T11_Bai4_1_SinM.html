@@ -21,7 +21,12 @@ const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", 
   errorDialogsActive:false,
   appletOnLoad:function(api){
     // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
-    const loi=[]; CMDS.forEach(c=>{ api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
-    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | "); } }, true);
+    const loi=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
+    // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
+    if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
+      const x0=p.xMin, y0=p.yMin, x1=x0+p.width*p.invXscale, y1=y0+p.height*p.invYscale;
+      const s=Math.max((x1-x0)/p.width,(y1-y0)/p.height), cx=(x0+x1)/2, cy=(y0+y1)/2;
+      api.evalCommand("ZoomIn("+(cx-s*p.width/2)+","+(cy-s*p.height/2)+","+(cx+s*p.width/2)+","+(cy+s*p.height/2)+")"); }, 300); } }, true);
 window.addEventListener("load", ()=>app.inject("ggb"));
 </script></body></html>
