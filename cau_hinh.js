@@ -313,6 +313,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 102 (Toán 12)", link: "kt12c3_102.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 103 (Toán 12)", link: "kt12c3_103.html" },
   { khoi: 12, nhom: "Toán 12 · Ôn tập chương", ten: "Chương III. Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm", ma: "Kiểm tra Chương III – Mã đề 104 (Toán 12)", link: "kt12c3_104.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 11. Nguyên hàm", ma: "Củng cố – Bài 11. Nguyên hàm (Toán 12)", link: "cc_bai11_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
