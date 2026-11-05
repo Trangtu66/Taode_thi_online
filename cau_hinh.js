@@ -185,6 +185,8 @@ window.DANH_SACH_BAI = [
   { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương V. Giới hạn. hàm số liên tục", ma: "Kiểm tra Chương V – Mã đề 103 (Toán 11)", link: "kt11c5_103.html" },
   { khoi: 11, nhom: "Toán 11 · Ôn tập chương", ten: "Chương V. Giới hạn. hàm số liên tục", ma: "Kiểm tra Chương V – Mã đề 104 (Toán 11)", link: "kt11c5_104.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Ôn tập cuối kì I. Bài 1 – Bài 17", ma: "Củng cố – Ôn tập cuối kì I. Bài 1 – Bài 17 (Toán 11)", link: "cc_ontapck1_t11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "HĐTN. Một vài áp dụng của toán học trong tài chính", ma: "Củng cố – HĐTN. Một vài áp dụng của toán học trong tài chính (Toán 11)", link: "cc_taichinh_t11.html" },
+  { khoi: 11, nhom: "Toán 11", ten: "HĐTN. Lực căng mặt ngoài của nước", ma: "Củng cố – HĐTN. Lực căng mặt ngoài của nước (Toán 11)", link: "cc_lucang_t11.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 1. Tính đơn điệu và cực trị của hàm số", ma: "Củng cố – Bài 1. Tính đơn điệu và cực trị của hàm số (Toán 12)", link: "cc_bai1_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số", ma: "Củng cố – Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số (Toán 12)", link: "cc_bai2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 3. Đường tiệm cận của đồ thị hàm số", ma: "Củng cố – Bài 3. Đường tiệm cận của đồ thị hàm số (Toán 12)", link: "cc_bai3_t12.html" },
