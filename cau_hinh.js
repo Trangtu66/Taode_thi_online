@@ -95,6 +95,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm", ma: "Kiểm tra Chương V – Mã đề 102 (Toán 10)", link: "kt10c5_102.html" },
   { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm", ma: "Kiểm tra Chương V – Mã đề 103 (Toán 10)", link: "kt10c5_103.html" },
   { khoi: 10, nhom: "Toán 10 · Ôn tập chương", ten: "Chương V. Các số đặc trưng của mẫu số liệu không ghép nhóm", ma: "Kiểm tra Chương V – Mã đề 104 (Toán 10)", link: "kt10c5_104.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Chuyên đề 2, Bài 3. Phương pháp quy nạp toán học", ma: "Củng cố – Chuyên đề 2, Bài 3. Phương pháp quy nạp toán học (Toán 10)", link: "cc_cd2bai3_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối chuyên đề 2 (phần phương pháp quy nạp toán học)", ma: "Củng cố – Bài tập cuối Chuyên đề 2. Phương pháp quy nạp toán học (Toán 10)", link: "cc_btcccd2_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
