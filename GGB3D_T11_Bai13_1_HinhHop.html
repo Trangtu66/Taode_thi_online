@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 3 – Hình hộp: (AB&#x27;D&#x27;) ∥ (C&#x27;BD) (Ví dụ 6)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 3 – Hình hộp: (AB&#x27;D&#x27;) ∥ (C&#x27;BD) (Ví dụ 6)</h1><div>Bài 13. Hai mặt phẳng song song – Toán 11 · GeoGebra</div></header>
+<nav><a href="GGB3D_T11_Bai13_1_HinhHop.html" class=on>Hình hộp: (AB&#x27;D&#x27;) ∥ (C&#x27;BD) (Ví dụ 6)</a><a href="GGB3D_T11_Bai13_2_ThietDien.html">Mặt phẳng song song với đáy (định lí Thalès)</a></nav>
+<p class="hd">Hình hộp ABCD.A&#x27;B&#x27;C&#x27;D&#x27; (A₁ ≡ A&#x27;, …). Mặt phẳng (AB&#x27;D&#x27;) (hồng) và (C&#x27;BD) (xanh) song song: B&#x27;D&#x27; ∥ BD, AB&#x27; ∥ DC&#x27;. Kéo A₁ để thay đổi hình hộp, xoay hình quan sát.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(0,0,0)", "B=(4,0,0)", "D=(0.5,3,0)", "C=B+D-A", "A1=(0.8,0.6,3)", "B1=B+A1-A", "C1=C+A1-A", "D1=D+A1-A", "e1=Segment(A,B)", "SetColor(e1,\"#1E293B\")", "ShowLabel(e1,false)", "e2=Segment(B,C)", "SetColor(e2,\"#1E293B\")", "ShowLabel(e2,false)", "e3=Segment(C,D)", "SetColor(e3,\"#1E293B\")", "ShowLabel(e3,false)", "SetLineStyle(e3,1)", "e4=Segment(D,A)", "SetColor(e4,\"#1E293B\")", "ShowLabel(e4,false)", "SetLineStyle(e4,1)", "e5=Segment(A1,B1)", "SetColor(e5,\"#1E293B\")", "ShowLabel(e5,false)", "e6=Segment(B1,C1)", "SetColor(e6,\"#1E293B\")", "ShowLabel(e6,false)", "e7=Segment(C1,D1)", "SetColor(e7,\"#1E293B\")", "ShowLabel(e7,false)", "e8=Segment(D1,A1)", "SetColor(e8,\"#1E293B\")", "ShowLabel(e8,false)", "e9=Segment(A,A1)", "SetColor(e9,\"#1E293B\")", "ShowLabel(e9,false)", "e10=Segment(B,B1)", "SetColor(e10,\"#1E293B\")", "ShowLabel(e10,false)", "e11=Segment(C,C1)", "SetColor(e11,\"#1E293B\")", "ShowLabel(e11,false)", "e12=Segment(D,D1)", "SetColor(e12,\"#1E293B\")", "ShowLabel(e12,false)", "SetLineStyle(e12,1)", "m1=Polygon(A,B1,D1)", "SetColor(m1,\"#F472B6\")", "ShowLabel(m1,false)", "m2=Polygon(C1,B,D)", "SetColor(m2,\"#22C55E\")", "ShowLabel(m2,false)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
+    // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
+    if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
+      const x0=p.xMin, y0=p.yMin, x1=x0+p.width*p.invXscale, y1=y0+p.height*p.invYscale;
+      const s=Math.max((x1-x0)/p.width,(y1-y0)/p.height), cx=(x0+x1)/2, cy=(y0+y1)/2;
+      api.evalCommand("ZoomIn("+(cx-s*p.width/2)+","+(cy-s*p.height/2)+","+(cx+s*p.width/2)+","+(cy+s*p.height/2)+")"); }, 300); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>

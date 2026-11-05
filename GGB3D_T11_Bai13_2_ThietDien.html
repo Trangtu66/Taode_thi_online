@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 1 – Mặt phẳng song song với đáy (định lí Thalès)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 1 – Mặt phẳng song song với đáy (định lí Thalès)</h1><div>Bài 13. Hai mặt phẳng song song – Toán 11 · GeoGebra</div></header>
+<nav><a href="GGB3D_T11_Bai13_1_HinhHop.html">Hình hộp: (AB&#x27;D&#x27;) ∥ (C&#x27;BD) (Ví dụ 6)</a><a href="GGB3D_T11_Bai13_2_ThietDien.html" class=on>Mặt phẳng song song với đáy (định lí Thalès)</a></nav>
+<p class="hd">Hình chóp S.ABC; mặt phẳng song song với (ABC) cắt SA, SB, SC tại A₁, B₁, C₁ (thanh trượt t = SA₁/SA). Tam giác A₁B₁C₁ đồng dạng với ABC: A₁B₁/AB = SA₁/SA = t.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(0,0,0)", "B=(5,0,0)", "C=(1.5,4,0)", "S=(2,1.5,5)", "t=Slider(0.1,0.9,0.05)", "SetValue(t,0.5)", "A1=S+t*(A-S)", "B1=S+t*(B-S)", "C1=S+t*(C-S)", "day=Polygon(A,B,C)", "SetColor(day,\"#CBD5E1\")", "ShowLabel(day,false)", "thietDien=Polygon(A1,B1,C1)", "SetColor(thietDien,\"#FDE68A\")", "ShowLabel(thietDien,false)", "sa=Segment(S,A)", "SetColor(sa,\"#1E293B\")", "ShowLabel(sa,false)", "sb=Segment(S,B)", "SetColor(sb,\"#1E293B\")", "ShowLabel(sb,false)", "sc=Segment(S,C)", "SetColor(sc,\"#1E293B\")", "ShowLabel(sc,false)", "tiSo=Distance(A1,B1)/Distance(A,B)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    const loi=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
+    // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
+    if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
+      const x0=p.xMin, y0=p.yMin, x1=x0+p.width*p.invXscale, y1=y0+p.height*p.invYscale;
+      const s=Math.max((x1-x0)/p.width,(y1-y0)/p.height), cx=(x0+x1)/2, cy=(y0+y1)/2;
+      api.evalCommand("ZoomIn("+(cx-s*p.width/2)+","+(cy-s*p.height/2)+","+(cx+s*p.width/2)+","+(cy+s*p.height/2)+")"); }, 300); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
