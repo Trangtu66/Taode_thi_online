@@ -21,7 +21,9 @@ const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showT
   errorDialogsActive:false,
   appletOnLoad:function(api){
     // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
-    const loi=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m && !api.exists(m[1])) loi.push(c); });
+    // Kiểm tra SAU khi chạy hết lệnh: bắt cả đối tượng bị xoá ngầm (vd. định nghĩa lại tên cạnh mà Polygon tự đặt).
+    const loi=[], ten=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m) ten.push([m[1],c]); });
+    ten.forEach(([n,c])=>{ if(!api.exists(n)) loi.push(c); });
     if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
     // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
     if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
