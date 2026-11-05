@@ -2,6 +2,8 @@
 
 Trang web: <https://trangtu66.github.io/Taode_thi_online/> · Cổng toàn trường: <https://trangtu66.github.io/Taode_thi_online/luyen_thi.html>
 
+**📽 Bài giảng điện tử Toán 10, 11, 12** (xem thử trên trình duyệt, tải file PowerPoint): <https://trangtu66.github.io/Taode_thi_online/bai_giang_dien_tu.html> · thư mục [`mon/toan/bai_giang_dien_tu/`](mon/toan/bai_giang_dien_tu/)
+
 Kho gồm hai phần: **trang web** (thư mục gốc) và **kho học liệu theo môn** (`mon/`).
 
 ## 1. Kho học liệu theo môn – `mon/<môn>/`
@@ -12,7 +14,9 @@ Môn nào cũng có đúng các ngăn như môn Toán:
 mon/
 ├── toan/                 Môn Toán (Tổ Toán)
 │   ├── khbd/             Kế hoạch bài dạy (Word)      lop10/ lop11/ lop12/
-│   ├── slide/            Bài giảng PowerPoint           lop10/ lop11/ lop12/
+│   ├── bai_giang_dien_tu/ Bài giảng điện tử (PowerPoint có hiệu ứng, video mở đầu, Rung chuông vàng)   lop10/ lop11/ lop12/
+│   ├── video/            Video mở đầu của bài học (720p)   lop10/ lop11/ lop12/
+│   ├── slide/            Slide cũ (trước 16/10/2026, không thêm mới)   lop10/ lop11/ lop12/
 │   ├── trac_nghiem/      Đề trực tuyến: nguồn JSON + đề Word có đáp án, lời giải   lop10/ lop11/ lop12/
 │   └── ma_tran/          Ma trận, bản đặc tả đề luyện tập / kiểm tra
 ├── ngu_van/              Môn Ngữ văn (bản demo)
@@ -3189,6 +3193,54 @@ graph TD
 ```
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_gangtay_t12.html>
+
+---
+
+### Toán 12 – Bài 11. Nguyên hàm *(Tiết 55–59)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 11<br/>Nguyên hàm"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Tính chất"]:::n2
+    G --> C["③ Bảng nguyên hàm"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["F'(x) = f(x) với mọi x ∈ K"]:::l1
+    A --> A2["★ ∫f(x)dx = F(x) + C"]:::l1
+    A --> A3["Họ các nguyên hàm"]:::l1
+    A --> A4["Đạo hàm ⇄ nguyên hàm"]:::l1
+
+    B --> B1["★ ∫kf(x)dx = k∫f(x)dx (k ≠ 0)"]:::l2
+    B --> B2["∫[f(x) ± g(x)]dx"]:::l2
+    B --> B3["= ∫f(x)dx ± ∫g(x)dx"]:::l2
+    B --> B4["Tìm C từ điều kiện"]:::l2
+
+    C --> C1["★ ∫xᵅdx = xᵅ⁺¹ : (α + 1) + C"]:::l3
+    C --> C2["∫(1/x)dx = ln|x| + C"]:::l3
+    C --> C3["∫cos x dx = sin x + C"]:::l3
+    C --> C4["∫aˣdx = aˣ : ln a + C"]:::l3
+
+    D --> D1["Quãng đường từ vận tốc"]:::l4
+    D --> D2["Doanh thu từ tốc độ biến động"]:::l4
+    D --> D3["Độ cao viên đạn"]:::l4
+    D --> D4["Lượng nước bơm, chiều cao cây"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai11_t12.html>
 
 ---
 
