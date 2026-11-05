@@ -16,7 +16,6 @@ mon/
 │   ├── khbd/             Kế hoạch bài dạy (Word)      lop10/ lop11/ lop12/
 │   ├── bai_giang_dien_tu/ Bài giảng điện tử (PowerPoint có hiệu ứng, video mở đầu, Rung chuông vàng)   lop10/ lop11/ lop12/
 │   ├── video/            Video mở đầu của bài học (720p)   lop10/ lop11/ lop12/
-│   ├── slide/            Slide cũ (trước 16/10/2026, không thêm mới)   lop10/ lop11/ lop12/
 │   ├── trac_nghiem/      Đề trực tuyến: nguồn JSON + đề Word có đáp án, lời giải   lop10/ lop11/ lop12/
 │   └── ma_tran/          Ma trận, bản đặc tả đề luyện tập / kiểm tra
 ├── ngu_van/              Môn Ngữ văn (bản demo)
