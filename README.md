@@ -2203,6 +2203,51 @@ graph TD
 
 ---
 
+### Toán 11 – Ôn tập kiểm tra cuối kì I *(Tiết 48–49)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>ÔN TẬP<br/>CUỐI KÌ I"]:::root
+    G --> A["① Chương I, II – Lượng giác, dãy số"]:::n1
+    G --> B["② Chương III – Thống kê"]:::n2
+    G --> C["③ Chương IV – Song song"]:::n3
+    G --> D["④ Chương V – Giới hạn"]:::n4
+
+    A --> A1["Giá trị, công thức LG"]:::l1
+    A --> A2["★ PTLG cơ bản"]:::l1
+    A --> A3["★ CSC, CSN: un, Sn"]:::l1
+    A --> A4["Dãy tăng, giảm"]:::l1
+
+    B --> B1["Mẫu ghép nhóm"]:::l2
+    B --> B2["Số trung bình, trung vị"]:::l2
+    B --> B3["Mốt, tứ phân vị"]:::l2
+
+    C --> C1["Giao tuyến, giao điểm"]:::l3
+    C --> C2["★ Đường thẳng song song"]:::l3
+    C --> C3["★ Đường thẳng ∥ mặt phẳng"]:::l3
+    C --> C4["Hai mặt phẳng song song"]:::l3
+
+    D --> D1["★ Giới hạn dãy số"]:::l4
+    D --> D2["Tổng CSN lùi vô hạn"]:::l4
+    D --> D3["★ Giới hạn hàm số"]:::l4
+    D --> D4["Hàm số liên tục"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapck1_t11.html>
+
 ### Toán 11 – Chuyên đề 1, Bài 5. Phép dời hình *(Tiết 9 (chuyên đề))*
 
 ```mermaid
