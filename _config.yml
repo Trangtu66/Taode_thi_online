@@ -1,0 +1,16 @@
+# Cấu hình GitHub Pages (06/11/2026).
+# Trang web giới hạn 1 GB: các ngăn giáo án Word (.docx) không đăng lên trang web,
+# vẫn lưu trong kho GitHub để tải tại github.com/trangtu66/Taode_thi_online.
+# Trang làm bài, bài giảng điện tử, video, GeoGebra… ở gốc kho và mon/*/ (trừ khbd) vẫn đăng bình thường.
+exclude:
+  - template_anonim
+  - mon/cong_nghe/khbd
+  - mon/dia_li/khbd
+  - mon/gdkt_pl/khbd
+  - mon/hoa_hoc/khbd
+  - mon/lich_su/khbd
+  - mon/ngu_van/khbd
+  - mon/sinh_hoc/khbd
+  - mon/tieng_anh/khbd
+  - mon/toan/khbd
+  - mon/vat_li/khbd
