@@ -2248,6 +2248,93 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapck1_t11.html>
 
+### Toán 11 – HĐTN. Một vài áp dụng của toán học trong tài chính *(Tiết 52–53)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>HĐTN<br/>Toán học<br/>trong tài chính"]:::root
+    G --> A["① Số tiền của niên kim"]:::n1
+    G --> B["② Giá trị hiện tại"]:::n2
+    G --> C["③ Mua trả góp"]:::n3
+    G --> D["④ Cơ sở toán học"]:::n4
+
+    A --> A1["Thanh toán đều đặn R"]:::l1
+    A --> A2["i: lãi suất mỗi kì"]:::l1
+    A --> A3["★ Af = R[(1 + i)ⁿ − 1]/i"]:::l1
+    A --> A4["Gửi tiết kiệm tích luỹ"]:::l1
+
+    B --> B1["Tiền tương lai quy về hôm nay"]:::l2
+    B --> B2["★ Ap = R[1 − (1 + i)⁻ⁿ]/i"]:::l2
+    B --> B3["Giải thưởng trả dần"]:::l2
+
+    C --> C1["Khoản vay Ap"]:::l3
+    C --> C2["★ R = i·Ap/[1 − (1 + i)⁻ⁿ]"]:::l3
+    C --> C3["Vay mua nhà, xe, máy sấy"]:::l3
+
+    D --> D1["Lãi kép"]:::l4
+    D --> D2["Tổng n số hạng đầu CSN"]:::l4
+    D --> D3["Đổi lãi suất năm → mỗi kì"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_taichinh_t11.html>
+
+### Toán 11 – HĐTN. Lực căng mặt ngoài của nước *(Tiết 54)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>HĐTN<br/>Lực căng<br/>mặt ngoài"]:::root
+    G --> A["① Thu thập dữ liệu"]:::n1
+    G --> B["② Bảng tần số ghép nhóm"]:::n2
+    G --> C["③ Số đặc trưng"]:::n3
+    G --> D["④ Kết luận"]:::n4
+
+    A --> A1["Nhóm 1: nhiệt độ phòng"]:::l1
+    A --> A2["Nhóm 2: nước nóng 70 – 80 °C"]:::l1
+    A --> A3["★ Đo đường kính, đánh dấu /"]:::l1
+    A --> A4["Giấy kẻ ô, tấm nhựa"]:::l1
+
+    B --> B1["Nhóm độ dài 2 cm"]:::l2
+    B --> B2["Đếm dấu / → tần số"]:::l2
+    B --> B3["Giá trị đại diện"]:::l2
+
+    C --> C1["★ Số trung bình"]:::l3
+    C --> C2["Trung vị"]:::l3
+    C --> C3["Mốt"]:::l3
+    C --> C4["So sánh hai mẫu"]:::l3
+
+    D --> D1["★ Nhiệt độ tăng → bóng lớn hơn"]:::l4
+    D --> D2["→ lực căng giảm"]:::l4
+    D --> D3["Giặt bằng nước ấm sạch hơn"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_lucang_t11.html>
+
 ### Toán 11 – Chuyên đề 1, Bài 5. Phép dời hình *(Tiết 9 (chuyên đề))*
 
 ```mermaid
