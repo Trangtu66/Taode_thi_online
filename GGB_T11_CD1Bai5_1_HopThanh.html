@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 9 – Thực hiện liên tiếp hai phép dời hình (Luyện tập, Hình 1.34)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 9 – Thực hiện liên tiếp hai phép dời hình (Luyện tập, Hình 1.34)</h1><div>Chuyên đề 1 – Bài 5. Phép dời hình – Toán 11 · GeoGebra</div></header>
+<nav><a href="GGB_T11_CD1Bai5_1_HopThanh.html" class=on>Thực hiện liên tiếp hai phép dời hình (Luyện tập, Hình 1.34)</a></nav>
+<p class="hd">Tam giác ABC (xanh). Bước 1: phép đối xứng trục Oy cho tam giác trung gian (xám, nét đứt). Bước 2: phép tịnh tiến theo u = (0; 3) cho tam giác ảnh (đỏ) – chính là f: (x; y) ↦ (−x; y + 3). Kéo các đỉnh A, B, C: tam giác ảnh luôn bằng tam giác ban đầu (so sánh chuVi và chuViAnh). Kéo điểm ngọn U2 để đổi vectơ u.</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["A=(2,3)", "B=(1,1)", "C=(3,1)", "tamGiac=Polygon(A,B,C)", "SetColor(tamGiac,\"#1E88C8\")", "trungGian=Reflect(tamGiac,yAxis)", "SetColor(trungGian,\"#94A3B8\")", "SetLineStyle(trungGian,1)", "U1=(4,0)", "U2=(4,3)", "u=Vector(U1,U2)", "SetColor(u,\"#F59E0B\")", "anhTamGiac=Translate(trungGian,u)", "SetColor(anhTamGiac,\"#DC2626\")", "chuVi=Perimeter(tamGiac)", "chuViAnh=Perimeter(anhTamGiac)", "ZoomIn(-6,-2,6,8)"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"classic", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AG",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    // Kiểm tra SAU khi chạy hết lệnh: bắt cả đối tượng bị xoá ngầm (vd. định nghĩa lại tên cạnh mà Polygon tự đặt).
+    const loi=[], ten=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m) ten.push([m[1],c]); });
+    ten.forEach(([n,c])=>{ if(!api.exists(n)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
+    // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
+    if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
+      const x0=p.xMin, y0=p.yMin, x1=x0+p.width*p.invXscale, y1=y0+p.height*p.invYscale;
+      const s=Math.max((x1-x0)/p.width,(y1-y0)/p.height), cx=(x0+x1)/2, cy=(y0+y1)/2;
+      api.evalCommand("ZoomIn("+(cx-s*p.width/2)+","+(cy-s*p.height/2)+","+(cx+s*p.width/2)+","+(cy+s*p.height/2)+")"); }, 300); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
