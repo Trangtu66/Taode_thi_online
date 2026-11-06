@@ -2708,6 +2708,52 @@ graph TD
 ```
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_cd2bai9_t11.html>
+### Toán 11 – Bài tập cuối chuyên đề 2. Lí thuyết đồ thị *(Tiết 24 (chuyên đề))*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI TẬP CUỐI<br/>CHUYÊN ĐỀ 2<br/>Lí thuyết đồ thị"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Bậc của đỉnh"]:::n2
+    G --> C["③ Euler – Hamilton"]:::n3
+    G --> D["④ Đường đi tối ưu"]:::n4
+
+    A --> A1["Đỉnh, cạnh, khuyên"]:::l1
+    A --> A2["Đơn đồ thị, đa đồ thị"]:::l1
+    A --> A3["★ Kₙ có n(n − 1)/2 cạnh"]:::l1
+    A --> A4["Liên thông, cầu"]:::l1
+
+    B --> B1["★ Tổng các bậc = 2 × số cạnh"]:::l2
+    B --> B2["Số đỉnh bậc lẻ là số chẵn"]:::l2
+    B --> B3["Chứng minh không tồn tại"]:::l2
+    B --> B4["Bài 2.21, 2.22"]:::l2
+
+    C --> C1["★ Chu trình Euler ⇔ mọi bậc chẵn"]:::l3
+    C --> C2["Đường đi Euler: đúng 2 đỉnh bậc lẻ"]:::l3
+    C --> C3["Ore, Dirac: điều kiện đủ"]:::l3
+    C --> C4["Bài 2.25, 2.26"]:::l3
+
+    D --> D1["Đường đi ngắn nhất"]:::l4
+    D --> D2["★ Người đưa thư: Euler + đường ngắn nhất"]:::l4
+    D --> D3["Bài 2.27, 2.28"]:::l4
+    D --> D4["Thu gom rác, tham quan"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_btcccd2_t11.html>
+
 
 ---
 
