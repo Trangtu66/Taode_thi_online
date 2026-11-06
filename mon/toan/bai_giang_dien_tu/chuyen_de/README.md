@@ -2,6 +2,6 @@
 
 - [Chuyên đề Toán 10](lop10/) – 2 bài
 - [Chuyên đề Toán 11](lop11/) – 11 bài
-- [Chuyên đề Toán 12](lop12/) – 1 bài
+- [Chuyên đề Toán 12](lop12/) – 2 bài
 
 Xem thử / tải về: <https://trangtu66.github.io/Taode_thi_online/bai_giang_dien_tu.html> (mục 📁 Chuyên đề Toán).
