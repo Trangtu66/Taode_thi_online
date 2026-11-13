@@ -2781,19 +2781,16 @@
             }
         }
 
-        function gradeSinglePlayerSubmission(player, idx = -1) {
+        // Chấm điểm cá nhân 1 HS; lực kéo của đội tính chung trong gradeAllPendingSubmissions
+        function gradeSinglePlayerSubmission(player) {
             if (!player || player.pendingChoice === undefined || player.pendingChoice === null) return;
             player.lastChoice = player.pendingChoice;
             const qType = player.pendingQType || 'mcq';
             const isTugMode = (activeGameMode === 'tug') || !document.getElementById('tab-tug').classList.contains('hidden');
-            const effTeam = getEffectiveTugTeam(player, idx >= 0 ? idx : bellPlayers.indexOf(player));
 
             if (player.pendingCorrect) {
                 player.alive = true;
                 player.score += (qType === 'mcq' ? 10 : (qType === 'tf' ? 20 : 30));
-                if (isTugMode || player.teamMode === 'red' || player.teamMode === 'blue') {
-                    awardTugPoint(effTeam, true);
-                }
             } else if (!isTugMode && (player.teamMode || 'bell') === 'bell') {
                 player.alive = false;
             }
@@ -2806,7 +2803,14 @@
             let noAnswerEliminatedCount = 0;
             let redCorrect = 0;
             let blueCorrect = 0;
+            let redSize = 0;
+            let blueSize = 0;
             const isTugMode = (activeGameMode === 'tug') || !document.getElementById('tab-tug').classList.contains('hidden');
+
+            bellPlayers.forEach((p, idx) => {
+                if (getEffectiveTugTeam(p, idx) === 'red') redSize++;
+                else blueSize++;
+            });
 
             bellPlayers.forEach((p, idx) => {
                 if (p.pendingChoice !== undefined && p.pendingChoice !== null) {
@@ -2834,9 +2838,28 @@
 
             if (isTugMode) {
                 if (submittedCount > 0) {
+                    // Công bằng khi 2 đội lệch người: so TỈ LỆ trả lời đúng trên sĩ số đội (em không trả lời tính là chưa đúng).
+                    // Đội có tỉ lệ cao hơn kéo 1 nấc; bằng nhau (và có em đúng) thì cả 2 cùng được điểm, dây đứng yên.
+                    const redRate = redSize ? redCorrect / redSize : 0;
+                    const blueRate = blueSize ? blueCorrect / blueSize : 0;
+                    const pct = r => Math.round(r * 100) + '%';
+                    let result;
+                    if (redRate > blueRate) {
+                        awardTugPoint('red', true);
+                        result = '🔴 Đội Đỏ kéo 1 nấc!';
+                    } else if (blueRate > redRate) {
+                        awardTugPoint('blue', true);
+                        result = '🔵 Đội Xanh kéo 1 nấc!';
+                    } else if (redRate > 0) {
+                        awardTugPoint('red', true);
+                        awardTugPoint('blue', true);
+                        result = '⚖️ Hai đội ngang tỉ lệ, cùng được điểm!';
+                    } else {
+                        result = 'Chưa đội nào trả lời đúng.';
+                    }
                     if (correctCount > 0) playCorrectSound();
                     else playWrongSound();
-                    showToast(`🪢 Chấm Kéo Co: Đội Đỏ đúng ${redCorrect} HS • Đội Xanh đúng ${blueCorrect} HS!`);
+                    showToast(`🪢 Đội Đỏ đúng ${redCorrect}/${redSize} HS (${pct(redRate)}) • Đội Xanh đúng ${blueCorrect}/${blueSize} HS (${pct(blueRate)}). ${result}`);
                 }
                 return;
             }
