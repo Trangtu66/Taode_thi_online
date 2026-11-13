@@ -32,6 +32,9 @@
             window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         }
     </script>
+    <!-- Kho đề Taode_thi_online: danh sách bài củng cố (DANH_SACH_BAI), địa chỉ Ngân hàng đề (KQ_API) và bộ giải nén đề -->
+    <script src="cau_hinh.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
     <!-- Font Inter -->
@@ -404,6 +407,50 @@
     </div>
 
     <!-- MODAL MÃ QR CHO HỌC SINH QUÉT THAM GIA -->
+    <!-- CỬA SỔ CHỌN ĐỀ TỪ KHO Taode_thi_online (bài củng cố, ngân hàng đề của GV, link đề) -->
+    <div id="kho-de-modal" class="fixed inset-0 z-[9998] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-3xl max-h-[92vh] flex flex-col bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden">
+            <div class="flex items-center justify-between gap-3 px-5 py-4 border-b border-slate-200 dark:border-slate-700">
+                <div>
+                    <h3 class="text-base sm:text-lg font-black text-indigo-600 dark:text-indigo-400">📚 Chọn đề từ kho Học tập trực tuyến</h3>
+                    <p class="text-[11px] text-slate-500">Đề được chuyển sang 3 phần: Khởi động (4 lựa chọn) • Tăng tốc (Đúng/Sai) • Về đích (Trả lời ngắn).</p>
+                </div>
+                <button type="button" onclick="closeKhoDeModal()" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-700 font-black" aria-label="Đóng">✕</button>
+            </div>
+            <div class="flex gap-1.5 px-5 pt-3">
+                <button type="button" id="kho-tab-cc" onclick="switchKhoDeTab('cc')" class="kho-tab px-3 py-1.5 rounded-lg text-xs font-extrabold">📘 Bài củng cố</button>
+                <button type="button" id="kho-tab-nh" onclick="switchKhoDeTab('nh')" class="kho-tab px-3 py-1.5 rounded-lg text-xs font-extrabold">🗂️ Ngân hàng đề của tôi</button>
+                <button type="button" id="kho-tab-link" onclick="switchKhoDeTab('link')" class="kho-tab px-3 py-1.5 rounded-lg text-xs font-extrabold">🔗 Dán link đề</button>
+            </div>
+            <div class="flex-1 overflow-y-auto custom-scroll px-5 py-4 space-y-3">
+                <div id="kho-pane-cc" class="kho-pane space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <select id="kho-khoi" onchange="renderKhoCungCo(true)" class="px-2.5 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-bold">
+                            <option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12" selected>Khối 12</option>
+                        </select>
+                        <select id="kho-nhom" onchange="renderKhoCungCo(false)" class="flex-1 min-w-[180px] px-2.5 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-bold"></select>
+                        <input id="kho-tim" type="search" oninput="renderKhoCungCo(false)" placeholder="Tìm tên bài..." class="flex-1 min-w-[160px] px-3 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-semibold">
+                    </div>
+                    <div id="kho-list-cc" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                </div>
+                <div id="kho-pane-nh" class="kho-pane hidden space-y-3">
+                    <p class="text-xs text-slate-600 dark:text-slate-300">Các đề thầy cô soạn bằng <a href="tao_de.html" target="_blank" rel="noopener" class="text-indigo-600 font-bold underline">Trình soạn đề</a> và bấm “Tạo đề &amp; Lấy link” (có mã GV).</p>
+                    <div class="flex flex-wrap gap-2">
+                        <input id="kho-ma-gv" type="password" autocomplete="off" placeholder="Mã giáo viên (VT-...)" class="flex-1 min-w-[200px] px-3 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-bold">
+                        <button type="button" onclick="loadNganHangDe()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold">Tải ngân hàng đề</button>
+                    </div>
+                    <div id="kho-list-nh" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                </div>
+                <div id="kho-pane-link" class="kho-pane hidden space-y-3">
+                    <p class="text-xs text-slate-600 dark:text-slate-300">Dán đường link bài làm (dạng <code>lam_bai.html#e=...</code>, <code>lam_bai.html?de=...</code> hoặc trang <code>cc_....html</code>).</p>
+                    <textarea id="kho-link-inp" rows="3" placeholder="https://trangtu66.github.io/Taode_thi_online/lam_bai.html#e=..." class="w-full px-3 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-mono"></textarea>
+                    <button type="button" onclick="loadDeFromLinkInput()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold">Nạp đề từ link</button>
+                </div>
+                <div id="kho-status" class="hidden text-xs font-bold px-3 py-2 rounded-xl"></div>
+            </div>
+        </div>
+    </div>
+
     <div id="qr-modal" class="fixed inset-0 z-[9998] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-800 max-w-md w-full rounded-3xl p-6 border-2 border-indigo-500 shadow-2xl text-center relative space-y-4">
             <button onclick="closeQrModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-rose-500 hover:text-white font-black text-sm transition">✕</button>
@@ -513,7 +560,7 @@
                 <div>
                     <div class="flex items-center space-x-1.5">
                         <h1 class="text-sm sm:text-base font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">MathLab THPT 2025</h1>
-                        <span class="hidden xl:inline-block px-2 py-0.5 text-[10px] font-black bg-amber-100 text-amber-800 rounded-full">22 CÂU</span>
+                        <span class="hidden xl:inline-block px-2 py-0.5 text-[10px] font-black bg-amber-100 text-amber-800 rounded-full"><span id="header-q-count">22</span> CÂU</span>
                     </div>
                     <p class="text-[10px] text-slate-500 dark:text-slate-400 hidden sm:block">Khởi Động • Tăng Tốc • Về Đích</p>
                 </div>
@@ -674,6 +721,12 @@
                             <div id="lobby-players-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 max-h-[340px] overflow-y-auto custom-scroll pr-1"></div>
                         </div>
 
+                        <!-- Đề đang dùng + chọn đề từ kho -->
+                        <div class="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                            <div class="text-xs sm:text-sm text-indigo-100 font-bold min-w-0">📝 Đề đang dùng: <span id="lobby-exam-title" class="text-amber-300">Đề mẫu 22 câu</span> (<span id="lobby-exam-count">22</span> câu)</div>
+                            <button type="button" onclick="openKhoDeModal()" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs sm:text-sm font-extrabold shadow-lg">📚 Chọn đề từ kho (bài củng cố, ngân hàng đề)</button>
+                        </div>
+
                         <!-- Nút Khởi Động Bước Vào Câu 1 -->
                         <div class="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
                             <button type="button" onclick="enterCompetitionFromLobby('bell')" class="flex-1 min-w-[240px] py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:opacity-95 text-slate-950 font-black text-base sm:text-xl shadow-2xl transition transform hover:scale-[1.01]">
@@ -722,6 +775,9 @@
                         </button>
                         <button onclick="switchTab('student')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow">
                             📲 Điện Thoại HS
+                        </button>
+                        <button onclick="openKhoDeModal()" class="px-2.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow" title="Chọn bài củng cố hoặc đề trong Ngân hàng đề">
+                            📚 Chọn đề từ kho
                         </button>
                         <button onclick="loadFromGithubTxtFile(true)" class="px-2.5 py-1.5 rounded-lg bg-indigo-50 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 text-xs font-bold hover:bg-indigo-100" title="Tải đề từ file de_thi_22_cau.txt trên GitHub">
                             🔄 Đề GitHub (Đề 1)
@@ -886,6 +942,9 @@
                         </button>
                         <button onclick="switchTab('student')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow">
                             📲 Điện Thoại HS
+                        </button>
+                        <button onclick="openKhoDeModal()" class="px-2.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow" title="Chọn bài củng cố hoặc đề trong Ngân hàng đề">
+                            📚 Chọn đề từ kho
                         </button>
                         <button onclick="loadFromGithubTxtFile(true)" class="px-2.5 py-1.5 rounded-lg bg-indigo-50 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 text-xs font-bold hover:bg-indigo-100">
                             🔄 Đề GitHub (Đề 1)
@@ -1214,6 +1273,9 @@
                         <p class="text-xs text-slate-500">Tự động liên kết với file <code class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 font-mono">de_thi_22_cau.txt</code> trên GitHub hoặc tải trực tiếp file Word <code class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 font-mono">.docx</code> có chứa hình ảnh.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="openKhoDeModal()" class="px-3.5 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow">
+                            📚 Chọn Đề Từ Kho (Bài Củng Cố, Ngân Hàng Đề)
+                        </button>
                         <button onclick="loadFromGithubTxtFile(true)" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow">
                             ☁️ Nạp Đề Chuẩn Từ GitHub (de_thi_22_cau.txt)
                         </button>
@@ -1909,6 +1971,7 @@
 
         // 6. BIẾN TRẠNG THÁI TOÀN CỤC & SẢNH CHỜ "ĐẤU TRƯỜNG KIẾN THỨC"
         let examQuestions = getPreset1Questions();
+        let currentExamTitle = 'Đề mẫu 22 câu';
         let isGameStarted = false; // false khi đang ở Trang Chuẩn Bị "ĐẤU TRƯỜNG KIẾN THỨC"
         let bellIndex = 0;
         let bellRevealed = false;
@@ -2797,7 +2860,7 @@
                 const rawText = await response.text();
                 const parsed = parseStructuredExamText(rawText, {});
                 if (parsed && parsed.length > 0) {
-                    examQuestions = parsed;
+                    examQuestions = parsed; currentExamTitle = 'Đề tự nhập';
                     syncAllViewsAfterLoad();
                     if (showNotification) {
                         showToast(`✅ Đã nạp ${examQuestions.length} câu (đầy đủ mũi tên BBT & Đồ thị) cho cả Rung Chuông Vàng & Kéo Co!`);
@@ -2808,6 +2871,7 @@
                 console.info('Dùng bộ đề 22 câu tích hợp sẵn:', err.message);
             }
             examQuestions = getPreset1Questions();
+            currentExamTitle = 'Đề mẫu 22 câu';
             syncAllViewsAfterLoad();
             if (showNotification) {
                 showToast('📘 Đã nạp bộ Đề Chuẩn 22 Câu (Khởi động 20s • Tăng tốc 30s • Về đích 40s)!');
@@ -2816,6 +2880,7 @@
 
         function loadExamPreset2() {
             examQuestions = getPreset2Questions();
+            currentExamTitle = 'Đề RUNG_CHUÔNG_2';
             syncAllViewsAfterLoad();
             showToast('📙 Đã nạp Đề RUNG_CHUÔNG_2 cho cả Rung Chuông Vàng và Kéo Co Kiến Thức!');
         }
@@ -2833,6 +2898,14 @@
             tugTimeLeft = firstDur;
             document.getElementById('nav-q-count').innerText = examQuestions.length;
             document.getElementById('bank-total-count').innerText = examQuestions.length;
+            const lobbyTitle = document.getElementById('lobby-exam-title');
+            const lobbyCount = document.getElementById('lobby-exam-count');
+            if (lobbyTitle) lobbyTitle.innerText = currentExamTitle;
+            if (lobbyCount) lobbyCount.innerText = examQuestions.length;
+            const headerCount = document.getElementById('header-q-count');
+            if (headerCount) headerCount.innerText = examQuestions.length;
+            // Báo điện thoại HS đề mới (số câu, dạng câu 1)
+            if (!IS_STUDENT_MODE) broadcastStageState();
             initLobbyQrCode();
             renderBellStage();
             renderTugStage();
@@ -3522,7 +3595,7 @@
                         const { text, visualMap } = await extractDocxWithVisualsAndMath(e.target.result);
                         const parsed = parseStructuredExamText(text, visualMap);
                         if (parsed && parsed.length > 0) {
-                            examQuestions = parsed;
+                            examQuestions = parsed; currentExamTitle = 'Đề tự nhập';
                             syncAllViewsAfterLoad();
                             const imgCount = parsed.filter(q => q.visual).length;
                             playCorrectSound();
@@ -3544,7 +3617,7 @@
                         const { text, visualMap } = await extractPdfWithVisualsAndMath(e.target.result);
                         const parsed = parseStructuredExamText(text, visualMap);
                         if (parsed && parsed.length > 0) {
-                            examQuestions = parsed;
+                            examQuestions = parsed; currentExamTitle = 'Đề tự nhập';
                             syncAllViewsAfterLoad();
                             const imgCount = parsed.filter(q => q.visual).length;
                             playCorrectSound();
@@ -3564,7 +3637,7 @@
                 reader.onload = function(e) {
                     const parsed = parseStructuredExamText(e.target.result, {});
                     if (parsed && parsed.length > 0) {
-                        examQuestions = parsed;
+                        examQuestions = parsed; currentExamTitle = 'Đề tự nhập';
                         syncAllViewsAfterLoad();
                         playCorrectSound();
                         showToast(`🎉 Đã nạp thành công ${parsed.length} câu hỏi cho cả Rung Chuông Vàng & Kéo Co!`);
@@ -3585,7 +3658,7 @@
             }
             const parsed = parseStructuredExamText(raw, {});
             if (parsed && parsed.length > 0) {
-                examQuestions = parsed;
+                examQuestions = parsed; currentExamTitle = 'Đề tự nhập';
                 syncAllViewsAfterLoad();
                 playCorrectSound();
                 showToast(`🎉 Đã phân tích và nạp ${parsed.length} câu hỏi vào cả Rung Chuông Vàng & Kéo Co!`);
@@ -4816,6 +4889,9 @@
                 }
             });
 
+            // Quy về thang 10 theo cấu trúc đề đang dùng (đề chuẩn 12–4–6 câu đúng bằng 10 điểm)
+            const maxScore = examQuestions.reduce((sum, q) => sum + (q.type === 'mcq' ? 0.25 : (q.type === 'tf' ? 1 : 0.5)), 0);
+            if (maxScore > 0) totalScore = Math.round(totalScore * 10 / maxScore * 100) / 100;
             const badge = document.getElementById('practice-score-badge');
             badge.classList.remove('hidden');
             badge.innerText = `Điểm số: ${totalScore.toFixed(2)} / 10`;
@@ -4829,6 +4905,232 @@
             document.getElementById('practice-score-badge').classList.add('hidden');
             renderPracticeExam();
             showToast('🔄 Đã làm mới bài luyện thi!');
+        }
+
+        // 15b. CHỌN ĐỀ TỪ KHO Taode_thi_online: bài củng cố (cau_hinh.js), Ngân hàng đề (Apps Script), link đề
+        let khoDeTab = 'cc';
+
+        function setKhoStatus(msg, kind = 'info') {
+            const el = document.getElementById('kho-status');
+            if (!el) return;
+            if (!msg) { el.classList.add('hidden'); return; }
+            const cls = { info: 'bg-indigo-50 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-200', ok: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200', err: 'bg-rose-50 text-rose-800 dark:bg-rose-950/60 dark:text-rose-200' }[kind];
+            el.className = 'text-xs font-bold px-3 py-2 rounded-xl ' + cls;
+            el.innerText = msg;
+        }
+
+        function openKhoDeModal() {
+            document.getElementById('kho-de-modal').classList.remove('hidden');
+            const maInp = document.getElementById('kho-ma-gv');
+            if (maInp && !maInp.value) {
+                try { maInp.value = sessionStorage.getItem('dt_ma_gv') || localStorage.getItem('ql_ma_gv') || sessionStorage.getItem('ql_ma_gv') || ''; } catch (e) {}
+            }
+            setKhoStatus('');
+            switchKhoDeTab(khoDeTab);
+        }
+
+        function closeKhoDeModal() {
+            document.getElementById('kho-de-modal').classList.add('hidden');
+        }
+
+        function switchKhoDeTab(tab) {
+            khoDeTab = tab;
+            ['cc', 'nh', 'link'].forEach(t => {
+                document.getElementById('kho-pane-' + t).classList.toggle('hidden', t !== tab);
+                document.getElementById('kho-tab-' + t).className = 'kho-tab px-3 py-1.5 rounded-lg text-xs font-extrabold ' +
+                    (t === tab ? 'bg-indigo-600 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300');
+            });
+            if (tab === 'cc') renderKhoCungCo(!document.getElementById('kho-nhom').options.length);
+        }
+
+        function renderKhoCungCo(resetGroup) {
+            const list = document.getElementById('kho-list-cc');
+            const all = Array.isArray(window.DANH_SACH_BAI) ? window.DANH_SACH_BAI : [];
+            if (!all.length) {
+                list.innerHTML = '<div class="text-xs text-slate-500">Không đọc được danh sách bài (cau_hinh.js).</div>';
+                return;
+            }
+            const khoi = Number(document.getElementById('kho-khoi').value);
+            const nhomSel = document.getElementById('kho-nhom');
+            const ofKhoi = all.filter(b => Number(b.khoi) === khoi);
+            if (resetGroup) {
+                const groups = [...new Set(ofKhoi.map(b => b.nhom || 'Khác'))];
+                nhomSel.innerHTML = '<option value="">Tất cả môn</option>' + groups.map(g => `<option value="${escapeHtml(g)}">${escapeHtml(g)}</option>`).join('');
+                const toan = groups.find(g => /^Toán/.test(g));
+                nhomSel.value = toan || '';
+            }
+            const nhom = nhomSel.value;
+            const tim = document.getElementById('kho-tim').value.trim().toLowerCase();
+            const items = ofKhoi.filter(b => (!nhom || (b.nhom || 'Khác') === nhom) && (!tim || (b.ten + ' ' + b.ma).toLowerCase().includes(tim)));
+            list.innerHTML = items.length ? items.map(b => `
+                <button type="button" onclick="loadKhoCungCo(${all.indexOf(b)})" class="text-left p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-slate-700 transition">
+                    <div class="text-[10px] font-black text-indigo-600 dark:text-indigo-400">${escapeHtml(b.nhom || '')}</div>
+                    <div class="text-xs font-bold text-slate-800 dark:text-slate-100">${escapeHtml(b.ten)}</div>
+                </button>`).join('')
+                : '<div class="text-xs text-slate-500">Không có bài phù hợp.</div>';
+        }
+
+        // Giải nén đề nén trong link (#e=...): LZString (trình soạn đề) hoặc zlib base64url (một số trang cũ)
+        async function decodeKhoExamString(str) {
+            try {
+                if (window.LZString) {
+                    const json = LZString.decompressFromEncodedURIComponent(str);
+                    if (json) return JSON.parse(json);
+                }
+            } catch (e) {}
+            try {
+                if (/^eN/.test(str) && 'DecompressionStream' in window) {
+                    const b64 = str.replace(/-/g, '+').replace(/_/g, '/');
+                    const bin = Uint8Array.from(atob(b64 + '==='.slice((b64.length + 3) % 4)), c => c.charCodeAt(0));
+                    const stream = new Blob([bin]).stream().pipeThrough(new DecompressionStream('deflate'));
+                    return JSON.parse(await new Response(stream).text());
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        // Gọi Apps Script của kho (giống trang Quản lý)
+        function khoJsonp(params) {
+            return new Promise((resolve, reject) => {
+                const api = window.KQ_API || '';
+                if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(api)) return reject('Chưa cấu hình địa chỉ máy chủ trong cau_hinh.js.');
+                const cb = 'dtcb_' + Math.random().toString(36).slice(2);
+                const sc = document.createElement('script');
+                const timer = setTimeout(() => { cleanup(); reject('Không kết nối được máy chủ (kiểm tra mạng).'); }, 20000);
+                function cleanup() { clearTimeout(timer); delete window[cb]; sc.remove(); }
+                window[cb] = d => { cleanup(); (d && d.ok) ? resolve(d) : reject((d && d.loi) || 'Lỗi dữ liệu'); };
+                sc.onerror = () => { cleanup(); reject('Không kết nối được máy chủ (kiểm tra mạng).'); };
+                sc.src = api + '?' + new URLSearchParams({ ...params, callback: cb }).toString();
+                document.body.appendChild(sc);
+            });
+        }
+
+        // Lấy đề từ link: #e=... (đề nén), ?de=ID (Ngân hàng đề) hoặc trang cc_....html chứa link đề nén
+        async function fetchKhoExamFromLink(link) {
+            const u = new URL(link.trim(), window.location.href);
+            const m = u.hash.match(/[#&]e=([^&]+)/);
+            if (m) return decodeKhoExamString(m[1]);
+            const id = u.searchParams.get('de');
+            if (id) {
+                const d = await khoJsonp({ action: 'de', id });
+                return JSON.parse(d.de);
+            }
+            const html = await (await fetch(u.href, { cache: 'no-cache' })).text();
+            const hm = html.match(/#e=([A-Za-z0-9+\-$_]+)/);
+            if (hm) return decodeKhoExamString(hm[1]);
+            const im = html.match(/[?&]de=([A-Za-z0-9_\-]+)/);
+            if (im) {
+                const d = await khoJsonp({ action: 'de', id: im[1] });
+                return JSON.parse(d.de);
+            }
+            return null;
+        }
+
+        // Chuyển đề Taode_thi_online ({meta, parts:[{type, questions}]}) sang câu hỏi Đấu trường
+        function convertKhoExam(de) {
+            const partName = { mcq: 'PHẦN I - KHỞI ĐỘNG', tf: 'PHẦN II - TĂNG TỐC', short: 'PHẦN III - VỀ ĐÍCH' };
+            const rich = t => escapeHtml(String(t ?? '')).replace(/⟪([^⟫]+)⟫/g, '<u>$1</u>').replace(/\n/g, '<br>');
+            const img = url => url ? `<img src="${escapeHtml(url)}" alt="Hình minh hoạ" class="max-w-full max-h-80 mx-auto rounded-lg bg-white">` : '';
+            const out = [];
+            ['mcq', 'tf', 'short'].forEach(type => {
+                (de.parts || []).filter(p => p.type === type).forEach(part => {
+                    (part.questions || []).forEach(q => {
+                        const n = out.length + 1;
+                        const base = { id: n, part: partName[type], qNum: `Câu ${n}`, type, text: rich(q.content) };
+                        const visual = img(q.imageUrl);
+                        if (visual) base.visual = visual;
+                        if (type === 'mcq') {
+                            const opts = (q.options || []).slice(0, 4);
+                            const correct = opts.findIndex(o => o.l === q.correct);
+                            if (opts.length < 2 || correct < 0) return;
+                            out.push({ ...base, options: opts.map(o => rich(o.t)), correct, expl: rich(q.expl) });
+                        } else if (type === 'tf') {
+                            const sts = (q.statements || []).slice(0, 4);
+                            if (!sts.length) return;
+                            out.push({
+                                ...base,
+                                statements: sts.map((st, i) => ({ label: `${'abcd'[i]}) ${rich(st.text)}`, ans: st.correct === true || st.correct === 'true' })),
+                                expl: sts.map((st, i) => st.expl ? `${'abcd'[i]}) ${rich(st.expl)}` : '').filter(Boolean).join('<br>') || rich(q.expl)
+                            });
+                        } else {
+                            if (q.answer === undefined || q.answer === null || String(q.answer).trim() === '') return;
+                            out.push({ ...base, shortAnswer: String(q.answer).trim(), expl: rich(q.expl) });
+                        }
+                    });
+                });
+            });
+            return out;
+        }
+
+        function applyKhoExam(de, fallbackTitle) {
+            if (!de || !Array.isArray(de.parts)) throw new Error('Không đọc được nội dung đề.');
+            const questions = convertKhoExam(de);
+            if (!questions.length) throw new Error('Đề không có câu 4 lựa chọn, Đúng/Sai hoặc trả lời ngắn.');
+            examQuestions = questions;
+            currentExamTitle = (de.meta && de.meta.title) || fallbackTitle || 'Đề từ kho';
+            practiceAnswers = {};
+            syncAllViewsAfterLoad();
+            const cnt = t => questions.filter(q => q.type === t).length;
+            const msg = `✅ Đã nạp "${currentExamTitle}": ${questions.length} câu (Khởi động ${cnt('mcq')} • Tăng tốc ${cnt('tf')} • Về đích ${cnt('short')}).`;
+            setKhoStatus(msg, 'ok');
+            showToast(msg);
+            setTimeout(closeKhoDeModal, 900);
+        }
+
+        async function loadKhoCungCo(idx) {
+            const b = (window.DANH_SACH_BAI || [])[idx];
+            if (!b || !b.link) return;
+            setKhoStatus(`⏳ Đang tải "${b.ten}"...`);
+            try {
+                applyKhoExam(await fetchKhoExamFromLink(b.link), b.ma || b.ten);
+            } catch (e) {
+                setKhoStatus('⚠️ ' + (e.message || e), 'err');
+            }
+        }
+
+        let khoNganHang = [];
+        async function loadNganHangDe() {
+            const ma = document.getElementById('kho-ma-gv').value.trim();
+            const list = document.getElementById('kho-list-nh');
+            if (!ma) { setKhoStatus('⚠️ Nhập mã giáo viên để xem ngân hàng đề.', 'err'); return; }
+            setKhoStatus('⏳ Đang tải ngân hàng đề...');
+            list.innerHTML = '';
+            try {
+                const d = await khoJsonp({ action: 'dsDe', key: ma });
+                khoNganHang = d.ds || [];
+                try { sessionStorage.setItem('dt_ma_gv', ma); } catch (e) {}
+                setKhoStatus(khoNganHang.length ? `Có ${khoNganHang.length} đề. Bấm vào đề để nạp.` : 'Thầy cô chưa lưu đề nào trên Trình soạn đề.', khoNganHang.length ? 'info' : 'err');
+                list.innerHTML = khoNganHang.map((x, i) => `
+                    <button type="button" onclick="loadNganHangItem(${i})" class="text-left p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-slate-700 transition">
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-100">${escapeHtml(x.tieuDe || x.id)}</div>
+                        <div class="text-[10px] text-slate-500">${x.t ? new Date(x.t).toLocaleDateString('vi-VN') : ''}${x.gv ? ' • ' + escapeHtml(x.gv) : ''}</div>
+                    </button>`).join('');
+            } catch (e) {
+                setKhoStatus('⚠️ ' + (e.message || e), 'err');
+            }
+        }
+
+        async function loadNganHangItem(i) {
+            const x = khoNganHang[i];
+            if (!x) return;
+            setKhoStatus(`⏳ Đang tải "${x.tieuDe || x.id}"...`);
+            try {
+                const d = await khoJsonp({ action: 'de', id: x.id });
+                applyKhoExam(JSON.parse(d.de), x.tieuDe);
+            } catch (e) {
+                setKhoStatus('⚠️ ' + (e.message || e), 'err');
+            }
+        }
+
+        async function loadDeFromLinkInput() {
+            const link = document.getElementById('kho-link-inp').value.trim();
+            if (!link) { setKhoStatus('⚠️ Dán đường link đề vào ô trên.', 'err'); return; }
+            setKhoStatus('⏳ Đang đọc đề từ link...');
+            try {
+                applyKhoExam(await fetchKhoExamFromLink(link), 'Đề từ link');
+            } catch (e) {
+                setKhoStatus('⚠️ Link không đúng hoặc không đọc được đề: ' + (e.message || e), 'err');
+            }
         }
 
         // 16. CHẾ ĐỘ TOÀN MÀN HÌNH TRÀN 100% CHIỀU NGANG LAPTOP / TI VI
