@@ -169,6 +169,42 @@
         details.tool-more > summary { list-style: none; cursor: pointer; }
         details.tool-more > summary::-webkit-details-marker { display: none; }
         details.tool-more .tool-more-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 60; min-width: 210px; }
+
+        /* GAME ĐUA XE: làn đua trên màn chiếu */
+        .race-road { position: relative; height: 46px; border-radius: 12px; overflow: hidden;
+            background: linear-gradient(180deg, #8b95a5 0%, #6b7280 18%, #5b6472 82%, #8b95a5 100%); box-shadow: inset 0 2px 4px rgba(0,0,0,.18); }
+        .race-road::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 3px; transform: translateY(-50%);
+            background: repeating-linear-gradient(90deg, rgba(255,255,255,.8) 0 16px, transparent 16px 30px); }
+        .race-start-line { position: absolute; left: 4px; top: 0; bottom: 0; width: 4px; background: #fff; opacity: .8; }
+        .race-finish { position: absolute; right: 0; top: 0; bottom: 0; width: 14px; background: repeating-conic-gradient(#111827 0 25%, #fff 0 50%) 0 0 / 7px 7px; }
+        .race-cone { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 22px; transition: opacity .4s; }
+        .race-cone.passed { opacity: .28; }
+        .race-car { position: absolute; top: 50%; transform: translateY(-50%); width: 58px; height: 29px; transition: left 1.5s cubic-bezier(.4, 0, .2, 1); z-index: 2; }
+        .race-car svg { width: 100%; height: 100%; display: block; }
+        .race-bubble { position: absolute; top: -9px; right: -8px; font-size: 15px; line-height: 1; }
+        .race-wheel { transform-box: fill-box; transform-origin: center; }
+        .moving .race-wheel { animation: raceSpin .35s linear infinite; }
+        @keyframes raceSpin { to { transform: rotate(360deg); } }
+        .race-car.penalty svg, .race-phone-car.penalty svg { animation: raceShake .35s ease-in-out infinite; }
+        @keyframes raceShake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-9deg); } 75% { transform: rotate(9deg); } }
+        #race-countdown { text-shadow: 0 6px 30px rgba(244, 63, 94, .55); }
+
+        /* GAME ĐUA XE: đường đua trên điện thoại học sinh */
+        .race-phone-road { position: relative; height: 104px; border-radius: 18px; overflow: hidden;
+            background: linear-gradient(180deg, #bfe6ff 0%, #e6f6ff 34%, #9be9a8 34%, #6fd38a 44%, #6b7280 44%, #5b6472 100%); }
+        .race-phone-dashes { position: absolute; left: 0; right: 0; bottom: 26px; height: 4px;
+            background: repeating-linear-gradient(90deg, #fff 0 22px, transparent 22px 44px); }
+        .race-phone-road.moving .race-phone-dashes { animation: raceDash .35s linear infinite; }
+        @keyframes raceDash { to { background-position: -44px 0; } }
+        .race-phone-car { position: absolute; left: 14%; bottom: 8px; width: 116px; height: 58px; }
+        .race-phone-car svg { width: 100%; height: 100%; display: block; }
+        .race-phone-road.moving .race-phone-car { animation: raceBob .3s ease-in-out infinite alternate; }
+        @keyframes raceBob { to { transform: translateY(-2px); } }
+        .race-phone-cone { position: absolute; right: 12%; bottom: 12px; width: 38px; height: 42px; }
+        .race-phone-flag { position: absolute; right: 8%; top: 44%; bottom: 0; width: 22px; background: repeating-conic-gradient(#111827 0 25%, #fff 0 50%) 0 0 / 11px 11px; }
+        @media (prefers-reduced-motion: reduce) {
+            .moving .race-wheel, .race-phone-road.moving .race-phone-dashes, .race-phone-road.moving .race-phone-car, .race-car.penalty svg, .race-phone-car.penalty svg { animation: none; }
+        }
         #tug-svg-teams-group {
             transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -381,6 +417,9 @@
                 <button onclick="switchTab('tug')" id="tab-btn-tug" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">
                     🪢 Kéo co
                 </button>
+                <button onclick="switchTab('race')" id="tab-btn-race" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">
+                    🏎️ Đua xe
+                </button>
                 <button onclick="switchTab('student')" id="tab-btn-student" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">
                     📲 Máy HS
                 </button>
@@ -533,6 +572,9 @@
                             </button>
                             <button type="button" id="lobby-start-tug" onclick="enterCompetitionFromLobby('tug')" class="py-4 px-5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:opacity-95 text-white font-black text-sm sm:text-base shadow-xl transition">
                                 🪢 BẮT ĐẦU KÉO CO ➡
+                            </button>
+                            <button type="button" id="lobby-start-race" onclick="enterCompetitionFromLobby('race')" class="py-4 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-black text-sm sm:text-base shadow-xl transition">
+                                🏎️ BẮT ĐẦU ĐUA XE ➡
                             </button>
                         </div>
                     </div>
@@ -967,6 +1009,77 @@
         </section>
 
         <!-- ========================================================= -->
+        <!-- TAB ĐUA XE KIẾN THỨC: mỗi HS lái xe trên điện thoại, trả lời đúng mới vượt chướng ngại -->
+        <!-- ========================================================= -->
+        <section id="tab-race" class="hidden space-y-4">
+            <div id="race-stage-container" class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-4 sm:p-6 space-y-4 transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-700 pb-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-lg sm:text-xl font-black">🏎️ <span class="bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent">Đua xe kiến thức</span></span>
+                        <span id="race-status-badge" class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-extrabold">Chờ xuất phát</span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <button onclick="openKhoDeModal()" class="px-2.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow" title="Chọn bài củng cố hoặc đề trong Ngân hàng đề">📚 Chọn đề</button>
+                        <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
+                        <button onclick="toggleStageFullscreen('race-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
+                    </div>
+                </div>
+
+                <!-- Cài đặt cuộc đua -->
+                <div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-emerald-50/70 dark:bg-slate-900 border border-emerald-200 dark:border-slate-700">
+                    <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-700 dark:text-slate-200">
+                        <label class="flex items-center gap-1.5">🚧 Số chướng ngại vật (câu hỏi):
+                            <select id="race-count" class="px-2 py-1.5 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-600 font-black"></select>
+                        </label>
+                        <label class="flex items-center gap-1.5">💥 Trả lời sai, dừng:
+                            <select id="race-penalty" class="px-2 py-1.5 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-600 font-black">
+                                <option value="3">3 giây</option><option value="5" selected>5 giây</option><option value="8">8 giây</option><option value="10">10 giây</option>
+                            </select>
+                        </label>
+                        <label class="flex items-center gap-1.5 cursor-pointer"><input id="race-shuffle" type="checkbox" checked class="w-4 h-4 accent-emerald-600"> Chọn ngẫu nhiên &amp; trộn thứ tự câu cho từng HS</label>
+                        <span class="text-slate-500 font-semibold">Đề: <b id="race-exam-title" class="text-slate-700 dark:text-slate-200"></b></span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <button id="race-start-btn" type="button" onclick="raceStart()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-black shadow">🚦 Xuất phát</button>
+                        <button id="race-end-btn" type="button" onclick="raceEnd()" class="px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-black shadow">🏁 Kết thúc &amp; vinh danh</button>
+                        <button type="button" onclick="raceReset()" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-xs font-black">🔄 Đặt lại</button>
+                        <button type="button" onclick="exportRaceCSV()" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-xs font-black" title="Tải bảng kết quả (.csv mở bằng Excel)">📊 CSV</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
+                    <!-- Đường đua: mỗi HS một làn -->
+                    <div class="relative p-3 rounded-2xl bg-gradient-to-b from-sky-100 to-emerald-100 dark:from-slate-900 dark:to-slate-800 border-2 border-sky-100 dark:border-slate-700">
+                        <div id="race-track" class="space-y-1.5 max-h-[62vh] overflow-y-auto custom-scroll pr-1"></div>
+                        <div id="race-countdown" class="hidden absolute inset-0 flex items-center justify-center text-8xl sm:text-9xl font-black text-rose-600 bg-white/60 dark:bg-slate-900/60 rounded-2xl z-10">3</div>
+                    </div>
+                    <!-- Bảng xếp hạng & diễn biến -->
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-2xl bg-amber-50 dark:bg-slate-900 border border-amber-200 dark:border-slate-700">
+                            <div class="text-xs font-black text-amber-700 dark:text-amber-300 mb-2">🏆 BẢNG XẾP HẠNG TRỰC TIẾP</div>
+                            <ol id="race-board" class="space-y-1 max-h-[38vh] overflow-y-auto custom-scroll"></ol>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                            <div class="text-xs font-black text-slate-600 dark:text-slate-300 mb-2">📣 DIỄN BIẾN</div>
+                            <ul id="race-feed" class="space-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300"></ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">Học sinh quét mã QR, nhập họ tên và chọn xe. Khi bấm <b>Xuất phát</b>, mỗi em tự lái trên điện thoại: gặp chướng ngại vật thì câu hỏi hiện trên điện thoại, <b>trả lời đúng mới được đi tiếp</b>; sai thì xe trượt bánh vài giây rồi trả lời lại.</p>
+            </div>
+
+            <!-- Bục vinh danh -->
+            <div id="race-podium" class="fixed inset-0 z-[9998] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+                <div class="w-full max-w-2xl bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+                    <div class="text-2xl sm:text-3xl font-black">🏁 <span class="bg-gradient-to-r from-amber-500 to-rose-500 bg-clip-text text-transparent">VINH DANH TAY ĐUA XUẤT SẮC</span></div>
+                    <div id="race-podium-top" class="flex items-end justify-center gap-3"></div>
+                    <ol id="race-podium-rest" class="text-left text-sm space-y-1 max-h-48 overflow-y-auto custom-scroll"></ol>
+                    <button type="button" onclick="document.getElementById('race-podium').classList.add('hidden')" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm">Đóng</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
         <!-- TAB 3: GIAO DIỆN ĐIỆN THOẠI HỌC SINH (REMOTE CONTROLLER)  -->
         <!-- ========================================================= -->
         <section id="tab-student" class="hidden space-y-5">
@@ -1001,6 +1114,10 @@
                                 <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300 block mb-1">Mã phòng PIN:</label>
                                 <input id="student-pin-inp" type="text" value="" inputmode="numeric" class="w-full px-2.5 py-2 rounded-xl border bg-white dark:bg-slate-900 dark:border-slate-700 text-xs font-black text-center tracking-widest">
                             </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300 block">🏎️ Chọn xe (dùng cho game Đua xe):</label>
+                            <div id="student-car-grid" class="grid grid-cols-3 gap-1.5"></div>
                         </div>
                         <button type="button" onclick="registerStudentFromPhone()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:opacity-95 text-white font-black text-xs uppercase tracking-wider shadow-lg active:scale-95 transition">
                             🚀 Đăng Nhập Lên Sàn Thi Đấu
@@ -1047,6 +1164,7 @@
 
                     <!-- BẢNG CHỌN ĐÁP ÁN TRÊN ĐIỆN THOẠI -->
                     <div id="student-remote-pad" class="space-y-3"></div>
+                    <div id="student-race-box" class="hidden space-y-3"></div>
                     <div id="student-submit-feedback" class="hidden p-3 rounded-xl bg-emerald-100 text-emerald-800 text-center text-xs font-black border border-emerald-300"></div>
 
                     <div id="student-footer-teacher-links" class="pt-2 border-t dark:border-slate-700 flex items-center justify-between text-[11px] text-slate-400">
@@ -1881,6 +1999,7 @@
             stageSnapshotTimer = setTimeout(() => {
                 broadcastStageState();
                 broadcastRoomEvent({ type: 'PLAYERS_LIST_SYNC', players: bellPlayers });
+                broadcastRaceState();
             }, 400);
         }
 
@@ -1916,6 +2035,18 @@
                 scheduleStageSnapshot();
             } else if (data.type === 'REQUEST_STATE') {
                 scheduleStageSnapshot();
+            } else if (data.type === 'RACE_STATE') {
+                racePhoneOnState(data.payload);
+            } else if (data.type === 'RACE_ASK') {
+                raceTeacherAsk(data.payload);
+            } else if (data.type === 'RACE_ANSWER') {
+                raceTeacherAnswer(data.payload);
+            } else if (data.type === 'RACE_Q' || data.type === 'RACE_RESULT') {
+                const p = data.payload || {};
+                if (IS_STUDENT_MODE && currentStudentId && String(p.to) === String(currentStudentId)) {
+                    if (data.type === 'RACE_Q') racePhoneOnQuestion(p);
+                    else racePhoneOnResult(p);
+                }
             } else if (data.type === 'STUDENT_SUBMIT') {
                 handleIncomingStudentSubmission(data.payload, false);
             } else if (data.type === 'STAGE_SYNC') {
@@ -2002,7 +2133,7 @@
                             client.publish(MQTT_TOPIC_PREFIX + currentRoomPin, JSON.stringify({
                                 type: 'STUDENT_JOIN',
                                 _msgId: Date.now() + '_rejoin',
-                                payload: { id: currentStudentId, name: currentStudentName, teamMode: teamSel ? teamSel.value : 'bell' }
+                                payload: { id: currentStudentId, name: currentStudentName, teamMode: teamSel ? teamSel.value : 'bell', car: selectedCar }
                             }));
                         }
                         if (IS_STUDENT_MODE) {
@@ -2075,6 +2206,10 @@
 
         function enterCompetitionFromLobby(targetMode = 'bell') {
             stopTensionMusicLoop();
+            if (targetMode === 'race') {
+                switchTab('race');
+                return;
+            }
             isGameStarted = true;
             bellIndex = 0;
             tugIndex = 0;
@@ -2236,11 +2371,12 @@
                 localStorage.setItem('mathlab_2025_my_student_profile', JSON.stringify({
                     id: currentStudentId,
                     name: currentStudentName,
-                    teamMode
+                    teamMode,
+                    car: selectedCar
                 }));
             } catch (e) {}
 
-            const payload = { id: studentId, name, teamMode };
+            const payload = { id: studentId, name, teamMode, car: selectedCar };
             handleIncomingStudentJoin(payload, true);
             broadcastRoomEvent({ type: 'STUDENT_JOIN', payload });
 
@@ -2270,7 +2406,7 @@
                 player.teamMode = teamSel.value;
                 savePlayersToStorage();
                 renderBellPlayers();
-                broadcastRoomEvent({ type: 'STUDENT_JOIN', payload: { id: player.id, name: player.name, teamMode: player.teamMode } });
+                broadcastRoomEvent({ type: 'STUDENT_JOIN', payload: { id: player.id, name: player.name, teamMode: player.teamMode, car: player.car || selectedCar } });
             }
         }
 
@@ -2297,6 +2433,7 @@
                     id: payload.id || ('hs_' + Date.now()),
                     name: payload.name,
                     teamMode: payload.teamMode || 'bell',
+                    car: RACE_CARS[payload.car] ? payload.car : null,
                     alive: true,
                     score: 0,
                     lastChoice: null,
@@ -2311,6 +2448,7 @@
                 }
             } else {
                 player.teamMode = payload.teamMode || player.teamMode;
+                if (RACE_CARS[payload.car]) player.car = payload.car;
             }
             savePlayersToStorage();
             renderBellPlayers();
@@ -2367,7 +2505,17 @@
             if (joinCard) joinCard.classList.add('hidden');
             if (activeCard) activeCard.classList.remove('hidden');
             const teamLabel = registeredPlayer.teamMode === 'red' ? '🔴 Đội Đỏ' : (registeredPlayer.teamMode === 'blue' ? '🔵 Đội Xanh' : '🔔 Rung Chuông Vàng');
-            if (nameLbl) nameLbl.innerText = `${registeredPlayer.name} • ${teamLabel} (${registeredPlayer.score}đ)`;
+            if (nameLbl) nameLbl.innerText = `${registeredPlayer.name} • ${teamLabel} • 🏎️ ${RACE_CARS[raceCarKey(selectedCar)].name} (${registeredPlayer.score}đ)`;
+
+            const raceBox = document.getElementById('student-race-box');
+            if (IS_STUDENT_MODE && racePhone.state !== 'idle') {
+                if (qStatusBox) qStatusBox.classList.add('hidden');
+                if (fb) fb.classList.add('hidden');
+                pad.innerHTML = '';
+                if (raceBox && raceBox.classList.contains('hidden')) racePhoneRender();
+                return;
+            }
+            if (raceBox) raceBox.classList.add('hidden');
 
             // Nếu Giáo viên đang ở Trang Chuẩn Bị "ĐẤU TRƯỜNG KIẾN THỨC" (chưa bắt đầu vào Câu 1):
             // KHÔNG hiển thị đề Câu 1 trên điện thoại học sinh!
@@ -2557,6 +2705,7 @@
                     id: payload.playerId || ('hs_' + Date.now()),
                     name: payload.playerName,
                     teamMode: payload.teamMode || 'bell',
+                    car: RACE_CARS[payload.car] ? payload.car : null,
                     alive: true,
                     score: 0,
                     lastChoice: null
@@ -2726,6 +2875,9 @@
             if (headerCount) headerCount.innerText = examQuestions.length;
             // Báo điện thoại HS đề mới (số câu, dạng câu 1)
             if (!IS_STUDENT_MODE) broadcastStageState();
+            // Đổi đề giữa cuộc đua thì đặt lại đường đua (câu hỏi đã khác)
+            if (!IS_STUDENT_MODE && raceState !== 'idle') raceReset(true);
+            renderRaceSettings();
             initLobbyQrCode();
             renderBellStage();
             renderTugStage();
@@ -3749,7 +3901,8 @@
                     `;
                 } else {
                     lobbyGrid.innerHTML = bellPlayers.map((p, idx) => {
-                        const teamBadge = p.teamMode === 'red' ? '🔴 Đội Đỏ' : (p.teamMode === 'blue' ? '🔵 Đội Xanh' : '🔔 Chuông Vàng');
+                        const teamBadge = (p.teamMode === 'red' ? '🔴 Đội Đỏ' : (p.teamMode === 'blue' ? '🔵 Đội Xanh' : '🔔 Chuông Vàng'))
+                            + (p.car && RACE_CARS[p.car] ? ' • 🏎️ ' + RACE_CARS[p.car].name : '');
                         return `
                             <div class="p-3.5 rounded-2xl bg-white/15 border border-amber-300/50 flex items-center justify-between shadow-md">
                                 <div class="flex items-center space-x-2.5 truncate">
@@ -4953,6 +5106,723 @@
             }
         }
 
+        // 15c. GAME ĐUA XE KIẾN THỨC
+        // Mỗi HS tự lái xe trên điện thoại; gặp chướng ngại vật thì máy GV gửi câu hỏi (không kèm đáp án),
+        // HS trả lời, máy GV chấm: đúng mới được đi tiếp, sai thì xe trượt bánh vài giây rồi trả lời lại.
+        const RACE_CARS = {
+            f1: { name: 'Xe đua F1', color: '#ef4444' },
+            sport: { name: 'Xe thể thao', color: '#f59e0b' },
+            jeep: { name: 'Xe địa hình', color: '#22c55e' },
+            bus: { name: 'Xe buýt mini', color: '#3b82f6' },
+            pickup: { name: 'Xe bán tải', color: '#f97316' },
+            moto: { name: 'Mô tô', color: '#a855f7' }
+        };
+        const RACE_CAR_KEYS = Object.keys(RACE_CARS);
+        const RACE_DRIVE_MS = 1600;
+        const RACE_CONE = '<svg viewBox="0 0 20 22" style="width:100%;height:100%"><path d="M 10 1 L 17 19 H 3 Z" fill="#fb923c" stroke="#c2410c" stroke-width="1" stroke-linejoin="round"/><path d="M 6.4 10.5 H 13.6 L 14.8 13.6 H 5.2 Z" fill="#ffffff"/><rect x="1" y="18.5" width="18" height="3" rx="1.5" fill="#c2410c"/></svg>';
+
+        function raceCarKey(model, fallbackIdx = 0) {
+            return RACE_CARS[model] ? model : RACE_CAR_KEYS[Math.abs(fallbackIdx) % RACE_CAR_KEYS.length];
+        }
+
+        function raceWheel(cx, r = 6.5) {
+            const h = (r * 0.45).toFixed(2);
+            return `<g class="race-wheel"><circle cx="${cx}" cy="28" r="${r}" fill="#1f2937"/><circle cx="${cx}" cy="28" r="${h}" fill="#e5e7eb"/><path d="M ${cx - h} 28 H ${cx + +h} M ${cx} ${28 - h} V ${28 + +h}" stroke="#9ca3af" stroke-width="1.2"/></g>`;
+        }
+
+        // Xe nhìn ngang, đầu xe quay sang phải (viewBox 72 x 36)
+        function raceCarSvg(model, cls = '') {
+            const key = raceCarKey(model);
+            const c = RACE_CARS[key].color;
+            const glass = '#bae6fd';
+            const line = 'rgba(15,23,42,.28)';
+            let body;
+            if (key === 'f1') {
+                body = `<rect x="3" y="11" width="8" height="3" rx="1.5" fill="${c}" stroke="${line}"/><rect x="6" y="13" width="2" height="8" fill="#374151"/>
+                    <path d="M 6 25 L 12 20 L 30 19 L 38 14 L 49 14 L 53 19 L 64 21 L 69 25 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <rect x="60" y="24" width="10" height="3" rx="1.5" fill="${c}" stroke="${line}"/>
+                    <circle cx="44" cy="13" r="4.5" fill="#fde047" stroke="${line}"/><path d="M 45 11.5 h 3.6" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M 14 21.5 L 34 20.5" stroke="#ffffff" stroke-width="1.6" opacity=".7" stroke-linecap="round"/>` + raceWheel(17, 7) + raceWheel(58, 6);
+            } else if (key === 'sport') {
+                body = `<path d="M 4 25 C 4 20 9 18 16 17 L 26 11 C 31 8.5 42 8.5 48 12 L 56 17 C 64 18 69 20 69 24 L 69 26 L 4 26 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 28 12.5 C 32 10.5 41 10.5 45 12.5 L 50 16.5 L 24 16.5 Z" fill="${glass}" stroke="${line}"/><path d="M 37 11 V 16.5" stroke="${c}" stroke-width="1.5"/>
+                    <path d="M 10 20.5 H 60" stroke="#ffffff" stroke-width="1.6" opacity=".6" stroke-linecap="round"/><circle cx="66" cy="21" r="1.6" fill="#fef3c7"/>` + raceWheel(18) + raceWheel(56);
+            } else if (key === 'jeep') {
+                body = `<circle cx="6" cy="18" r="5" fill="#374151"/><rect x="7" y="12" width="58" height="14" rx="3.5" fill="${c}" stroke="${line}"/>
+                    <path d="M 28 12 L 31 4 H 50 L 54 12 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/><path d="M 32 11 L 34 6 H 41 V 11 Z M 43 11 V 6 H 49 L 51 11 Z" fill="${glass}"/>
+                    <rect x="7" y="17" width="58" height="2.5" fill="#ffffff" opacity=".45"/><rect x="62" y="14" width="4" height="3" rx="1" fill="#fef3c7"/>` + raceWheel(19, 7.5) + raceWheel(54, 7.5);
+            } else if (key === 'bus') {
+                body = `<rect x="3" y="5" width="66" height="21" rx="6" fill="${c}" stroke="${line}"/>
+                    <rect x="8" y="9" width="10" height="7" rx="2" fill="${glass}"/><rect x="21" y="9" width="10" height="7" rx="2" fill="${glass}"/><rect x="34" y="9" width="10" height="7" rx="2" fill="${glass}"/><path d="M 48 9 H 60 C 64 9 66 12 66 16 H 48 Z" fill="${glass}"/>
+                    <rect x="3" y="19" width="66" height="2.5" fill="#ffffff" opacity=".55"/><circle cx="67" cy="22" r="1.6" fill="#fef3c7"/>` + raceWheel(16) + raceWheel(56);
+            } else if (key === 'pickup') {
+                body = `<rect x="3" y="16" width="66" height="10" rx="3" fill="${c}" stroke="${line}"/>
+                    <path d="M 38 16 L 41 7 H 56 C 59 7 61 10 62 16 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/><path d="M 43 15 L 44.5 9.5 H 55 C 57 9.5 58 11 58.5 15 Z" fill="${glass}"/>
+                    <path d="M 5 16 V 12 H 36" stroke="${c}" stroke-width="2.4" fill="none" stroke-linecap="round"/><rect x="3" y="20" width="66" height="2.2" fill="#ffffff" opacity=".5"/><circle cx="67" cy="19" r="1.6" fill="#fef3c7"/>` + raceWheel(16) + raceWheel(57);
+            } else {
+                body = `<g class="race-wheel"><circle cx="15" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 11 27 H 19 M 15 23 V 31" stroke="#9ca3af" stroke-width="1.2"/></g>
+                    <g class="race-wheel"><circle cx="56" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 52 27 H 60 M 56 23 V 31" stroke="#9ca3af" stroke-width="1.2"/></g>
+                    <path d="M 15 27 L 28 18 L 46 18 L 56 27" stroke="#475569" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+                    <path d="M 24 20 C 28 13 44 12 52 18 L 58 22 L 44 22 L 40 19 L 28 22 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 33 14 L 38 7" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="5.5" r="4.5" fill="${c}" stroke="${line}"/><path d="M 41 4 h 3.4" stroke="#1f2937" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M 38 9 L 48 16" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>`;
+            }
+            return `<svg viewBox="0 0 72 36" class="${cls}" role="img" aria-label="${RACE_CARS[key].name}"><ellipse cx="36" cy="34" rx="30" ry="2" fill="#000" opacity=".18"/>${body}</svg>`;
+        }
+
+        // Lọc HTML câu hỏi gửi qua mạng trước khi hiện trên điện thoại (bỏ script, thuộc tính on…, link javascript:)
+        function sanitizeHtml(html) {
+            const tpl = document.createElement('template');
+            tpl.innerHTML = String(html ?? '');
+            tpl.content.querySelectorAll('script,iframe,object,embed,link,meta,style,form,input,button,textarea,select,base').forEach(n => n.remove());
+            tpl.content.querySelectorAll('*').forEach(el => {
+                [...el.attributes].forEach(a => {
+                    const n = a.name.toLowerCase();
+                    if (n.startsWith('on') || (/(^|:)(href|src|action|formaction)$/.test(n) && /^\s*(javascript|data:text)/i.test(a.value))) el.removeAttribute(a.name);
+                });
+            });
+            return tpl.innerHTML;
+        }
+
+        // ---------- Chọn xe trên điện thoại ----------
+        let selectedCar = (() => {
+            try {
+                const p = JSON.parse(localStorage.getItem('mathlab_2025_my_student_profile') || 'null');
+                return p && RACE_CARS[p.car] ? p.car : 'f1';
+            } catch (e) { return 'f1'; }
+        })();
+
+        function renderCarPicker() {
+            const grid = document.getElementById('student-car-grid');
+            if (!grid) return;
+            grid.innerHTML = RACE_CAR_KEYS.map(k => `
+                <button type="button" onclick="selectCar('${k}')" aria-pressed="${k === selectedCar}" class="p-1.5 rounded-xl border-2 transition ${k === selectedCar ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-950/60 shadow' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-indigo-300'}">
+                    ${raceCarSvg(k, 'w-full h-8 block')}
+                    <div class="text-[10px] font-bold text-slate-700 dark:text-slate-200 leading-tight mt-0.5">${RACE_CARS[k].name}</div>
+                </button>`).join('');
+        }
+
+        function selectCar(k) {
+            if (!RACE_CARS[k]) return;
+            selectedCar = k;
+            renderCarPicker();
+            try {
+                const p = JSON.parse(localStorage.getItem('mathlab_2025_my_student_profile') || 'null');
+                if (p) localStorage.setItem('mathlab_2025_my_student_profile', JSON.stringify({ ...p, car: k }));
+            } catch (e) {}
+            const player = currentStudentId ? bellPlayers.find(p => String(p.id) === String(currentStudentId)) : null;
+            if (player && hasJoinedCurrentSession) {
+                player.car = k;
+                broadcastRoomEvent({ type: 'STUDENT_JOIN', payload: { id: player.id, name: player.name, teamMode: player.teamMode, car: k } });
+                renderStudentPhoneUI();
+            }
+        }
+
+        // ---------- Máy GV: điều khiển cuộc đua ----------
+        let raceState = 'idle'; // idle | countdown | running | finished
+        let raceTotal = 0;
+        let raceQIdx = [];
+        let raceSeed = 1;
+        let raceStartAt = 0;
+        let racePenaltyMs = 5000;
+        let raceShuffle = true;
+        let raceRacers = {};
+        let raceFeed = [];
+        let raceClockTimer = null;
+        let raceTrackKey = '';
+
+        function raceHash(str) {
+            let h = 2166136261;
+            for (const ch of String(str)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
+            return h >>> 0;
+        }
+
+        function raceShuffled(arr, seed) {
+            const a = [...arr];
+            let x = (seed >>> 0) || 1;
+            for (let i = a.length - 1; i > 0; i--) {
+                x = (Math.imul(x, 1103515245) + 12345) >>> 0;
+                const j = x % (i + 1);
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function raceOrderFor(r) {
+            if (!r.order) r.order = raceShuffle ? raceShuffled(raceQIdx, raceHash(r.id) ^ raceSeed) : [...raceQIdx];
+            return r.order;
+        }
+
+        function raceEnsureRacer(id, name, car) {
+            if (!id) return null;
+            let r = raceRacers[id];
+            if (!r) {
+                const p = bellPlayers.find(x => String(x.id) === String(id));
+                r = raceRacers[id] = { id: String(id), name: name || (p && p.name) || 'Học sinh', car: (p && p.car) || null, pos: 0, wrong: 0, blockUntil: 0, finishMs: 0, lastPassAt: 0, asking: false };
+            }
+            if (name) r.name = String(name).slice(0, 40);
+            if (RACE_CARS[car]) r.car = car;
+            return r;
+        }
+
+        function raceFmt(ms) {
+            const sec = Math.max(0, Math.round(ms / 1000));
+            return Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0');
+        }
+
+        function raceRanked() {
+            return Object.values(raceRacers).sort((a, b) =>
+                ((b.finishMs ? 1 : 0) - (a.finishMs ? 1 : 0))
+                || ((a.finishMs && b.finishMs) ? a.finishMs - b.finishMs : 0)
+                || (b.pos - a.pos)
+                || ((a.lastPassAt || 9e15) - (b.lastPassAt || 9e15)));
+        }
+
+        function raceRankOf(id) {
+            return raceRanked().findIndex(r => r.id === String(id)) + 1;
+        }
+
+        function raceSend(type, payload) {
+            broadcastRoomEvent({ type, payload });
+        }
+
+        function broadcastRaceState(extra = {}) {
+            if (IS_STUDENT_MODE) return;
+            const positions = {};
+            raceRanked().forEach((r, i) => { positions[r.id] = { pos: r.pos, done: !!r.finishMs, rank: i + 1, finishMs: r.finishMs }; });
+            raceSend('RACE_STATE', { state: raceState, total: raceTotal, penaltyMs: racePenaltyMs, positions, ...extra });
+        }
+
+        // Câu hỏi gửi sang điện thoại: KHÔNG kèm đáp án, lời giải
+        function raceQuestionForPhone(q) {
+            if (!q) return null;
+            return {
+                type: q.type,
+                text: q.text,
+                visual: q.visual || '',
+                options: q.type === 'mcq' ? q.options : undefined,
+                statements: q.type === 'tf' ? (q.statements || []).map(st => st.label) : undefined
+            };
+        }
+
+        function raceLog(msg) {
+            raceFeed.unshift(msg);
+            raceFeed = raceFeed.slice(0, 8);
+            renderRaceFeed();
+        }
+
+        function raceTeacherAsk(p) {
+            if (IS_STUDENT_MODE || raceState !== 'running' || !p) return;
+            const r = raceEnsureRacer(p.id, p.name, p.car);
+            if (!r) return;
+            if (r.finishMs) {
+                raceSend('RACE_RESULT', { to: r.id, k: r.pos, ok: true, pos: r.pos, total: raceTotal, done: true, finishMs: r.finishMs, rank: raceRankOf(r.id) });
+                return;
+            }
+            r.asking = true;
+            raceSend('RACE_Q', { to: r.id, k: r.pos, total: raceTotal, q: raceQuestionForPhone(examQuestions[raceOrderFor(r)[r.pos]]) });
+            raceUpdateLane(r.id);
+        }
+
+        function raceTeacherAnswer(p) {
+            if (IS_STUDENT_MODE || raceState !== 'running' || !p) return;
+            const r = raceEnsureRacer(p.id, p.name, p.car);
+            if (!r || r.finishMs) return;
+            const now = Date.now();
+            if (p.k !== r.pos) {
+                raceSend('RACE_RESULT', { to: r.id, k: p.k, ok: false, stale: true, pos: r.pos, total: raceTotal });
+                return;
+            }
+            if (now < r.blockUntil) {
+                raceSend('RACE_RESULT', { to: r.id, k: r.pos, ok: false, wait: r.blockUntil - now, pos: r.pos, total: raceTotal });
+                return;
+            }
+            const ok = isAnswerCorrect(examQuestions[raceOrderFor(r)[r.pos]], p.qType, p.answer);
+            r.asking = false;
+            if (ok) {
+                r.pos++;
+                r.lastPassAt = now;
+                if (r.pos >= raceTotal) {
+                    r.finishMs = now - raceStartAt;
+                    const rank = Object.values(raceRacers).filter(x => x.finishMs).length;
+                    raceLog(`🏁 ${r.name} về đích hạng ${rank} (${raceFmt(r.finishMs)})`);
+                    if (rank <= 3) playVictorySoundAndApplause();
+                    else playCorrectSound();
+                } else {
+                    raceLog(`✅ ${r.name} vượt chướng ngại ${r.pos}/${raceTotal}`);
+                    playSoftWoodTap(0, 880, 0.08);
+                }
+            } else {
+                r.wrong++;
+                r.blockUntil = now + racePenaltyMs;
+                raceLog(`💥 ${r.name} trả lời sai – trượt bánh ${Math.round(racePenaltyMs / 1000)} giây`);
+                setTimeout(() => raceUpdateLane(r.id), racePenaltyMs + 60);
+            }
+            raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs });
+            raceUpdateLane(r.id);
+            renderRaceBoard();
+            updateRaceClock();
+        }
+
+        function raceCountdownOverlay(ms, done, elId = 'race-countdown') {
+            const end = Date.now() + ms;
+            let last = '';
+            const tick = () => {
+                const el = document.getElementById(elId);
+                const left = end - Date.now();
+                if (left <= 500) {
+                    if (el) { el.classList.remove('hidden'); el.innerText = 'GO!'; }
+                    playToneNote(988, 0, 0.35, 'triangle', 0.2);
+                    setTimeout(() => { const e2 = document.getElementById(elId); if (e2 && elId === 'race-countdown') e2.classList.add('hidden'); }, 700);
+                    if (done) done();
+                    return;
+                }
+                const n = String(Math.ceil((left - 500) / 1000));
+                if (el) { el.classList.remove('hidden'); el.innerText = n; }
+                if (n !== last) { last = n; playToneNote(660, 0, 0.18, 'triangle', 0.16); }
+                setTimeout(tick, 100);
+            };
+            tick();
+        }
+
+        function raceStart() {
+            if (raceState === 'countdown' || raceState === 'running') return;
+            if (!examQuestions.length) { showToast('⚠️ Chưa có đề. Bấm "📚 Chọn đề" trước.'); return; }
+            const sel = document.getElementById('race-count');
+            const want = (!sel || sel.value === 'all') ? examQuestions.length : parseInt(sel.value, 10);
+            raceTotal = Math.max(1, Math.min(want || 10, examQuestions.length));
+            raceShuffle = !!(document.getElementById('race-shuffle') || {}).checked;
+            racePenaltyMs = (parseInt((document.getElementById('race-penalty') || {}).value, 10) || 5) * 1000;
+            raceSeed = (Math.random() * 2147483647) >>> 0;
+            const all = examQuestions.map((_, i) => i);
+            raceQIdx = raceShuffle ? raceShuffled(all, raceSeed).slice(0, raceTotal) : all.slice(0, raceTotal);
+            raceRacers = {};
+            raceFeed = [];
+            bellPlayers.forEach((p, i) => raceEnsureRacer(p.id, p.name, p.car || RACE_CAR_KEYS[i % RACE_CAR_KEYS.length]));
+            raceState = 'countdown';
+            stopTensionMusicLoop();
+            broadcastRaceState({ countdownMs: 3500 });
+            renderRaceStage();
+            raceCountdownOverlay(3500, () => {
+                if (raceState !== 'countdown') return;
+                raceState = 'running';
+                raceStartAt = Date.now();
+                broadcastRaceState();
+                raceLog(`🚦 Xuất phát! ${raceTotal} chướng ngại vật.`);
+                renderRaceStage();
+                clearInterval(raceClockTimer);
+                raceClockTimer = setInterval(updateRaceClock, 1000);
+            });
+        }
+
+        function raceEnd() {
+            if (raceState === 'idle') return;
+            raceState = 'finished';
+            clearInterval(raceClockTimer);
+            broadcastRaceState();
+            renderRaceStage();
+            openRacePodium();
+        }
+
+        function raceReset(silent = false) {
+            raceState = 'idle';
+            raceRacers = {};
+            raceFeed = [];
+            raceTotal = 0;
+            clearInterval(raceClockTimer);
+            broadcastRaceState();
+            renderRaceStage();
+            if (!silent) showToast('🔄 Đã đặt lại đường đua.');
+        }
+
+        function renderRaceSettings() {
+            const sel = document.getElementById('race-count');
+            const titleEl = document.getElementById('race-exam-title');
+            if (titleEl) titleEl.innerText = `${currentExamTitle} (${examQuestions.length} câu)`;
+            if (!sel) return;
+            const n = examQuestions.length;
+            const prev = sel.value;
+            const opts = [3, 5, 8, 10, 12, 15, 20, 25, 30].filter(x => x < n);
+            sel.innerHTML = opts.map(x => `<option value="${x}">${x} câu</option>`).join('') + `<option value="all">Tất cả (${n} câu)</option>`;
+            sel.value = (prev && [...sel.options].some(o => o.value === prev)) ? prev : (opts.includes(10) ? '10' : 'all');
+        }
+
+        function raceObstacleX(k, total) {
+            return 8 + ((k + 1) / (total + 1)) * 84;
+        }
+
+        function raceCarLeft(r) {
+            if (!r || !raceTotal || raceState === 'idle' || raceState === 'countdown') return '6px';
+            if (r.finishMs) return 'calc(100% - 64px)';
+            return `max(6px, calc(${raceObstacleX(r.pos, raceTotal).toFixed(2)}% - 70px))`;
+        }
+
+        function raceLaneList() {
+            const list = bellPlayers.map((p, i) => ({ id: String(p.id), name: p.name, car: p.car || RACE_CAR_KEYS[i % RACE_CAR_KEYS.length] }));
+            Object.values(raceRacers).forEach(r => { if (!list.some(x => x.id === r.id)) list.push({ id: r.id, name: r.name, car: r.car }); });
+            return list;
+        }
+
+        function renderRaceTrack() {
+            const track = document.getElementById('race-track');
+            if (!track) return;
+            const lanes = raceLaneList();
+            const key = lanes.map(l => l.id + ':' + (raceRacers[l.id] ? raceRacers[l.id].car : l.car)).join('|') + '#' + raceTotal;
+            if (key !== raceTrackKey || !track.children.length) {
+                raceTrackKey = key;
+                if (!lanes.length) {
+                    track.innerHTML = '<div class="py-10 text-center text-sm font-bold text-slate-500">📱 Chưa có học sinh. Bấm "📱 Mã QR" để học sinh quét, nhập tên và chọn xe.</div>';
+                    return;
+                }
+                const cones = raceTotal ? Array.from({ length: raceTotal }, (_, k) => `<span class="race-cone" style="left:${raceObstacleX(k, raceTotal).toFixed(2)}%">${RACE_CONE}</span>`).join('') : '';
+                track.innerHTML = lanes.map((l, i) => {
+                    const r = raceRacers[l.id];
+                    const car = r && r.car ? r.car : l.car;
+                    return `<div class="race-lane flex items-center gap-2" data-id="${escapeHtml(l.id)}">
+                        <div class="w-28 sm:w-40 shrink-0 truncate text-xs sm:text-sm font-black text-slate-800 dark:text-slate-100" title="${escapeHtml(l.name)}"><span class="inline-block w-2.5 h-2.5 rounded-full mr-1" style="background:${RACE_CARS[raceCarKey(car)].color}"></span>${i + 1}. ${escapeHtml(l.name)}</div>
+                        <div class="race-road flex-1 min-w-0">
+                            <div class="race-start-line"></div>${cones}<div class="race-finish"></div>
+                            <div class="race-car" style="left:${raceCarLeft(r)}">${raceCarSvg(car)}<span class="race-bubble"></span></div>
+                        </div>
+                        <div class="race-lane-stat w-14 shrink-0 text-right text-xs font-black text-slate-700 dark:text-slate-200"></div>
+                    </div>`;
+                }).join('');
+            }
+            lanes.forEach(l => raceUpdateLane(l.id));
+        }
+
+        function raceUpdateLane(id) {
+            const track = document.getElementById('race-track');
+            if (!track) return;
+            const lane = track.querySelector(`.race-lane[data-id="${CSS.escape(String(id))}"]`);
+            if (!lane) { if (raceRacers[id]) renderRaceTrack(); return; }
+            const r = raceRacers[id];
+            const carEl = lane.querySelector('.race-car');
+            const left = raceCarLeft(r);
+            if (carEl.dataset.left !== left) {
+                carEl.dataset.left = left;
+                carEl.style.left = left;
+                carEl.classList.add('moving');
+                clearTimeout(carEl._mt);
+                carEl._mt = setTimeout(() => carEl.classList.remove('moving'), 1500);
+            }
+            const penalty = r && Date.now() < r.blockUntil;
+            carEl.classList.toggle('penalty', !!penalty);
+            const bubble = lane.querySelector('.race-bubble');
+            bubble.innerText = !r || raceState === 'idle' ? '' : (r.finishMs ? '🏁' : (penalty ? '💥' : (r.asking ? '❓' : '')));
+            lane.querySelectorAll('.race-cone').forEach((c, k) => c.classList.toggle('passed', !!r && k < r.pos));
+            const stat = lane.querySelector('.race-lane-stat');
+            stat.innerText = !r || !raceTotal ? '' : (r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`);
+        }
+
+        function renderRaceBoard() {
+            const el = document.getElementById('race-board');
+            if (!el) return;
+            const list = raceRanked();
+            if (!list.length || raceState === 'idle') {
+                el.innerHTML = '<li class="text-xs text-slate-500">Bảng xếp hạng hiện khi cuộc đua bắt đầu.</li>';
+                return;
+            }
+            const medal = i => ['🥇', '🥈', '🥉'][i] || `${i + 1}.`;
+            el.innerHTML = list.map((r, i) => `
+                <li class="flex items-center gap-2 px-2 py-1 rounded-lg ${i < 3 ? 'bg-white/80 dark:bg-slate-800' : ''}">
+                    <span class="w-6 text-center text-sm font-black">${medal(i)}</span>
+                    <span class="w-9 h-5 shrink-0">${raceCarSvg(r.car, 'w-9 h-5 block')}</span>
+                    <span class="flex-1 truncate text-xs font-black">${escapeHtml(r.name)}</span>
+                    <span class="text-[11px] font-black ${r.finishMs ? 'text-emerald-600' : 'text-slate-600 dark:text-slate-300'}">${r.finishMs ? '🏁 ' + raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`}</span>
+                </li>`).join('');
+        }
+
+        function renderRaceFeed() {
+            const el = document.getElementById('race-feed');
+            if (!el) return;
+            el.innerHTML = raceFeed.length ? raceFeed.map(m => `<li>${escapeHtml(m)}</li>`).join('') : '<li class="text-slate-500">Chưa có diễn biến.</li>';
+        }
+
+        function updateRaceClock() {
+            const badge = document.getElementById('race-status-badge');
+            if (!badge) return;
+            const all = Object.values(raceRacers);
+            const done = all.filter(r => r.finishMs).length;
+            if (raceState === 'running') {
+                badge.className = 'px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 text-xs font-extrabold animate-pulse';
+                badge.innerText = `🟢 Đang đua • ⏱️ ${raceFmt(Date.now() - raceStartAt)} • 🏁 ${done}/${all.length} về đích`;
+            } else if (raceState === 'countdown') {
+                badge.className = 'px-3 py-1 rounded-xl bg-amber-100 text-amber-800 text-xs font-extrabold';
+                badge.innerText = '🚦 Chuẩn bị xuất phát…';
+            } else if (raceState === 'finished') {
+                badge.className = 'px-3 py-1 rounded-xl bg-rose-100 text-rose-800 text-xs font-extrabold';
+                badge.innerText = `🏁 Đã kết thúc • ${done}/${all.length} về đích`;
+            } else {
+                badge.className = 'px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-extrabold';
+                badge.innerText = `Chờ xuất phát • ${bellPlayers.length} học sinh`;
+            }
+        }
+
+        function renderRaceStage() {
+            renderRaceSettings();
+            const startBtn = document.getElementById('race-start-btn');
+            if (startBtn) startBtn.disabled = raceState === 'countdown' || raceState === 'running';
+            if (startBtn) startBtn.classList.toggle('opacity-50', startBtn.disabled);
+            ['race-count', 'race-penalty', 'race-shuffle'].forEach(id => { const el = document.getElementById(id); if (el) el.disabled = raceState === 'countdown' || raceState === 'running'; });
+            renderRaceTrack();
+            renderRaceBoard();
+            renderRaceFeed();
+            updateRaceClock();
+        }
+
+        function openRacePodium() {
+            const list = raceRanked();
+            const top = document.getElementById('race-podium-top');
+            const rest = document.getElementById('race-podium-rest');
+            const block = (r, place, h, bg) => r ? `
+                <div class="flex flex-col items-center gap-1 w-28 sm:w-36">
+                    <div class="w-20 h-10">${raceCarSvg(r.car, 'w-20 h-10 block')}</div>
+                    <div class="text-xs sm:text-sm font-black truncate max-w-full">${escapeHtml(r.name)}</div>
+                    <div class="text-[11px] font-bold text-slate-500">${r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal} chướng ngại`}</div>
+                    <div class="w-full ${h} ${bg} rounded-t-xl flex items-start justify-center pt-2 text-2xl font-black text-white shadow-inner">${place}</div>
+                </div>` : '';
+            top.innerHTML = block(list[1], '2', 'h-20', 'bg-slate-400') + block(list[0], '1', 'h-28', 'bg-amber-400') + block(list[2], '3', 'h-14', 'bg-orange-400');
+            rest.innerHTML = list.slice(3).map((r, i) => `<li class="flex justify-between gap-2 px-2 py-1 rounded-lg odd:bg-slate-50 dark:odd:bg-slate-900"><span class="font-bold">${i + 4}. ${escapeHtml(r.name)}</span><span class="font-black text-slate-600 dark:text-slate-300">${r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`}</span></li>`).join('');
+            document.getElementById('race-podium').classList.remove('hidden');
+            playVictorySoundAndApplause();
+            launchFireworks(4000);
+        }
+
+        function exportRaceCSV() {
+            const list = raceRanked();
+            if (!list.length) { showToast('Chưa có kết quả đua xe.'); return; }
+            let csv = '﻿Hạng,Họ tên,Xe,Chướng ngại đã vượt,Số lần trả lời sai,Thời gian về đích\n';
+            list.forEach((r, i) => {
+                csv += `${i + 1},"${String(r.name).replace(/"/g, '""')}",${RACE_CARS[raceCarKey(r.car)].name},${r.pos}/${raceTotal},${r.wrong},${r.finishMs ? raceFmt(r.finishMs) : 'Chưa về đích'}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'ket_qua_dua_xe.csv';
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+
+        // ---------- Điện thoại HS: tự lái xe ----------
+        function racePhoneFresh() {
+            return { state: 'idle', total: 0, k: 0, q: null, penaltyUntil: 0, penaltyMs: 5000, rank: 0, finishMs: 0, tfDraft: [null, null, null, null], shortDraft: '', wrongOpts: [], lastAnswer: null, timers: [], ticker: null };
+        }
+        let racePhone = racePhoneFresh();
+
+        function racePhoneClearTimers() {
+            racePhone.timers.forEach(t => clearTimeout(t));
+            racePhone.timers = [];
+            clearInterval(racePhone.ticker);
+        }
+
+        function racePhoneLater(fn, ms) {
+            racePhone.timers.push(setTimeout(fn, ms));
+        }
+
+        function racePhoneOnState(d) {
+            if (!IS_STUDENT_MODE || !d) return;
+            if (d.state === 'idle') {
+                if (racePhone.state !== 'idle') { racePhoneClearTimers(); racePhone = racePhoneFresh(); renderStudentPhoneUI(); }
+                return;
+            }
+            if (!hasJoinedCurrentSession || !currentStudentId) return; // báo danh xong sẽ nhận lại trạng thái
+            racePhone.total = d.total || racePhone.total;
+            racePhone.penaltyMs = d.penaltyMs || racePhone.penaltyMs;
+            const me = d.positions ? d.positions[currentStudentId] : null;
+            if (d.state === 'countdown') {
+                racePhoneClearTimers();
+                racePhone = { ...racePhoneFresh(), total: d.total, penaltyMs: racePhone.penaltyMs, state: 'countdown' };
+                racePhoneRender();
+                raceCountdownOverlay(d.countdownMs || 3500, () => { if (racePhone.state === 'countdown') racePhoneDrive(); }, 'race-phone-countdown');
+                return;
+            }
+            if (d.state === 'finished') {
+                racePhoneClearTimers();
+                racePhone.state = 'finished';
+                if (me) { racePhone.k = me.pos; racePhone.rank = me.rank; racePhone.finishMs = me.finishMs; }
+                racePhoneRender();
+                return;
+            }
+            if (d.state === 'running') {
+                if (me && me.done) {
+                    racePhoneClearTimers();
+                    racePhone.state = 'finished'; racePhone.k = me.pos; racePhone.rank = me.rank; racePhone.finishMs = me.finishMs;
+                    racePhoneRender();
+                } else if (['idle', 'countdown', 'finished'].includes(racePhone.state)) {
+                    racePhone.k = me ? me.pos : 0;
+                    racePhoneDrive();
+                }
+            }
+        }
+
+        function racePhoneDrive() {
+            racePhoneClearTimers();
+            racePhone.state = 'driving';
+            racePhone.q = null;
+            racePhone.wrongOpts = [];
+            racePhone.tfDraft = [null, null, null, null];
+            racePhone.shortDraft = '';
+            racePhoneRender();
+            racePhoneLater(racePhoneAsk, RACE_DRIVE_MS);
+        }
+
+        function racePhoneAsk() {
+            racePhone.state = 'asking';
+            racePhoneRender();
+            const send = () => {
+                if (racePhone.state !== 'asking') return;
+                raceSend('RACE_ASK', { id: currentStudentId, name: currentStudentName, car: selectedCar, k: racePhone.k });
+                racePhoneLater(send, 3000);
+            };
+            send();
+        }
+
+        function racePhoneOnQuestion(d) {
+            if (racePhone.state !== 'asking' && racePhone.state !== 'driving') return;
+            racePhoneClearTimers();
+            racePhone.k = d.k;
+            racePhone.total = d.total || racePhone.total;
+            racePhone.q = d.q;
+            racePhone.state = 'question';
+            racePhoneRender();
+        }
+
+        function racePhoneSubmit(answer) {
+            if (racePhone.state !== 'question' || !racePhone.q) return;
+            if (racePhone.q.type === 'tf' && (!Array.isArray(answer) || answer.some(v => v === null))) { showToast('⚠️ Em chọn Đúng/Sai cho đủ các ý nhé!'); return; }
+            if (racePhone.q.type === 'short' && !String(answer || '').trim()) { showToast('⚠️ Em nhập đáp số trước khi gửi nhé!'); return; }
+            racePhone.lastAnswer = answer;
+            racePhone.state = 'checking';
+            racePhoneRender();
+            const send = () => {
+                if (racePhone.state !== 'checking') return;
+                raceSend('RACE_ANSWER', { id: currentStudentId, name: currentStudentName, car: selectedCar, k: racePhone.k, qType: racePhone.q.type, answer });
+                racePhoneLater(send, 4000);
+            };
+            send();
+        }
+
+        function racePhoneOnResult(d) {
+            if (racePhone.state !== 'checking' && !d.done) return;
+            racePhoneClearTimers();
+            if (d.done) {
+                racePhone.state = 'finished'; racePhone.k = d.pos; racePhone.rank = d.rank; racePhone.finishMs = d.finishMs;
+                playVictorySoundAndApplause();
+                launchFireworks(2500);
+                racePhoneRender();
+                return;
+            }
+            if (d.ok || d.stale) {
+                racePhone.k = d.pos;
+                if (d.ok) playCorrectSound();
+                racePhoneDrive();
+                return;
+            }
+            playWrongSound();
+            try { if (navigator.vibrate) navigator.vibrate(220); } catch (e) {}
+            if (racePhone.q && racePhone.q.type === 'mcq' && typeof racePhone.lastAnswer === 'number' && !racePhone.wrongOpts.includes(racePhone.lastAnswer)) {
+                racePhone.wrongOpts.push(racePhone.lastAnswer);
+            }
+            racePhone.state = 'penalty';
+            racePhone.penaltyUntil = Date.now() + (d.wait || racePhone.penaltyMs || 5000);
+            racePhoneRender();
+            racePhone.ticker = setInterval(() => {
+                const left = racePhone.penaltyUntil - Date.now();
+                const el = document.getElementById('race-phone-penalty-left');
+                if (el) el.innerText = Math.max(0, Math.ceil(left / 1000));
+                if (left <= 0) {
+                    clearInterval(racePhone.ticker);
+                    racePhone.state = 'question';
+                    racePhoneRender();
+                }
+            }, 250);
+        }
+
+        function racePhoneQuestionHtml() {
+            const q = racePhone.q || {};
+            const st = racePhone.state;
+            const locked = st !== 'question';
+            let ans = '';
+            if (q.type === 'mcq') {
+                ans = `<div class="grid grid-cols-1 gap-2">${(q.options || []).map((o, i) => {
+                    const bad = racePhone.wrongOpts.includes(i);
+                    return `<button type="button" ${locked || bad ? 'disabled' : ''} onclick="racePhoneSubmit(${i})" class="text-left px-3 py-2.5 rounded-xl border-2 text-sm font-bold transition ${bad ? 'border-rose-200 bg-rose-50 text-rose-300 line-through' : 'border-indigo-200 bg-white dark:bg-slate-900 dark:border-slate-600 hover:border-indigo-500 active:scale-[.98]'}"><span class="font-black text-indigo-600 mr-1">${'ABCD'[i] || ''}.</span> ${sanitizeHtml(o)}</button>`;
+                }).join('')}</div>`;
+            } else if (q.type === 'tf') {
+                ans = `<div class="space-y-1.5">${(q.statements || []).map((label, i) => `
+                    <div class="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 space-y-1.5">
+                        <div class="text-xs font-semibold leading-relaxed">${sanitizeHtml(label)}</div>
+                        <div class="flex gap-2">
+                            <button type="button" ${locked ? 'disabled' : ''} onclick="racePhone.tfDraft[${i}]=true; racePhoneRender()" class="flex-1 py-1.5 rounded-lg text-xs font-black ${racePhone.tfDraft[i] === true ? 'bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-slate-700'}">ĐÚNG</button>
+                            <button type="button" ${locked ? 'disabled' : ''} onclick="racePhone.tfDraft[${i}]=false; racePhoneRender()" class="flex-1 py-1.5 rounded-lg text-xs font-black ${racePhone.tfDraft[i] === false ? 'bg-rose-600 text-white' : 'bg-slate-200 dark:bg-slate-700'}">SAI</button>
+                        </div>
+                    </div>`).join('')}
+                    <button type="button" ${locked ? 'disabled' : ''} onclick="racePhoneSubmit(racePhone.tfDraft.slice(0, ${(q.statements || []).length}))" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm">🚀 Gửi đáp án</button></div>`;
+            } else {
+                ans = `<div class="space-y-2">
+                    <input id="race-short-inp" type="text" inputmode="decimal" ${locked ? 'disabled' : ''} value="${escapeHtml(racePhone.shortDraft)}" oninput="racePhone.shortDraft = this.value" onkeydown="if(event.key==='Enter') racePhoneSubmit(racePhone.shortDraft)" placeholder="Nhập đáp số (VD: 2,5)" class="w-full px-4 py-3 rounded-xl border-2 border-indigo-400 bg-white dark:bg-slate-900 font-black text-center text-lg">
+                    <button type="button" ${locked ? 'disabled' : ''} onclick="racePhoneSubmit(racePhone.shortDraft)" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm">🚀 Gửi đáp số</button></div>`;
+            }
+            const banner = st === 'penalty'
+                ? `<div class="px-3 py-2 rounded-xl bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-200 text-xs font-black text-center">💥 Chưa đúng! Xe trượt bánh – trả lời lại sau <span id="race-phone-penalty-left">${Math.max(0, Math.ceil((racePhone.penaltyUntil - Date.now()) / 1000))}</span> giây</div>`
+                : (st === 'checking' ? '<div class="px-3 py-2 rounded-xl bg-indigo-50 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-200 text-xs font-black text-center">⏳ Đang kiểm tra đáp án…</div>' : '');
+            return `<div class="space-y-2.5">
+                <div class="text-sm font-bold leading-relaxed">${sanitizeHtml(q.text)}</div>
+                ${q.visual ? `<div class="word-table-visual overflow-x-auto rounded-xl bg-white p-2 flex justify-center">${sanitizeHtml(q.visual)}</div>` : ''}
+                ${banner}
+                <div class="${st === 'penalty' || st === 'checking' ? 'opacity-50 pointer-events-none' : ''}">${ans}</div>
+            </div>`;
+        }
+
+        function racePhoneRender() {
+            const box = document.getElementById('student-race-box');
+            if (!box || !IS_STUDENT_MODE) return;
+            if (racePhone.state === 'idle') { box.classList.add('hidden'); return; }
+            if (!hasJoinedCurrentSession) return;
+            box.classList.remove('hidden');
+            ['student-question-status-box', 'student-submit-feedback'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('hidden'); });
+            const pad = document.getElementById('student-remote-pad');
+            if (pad) pad.innerHTML = '';
+            const st = racePhone.state;
+            const total = racePhone.total || 0;
+            const k = Math.min(racePhone.k, total);
+            const pct = total ? Math.round(k / total * 100) : 0;
+            const atCone = ['asking', 'question', 'checking', 'penalty'].includes(st);
+            const moving = st === 'driving';
+            const reached = st === 'finished' && total && k >= total;
+            let body = '';
+            if (st === 'countdown') {
+                body = '<div class="text-center py-2"><div class="text-xs font-black text-slate-500">Chuẩn bị xuất phát!</div><div id="race-phone-countdown" class="text-7xl font-black text-rose-600">3</div></div>';
+            } else if (st === 'driving') {
+                body = `<div class="text-center text-sm font-black text-emerald-600 py-2">🏎️ Đang tăng tốc tới chướng ngại vật ${k + 1}…</div>`;
+            } else if (st === 'asking') {
+                body = '<div class="text-center text-sm font-black text-amber-600 py-2">🚧 Gặp chướng ngại vật! Đang nhận câu hỏi…</div>';
+            } else if (atCone) {
+                body = racePhoneQuestionHtml();
+            } else if (st === 'finished') {
+                body = reached
+                    ? `<div class="p-4 rounded-2xl bg-gradient-to-b from-amber-100 to-white dark:from-amber-950/60 dark:to-slate-900 border-2 border-amber-400 text-center space-y-1"><div class="text-3xl">🏁🏆</div><div class="text-base font-black text-amber-700 dark:text-amber-300">VỀ ĐÍCH! HẠNG ${racePhone.rank || '?'}</div><div class="text-xs font-bold text-slate-600 dark:text-slate-300">Thời gian: ${raceFmt(racePhone.finishMs || 0)} • Nhìn lên màn chiếu xem bảng xếp hạng nhé!</div></div>`
+                    : `<div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 text-center space-y-1"><div class="text-3xl">⏹️</div><div class="text-sm font-black">Cuộc đua đã kết thúc</div><div class="text-xs font-bold text-slate-600 dark:text-slate-300">Em vượt được ${k}/${total} chướng ngại vật${racePhone.rank ? ` • Hạng ${racePhone.rank}` : ''}.</div></div>`;
+            }
+            box.innerHTML = `
+                <div class="p-3 rounded-2xl bg-emerald-50 dark:bg-slate-900 border border-emerald-200 dark:border-slate-700 space-y-2">
+                    <div class="flex items-center justify-between gap-2 text-xs font-black">
+                        <span class="text-emerald-700 dark:text-emerald-300">🏎️ ĐUA XE KIẾN THỨC</span>
+                        <span class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">🚧 ${atCone ? k + 1 : k}/${total}</span>
+                    </div>
+                    <div class="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"><div class="h-full bg-gradient-to-r from-emerald-500 to-sky-500 transition-all duration-500" style="width:${pct}%"></div></div>
+                    <div class="race-phone-road ${moving ? 'moving' : ''}">
+                        <div class="race-phone-dashes"></div>
+                        <div class="race-phone-car ${moving ? 'moving' : ''} ${st === 'penalty' ? 'penalty' : ''}">${raceCarSvg(selectedCar)}</div>
+                        ${atCone ? `<div class="race-phone-cone">${RACE_CONE}</div>` : ''}
+                        ${reached ? '<div class="race-phone-flag"></div>' : ''}
+                    </div>
+                </div>
+                ${body}`;
+            renderAllMath(box);
+        }
+
         // 16. CHẾ ĐỘ TOÀN MÀN HÌNH TRÀN 100% CHIỀU NGANG LAPTOP / TI VI
         function toggleStageFullscreen(containerId) {
             const el = document.getElementById(containerId);
@@ -5046,7 +5916,7 @@
                 isGameStarted = true;
                 activeGameMode = tabName;
             }
-            ['lobby', 'bell', 'tug', 'student', 'bank', 'practice'].forEach(t => {
+            ['lobby', 'bell', 'tug', 'race', 'student', 'bank', 'practice'].forEach(t => {
                 const sec = document.getElementById(`tab-${t}`);
                 if (sec) sec.classList.toggle('hidden', t !== tabName);
                 const btn = document.getElementById(`tab-btn-${t}`);
@@ -5065,6 +5935,8 @@
                 renderBellPlayers();
             } else if (tabName === 'tug') {
                 renderTugStage();
+            } else if (tabName === 'race') {
+                renderRaceStage();
             } else if (tabName === 'bell') {
                 renderBellStage();
             } else if (tabName === 'student') {
@@ -5099,11 +5971,13 @@
                 document.getElementById('bell-stage-container').classList.remove('fullscreen-stage');
                 document.getElementById('tug-stage-container').classList.remove('fullscreen-stage');
                 document.getElementById('tug-bottom-controls').classList.remove('floating-bottom-dock');
+                document.getElementById('race-stage-container').classList.remove('fullscreen-stage');
             }
         });
 
         window.addEventListener('DOMContentLoaded', async () => {
             const params = new URLSearchParams(window.location.search);
+            renderCarPicker();
             if (params.get('pin')) {
                 currentRoomPin = params.get('pin').trim();
                 const pinDisp = document.getElementById('student-pin-display');
@@ -5132,23 +6006,32 @@
             } else {
                 switchTab('lobby');
                 const vao = params.get('vao');
-                if (vao === 'bell' || vao === 'tug') focusLobbyGame(vao);
+                if (vao === 'bell' || vao === 'tug' || vao === 'race') focusLobbyGame(vao);
             }
         });
 
         // Mở từ menu "🎮 Trò chơi" của trang chủ (?vao=bell | ?vao=tug): làm nổi bật nút bắt đầu trò chơi đã chọn ở Sảnh chờ
         function focusLobbyGame(game) {
-            const chosen = document.getElementById(game === 'tug' ? 'lobby-start-tug' : 'lobby-start-bell');
-            const other = document.getElementById(game === 'tug' ? 'lobby-start-bell' : 'lobby-start-tug');
-            if (!chosen || !other) return;
+            const ids = { bell: 'lobby-start-bell', tug: 'lobby-start-tug', race: 'lobby-start-race' };
+            const chosen = document.getElementById(ids[game]);
+            if (!chosen) return;
+            Object.values(ids).forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el !== chosen) {
+                    el.classList.remove('flex-1', 'min-w-[240px]', 'sm:text-xl');
+                    el.classList.add('opacity-80');
+                }
+            });
             chosen.style.order = '-1';
+            chosen.classList.remove('opacity-80');
             chosen.classList.add('flex-1', 'min-w-[240px]', 'ring-4', 'ring-white/80', 'text-base', 'sm:text-xl', 'py-4');
-            other.classList.remove('flex-1', 'min-w-[240px]', 'sm:text-xl');
-            other.classList.add('opacity-80');
-            document.title = game === 'tug' ? 'Kéo co kiến thức – Đấu trường' : 'Rung chuông vàng – Đấu trường';
-            showToast(game === 'tug'
-                ? '🪢 Kéo co: chọn đề, cho học sinh quét mã QR (chọn Đội Đỏ/Xanh hoặc để máy tự chia), rồi bấm "BẮT ĐẦU KÉO CO".'
-                : '🔔 Rung chuông vàng: chọn đề, cho học sinh quét mã QR báo danh, rồi bấm "BẮT ĐẦU RUNG CHUÔNG VÀNG".');
+            const info = {
+                bell: ['Rung chuông vàng – Đấu trường', '🔔 Rung chuông vàng: chọn đề, cho học sinh quét mã QR báo danh, rồi bấm "BẮT ĐẦU RUNG CHUÔNG VÀNG".'],
+                tug: ['Kéo co kiến thức – Đấu trường', '🪢 Kéo co: chọn đề, cho học sinh quét mã QR (chọn Đội Đỏ/Xanh hoặc để máy tự chia), rồi bấm "BẮT ĐẦU KÉO CO".'],
+                race: ['Đua xe kiến thức – Đấu trường', '🏎️ Đua xe: chọn đề, cho học sinh quét mã QR, nhập tên và chọn xe, rồi bấm "BẮT ĐẦU ĐUA XE".']
+            }[game];
+            document.title = info[0];
+            showToast(info[1]);
         }
 
     </script>
