@@ -144,8 +144,10 @@
         }
         .kid-pull {
             animation: kidPull 1.25s infinite ease-in-out;
-            transform-box: fill-box;
-            transform-origin: 40% 96%;
+            /* Tâm xoay đặt đúng chỗ bàn tay nắm dây (x=41, y=125 trong hình nhân vật) để người ngả ra sau mà tay không rời dây.
+               Dùng toạ độ cố định (không dùng fill-box: Chrome tính khung <use> lúc đúng lúc sai làm nhân vật nhảy khỏi dây). */
+            transform-box: view-box;
+            transform-origin: 41px 125px;
         }
         .kid-d1 { animation-delay: -0.3s; }
         .kid-d2 { animation-delay: -0.6s; }
@@ -853,13 +855,13 @@
                                 <!-- ================= BÊN TRÁI: 4 HỌC SINH ĐỘI ĐỎ (NAM - NỮ XEN KẼ) ================= -->
                                 <g>
                                     <!-- Học sinh số 4 (Nam - cuối dây bên trái) -->
-                                    <use href="#kid-boy-red" x="95" y="0" class="kid-pull kid-d0" />
+                                    <g transform="translate(95, 0)"><use href="#kid-boy-red" x="0" y="0" class="kid-pull kid-d0" /></g>
                                     <!-- Học sinh số 3 (Nữ tóc đuôi gà) -->
-                                    <use href="#kid-girl-red" x="188" y="0" class="kid-pull kid-d1" />
+                                    <g transform="translate(188, 0)"><use href="#kid-girl-red" x="0" y="0" class="kid-pull kid-d1" /></g>
                                     <!-- Học sinh số 2 (Nam) -->
-                                    <use href="#kid-boy-red" x="282" y="0" class="kid-pull kid-d2" />
+                                    <g transform="translate(282, 0)"><use href="#kid-boy-red" x="0" y="0" class="kid-pull kid-d2" /></g>
                                     <!-- Học sinh số 1 (Nữ tiên phong gần nơ đỏ) -->
-                                    <use href="#kid-girl-red" x="376" y="0" class="kid-pull kid-d3" />
+                                    <g transform="translate(376, 0)"><use href="#kid-girl-red" x="0" y="0" class="kid-pull kid-d3" /></g>
                                 </g>
 
                                 <!-- ================= BÊN PHẢI: 4 HỌC SINH ĐỘI XANH (ĐỐI XỨNG QUA VẠCH GIỮA) ================= -->
