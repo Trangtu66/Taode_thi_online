@@ -1,0 +1,13 @@
+/* Mục "🎮 Trò chơi" trên thanh menu chung (sau Góc Giáo viên): Rung chuông vàng, Kéo co kiến thức */
+.nav-game { position: relative; display: inline-flex; }
+.nav-game > a.nav-game-btn { background: rgba(251, 191, 36, .25); font-weight: 700; opacity: 1; }
+.nav-game > a.nav-game-btn:hover { background: rgba(251, 191, 36, .4); }
+.nav-game-menu { display: none; position: absolute; left: 0; top: 100%; padding-top: 6px; z-index: 1000; }
+.nav-game:hover .nav-game-menu, .nav-game:focus-within .nav-game-menu { display: block; }
+.nav-game-menu .box { min-width: 240px; background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(15, 23, 42, .25); padding: 6px; display: flex; flex-direction: column; gap: 2px; }
+.nav-game-menu a { color: #1e293b !important; opacity: 1 !important; padding: 9px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; display: block; white-space: nowrap; background: transparent; }
+.nav-game-menu a:hover, .nav-game-menu a:focus-visible { background: #eef2ff !important; }
+.nav-game-menu small { display: block; color: #64748b; font-size: 12px; font-weight: 400; margin-top: 1px; }
+@media (max-width: 640px) {
+  .nav-game-menu { left: auto; right: 0; }
+}

@@ -528,10 +528,10 @@
 
                         <!-- Nút Khởi Động Bước Vào Câu 1 -->
                         <div class="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
-                            <button type="button" onclick="enterCompetitionFromLobby('bell')" class="flex-1 min-w-[240px] py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:opacity-95 text-slate-950 font-black text-base sm:text-xl shadow-2xl transition transform hover:scale-[1.01]">
+                            <button type="button" id="lobby-start-bell" onclick="enterCompetitionFromLobby('bell')" class="flex-1 min-w-[240px] py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:opacity-95 text-slate-950 font-black text-base sm:text-xl shadow-2xl transition transform hover:scale-[1.01]">
                                 🔔 BẮT ĐẦU RUNG CHUÔNG VÀNG (VÀO CÂU 1) ➡
                             </button>
-                            <button type="button" onclick="enterCompetitionFromLobby('tug')" class="py-4 px-5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:opacity-95 text-white font-black text-sm sm:text-base shadow-xl transition">
+                            <button type="button" id="lobby-start-tug" onclick="enterCompetitionFromLobby('tug')" class="py-4 px-5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:opacity-95 text-white font-black text-sm sm:text-base shadow-xl transition">
                                 🪢 BẮT ĐẦU KÉO CO ➡
                             </button>
                         </div>
@@ -5131,8 +5131,25 @@
                 showToast('📲 Chào mừng đến với ĐẤU TRƯỜNG KIẾN THỨC! Em hãy nhập Họ Tên để báo danh.');
             } else {
                 switchTab('lobby');
+                const vao = params.get('vao');
+                if (vao === 'bell' || vao === 'tug') focusLobbyGame(vao);
             }
         });
+
+        // Mở từ menu "🎮 Trò chơi" của trang chủ (?vao=bell | ?vao=tug): làm nổi bật nút bắt đầu trò chơi đã chọn ở Sảnh chờ
+        function focusLobbyGame(game) {
+            const chosen = document.getElementById(game === 'tug' ? 'lobby-start-tug' : 'lobby-start-bell');
+            const other = document.getElementById(game === 'tug' ? 'lobby-start-bell' : 'lobby-start-tug');
+            if (!chosen || !other) return;
+            chosen.style.order = '-1';
+            chosen.classList.add('flex-1', 'min-w-[240px]', 'ring-4', 'ring-white/80', 'text-base', 'sm:text-xl', 'py-4');
+            other.classList.remove('flex-1', 'min-w-[240px]', 'sm:text-xl');
+            other.classList.add('opacity-80');
+            document.title = game === 'tug' ? 'Kéo co kiến thức – Đấu trường' : 'Rung chuông vàng – Đấu trường';
+            showToast(game === 'tug'
+                ? '🪢 Kéo co: chọn đề, cho học sinh quét mã QR (chọn Đội Đỏ/Xanh hoặc để máy tự chia), rồi bấm "BẮT ĐẦU KÉO CO".'
+                : '🔔 Rung chuông vàng: chọn đề, cho học sinh quét mã QR báo danh, rồi bấm "BẮT ĐẦU RUNG CHUÔNG VÀNG".');
+        }
 
     </script>
 </body>

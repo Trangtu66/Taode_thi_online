@@ -42,6 +42,7 @@ Mã QR in trên slide, KHBD và các link đã gửi học sinh trỏ thẳng v�
 | `quan_ly.html`, `ket_qua.html`, `xep_hang.html` | Quản lí bài, kết quả, xếp hạng (ô “Dữ liệu” xem học kỳ đã lưu trữ) |
 | `tao_de.html` | Địa chỉ Trình soạn đề cho giáo viên (mở `lam_bai.html#tao`) |
 | `dau_truong.html` | Đấu trường kiến thức: Rung chuông vàng, Kéo co trên máy chiếu, học sinh trả lời bằng điện thoại qua mã QR (mục Dành cho Giáo viên ở trang chủ) |
+| `menu_tro_choi.css` | Mục "🎮 Trò chơi" trên thanh menu chung (sau Góc Giáo viên): `dau_truong.html?vao=bell` (Rung chuông vàng), `?vao=tug` (Kéo co) |
 | `admin.html` | Quản trị dữ liệu: xoá bộ nhớ đệm (mọi người); sao lưu .json, lưu trữ cuối học kỳ `KetQua → LichSu_…` (mã quản trị) |
 | `hien_ma.js`, `bieu_tuong.js` | Nút hiện/ẩn mã GV; biểu tượng SVG dùng chung |
 | `cau_hinh.js` | Danh sách bài + địa chỉ nhận kết quả |
