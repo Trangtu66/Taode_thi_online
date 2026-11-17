@@ -4135,6 +4135,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 15. Phương trình đường thẳng trong không gian *(Tiết 76–78, 82–83)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 15<br/>Phương trình<br/>đường thẳng"]:::root
+    G --> A["① Vectơ chỉ phương"]:::n1
+    G --> B["② Phương trình"]:::n2
+    G --> C["③ Vuông góc"]:::n3
+    G --> D["④ Vị trí tương đối"]:::n4
+
+    A --> A1["★ u ≠ 0, giá song song hoặc trùng Δ"]:::l1
+    A --> A2["ku cũng là VTCP"]:::l1
+    A --> A3["Qua A, B: VTCP AB"]:::l1
+    A --> A4["⊥ (P): VTCP = n_P"]:::l1
+
+    B --> B1["★ Tham số: x = x₀ + at, …"]:::l2
+    B --> B2["★ Chính tắc: (x − x₀)/a = …"]:::l2
+    B --> B3["Chính tắc khi a, b, c ≠ 0"]:::l2
+    B --> B4["Qua hai điểm A₁, A₂"]:::l2
+
+    C --> C1["★ Δ₁ ⊥ Δ₂ ⇔ u₁·u₂ = 0"]:::l3
+    C --> C2["a₁a₂ + b₁b₂ + c₁c₂ = 0"]:::l3
+    C --> C3["Nút giao thông"]:::l3
+    C --> C4["Đường thẳng ⊥ trục"]:::l3
+
+    D --> D1["Song song, trùng: u₁ cùng phương u₂"]:::l4
+    D --> D2["Cắt nhau: [u₁,u₂] ≠ 0, A₁A₂·[u₁,u₂] = 0"]:::l4
+    D --> D3["★ Chéo nhau: A₁A₂·[u₁,u₂] ≠ 0"]:::l4
+    D --> D4["Hai vật có va chạm?"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai15_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
