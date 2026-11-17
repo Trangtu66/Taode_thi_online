@@ -3943,6 +3943,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 12. Tích phân *(Tiết 60–63)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 12<br/>Tích phân"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Ý nghĩa hình học"]:::n2
+    G --> C["③ Tính chất"]:::n3
+    G --> D["④ Thực tiễn"]:::n4
+
+    A --> A1["Hình thang cong"]:::l1
+    A --> A2["★ ∫ₐᵇ f(x)dx = F(b) − F(a)"]:::l1
+    A --> A3["Cận dưới a, cận trên b"]:::l1
+    A --> A4["∫ₐᵃ = 0; ∫ₐᵇ = −∫ᵦᵃ"]:::l1
+
+    B --> B1["f ≥ 0: S = ∫ₐᵇ f(x)dx"]:::l2
+    B --> B2["Diện tích hình thang"]:::l2
+    B --> B3["Nửa hình tròn"]:::l2
+    B --> B4["∫ √(r² − x²)dx"]:::l2
+
+    C --> C1["★ ∫ kf = k∫ f"]:::l3
+    C --> C2["∫ (f ± g) = ∫ f ± ∫ g"]:::l3
+    C --> C3["Chèn cận c (a < c < b)"]:::l3
+    C --> C4["Tách |f(x)| theo dấu"]:::l3
+
+    D --> D1["Quãng đường từ vận tốc"]:::l4
+    D --> D2["Giá trị trung bình"]:::l4
+    D --> D3["Lợi nhuận, dòng máu"]:::l4
+    D --> D4["Lượng nước tưới cà phê"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai12_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
