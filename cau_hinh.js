@@ -441,6 +441,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài 19. Công thức xác suất toàn phần và công thức Bayes – Đề 1", ma: "Game – Bài 19. Công thức xác suất toàn phần và công thức Bayes – Đề 1 (Toán 12)", link: "game_bai19_de1_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài 19. Công thức xác suất toàn phần và công thức Bayes – Đề 2", ma: "Game – Bài 19. Công thức xác suất toàn phần và công thức Bayes – Đề 2 (Toán 12)", link: "game_bai19_de2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 12. Tích phân", ma: "Củng cố – Bài 12. Tích phân (Toán 12)", link: "cc_bai12_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 13. Ứng dụng hình học của tích phân", ma: "Củng cố – Bài 13. Ứng dụng hình học của tích phân (Toán 12)", link: "cc_bai13_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];

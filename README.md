@@ -3991,6 +3991,54 @@ graph TD
 
 ---
 
+### Toán 12 – Bài 13. Ứng dụng hình học của tích phân *(Tiết 64–67)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 13<br/>Ứng dụng hình học<br/>của tích phân"]:::root
+    G --> A["① Diện tích: một đồ thị"]:::n1
+    G --> B["② Diện tích: hai đồ thị"]:::n2
+    G --> C["③ Thể tích vật thể"]:::n3
+    G --> D["④ Khối tròn xoay"]:::n4
+
+    A --> A1["★ S = ∫ₐᵇ |f(x)| dx"]:::l1
+    A --> A2["Tách cận tại nghiệm f(x) = 0"]:::l1
+    A --> A3["VD: y = sin x trên [0; 2π]"]:::l1
+    A --> A4["Thặng dư tiêu dùng, sản xuất"]:::l1
+
+    B --> B1["★ S = ∫ₐᵇ |f(x) − g(x)| dx"]:::l2
+    B --> B2["Tìm hoành độ giao điểm"]:::l2
+    B --> B3["f − g không đổi dấu: |∫(f − g)|"]:::l2
+    B --> B4["GeoGebra kiểm tra"]:::l2
+
+    C --> C1["★ V = ∫ₐᵇ S(x) dx"]:::l3
+    C --> C2["Lăng trụ: V = Sh"]:::l3
+    C --> C3["Chóp: V = ⅓Sh"]:::l3
+    C --> C4["Chóp cụt: ⅓h(S₀ + √(S₀S₁) + S₁)"]:::l3
+
+    D --> D1["★ V = π∫ₐᵇ f²(x) dx"]:::l4
+    D --> D2["Khối nón, nón cụt"]:::l4
+    D --> D3["Khối cầu: ⁴⁄₃πR³"]:::l4
+    D --> D4["Chậu ươm, bể nước"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai13_t12.html>
+
+---
+
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
