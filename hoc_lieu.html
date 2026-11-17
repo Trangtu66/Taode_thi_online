@@ -42,7 +42,7 @@
   .nhom::before { content:""; width:6px; height:20px; border-radius:3px; background:linear-gradient(180deg,#FBBF24,#F59E0B); }
   .nhom::after { content:""; flex:1; height:1px; background:var(--line); }
   .ds { grid-template-columns:repeat(auto-fill,minmax(min(100%,500px),1fr)); gap:12px; }
-  .bai { border-radius:14px; padding:14px 18px; gap:10px; transition:transform .18s, box-shadow .18s, border-color .18s; }
+  .bai { align-content:start; border-radius:14px; padding:14px 18px; gap:10px; transition:transform .18s, box-shadow .18s, border-color .18s; }
   .bai:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(15,23,42,.08); border-color:#C7D2FE; }
   .bai .tt { font-size:15.5px; line-height:1.4; }
   .f { border-radius:999px; padding:6px 12px; }
@@ -98,6 +98,7 @@ const h0 = location.hash.slice(1); if (TEN[h0]) ST.mon = h0;
 
 // gom các file cùng một bài (KHBD + slide + sơ đồ + PDF) thành một thẻ
 function khoaBai(x) {
+  if (x.nhom) return x.nhom;   // khoá bài do hoc_lieu_index.py tính (gộp bản thường, hoà nhập, KHDH, PDF)
   const g = x.file.replace(/\.[^.]+$/, "").replace(/^(KHBD|Slide|SoDoTuDuy|MaTran_DacTa)_/, "").replace(/_v\d+$/, "");
   const m = g.match(/CD(\d+)_Bai(\d+)/) || g.match(/BaiTapCuoiChuong(\d+)/) || g.match(/Bai(\d+)/);
   return x.mon + "|" + x.khoi + "|" + (x.loai === "ma_tran" || x.loai === "de_cuong" ? "mt|" + g : (m ? m[0] : g));
@@ -124,7 +125,7 @@ function ve() {
   const the = [...bai.values()].map(fs => {
     fs.sort((a, b) => ["khbd", "slide", "sodo", "ma_tran", "de_cuong"].indexOf(loaiCua(a)) - ["khbd", "slide", "sodo", "ma_tran", "de_cuong"].indexOf(loaiCua(b)));
     const chinh = fs.find(x => loaiCua(x) === "slide") || fs.find(x => loaiCua(x) === "khbd") || fs[0];
-    return {fs, ten: chinh.ten.replace(/^Sơ đồ tư duy – /, "").replace(/ \((bản \d+|PDF)\)$/, ""), mon: chinh.mon, khoi: chinh.khoi,
+    return {fs, ten: chinh.bai || chinh.ten.replace(/^Sơ đồ tư duy – /, "").replace(/ \((bản \d+|PDF)\)$/, ""), mon: chinh.mon, khoi: chinh.khoi,
             ngay: fs.map(x => x.ngay).sort().pop()};
   });
   const so = s => { const m = s.match(/^(Chuyên đề (\d+)|Bài (\d+))/); return m ? (m[2] ? 100 + +m[2] : +m[3]) : 999; };
@@ -136,7 +137,7 @@ function ve() {
     const n = (TEN[t.mon] || t.mon) + (t.khoi ? " " + t.khoi : "");
     if (n !== nhom) { html += (nhom ? "</div>" : "") + `<h2 class="nhom">${esc(n)}</h2><div class="ds">`; nhom = n; }
     html += `<div class="bai"><div><div class="tt">${esc(t.ten)}</div><div class="meta">Cập nhật ${t.ngay.split("-").reverse().join("/")}</div></div><div class="files">` +
-      t.fs.map(x => { const l = loaiCua(x), ph = (x.ten.match(/\((bản \d+)\)$/) || [])[1];
+      t.fs.map(x => { const l = loaiCua(x), ph = x.nhan || (x.ten.match(/\((bản \d+)\)$/) || [])[1];
         const xem = window.XemTruoc && XemTruoc.xemDuoc(x.file) ? `<button type="button" class="xem" data-i="${XEM.push(x) - 1}" title="Xem trước ${esc(x.file)} ngay trên web">👁 Xem trước</button>` : "";
         return `<span class="cap"><a class="f ${l}" href="${esc(x.url)}" download title="Tải về ${esc(x.file)}">${NHAN[l]}${ph ? " · " + ph : ""} <small>${DUOI(x.file)} · ${x.kb >= 1024 ? (x.kb / 1024).toFixed(1).replace(".", ",") + " MB" : x.kb + " KB"}</small></a>${xem}</span>`; }).join("") + `</div></div>`;
   });
