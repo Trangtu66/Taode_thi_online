@@ -202,14 +202,14 @@ main.wrap { padding-top:0; }
 #de-cuong { padding:24px; border-radius:20px; box-shadow:0 4px 18px rgba(15,23,42,.05); margin-top:44px !important; }
 
 /* Danh mục môn: ô dọc, màu riêng mỗi môn */
-.mon-grid { grid-template-columns:repeat(9,1fr); gap:12px; }
+.mon-grid { grid-template-columns:repeat(2,1fr); gap:14px; }
 .mon-grid a { flex-direction:column; justify-content:center; text-align:center; gap:10px; padding:18px 6px 16px; border-radius:16px; font-size:14px;
    transition:transform .18s, box-shadow .18s, border-color .18s; }
 .mon-grid a .mi { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:color-mix(in srgb,var(--c) 13%,#fff); }
 .mon-grid a svg { width:24px; height:24px; color:var(--c); }
 .mon-grid a:hover { transform:translateY(-3px); border-color:var(--c); color:var(--c); background:#fff; box-shadow:0 12px 26px color-mix(in srgb,var(--c) 18%,transparent); }
 
-@media (max-width:980px){ .mon-grid{grid-template-columns:repeat(5,1fr);} }
+
 @media (max-width:860px){
   .hero-sec .in { grid-template-columns:1fr; gap:26px; padding:36px 16px 64px; }
   .hero-sec h1 { font-size:32px; }
@@ -223,7 +223,7 @@ main.wrap { padding-top:0; }
   .who { padding:10px 8px; gap:6px; flex-direction:column; text-align:center; }
   .who .ic { width:36px; height:36px; }
   .who b { font-size:14.5px; } .who > span > span { display:none; }
-  .mon-grid { grid-template-columns:repeat(3,1fr); gap:10px; }
+  .mon-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
   .mon-grid a { font-size:13px; padding:14px 4px 12px; }
   .sec-head h2 { font-size:21px; }
   #de-cuong { padding:18px 14px; }
@@ -434,9 +434,7 @@ main.wrap { padding-top:0; }
 </div></footer>
 
 <script>
-const MON = [["calculator","Toán","luyen_thi.html#toan","#2563EB"],["book-open-text","Ngữ văn","luyen_thi.html#van","#E11D48"],["flask-conical","Hóa học","luyen_thi.html#hoa_hoc","#7C3AED"],
-  ["dna","Sinh học","luyen_thi.html#sinh_hoc","#16A34A"],["landmark","Lịch sử","luyen_thi.html#lich_su","#B45309"],["globe","Địa lí","luyen_thi.html#dia_li","#0D9488"],
-  ["scale","GDKT&amp;PL","luyen_thi.html#gdkt_pl","#0891B2"],["languages","Tiếng Anh","luyen_thi.html#tieng_anh","#4F46E5"],["zap","Vật lí","luyen_thi.html#ly","#EA580C"]];
+const MON = [["calculator","Toán","luyen_thi.html#toan","#2563EB"],["book-open-text","Ngữ văn","luyen_thi.html#van","#E11D48"]];
 document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}" style="--c:${m[3]}"><span class="mi"><i data-lucide="${m[0]}" aria-hidden="true"></i></span>${m[1]}</a>`).join("");
 /* Menu thu gọn trên điện thoại, máy tính bảng */
 (function(){ const b = document.querySelector(".nav-toggle"), n = document.getElementById("nav-chinh");

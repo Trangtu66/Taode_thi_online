@@ -145,8 +145,10 @@ function veLy() {
     Tổ Vật lí có thể dùng cùng hệ thống: bài củng cố cuối bài, đề 3 dạng thức (nhiều lựa chọn, đúng sai, trả lời ngắn) và ma trận đề định kỳ.</div>`;
 }
 const VE = { toan: veToan, van: veVan }, NUT = [["toan", "📐 Toán", "#1E40AF"], ["van", "📚 Ngữ văn", "#9D174D"]];
-Object.keys(KHAC).forEach(ma => { VE[ma] = () => veMon(ma); NUT.push([ma, KHAC[ma].bieu_tuong + " " + (ma === "gdkt_pl" ? "GDKT&PL" : KHAC[ma].ten), KHAC[ma].mau]); });
-VE.ly = veLy; NUT.push(["ly", "⚡ Vật lí", "#B45309"]);
+// 17/11/2026: chỉ hiện Toán, Ngữ văn – các môn khác ẩn khỏi danh mục (bật lại: MON_HIEN = null)
+const MON_HIEN = ["toan", "van"];
+if (!MON_HIEN) { Object.keys(KHAC).forEach(ma => { VE[ma] = () => veMon(ma); NUT.push([ma, KHAC[ma].bieu_tuong + " " + (ma === "gdkt_pl" ? "GDKT&PL" : KHAC[ma].ten), KHAC[ma].mau]); });
+  VE.ly = veLy; NUT.push(["ly", "⚡ Vật lí", "#B45309"]); }
 document.querySelector(".mon").innerHTML = NUT.map(([m, t, c]) => `<button data-m="${m}" role="tab" style="--c:${c}">${t}</button>`).join("");
 let MON = "van";
 function ve() {

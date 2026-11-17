@@ -85,7 +85,9 @@
 <script src="so_do_mermaid.js"></script>
 <script src="xem_truoc.js"></script>
 <script>
-const HL = window.HOC_LIEU || [], TEN = window.TEN_MON || {};
+// 17/11/2026: chỉ hiện Toán, Ngữ văn (bật lại các môn khác: MON_HIEN = null)
+const MON_HIEN = ["toan", "ngu_van"];
+const HL = (window.HOC_LIEU || []).filter(x => !MON_HIEN || MON_HIEN.includes(x.mon)), TEN = window.TEN_MON || {};
 const LOAI = [["", "Tất cả"], ["khbd", "Kế hoạch bài dạy"], ["slide", "Slide"], ["sodo", "Sơ đồ tư duy"], ["ma_tran", "Ma trận, đặc tả"], ["de_cuong", "Đề cương ôn tập"]];
 const loaiCua = x => x.loai === "khbd" && /^SoDoTuDuy_/.test(x.file) ? "sodo" : x.loai;
 const NHAN = {khbd: "📄 KHBD", slide: "📊 Slide", sodo: "🧠 Sơ đồ tư duy", ma_tran: "📋 Ma trận", de_cuong: "📘 Đề cương"};
@@ -95,6 +97,7 @@ const DUOI = f => f.split(".").pop().toUpperCase();
 const ST = {mon: "", khoi: "", loai: "", q: ""}, XEM = [];
 try { Object.assign(ST, JSON.parse(localStorage.getItem("hoc_lieu_loc") || "{}"), {q: ""}); } catch (e) {}
 const h0 = location.hash.slice(1); if (TEN[h0]) ST.mon = h0;
+if (ST.mon && MON_HIEN && !MON_HIEN.includes(ST.mon)) ST.mon = "";
 
 // gom các file cùng một bài (KHBD + slide + sơ đồ + PDF) thành một thẻ
 function khoaBai(x) {
