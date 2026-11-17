@@ -445,6 +445,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài tập cuối chương IV. Nguyên hàm và tích phân – Đề 1", ma: "Game – Bài tập cuối chương IV. Nguyên hàm và tích phân – Đề 1 (Toán 12)", link: "game_btcc4_de1_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài tập cuối chương IV. Nguyên hàm và tích phân – Đề 2", ma: "Game – Bài tập cuối chương IV. Nguyên hàm và tích phân – Đề 2 (Toán 12)", link: "game_btcc4_de2_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối Chương IV", ma: "Củng cố – Bài tập cuối Chương IV. Nguyên hàm và tích phân (Toán 12)", link: "cc_chuong4_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 14. Phương trình mặt phẳng", ma: "Củng cố – Bài 14. Phương trình mặt phẳng (Toán 12)", link: "cc_bai14_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
