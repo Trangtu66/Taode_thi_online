@@ -133,11 +133,135 @@
   .gate-code-box span{font-size:16px;}}
 </style>
 <link rel="stylesheet" href="menu_tro_choi.css">
+<style>
+/* ═══════════ GIAO DIỆN MỚI 17/11/2026 – bố cục, màu sắc, điện thoại ═══════════ */
+.top { position:sticky; top:0; z-index:900; background:rgba(30,58,138,.97); backdrop-filter:blur(8px); box-shadow:0 4px 18px rgba(15,23,42,.18); }
+.top .in { flex-wrap:nowrap; padding:10px 16px; max-width:1240px; }
+.logo { flex-shrink:0; }
+.logo .dot { background:linear-gradient(135deg,#FBBF24,#F59E0B); color:#1E3A8A; }
+.nav { flex-wrap:nowrap; gap:2px; align-items:center; }
+.nav a { font-size:13.5px; padding:7px 9px; white-space:nowrap; }
+.nav-toggle { display:none; margin-left:auto; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1); color:#fff; border-radius:10px;
+  padding:7px 12px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; align-items:center; gap:6px; }
+.nav-toggle svg { width:18px; height:18px; }
+@media (max-width:1180px){
+  .top .in { flex-wrap:wrap; }
+  .nav-toggle { display:inline-flex; }
+  .nav { display:none; width:100%; flex-direction:column; align-items:stretch; margin:6px 0 2px; padding-top:8px; border-top:1px solid rgba(255,255,255,.15); }
+  .nav.mo { display:flex; }
+  .nav a { padding:10px 12px; font-size:15px; }
+  .nav-game { display:block; } .nav-game > a.nav-game-btn { display:block; }
+  .nav-game-menu { position:static; padding-top:4px; }
+  .nav-game-menu .box { min-width:0; }
+}
+
+/* Hero */
+.hero-sec { position:relative; overflow:hidden; background:
+   radial-gradient(900px 420px at 85% -10%, rgba(96,165,250,.45), transparent 60%),
+   radial-gradient(700px 380px at -5% 110%, rgba(251,191,36,.18), transparent 60%),
+   linear-gradient(135deg,#172554 0%,#1E3A8A 50%,#1D4ED8 100%); }
+.hero-sec::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.07;
+   background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px); background-size:34px 34px;
+   mask-image:linear-gradient(180deg,#000,transparent 85%); -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%); }
+.hero-sec .in { position:relative; z-index:1; padding:56px 16px 72px; grid-template-columns:1.1fr .9fr; gap:44px; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:7px; opacity:1; color:#FDE68A; background:rgba(251,191,36,.12); border:1px solid rgba(251,191,36,.3);
+   padding:5px 12px; border-radius:999px; font-size:11.5px; }
+.hero-sec h1 { font-size:42px; line-height:1.18; letter-spacing:-.5px; margin:16px 0 12px; }
+.hero-sec h1 em { font-style:normal; background:linear-gradient(90deg,#FDE68A,#FBBF24); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-sec .sub { font-size:16px; opacity:.85; }
+.hero-chips { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 0; padding:0; list-style:none; }
+.hero-chips li { display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:600; background:rgba(255,255,255,.1);
+   border:1px solid rgba(255,255,255,.18); padding:7px 12px; border-radius:999px; }
+.hero-chips svg { width:16px; height:16px; color:#FDE68A; }
+.hero-form { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22); border-radius:22px; padding:26px 24px;
+   box-shadow:0 20px 50px rgba(2,6,23,.35); backdrop-filter:blur(10px); }
+.hero-form .hf-ic { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:#FBBF24; color:#1E3A8A; margin-bottom:14px; }
+.hero-form .hf-ic svg { width:24px; height:24px; }
+.hero-form p.lbl { font-size:17px; margin:0 0 4px; }
+.hero-form p.hf-sub { margin:0 0 16px; font-size:13.5px; opacity:.8; }
+.qr-box input { padding:13px 15px; border-radius:12px; }
+.qr-box input:focus { outline:3px solid #FDE68A; outline-offset:1px; }
+.qr-box .btn { padding:12px 20px; border-radius:12px; background:#FBBF24; color:#1E3A8A; }
+.qr-box .btn:hover { background:#FCD34D; }
+
+/* Tiêu đề khu */
+.sec-head { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:44px 0 16px; }
+.sec-head h2 { margin:2px 0 0; font-size:24px; letter-spacing:-.3px; }
+.sec-head .eb { font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--blue2); margin:0; }
+.sec-head p.muted { margin:4px 0 0; max-width:760px; font-size:14.5px; }
+
+/* Chọn vai trò: công tắc 2 nửa nổi trên hero */
+main.wrap { padding-top:0; }
+.role-bar { position:relative; z-index:2; margin:-34px auto 24px; max-width:760px; background:#fff; padding:6px; border-radius:18px; gap:6px;
+   box-shadow:0 12px 34px rgba(15,23,42,.14); border:1px solid var(--line); }
+.who { border:0; border-radius:13px; padding:12px 16px; background:transparent; transition:background .15s, color .15s; }
+.who .ic { width:40px; height:40px; padding:8px; border-radius:11px; background:#EFF4FF; }
+.who:hover { background:#F8FAFC; }
+.who.on { border:0; background:linear-gradient(135deg,#1E40AF,#2563EB); color:#fff; box-shadow:0 6px 16px rgba(37,99,235,.35); }
+.who.on .ic { background:rgba(255,255,255,.18); color:#fff; }
+.who.on b { color:#fff; } .who.on span { color:rgba(255,255,255,.85); }
+
+/* Thẻ chức năng */
+#v-hs .grid, #v-gv .grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+@media (min-width:900px){ #v-gv .grid { grid-template-columns:repeat(3,1fr); } }
+.card { border-radius:16px; }
+.card.task { padding:20px 20px 18px; gap:8px; transition:transform .18s, box-shadow .18s, border-color .18s; }
+.card.task:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(15,23,42,.10); border-color:#C7D2FE; }
+.ic-tile { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; margin-bottom:6px; background:var(--tb,#EFF4FF); }
+.task .ic-tile .ic, .task .ic-tile svg { width:24px; height:24px; color:var(--tc,#1E40AF); }
+.t-blue{--tb:#DBEAFE;--tc:#1D4ED8} .t-green{--tb:#DCFCE7;--tc:#15803D} .t-amber{--tb:#FEF3C7;--tc:#B45309}
+.t-violet{--tb:#EDE9FE;--tc:#6D28D9} .t-rose{--tb:#FFE4E6;--tc:#BE123C} .t-teal{--tb:#CCFBF1;--tc:#0F766E}
+.task h3 { font-size:17px; }
+.task p { line-height:1.6; }
+.task .go { padding-top:14px; flex-direction:column; align-items:stretch; gap:8px; }
+.task .go .btn, .task .go .hd-btn { justify-content:center; }
+.task .go .hd-btn { padding:8px 11px; }
+.task .btn { border-radius:10px; padding:9px 16px; }
+.hd-btn { border-radius:10px; }
+.note { border-radius:12px; }
+
+/* Đề cương */
+#de-cuong { padding:24px; border-radius:20px; box-shadow:0 4px 18px rgba(15,23,42,.05); margin-top:44px !important; }
+
+/* Danh mục môn: ô dọc, màu riêng mỗi môn */
+.mon-grid { grid-template-columns:repeat(9,1fr); gap:12px; }
+.mon-grid a { flex-direction:column; justify-content:center; text-align:center; gap:10px; padding:18px 6px 16px; border-radius:16px; font-size:14px;
+   transition:transform .18s, box-shadow .18s, border-color .18s; }
+.mon-grid a .mi { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:color-mix(in srgb,var(--c) 13%,#fff); }
+.mon-grid a svg { width:24px; height:24px; color:var(--c); }
+.mon-grid a:hover { transform:translateY(-3px); border-color:var(--c); color:var(--c); background:#fff; box-shadow:0 12px 26px color-mix(in srgb,var(--c) 18%,transparent); }
+
+/* Chân trang */
+.foot { background:#0F172A; color:#94A3B8; border-top:0; margin-top:30px; }
+.foot .in { padding:22px 16px; }
+.foot a { color:#CBD5E1; }
+
+@media (max-width:980px){ .mon-grid{grid-template-columns:repeat(5,1fr);} }
+@media (max-width:860px){
+  .hero-sec .in { grid-template-columns:1fr; gap:26px; padding:36px 16px 64px; }
+  .hero-sec h1 { font-size:32px; }
+}
+@media (max-width:640px){
+  .hero-sec h1 { font-size:28px; }
+  .hero-chips li { font-size:12.5px; padding:6px 10px; }
+  .hero-form { padding:20px 16px; border-radius:18px; }
+  .qr-box { flex-direction:column; } .qr-box .btn { justify-content:center; }
+  .role-bar { grid-template-columns:1fr 1fr; }
+  .who { padding:10px 8px; gap:6px; flex-direction:column; text-align:center; }
+  .who .ic { width:36px; height:36px; }
+  .who b { font-size:14.5px; } .who > span > span { display:none; }
+  .mon-grid { grid-template-columns:repeat(3,1fr); gap:10px; }
+  .mon-grid a { font-size:13px; padding:14px 4px 12px; }
+  .sec-head h2 { font-size:21px; }
+  #de-cuong { padding:18px 14px; }
+}
+</style>
 </head>
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
-  <nav class="nav" aria-label="Điều hướng chính">
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-chinh"><i data-lucide="menu" aria-hidden="true"></i>Menu</button>
+  <nav class="nav" id="nav-chinh" aria-label="Điều hướng chính">
     <a href="index.html" class="on">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="bai_giang_dien_tu.html">Bài giảng điện tử</a><a href="tao_de.html">Soạn đề (GV)</a>
     <a href="quan_ly.html">Góc Giáo viên</a><span class="nav-game"><a href="dau_truong.html" class="nav-game-btn" aria-haspopup="true">🎮 Trò chơi ▾</a><span class="nav-game-menu"><span class="box"><a href="dau_truong.html?vao=bell">🔔 Rung chuông vàng<small>Cả lớp thi loại trực tiếp, trả lời bằng điện thoại</small></a><a href="dau_truong.html?vao=tug">🪢 Kéo co kiến thức<small>Hai đội Đỏ – Xanh thi đấu, chấm theo tỉ lệ đúng</small></a><a href="dau_truong.html?vao=race">🏎️ Đua xe kiến thức<small>Mỗi em tự lái xe, trả lời đúng mới vượt chướng ngại</small></a></span></span></span><a href="huong_dan.html">Hướng dẫn</a><a href="admin.html">Quản trị</a>
   </nav>
@@ -147,12 +271,20 @@
 <section class="hero-sec" aria-label="Tìm kiếm nhanh bài kiểm tra">
   <div class="in">
     <div class="hero-text">
-      <p class="hero-eyebrow">Chuyển đổi số trong dạy học · GDPT 2018</p>
-      <h1>Học tập &amp; Kiểm tra<br>mọi lúc, mọi nơi</h1>
+      <p class="hero-eyebrow"><i data-lucide="sparkles" style="width:14px;height:14px" aria-hidden="true"></i>Chuyển đổi số trong dạy học · GDPT 2018</p>
+      <h1>Học tập &amp; Kiểm tra<br><em>mọi lúc, mọi nơi</em></h1>
       <p class="sub">Trường THPT · Năm học 2026–2027</p>
+      <ul class="hero-chips">
+        <li><i data-lucide="qr-code" aria-hidden="true"></i>Làm bài bằng mã QR</li>
+        <li><i data-lucide="list-checks" aria-hidden="true"></i>3 dạng thức câu hỏi</li>
+        <li><i data-lucide="presentation" aria-hidden="true"></i>Bài giảng điện tử</li>
+        <li><i data-lucide="trophy" aria-hidden="true"></i>Đấu trường kiến thức</li>
+      </ul>
     </div>
     <div class="hero-form">
+      <div class="hf-ic"><i data-lucide="scan-line" aria-hidden="true"></i></div>
       <p class="lbl">Nhập mã bài tập hoặc dán link QR</p>
+      <p class="hf-sub">Dán đường link giáo viên gửi để vào làm bài ngay.</p>
       <div class="qr-box">
         <input id="link-hs" type="url" placeholder="Dán đường link bài làm…" aria-label="Mã bài tập hoặc đường link bài làm" inputmode="url">
         <button class="btn" id="mo-link">Vào nhanh</button>
@@ -178,17 +310,17 @@
   <section id="v-hs" role="tabpanel" aria-labelledby="tab-hs" tabindex="0">
     <div class="grid">
       <div class="card task">
-        <i class="ic" data-lucide="smartphone" aria-hidden="true"></i><h3>Làm bài kiểm tra</h3>
+        <span class="ic-tile t-blue"><i class="ic" data-lucide="smartphone" aria-hidden="true"></i></span><h3>Làm bài kiểm tra</h3>
         <p>Quét mã QR giáo viên chiếu trên bảng hoặc mở đường link giáo viên gửi.</p>
         <div class="go"><a class="btn" href="lam_bai.html">Mở trang làm bài</a><button type="button" class="hd-btn" data-hd="hs-lam" aria-label="Hướng dẫn nhanh: làm bài kiểm tra"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="book-open" aria-hidden="true"></i><h3>Tự ôn luyện theo môn</h3>
+        <span class="ic-tile t-green"><i class="ic" data-lucide="book-open" aria-hidden="true"></i></span><h3>Tự ôn luyện theo môn</h3>
         <p>Bài củng cố theo tiết học, đề luyện tập 3 dạng thức, ôn tập chương và ôn thi tốt nghiệp.</p>
         <div class="go"><a class="btn" href="luyen_thi.html">Chọn môn ôn luyện</a></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="history" aria-hidden="true"></i><h3>Xem lại bài làm và lời giải</h3>
+        <span class="ic-tile t-amber"><i class="ic" data-lucide="history" aria-hidden="true"></i></span><h3>Xem lại bài làm và lời giải</h3>
         <p>Đáp án, lời giải hiển thị sau khi giáo viên chữa bài trên lớp.</p>
         <div class="go"><button type="button" class="hd-btn" data-hd="hs-xem" aria-label="Hướng dẫn nhanh: xem lại bài làm"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
@@ -200,32 +332,32 @@
   <section id="v-gv" role="tabpanel" aria-labelledby="tab-gv" tabindex="0" hidden>
     <div class="grid">
       <div class="card task">
-        <i class="ic" data-lucide="qr-code" aria-hidden="true"></i><h3>Giao bài bằng mã QR</h3>
+        <span class="ic-tile t-blue"><i class="ic" data-lucide="qr-code" aria-hidden="true"></i></span><h3>Giao bài bằng mã QR</h3>
         <p>Chiếu mã QR để học sinh làm bài trên điện thoại trong 10 – 15 phút cuối tiết.</p>
         <div class="go"><a class="btn" href="quan_ly.html">Vào trang Quản lý</a><button type="button" class="hd-btn" data-hd="gv-qr" aria-label="Hướng dẫn nhanh: giao bài bằng mã QR"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="pen-line" aria-hidden="true"></i><h3>Soạn đề trực tuyến</h3>
+        <span class="ic-tile t-violet"><i class="ic" data-lucide="pen-line" aria-hidden="true"></i></span><h3>Soạn đề trực tuyến</h3>
         <p>Soạn trực tiếp hoặc nhập từ file Word, đủ 3 dạng thức câu hỏi theo GDPT 2018.</p>
         <div class="go"><a class="btn" href="tao_de.html">Mở trình soạn đề</a><button type="button" class="hd-btn" data-hd="gv-de" aria-label="Hướng dẫn nhanh: soạn đề"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="chart-column" aria-hidden="true"></i><h3>Kết quả và trình chiếu chữa bài</h3>
+        <span class="ic-tile t-teal"><i class="ic" data-lucide="chart-column" aria-hidden="true"></i></span><h3>Kết quả và trình chiếu chữa bài</h3>
         <p>Thống kê điểm, học sinh chưa nộp, trình chiếu từng câu kèm tỉ lệ lựa chọn của lớp.</p>
         <div class="go"><a class="btn" href="quan_ly.html">Xem kết quả</a><button type="button" class="hd-btn" data-hd="gv-chua" aria-label="Hướng dẫn nhanh: chữa bài trên lớp"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="library" aria-hidden="true"></i><h3>Ngân hàng đề và kho học liệu</h3>
+        <span class="ic-tile t-amber"><i class="ic" data-lucide="library" aria-hidden="true"></i></span><h3>Ngân hàng đề và kho học liệu</h3>
         <p>Kế hoạch bài dạy, slide, sơ đồ tư duy, ma trận đề theo môn và khối lớp.</p>
         <div class="go"><a class="btn" href="hoc_lieu.html">Mở kho học liệu</a><button type="button" class="hd-btn" data-hd="gv-kho" aria-label="Hướng dẫn nhanh: ngân hàng đề"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="presentation" aria-hidden="true"></i><h3>Bài giảng điện tử</h3>
+        <span class="ic-tile t-rose"><i class="ic" data-lucide="presentation" aria-hidden="true"></i></span><h3>Bài giảng điện tử</h3>
         <p>Bài giảng PowerPoint Toán 10, 11, 12 có hiệu ứng, video mở đầu, Rung chuông vàng – xem thử trên trình duyệt hoặc tải về.</p>
         <div class="go"><a class="btn" href="bai_giang_dien_tu.html">Mở bài giảng điện tử</a></div>
       </div>
       <div class="card task">
-        <i class="ic" data-lucide="trophy" aria-hidden="true"></i><h3>Đấu trường kiến thức</h3>
+        <span class="ic-tile t-green"><i class="ic" data-lucide="trophy" aria-hidden="true"></i></span><h3>Đấu trường kiến thức</h3>
         <p>Rung chuông vàng, Kéo co và Đua xe trên máy chiếu; học sinh quét mã QR, trả lời bằng điện thoại. Lấy đề từ bài củng cố, Ngân hàng đề hoặc file Word, PDF.</p>
         <div class="go"><a class="btn" href="dau_truong.html">Mở Đấu trường</a><button type="button" class="hd-btn" data-hd="gv-dau-truong" aria-label="Hướng dẫn nhanh: Đấu trường kiến thức"><i data-lucide="circle-help" aria-hidden="true"></i>Hướng dẫn nhanh</button></div>
       </div>
@@ -250,9 +382,9 @@
 
   <!-- ĐỀ CƯƠNG ÔN TẬP (sinh tự động bởi de_cuong.py → de_cuong.js) -->
   <section id="de-cuong" class="card" style="margin:22px 0">
-    <h2 style="margin-top:0"><i data-lucide="book-marked" class="ic-inline" style="width:22px;height:22px" aria-hidden="true"></i> Đề cương ôn tập có lời giải</h2>
-    <p class="muted" style="margin:0 0 10px">Chọn môn, khối và kì kiểm tra. Mỗi đề cương gồm 3 phần: <b>(1)</b> tóm tắt lý thuyết theo Chương trình 2018,
-      <b>(2)</b> bài tập luyện tập gấp đôi ma trận, <b>(3)</b> một đề minh họa đúng ma trận – đủ đáp án và lời giải chi tiết. Đề cuối kì giảm tải phần đã thi giữa kì.</p>
+    <div class="sec-head" style="margin:0 0 14px"><div><p class="eb">Ôn tập kiểm tra</p><h2>Đề cương ôn tập có lời giải</h2>
+    <p class="muted">Chọn môn, khối và kì kiểm tra. Mỗi đề cương gồm 3 phần: <b>(1)</b> tóm tắt lý thuyết theo Chương trình 2018,
+      <b>(2)</b> bài tập luyện tập gấp đôi ma trận, <b>(3)</b> một đề minh họa đúng ma trận – đủ đáp án và lời giải chi tiết. Đề cuối kì giảm tải phần đã thi giữa kì.</p></div></div>
     <div class="dc-loc">
       <label>Môn <select id="dc-mon"></select></label>
       <label>Khối <select id="dc-khoi"><option value="">Tất cả</option><option>10</option><option>11</option><option>12</option></select></label>
@@ -263,16 +395,16 @@
   <style>
     .dc-loc{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}.dc-loc label{display:flex;gap:6px;align-items:center;font-weight:600;font-size:14px}
     .dc-loc select{font:inherit;padding:6px 8px;border:1px solid #CBD5E1;border-radius:8px;background:#fff}
-    .dc-ds{display:grid;gap:8px}.dc-the{border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:#fff}
+    .dc-ds{display:grid;gap:10px}.dc-the{border:1px solid var(--line);border-left:4px solid #2563EB;border-radius:12px;padding:12px 16px;transition:box-shadow .15s;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:#fff}
     .dc-the b{font-size:15px}.dc-the small{color:var(--muted);display:block}.dc-nut{display:flex;flex-wrap:wrap;gap:6px}
-    .dc-nut a{font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid;text-decoration:none}
-    .dc-nut button{font:inherit;font-size:14px;font-weight:600;border-radius:8px;padding:6px 10px;border:1px solid #CBD5E1;background:#fff;color:#334155;cursor:pointer}
+    .dc-the:hover{box-shadow:0 8px 20px rgba(15,23,42,.07)}.dc-nut a{font-size:13.5px;font-weight:600;border-radius:999px;padding:6px 12px;border:1px solid;text-decoration:none}
+    .dc-nut button{font:inherit;font-size:13.5px;font-weight:600;border-radius:999px;padding:6px 12px;border:1px solid #CBD5E1;background:#fff;color:#334155;cursor:pointer}
     .dc-nut a.w{color:#1E40AF;border-color:#BFDBFE;background:#EFF6FF}.dc-nut a.p{color:#B45309;border-color:#FDE68A;background:#FFFBEB}
-    @media (max-width:640px){.dc-the{flex-direction:column;align-items:flex-start}}
+    @media (max-width:640px){.dc-the{flex-direction:column;align-items:stretch}.dc-nut{display:grid;grid-template-columns:1fr 1fr}.dc-nut a,.dc-nut button{text-align:center}}
   </style>
 
   <!-- DANH MỤC MÔN HỌC (4-column grid) -->
-  <h2>Danh mục môn học</h2>
+  <div class="sec-head"><div><p class="eb">Ôn luyện theo môn</p><h2>Danh mục môn học</h2></div></div>
   <div class="mon-grid" id="ds-mon"></div>
 </main>
 
@@ -329,10 +461,13 @@
 </div></footer>
 
 <script>
-const MON = [["calculator","Toán","luyen_thi.html#toan"],["book-open-text","Ngữ văn","luyen_thi.html#van"],["flask-conical","Hóa học","luyen_thi.html#hoa_hoc"],
-  ["dna","Sinh học","luyen_thi.html#sinh_hoc"],["landmark","Lịch sử","luyen_thi.html#lich_su"],["globe","Địa lí","luyen_thi.html#dia_li"],
-  ["scale","GDKT&amp;PL","luyen_thi.html#gdkt_pl"],["languages","Tiếng Anh","luyen_thi.html#tieng_anh"],["zap","Vật lí","luyen_thi.html#ly"]];
-document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}"><i data-lucide="${m[0]}" aria-hidden="true"></i>${m[1]}</a>`).join("");
+const MON = [["calculator","Toán","luyen_thi.html#toan","#2563EB"],["book-open-text","Ngữ văn","luyen_thi.html#van","#E11D48"],["flask-conical","Hóa học","luyen_thi.html#hoa_hoc","#7C3AED"],
+  ["dna","Sinh học","luyen_thi.html#sinh_hoc","#16A34A"],["landmark","Lịch sử","luyen_thi.html#lich_su","#B45309"],["globe","Địa lí","luyen_thi.html#dia_li","#0D9488"],
+  ["scale","GDKT&amp;PL","luyen_thi.html#gdkt_pl","#0891B2"],["languages","Tiếng Anh","luyen_thi.html#tieng_anh","#4F46E5"],["zap","Vật lí","luyen_thi.html#ly","#EA580C"]];
+document.getElementById("ds-mon").innerHTML = MON.map(m=>`<a href="${m[2]}" style="--c:${m[3]}"><span class="mi"><i data-lucide="${m[0]}" aria-hidden="true"></i></span>${m[1]}</a>`).join("");
+/* Menu thu gọn trên điện thoại, máy tính bảng */
+(function(){ const b = document.querySelector(".nav-toggle"), n = document.getElementById("nav-chinh");
+  b.onclick = ()=>{ const mo = n.classList.toggle("mo"); b.setAttribute("aria-expanded", String(mo)); }; })();
 /* Hướng dẫn nhanh: các bước chi tiết hiện trong cửa sổ nổi thay vì chiếm chỗ trên thẻ */
 (function(){
   const ov = document.getElementById("hd-overlay"), nd = document.getElementById("hd-noidung");
