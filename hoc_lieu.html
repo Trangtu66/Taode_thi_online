@@ -28,22 +28,48 @@
   .ds { display:grid; gap:10px; }
   .nhom { margin:18px 0 8px; font-size:15px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
   .rong { padding:24px; text-align:center; color:var(--muted); background:#fff; border:1px dashed #CBD5E1; border-radius:12px; }
+
+  /* giao diện mới 17/11/2026 */
+  .loc { padding:20px 22px; gap:14px; }
+  .hang > b { font-size:12px; font-weight:800; color:#64748B; letter-spacing:.08em; }
+  .chip { padding:7px 14px; transition:background .15s, border-color .15s, color .15s; }
+  .chip:hover { border-color:#93C5FD; background:#F8FAFF; }
+  .chip.on { background:linear-gradient(135deg,#1E40AF,#2563EB); box-shadow:0 4px 12px rgba(37,99,235,.28); }
+  .tim { max-width:none; padding:12px 14px 12px 42px; border-radius:12px; font-size:15px; background:#F8FAFC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 14px center; }
+  .tim:focus { outline:3px solid #BFDBFE; border-color:#2563EB; background-color:#fff; }
+  #dem { margin:18px 0 4px !important; font-weight:600; }
+  .nhom { display:flex; align-items:center; gap:10px; margin:30px 0 12px; font-size:13px; font-weight:800; color:#1E3A8A; letter-spacing:.08em; }
+  .nhom::before { content:""; width:6px; height:20px; border-radius:3px; background:linear-gradient(180deg,#FBBF24,#F59E0B); }
+  .nhom::after { content:""; flex:1; height:1px; background:var(--line); }
+  .ds { grid-template-columns:repeat(auto-fill,minmax(min(100%,500px),1fr)); gap:12px; }
+  .bai { border-radius:14px; padding:14px 18px; gap:10px; transition:transform .18s, box-shadow .18s, border-color .18s; }
+  .bai:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(15,23,42,.08); border-color:#C7D2FE; }
+  .bai .tt { font-size:15.5px; line-height:1.4; }
+  .f { border-radius:999px; padding:6px 12px; }
+  .cap .xem { font:inherit; font-size:13px; font-weight:600; border:1px solid var(--line); background:#fff; color:#334155; border-radius:999px; padding:5px 11px; cursor:pointer; }
+  .cap .xem:hover { background:#F1F5F9; }
+  .rong { border-radius:16px; padding:36px 24px; }
 </style>
 <link rel="stylesheet" href="menu_tro_choi.css">
 </head>
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
-  <nav class="nav" aria-label="Điều hướng chính">
-    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html" class="on">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-chinh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Menu</button>
+  <nav class="nav" id="nav-chinh" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html" class="on">Kho học liệu</a><a href="bai_giang_dien_tu.html">Bài giảng điện tử</a><a href="tao_de.html">Soạn đề (GV)</a>
     <a href="quan_ly.html">Góc Giáo viên</a><span class="nav-game"><a href="dau_truong.html" class="nav-game-btn" aria-haspopup="true">🎮 Trò chơi ▾</a><span class="nav-game-menu"><span class="box"><a href="dau_truong.html?vao=bell">🔔 Rung chuông vàng<small>Cả lớp thi loại trực tiếp, trả lời bằng điện thoại</small></a><a href="dau_truong.html?vao=tug">🪢 Kéo co kiến thức<small>Hai đội Đỏ – Xanh thi đấu, chấm theo tỉ lệ đúng</small></a><a href="dau_truong.html?vao=race">🏎️ Đua xe kiến thức<small>Mỗi em tự lái xe, trả lời đúng mới vượt chướng ngại</small></a></span></span></span><a href="huong_dan.html">Hướng dẫn</a><a href="admin.html">Quản trị</a>
   </nav>
 </div></header>
 
-<main class="wrap">
+<section class="page-hero"><div class="in">
+  <p class="eb">Tài liệu tổ chuyên môn</p>
   <h1>Kho học liệu</h1>
   <p class="lead">Kế hoạch bài dạy (Word), slide bài giảng (PowerPoint), sơ đồ tư duy và ma trận đề của các tổ chuyên môn. Chọn môn, khối rồi bấm “👁 Xem trước” để xem ngay trên web (Word, PowerPoint, sơ đồ tư duy) hoặc bấm vào file để tải về. Đề có đáp án không đặt ở đây (chỉ giáo viên giữ).</p>
-  <div class="loc card">
+</div></section>
+
+<main class="wrap">
+  <div class="loc card noi-hero">
     <div class="hang" id="l-mon"><b>Môn</b></div>
     <div class="hang" id="l-khoi"><b>Khối</b></div>
     <div class="hang" id="l-loai"><b>Loại</b></div>
@@ -53,7 +79,7 @@
   <div id="ket-qua"></div>
   <div class="note blue" style="margin-top:22px">Muốn đưa KHBD, slide của mình vào kho? Xem <a href="huong_dan.html#dong-gop">Hướng dẫn đóng góp học liệu</a>.</div>
 </main>
-<footer class="foot"><div class="in"><span>© 2026 Trường THPT</span><span><a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
+<footer class="foot"><div class="in"><span>© 2026 Trường THPT · Học tập trực tuyến – chuyển đổi số trong dạy học</span><span><a href="index.html">Trang chủ</a> · <a href="huong_dan.html">Hướng dẫn sử dụng</a></span></div></footer>
 
 <script src="hoc_lieu.js"></script>
 <script src="so_do_mermaid.js"></script>
@@ -121,5 +147,8 @@ function ve() {
 document.getElementById("tim").oninput = e => { ST.q = e.target.value.trim(); ve(); };
 ve();
 </script>
+<script>/* Menu thu gọn trên điện thoại, máy tính bảng */
+(function(){ const b = document.querySelector(".nav-toggle"), n = document.getElementById("nav-chinh");
+  b.onclick = ()=>{ const mo = n.classList.toggle("mo"); b.setAttribute("aria-expanded", String(mo)); }; })();</script>
 </body>
 </html>
