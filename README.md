@@ -4237,6 +4237,52 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai16_t12.html>
 
+### Toán 12 – Bài 17. Phương trình mặt cầu *(Tiết 86–88)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 17<br/>Phương trình<br/>mặt cầu"]:::root
+    G --> A["① Phương trình mặt cầu"]:::n1
+    G --> B["② Dạng khai triển"]:::n2
+    G --> C["③ Vị trí điểm – mặt cầu"]:::n3
+    G --> D["④ Trái Đất – GPS"]:::n4
+
+    A --> A1["★ (x − a)² + (y − b)² + (z − c)² = R²"]:::l1
+    A --> A2["Tâm I(a; b; c), bán kính R"]:::l1
+    A --> A3["Đường kính AB: tâm là trung điểm"]:::l1
+    A --> A4["Tâm O: x² + y² + z² = R²"]:::l1
+
+    B --> B1["★ x² + y² + z² − 2ax − 2by − 2cz + d = 0"]:::l2
+    B --> B2["Là mặt cầu ⇔ a² + b² + c² − d > 0"]:::l2
+    B --> B3["R = √(a² + b² + c² − d)"]:::l2
+    B --> B4["Có xy, x³: không phải mặt cầu"]:::l2
+
+    C --> C1["IM < R: nằm trong"]:::l3
+    C --> C2["IM = R: thuộc mặt cầu"]:::l3
+    C --> C3["IM > R: nằm ngoài"]:::l3
+    C --> C4["Vùng phủ sóng"]:::l3
+
+    D --> D1["★ x² + y² + z² = 1 (1 đơn vị = 6 371 km)"]:::l4
+    D --> D2["P(cos α cos β; cos α sin β; sin α)"]:::l4
+    D --> D3["cos POQ = OP · OQ"]:::l4
+    D --> D4["Cung PQ = góc (rad) × 6 371"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai17_t12.html>
+
 ---
 
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
