@@ -6852,6 +6852,20 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 18. Xác suất có điều kiện",
+"file": "KHBD_TOAN12_Bai18_XacSuatCoDieuKien_T91-94.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai18_XacSuatCoDieuKien_T91-94.docx",
+"kb": 714,
+"ngay": "2026-11-19",
+"nhom": "toan|12|bai|18",
+"bai": "Bài 18. Xác suất có điều kiện",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "KHBD_TOAN12_Bai1_DonDieu_CucTri_T1-6.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai1_DonDieu_CucTri_T1-6.docx",
@@ -7391,6 +7405,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-18",
 "nhom": "toan|12|bai|17",
 "bai": "Bài 17. Phương trình mặt cầu",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 18. Xác suất có điều kiện (hoà nhập)",
+"file": "KHBD_TOAN12_Bai18_XacSuatCoDieuKien_T91-94_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai18_XacSuatCoDieuKien_T91-94_HoaNhap.docx",
+"kb": 717,
+"ngay": "2026-11-19",
+"nhom": "toan|12|bai|18",
+"bai": "Bài 18. Xác suất có điều kiện",
 "nhan": "hoà nhập"
 },
 {
@@ -8035,6 +8063,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-18",
 "nhom": "toan|12|bai|17",
 "bai": "Bài 17. Phương trình mặt cầu",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 18. Xác suất có điều kiện",
+"file": "SoDoTuDuy_TOAN12_Bai18_XacSuatCoDieuKien_T91-94.png",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/SoDoTuDuy/SoDoTuDuy_TOAN12_Bai18_XacSuatCoDieuKien_T91-94.png",
+"kb": 350,
+"ngay": "2026-11-19",
+"nhom": "toan|12|bai|18",
+"bai": "Bài 18. Xác suất có điều kiện",
 "nhan": ""
 },
 {
