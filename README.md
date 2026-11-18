@@ -4191,6 +4191,52 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai15_t12.html>
 
+### Toán 12 – Bài 16. Công thức tính góc trong không gian *(Tiết 84–85)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 16<br/>Công thức tính<br/>góc trong không gian"]:::root
+    G --> A["① Hai đường thẳng"]:::n1
+    G --> B["② Đường thẳng – mặt phẳng"]:::n2
+    G --> C["③ Hai mặt phẳng"]:::n3
+    G --> D["④ Vận dụng"]:::n4
+
+    A --> A1["★ cos(Δ, Δ′) = |cos(u, u′)|"]:::l1
+    A --> A2["u, u′: vectơ chỉ phương"]:::l1
+    A --> A3["Góc từ 0° đến 90°"]:::l1
+    A --> A4["Dùng trị tuyệt đối"]:::l1
+
+    B --> B1["★ sin(Δ, (P)) = |cos(u, n)|"]:::l2
+    B --> B2["u: VTCP, n: VTPT"]:::l2
+    B --> B3["Dùng SIN, không dùng cos"]:::l2
+    B --> B4["u cùng phương n: 90°"]:::l2
+
+    C --> C1["★ cos((P), (Q)) = |cos(n, n′)|"]:::l3
+    C --> C2["n, n′: vectơ pháp tuyến"]:::l3
+    C --> C3["Mặt phẳng qua 3 điểm: n = [AB, AC]"]:::l3
+    C --> C4["(Oxy) có VTPT k"]:::l3
+
+    D --> D1["Độ nghiêng mái nhà 26,6°"]:::l4
+    D --> D2["Kim tự tháp Kheops"]:::l4
+    D --> D3["Bể nước đặt nghiêng"]:::l4
+    D --> D4["Tấm pin mặt trời"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai16_t12.html>
+
 ---
 
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
