@@ -79,7 +79,7 @@ select,input[type=text],input[type=number]{padding:9px 10px;border:1px solid var
 .qtype{background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-weight:700}
 .timer{margin-left:auto;width:86px;height:86px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:34px;font-weight:900;color:var(--brand);box-shadow:0 0 0 6px rgba(255,255,255,.25)}
 .timer.warn{color:#fff;background:var(--bad);animation:pulse 1s infinite}
-.timer.pause{color:#475569;background:#e2e8f0;font-size:18px}
+.timer.pause{color:#475569;background:#e2e8f0;font-size:22px}
 @keyframes pulse{50%{transform:scale(1.07)}}
 .qtext{font-size:clamp(22px,2.6vw,38px);font-weight:700;line-height:1.45}
 .qimg{max-width:100%;max-height:38vh;display:block;margin:12px auto 0;border-radius:10px}
@@ -213,13 +213,14 @@ th{background:#f8fafc;position:sticky;top:0}
         <div class="row">
           <label for="tSel">Thời gian mỗi câu:</label>
           <select id="tSel">
-            <option value="auto">Tự động (4 lựa chọn 30s · Đ/S 90s · TLN 90s)</option>
+            <option value="0" selected>Không đếm giờ – GV bấm mở đáp án</option>
+            <option value="auto">Đếm giờ tự động (4 lựa chọn 30s · Đ/S 90s · TLN 90s)</option>
             <option value="15">15 giây</option><option value="20">20 giây</option><option value="30">30 giây</option>
             <option value="45">45 giây</option><option value="60">60 giây</option><option value="90">90 giây</option>
-            <option value="120">2 phút</option><option value="0">Không giới hạn – GV tự chấm</option>
+            <option value="120">2 phút</option>
           </select>
           <label><input type="checkbox" id="shuf"> Đảo thứ tự câu</label>
-          <label><input type="checkbox" id="autoClose" checked> Tự chấm khi cả lớp đã trả lời</label>
+          <label><input type="checkbox" id="autoClose"> Tự mở đáp án khi cả lớp đã trả lời</label>
         </div>
         <div class="row" style="margin-top:16px">
           <button class="btn green big" id="btnStart" disabled>▶ Bắt đầu thi</button>
@@ -251,7 +252,7 @@ th{background:#f8fafc;position:sticky;top:0}
       <span class="sp" style="flex:1"></span>
       <button class="btn ghost" id="btnPause">⏸ Tạm dừng</button>
       <button class="btn ghost" id="btnPlus">+10 giây</button>
-      <button class="btn red" id="btnClose">✔ Chấm câu này</button>
+      <button class="btn red" id="btnClose">🔓 Mở đáp án</button>
       <button class="btn green big hidden" id="btnNext">Câu tiếp ➜</button>
       <button class="btn ghost" id="btnEndNow" title="Kết thúc sớm và xem tổng kết">⏹ Kết thúc</button>
     </div>
@@ -674,7 +675,10 @@ const GV = {
   tick() {
     if (this.phase !== 'q') return;
     const t = $('timer');
-    if (!this.dur) { t.className = 'timer pause'; t.textContent = this.paused ? 'Dừng' : '∞'; return; }
+    if (!this.dur) {   // không đếm giờ: hiện thời gian đã trôi qua, chỉ mở đáp án khi GV bấm
+      const e = Math.floor((Date.now() - this.qStart - this.pausedMs()) / 1000);
+      t.className = 'timer pause'; t.textContent = this.paused ? 'Dừng' : Math.floor(e / 60) + ':' + String(e % 60).padStart(2, '0'); return;
+    }
     if (this.paused) { t.className = 'timer pause'; t.textContent = 'Dừng'; return; }
     const left = Math.max(0, this.deadline - Date.now()), s = Math.ceil(left / 1000);
     t.textContent = s; t.className = 'timer' + (s <= 5 ? ' warn' : '');
@@ -849,7 +853,7 @@ const GV = {
     box.innerHTML = `⚠️ Có trận đang dở: <b>${esc(s.title)}</b> – câu ${s.idx + 1}/${s.qs.length}, ${Object.keys(s.players || {}).length} học sinh. ` +
       `<button class="btn green" id="btnResume">Thi tiếp</button> <button class="btn ghost" id="btnDrop">Bỏ, thi trận mới</button>`;
     $('btnResume').onclick = () => {
-      Object.assign(this, { title: s.title, qs: s.qs, all: s.qs, players: s.players || {}, kicked: new Set(s.kicked || []), stats: s.stats || [], tSel: s.tSel || 'auto', de: s.de || { meta: {} } });
+      Object.assign(this, { title: s.title, qs: s.qs, all: s.qs, players: s.players || {}, kicked: new Set(s.kicked || []), stats: s.stats || [], tSel: s.tSel || '0', de: s.de || { meta: {} } });
       box.classList.add('hidden'); this.renderPlayers(); $('pinPill').classList.remove('hidden');
       if (s.phase === 'end') return this.endGame();
       // Câu đang chiếu dở thì chiếu lại từ đầu câu đó
@@ -930,7 +934,7 @@ const HS = {
       this.paused = st.paused;
       const got = (st.got || []).includes(this.me.id);
       if (key !== this.key) { this.key = key; this.myAns = null; clearInterval(this.sendTimer); this.renderQ(st); }
-      if (got) { clearInterval(this.sendTimer); $('sAck').textContent = '✔ Thầy cô đã nhận. Chờ mở đáp án…'; if (this.view === 's-q') this.go('s-sent'); }
+      if (got) { clearInterval(this.sendTimer); $('sAck').textContent = '✔ Thầy cô đã nhận. Chờ thầy cô mở đáp án…'; if (this.view === 's-q') this.go('s-sent'); }
       else if (this.myAns == null && this.view !== 's-q') this.go('s-q');
       else if (this.myAns != null) { Net.send({ t: 'ANS', id: this.me.id, i: st.i, a: this.myAns }); this.go('s-sent'); }
       return;
@@ -998,7 +1002,7 @@ const HS = {
     clearInterval(this.timerId);
     const tick = () => {
       if (this.paused) { $('sTime').textContent = '⏸ Tạm dừng'; return; }
-      $('sTime').textContent = this.deadline ? '⏱ ' + Math.max(0, Math.ceil((this.deadline - Date.now()) / 1000)) + 's' : '⏱ GV sẽ chấm';
+      $('sTime').textContent = this.deadline ? '⏱ ' + Math.max(0, Math.ceil((this.deadline - Date.now()) / 1000)) + 's' : 'Trả lời càng nhanh điểm càng cao';
     };
     tick(); this.timerId = setInterval(tick, 250);
   },
