@@ -6758,7 +6758,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai11_NguyenHam_T55-59.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai11_NguyenHam_T55-59.docx",
 "kb": 569,
-"ngay": "2026-11-14",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|11",
 "bai": "Bài 11. Nguyên hàm",
 "nhan": ""
@@ -6772,7 +6772,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai12_TichPhan_T60-63.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai12_TichPhan_T60-63.docx",
 "kb": 720,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|12",
 "bai": "Bài 12. Tích phân",
 "nhan": ""
@@ -6786,7 +6786,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai13_UngDungHinhHoc_T64-67.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai13_UngDungHinhHoc_T64-67.docx",
 "kb": 1443,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|13",
 "bai": "Bài 13. Ứng dụng hình học của tích phân",
 "nhan": ""
@@ -6800,7 +6800,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai14_PhuongTrinhMatPhang_T70-75.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai14_PhuongTrinhMatPhang_T70-75.docx",
 "kb": 1220,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|14",
 "bai": "Bài 14. Phương trình mặt phẳng",
 "nhan": ""
@@ -6814,9 +6814,23 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai15_PhuongTrinhDuongThang_T76-83.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai15_PhuongTrinhDuongThang_T76-83.docx",
 "kb": 1092,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|15",
 "bai": "Bài 15. Phương trình đường thẳng trong không gian",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 16. Công thức tính góc trong không gian",
+"file": "KHBD_TOAN12_Bai16_GocTrongKhongGian_T84-85.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai16_GocTrongKhongGian_T84-85.docx",
+"kb": 1111,
+"ngay": "2026-11-18",
+"nhom": "toan|12|bai|16",
+"bai": "Bài 16. Công thức tính góc trong không gian",
 "nhan": ""
 },
 {
@@ -6996,7 +7010,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_BaiTapCuoiChuong4_T68-69.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_BaiTapCuoiChuong4_T68-69.docx",
 "kb": 542,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|btcc|4",
 "bai": "Bài tập cuối chương IV",
 "nhan": ""
@@ -7262,7 +7276,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai11_NguyenHam_T55-59_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai11_NguyenHam_T55-59_HoaNhap.docx",
 "kb": 573,
-"ngay": "2026-11-14",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|11",
 "bai": "Bài 11. Nguyên hàm",
 "nhan": "hoà nhập"
@@ -7276,7 +7290,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai12_TichPhan_T60-63_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai12_TichPhan_T60-63_HoaNhap.docx",
 "kb": 723,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|12",
 "bai": "Bài 12. Tích phân",
 "nhan": "hoà nhập"
@@ -7289,8 +7303,8 @@ window.HOC_LIEU = [
 "ten": "Bài 13. Ứng dụng hình học của tích phân (hoà nhập)",
 "file": "KHBD_TOAN12_Bai13_UngDungHinhHoc_T64-67_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai13_UngDungHinhHoc_T64-67_HoaNhap.docx",
-"kb": 1447,
-"ngay": "2026-11-17",
+"kb": 1446,
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|13",
 "bai": "Bài 13. Ứng dụng hình học của tích phân",
 "nhan": "hoà nhập"
@@ -7304,7 +7318,7 @@ window.HOC_LIEU = [
 "file": "KHBD_TOAN12_Bai14_PhuongTrinhMatPhang_T70-75_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai14_PhuongTrinhMatPhang_T70-75_HoaNhap.docx",
 "kb": 1223,
-"ngay": "2026-11-17",
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|14",
 "bai": "Bài 14. Phương trình mặt phẳng",
 "nhan": "hoà nhập"
@@ -7317,10 +7331,24 @@ window.HOC_LIEU = [
 "ten": "Bài 15. Phương trình đường thẳng trong không gian (hoà nhập)",
 "file": "KHBD_TOAN12_Bai15_PhuongTrinhDuongThang_T76-83_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai15_PhuongTrinhDuongThang_T76-83_HoaNhap.docx",
-"kb": 1096,
-"ngay": "2026-11-17",
+"kb": 1095,
+"ngay": "2026-11-18",
 "nhom": "toan|12|bai|15",
 "bai": "Bài 15. Phương trình đường thẳng trong không gian",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 16. Công thức tính góc trong không gian (hoà nhập)",
+"file": "KHBD_TOAN12_Bai16_GocTrongKhongGian_T84-85_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai16_GocTrongKhongGian_T84-85_HoaNhap.docx",
+"kb": 1114,
+"ngay": "2026-11-18",
+"nhom": "toan|12|bai|16",
+"bai": "Bài 16. Công thức tính góc trong không gian",
 "nhan": "hoà nhập"
 },
 {
@@ -7471,8 +7499,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chương IV (hoà nhập)",
 "file": "KHBD_TOAN12_BaiTapCuoiChuong4_T68-69_HoaNhap.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_BaiTapCuoiChuong4_T68-69_HoaNhap.docx",
-"kb": 546,
-"ngay": "2026-11-17",
+"kb": 545,
+"ngay": "2026-11-18",
 "nhom": "toan|12|btcc|4",
 "bai": "Bài tập cuối chương IV",
 "nhan": "hoà nhập"
@@ -7923,6 +7951,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-17",
 "nhom": "toan|12|bai|15",
 "bai": "Bài 15. Phương trình đường thẳng trong không gian",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 16. Công thức tính góc trong không gian",
+"file": "SoDoTuDuy_TOAN12_Bai16_GocTrongKhongGian_T84-85.png",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/SoDoTuDuy/SoDoTuDuy_TOAN12_Bai16_GocTrongKhongGian_T84-85.png",
+"kb": 334,
+"ngay": "2026-11-18",
+"nhom": "toan|12|bai|16",
+"bai": "Bài 16. Công thức tính góc trong không gian",
 "nhan": ""
 },
 {
