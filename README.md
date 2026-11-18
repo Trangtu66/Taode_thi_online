@@ -4333,6 +4333,52 @@ graph TD
 
 ## 📌 Sơ đồ tư duy từng bài – Vật lí 12
 
+### Toán 12 – Bài 18. Xác suất có điều kiện *(Tiết 91–94)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 18<br/>Xác suất<br/>có điều kiện"]:::root
+    G --> A["① Xác suất có điều kiện"]:::n1
+    G --> B["② Bảng dữ liệu 2 × 2"]:::n2
+    G --> C["③ Công thức nhân xác suất"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["P(A | B): xác suất của A khi B đã xảy ra"]:::l1
+    A --> A2["★ P(A | B) = P(AB) : P(B)"]:::l1
+    A --> A3["Định nghĩa: thu hẹp không gian mẫu"]:::l1
+    A --> A4["A, B độc lập: P(A | B) = P(A)"]:::l1
+
+    B --> B1["Hai dòng, hai cột"]:::l2
+    B --> B2["P(A | B) = n(AB) : n(B)"]:::l2
+    B --> B3["So sánh: có điều kiện B và không có B"]:::l2
+    B --> B4["Thắt dây an toàn, thử thuốc"]:::l2
+
+    C --> C1["★ P(AB) = P(B)·P(A | B)"]:::l3
+    C --> C2["P(AB) = P(A)·P(B | A)"]:::l3
+    C --> C3["Đúng với mọi A, B"]:::l3
+    C --> C4["Sơ đồ hình cây"]:::l3
+
+    D --> D1["Ô cửa bí mật: nên đổi cửa"]:::l4
+    D --> D2["Giữ: 1/3 – Đổi: 2/3"]:::l4
+    D --> D3["Bayesian updating"]:::l4
+    D --> D4["Cà phê Vĩnh Thạnh"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai18_t12.html>
+
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
 
 ```mermaid
