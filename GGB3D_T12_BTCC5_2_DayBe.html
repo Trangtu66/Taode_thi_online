@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiết 2 – Đáy bể nghiêng bao nhiêu độ? (Bài 5.50, SGK tr.63)</title>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<style>
+body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
+header{background:#1E40AF;color:#fff;padding:10px 16px;position:relative;overflow:hidden} header h1{margin:0;font-size:22px}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;background:#EFF4FF}
+nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-decoration:none;border:1px solid #BFDBFE;font-size:15px}
+nav a.on{background:#1E40AF;color:#fff}
+p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
+</style></head><body>
+<header><h1>Tiết 2 – Đáy bể nghiêng bao nhiêu độ? (Bài 5.50, SGK tr.63)</h1><div>Bài tập cuối chương V. Phương pháp toạ độ trong không gian – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB3D_T12_BTCC5_1_ChanTroi.html">Đường chân trời (Bài 5.52, SGK tr.63)</a><a href="GGB3D_T12_BTCC5_2_DayBe.html" class=on>Đáy bể nghiêng bao nhiêu độ? (Bài 5.50, SGK tr.63)</a></nav>
+<p class="hd">Ba vị trí A, B, C trên mặt nước (mặt phẳng z = 0) đôi một cách nhau 2 m; dây dọi thẳng đứng xuống đáy dài l1 = 4, l2 = 4,4, l3 = 4,8 (m). Ba điểm chạm đáy A′, B′, C′ (tên Ap, Bp, Cp) xác định mặt phẳng đáy bể. Ô nDay là vectơ pháp tuyến [A′B′, A′C′]; ô gocDo là góc giữa đáy bể và mặt phẳng nằm ngang. Kéo các thanh trượt l1, l2, l3: ba dây dài bằng nhau thì đáy nằm ngang (0°).</p><div id="loi"></div><div id="ggb"></div>
+<script>
+const CMDS = ["l1=Slider(1,6,0.1)", "SetValue(l1,4)", "l2=Slider(1,6,0.1)", "SetValue(l2,4.4)", "l3=Slider(1,6,0.1)", "SetValue(l3,4.8)", "A=(sqrt(3),0,0)", "B=(0,1,0)", "C=(0,-1,0)", "Ap=(sqrt(3),0,-l1)", "Bp=(0,1,-l2)", "Cp=(0,-1,-l3)", "matNuoc=Polygon(A,B,C)", "SetColor(matNuoc,\"#38BDF8\")", "dayBe=Polygon(Ap,Bp,Cp)", "SetColor(dayBe,\"#92400E\")", "day1=Segment(A,Ap)", "day2=Segment(B,Bp)", "day3=Segment(C,Cp)", "SetLineStyle(day1,1)", "SetLineStyle(day2,1)", "SetLineStyle(day3,1)", "nDay=Cross(Vector(Ap,Bp),Vector(Ap,Cp))", "cosGoc=abs(z(nDay))/Length(nDay)", "gocDo=acos(cosGoc)*180/pi"];
+const W = Math.max(600, window.innerWidth - 16), H = Math.max(420, window.innerHeight - 190);
+const app = new GGBApplet({appName:"3d", width:W, height:H, language:"vi", showToolBar:false, showAlgebraInput:false,
+  showMenuBar:false, enableRightClick:false, showResetIcon:true, enableShiftDragZoom:true, perspective:"AT",
+  errorDialogsActive:false,
+  appletOnLoad:function(api){
+    // evalCommand trả false cả với lệnh định dạng (SetColor…) vì không tạo đối tượng mới → chỉ kiểm tra lệnh định nghĩa "ten=…".
+    // Kiểm tra SAU khi chạy hết lệnh: bắt cả đối tượng bị xoá ngầm (vd. định nghĩa lại tên cạnh mà Polygon tự đặt).
+    const loi=[], ten=[]; CMDS.forEach(c=>{ if(c==="TRON11") return; api.evalCommand(c); const m=c.match(/^(\w+)=/); if(m) ten.push([m[1],c]); });
+    ten.forEach(([n,c])=>{ if(!api.exists(n)) loi.push(c); });
+    if(loi.length) document.getElementById("loi").textContent = "Không chạy được lệnh: " + loi.join(" | ");
+    // "TRON11": khung nhìn tỉ lệ trục 1:1 (đường tròn tròn, góc vuông không méo) – nới khung theo kích thước cửa sổ.
+    if(CMDS.includes("TRON11")) setTimeout(()=>{ const p=JSON.parse(api.getViewProperties(1));
+      const x0=p.xMin, y0=p.yMin, x1=x0+p.width*p.invXscale, y1=y0+p.height*p.invYscale;
+      const s=Math.max((x1-x0)/p.width,(y1-y0)/p.height), cx=(x0+x1)/2, cy=(y0+y1)/2;
+      api.evalCommand("ZoomIn("+(cx-s*p.width/2)+","+(cy-s*p.height/2)+","+(cx+s*p.width/2)+","+(cy+s*p.height/2)+")"); }, 300); } }, true);
+window.addEventListener("load", ()=>app.inject("ggb"));
+</script></body></html>
