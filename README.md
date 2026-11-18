@@ -1,10 +1,20 @@
-﻿# Hệ thống luyện thi trực tuyến – Trường THPT
+# Hệ thống luyện thi trực tuyến – Trường THPT
 
 Trang web: <https://trangtu66.github.io/Taode_thi_online/> · Cổng toàn trường: <https://trangtu66.github.io/Taode_thi_online/luyen_thi.html>
 
 **📽 Bài giảng điện tử Toán 10, 11, 12** (xem thử trên trình duyệt, tải file PowerPoint): <https://trangtu66.github.io/Taode_thi_online/bai_giang_dien_tu.html> · thư mục [`mon/toan/bai_giang_dien_tu/`](mon/toan/bai_giang_dien_tu/)
 
 Kho gồm hai phần: **trang web** (thư mục gốc) và **kho học liệu theo môn** (`mon/`).
+
+## 0. Kế hoạch bài dạy (Word) – kho riêng theo năm học
+
+KHBD từng bài, bản hoà nhập, sơ đồ tư duy của Toán và Ngữ văn lưu ở kho riêng mỗi năm học (từ 18/11/2026), không nằm trong kho này để trang web không vượt giới hạn 1 GB của GitHub Pages:
+
+| Năm học | Kho | Tải trọn bộ (.zip) |
+|---|---|---|
+| 2026–2027 | [Hoc_lieu_2026-2027](https://github.com/Trangtu66/Hoc_lieu_2026-2027) | [Releases 2026-2027](https://github.com/Trangtu66/Hoc_lieu_2026-2027/releases/tag/2026-2027) |
+
+Cấu trúc mỗi kho: `<môn>/lop<khối>/KHBD/`, `HoaNhap/`, `SoDoTuDuy/`. Trang [Kho học liệu](https://trangtu66.github.io/Taode_thi_online/hoc_lieu.html) tải thẳng từ các kho này. Các môn khác đang tạm ẩn, KHBD cũ vẫn ở `mon/<môn>/khbd/`.
 
 ## 1. Kho học liệu theo môn – `mon/<môn>/`
 
@@ -13,7 +23,7 @@ Môn nào cũng có đúng các ngăn như môn Toán:
 ```
 mon/
 ├── toan/                 Môn Toán (Tổ Toán)
-│   ├── khbd/             Kế hoạch bài dạy (Word)      lop10/ lop11/ lop12/
+│   ├── khbd/             (đã chuyển) KHBD Word ở kho Hoc_lieu_<năm học> – xem mục 0
 │   ├── bai_giang_dien_tu/ Bài giảng điện tử (PowerPoint có hiệu ứng, video mở đầu, Rung chuông vàng)   lop10/ lop11/ lop12/
 │   ├── video/            Video mở đầu của bài học (720p)   lop10/ lop11/ lop12/
 │   ├── trac_nghiem/      Đề trực tuyến: nguồn JSON + đề Word có đáp án, lời giải   lop10/ lop11/ lop12/
