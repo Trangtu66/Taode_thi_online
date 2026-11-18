@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bảng xếp hạng</title>
 <script src="cau_hinh.js"></script>
+<script src="mon_hien.js"></script>
 <style>
   :root{--paper:#F3F8FF;--line:#D9E4F5;--ink:#1F2A44;--soft:#5A6B85;--cel:#2F6FEB;--deep:#1D4ED8;--gold:#F59E0B;--good:#16A34A;--bad:#E5484D;--pale:#E8F0FE;--grad:linear-gradient(120deg,#2F6FEB 0%,#6D5DF6 55%,#10B3C6 100%)}
   *{box-sizing:border-box}
@@ -120,7 +121,7 @@ async function taiBai(){
 async function khoiDong(){
   try{
     const d = await jsonp({action:"quizzes"});
-    QUIZZES = d.quizzes;
+    QUIZZES = d.quizzes.filter(x => !window.monHien || monHien(x.quizId));
     const want = Q.get("q");
     if(want && !QUIZZES.find(x=>x.quizId===want)) QUIZZES.unshift({quizId:want, title:want, count:0});
     document.getElementById("chon-bai").innerHTML = QUIZZES.map(x=>`<option value="${esc(x.quizId)}" ${x.quizId===want?"selected":""}>${esc(x.title||x.quizId)} (${x.count} lượt)</option>`).join("");

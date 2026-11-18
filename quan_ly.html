@@ -10,6 +10,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script src="cau_hinh.js"></script>
+<script src="mon_hien.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
@@ -305,7 +306,7 @@ function taiNguon(){
 async function taiDanhSach(){
   taiNguon();
   let qz = [];
-  try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes; }catch(e){}
+  try{ qz = (await jsonp({action:"quizzes", key:MA})).quizzes.filter(x => !window.monHien || monHien(x.quizId)); }catch(e){}   // ẩn môn khác (mon_hien.js)
   const cfg = (window.DANH_SACH_BAI || []).map(b=>({...b}));
   cfg.forEach(b=>{ const q = qz.find(x=>x.quizId===b.ma); b.count = q ? q.count : 0; b.last = q ? q.last : 0; });
   qz.filter(q=> !cfg.find(b=>b.ma===q.quizId)).forEach(q=>{ const t = q.title || q.quizId, m = t.match(/\(([^()]*?)\s*(10|11|12)\)\s*$/);
