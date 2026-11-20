@@ -4188,6 +4188,28 @@ window.HOC_LIEU = [
 "ngay": "2026-10-09"
 },
 {
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì II – Toán 12",
+"file": "DeCuong_TOAN12_GK2.docx",
+"url": "mon/toan/de_cuong/lop12/DeCuong_TOAN12_GK2.docx",
+"kb": 47,
+"ngay": "2026-11-20"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "de_cuong",
+"khoi": 12,
+"ten": "Đề cương ôn tập giữa kì II – Toán 12 (PDF)",
+"file": "DeCuong_TOAN12_GK2.pdf",
+"url": "mon/toan/de_cuong/lop12/DeCuong_TOAN12_GK2.pdf",
+"kb": 574,
+"ngay": "2026-11-20"
+},
+{
 "mon": "vat_li",
 "tenMon": "Vật lí",
 "loai": "khbd",
