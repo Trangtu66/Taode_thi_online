@@ -4379,6 +4379,53 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai18_t12.html>
 
+### Toán 12 – Bài 19. Công thức xác suất toàn phần và công thức Bayes *(Tiết 95–98)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 19<br/>Xác suất toàn phần<br/>và công thức Bayes"]:::root
+    G --> A["① Công thức xác suất toàn phần"]:::n1
+    G --> B["② Sơ đồ hình cây"]:::n2
+    G --> C["③ Công thức Bayes"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ P(B) = P(A)·P(B|A) + P(Ā)·P(B|Ā)"]:::l1
+    A --> A2["Hai khả năng A, Ā 'góp phần' vào B"]:::l1
+    A --> A3["Bán hết vé, đi làm bằng xe máy"]:::l1
+    A --> A4["Di truyền đậu Hà Lan"]:::l1
+
+    B --> B1["Nhánh cấp 1: P(A), P(Ā)"]:::l2
+    B --> B2["Nhánh cấp 2: xác suất có điều kiện"]:::l2
+    B --> B3["Nhân theo nhánh"]:::l2
+    B --> B4["Cộng các nhánh đi tới B"]:::l2
+
+    C --> C1["★ P(A|B) = P(A)·P(B|A) : P(B)"]:::l3
+    C --> C2["Phân biệt P(A | B) và P(B | A)"]:::l3
+    C --> C3["Cập nhật xác suất khi biết B"]:::l3
+    C --> C4["Thomas Bayes (1701 – 1761)"]:::l3
+
+    D --> D1["Xét nghiệm y học: dương tính giả"]:::l4
+    D --> D2["Lọc thư rác, kiểm tra OTK"]:::l4
+    D --> D3["Thi tốt nghiệp, nếm rượu"]:::l4
+    D --> D4["Cà phê Vĩnh Thạnh"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai19_t12.html>
+
+
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
 
 ```mermaid

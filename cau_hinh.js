@@ -454,6 +454,7 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối Chương V", ma: "Củng cố – Bài tập cuối Chương V. Phương pháp toạ độ trong không gian (Toán 12)", link: "cc_chuong5_t12.html" },
   { khoi: 12, nhom: "Toán 12", ten: "Bài 18. Xác suất có điều kiện", ma: "Củng cố – Bài 18. Xác suất có điều kiện (Toán 12)", link: "cc_bai18_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài 6. Vectơ trong không gian – Đề 3", ma: "Game – Bài 6. Vectơ trong không gian – Đề 3 (Toán 12)", link: "game_bai6_de3_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Bài 19. Công thức xác suất toàn phần và công thức Bayes", ma: "Củng cố – Bài 19. Công thức xác suất toàn phần và công thức Bayes (Toán 12)", link: "cc_bai19_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
