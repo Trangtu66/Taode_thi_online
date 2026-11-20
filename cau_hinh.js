@@ -461,6 +461,8 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19", ma: "Củng cố – Ôn tập cuối kì II. Bài 11 – Bài 19 (Toán 12)", link: "cc_ontapck2_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 1", ma: "Game – Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 1 (Toán 12)", link: "game_ontapck2_de1_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 2", ma: "Game – Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 2 (Toán 12)", link: "game_ontapck2_de2_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Thực hành: Tích phân với GeoGebra, phương pháp hình thang", ma: "Củng cố – Thực hành: Tích phân với GeoGebra, phương pháp hình thang (Toán 12)", link: "cc_geogebra_tichphan_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Thực hành: Vẽ đồ hoạ 3D với GeoGebra", ma: "Củng cố – Thực hành: Vẽ đồ hoạ 3D với GeoGebra (Toán 12)", link: "cc_geogebra_dohoa3d_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
