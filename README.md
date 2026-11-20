@@ -4517,6 +4517,98 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapck2_t12.html>
 
+### Toán 12 – Thực hành: Tính nguyên hàm và tích phân với GeoGebra. Tính gần đúng tích phân bằng phương pháp hình thang *(Tiết 104)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>THỰC HÀNH<br/>Tích phân với GeoGebra.<br/>Phương pháp hình thang"]:::root
+    G --> A["① Nguyên hàm (CAS)"]:::n1
+    G --> B["② Tích phân (CAS)"]:::n2
+    G --> C["③ Phương pháp hình thang"]:::n3
+    G --> D["④ Sai số, thuật toán"]:::n4
+
+    A --> A1["★ IntegralSymbolic(f)"]:::l1
+    A --> A2["Tiếng Việt: TíchPhân(f)"]:::l1
+    A --> A3["Kết quả có hằng số c₁, c₂…"]:::l1
+    A --> A4["Kiểm tra lời giải tay"]:::l1
+
+    B --> B1["★ NIntegral(f, a, b)"]:::l2
+    B --> B2["TíchPhânXácĐịnh(f, a, b)"]:::l2
+    B --> B3["Kết quả gần đúng"]:::l2
+    B --> B4["Hàm không có nguyên hàm sơ cấp"]:::l2
+
+    C --> C1["★ (b − a)/(2n)·[f₀ + 2f₁ + … + fₙ]"]:::l3
+    C --> C2["Δx = (b − a)/n"]:::l3
+    C --> C3["Tổng diện tích hình thang"]:::l3
+    C --> C4["Bảng số liệu, đồ thị"]:::l3
+
+    D --> D1["★ |E| ≤ (b − a)³M/(12n²)"]:::l4
+    D --> D2["M = max|f''(x)|"]:::l4
+    D --> D3["Tìm n nhỏ nhất"]:::l4
+    D --> D4["Thể tích thân cây, mương"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_geogebra_tichphan_t12.html>
+
+### Toán 12 – Thực hành: Vẽ đồ hoạ 3D với phần mềm GeoGebra *(Tiết 105)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>THỰC HÀNH<br/>Vẽ đồ hoạ 3D<br/>với GeoGebra"]:::root
+    G --> A["① Tam giác Penrose"]:::n1
+    G --> B["② Mặt Mobius"]:::n2
+    G --> C["③ Mô hình bất khả"]:::n3
+    G --> D["④ Nền tảng toán học"]:::n4
+
+    A --> A1["★ DaGiac(…, 4, TrucTung)"]:::l1
+    A --> A2["★ HìnhLăngTrụ(đa giác, 9)"]:::l1
+    A --> A3["Ẩn đối tượng phụ, tô màu"]:::l1
+    A --> A4["Nút: góc nhìn (−1; −1; −1)"]:::l1
+
+    B --> B1["★ BeMat(x(u,v), y(u,v), z(u,v), …)"]:::l2
+    B --> B2["0 ≤ u ≤ 2π; −1 ≤ v ≤ 1"]:::l2
+    B --> B3["Chỉ có một phía"]:::l2
+    B --> B4["Thiết lập – Màu sắc"]:::l2
+
+    C --> C1["Cầu thang bất khả"]:::l3
+    C --> C2["Oscar Reutersvärd"]:::l3
+    C --> C3["Roger Penrose"]:::l3
+    C --> C4["Hợp lí từng phần, tổng thể thì không"]:::l3
+
+    D --> D1["Toạ độ trong không gian"]:::l4
+    D --> D2["Đa giác, lăng trụ"]:::l4
+    D --> D3["Phương trình tham số"]:::l4
+    D --> D4["Thiết kế sản phẩm 3D"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_geogebra_dohoa3d_t12.html>
+
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
 

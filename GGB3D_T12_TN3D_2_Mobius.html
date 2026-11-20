@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>T105 – Vẽ mặt Mobius (SGK tr.88 – 89)</title>
+<title>T105 – Mặt Mobius (SGK tr.88–89)</title>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <style>
 body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
@@ -10,8 +10,8 @@ nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-dec
 nav a.on{background:#1E40AF;color:#fff}
 p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
 </style></head><body>
-<header><h1>T105 – Vẽ mặt Mobius (SGK tr.88 – 89)</h1><div>Thực hành: Vẽ đồ hoạ 3D với GeoGebra – Toán 12 · GeoGebra</div></header>
-<nav><a href="GGB3D_T12_TN3D_1_Penrose.html">88)</a><a href="GGB3D_T12_TN3D_2_Mobius.html" class=on>89)</a></nav>
+<header><h1>T105 – Mặt Mobius (SGK tr.88–89)</h1><div>Thực hành: Vẽ đồ hoạ 3D với GeoGebra – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB3D_T12_TN3D_1_Penrose.html">Tam giác Penrose (SGK tr.86–88)</a><a href="GGB3D_T12_TN3D_2_Mobius.html" class=on>Mặt Mobius (SGK tr.88–89)</a></nav>
 <p class="hd">Mặt Mobius: x = (1 + v/2·cos(u/2))cos u, y = (1 + v/2·cos(u/2))sin u, z = v/2·sin(u/2), 0 ≤ u ≤ 2π, −1 ≤ v ≤ 1 (lệnh Surface – BeMat). Kéo thanh trượt uMax từ 0 đến 2π để thấy dải giấy được xoắn rồi dán lại. Điểm K (&quot;con kiến&quot;) chạy dọc đường giữa của mặt khi kéo thanh trượt t: sau một vòng (t = 2π) mũi tên đổi hướng ngược lại – K đã sang &quot;mặt kia&quot; mà không vượt qua mép; sau hai vòng (t = 4π) mới trở về như cũ.</p><div id="loi"></div><div id="ggb"></div>
 <script>
 const CMDS = ["uMax=Slider(0.1,6.29,0.05)", "SetValue(uMax,6.29)", "mat=Surface((1+v/2*cos(u/2))*cos(u),(1+v/2*cos(u/2))*sin(u),v/2*sin(u/2),u,0,uMax,v,-1,1)", "SetColor(mat,\"#00A8D5\")", "t=Slider(0,12.57,0.05)", "SetValue(t,0)", "K=(cos(t),sin(t),0)", "SetColor(K,\"#DC2626\")", "SetPointSize(K,7)", "muiTen=Vector(K,K+0.5*(cos(t/2)*cos(t),cos(t/2)*sin(t),sin(t/2)))", "SetColor(muiTen,\"#DC2626\")", "ZoomIn(-1.8,-1.8,-1.2,1.8,1.8,1.2)"];

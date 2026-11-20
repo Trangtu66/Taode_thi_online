@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>T105 – Vẽ tam giác Penrose (SGK tr.86 – 88)</title>
+<title>T105 – Tam giác Penrose (SGK tr.86–88)</title>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <style>
 body{margin:0;font-family:Calibri,Arial,sans-serif;background:#F8FAFC;color:#1E293B}
@@ -10,8 +10,8 @@ nav a{padding:6px 10px;border-radius:16px;background:#fff;color:#1E40AF;text-dec
 nav a.on{background:#1E40AF;color:#fff}
 p.hd{margin:8px 16px;font-size:18px} #ggb{margin:0 8px} #loi{color:#991B1B;margin:4px 16px}
 </style></head><body>
-<header><h1>T105 – Vẽ tam giác Penrose (SGK tr.86 – 88)</h1><div>Thực hành: Vẽ đồ hoạ 3D với GeoGebra – Toán 12 · GeoGebra</div></header>
-<nav><a href="GGB3D_T12_TN3D_1_Penrose.html" class=on>88)</a><a href="GGB3D_T12_TN3D_2_Mobius.html">89)</a></nav>
+<header><h1>T105 – Tam giác Penrose (SGK tr.86–88)</h1><div>Thực hành: Vẽ đồ hoạ 3D với GeoGebra – Toán 12 · GeoGebra</div></header>
+<nav><a href="GGB3D_T12_TN3D_1_Penrose.html" class=on>Tam giác Penrose (SGK tr.86–88)</a><a href="GGB3D_T12_TN3D_2_Mobius.html">Mặt Mobius (SGK tr.88–89)</a></nav>
 <p class="hd">Ba hình lăng trụ (đáy là hình vuông cạnh 1, chiều cao 9) dựng bằng các lệnh của SGK tr.86, cùng tứ giác q1. Nhấn nút &quot;Tam giác Penrose&quot; để chuyển về góc nhìn theo hướng (−1; −1; −1): ba khối hộp trông như một tam giác khép kín – một &quot;mô hình bất khả&quot;. Xoay hình (kéo chuột) để thấy thực chất ba khối không nối với nhau.</p><div id="loi"></div><div id="ggb"></div>
 <script>
 const CMDS = ["p1=Polygon((0,0,0),(-1,0,0),4,yAxis)", "p2=Polygon((0,9,0),(0,10,0),4,zAxis)", "p3=Polygon((-1,0,0),(-1,1,0),4,xAxis)", "k1=Prism(p1,9)", "k2=Prism(p2,9)", "k3=Prism(p3,-9)", "SetColor(k1,\"#DC2626\")", "SetColor(k2,\"#16A34A\")", "SetColor(k3,\"#38BDF8\")", "q1=Polygon((0,9,0),(0,10,0),(0,10,9),(0,9,8))", "SetColor(q1,\"#16A34A\")", "nut=Button(\"Tam giác Penrose\")", "SetClickScript(nut,\"SetViewDirection((-1,-1,-1))\")", "ZoomIn(-12,-2,-2,4,12,11)"];
