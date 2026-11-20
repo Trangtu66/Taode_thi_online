@@ -458,6 +458,9 @@ window.DANH_SACH_BAI = [
   { khoi: 12, nhom: "Toán 12", ten: "Bài tập cuối Chương VI", ma: "Củng cố – Bài tập cuối Chương VI. Xác suất có điều kiện (Toán 12)", link: "cc_chuong6_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài tập cuối chương VI. Xác suất có điều kiện – Đề 1", ma: "Game – Bài tập cuối chương VI. Xác suất có điều kiện – Đề 1 (Toán 12)", link: "game_btcc6_de1_t12.html" },
   { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Bài tập cuối chương VI. Xác suất có điều kiện – Đề 2", ma: "Game – Bài tập cuối chương VI. Xác suất có điều kiện – Đề 2 (Toán 12)", link: "game_btcc6_de2_t12.html" },
+  { khoi: 12, nhom: "Toán 12", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19", ma: "Củng cố – Ôn tập cuối kì II. Bài 11 – Bài 19 (Toán 12)", link: "cc_ontapck2_t12.html" },
+  { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 1", ma: "Game – Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 1 (Toán 12)", link: "game_ontapck2_de1_t12.html" },
+  { khoi: 12, nhom: "Toán 12 · Ngân hàng đề game", ten: "Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 2", ma: "Game – Ôn tập cuối kì II. Bài 11 – Bài 19 – Đề 2 (Toán 12)", link: "game_ontapck2_de2_t12.html" },
   { khoi: 12, nhom: "Địa lí 12 · Củng cố", ten: "Bài 19 (TH). Vẽ và phân tích biểu đồ công nghiệp", ma: "Củng cố – Địa lí 12 · Bài 19 (TH): Vẽ và phân tích biểu đồ công nghiệp", link: "dia_cc_bai19_k12.html" }
   // Mỗi khi có bài củng cố mới, thêm một dòng { khoi: ..., nhom: ..., ten: ..., ma: ..., link: ... } (nhớ dấu phẩy ở dòng trước).
 ];
