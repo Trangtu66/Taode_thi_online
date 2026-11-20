@@ -4191,6 +4191,53 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai15_t12.html>
 
+### Toán 12 – Ôn tập kiểm tra giữa kì II *(Tiết 79)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>ÔN TẬP<br/>GIỮA KÌ II"]:::root
+    G --> A["① Nguyên hàm"]:::n1
+    G --> B["② Tích phân – ứng dụng"]:::n2
+    G --> C["③ Phương trình mặt phẳng"]:::n3
+    G --> D["④ Đường thẳng (đã học)"]:::n4
+
+    A --> A1["★ F'(x) = f(x)"]:::l1
+    A --> A2["Bảng nguyên hàm cơ bản"]:::l1
+    A --> A3["∫kf = k∫f; ∫(f ± g)"]:::l1
+    A --> A4["Tìm C từ F(x₀)"]:::l1
+
+    B --> B1["★ ∫ f từ a đến b = F(b) – F(a)"]:::l2
+    B --> B2["Tính chất, cộng cận"]:::l2
+    B --> B3["★ S = ∫|f(x)|dx"]:::l2
+    B --> B4["V = π∫f²(x)dx"]:::l2
+
+    C --> C1["★ Ax + By + Cz + D = 0"]:::l3
+    C --> C2["Qua điểm + VTPT; đoạn chắn"]:::l3
+    C --> C3["Song song, vuông góc"]:::l3
+    C --> C4["★ Khoảng cách điểm – mặt phẳng"]:::l3
+
+    D --> D1["Vectơ chỉ phương"]:::l4
+    D --> D2["PT tham số, chính tắc"]:::l4
+    D --> D3["Qua hai điểm"]:::l4
+    D --> D4["Vuông góc: u·u' = 0"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_ontapgk2_t12.html>
+
+
 ### Toán 12 – Bài 16. Công thức tính góc trong không gian *(Tiết 84–85)*
 
 ```mermaid
