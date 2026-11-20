@@ -6866,6 +6866,20 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Bài 19. Công thức xác suất toàn phần và công thức Bayes",
+"file": "KHBD_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98.docx",
+"kb": 1025,
+"ngay": "2026-11-20",
+"nhom": "toan|12|bai|19",
+"bai": "Bài 19. Công thức xác suất toàn phần và công thức Bayes",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Bài 1. Tính đơn điệu và cực trị của hàm số",
 "file": "KHBD_TOAN12_Bai1_DonDieu_CucTri_T1-6.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_Bai1_DonDieu_CucTri_T1-6.docx",
@@ -7419,6 +7433,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-19",
 "nhom": "toan|12|bai|18",
 "bai": "Bài 18. Xác suất có điều kiện",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Bài 19. Công thức xác suất toàn phần và công thức Bayes (hoà nhập)",
+"file": "KHBD_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98_HoaNhap.docx",
+"kb": 1028,
+"ngay": "2026-11-20",
+"nhom": "toan|12|bai|19",
+"bai": "Bài 19. Công thức xác suất toàn phần và công thức Bayes",
 "nhan": "hoà nhập"
 },
 {
@@ -8077,6 +8105,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-19",
 "nhom": "toan|12|bai|18",
 "bai": "Bài 18. Xác suất có điều kiện",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Sơ đồ tư duy – Bài 19. Công thức xác suất toàn phần và công thức Bayes",
+"file": "SoDoTuDuy_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98.png",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/SoDoTuDuy/SoDoTuDuy_TOAN12_Bai19_XacSuatToanPhan_Bayes_T95-98.png",
+"kb": 375,
+"ngay": "2026-11-20",
+"nhom": "toan|12|bai|19",
+"bai": "Bài 19. Công thức xác suất toàn phần và công thức Bayes",
 "nhan": ""
 },
 {
