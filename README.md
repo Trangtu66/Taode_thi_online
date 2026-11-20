@@ -4425,6 +4425,52 @@ graph TD
 
 > **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai19_t12.html>
 
+### Toán 12 – Bài tập cuối chương VI. Xác suất có điều kiện *(Tiết 99)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG VI<br/>Xác suất<br/>có điều kiện"]:::root
+    G --> A["① Xác suất có điều kiện"]:::n1
+    G --> B["② Công thức nhân"]:::n2
+    G --> C["③ Xác suất toàn phần"]:::n3
+    G --> D["④ Công thức Bayes"]:::n4
+
+    A --> A1["★ P(A|B) = P(AB) : P(B)"]:::l1
+    A --> A2["Thu hẹp không gian mẫu"]:::l1
+    A --> A3["Bảng dữ liệu 2 × 2"]:::l1
+    A --> A4["A, B độc lập: P(A|B) = P(A)"]:::l1
+
+    B --> B1["★ P(AB) = P(A)·P(B|A)"]:::l2
+    B --> B2["Đúng với mọi A, B"]:::l2
+    B --> B3["Lấy lần lượt, không trả lại"]:::l2
+    B --> B4["Sơ đồ hình cây: nhân theo nhánh"]:::l2
+
+    C --> C1["★ P(B) = P(A)·P(B|A) + P(Ā)·P(B|Ā)"]:::l3
+    C --> C2["Cộng các nhánh đi tới B"]:::l3
+    C --> C3["Hai giai đoạn: nguyên nhân → kết quả"]:::l3
+    C --> C4["Chọn chuồng, chọn hộp rồi lấy"]:::l3
+
+    D --> D1["★ P(A|B) = P(A)·P(B|A) : P(B)"]:::l4
+    D --> D2["Cập nhật xác suất khi biết B"]:::l4
+    D --> D3["Không nhầm P(A|B), P(B|A)"]:::l4
+    D --> D4["Vaccine, xét nghiệm, lọc thư rác"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong6_t12.html>
+
 
 ### Vật lí 12 – Bài 1. Cấu trúc của chất. Sự chuyển thể *(Tiết 1–2)*
 
