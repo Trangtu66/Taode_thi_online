@@ -29,33 +29,83 @@
     });
   }
 
-  // ---------------------------------------------------------------- nhân vật học sinh low-poly (áo cổ trắng, không khăn quàng)
+  // ---------------------------------------------------------------- nhân vật học sinh (áo cổ trắng, không khăn quàng)
   var MAT = {};
   function mat(k, c) { if (!MAT[k]) MAT[k] = new T.MeshStandardMaterial({ color: c, roughness: .6 }); return MAT[k]; }
-  function merge(geos) {
-    var pos = [], nor = [];
-    geos.forEach(function (g) { var ng = g.index ? g.toNonIndexed() : g; Array.prototype.push.apply(pos, ng.attributes.position.array); Array.prototype.push.apply(nor, ng.attributes.normal.array); g.dispose(); if (ng !== g) ng.dispose(); });
-    var o = new T.BufferGeometry(); o.setAttribute('position', new T.Float32BufferAttribute(pos, 3)); o.setAttribute('normal', new T.Float32BufferAttribute(nor, 3)); return o;
+  // 22/11/2026: nhân vật tỉ lệ người thật (~6,5 đầu), tay chân bo tròn có khớp khuỷu – gối;
+  // mỗi khung hình tính IK 2 đoạn: tay luôn nắm đúng dây, chân bám đất, thân ngả theo nhịp kéo.
+  var GEO = {}, YAX, ZAX;
+  function geo(k, make) { return GEO[k] || (GEO[k] = make()); }
+  function caps(r, len, along) { return geo('c' + r + '_' + len + (along || ''), function () { var g = new T.CapsuleGeometry(r, len, 6, 14); if (along === 'z') g.rotateX(Math.PI / 2); if (along === 'x') g.rotateZ(Math.PI / 2); return g; }); }
+  function mesh(g, m, sh) { var o = new T.Mesh(g, m); o.castShadow = sh !== false; return o; }
+  function place(o, a, b) { var d = b.clone().sub(a); o.position.copy(a).addScaledVector(d, .5); o.quaternion.setFromUnitVectors(YAX, d.normalize()); }
+  function ik(s, t, a, b, pole) {      // trả [khớp giữa, điểm cuối] cho chuỗi 2 đoạn dài a, b từ s về phía t
+    var d = t.clone().sub(s), L = d.length(); d.normalize();
+    L = Math.min(a + b - 1e-3, Math.max(Math.abs(a - b) + 1e-3, L));
+    var x = (a * a - b * b + L * L) / (2 * L), h = Math.sqrt(Math.max(0, a * a - x * x));
+    var pb = pole.clone().addScaledVector(d, -pole.dot(d)).normalize();
+    return [s.clone().addScaledVector(d, x).addScaledVector(pb, h), s.clone().addScaledVector(d, L)];
   }
-  function makeKid(team, girl) {
-    var dir = team === 'red' ? 1 : -1;    // hướng mặt về giữa sân (+x với Đỏ)
-    var g = new T.Group(), body = new T.Group(); g.add(body);
-    var P = { shirt: [], pants: [], skin: [], hair: [], white: [], shoe: [] };
-    var B = function (k, w, h, d, x, y, z, rz) { var geo = new T.BoxGeometry(w, h, d); if (rz) geo.rotateZ(rz); P[k].push(geo.translate(x, y, z)); };
-    // chân: tư thế kéo – chân trước duỗi, chân sau chùng
-    B('pants', .22, .8, .22, .28 * dir, .42, .13, -.35 * dir); B('pants', .22, .78, .22, -.12 * dir, .42, -.13, .1 * dir);
-    B('shoe', .32, .12, .24, .42 * dir, .06, .13); B('shoe', .32, .12, .24, -.06 * dir, .06, -.13);
-    B('shirt', .5, .7, .42, 0, 1.15, 0); B('white', .36, .1, .44, .04 * dir, 1.5, 0);          // thân áo, cổ áo trắng
-    if (girl) B('pants', .56, .28, .46, 0, .82, 0);                                             // váy/quần
-    // tay vươn về phía dây (ra trước)
-    B('shirt', .55, .16, .16, .3 * dir, 1.22, .2, -.25 * dir); B('shirt', .55, .16, .16, .3 * dir, 1.22, -.2, -.25 * dir);
-    B('skin', .14, .14, .14, .58 * dir, 1.13, .2); B('skin', .14, .14, .14, .58 * dir, 1.13, -.2);
-    P.skin.push(new T.SphereGeometry(.24, 14, 12).translate(.02 * dir, 1.78, 0));
-    P.hair.push(new T.SphereGeometry(.255, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2).translate(-.01 * dir, 1.8, 0));
-    if (girl) { P.hair.push(new T.BoxGeometry(.12, .36, .4).translate(-.2 * dir, 1.62, 0)); }
-    var M = { shirt: mat(team, team === 'red' ? RED : BLUE), pants: mat('pants', 0x1e293b), skin: mat('skin', 0xf2c6a0), hair: mat('hair', 0x1f1308), white: mat('white', 0xffffff), shoe: mat('shoe', 0x111827) };
-    Object.keys(P).forEach(function (k) { if (P[k].length) { var m = new T.Mesh(merge(P[k]), M[k]); m.castShadow = true; body.add(m); } });
-    g.userData = { body: body, dir: dir };
+  function makeKid(team, girl, kz, idx) {
+    if (!YAX) { YAX = new T.Vector3(0, 1, 0); ZAX = new T.Vector3(0, 0, 1); }
+    var V = function (x, y, z) { return new T.Vector3(x, y, z); };
+    var g = new T.Group(), rig = new T.Group(); rig.scale.x = team === 'red' ? 1 : -1; g.add(rig);   // dựng mặt hướng +x, đội Xanh lật gương
+    var hairC = [0x1f1308, 0x2b1a0e, 0x120c08][idx % 3];
+    var M = { shirt: mat(team, team === 'red' ? RED : BLUE), pants: mat('pants', 0x1e293b), skin: mat('skin' + idx % 2, idx % 2 ? 0xe8b48f : 0xf3c9a6),
+      hair: mat('hair' + hairC, hairC), white: mat('white', 0xf8fafc), shoe: mat('shoe', 0x111827), sole: mat('sole', 0xe5e7eb), eye: mat('eye', 0x111111), lip: mat('lip', 0xb4584a) };
+    var add = function (o) { rig.add(o); return o; };
+    // thân
+    var hips = add(mesh(caps(.13, .14, 'z'), M.pants)), torso = add(mesh(caps(.155, .3), M.shirt)); torso.scale.set(.74, 1, 1.22);
+    var collar = add(mesh(geo('collar', function () { return new T.TorusGeometry(.075, .028, 8, 20); }), M.white));
+    var neck = add(mesh(caps(.048, .06), M.skin));
+    // đầu: mặt nhìn về +x
+    var head = add(new T.Group()), H = function (g2, m, x, y, z, sx, sy, sz) { var o = mesh(g2, m); o.position.set(x, y, z); if (sx) o.scale.set(sx, sy, sz); head.add(o); return o; };
+    H(geo('skull', function () { return new T.SphereGeometry(.122, 28, 20); }), M.skin, 0, 0, 0, 1, 1.13, .95);
+    H(geo('hairTop', function () { return new T.SphereGeometry(.132, 28, 14, 0, Math.PI * 2, 0, Math.PI * .44); }), M.hair, -.008, .014, 0, 1, 1.13, .98);
+    H(geo('hairBk' + (girl ? 'g' : 'b'), function () { return new T.SphereGeometry(.134, 28, 16, -Math.PI / 2, Math.PI, 0, Math.PI * (girl ? .84 : .6)); }), M.hair, -.006, .01, 0, 1, 1.13, .99);
+    H(caps(.03, .13, 'z'), M.hair, .088, .094, 0, 1, .8, 1);                                       // tóc mái
+    [-1, 1].forEach(function (s) {
+      H(geo('eye', function () { return new T.SphereGeometry(.016, 10, 8); }), M.eye, .109, .014, s * .044);
+      H(caps(.007, .03, 'z'), M.hair, .116, .046, s * .045);                                       // lông mày
+      H(geo('ear', function () { return new T.SphereGeometry(.03, 10, 8); }), M.skin, -.004, -.004, s * .117, .6, 1, .5);
+    });
+    H(geo('nose', function () { return new T.SphereGeometry(.02, 10, 8); }), M.skin, .124, -.02, 0, 1.1, 1, .9);
+    H(caps(.008, .034, 'z'), M.lip, .108, -.062, 0);
+    if (girl) { var pt = H(caps(.045, .17), M.hair, -.15, -.04, 0); pt.rotation.z = -.45; H(geo('tie', function () { return new T.SphereGeometry(.035, 10, 8); }), M.shirt, -.125, .03, 0); }
+    // tay, chân
+    var arm = [-1, 1].map(function (s) { return { s: s, up: add(mesh(caps(.05, .28), M.skin)), sl: add(mesh(caps(.062, .1), M.shirt)), lo: add(mesh(caps(.043, .27), M.skin)),
+      hand: add(mesh(geo('hand', function () { return new T.SphereGeometry(.055, 14, 10); }), M.skin)) }; });
+    var leg = [-1, 1].map(function (s) { return { s: s, th: add(mesh(caps(.082, .42), M.pants)), sh: add(mesh(caps(.064, .41), M.pants)),
+      shoe: add(mesh(caps(.058, .15, 'x'), M.shoe)), sole: add(mesh(geo('sole', function () { return new T.BoxGeometry(.28, .025, .11); }), M.sole)) }; });
+    leg.forEach(function (l) { l.shoe.scale.set(1, .78, .95); });
+    var fz = idx % 2 ? 1 : -1;     // chân trước luân phiên trái/phải cho tự nhiên
+    function pose(lean, lift, cheer, t) {
+      var up = V(-Math.sin(lean), Math.cos(lean), 0);
+      var P = V(-.05 - .5 * Math.sin(lean), .86 - .12 * Math.abs(Math.sin(lean)) + lift, 0);
+      place(hips, P.clone().setZ(-.09), P.clone().setZ(.09));
+      var C = P.clone().addScaledVector(up, .5);
+      place(torso, P.clone().addScaledVector(up, .1), C.clone().addScaledVector(up, -.04));
+      var N = C.clone().addScaledVector(up, .05);
+      collar.position.copy(N); collar.quaternion.setFromUnitVectors(ZAX, up);
+      place(neck, N, N.clone().addScaledVector(up, .09));
+      head.position.copy(N).addScaledVector(up, .21); head.rotation.z = lean * .45 + (cheer ? -.15 : 0);
+      arm.forEach(function (a) {
+        var S0 = C.clone().addScaledVector(up, -.03).setZ(C.z + a.s * .2), tg;
+        if (cheer) tg = S0.clone().add(V(.06 + Math.sin(t * 8 + a.s) * .05, .58, a.s * .12));           // giơ tay reo hò
+        else tg = V(a.s * kz > 0 ? .08 : -.12, 1.12 + lift * 0, -kz);                                       // hai tay nắm dây
+        var r = ik(S0, tg, .3, .29, V(-.25, -1, a.s * .8));
+        place(a.up, S0, r[0]); place(a.sl, S0, S0.clone().lerp(r[0], .42)); place(a.lo, r[0], r[1]); a.hand.position.copy(r[1]);
+      });
+      leg.forEach(function (l) {
+        var hp = P.clone().setZ(l.s * .1), front = l.s === fz;
+        var ank = V(front ? .24 : -.32, .1 + lift, l.s * .12);
+        var r = ik(hp, ank, .45, .44, V(1, .25, 0));
+        place(l.th, hp, r[0]); place(l.sh, r[0], r[1]);
+        l.shoe.position.copy(r[1]).add(V(.06, -.035, 0)); l.sole.position.copy(r[1]).add(V(.06, -.085, 0));
+      });
+    }
+    pose(.32, 0, false, 0);
+    g.userData = { pose: pose };
     return g;
   }
 
@@ -86,15 +136,34 @@
     tr.castShadow = lf.castShadow = true; W.add(tr); W.add(lf);
     // dây kéo + cờ giữa dây
     var rope = new T.Group(); S.rope = rope; sc.add(rope);
-    var ropeM = new T.MeshStandardMaterial({ color: 0xd4a373, roughness: .9 });
-    var rp = new T.Mesh(new T.CylinderGeometry(.07, .07, 30, 10), ropeM); rp.rotation.z = Math.PI / 2; rp.position.y = 1.12; rp.castShadow = true; rope.add(rp);
-    var knot = new T.Mesh(new T.SphereGeometry(.16, 10, 8), new T.MeshStandardMaterial({ color: 0xfacc15 })); knot.position.y = 1.12; rope.add(knot);
-    var ribbon = new T.Mesh(new T.PlaneGeometry(.5, .8), new T.MeshStandardMaterial({ color: 0xfacc15, side: T.DoubleSide })); ribbon.position.set(0, .7, 0); rope.add(ribbon); S.ribbon = ribbon;
+    // dây thừng bện (vân xoắn), võng nhẹ giữa sân, hai đầu thừa buông xuống đất – dựng lại theo số người mỗi đội (buildRope)
+    var braid = tex(64, 64, function (g, w, h) { g.fillStyle = '#c9a26a'; g.fillRect(0, 0, w, h); g.lineWidth = 9;
+      for (var i = -2; i < 4; i++) { g.strokeStyle = i % 2 ? '#a8783f' : '#e2c08c'; g.beginPath(); g.moveTo(i * 22, h); g.lineTo(i * 22 + h, 0); g.stroke(); } });
+    braid.wrapS = braid.wrapT = T.RepeatWrapping;
+    S.ropeM = new T.MeshStandardMaterial({ map: braid, roughness: .95 });
+    S.ropeMesh = new T.Mesh(new T.BufferGeometry(), S.ropeM); S.ropeMesh.castShadow = true; rope.add(S.ropeMesh);
+    var knot = new T.Mesh(new T.SphereGeometry(.085, 14, 10), S.ropeM); knot.scale.set(1.5, 1, 1.2); knot.position.y = 1.12; rope.add(knot); S.knot = knot;
+    var ribbon = new T.Group(); S.ribbon = ribbon; knot.add(ribbon);
+    [[0xdc2626, -.12], [0xfacc15, .12]].forEach(function (a) { var r = new T.Mesh(new T.PlaneGeometry(.09, .42), new T.MeshStandardMaterial({ color: a[0], side: T.DoubleSide, roughness: .7 }));
+      r.geometry.translate(0, -.21, 0); r.rotation.z = a[1]; ribbon.add(r); });
     // bảng điểm hai đội
     S.boardR = sprite(boardTex('red', 0), 6, 2); S.boardR.position.set(-8.5, 4.6, -3); sc.add(S.boardR);
     S.boardB = sprite(boardTex('blue', 0), 6, 2); S.boardB.position.set(8.5, 4.6, -3); sc.add(S.boardB);
   }
 
+  function buildRope(sag) {
+    var Y = 1.12, P = [];
+    [-1, 1].forEach(function (s) {
+      var n = s < 0 ? S.nRed : S.nBlue, ex = s * (2.4 + (n - 1) * 1.45 + .35), pts = [
+        [ex + s * 2.7, .045, .55], [ex + s * 1.9, .045, .28], [ex + s * 1.2, .2, .05], [ex + s * .6, .85, 0], [ex, Y, 0], [ex - s * 1.5, Y, 0], [s * 2.2, Y - sag * .25, 0]];
+      if (s > 0) pts.reverse();
+      pts.forEach(function (p) { P.push(new T.Vector3(p[0], p[1], p[2])); });
+      if (s < 0) P.push(new T.Vector3(0, Y - sag, 0));
+    });
+    var curve = new T.CatmullRomCurve3(P, false, 'centripetal'), len = curve.getLength();
+    S.ropeMesh.geometry.dispose(); S.ropeMesh.geometry = new T.TubeGeometry(curve, 260, .042, 10, false);
+    S.ropeM.map.repeat.set(len * 7, 1); S.knot.position.y = Y - sag; S.sag = sag;
+  }
   function syncKids(red, blue) {
     var key = red.join('|') + '#' + blue.join('|');
     if (key === S.kidKey) return; S.kidKey = key;
@@ -102,8 +171,9 @@
     S.kids = [];
     [['red', red], ['blue', blue]].forEach(function (a) {
       var team = a[0], names = a[1], n = Math.max(4, Math.min(6, names.length || 4)), dir = team === 'red' ? -1 : 1;
+      S[team === 'red' ? 'nRed' : 'nBlue'] = n;
       for (var i = 0; i < n; i++) {
-        var o = makeKid(team, i % 2 === 1), x = dir * (2.4 + i * 1.45), z = i % 2 ? -.32 : .32;
+        var z = i % 2 ? -.2 : .2, o = makeKid(team, i % 2 === 1, z, i + (team === 'red' ? 0 : 1)), x = dir * (2.4 + i * 1.45);
         o.position.set(x, 0, z); S.rope.add(o);
         var nm = names[i];
         if (i === n - 1 && names.length > n) nm = '+' + (names.length - n + 1) + ' bạn';
@@ -111,6 +181,7 @@
         S.kids.push({ obj: o, team: team, i: i });
       }
     });
+    buildRope(.06);
   }
 
   // ---------------------------------------------------------------- vòng vẽ
@@ -124,15 +195,16 @@
     var target = s.pos * STEP; S.x += (target - S.x) * Math.min(1, dt * 2.2); S.rope.position.x = S.x;
     S.jerk = Math.max(0, (S.jerk || 0) - dt * 1.4);
     var win = s.pos <= -5 ? 'red' : s.pos >= 5 ? 'blue' : '';
-    S.ribbon.rotation.y = Math.sin(t * 3) * .4;
+    S.ribbon.rotation.y = Math.sin(t * 3) * .4; S.ribbon.rotation.x = Math.sin(t * 2.3) * .15;
+    var sag = .06 + (S.jerk ? Math.sin(t * 38) * S.jerk * .07 : Math.sin(t * 5) * .01);   // dây căng, rung khi bị giật
+    if (Math.abs(sag - (S.sag || 0)) > .004) buildRope(sag);
     (S.kids || []).forEach(function (k) {
-      var b = k.obj.userData.body, dir = k.obj.userData.dir, ph = t * 5 + k.i * .5;
+      var ph = t * 5 + k.i * .5, lift = 0, cheer = false;
       var lean = .32 + Math.sin(ph) * .06;                              // "hò dô ta": nhịp kéo đều
       if (S.jerk && k.team === S.jerkTeam) lean += S.jerk * .3;          // đội vừa ghi điểm giật mạnh
       if (S.jerk && k.team !== S.jerkTeam) lean -= S.jerk * .25;         // đội kia bị kéo chúi về trước
-      if (win) { if (k.team === win) { lean = 0; b.position.y = Math.abs(Math.sin(t * 7 + k.i)) * .45; } else { lean = -.35; b.position.y = 0; } }
-      else b.position.y = 0;
-      b.rotation.z = lean * dir;
+      if (win) { if (k.team === win) { lean = .02; cheer = true; lift = Math.abs(Math.sin(t * 7 + k.i)) * .3; } else lean = -.3; }
+      k.obj.userData.pose(lean, lift, cheer, t);
     });
     var key = s.redScore + '|' + s.blueScore + '|' + s.red.length + '|' + s.blue.length;
     if (key !== S.boardKey) {
