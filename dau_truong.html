@@ -1014,6 +1014,7 @@
                         <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
                         <button id="race-view-btn" onclick="raceToggleView()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow" title="Đổi giữa đường đua 3D và dạng làn 2D">🎮 3D</button>
                         <button id="race-cam-btn" onclick="raceCycleCamera()" class="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-extrabold shadow" title="Đổi góc quay (màn 3D)">🎥 Bám đuôi dẫn đầu</button>
+                        <button id="race-engine-btn" onclick="raceToggleEngine()" class="px-2.5 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-extrabold shadow" title="Bật/tắt tiếng động cơ (màn 3D)">🔊 Động cơ</button>
                         <button onclick="toggleStageFullscreen('race-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
                     </div>
                 </div>
@@ -5385,6 +5386,7 @@
         function raceStart() {
             if (raceState === 'countdown' || raceState === 'running') return;
             if (!examQuestions.length) { showToast('⚠️ Chưa có đề. Bấm "📚 Chọn đề" trước.'); return; }
+            if (window.Race3D) Race3D.unlock();   // trình duyệt chỉ cho phát âm thanh sau thao tác bấm của GV
             const sel = document.getElementById('race-count');
             const want = (!sel || sel.value === 'all') ? examQuestions.length : parseInt(sel.value, 10);
             raceTotal = Math.max(1, Math.min(want || 10, examQuestions.length));
@@ -5571,7 +5573,7 @@
             const sel = document.getElementById('race-count');
             const preview = sel ? (sel.value === 'all' ? examQuestions.length : parseInt(sel.value, 10)) : 10;
             if (window.Race3D) Race3D.preview(Math.max(1, Math.min(preview || 10, 40)));
-            return { state: raceState, total: raceTotal, lanes };
+            return { state: raceState, total: raceTotal, lanes, muted: soundMuted };
         }
         function raceApplyView() {
             const box3 = document.getElementById('race-3d'), track = document.getElementById('race-track');
@@ -5580,6 +5582,8 @@
             const want3d = raceView === '3d' && window.Race3D && Race3D.supported();
             box3.classList.toggle('hidden', !want3d); track.classList.toggle('hidden', want3d);
             if (cam) cam.classList.toggle('hidden', !want3d);
+            const eng = document.getElementById('race-engine-btn'); if (eng) eng.classList.toggle('hidden', !want3d);
+            raceEngineLabel();
             if (btn) btn.innerText = want3d ? '📋 Dạng làn 2D' : '🎮 Đường đua 3D';
             if (want3d) Race3D.mount(box3, race3dSnapshot).catch(e => { showToast('⚠️ ' + (e.message || e) + ' – chuyển về dạng 2D.'); raceView = '2d'; raceApplyView(); });
         }
@@ -5587,6 +5591,15 @@
             raceView = raceView === '3d' ? '2d' : '3d';
             try { localStorage.setItem('race_view', raceView); } catch (e) {}
             raceApplyView();
+        }
+        function raceEngineLabel() {
+            const b = document.getElementById('race-engine-btn');
+            if (b && window.Race3D) b.innerText = Race3D.engine() ? '🔊 Động cơ' : '🔇 Động cơ';
+        }
+        function raceToggleEngine() {
+            if (!window.Race3D) return;
+            Race3D.engine(!Race3D.engine()); raceEngineLabel();
+            showToast(Race3D.engine() ? '🔊 Đã bật tiếng động cơ' : '🔇 Đã tắt tiếng động cơ');
         }
         function raceCycleCamera() {
             const b = document.getElementById('race-cam-btn');

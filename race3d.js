@@ -173,6 +173,84 @@
   function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
   function disposeTree(o) { var shared = {}; Object.keys(MAT).forEach(function (k) { shared[MAT[k].uuid] = 1; }); o.traverse(function (x) { if (x.geometry) x.geometry.dispose(); var m = x.material; (Array.isArray(m) ? m : m ? [m] : []).forEach(function (mm) { if (shared[mm.uuid]) return; if (mm.map && !mm.map.userData.keep) mm.map.dispose(); mm.dispose(); }); }); }
 
+
+  // ---------------------------------------------------------------- ÂM THANH ĐỘNG CƠ (Web Audio, tổng hợp – không cần file mp3)
+  // Tiếng máy nổ chung của cả đường đua: ga tăng khi có xe đang chạy; tiếng rồ ga khi một xe vượt chướng ngại;
+  // tiếng phanh trượt bánh khi trả lời sai; còi khi về đích. Tắt/bật: Race3D.engine(true|false); tôn trọng nút tắt âm của trang.
+  var AU = { on: (function () { try { return localStorage.getItem('race_engine') !== 'off'; } catch (e) { return true; } })() };
+  function auInit() {
+    if (AU.ctx) { if (AU.ctx.state === 'suspended') AU.ctx.resume(); return AU.ctx; }
+    var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+    var ctx = AU.ctx = new C(), out = AU.out = ctx.createGain(); out.gain.value = 0; out.connect(ctx.destination);
+    var lp = AU.lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 500; lp.Q.value = 4; lp.connect(out);
+    var shaper = ctx.createWaveShaper(), curve = new Float32Array(256);
+    for (var i = 0; i < 256; i++) { var x = i / 128 - 1; curve[i] = Math.tanh(x * 2.5); } shaper.curve = curve;
+    var am = AU.am = ctx.createGain(); am.gain.value = 1; shaper.connect(am); am.connect(lp);
+    AU.o1 = ctx.createOscillator(); AU.o1.type = 'sawtooth'; AU.o2 = ctx.createOscillator(); AU.o2.type = 'square'; AU.o3 = ctx.createOscillator(); AU.o3.type = 'sawtooth';
+    var g1 = ctx.createGain(), g2 = ctx.createGain(), g3 = ctx.createGain(); g1.gain.value = .5; g2.gain.value = .3; g3.gain.value = .25;
+    AU.o1.connect(g1); AU.o2.connect(g2); AU.o3.connect(g3); g1.connect(shaper); g2.connect(shaper); g3.connect(shaper);
+    // tiếng nổ lụp bụp của máy: LFO điều biên
+    AU.lfo = ctx.createOscillator(); AU.lfo.type = 'square'; AU.lfo.frequency.value = 12; var lfoG = ctx.createGain(); lfoG.gain.value = .35; AU.lfo.connect(lfoG); lfoG.connect(am.gain);
+    [AU.o1, AU.o2, AU.o3, AU.lfo].forEach(function (o) { o.start(); });
+    AU.rpm = 0; AU.lastRev = 0;
+    var noise = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate), d = noise.getChannelData(0); for (var k = 0; k < d.length; k++) d[k] = Math.random() * 2 - 1; AU.noise = noise;
+    return ctx;
+  }
+  function auMuted(s) { return !AU.on || (s && s.muted); }
+  function auEngine(s, speed, moving, dt, visible) {
+    if (!AU.ctx) return;
+    var t = AU.ctx.currentTime, run = (s.state === 'running' || s.state === 'countdown') && visible && !auMuted(s);
+    var want = !run ? 0 : Math.min(1, .12 + speed / 11 * .7 + Math.min(moving, 8) * .03);
+    AU.rpm += (want - AU.rpm) * Math.min(1, dt * (want > AU.rpm ? 3 : 1.3));
+    var f = 38 + AU.rpm * 120;
+    AU.o1.frequency.setTargetAtTime(f, t, .05); AU.o2.frequency.setTargetAtTime(f / 2, t, .05); AU.o3.frequency.setTargetAtTime(f * 1.01 + 1.5, t, .05);
+    AU.lp.frequency.setTargetAtTime(320 + AU.rpm * 1500, t, .08); AU.lfo.frequency.setTargetAtTime(9 + AU.rpm * 30, t, .08);
+    AU.out.gain.setTargetAtTime(run ? .05 + AU.rpm * .09 : 0, t, run ? .15 : .25);
+  }
+  function auRev() {   // rồ ga khi một xe vượt chướng ngại
+    if (!AU.ctx || AU.ctx.state !== 'running') return; var ctx = AU.ctx, t = ctx.currentTime;
+    if (t - AU.lastRev < .18) return; AU.lastRev = t;
+    var o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter(); o.type = 'sawtooth'; lp.type = 'lowpass'; lp.frequency.value = 1400;
+    o.frequency.setValueAtTime(70, t); o.frequency.exponentialRampToValueAtTime(230, t + .35); o.frequency.exponentialRampToValueAtTime(150, t + .7);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.09, t + .05); g.gain.exponentialRampToValueAtTime(.0001, t + .75);
+    o.connect(lp); lp.connect(g); g.connect(ctx.destination); o.start(t); o.stop(t + .8);
+  }
+  function auSkid() {  // phanh rít + va chạm khi trả lời sai
+    if (!AU.ctx || AU.ctx.state !== 'running') return; var ctx = AU.ctx, t = ctx.currentTime;
+    var n = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain(); n.buffer = AU.noise;
+    bp.type = 'bandpass'; bp.Q.value = 9; bp.frequency.setValueAtTime(2600, t); bp.frequency.exponentialRampToValueAtTime(1100, t + .7);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.12, t + .04); g.gain.exponentialRampToValueAtTime(.0001, t + .8);
+    n.connect(bp); bp.connect(g); g.connect(ctx.destination); n.start(t); n.stop(t + .85);
+    var o = ctx.createOscillator(), og = ctx.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(120, t + .55); o.frequency.exponentialRampToValueAtTime(40, t + .8);
+    og.gain.setValueAtTime(.0001, t + .55); og.gain.exponentialRampToValueAtTime(.18, t + .57); og.gain.exponentialRampToValueAtTime(.0001, t + .85);
+    o.connect(og); og.connect(ctx.destination); o.start(t + .55); o.stop(t + .9);
+  }
+  function auHorn() {  // còi xe khi về đích
+    if (!AU.ctx || AU.ctx.state !== 'running') return; var ctx = AU.ctx, t = ctx.currentTime;
+    [0, .38].forEach(function (d) {
+      [440, 554].forEach(function (f) {
+        var o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter(); o.type = 'square'; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.value = 1800;
+        g.gain.setValueAtTime(.0001, t + d); g.gain.exponentialRampToValueAtTime(.05, t + d + .02); g.gain.setValueAtTime(.05, t + d + .26); g.gain.exponentialRampToValueAtTime(.0001, t + d + .32);
+        o.connect(lp); lp.connect(g); g.connect(ctx.destination); o.start(t + d); o.stop(t + d + .34);
+      });
+    });
+  }
+  function auEvents(c, l, s) {
+    var muted = auMuted(s) || s.state !== 'running';
+    if (c.pp !== undefined && !muted) {
+      if (l.done && !c.pd) auHorn();
+      else if ((l.pos || 0) > c.pp) auRev();
+      if (l.penalty && !c.pn) auSkid();
+    }
+    c.pp = l.pos || 0; c.pd = !!l.done; c.pn = !!l.penalty;
+  }
+  function engine(on) {
+    if (on === undefined) return AU.on;
+    AU.on = !!on; try { localStorage.setItem('race_engine', AU.on ? 'on' : 'off'); } catch (e) {}
+    if (AU.on) auInit(); return AU.on;
+  }
+  function unlock() { if (AU.on) auInit(); }
+
   // ---------------------------------------------------------------- xe từng học sinh
   function syncCars(lanes) {
     var seen = {};
@@ -198,13 +276,13 @@
   function frame() {
     if (!R) return;
     R.raf = requestAnimationFrame(frame);
-    if (!R.el.offsetParent) return;                     // tab đang ẩn: không vẽ
+    if (!R.el.offsetParent) { auEngine({ state: 'idle' }, 0, 0, .05, false); return; }   // tab đang ẩn: không vẽ, tắt máy
     var now = performance.now(), dt = Math.min(.05, (now - (R.last || now)) / 1000); R.last = now;
     var s = R.snapshot() || { state: 'idle', total: 0, lanes: [] };
     var total = s.total || R.preview || 10, n = s.lanes.length;
     if (n !== R.n || total !== R.total) { buildWorld(n, total); Object.keys(R.cars).forEach(function (id) { R.cars[id].obj.position.x = 0; }); }
     syncCars(s.lanes);
-    var lead = -3, sumZ = 0, cnt = 0, t = now / 1000;
+    var lead = -3, sumZ = 0, cnt = 0, t = now / 1000, speed = 0, moving = 0;
     Object.keys(R.cars).forEach(function (id) {
       var c = R.cars[id], l = c.data, o = c.obj, tz = targetZ(l, s.state);
       var dz = (tz - c.z) * Math.min(1, dt * 1.7); if (Math.abs(tz - c.z) < .01) dz = tz - c.z; c.z += dz;
@@ -223,8 +301,10 @@
         if (R.coneState[idx] !== passed) { R.coneState[idx] = passed; R.cones.setColorAt(idx, new T.Color(passed ? 0x9ca3af : 0xf97316)); R.cones.instanceColor.needsUpdate = true; }
       }
       c.smoke = c.smoke.filter(function (p) { p.life -= dt; p.mesh.position.y += dt * 1.2; p.mesh.scale.multiplyScalar(1 + dt * .9); p.mesh.material.opacity = Math.max(0, p.life); if (p.life <= 0) { R.scene.remove(p.mesh); p.mesh.material.dispose(); } return p.life > 0; });
+      var v = Math.abs(dz) / Math.max(dt, .001); speed = Math.max(speed, v); if (v > 1) moving++; auEvents(c, l, s);
       lead = Math.max(lead, c.z); sumZ += c.z; cnt++;
     });
+    auEngine(s, speed, moving, dt, true);
     moveCamera(lead, cnt ? sumZ / cnt : -3, dt);
     var r0 = performance.now(); R.renderer.render(R.scene, R.camera); R.ms = R.ms * .9 + (performance.now() - r0) * .1;
   }
@@ -268,11 +348,12 @@
     });
   }
   function stop() {
-    if (!R) return; cancelAnimationFrame(R.raf); if (R.ro) R.ro.disconnect();
+    if (!R) return; cancelAnimationFrame(R.raf); if (R.ro) R.ro.disconnect(); if (AU.out) AU.out.gain.value = 0;
     disposeTree(R.scene); R.renderer.dispose(); if (R.renderer.domElement.parentNode) R.renderer.domElement.remove(); R = null;
   }
   function camera() { if (!R) return CAM_NAME.follow; R.cam = (R.cam + 1) % CAMS.length; return CAM_NAME[CAMS[R.cam]]; }
   function preview(n) { if (R) R.preview = n || 10; }
 
-  window.Race3D = { mount: mount, stop: stop, camera: camera, supported: supported, preview: preview, renderMs: function () { return R ? Math.round(R.ms * 10) / 10 : 0; }, calls: function () { return R ? R.renderer.info.render.calls : 0; }, camName: function () { return R ? CAM_NAME[CAMS[R.cam]] : CAM_NAME.follow; } };
+  document.addEventListener('pointerdown', function () { if (R && AU.on) auInit(); }, { passive: true });
+  window.Race3D = { audio: function () { return AU.ctx ? { state: AU.ctx.state, rpm: Math.round(AU.rpm * 100) / 100, gain: Math.round(AU.out.gain.value * 1000) / 1000 } : null; }, engine: engine, unlock: unlock, mount: mount, stop: stop, camera: camera, supported: supported, preview: preview, renderMs: function () { return R ? Math.round(R.ms * 10) / 10 : 0; }, calls: function () { return R ? R.renderer.info.render.calls : 0; }, camName: function () { return R ? CAM_NAME[CAMS[R.cam]] : CAM_NAME.follow; } };
 })();
