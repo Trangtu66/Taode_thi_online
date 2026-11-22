@@ -35,6 +35,7 @@
     <!-- Kho đề Taode_thi_online: danh sách bài củng cố (DANH_SACH_BAI), địa chỉ Ngân hàng đề (KQ_API) và bộ giải nén đề -->
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
+<script src="chon_de.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -599,6 +600,7 @@
                         <span id="bell-q-counter" class="text-base sm:text-lg font-black text-slate-700 dark:text-slate-200">
                             Câu 1 / 22
                         </span>
+                        <span class="exam-title-tag hidden sm:inline-block max-w-[18rem] truncate px-2.5 py-1 rounded-lg bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-200 text-xs font-extrabold" title="Đề đang dùng">📝 <span class="exam-title-text">Đề mẫu 22 câu</span></span>
                         <span class="px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 text-xs sm:text-sm font-extrabold">
                             Còn trên sàn: <strong id="bell-alive-count">0</strong>/<span id="bell-total-players">0</span> HS
                         </span>
@@ -768,6 +770,7 @@
                             PHẦN I - KHỞI ĐỘNG
                         </span>
                         <span id="tug-q-counter" class="text-sm font-black">Câu 1 / 22</span>
+                        <span class="exam-title-tag hidden sm:inline-block max-w-[18rem] truncate px-2.5 py-1 rounded-lg bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-200 text-xs font-extrabold" title="Đề đang dùng">📝 <span class="exam-title-text">Đề mẫu 22 câu</span></span>
                     </div>
                     <div class="flex flex-wrap items-center gap-1.5">
                         <button onclick="openKhoDeModal()" class="px-2.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow" title="Chọn bài củng cố hoặc đề trong Ngân hàng đề">📚 Chọn đề</button>
@@ -2858,6 +2861,7 @@
             const lobbyCount = document.getElementById('lobby-exam-count');
             if (lobbyTitle) lobbyTitle.innerText = currentExamTitle;
             if (lobbyCount) lobbyCount.innerText = examQuestions.length;
+            document.querySelectorAll('.exam-title-text').forEach(el => { el.innerText = currentExamTitle; el.parentElement.title = 'Đề đang dùng: ' + currentExamTitle; });
             const headerCount = document.getElementById('header-q-count');
             if (headerCount) headerCount.innerText = examQuestions.length;
             // Báo điện thoại HS đề mới (số câu, dạng câu 1)
@@ -4879,7 +4883,9 @@
             el.innerText = msg;
         }
 
+        // Bộ chọn đề dùng chung mọi trò chơi (chon_de.js): cùng giao diện với Thi đấu theo nhịp độ
         function openKhoDeModal() {
+            if (window.ChonDe) return ChonDe.mo((de, ten) => applyKhoExam(de, ten));
             document.getElementById('kho-de-modal').classList.remove('hidden');
             const maInp = document.getElementById('kho-ma-gv');
             if (maInp && !maInp.value) {

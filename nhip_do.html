@@ -15,6 +15,7 @@
 <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
 <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
+<script src="chon_de.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -194,12 +195,10 @@ th{background:#f8fafc;position:sticky;top:0}
 
     <div class="card">
       <h2 style="margin:0">📚 Chọn đề trong kho</h2>
-      <div class="tabs" id="khoiTabs"></div>
-      <input class="search" id="search" placeholder="Tìm bài, ví dụ: Bài 10, vectơ, chương II…">
-      <div class="list" id="deList"></div>
+      <p class="muted" style="margin:6px 0 10px">Cùng bộ chọn đề với Rung chuông vàng, Kéo co, Đua xe: 🎮 Đề game · 📘 Bài củng cố · 🗂 Ngân hàng đề của tôi · 🔗 Dán link.</p>
       <div class="row">
-        <input type="text" id="linkInp" placeholder="…hoặc dán link đề (trang làm bài, #e=…, ?de=…)" style="flex:1;min-width:220px">
-        <button class="btn ghost" id="btnLink">Nạp link</button>
+        <button class="btn" id="btnChonDe">📚 Chọn đề</button>
+        <button class="btn ghost hidden" id="btnLaiDe"></button>
       </div>
       <div class="status" id="deStatus">Chưa chọn đề.</div>
 
@@ -432,6 +431,10 @@ const GV = {
   // ---- Kho đề ----
   khoi: 'all',
   buildKho() {
+    const g = window.ChonDe && ChonDe.ganNhat(), b = $('btnLaiDe');
+    if (g) { b.textContent = '↺ Dùng lại: ' + (g.ten.length > 40 ? g.ten.slice(0, 39) + '…' : g.ten); b.classList.remove('hidden'); }
+  },
+  oldBuildKho() {
     const ds = window.DANH_SACH_BAI || [];
     const khois = [...new Set(ds.map(b => b.khoi))].sort();
     $('khoiTabs').innerHTML = ['all', ...khois].map(k => `<button class="tab${k === this.khoi ? ' on' : ''}" data-k="${k}">${k === 'all' ? 'Tất cả' : 'Khối ' + k}</button>`).join('');
@@ -507,6 +510,17 @@ const GV = {
     })));
     return out;
   },
+  applyDe(de, name) {   // gọi từ bộ chọn đề dùng chung (chon_de.js); lỗi thì throw để bộ chọn đề báo
+    const all = this.convert(de);
+    if (!all.length) throw new Error('Đề không có câu 4 lựa chọn, Đúng/Sai hoặc trả lời ngắn.');
+    this.de = de; this.all = all; this.title = (de.meta && de.meta.title) || name;
+    const n = t => all.filter(q => q.type === t).length;
+    $('nMcq').textContent = n('mcq'); $('nTf').textContent = n('tf'); $('nShort').textContent = n('short');
+    $('useMcq').checked = n('mcq') > 0; $('useTf').checked = n('tf') > 0; $('useShort').checked = n('short') > 0;
+    $('setOpts').classList.remove('hidden');
+    this.setStatus(`✅ Đã nạp <b>${esc(this.title)}</b>: ${all.length} câu.`, 'ok');
+    this.updateStart(); this.buildKho();
+  },
   async loadDe(link, name) {
     this.setStatus(`⏳ Đang tải “${esc(name)}”…`);
     try {
@@ -527,13 +541,14 @@ const GV = {
   },
 
   bind() {
-    $('search').oninput = () => this.renderList();
-    $('deList').onclick = e => {
+    const pick = (de, ten) => this.applyDe(de, ten);
+    $('btnChonDe').onclick = () => ChonDe.mo(pick);
+    $('btnLaiDe').onclick = () => ChonDe.napGanNhat(pick);
+    if (false) $('deList').onclick = e => {
       const b = e.target.closest('button[data-i]'); if (!b) return;
       document.querySelectorAll('#deList button.sel').forEach(x => x.classList.remove('sel')); b.classList.add('sel');
       const d = window.DANH_SACH_BAI[+b.dataset.i]; this.loadDe(d.link, d.ma || d.ten);
     };
-    $('btnLink').onclick = () => { const v = $('linkInp').value.trim(); if (v) this.loadDe(v, 'Đề từ link'); };
     ['useMcq', 'useTf', 'useShort'].forEach(i => $(i).onchange = () => this.updateStart());
     $('players').onclick = e => {
       const b = e.target.closest('.chip'); if (!b) return;
@@ -548,7 +563,7 @@ const GV = {
     $('btnEndNow').onclick = () => { if (confirm('Kết thúc trận ngay và xem tổng kết?')) this.endGame(); };
     $('btnCsv').onclick = () => this.csv();
     $('btnAgain').onclick = () => this.again();
-    $('btnNew').onclick = () => { this.again(); this.de = null; $('setOpts').classList.add('hidden'); this.setStatus('Chưa chọn đề.'); this.updateStart(); };
+    $('btnNew').onclick = () => { this.again(); this.de = null; $('setOpts').classList.add('hidden'); this.setStatus('Chưa chọn đề.'); this.updateStart(); ChonDe.mo(pick); };
     $('btnSound').onclick = () => { Snd.on = !Snd.on; $('btnSound').textContent = Snd.on ? '🔊' : '🔇'; };
     $('btnFull').onclick = () => this.full();
     document.addEventListener('keydown', e => {
