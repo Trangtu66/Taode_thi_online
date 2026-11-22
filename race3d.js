@@ -447,5 +447,7 @@
   function preview(n) { if (R) R.preview = n || 10; }
 
   document.addEventListener('pointerdown', function () { if (R && AU.on) auInit(); }, { passive: true });
-  window.Race3D = { audio: function () { return AU.ctx ? { state: AU.ctx.state, rpm: Math.round(AU.rpm * 100) / 100, gain: Math.round(AU.out.gain.value * 1000) / 1000 } : null; }, engine: engine, unlock: unlock, mount: mount, stop: stop, camera: camera, supported: supported, preview: preview, renderMs: function () { return R ? Math.round(R.ms * 10) / 10 : 0; }, calls: function () { return R ? R.renderer.info.render.calls : 0; }, camName: function () { return R ? CAM_NAME[CAMS[R.cam]] : CAM_NAME.follow; } };
+  // dùng cho điện thoại HS (phone3d.js): nạp thư viện, dựng xe 3D đúng loại xe đã chọn
+  function lib() { return loadThree().then(function (TH) { T = TH; if (T.ColorManagement) T.ColorManagement.legacyMode = false; return T; }); }
+  window.Race3D = { lib: lib, buildCar: function (k, c) { return makeCar(k, c); }, audio: function () { return AU.ctx ? { state: AU.ctx.state, rpm: Math.round(AU.rpm * 100) / 100, gain: Math.round(AU.out.gain.value * 1000) / 1000 } : null; }, engine: engine, unlock: unlock, mount: mount, stop: stop, camera: camera, supported: supported, preview: preview, renderMs: function () { return R ? Math.round(R.ms * 10) / 10 : 0; }, calls: function () { return R ? R.renderer.info.render.calls : 0; }, camName: function () { return R ? CAM_NAME[CAMS[R.cam]] : CAM_NAME.follow; } };
 })();

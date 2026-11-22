@@ -18,6 +18,7 @@
 <script src="chon_de.js"></script>
 <script src="game3d_chung.js"></script>
 <script src="nhipdo3d.js"></script>
+<script src="phone3d.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -288,7 +289,8 @@ th{background:#f8fafc;position:sticky;top:0}
 
 <!-- ======================= MÀN HÌNH HỌC SINH ======================= -->
 <div id="hs" class="phone hidden">
-  <div class="topbar" style="margin:0"><h1 style="font-size:18px">⏱️ Thi đấu theo nhịp độ</h1><span class="sp"></span><span class="pill" id="hsNet">⏳</span></div>
+  <div class="topbar" style="margin:0"><h1 style="font-size:18px">⏱️ Thi đấu theo nhịp độ</h1><span class="sp"></span><button class="iconbtn" id="hsSound" title="Bật/tắt âm thanh">🔊</button><button class="iconbtn" id="hs3d" title="Bật/tắt khung 3D">🎮</button><span class="pill" id="hsNet">⏳</span></div>
+  <div id="hsStage" class="hidden" style="height:170px;border-radius:18px;overflow:hidden;margin:10px 0;border:2px solid rgba(255,255,255,.3);background:#7dd3fc"></div>
 
   <div id="s-join" class="card hidden">
     <h2>Vào sàn thi đấu</h2>
@@ -945,6 +947,23 @@ const HS = {
     this.go(this.me ? 's-wait' : 's-join');
     if (this.me) $('sMe').textContent = this.me.n + (this.me.lop ? ' · ' + this.me.lop : '');
     setInterval(() => { if (this.me && !this.st) { this.join(); Net.send({ t: 'REQ' }); } }, 4000);
+    // khung 3D + âm thanh (phone3d.js)
+    this.v3d = store.get('nd_hs3d') !== false;
+    $('hsSound').onclick = () => { PhoneSound.on(!PhoneSound.on()); PhoneSound.unlock(); this.fx3d(); };
+    $('hs3d').onclick = () => { this.v3d = !this.v3d; store.set('nd_hs3d', this.v3d); this.fx3d(); };
+    this.fx3d();
+  },
+  fx3d() {
+    if (!window.PhoneSound) return;
+    $('hsSound').textContent = PhoneSound.on() ? '🔊' : '🔇'; $('hs3d').style.opacity = this.v3d ? 1 : .5;
+    const on = this.v3d && this.me && window.PhoneStage && PhoneStage.supported();
+    $('hsStage').classList.toggle('hidden', !on);
+    if (on && !this.stageOn) { this.stageOn = true; PhoneStage.mount($('hsStage'), () => this.snap3d()).catch(() => { this.v3d = false; this.stageOn = false; $('hsStage').classList.add('hidden'); }); }
+  },
+  snap3d() {
+    const st = this.st || {}, res = st.res && this.me && st.res[this.me.id];
+    const mood = { 's-q': 'think', 's-sent': 'sent' }[this.view] || 'idle';
+    return { mode: 'arena', color: 0x0891b2, mood, title: this.me ? this.me.n + (res ? ' · ' + res[2] + 'đ' : '') : 'Nhịp độ', titleColor: '#0891b2' };
   },
   go(v) { if (this.view === v) return; this.view = v; show(['s-join', 's-wait', 's-q', 's-sent', 's-res', 's-end', 's-kick'], v); },
   submitJoin() {
@@ -956,7 +975,7 @@ const HS = {
     store.set('nhipdo_hs_' + this.pin, this.me); store.set('nhipdo_hs_ten', { n, lop });
     $('sMe').textContent = n + (lop ? ' · ' + lop : '');
     $('sWaitTitle').textContent = '⏳ Đang vào sàn…';
-    this.go('s-wait'); this.join();
+    this.go('s-wait'); this.join(); this.fx3d();
   },
   join() { if (this.me) Net.send({ t: 'JOIN', id: this.me.id, n: this.me.n, lop: this.me.lop }); },
 
@@ -979,7 +998,7 @@ const HS = {
       if (st.left >= 0) this.deadline = Date.now() + st.left; else this.deadline = 0;
       this.paused = st.paused;
       const got = (st.got || []).includes(this.me.id);
-      if (key !== this.key) { this.key = key; this.myAns = null; clearInterval(this.sendTimer); this.renderQ(st); }
+      if (key !== this.key) { this.key = key; this.myAns = null; clearInterval(this.sendTimer); this.renderQ(st); if (window.PhoneSound) PhoneSound.bell(); }
       if (got) { clearInterval(this.sendTimer); $('sAck').textContent = '✔ Thầy cô đã nhận. Chờ thầy cô mở đáp án…'; if (this.view === 's-q') this.go('s-sent'); }
       else if (this.myAns == null && this.view !== 's-q') this.go('s-q');
       else if (this.myAns != null) { Net.send({ t: 'ANS', id: this.me.id, i: st.i, a: this.myAns }); this.go('s-sent'); }
@@ -998,6 +1017,7 @@ const HS = {
         $('sResTitle').textContent = f < 0 ? '⌛ Chưa trả lời' : f === 1 ? '🎉 Chính xác!' : f > 0 ? '👍 Đúng một phần' : '😢 Chưa đúng';
         $('sResSub').innerHTML = (res[1] ? `+${res[1]} điểm` : '+0 điểm') + (res[4] >= 2 ? ` · 🔥 ${res[4]} câu liên tiếp` : '') + `<br>Đáp án: <b>${esc(st.ca)}</b>`;
         if (navigator.vibrate) try { navigator.vibrate(f === 1 ? 80 : [60, 60, 60]); } catch (e) {}
+        if (window.PhoneSound && f >= 0) { if (f > 0) { PhoneSound.correct(); PhoneStage.react(res[4] >= 2 ? 'win' : 'happy'); } else { PhoneSound.wrong(); PhoneStage.react('sad'); } }
       }
       this.fillRank(res, st);
       this.go('s-res'); return;
@@ -1010,6 +1030,7 @@ const HS = {
         $('sEndTitle').textContent = vd ? '🎉 Chúc mừng! Em được vinh danh!' : '🏁 Kết thúc!';
         $('sEndRank').textContent = `Hạng ${r}/${st.np} · ${res[2]} điểm`;
         $('sEndSub').textContent = vd ? 'Nhìn lên màn hình để xem bục vinh danh nhé!' : 'Cảm ơn em đã tham gia. Cố gắng hơn ở lần sau nhé!';
+        if (window.PhoneSound && this.endFx !== r) { this.endFx = r; if (vd) { PhoneSound.win(); PhoneStage.react('win', 8000); } else PhoneSound.bell(); }
       }
       this.go('s-end');
     }
@@ -1055,6 +1076,7 @@ const HS = {
   answer(a, label) {
     if (this.myAns != null) return;
     this.myAns = a;
+    if (window.PhoneSound) { PhoneSound.tap(); PhoneSound.send(); }
     $('sSentWhat').textContent = 'Em chọn: ' + label;
     $('sAck').textContent = 'Đang chuyển tới máy thầy cô…';
     this.go('s-sent');

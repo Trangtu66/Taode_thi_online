@@ -40,6 +40,7 @@
 <script src="tug3d.js"></script>
 <script src="game3d_chung.js"></script>
 <script src="bell3d.js"></script>
+<script src="phone3d.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -204,6 +205,7 @@
             background: repeating-linear-gradient(90deg, #fff 0 22px, transparent 22px 44px); }
         .race-phone-road.moving .race-phone-dashes { animation: raceDash .35s linear infinite; }
         @keyframes raceDash { to { background-position: -44px 0; } }
+        body.phone3d-on .race-phone-road { display: none; }
         .race-phone-car { position: absolute; left: 14%; bottom: 8px; width: 116px; height: 58px; }
         .race-phone-car svg { width: 100%; height: 100%; display: block; }
         .race-phone-road.moving .race-phone-car { animation: raceBob .3s ease-in-out infinite alternate; }
@@ -1186,6 +1188,15 @@
                         <div id="student-visual-preview" class="hidden"></div>
                     </div>
 
+                    <!-- KHUNG 3D TRÊN ĐIỆN THOẠI (phone3d.js): xe của em khi đua, nhân vật của em ở Rung chuông vàng / Kéo co -->
+                    <div id="student-3d-wrap" class="hidden relative">
+                        <div id="student-3d" class="w-full h-44 rounded-2xl overflow-hidden border-2 border-indigo-200 bg-sky-200"></div>
+                        <div class="absolute top-1.5 right-1.5 flex gap-1">
+                            <button type="button" id="phone-sound-btn" onclick="phoneToggleSound()" class="px-2 py-1 rounded-lg bg-white/85 text-xs font-black shadow">🔊</button>
+                            <button type="button" onclick="phoneToggle3d()" class="px-2 py-1 rounded-lg bg-white/85 text-xs font-black shadow" title="Tắt khung 3D (máy yếu)">2D</button>
+                        </div>
+                    </div>
+                    <button type="button" id="phone-3d-on-btn" onclick="phoneToggle3d()" class="hidden w-full py-1.5 rounded-xl bg-indigo-100 text-indigo-700 text-xs font-black">🎮 Bật khung 3D</button>
                     <!-- BẢNG CHỌN ĐÁP ÁN TRÊN ĐIỆN THOẠI -->
                     <div id="student-remote-pad" class="space-y-3"></div>
                     <div id="student-race-box" class="hidden space-y-3"></div>
@@ -2091,6 +2102,7 @@
                 }
                 if (data.stageCommandState === 'open' && data.playAlert) {
                     playCommandStartSound();
+                    if (IS_STUDENT_MODE && window.PhoneSound) PhoneSound.bell();
                 }
                 updateCommandBadgesUI();
                 renderBellStage();
@@ -2108,6 +2120,7 @@
                     renderStudentPhoneUI();
                 }
             } else if (data.type === 'PLAYERS_LIST_SYNC' && Array.isArray(data.players) && IS_STUDENT_MODE) {
+                phoneResultFx(data.players);
                 bellPlayers = data.players;
                 savePlayersToStorage();
                 renderBellPlayers();
@@ -2507,7 +2520,48 @@
         // Giao diện Điện thoại Học sinh:
         // - Khi vừa đăng nhập: KHÔNG hiện đề câu 1 ngay, chỉ hiện màn hình chờ Sảnh Đấu Trường.
         // - Khi vào thi: đề bài hiển thị chữ to trên Ti vi của Giáo viên; trên điện thoại học sinh chỉ hiện bộ nút chọn đáp án theo hiệu lệnh Giáo viên!
+        // ---------- Điện thoại HS: khung 3D + âm thanh (phone3d.js) ----------
+        let phone3dOn = (() => { try { return localStorage.getItem('phone_3d') !== 'off'; } catch (e) { return true; } })();
+        function phone3dSnap() {
+            const me = currentStudentId ? bellPlayers.find(p => String(p.id) === String(currentStudentId)) : null;
+            if (racePhone.state !== 'idle') {
+                const car = raceCarKey(selectedCar);
+                return { mode: 'race', car, color: RACE_CARS[car].color, raceState: racePhone.state, turbo: racePhone.state === 'driving' && racePhone.streak >= 2 };
+            }
+            const team = me ? (me.teamMode || 'bell') : 'bell';
+            const sub = studentSubmittedForQuestion[`${currentStudentId || 'guest'}_${bellIndex}`];
+            const out = me && me.alive === false && team === 'bell';
+            return { mode: 'arena', color: team === 'red' ? 0xe11d48 : team === 'blue' ? 0x0284c7 : 0x6366f1,
+                     mood: out ? 'out' : (!isGameStarted ? 'idle' : sub ? 'sent' : stageCommandState === 'open' ? 'think' : 'idle'),
+                     title: me ? me.name + (me.score ? ' · ' + me.score + 'đ' : '') : 'Đấu trường',
+                     titleColor: team === 'red' ? '#e11d48' : team === 'blue' ? '#0284c7' : '#4f46e5' };
+        }
+        function phoneApply3d() {
+            if (!IS_STUDENT_MODE) return;
+            const wrap = document.getElementById('student-3d-wrap'), onBtn = document.getElementById('phone-3d-on-btn');
+            const joined = hasJoinedCurrentSession && currentStudentId;
+            const on = phone3dOn && joined && window.PhoneStage && PhoneStage.supported();
+            if (wrap) wrap.classList.toggle('hidden', !on);
+            if (onBtn) onBtn.classList.toggle('hidden', !(joined && !phone3dOn));
+            document.body.classList.toggle('phone3d-on', !!on);
+            const sb = document.getElementById('phone-sound-btn'); if (sb && window.PhoneSound) sb.innerText = PhoneSound.on() ? '🔊' : '🔇';
+            if (on && !phoneApply3d.mounted) { phoneApply3d.mounted = true; PhoneStage.mount(document.getElementById('student-3d'), phone3dSnap).catch(() => { phone3dOn = false; phoneApply3d.mounted = false; phoneApply3d(); }); }
+        }
+        function phoneToggle3d() { phone3dOn = !phone3dOn; try { localStorage.setItem('phone_3d', phone3dOn ? 'on' : 'off'); } catch (e) {} phoneApply3d(); }
+        function phoneToggleSound() { if (window.PhoneSound) { PhoneSound.on(!PhoneSound.on()); PhoneSound.unlock(); } phoneApply3d(); }
+        function phoneResultFx(newList) {
+            if (!currentStudentId || !window.PhoneSound) return;
+            const old = bellPlayers.find(p => String(p.id) === String(currentStudentId)), now = newList.find(p => String(p.id) === String(currentStudentId));
+            if (!old || !now) return;
+            const react = k => window.PhoneStage && PhoneStage.react(k);
+            if (old.alive !== false && now.alive === false && (now.teamMode || 'bell') === 'bell') { PhoneSound.out(); react('out'); try { navigator.vibrate && navigator.vibrate([80, 60, 80]); } catch (e) {} }
+            else if (old.alive === false && now.alive !== false) { PhoneSound.correct(); react('rescue'); }
+            else if ((now.score || 0) > (old.score || 0)) { PhoneSound.correct(); react('happy'); try { navigator.vibrate && navigator.vibrate(60); } catch (e) {} }
+            else if (now.lastChoice && old.lastChoice !== now.lastChoice && now.lastChoice !== 'Không trả lời' && bellRevealed) { PhoneSound.wrong(); react('sad'); }
+        }
+
         function renderStudentPhoneUI() {
+            phoneApply3d();
             populateStudentDropdown();
             const q = (IS_STUDENT_MODE && stageQMeta) ? stageQMeta : examQuestions[bellIndex];
             if (!q) return;
@@ -2664,6 +2718,7 @@
         }
 
         function submitFromStudentPhone(qType, answerValue) {
+            if (IS_STUDENT_MODE && window.PhoneSound) { PhoneSound.tap(); PhoneSound.send(); }
             if (stageCommandState !== 'open') {
                 showToast('⏳ Chỉ được gửi đáp án khi Giáo viên đang mở hiệu lệnh làm bài!');
                 return;
