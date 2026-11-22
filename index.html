@@ -377,6 +377,17 @@ main.wrap { padding-top:0; }
 .who.on { background:linear-gradient(180deg,#EFF6FF,#DBEAFE); color:var(--ink); border-color:#BFDBFE; box-shadow:0 0 0 3px #93C5FD, 0 6px 0 #93C5FD, 0 18px 36px rgba(37,99,235,.28); }
 .who.on .ic { background:#BFDBFE; color:#1E40AF; }
 .who.on b { color:#1E293B; } .who.on span { color:var(--muted); }
+/* 22/11: thu nhỏ hai ô; máy tính: sang trái 2 cm (76px), lên trên 1 cm (38px) */
+@media (min-width:641px){
+  .role-bar { max-width:760px; gap:16px; }
+  .who { padding:13px 18px; gap:12px; border-radius:16px; }
+  .who .ic { width:40px; height:40px; padding:9px; border-radius:11px; }
+  .who b { font-size:15.5px; } .who span { font-size:13px; }
+}
+@media (min-width:1181px){
+  .hero-sec .in { padding-bottom:114px; }
+  .role-bar { padding:0; margin:-110px 0 60px; left:clamp(-76px, calc((1120px - 100vw) / 2), 0px); }
+}
 
 @media (max-width:1180px){
   .hero-sec .in { grid-template-columns:1.1fr .9fr; }
