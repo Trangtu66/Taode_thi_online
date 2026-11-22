@@ -36,6 +36,7 @@
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
 <script src="chon_de.js"></script>
+<script src="race3d.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -1011,6 +1012,8 @@
                     <div class="flex flex-wrap items-center gap-1.5">
                         <button onclick="openKhoDeModal()" class="px-2.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold shadow" title="Chọn bài củng cố hoặc đề trong Ngân hàng đề">📚 Chọn đề</button>
                         <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
+                        <button id="race-view-btn" onclick="raceToggleView()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow" title="Đổi giữa đường đua 3D và dạng làn 2D">🎮 3D</button>
+                        <button id="race-cam-btn" onclick="raceCycleCamera()" class="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-extrabold shadow" title="Đổi góc quay (màn 3D)">🎥 Bám đuôi dẫn đầu</button>
                         <button onclick="toggleStageFullscreen('race-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
                     </div>
                 </div>
@@ -1040,6 +1043,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
                     <!-- Đường đua: mỗi HS một làn -->
                     <div class="relative p-3 rounded-2xl bg-gradient-to-b from-sky-100 to-emerald-100 dark:from-slate-900 dark:to-slate-800 border-2 border-sky-100 dark:border-slate-700">
+                        <div id="race-3d" class="hidden w-full h-[62vh] min-h-[320px] rounded-xl overflow-hidden bg-sky-200"></div>
                         <div id="race-track" class="space-y-1.5 max-h-[62vh] overflow-y-auto custom-scroll pr-1"></div>
                         <div id="race-countdown" class="hidden absolute inset-0 flex items-center justify-center text-8xl sm:text-9xl font-black text-rose-600 bg-white/60 dark:bg-slate-900/60 rounded-2xl z-10">3</div>
                     </div>
@@ -5552,7 +5556,45 @@
             }
         }
 
+        // ---------- Màn chiếu 3D (race3d.js): chỉ thay phần hiển thị, luật chơi giữ nguyên ----------
+        let raceView = (() => { try { return localStorage.getItem('race_view') || '3d'; } catch (e) { return '3d'; } })();
+        function race3dSnapshot() {
+            const ranks = {};
+            raceRanked().forEach((r, i) => { ranks[r.id] = i + 1; });
+            const now = Date.now();
+            const lanes = raceLaneList().map((l, i) => {
+                const r = raceRacers[l.id];
+                const car = raceCarKey(r && r.car ? r.car : l.car, i);
+                return { id: l.id, name: l.name, car, color: RACE_CARS[car].color, pos: r ? r.pos : 0, done: !!(r && r.finishMs),
+                         penalty: !!(r && now < r.blockUntil), asking: !!(r && r.asking), rank: ranks[l.id] || (i + 1) };
+            });
+            const sel = document.getElementById('race-count');
+            const preview = sel ? (sel.value === 'all' ? examQuestions.length : parseInt(sel.value, 10)) : 10;
+            if (window.Race3D) Race3D.preview(Math.max(1, Math.min(preview || 10, 40)));
+            return { state: raceState, total: raceTotal, lanes };
+        }
+        function raceApplyView() {
+            const box3 = document.getElementById('race-3d'), track = document.getElementById('race-track');
+            const btn = document.getElementById('race-view-btn'), cam = document.getElementById('race-cam-btn');
+            if (!box3 || !track) return;
+            const want3d = raceView === '3d' && window.Race3D && Race3D.supported();
+            box3.classList.toggle('hidden', !want3d); track.classList.toggle('hidden', want3d);
+            if (cam) cam.classList.toggle('hidden', !want3d);
+            if (btn) btn.innerText = want3d ? '📋 Dạng làn 2D' : '🎮 Đường đua 3D';
+            if (want3d) Race3D.mount(box3, race3dSnapshot).catch(e => { showToast('⚠️ ' + (e.message || e) + ' – chuyển về dạng 2D.'); raceView = '2d'; raceApplyView(); });
+        }
+        function raceToggleView() {
+            raceView = raceView === '3d' ? '2d' : '3d';
+            try { localStorage.setItem('race_view', raceView); } catch (e) {}
+            raceApplyView();
+        }
+        function raceCycleCamera() {
+            const b = document.getElementById('race-cam-btn');
+            if (window.Race3D && b) b.innerText = Race3D.camera();
+        }
+
         function renderRaceStage() {
+            raceApplyView();
             renderRaceSettings();
             const startBtn = document.getElementById('race-start-btn');
             if (startBtn) startBtn.disabled = raceState === 'countdown' || raceState === 'running';
