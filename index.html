@@ -346,9 +346,20 @@ main.wrap { padding-top:0; }
 /* Nguyên tử */
 .atom { position:absolute; width:86px; height:86px; margin:-43px 0 0 -43px; filter:drop-shadow(0 0 8px rgba(147,197,253,.7)); }
 .atom svg { width:100%; height:100%; animation:xoay 14s linear infinite; }
-.atom.a1 { left:20%; top:20%; transform:translateZ(40px); }
+.atom.a1 { left:9%; top:50%; transform:translateZ(40px); }
 .atom.a2 { left:92%; top:76%; width:70px; height:70px; transform:translateZ(80px); }
 @keyframes xoay { to { transform:rotate(360deg); } }
+/* Khối logo GeoGebra */
+.ggb3d { position:absolute; left:24%; top:20%; animation:noi4 5.5s ease-in-out infinite; }
+.ggb3d .box { --w:78px; --h:78px; --d:12px; }
+.ggb3d .box > span { background:#CBD5E1; }
+.ggb3d .box .fr { background:linear-gradient(160deg,#fff,#EEF2FF); border-radius:18px; padding:9px; box-sizing:border-box; box-shadow:inset 0 -3px 0 #C7D2FE; }
+.ggb3d .box .bk { background:#94A3B8; border-radius:18px; }
+.ggb3d .box .tp, .ggb3d .box .bt { width:50px; margin-left:-25px; } .ggb3d .box .rt, .ggb3d .box .lf { height:50px; margin-top:-25px; }
+.ggb3d .box .fr svg { width:100%; height:100%; display:block; }
+.ggb3d b { position:absolute; left:-40px; width:80px; top:48px; text-align:center; font-size:12px; font-weight:800; color:#fff; letter-spacing:.02em;
+   text-shadow:0 2px 6px rgba(2,6,23,.6); transform:translateZ(8px); }
+@keyframes noi4 { 0%,100% { transform:translateZ(90px) rotateY(22deg) rotateX(6deg); } 50% { transform:translateZ(90px) translateY(-10px) rotateY(12deg) rotateX(2deg); } }
 /* Đốm sáng */
 .spk { position:absolute; width:8px; height:8px; border-radius:50%; background:#FDE68A; box-shadow:0 0 12px #FBBF24; animation:nhap 3s ease-in-out infinite; }
 .spk.s2 { background:#BFDBFE; box-shadow:0 0 12px #60A5FA; animation-delay:1s; } .spk.s3 { animation-delay:2s; width:6px; height:6px; }
@@ -441,7 +452,9 @@ main.wrap { padding-top:0; }
         <div class="cap3d c2"><div class="box"><span class="fr"></span><span class="bk"></span><span class="tp"></span><span class="rt"></span><span class="lf"></span></div><div class="board"></div><div class="tassel"></div></div>
         <div class="atom a1"><svg viewBox="-50 -50 100 100"><g fill="none" stroke="#93C5FD" stroke-width="2.5"><ellipse rx="44" ry="15"/><ellipse rx="44" ry="15" transform="rotate(60)"/><ellipse rx="44" ry="15" transform="rotate(120)"/></g><circle r="8" fill="#F87171"/><circle cx="44" r="4" fill="#FDE68A"/><circle cx="-22" cy="-33" r="4" fill="#FDE68A"/></svg></div>
         <div class="atom a2"><svg viewBox="-50 -50 100 100"><g fill="none" stroke="#93C5FD" stroke-width="2.5"><ellipse rx="44" ry="15"/><ellipse rx="44" ry="15" transform="rotate(60)"/><ellipse rx="44" ry="15" transform="rotate(120)"/></g><circle r="8" fill="#F87171"/><circle cx="-44" r="4" fill="#FDE68A"/></svg></div>
-        <i class="spk" style="left:8%;top:52%"></i><i class="spk s2" style="left:70%;top:6%"></i><i class="spk s3" style="left:96%;top:40%"></i><i class="spk s2" style="left:46%;top:90%"></i>
+        <div class="ggb3d"><div class="box"><span class="fr"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="38" ry="30" transform="rotate(-15 50 50)" fill="none" stroke="#666" stroke-width="6"/><g fill="#99F" stroke="#333" stroke-width="3"><circle cx="13.5" cy="46.7" r="8"/><circle cx="37.2" cy="22.7" r="8"/><circle cx="77.9" cy="27" r="8"/><circle cx="84.5" cy="58.6" r="8"/><circle cx="33.5" cy="78.9" r="8"/></g></svg></span>
+          <span class="bk"></span><span class="tp"></span><span class="bt"></span><span class="rt"></span><span class="lf"></span></div><b>GeoGebra</b></div>
+        <i class="spk" style="left:4%;top:80%"></i><i class="spk s2" style="left:70%;top:6%"></i><i class="spk s3" style="left:96%;top:40%"></i><i class="spk s2" style="left:46%;top:90%"></i>
       </div>
       <div class="shadow3d"></div>
     </div>
