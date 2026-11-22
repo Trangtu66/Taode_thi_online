@@ -386,7 +386,11 @@ main.wrap { padding-top:0; }
 }
 @media (min-width:1181px){
   .hero-sec .in { padding-bottom:114px; }
-  .role-bar { padding:0; margin:-110px 0 60px; left:clamp(-76px, calc((1120px - 100vw) / 2), 0px); }
+  /* rộng đúng bằng cột chữ (khối 4 nút), mép trái thẳng mép chữ – không che quỹ đạo bên phải */
+  .role-bar { padding:0; gap:12px; margin:-110px 0 60px; max-width:none; width:min(560px, calc((min(100vw, 1240px) - 92px) * .4333));
+     left:clamp(-60px, calc((1120px - 100vw) / 2), 0px); }
+  .who { padding:12px 14px; gap:10px; } .who .ic { width:36px; height:36px; padding:8px; }
+  .who b { font-size:15px; } .who span { font-size:12.5px; line-height:1.35; }
 }
 
 @media (max-width:1180px){
