@@ -38,6 +38,8 @@
 <script src="chon_de.js"></script>
 <script src="race3d.js"></script>
 <script src="tug3d.js"></script>
+<script src="game3d_chung.js"></script>
+<script src="bell3d.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -629,6 +631,8 @@
                         <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
                         <button onclick="adjustStageFontSize(-1)" class="px-2 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black" title="Thu nhỏ chữ">A−</button>
                         <button onclick="adjustStageFontSize(1)" class="px-2 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black" title="Phóng to chữ">A+</button>
+                        <button id="bell-view-btn" onclick="bellToggleView()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow" title="Hiện/ẩn sàn thi đấu 3D">🎮 Sàn 3D</button>
+                        <button id="bell-music-btn" onclick="bellToggleMusic()" class="px-2.5 py-1.5 rounded-lg bg-pink-600 hover:bg-pink-700 text-white text-xs font-extrabold shadow" title="Bật/tắt nhạc nền sân khấu (tự nhường cho nhạc đếm giờ)">🎵 Nhạc nền</button>
                         <button onclick="toggleStageFullscreen('bell-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
                         <details class="tool-more">
                             <summary class="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black select-none" title="Thêm chức năng">⋯ Thêm</summary>
@@ -681,6 +685,9 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Sàn thi đấu 3D (bell3d.js): HS còn trên sàn ngồi giữa sân khấu, HS bị loại về băng ghế hai bên, chuông vàng rung khi còn 1 HS -->
+                <div id="bell-3d" class="hidden w-full h-[34vh] min-h-[230px] rounded-2xl overflow-hidden border-2 border-indigo-300/60 bg-slate-900"></div>
 
                 <!-- Nội dung chính: Màn hình câu hỏi RỘNG 100% khi đang làm bài; khi Mở đáp án qua mỗi câu mới hiện Cột danh sách HS còn lại bên phải -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -3724,7 +3731,57 @@
         // 12. HIỂN THỊ SÂN KHẤU RUNG CHUÔNG VÀNG:
         // - Khi đang chiếu câu hỏi (bellRevealed === false): Ẩn cột danh sách học sinh, mở rộng khung câu hỏi 100% chiều ngang (lg:col-span-12) với chữ cực to!
         // - Qua mỗi câu khi Mở Đáp Án (bellRevealed === true): Hiện cột bên phải (lg:col-span-4) hiển thị danh sách học sinh còn lại theo 1 cột dọc!
+        // ---------- Rung chuông vàng: sàn 3D (bell3d.js) + âm thanh, nhạc nền (game3d_chung.js) ----------
+        let bellView = (() => { try { return localStorage.getItem('bell_view') || '3d'; } catch (e) { return '3d'; } })();
+        let bellMusicOn = (() => { try { return localStorage.getItem('bell_music') !== 'off'; } catch (e) { return true; } })();
+        function bell3dSnapshot() {
+            return { players: bellPlayers.filter(p => (p.teamMode || 'bell') === 'bell' || p.alive !== undefined).map(p => ({ id: String(p.id), name: p.name, alive: !!p.alive })),
+                     revealed: bellRevealed };
+        }
+        function bellApplyView() {
+            const box = document.getElementById('bell-3d'), btn = document.getElementById('bell-view-btn');
+            if (!box) return;
+            const on = bellView === '3d' && window.Bell3D && Bell3D.supported();
+            box.classList.toggle('hidden', !on);
+            if (btn) btn.innerText = on ? '🙈 Ẩn sàn 3D' : '🎮 Sàn 3D';
+            if (on) Bell3D.mount(box, bell3dSnapshot).catch(e => { showToast('⚠️ ' + (e.message || e)); bellView = 'off'; bellApplyView(); });
+        }
+        function bellToggleView() {
+            bellView = bellView === '3d' ? 'off' : '3d';
+            try { localStorage.setItem('bell_view', bellView); } catch (e) {}
+            bellApplyView();
+        }
+        function bellRevealSound(aliveBefore) {
+            const alive = bellPlayers.filter(p => p.alive).length;
+            if (window.GameAudio && !soundMuted) {
+                if (alive < aliveBefore) { GameAudio.sfx.whoosh(); setTimeout(() => GameAudio.sfx.sad(), 250); }
+                if (alive > 0) setTimeout(() => GameAudio.sfx.cheer(1.8, alive === aliveBefore ? .35 : .22), alive < aliveBefore ? 1400 : 0);
+            }
+            if (alive === 1 && bellPlayers.length > 1 && aliveBefore > 1) {   // còn đúng 1 HS: RUNG CHUÔNG VÀNG!
+                if (window.Bell3D) Bell3D.ring();
+                if (window.GameAudio && !soundMuted) setTimeout(() => { GameAudio.sfx.bell(5); GameAudio.sfx.win(); }, 1500);
+            }
+        }
+        function bellMusicSync() {
+            if (!window.GameAudio || IS_STUDENT_MODE) return;
+            const tab = document.getElementById('tab-bell');
+            const timing = !!tensionLoopInterval || (customBgAudio && !customBgAudio.paused);
+            const want = !soundMuted && bellMusicOn && tab && !tab.classList.contains('hidden') && !timing;
+            GameAudio.music(want ? 'show' : null);
+            const b = document.getElementById('bell-music-btn');
+            if (b) b.innerText = bellMusicOn ? '🎵 Nhạc nền' : '🔇 Nhạc nền';
+        }
+        function bellToggleMusic() {
+            bellMusicOn = !bellMusicOn;
+            try { localStorage.setItem('bell_music', bellMusicOn ? 'on' : 'off'); } catch (e) {}
+            if (window.GameAudio) GameAudio.unlock();
+            bellMusicSync();
+            showToast(bellMusicOn ? '🎵 Đã bật nhạc nền Rung chuông vàng' : '🔇 Đã tắt nhạc nền Rung chuông vàng');
+        }
+        if (!IS_STUDENT_MODE) setInterval(bellMusicSync, 600);
+
         function renderBellStage() {
+            bellApplyView();
             const q = examQuestions[bellIndex];
             if (!q) return;
 
@@ -4025,11 +4082,13 @@
         }
 
         function revealBellAnswer() {
+            const aliveBefore = bellPlayers.filter(p => p.alive).length;
             bellRevealed = true;
             stageCommandState = 'locked';
             clearInterval(bellTimer);
             stopTensionMusicLoop();
             gradeAllPendingSubmissions();
+            bellRevealSound(aliveBefore);
             renderBellStage();
             renderStudentPhoneUI();
             broadcastRoomEvent({
@@ -4068,6 +4127,7 @@
         // Sang câu tiếp: ẩn cột học sinh (bellRevealed = false), chỉ hiện đề bài to rõ trên TV và tự động mở hiệu lệnh cho học sinh chọn tiếp trên điện thoại!
         function resetBellQuestionState() {
             isGameStarted = true;
+            if (window.GameAudio && !soundMuted) GameAudio.sfx.bell(1);
             bellRevealed = false;
             bellShortUserInput = "";
             bellTfUserSelections = [null, null, null, null];
@@ -4180,6 +4240,7 @@
             renderStudentPhoneUI();
             broadcastRoomEvent({ type: 'PLAYERS_LIST_SYNC', players: bellPlayers });
             playCorrectSound();
+            if (window.GameAudio && !soundMuted) { GameAudio.sfx.cheer(1.6, .3); GameAudio.sfx.whoosh(); }
             showToast(`🛟 Cứu trợ thành công! Đã đưa ${rescued || 'toàn bộ'} học sinh trở lại sàn thi đấu!`);
         }
 

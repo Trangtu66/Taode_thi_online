@@ -16,6 +16,8 @@
 <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
 <script src="chon_de.js"></script>
+<script src="game3d_chung.js"></script>
+<script src="nhipdo3d.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -161,6 +163,8 @@ th{background:#f8fafc;position:sticky;top:0}
 .resbox.ok{background:var(--ok)}.resbox.bad{background:var(--bad)}.resbox.half{background:var(--gold)}.resbox.none{background:#475569}
 .resbox .big{font-size:34px;font-weight:900}
 .footer{color:rgba(255,255,255,.65);text-align:center;font-size:13px;margin-top:10px}
+#nd3d{width:100%;height:34vh;min-height:220px;border-radius:18px;overflow:hidden;margin-bottom:14px;border:2px solid rgba(255,255,255,.25);background:#0b1120;transition:height .4s}
+#nd3d.q{height:22vh;min-height:170px}
 </style>
 </head>
 <body>
@@ -174,9 +178,14 @@ th{background:#f8fafc;position:sticky;top:0}
     <span class="sp"></span>
     <span class="pill hidden" id="pinPill"></span>
     <button class="iconbtn" id="btnSound" title="Bật/tắt âm thanh">🔊</button>
+    <button class="iconbtn" id="btnMusic" title="Bật/tắt nhạc nền">🎵</button>
+    <button class="iconbtn" id="btn3d" title="Hiện/ẩn sân khấu 3D">🎮</button>
     <button class="iconbtn" id="btnFull" title="Toàn màn hình (phím F)">⛶</button>
     <a class="iconbtn" href="index.html" style="text-decoration:none">🏠</a>
   </div>
+
+  <!-- Sân khấu 3D (nhipdo3d.js): sàn chờ – trả lời – bảng xếp hạng Top 10 -->
+  <div id="nd3d" class="hidden"></div>
 
   <!-- Sàn chờ + chọn đề -->
   <div id="v-setup" class="lobby">
@@ -564,7 +573,11 @@ const GV = {
     $('btnCsv').onclick = () => this.csv();
     $('btnAgain').onclick = () => this.again();
     $('btnNew').onclick = () => { this.again(); this.de = null; $('setOpts').classList.add('hidden'); this.setStatus('Chưa chọn đề.'); this.updateStart(); ChonDe.mo(pick); };
-    $('btnSound').onclick = () => { Snd.on = !Snd.on; $('btnSound').textContent = Snd.on ? '🔊' : '🔇'; };
+    $('btnSound').onclick = () => { Snd.on = !Snd.on; $('btnSound').textContent = Snd.on ? '🔊' : '🔇'; this.fxSync(); };
+    $('btnMusic').onclick = () => { this.musicOn = !this.musicOn; store.set('nd_music', this.musicOn); if (window.GameAudio) GameAudio.unlock(); this.fxSync(); };
+    $('btn3d').onclick = () => { this.view3d = !this.view3d; store.set('nd_view3d', this.view3d); this.fxSync(); };
+    this.musicOn = store.get('nd_music') !== false; this.view3d = store.get('nd_view3d') !== false;
+    setInterval(() => this.fxSync(), 600);
     $('btnFull').onclick = () => this.full();
     document.addEventListener('keydown', e => {
       if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
@@ -600,7 +613,7 @@ const GV = {
       const old = this.players[id];
       this.players[id] = old ? { ...old, n, lop: String(d.lop || '').slice(0, 10) }
         : { id, n, lop: String(d.lop || '').slice(0, 10), s: 0, ok: 0, streak: 0, tt: 0, ans: {} };
-      if (!old) { this.renderPlayers(); if (this.phase === 'lobby') Snd.beep(660, 0.08); }
+      if (!old) { this.renderPlayers(); if (this.phase === 'lobby') { Snd.beep(660, 0.08); this.sfx('pop'); } }
       this.soon(); this.save();
     } else if (d.t === 'ANS') {
       const p = this.players[d.id];
@@ -677,6 +690,7 @@ const GV = {
     this.prevRank = Object.fromEntries(this.ranking().map((p, r) => [p.id, r + 1]));
     show(['v-setup', 'v-play', 'v-end'], 'v-play');
     this.renderQ(false);
+    this.sfx('whoosh'); this.sfx('bell', 1);
     clearInterval(this.timerId); this.timerId = setInterval(() => this.tick(), 200);
     this.tick(); this.broadcast(); this.save();
   },
@@ -790,6 +804,23 @@ const GV = {
     $('timer').classList.add('hidden');
     this.renderQ(true); this.renderTop5();
     Snd.reveal(); this.broadcast(); this.save();
+    this.sfx('drumroll', .8);
+    const rate = st.total ? st.full / st.total : 0;
+    setTimeout(() => { if (rate > 0) { this.sfx('cheer', 1.4 + rate * 1.4, .2 + rate * .25); if (rate >= .5) this.sfx('clap', 1.5); } else this.sfx('sad'); }, 900);
+  },
+  // ---- Âm thanh, nhạc nền, sân khấu 3D (game3d_chung.js, nhipdo3d.js) ----
+  sfx(name, ...a) { if (Snd.on && window.GameAudio) GameAudio.sfx[name](...a); },
+  nd3dSnap() {
+    return { phase: this.phase, answered: Object.keys(this.answers || {}).length, total: Object.keys(this.players).length,
+             players: this.ranking().map(p => ({ id: p.id, n: p.n, s: p.s, streak: p.streak, done: !!(this.answers || {})[p.id] })) };
+  },
+  fxSync() {
+    $('btnMusic').textContent = this.musicOn ? '🎵' : '🔕';
+    $('btn3d').style.opacity = this.view3d ? 1 : .5;
+    const box = $('nd3d'), on = this.view3d && window.ND3D && ND3D.supported();
+    box.classList.toggle('hidden', !on); box.classList.toggle('q', this.phase === 'q');
+    if (on && !this.nd3dOn) { this.nd3dOn = true; ND3D.mount(box, () => this.nd3dSnap()).catch(() => { this.view3d = false; this.nd3dOn = false; box.classList.add('hidden'); }); }
+    if (window.GameAudio) GameAudio.music(Snd.on && this.musicOn ? (this.phase === 'q' ? 'tension' : 'quiz') : null);
   },
   ranking() {
     return Object.values(this.players).sort((a, b) => b.s - a.s || b.ok - a.ok || a.tt - b.tt || a.n.localeCompare(b.n, 'vi'));
@@ -833,7 +864,7 @@ const GV = {
     $('hardBox').innerHTML = (hard.length ? '🎯 <b>Cần chữa lại:</b> ' + hard.map(([i, v]) => `Câu ${i + 1} (${v}%)`).join(', ') + '.' : '🌟 Lớp làm tốt tất cả các câu (≥ 70% đúng).') +
       (Object.keys(lv).length > 1 ? '<br>📈 <b>Theo mức độ:</b> ' + Object.entries(lv).map(([l, [s, t]]) => `${esc(l)} ${t ? Math.round(100 * s / t) : 0}%`).join(' · ') : '') +
       (perfect ? `<br>💯 <b>${perfect}</b> học sinh đúng tất cả các câu.` : '');
-    Snd.fanfare(); confetti(6000);
+    Snd.fanfare(); confetti(6000); this.sfx('win');
     this.broadcast(); this.save();
   },
   csv() {
