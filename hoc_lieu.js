@@ -4805,8 +4805,8 @@ window.HOC_LIEU = [
 "ten": "Bài tập cuối chuyên đề 1",
 "file": "KHBD_TOAN10_BaiTapCuoiChuyenDe1_T10-11.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_BaiTapCuoiChuyenDe1_T10-11.docx",
-"kb": 533,
-"ngay": "2026-11-14",
+"kb": 547,
+"ngay": "2026-11-20",
 "nhom": "toan|10|btcd|1",
 "bai": "Bài tập cuối chuyên đề 1",
 "nhan": ""
@@ -4893,6 +4893,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-14",
 "nhom": "toan|10|hdtn|TaiChinh",
 "bai": "Hoạt động trải nghiệm: Tìm hiểu một số kiến thức về tài chính",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Kiem Tra Chuyen De1 (tiết 12)",
+"file": "KHBD_TOAN10_KiemTraChuyenDe1_T12.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_KiemTraChuyenDe1_T12.docx",
+"kb": 44,
+"ngay": "2026-11-22",
+"nhom": "toan|10|chuyende|1",
+"bai": "Kiem Tra Chuyen De1 (tiết 12)",
 "nhan": ""
 },
 {
@@ -5243,6 +5257,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-14",
 "nhom": "toan|10|hdtn|TaiChinh",
 "bai": "Hoạt động trải nghiệm: Tìm hiểu một số kiến thức về tài chính",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Kiem Tra Chuyen De1 (tiết 12) (hoà nhập)",
+"file": "KHBD_TOAN10_KiemTraChuyenDe1_T12_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/HoaNhap/KHBD_TOAN10_KiemTraChuyenDe1_T12_HoaNhap.docx",
+"kb": 47,
+"ngay": "2026-11-22",
+"nhom": "toan|10|chuyende|1",
+"bai": "Kiem Tra Chuyen De1 (tiết 12)",
 "nhan": "hoà nhập"
 },
 {
