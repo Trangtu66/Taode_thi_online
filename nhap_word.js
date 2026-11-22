@@ -485,11 +485,11 @@
     }
     await block(body);
 
-    return build(P, eqs, imgs, warnings, stats);
+    return build(P, eqs, imgs, warnings, stats, opts.raw);
   }
 
   /* ------------------------ 6. Nhận dạng cấu trúc đề ------------------------ */
-  function build(P, eqs, imgs, warnings, stats) {
+  function build(P, eqs, imgs, warnings, stats, raw) {
     const plain = x => x.s.replace(/[-]/g, " ").replace(/\s+/g, " ").trim();
     const reCau = /^\s*C[âa]u\s*(\d+)\s*[.:)]?/i;
     const rePhan = /^\s*PH[ẦA]N\s+(III|II|I|3|2|1)\b/i;
@@ -527,6 +527,8 @@
       }
       return out.replace(/\s+/g, " ").replace(/\$\s*\$/g, "").replace(/\s+([.,;:?])/g, "$1").trim();
     };
+    // opts.raw: trả từng đoạn văn (công thức đã đổi sang $LaTeX$) – dùng cho script nạp đề game từ Word (nhap_de_game.py)
+    if (raw) return { paras: P.map(x => { const host = { warn: [], img: [] }; return { text: toText(x.s, host), warn: host.warn, img: host.img }; }), stats };
     const cat = (arr) => { let s = "", ul = []; arr.forEach((x, i) => { if (i) { s += " \n "; ul.push(false, false, false); } s += x.s; ul = ul.concat(x.ul); }); return { s, ul }; };
 
     const mcq = [], tf = [], short = [];
