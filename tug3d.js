@@ -1,7 +1,7 @@
 // KÉO CO KIẾN THỨC – MÀN CHIẾU 3D (Three.js) + ÂM THANH (Web Audio tổng hợp, không cần file mp3).
 // Chỉ thay phần hiển thị và âm thanh trên máy GV; luật chơi, chấm điểm, điện thoại HS giữ nguyên.
 // Tug3D.mount(el, snapshot)  – snapshot() trả {pos (-5..5, âm: Đỏ thắng thế), redScore, blueScore, red:[tên], blue:[tên]}
-// TugAudio.pull(team) / win(team) / musicStart() / musicStop() / musicOn(v) / unlock()
+// TugAudio.pull(team) / win(team) – nhạc mừng chiến thắng / victoryStop() / musicStart() / musicStop() / musicOn(v) / unlock()
 (function () {
   'use strict';
   var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js';
@@ -269,10 +269,71 @@
     tone(t + .5, 90, .3, 'sine', .5, null, 45);                      // dậm chân "thịch"
     cheer(t + .15, 1.4, .3);
   }
-  function win() {
-    if (!ctx() || A.ctx.state !== 'running') return; var t = A.ctx.currentTime;
-    cheer(t, 3.2, .45); for (var i = 0; i < 16; i++) tone(t + i * .07, 120, .12, 'sine', .35, null, 60);   // trống dồn
+  // ---- 22/11/2026: NHẠC MỪNG CHIẾN THẮNG – hò reo vui nhộn (~29 s, 132 BPM, Đô trưởng; giai điệu tự soạn) ----
+  // Kèn chính + đệm "bùm – chát", trống, vỗ tay, đám đông hò "Hô – hô!", huýt sáo, pháo nổ. Nhạc nền trống hội tạm dừng.
+  var VMEL = [[72,76,79,84,0,79,84,0],[81,79,77,76,74,76,77,79],[76,79,84,88,0,84,88,0],[86,84,83,81,79,0,79,0],
+              [77,81,84,81,77,81,84,86],[84,83,81,79,76,79,84,0],[81,81,83,83,84,84,86,86],[88,0,84,0,91,0,0,0]];
+  var VCHORD = [[48,52,55],[43,47,50],[48,52,55],[43,47,53],[41,45,48],[48,52,55],[41,45,48],[48,52,55]];
+  function hz(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+  function vLead(t, m, len, vol, out) {
+    var c = A.ctx, g = c.createGain(), lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3600;
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .015); g.gain.setTargetAtTime(vol * .6, t + .05, .08); g.gain.exponentialRampToValueAtTime(.0001, t + len);
+    [['square', 0], ['triangle', 7], ['sawtooth', -6]].forEach(function (v, i) { var o = c.createOscillator(), og = c.createGain(); o.type = v[0]; o.frequency.value = hz(m); o.detune.value = v[1];
+      og.gain.value = [.5, .9, .25][i]; o.connect(og); og.connect(lp); o.start(t); o.stop(t + len + .05); });
+    lp.connect(g); g.connect(out);
   }
+  function shout(t, out) {                // một tiếng "Hô!" của đám đông: dây thanh (sawtooth) qua 2 formant nguyên âm "ô"
+    var c = A.ctx;
+    for (var v = 0; v < 5; v++) {
+      var t1 = t + Math.random() * .04, f0 = 170 + Math.random() * 140, o = c.createOscillator(), g = c.createGain(); o.type = 'sawtooth';
+      o.frequency.setValueAtTime(f0 * 1.15, t1); o.frequency.exponentialRampToValueAtTime(f0, t1 + .3);
+      g.gain.setValueAtTime(.0001, t1); g.gain.exponentialRampToValueAtTime(.09, t1 + .04); g.gain.exponentialRampToValueAtTime(.0001, t1 + .38);
+      [[520, 6, 1], [900, 7, .55]].forEach(function (fm) { var bp = c.createBiquadFilter(), bg = c.createGain(); bp.type = 'bandpass'; bp.frequency.value = fm[0] * (f0 > 240 ? 1.15 : 1); bp.Q.value = fm[1]; bg.gain.value = fm[2]; o.connect(bp); bp.connect(bg); bg.connect(g); });
+      g.connect(out); o.start(t1); o.stop(t1 + .42);
+    }
+    noise(t, .07, 'highpass', 2500, .7, .12, out);   // âm "h"
+  }
+  function whistle(t, out) { var c = A.ctx, o = c.createOscillator(), g = c.createGain(), l = c.createOscillator(), lg = c.createGain(); o.type = 'sine';
+    o.frequency.setValueAtTime(1900, t); o.frequency.exponentialRampToValueAtTime(2700, t + .25); o.frequency.exponentialRampToValueAtTime(2300, t + .5);
+    l.frequency.value = 9; lg.gain.value = 60; l.connect(lg); lg.connect(o.frequency);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.08, t + .05); g.gain.exponentialRampToValueAtTime(.0001, t + .55); o.connect(g); g.connect(out); o.start(t); l.start(t); o.stop(t + .6); l.stop(t + .6); }
+  function pop(t, out) { noise(t, .35, 'highpass', 900, .5, .5, out, 300); tone(t, 70, .25, 'sine', .4, out, 40); }
+  function victory() {
+    if (!ctx() || A.ctx.state !== 'running') return;
+    victoryStop(); musicStop();
+    var c = A.ctx, out = c.createGain(); out.gain.value = .85; out.connect(c.destination); A.vic = out;
+    var t0 = c.currentTime + .05, beat = 60 / 132, e = beat / 2, bar = beat * 4, PASS = 2;
+    cheer(t0, 3.5, .5); for (var i = 0; i < 12; i++) tone(t0 + i * .06, 120, .1, 'sine', .3, out, 60);      // trống dồn mở màn
+    var s0 = t0 + .8;
+    for (var p = 0; p < PASS; p++) for (var b = 0; b < 8; b++) {
+      var tb = s0 + (p * 8 + b) * bar, ch = VCHORD[b], last = p === PASS - 1 && b === 7;
+      VMEL[b].forEach(function (m, k) {                                                                     // kèn chính (vòng 2 thêm bè quãng 3 dưới)
+        if (!m) return; var nx = VMEL[b][k + 1], len = (nx === 0 ? 2 : 1) * e * .95;
+        if (last && k === 4) len = bar * .9;
+        vLead(tb + k * e, m, len, .16, out); if (p === 1) vLead(tb + k * e, m - (k % 2 ? 3 : 4), len, .07, out);
+      });
+      for (var q = 0; q < 4; q++) {
+        var tq = tb + q * beat;
+        tone(tq, hz(ch[0] - (q % 2 ? -12 : 0)), beat * .45, 'triangle', .3, out, null, 900);                // bass "bùm – bùm"
+        ch.forEach(function (m) { tone(tq + e, hz(m + 12), e * .8, 'square', .035, out, null, 2200); });    // đệm "chát" phách lẻ
+        if (q % 2 === 0) tone(tq, 110, .28, 'sine', .7, out, 45);                                            // trống cái
+        else { noise(tq, .16, 'bandpass', 1800, .9, .45, out); noise(tq + .012, .12, 'bandpass', 1300, 1.2, .3, out); }   // vỗ tay / trống con
+        noise(tq, .04, 'highpass', 7000, .7, .07, out); noise(tq + e, .04, 'highpass', 7000, .7, .05, out);   // chũm chọe
+      }
+      if (b % 2 === 1) { shout(tb + bar - beat * 1.5, out); shout(tb + bar - beat * .5, out); }             // "Hô – hô!"
+      if (b === 2 || b === 6) whistle(tb + beat, out);
+      if (b % 4 === 0) cheer(tb, bar * 1.6, .22);
+      if (b === 3 || b === 7) { pop(tb + beat * 2.5, out); pop(tb + beat * 3.2, out); }
+      if (b === 7) for (var f = 0; f < 6; f++) tone(tb + beat * 2 + f * e / 2, 140 - f * 10, .1, 'sine', .4, out, 60);   // trống vào vòng / kết
+    }
+    var tEnd = s0 + PASS * 8 * bar;
+    cheer(tEnd - bar, 5, .5); shout(tEnd - .2, out); shout(tEnd + .4, out); pop(tEnd, out); pop(tEnd + .35, out);
+    out.gain.setValueAtTime(.85, tEnd + 1.5); out.gain.linearRampToValueAtTime(0, tEnd + 4.5);
+    A.vicEnd = c.currentTime + (tEnd + 4.6 - t0);
+  }
+  function victoryStop() { if (A.vic) { try { A.vic.gain.cancelScheduledValues(A.ctx.currentTime); A.vic.gain.setTargetAtTime(0, A.ctx.currentTime, .15); var v = A.vic; setTimeout(function () { v.disconnect(); }, 900); } catch (e) {} A.vic = null; A.vicEnd = 0; } }
+  function victoryPlaying() { return !!(A.vic && A.ctx && A.ctx.currentTime < A.vicEnd); }
+  function win() { victory(); }
   // nhạc nền "trống hội" 116 BPM: trống cái tùng – cắc, sáo ngũ cung
   var MEL = [72, 74, 76, 79, 81, 79, 76, 74, 72, 76, 79, 81, 84, 81, 79, 76];
   function muStep(t, i) {
@@ -291,7 +352,7 @@
   }
   function tick() { if (!A.playing) return; var spb = 60 / 116 / 4; while (A.next < A.ctx.currentTime + .15) { muStep(A.next, A.step); A.step++; A.next += spb; } }
   function musicStart() {
-    if (!A.music || A.playing || !ctx()) return;
+    if (!A.music || A.playing || !ctx() || victoryPlaying()) return;   // đang phát nhạc mừng thì chưa bật lại trống hội
     A.playing = true; A.step = 0; A.next = A.ctx.currentTime + .08;
     A.mu.gain.cancelScheduledValues(A.ctx.currentTime); A.mu.gain.setTargetAtTime(.3, A.ctx.currentTime, .4);
     A.timer = setInterval(tick, 25); tick();
@@ -299,7 +360,7 @@
   function musicStop() { if (!A.playing) return; A.playing = false; clearInterval(A.timer); if (A.mu) A.mu.gain.setTargetAtTime(0, A.ctx.currentTime, .2); }
   document.addEventListener('pointerdown', function () { if (A.ctx && A.ctx.state === 'suspended') A.ctx.resume(); }, { passive: true });
   window.TugAudio = {
-    unlock: function () { ctx(); }, pull: pull, win: win, musicStart: musicStart, musicStop: musicStop, playing: function () { return A.playing; },
+    unlock: function () { ctx(); }, pull: pull, win: win, victoryStop: victoryStop, victoryPlaying: victoryPlaying, musicStart: musicStart, musicStop: musicStop, playing: function () { return A.playing; },
     musicOn: function (v) { if (v === undefined) return A.music; A.music = !!v; try { localStorage.setItem('tug_music', A.music ? 'on' : 'off'); } catch (e) {} if (!A.music) musicStop(); return A.music; }
   };
 })();

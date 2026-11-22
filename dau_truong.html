@@ -37,7 +37,7 @@
 <script src="mon_hien.js"></script>
 <script src="chon_de.js"></script>
 <script src="race3d.js"></script>
-<script src="tug3d.js?v=20261122"></script>
+<script src="tug3d.js?v=20261122b"></script>
 <script src="game3d_chung.js"></script>
 <script src="bell3d.js"></script>
 <script src="phone3d.js"></script>
@@ -4930,6 +4930,7 @@
             tugBlueScore = 0;
             tugIndex = 0;
             resetTugQuestionState();
+            if (window.TugAudio) TugAudio.victoryStop();   // đặt lại trận: tắt nhạc mừng chiến thắng
             showToast('🔄 Đã đặt lại trận đấu Kéo Co Kiến Thức!');
         }
 
@@ -6179,7 +6180,7 @@
         // 17. CHUYỂN TAB & KHỞI ĐỘNG HỆ THỐNG
         function switchTab(tabName) {
             if (window.RaceMusic && tabName !== 'race') RaceMusic.stop();
-            if (window.TugAudio && tabName !== 'tug') TugAudio.musicStop();
+            if (window.TugAudio && tabName !== 'tug') { TugAudio.musicStop(); TugAudio.victoryStop(); }
             const params = new URLSearchParams(window.location.search);
             if (params.get('mode') === 'student' && tabName !== 'student') {
                 return;
