@@ -278,6 +278,60 @@
   }
   function unlock() { if (AU.on) auInit(); }
 
+
+  // ---------------------------------------------------------------- NHẠC NỀN ĐUA XE (tổng hợp bằng Web Audio, lặp liên tục, không cần file mp3)
+  // Nhịp 140 BPM: trống (kick, clap, hi-hat), bass chạy móc, giai điệu arpeggio; chặng cuối (có xe sắp về đích) nhạc nhanh, dồn dập hơn.
+  // Dùng cả ở dạng 2D và 3D: RaceMusic.start() / stop() / on(true|false) / intensity(0|1)
+  var MU = { on: (function () { try { return localStorage.getItem('race_music') !== 'off'; } catch (e) { return true; } })(), playing: false, step: 0, hot: 0 };
+  var CHORDS = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]];   // Am – F – C – G (số MIDI)
+  function hz(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+  function muNode() {
+    var ctx = auInit(); if (!ctx) return null;
+    if (!MU.out) { MU.out = ctx.createGain(); MU.out.gain.value = 0; MU.out.connect(ctx.destination); }
+    return ctx;
+  }
+  function muKick(t) { var c = AU.ctx, o = c.createOscillator(), g = c.createGain(); o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(42, t + .22); g.gain.setValueAtTime(.9, t); g.gain.exponentialRampToValueAtTime(.001, t + .26); o.connect(g); g.connect(MU.out); o.start(t); o.stop(t + .28); }
+  function muNoise(t, len, freq, vol, type) {
+    var c = AU.ctx, n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = AU.noise; f.type = type || 'highpass'; f.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t + len); n.connect(f); f.connect(g); g.connect(MU.out); n.start(t, Math.random() * .5); n.stop(t + len + .02);
+  }
+  function muTone(t, f, len, type, vol, cut) {
+    var c = AU.ctx, o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter(); o.type = type; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.value = cut || 2400;
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + len); o.connect(lp); lp.connect(g); g.connect(MU.out); o.start(t); o.stop(t + len + .02);
+  }
+  function muStep(t, i) {
+    var bar = Math.floor(i / 16) % 4, k = i % 16, ch = CHORDS[bar], hot = MU.hot;
+    if (k % 4 === 0) muKick(t);
+    if (hot && k % 4 === 2) muKick(t);
+    if (k === 4 || k === 12) muNoise(t, .16, 1500, .5, 'bandpass');
+    if (k % 2 === 1 || hot) muNoise(t, .04, 7500, k % 4 === 2 ? .22 : .12);
+    if (k % 2 === 0) muTone(t, hz(ch[0] - 24 + (k % 4 === 2 ? 12 : 0)), .2, 'sawtooth', .28, 700);       // bass móc
+    var lead = hot || bar % 2 === 1 || (Math.floor(i / 64) % 2 === 1);
+    if (lead) muTone(t, hz(ch[[0, 1, 2, 1][k % 4]] + 12 + (k >= 8 ? 12 : 0)), .12, 'square', .07, 3000);  // arpeggio
+    if (k === 0) muTone(t, hz(ch[2] + 12), .9, 'triangle', .05, 1800);                                      // nốt đệm dài
+  }
+  function muTick() {
+    if (!MU.playing || !AU.ctx) return;
+    var c = AU.ctx, spb = 60 / (MU.hot ? 154 : 140) / 4;
+    while (MU.next < c.currentTime + .15) { muStep(MU.next, MU.step); MU.step++; MU.next += spb; }
+  }
+  function musicStart() {
+    if (!MU.on || MU.playing) return;
+    var c = muNode(); if (!c) return;
+    MU.playing = true; MU.step = 0; MU.next = c.currentTime + .08;
+    MU.out.gain.cancelScheduledValues(c.currentTime); MU.out.gain.setTargetAtTime(.32, c.currentTime, .3);
+    MU.timer = setInterval(muTick, 25); muTick();
+  }
+  function musicStop() {
+    if (!MU.playing) return; MU.playing = false; clearInterval(MU.timer);
+    if (MU.out && AU.ctx) MU.out.gain.setTargetAtTime(0, AU.ctx.currentTime, .15);
+  }
+  window.RaceMusic = {
+    start: musicStart, stop: musicStop, playing: function () { return MU.playing; },
+    intensity: function (v) { MU.hot = v ? 1 : 0; },
+    on: function (v) { if (v === undefined) return MU.on; MU.on = !!v; try { localStorage.setItem('race_music', MU.on ? 'on' : 'off'); } catch (e) {} if (!MU.on) musicStop(); return MU.on; }
+  };
+
   // ---------------------------------------------------------------- xe từng học sinh
   function syncCars(lanes) {
     var seen = {};

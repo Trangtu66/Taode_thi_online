@@ -1024,6 +1024,7 @@
                         <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
                         <button id="race-view-btn" onclick="raceToggleView()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow" title="Đổi giữa đường đua 3D và dạng làn 2D">🎮 3D</button>
                         <button id="race-cam-btn" onclick="raceCycleCamera()" class="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-extrabold shadow" title="Đổi góc quay (màn 3D)">🎥 Bám đuôi dẫn đầu</button>
+                        <button id="race-music-btn" onclick="raceToggleMusic()" class="px-2.5 py-1.5 rounded-lg bg-pink-600 hover:bg-pink-700 text-white text-xs font-extrabold shadow" title="Bật/tắt nhạc nền đua xe">🎵 Nhạc nền</button>
                         <button id="race-engine-btn" onclick="raceToggleEngine()" class="px-2.5 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-extrabold shadow" title="Bật/tắt tiếng động cơ (màn 3D)">🔊 Động cơ</button>
                         <button onclick="toggleStageFullscreen('race-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
                     </div>
@@ -1753,6 +1754,7 @@
         function toggleSoundMute() {
             soundMuted = !soundMuted;
             if (soundMuted) stopTensionMusicLoop();
+            if (typeof raceMusicSync === 'function') raceMusicSync();
             const iconEl = document.getElementById('sound-toggle-icon');
             const labelEl = document.getElementById('sound-toggle-label');
             if (iconEl) iconEl.innerText = soundMuted ? '🔇' : '🔊';
@@ -5231,9 +5233,11 @@
                 if (p) localStorage.setItem('mathlab_2025_my_student_profile', JSON.stringify({ ...p, car: k }));
             } catch (e) {}
             const player = currentStudentId ? bellPlayers.find(p => String(p.id) === String(currentStudentId)) : null;
-            if (player && hasJoinedCurrentSession) {
-                player.car = k;
-                broadcastRoomEvent({ type: 'STUDENT_JOIN', payload: { id: player.id, name: player.name, teamMode: player.teamMode, car: k } });
+            if (player) { player.car = k; savePlayersToStorage(); }
+            if (currentStudentId && currentStudentName) {   // đã báo danh (kể cả đang sửa tên/đội): báo xe mới lên màn chiếu ngay
+                const teamSel = document.getElementById('student-team-select');
+                broadcastRoomEvent({ type: 'STUDENT_JOIN', payload: { id: currentStudentId, name: currentStudentName, teamMode: (player && player.teamMode) || (teamSel ? teamSel.value : 'bell'), car: k } });
+                if (racePhone.state !== 'idle') racePhoneRender();
                 renderStudentPhoneUI();
             }
         }
@@ -5387,6 +5391,7 @@
                 raceLog(`💥 ${r.name} trả lời sai – trượt bánh ${Math.round(racePenaltyMs / 1000)} giây`);
                 setTimeout(() => raceUpdateLane(r.id), racePenaltyMs + 60);
             }
+            raceMusicSync();   // chặng cuối: nhạc dồn dập hơn
             raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs, driveMs: ok ? r.driveMs : 0, streak: r.streak });
             raceUpdateLane(r.id);
             renderRaceBoard();
@@ -5418,6 +5423,7 @@
             if (raceState === 'countdown' || raceState === 'running') return;
             if (!examQuestions.length) { showToast('⚠️ Chưa có đề. Bấm "📚 Chọn đề" trước.'); return; }
             if (window.Race3D) Race3D.unlock();   // trình duyệt chỉ cho phát âm thanh sau thao tác bấm của GV
+            setTimeout(raceMusicSync, 0);
             const sel = document.getElementById('race-count');
             const want = (!sel || sel.value === 'all') ? examQuestions.length : parseInt(sel.value, 10);
             raceTotal = Math.max(1, Math.min(want || 10, examQuestions.length));
@@ -5636,6 +5642,22 @@
             Race3D.engine(!Race3D.engine()); raceEngineLabel();
             showToast(Race3D.engine() ? '🔊 Đã bật tiếng động cơ' : '🔇 Đã tắt tiếng động cơ');
         }
+        // Nhạc nền đua xe (RaceMusic trong race3d.js): phát từ lúc đếm ngược đến khi kết thúc, chỉ khi đang ở tab Đua xe
+        function raceMusicSync() {
+            if (!window.RaceMusic || IS_STUDENT_MODE) return;
+            const tab = document.getElementById('tab-race');
+            const want = !soundMuted && RaceMusic.on() && (raceState === 'countdown' || raceState === 'running') && tab && !tab.classList.contains('hidden');
+            if (want) RaceMusic.start(); else RaceMusic.stop();
+            const lastLap = raceTotal && Object.values(raceRacers).some(r => !r.finishMs && r.pos >= raceTotal - 2);
+            RaceMusic.intensity(lastLap);
+            const b = document.getElementById('race-music-btn');
+            if (b) b.innerText = RaceMusic.on() ? '🎵 Nhạc nền' : '🔇 Nhạc nền';
+        }
+        function raceToggleMusic() {
+            if (!window.RaceMusic) return;
+            RaceMusic.on(!RaceMusic.on()); raceMusicSync();
+            showToast(RaceMusic.on() ? '🎵 Đã bật nhạc nền đua xe' : '🔇 Đã tắt nhạc nền đua xe');
+        }
         function raceCycleCamera() {
             const b = document.getElementById('race-cam-btn');
             if (window.Race3D && b) b.innerText = Race3D.camera();
@@ -5643,6 +5665,7 @@
 
         function renderRaceStage() {
             raceApplyView();
+            raceMusicSync();
             renderRaceSettings();
             const startBtn = document.getElementById('race-start-btn');
             if (startBtn) startBtn.disabled = raceState === 'countdown' || raceState === 'running';
@@ -6000,6 +6023,7 @@
 
         // 17. CHUYỂN TAB & KHỞI ĐỘNG HỆ THỐNG
         function switchTab(tabName) {
+            if (window.RaceMusic && tabName !== 'race') RaceMusic.stop();
             const params = new URLSearchParams(window.location.search);
             if (params.get('mode') === 'student' && tabName !== 'student') {
                 return;
