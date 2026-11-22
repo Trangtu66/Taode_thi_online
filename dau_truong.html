@@ -37,6 +37,7 @@
 <script src="mon_hien.js"></script>
 <script src="chon_de.js"></script>
 <script src="race3d.js"></script>
+<script src="tug3d.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -788,6 +789,8 @@
                         <button onclick="openQrModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold shadow" title="Mã QR cho học sinh quét">📱 Mã QR</button>
                         <button onclick="adjustStageFontSize(-1)" class="px-2 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black" title="Thu nhỏ chữ">A−</button>
                         <button onclick="adjustStageFontSize(1)" class="px-2 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black" title="Phóng to chữ">A+</button>
+                        <button id="tug-view-btn" onclick="tugToggleView()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow" title="Đổi giữa sân 3D và hình vẽ 2D">🎮 3D</button>
+                        <button id="tug-music-btn" onclick="tugToggleMusic()" class="px-2.5 py-1.5 rounded-lg bg-pink-600 hover:bg-pink-700 text-white text-xs font-extrabold shadow" title="Bật/tắt nhạc nền trống hội (tự nhường cho nhạc đếm giờ)">🎵 Nhạc nền</button>
                         <button onclick="toggleStageFullscreen('tug-stage-container')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow" title="Toàn màn hình (Esc để thoát)">⛶ Toàn màn hình</button>
                         <details class="tool-more">
                             <summary class="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-xs font-black select-none" title="Thêm chức năng">⋯ Thêm</summary>
@@ -830,8 +833,10 @@
                         </div>
                     </div>
 
+                    <!-- Sân đấu Kéo Co 3D (tug3d.js) -->
+                    <div id="tug-3d" class="hidden w-full h-[42vh] min-h-[260px] rounded-2xl overflow-hidden border-2 border-white/80 bg-sky-200"></div>
                     <!-- Sân đấu Kéo Co Hoạt Hình 4 Học Sinh Đỏ vs 4 Học Sinh Xanh (Đeo khăn quàng đỏ như hình mẫu) -->
-                    <div class="relative w-full overflow-hidden rounded-2xl border-2 border-white/80 dark:border-slate-700 shadow-sm" style="background: linear-gradient(to bottom, #d7f0ff 0%, #f3fbff 66%, #c8f2d0 76%, #9be9a8 85%, #5cc97a 100%);">
+                    <div id="tug-2d-wrap" class="relative w-full overflow-hidden rounded-2xl border-2 border-white/80 dark:border-slate-700 shadow-sm" style="background: linear-gradient(to bottom, #d7f0ff 0%, #f3fbff 66%, #c8f2d0 76%, #9be9a8 85%, #5cc97a 100%);">
                         <svg id="tug-scene-svg" viewBox="0 0 1000 228" preserveAspectRatio="xMidYMid meet" class="w-full block select-none">
                             <defs>
                                 <linearGradient id="tug-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7f0ff"/><stop offset="0.75" stop-color="#f3fbff"/></linearGradient>
@@ -4315,7 +4320,45 @@
         }
 
         // 14. LOGIC KÉO CO KIẾN THỨC (ĐỐI KHÁNG 2 ĐỘI TRỰC TIẾP TRÊN MÀN CHIẾU & QUA ĐIỆN THOẠI QR)
+        // ---------- Kéo co 3D (tug3d.js) + nhạc nền trống hội ----------
+        let tugView = (() => { try { return localStorage.getItem('tug_view') || '3d'; } catch (e) { return '3d'; } })();
+        function tug3dSnapshot() {
+            const red = [], blue = [];
+            bellPlayers.forEach((p, i) => (getEffectiveTugTeam(p, i) === 'red' ? red : blue).push(p.name));
+            return { pos: tugPosition, redScore: tugRedScore, blueScore: tugBlueScore, red, blue };
+        }
+        function tugApplyView() {
+            const box3 = document.getElementById('tug-3d'), box2 = document.getElementById('tug-2d-wrap'), btn = document.getElementById('tug-view-btn');
+            if (!box3 || !box2) return;
+            const want3d = tugView === '3d' && window.Tug3D && Tug3D.supported();
+            box3.classList.toggle('hidden', !want3d); box2.classList.toggle('hidden', want3d);
+            if (btn) btn.innerText = want3d ? '🖼️ Hình 2D' : '🎮 Sân 3D';
+            if (want3d) Tug3D.mount(box3, tug3dSnapshot).catch(e => { showToast('⚠️ ' + (e.message || e) + ' – chuyển về hình 2D.'); tugView = '2d'; tugApplyView(); });
+        }
+        function tugToggleView() {
+            tugView = tugView === '3d' ? '2d' : '3d';
+            try { localStorage.setItem('tug_view', tugView); } catch (e) {}
+            tugApplyView();
+        }
+        // Nhạc nền: chỉ khi đang ở tab Kéo co; tự nhường khi nhạc đếm giờ của câu hỏi đang phát
+        function tugMusicSync() {
+            if (!window.TugAudio || IS_STUDENT_MODE) return;
+            const tab = document.getElementById('tab-tug');
+            const timing = !!tensionLoopInterval || (customBgAudio && !customBgAudio.paused);
+            const want = !soundMuted && TugAudio.musicOn() && tab && !tab.classList.contains('hidden') && !timing;
+            if (want) TugAudio.musicStart(); else TugAudio.musicStop();
+            const b = document.getElementById('tug-music-btn');
+            if (b) b.innerText = TugAudio.musicOn() ? '🎵 Nhạc nền' : '🔇 Nhạc nền';
+        }
+        function tugToggleMusic() {
+            if (!window.TugAudio) return;
+            TugAudio.unlock(); TugAudio.musicOn(!TugAudio.musicOn()); tugMusicSync();
+            showToast(TugAudio.musicOn() ? '🎵 Đã bật nhạc nền Kéo co' : '🔇 Đã tắt nhạc nền Kéo co');
+        }
+        if (!IS_STUDENT_MODE) setInterval(tugMusicSync, 600);
+
         function renderTugStage() {
+            tugApplyView();
             const q = examQuestions[tugIndex];
             if (!q) return;
 
@@ -4633,6 +4676,7 @@
 
         function awardTugPoint(team, silentToast = false) {
             playTugPullSound();
+            if (window.TugAudio && !soundMuted) TugAudio.pull(team);   // hò dô, dây căng, cổ vũ
             if (team === 'red') {
                 tugPosition = Math.max(-5, tugPosition - 1);
                 tugRedScore += 10;
@@ -4642,6 +4686,7 @@
                 tugBlueScore += 10;
                 if (!silentToast) showToast('🔵 Đội Xanh vừa ghi điểm và kéo dây về phía mình!');
             }
+            if (window.TugAudio && !soundMuted && Math.abs(tugPosition) >= 5) TugAudio.win();
             updateTugRopeUI();
         }
 
@@ -6024,6 +6069,7 @@
         // 17. CHUYỂN TAB & KHỞI ĐỘNG HỆ THỐNG
         function switchTab(tabName) {
             if (window.RaceMusic && tabName !== 'race') RaceMusic.stop();
+            if (window.TugAudio && tabName !== 'tug') TugAudio.musicStop();
             const params = new URLSearchParams(window.location.search);
             if (params.get('mode') === 'student' && tabName !== 'student') {
                 return;
