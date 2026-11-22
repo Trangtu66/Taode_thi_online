@@ -205,6 +205,16 @@
         .race-phone-car svg { width: 100%; height: 100%; display: block; }
         .race-phone-road.moving .race-phone-car { animation: raceBob .3s ease-in-out infinite alternate; }
         @keyframes raceBob { to { transform: translateY(-2px); } }
+        .race-phone-road.turbo .race-phone-dashes { animation-duration: .16s; }
+        .race-phone-road.turbo::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+            background: repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.55) 34px 60px, transparent 60px 110px);
+            background-size: 110px 100%; mask: linear-gradient(180deg, transparent 30%, #000 45%, #000 80%, transparent 95%);
+            animation: raceDash .22s linear infinite; }
+        .race-phone-flame { position: absolute; left: calc(14% - 34px); bottom: 18px; font-size: 26px; animation: raceFlame .12s ease-in-out infinite alternate; }
+        @keyframes raceFlame { to { transform: scaleX(1.35) translateX(-3px); opacity: .75; } }
+        .race-drive-bar { height: 10px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+        .race-drive-bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444); animation: raceFill linear forwards; }
+        @keyframes raceFill { to { width: 100%; } }
         .race-phone-cone { position: absolute; right: 12%; bottom: 12px; width: 38px; height: 42px; }
         .race-phone-flag { position: absolute; right: 8%; top: 44%; bottom: 0; width: 22px; background: repeating-conic-gradient(#111827 0 25%, #fff 0 50%) 0 0 / 11px 11px; }
         @media (prefers-reduced-motion: reduce) {
@@ -1030,6 +1040,12 @@
                                 <option value="3">3 giây</option><option value="5" selected>5 giây</option><option value="8">8 giây</option><option value="10">10 giây</option>
                             </select>
                         </label>
+                        <label class="flex items-center gap-1.5">🏁 Trả lời đúng, xe chạy:
+                            <select id="race-drive" class="px-2 py-1.5 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-600 font-black">
+                                <option value="3">3 giây</option><option value="5" selected>5 giây</option><option value="8">8 giây</option>
+                            </select>
+                        </label>
+                        <label class="flex items-center gap-1.5 cursor-pointer" title="Mỗi câu đúng liên tiếp chạy thêm 1 giây, tối đa thêm 3 giây"><input id="race-turbo" type="checkbox" checked class="w-4 h-4 accent-orange-500"> 🔥 Đúng liên tiếp được tăng tốc (+1 giây/câu)</label>
                         <label class="flex items-center gap-1.5 cursor-pointer"><input id="race-shuffle" type="checkbox" checked class="w-4 h-4 accent-emerald-600"> Chọn ngẫu nhiên &amp; trộn thứ tự câu cho từng HS</label>
                         <span class="text-slate-500 font-semibold">Đề: <b id="race-exam-title" class="text-slate-700 dark:text-slate-200"></b></span>
                     </div>
@@ -2443,7 +2459,13 @@
                 }
             } else {
                 player.teamMode = payload.teamMode || player.teamMode;
-                if (RACE_CARS[payload.car]) player.car = payload.car;
+                if (RACE_CARS[payload.car] && player.car !== payload.car) {
+                    player.car = payload.car;
+                    // HS đổi xe (kể cả giữa cuộc đua): màn chiếu 2D/3D, bảng xếp hạng đổi theo ngay
+                    const rr = raceRacers[String(player.id)];
+                    if (rr) rr.car = payload.car;
+                    if (!IS_STUDENT_MODE) { raceTrackKey = ''; renderRaceTrack(); renderRaceBoard(); }
+                }
             }
             savePlayersToStorage();
             renderBellPlayers();
@@ -5223,6 +5245,8 @@
         let raceSeed = 1;
         let raceStartAt = 0;
         let racePenaltyMs = 5000;
+        let raceDriveMs = 5000;   // thời gian xe chạy sau mỗi câu đúng (tới chướng ngại kế tiếp)
+        let raceTurbo = true;     // đúng liên tiếp: +1 giây/câu, tối đa +3 giây
         let raceShuffle = true;
         let raceRacers = {};
         let raceFeed = [];
@@ -5256,10 +5280,14 @@
             let r = raceRacers[id];
             if (!r) {
                 const p = bellPlayers.find(x => String(x.id) === String(id));
-                r = raceRacers[id] = { id: String(id), name: name || (p && p.name) || 'Học sinh', car: (p && p.car) || null, pos: 0, wrong: 0, blockUntil: 0, finishMs: 0, lastPassAt: 0, asking: false };
+                r = raceRacers[id] = { id: String(id), name: name || (p && p.name) || 'Học sinh', car: (p && p.car) || null, pos: 0, wrong: 0, blockUntil: 0, finishMs: 0, lastPassAt: 0, asking: false, streak: 0, driveMs: 0, bestStreak: 0 };
             }
             if (name) r.name = String(name).slice(0, 40);
-            if (RACE_CARS[car]) r.car = car;
+            if (RACE_CARS[car]) {   // xe HS đang chọn trên điện thoại (gửi kèm mỗi lần hỏi/trả lời) – đồng bộ cả danh sách HS
+                r.car = car;
+                const pl = bellPlayers.find(x => String(x.id) === String(id));
+                if (pl && pl.car !== car) { pl.car = car; raceTrackKey = ''; }
+            }
             return r;
         }
 
@@ -5340,6 +5368,8 @@
             if (ok) {
                 r.pos++;
                 r.lastPassAt = now;
+                r.streak = (r.streak || 0) + 1; r.bestStreak = Math.max(r.bestStreak || 0, r.streak);
+                r.driveMs = raceDriveMs + (raceTurbo ? Math.min(3, r.streak - 1) * 1000 : 0);
                 if (r.pos >= raceTotal) {
                     r.finishMs = now - raceStartAt;
                     const rank = Object.values(raceRacers).filter(x => x.finishMs).length;
@@ -5347,16 +5377,17 @@
                     if (rank <= 3) playVictorySoundAndApplause();
                     else playCorrectSound();
                 } else {
-                    raceLog(`✅ ${r.name} vượt chướng ngại ${r.pos}/${raceTotal}`);
+                    raceLog(r.streak >= 2 && raceTurbo ? `🔥 ${r.name} đúng ${r.streak} câu liên tiếp – tăng tốc ${Math.round(r.driveMs / 1000)} giây!` : `✅ ${r.name} vượt chướng ngại ${r.pos}/${raceTotal}`);
                     playSoftWoodTap(0, 880, 0.08);
                 }
             } else {
                 r.wrong++;
+                r.streak = 0;
                 r.blockUntil = now + racePenaltyMs;
                 raceLog(`💥 ${r.name} trả lời sai – trượt bánh ${Math.round(racePenaltyMs / 1000)} giây`);
                 setTimeout(() => raceUpdateLane(r.id), racePenaltyMs + 60);
             }
-            raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs });
+            raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs, driveMs: ok ? r.driveMs : 0, streak: r.streak });
             raceUpdateLane(r.id);
             renderRaceBoard();
             updateRaceClock();
@@ -5392,6 +5423,8 @@
             raceTotal = Math.max(1, Math.min(want || 10, examQuestions.length));
             raceShuffle = !!(document.getElementById('race-shuffle') || {}).checked;
             racePenaltyMs = (parseInt((document.getElementById('race-penalty') || {}).value, 10) || 5) * 1000;
+            raceDriveMs = (parseInt((document.getElementById('race-drive') || {}).value, 10) || 5) * 1000;
+            raceTurbo = !!(document.getElementById('race-turbo') || { checked: true }).checked;
             raceSeed = (Math.random() * 2147483647) >>> 0;
             const all = examQuestions.map((_, i) => i);
             raceQIdx = raceShuffle ? raceShuffled(all, raceSeed).slice(0, raceTotal) : all.slice(0, raceTotal);
@@ -5457,7 +5490,7 @@
         }
 
         function raceLaneList() {
-            const list = bellPlayers.map((p, i) => ({ id: String(p.id), name: p.name, car: p.car || RACE_CAR_KEYS[i % RACE_CAR_KEYS.length] }));
+            const list = bellPlayers.map((p, i) => ({ id: String(p.id), name: p.name, car: p.car || (raceRacers[String(p.id)] && raceRacers[String(p.id)].car) || RACE_CAR_KEYS[i % RACE_CAR_KEYS.length] }));
             Object.values(raceRacers).forEach(r => { if (!list.some(x => x.id === r.id)) list.push({ id: r.id, name: r.name, car: r.car }); });
             return list;
         }
@@ -5500,10 +5533,11 @@
             const left = raceCarLeft(r);
             if (carEl.dataset.left !== left) {
                 carEl.dataset.left = left;
+                carEl.style.transitionDuration = r && r.driveMs && Date.now() - r.lastPassAt < 1000 ? (r.driveMs / 1000) + 's' : '';
                 carEl.style.left = left;
                 carEl.classList.add('moving');
                 clearTimeout(carEl._mt);
-                carEl._mt = setTimeout(() => carEl.classList.remove('moving'), 1500);
+                carEl._mt = setTimeout(() => carEl.classList.remove('moving'), Math.max(1500, (r && r.driveMs) || 0));
             }
             const penalty = r && Date.now() < r.blockUntil;
             carEl.classList.toggle('penalty', !!penalty);
@@ -5566,9 +5600,10 @@
             const now = Date.now();
             const lanes = raceLaneList().map((l, i) => {
                 const r = raceRacers[l.id];
-                const car = raceCarKey(r && r.car ? r.car : l.car, i);
+                const car = raceCarKey(l.car || (r && r.car), i);
                 return { id: l.id, name: l.name, car, color: RACE_CARS[car].color, pos: r ? r.pos : 0, done: !!(r && r.finishMs),
-                         penalty: !!(r && now < r.blockUntil), asking: !!(r && r.asking), rank: ranks[l.id] || (i + 1) };
+                         penalty: !!(r && now < r.blockUntil), asking: !!(r && r.asking), rank: ranks[l.id] || (i + 1),
+                         passAt: r ? r.lastPassAt : 0, driveMs: r ? r.driveMs : 0, streak: r ? r.streak : 0 };
             });
             const sel = document.getElementById('race-count');
             const preview = sel ? (sel.value === 'all' ? examQuestions.length : parseInt(sel.value, 10)) : 10;
@@ -5612,7 +5647,7 @@
             const startBtn = document.getElementById('race-start-btn');
             if (startBtn) startBtn.disabled = raceState === 'countdown' || raceState === 'running';
             if (startBtn) startBtn.classList.toggle('opacity-50', startBtn.disabled);
-            ['race-count', 'race-penalty', 'race-shuffle'].forEach(id => { const el = document.getElementById(id); if (el) el.disabled = raceState === 'countdown' || raceState === 'running'; });
+            ['race-count', 'race-penalty', 'race-drive', 'race-turbo', 'race-shuffle'].forEach(id => { const el = document.getElementById(id); if (el) el.disabled = raceState === 'countdown' || raceState === 'running'; });
             renderRaceTrack();
             renderRaceBoard();
             renderRaceFeed();
@@ -5640,9 +5675,9 @@
         function exportRaceCSV() {
             const list = raceRanked();
             if (!list.length) { showToast('Chưa có kết quả đua xe.'); return; }
-            let csv = '﻿Hạng,Họ tên,Xe,Chướng ngại đã vượt,Số lần trả lời sai,Thời gian về đích\n';
+            let csv = '﻿Hạng,Họ tên,Xe,Chướng ngại đã vượt,Số lần trả lời sai,Đúng liên tiếp dài nhất,Thời gian về đích\n';
             list.forEach((r, i) => {
-                csv += `${i + 1},"${String(r.name).replace(/"/g, '""')}",${RACE_CARS[raceCarKey(r.car)].name},${r.pos}/${raceTotal},${r.wrong},${r.finishMs ? raceFmt(r.finishMs) : 'Chưa về đích'}\n`;
+                csv += `${i + 1},"${String(r.name).replace(/"/g, '""')}",${RACE_CARS[raceCarKey(r.car)].name},${r.pos}/${raceTotal},${r.wrong},${r.bestStreak || 0},${r.finishMs ? raceFmt(r.finishMs) : 'Chưa về đích'}\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const a = document.createElement('a');
@@ -5654,7 +5689,7 @@
 
         // ---------- Điện thoại HS: tự lái xe ----------
         function racePhoneFresh() {
-            return { state: 'idle', total: 0, k: 0, q: null, penaltyUntil: 0, penaltyMs: 5000, rank: 0, finishMs: 0, tfDraft: [null, null, null, null], shortDraft: '', wrongOpts: [], lastAnswer: null, timers: [], ticker: null };
+            return { state: 'idle', total: 0, k: 0, q: null, penaltyUntil: 0, penaltyMs: 5000, driveMs: RACE_DRIVE_MS, streak: 0, rank: 0, finishMs: 0, tfDraft: [null, null, null, null], shortDraft: '', wrongOpts: [], lastAnswer: null, timers: [], ticker: null };
         }
         let racePhone = racePhoneFresh();
 
@@ -5704,15 +5739,17 @@
             }
         }
 
-        function racePhoneDrive() {
+        function racePhoneDrive(ms, streak) {
             racePhoneClearTimers();
             racePhone.state = 'driving';
+            racePhone.driveMs = ms || RACE_DRIVE_MS;
+            racePhone.streak = streak || 0;
             racePhone.q = null;
             racePhone.wrongOpts = [];
             racePhone.tfDraft = [null, null, null, null];
             racePhone.shortDraft = '';
             racePhoneRender();
-            racePhoneLater(racePhoneAsk, RACE_DRIVE_MS);
+            racePhoneLater(racePhoneAsk, racePhone.driveMs);
         }
 
         function racePhoneAsk() {
@@ -5764,7 +5801,8 @@
             if (d.ok || d.stale) {
                 racePhone.k = d.pos;
                 if (d.ok) playCorrectSound();
-                racePhoneDrive();
+                if (d.ok && d.streak >= 2) { try { if (navigator.vibrate) navigator.vibrate([60, 40, 60]); } catch (e) {} }
+                racePhoneDrive(d.ok ? d.driveMs : 0, d.ok ? d.streak : 0);
                 return;
             }
             playWrongSound();
@@ -5843,7 +5881,12 @@
             if (st === 'countdown') {
                 body = '<div class="text-center py-2"><div class="text-xs font-black text-slate-500">Chuẩn bị xuất phát!</div><div id="race-phone-countdown" class="text-7xl font-black text-rose-600">3</div></div>';
             } else if (st === 'driving') {
-                body = `<div class="text-center text-sm font-black text-emerald-600 py-2">🏎️ Đang tăng tốc tới chướng ngại vật ${k + 1}…</div>`;
+                const turbo = racePhone.streak >= 2;
+                body = `<div class="py-2 space-y-1.5 text-center">
+                    ${turbo ? `<div class="text-base font-black text-orange-600 animate-pulse">🔥 TĂNG TỐC! Đúng ${racePhone.streak} câu liên tiếp</div>` : (racePhone.driveMs > RACE_DRIVE_MS ? '<div class="text-base font-black text-emerald-600">✅ Chính xác! Bứt tốc nào!</div>' : '')}
+                    <div class="text-sm font-black text-emerald-700 dark:text-emerald-300">🏎️ Đang lao tới chướng ngại vật ${k + 1}…</div>
+                    <div class="race-drive-bar"><i style="animation-duration:${racePhone.driveMs}ms"></i></div>
+                </div>`;
             } else if (st === 'asking') {
                 body = '<div class="text-center text-sm font-black text-amber-600 py-2">🚧 Gặp chướng ngại vật! Đang nhận câu hỏi…</div>';
             } else if (atCone) {
@@ -5860,7 +5903,8 @@
                         <span class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">🚧 ${atCone ? k + 1 : k}/${total}</span>
                     </div>
                     <div class="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"><div class="h-full bg-gradient-to-r from-emerald-500 to-sky-500 transition-all duration-500" style="width:${pct}%"></div></div>
-                    <div class="race-phone-road ${moving ? 'moving' : ''}">
+                    <div class="race-phone-road ${moving ? 'moving' : ''} ${moving && racePhone.streak >= 2 ? 'turbo' : ''}">
+                        ${moving && racePhone.streak >= 2 ? '<div class="race-phone-flame">🔥</div>' : ''}
                         <div class="race-phone-dashes"></div>
                         <div class="race-phone-car ${moving ? 'moving' : ''} ${st === 'penalty' ? 'penalty' : ''}">${raceCarSvg(selectedCar)}</div>
                         ${atCone ? `<div class="race-phone-cone">${RACE_CONE}</div>` : ''}

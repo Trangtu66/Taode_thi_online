@@ -52,7 +52,7 @@
     f1: { w: 1.5, h: .38, l: 3.4, cab: [.55, .32, .8, .2], wheel: .42, wing: true },
     sport: { w: 1.6, h: .5, l: 3.2, cab: [1.25, .42, 1.4, -.1], wheel: .36 },
     jeep: { w: 1.7, h: .8, l: 3, cab: [1.5, .6, 1.5, -.3], wheel: .48, spare: true },
-    bus: { w: 1.7, h: 1.3, l: 3.6, cab: [1.6, .3, 3.2, 0], wheel: .4, bus: true },
+    bus: { w: 1.7, h: .9, l: 3.6, cab: [1.6, .3, 3.2, 0], wheel: .4, bus: true },
     pickup: { w: 1.7, h: .65, l: 3.4, cab: [1.5, .6, 1.3, .6], wheel: .44 },
     moto: { w: .5, h: .5, l: 2, cab: [.45, .55, .5, -.2], wheel: .4, moto: true }
   };
@@ -71,27 +71,54 @@
     if (!MAT[color]) MAT[color] = new T.MeshStandardMaterial({ color: color, roughness: .35, metalness: .3 });
     return MAT;
   }
+  // Xe 3D vẽ theo đúng hình xe HS chọn trên điện thoại (raceCarSvg): F1 có người lái mũ vàng, xe thể thao, xe địa hình có bánh dự phòng,
+  // xe buýt mini dãy cửa kính, xe bán tải cabin trước – thùng sau, mô tô có người lái; cùng màu, cùng sọc trắng thân xe.
   function makeCar(key, color) {
     var s = SHAPE[key] || SHAPE.sport, g = new T.Group(), body = new T.Group(); g.add(body); mats(color);
-    var parts = { paint: [], glass: [], dark: [], light: [], rider: [] };
+    if (!MAT.white) { MAT.white = new T.MeshStandardMaterial({ color: 0xffffff, roughness: .5 }); MAT.helmet = new T.MeshStandardMaterial({ color: 0xfde047, roughness: .3, metalness: .2 }); }
+    var parts = { paint: [], glass: [], dark: [], light: [], white: [], helmet: [] };
     var box = function (w, h, l, m, x, y, z) { parts[m].push(new T.BoxGeometry(w, h, l).translate(x, y, z)); };
-    var lift = s.wheel * .8, c = s.cab;
-    box(s.w, s.h, s.l, 'paint', 0, lift + s.h / 2, 0);
-    box(c[0], c[1], c[2], 'glass', 0, lift + s.h + c[1] / 2, c[3]);
-    if (s.bus) box(s.w * .98, .5, s.l * .98, 'paint', 0, lift + s.h + c[1] + .25, 0);
-    if (s.wing) { box(s.w * 1.3, .08, .5, 'paint', 0, lift + s.h + .45, -s.l / 2 + .2); box(.1, .45, .1, 'dark', 0, lift + s.h + .2, -s.l / 2 + .2); box(s.w * 1.2, .08, .4, 'paint', 0, lift + .15, s.l / 2 + .1); }
-    if (s.spare) parts.dark.push(new T.CylinderGeometry(.4, .4, .25, 14).rotateX(Math.PI / 2).translate(0, lift + s.h / 2 + .1, -s.l / 2 - .12));
-    if (s.moto) parts.rider.push(new T.SphereGeometry(.28, 10, 8).translate(0, lift + s.h + .75, -.1));
-    box(.28, .14, .06, 'light', s.moto ? 0 : -s.w / 2 + .3, lift + s.h * .55, s.l / 2 + .01); if (!s.moto) box(.28, .14, .06, 'light', s.w / 2 - .3, lift + s.h * .55, s.l / 2 + .01);
+    var ball = function (r, m, x, y, z) { parts[m].push(new T.SphereGeometry(r, 12, 10).translate(x, y, z)); };
+    var lift = s.wheel * .8, top = lift + s.h, W = s.w, L = s.l;
+    if (key === 'f1') {
+      box(W * .55, s.h, L, 'paint', 0, lift + s.h / 2, 0);                                 // thân hẹp
+      box(W, s.h * .7, L * .35, 'paint', 0, lift + s.h * .35, -.2);                        // hông
+      box(W * 1.35, .08, .45, 'paint', 0, lift + .12, L / 2 + .05);                        // cánh trước
+      box(W * 1.2, .08, .5, 'paint', 0, top + .45, -L / 2 + .2); box(.1, .45, .1, 'dark', 0, top + .2, -L / 2 + .2);   // cánh sau
+      ball(.3, 'helmet', 0, top + .22, .15); box(.32, .1, .12, 'dark', 0, top + .26, .4);  // người lái mũ vàng, kính
+      box(W * .57, .06, L * .8, 'white', 0, top + .005, 0);                                // sọc trắng
+    } else if (key === 'sport') {
+      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
+      box(W * .8, .36, L * .42, 'glass', 0, top + .18, -.15); box(W * .82, .06, L * .3, 'paint', 0, top + .38, -.15);   // mui xe
+      box(W + .02, .08, L * .9, 'white', 0, lift + s.h * .6, 0);
+    } else if (key === 'jeep') {
+      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
+      box(W * .92, .55, L * .5, 'paint', 0, top + .27, -.25); box(W * .94, .32, L * .44, 'glass', 0, top + .3, -.25);   // cabin + kính
+      parts.dark.push(new T.CylinderGeometry(.42, .42, .26, 14).rotateX(Math.PI / 2).translate(0, lift + s.h / 2 + .1, -L / 2 - .13));   // bánh dự phòng
+      box(W + .02, .1, L * .95, 'white', 0, lift + s.h * .55, 0);
+    } else if (key === 'bus') {
+      box(W, s.h + .5, L, 'paint', 0, lift + (s.h + .5) / 2, 0);
+      box(W + .03, .42, L * .82, 'glass', 0, top + .05, -.1); box(W * .9, .42, .04, 'glass', 0, top + .05, L / 2 + .01);   // dãy cửa kính, kính trước
+      box(W + .03, .1, L * .98, 'white', 0, lift + s.h * .45, 0);
+    } else if (key === 'pickup') {
+      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
+      box(W * .95, .6, L * .36, 'paint', 0, top + .3, L * .22); box(W * .97, .34, L * .3, 'glass', 0, top + .32, L * .24);  // cabin trước
+      box(.1, .3, L * .5, 'paint', -W / 2 + .05, top + .15, -L * .24); box(.1, .3, L * .5, 'paint', W / 2 - .05, top + .15, -L * .24); box(W, .3, .1, 'paint', 0, top + .15, -L / 2 + .05);   // thùng sau
+      box(W + .02, .08, L * .95, 'white', 0, lift + s.h * .55, 0);
+    } else {   // mô tô
+      box(W, s.h, L * .55, 'paint', 0, lift + s.h / 2 + .1, .1);
+      box(.36, .55, .32, 'dark', 0, top + .35, -.15); ball(.26, 'paint', 0, top + .82, -.05); box(.24, .08, .1, 'dark', 0, top + .84, .18);   // người lái, mũ cùng màu xe
+      box(.06, .5, .06, 'dark', 0, top + .1, .55);
+    }
+    box(.28, .14, .06, 'light', key === 'moto' ? 0 : -W / 2 + .3, lift + s.h * .55, L / 2 + .01); if (key !== 'moto') box(.28, .14, .06, 'light', W / 2 - .3, lift + s.h * .55, L / 2 + .01);
     Object.keys(parts).forEach(function (k) {
       if (!parts[k].length) return;
       var m = new T.Mesh(merge(parts[k]), k === 'paint' ? MAT[color] : MAT[k]); m.castShadow = true; body.add(m);
     });
-    // bánh xe: một trục trước, một trục sau (mỗi trục 1 lưới, quay quanh trục x)
-    var wheels = [], tire = function (x) { return new T.CylinderGeometry(s.wheel, s.wheel, s.moto ? .18 : .32, 14).rotateZ(Math.PI / 2).translate(x, 0, 0); };
-    var rim = function (x) { return new T.BoxGeometry(s.moto ? .2 : .34, s.wheel * 1.2, .12).translate(x, 0, 0); };
-    (s.moto ? [s.l / 2 - .35, -s.l / 2 + .35] : [s.l / 2 - .6, -s.l / 2 + .6]).forEach(function (z) {
-      var xs = s.moto ? [0] : [-s.w / 2, s.w / 2];
+    var wheels = [], tire = function (x) { return new T.CylinderGeometry(s.wheel, s.wheel, key === 'moto' ? .18 : .32, 14).rotateZ(Math.PI / 2).translate(x, 0, 0); };
+    var rim = function (x) { return new T.BoxGeometry(key === 'moto' ? .2 : .34, s.wheel * 1.2, .12).translate(x, 0, 0); };
+    (key === 'moto' ? [L / 2 - .35, -L / 2 + .35] : [L / 2 - .6, -L / 2 + .6]).forEach(function (z) {
+      var xs = key === 'moto' ? [0] : [-W / 2, W / 2];
       var ax = new T.Mesh(merge(xs.map(tire).concat(xs.map(rim))), MAT.dark); ax.castShadow = true; ax.position.set(0, s.wheel, z); g.add(ax); wheels.push(ax);
     });
     g.userData = { body: body, wheels: wheels, radius: s.wheel };
@@ -284,15 +311,22 @@
     syncCars(s.lanes);
     var lead = -3, sumZ = 0, cnt = 0, t = now / 1000, speed = 0, moving = 0;
     Object.keys(R.cars).forEach(function (id) {
-      var c = R.cars[id], l = c.data, o = c.obj, tz = targetZ(l, s.state);
-      var dz = (tz - c.z) * Math.min(1, dt * 1.7); if (Math.abs(tz - c.z) < .01) dz = tz - c.z; c.z += dz;
+      var c = R.cars[id], l = c.data, o = c.obj, tz = targetZ(l, s.state), dz;
+      // đang chạy sau câu đúng: đi đều từ chướng ngại cũ tới chướng ngại mới đúng bằng thời gian chạy (đúng liên tiếp chạy lâu hơn)
+      var since = Date.now() - (l.passAt || 0), driving = s.state === 'running' && l.driveMs > 0 && l.pos > 0 && since < l.driveMs;
+      if (driving) {
+        var f = since / l.driveMs, e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2, from = coneZ(l.pos - 1) - 4.5;
+        dz = from + (tz - from) * e - c.z; if (dz < 0) dz = 0; c.z += dz;
+      } else { dz = (tz - c.z) * Math.min(1, dt * 1.7); if (Math.abs(tz - c.z) < .01) dz = tz - c.z; c.z += dz; }
+      c.turbo = driving && l.streak >= 2;
       o.position.z = c.z; o.position.x += (laneX(c.lane) - o.position.x) * Math.min(1, dt * 4);
       var spin = dz / c.obj.userData.radius; c.obj.userData.wheels.forEach(function (w) { w.rotation.x += spin; });
       var body = o.userData.body;
       if (l.penalty) { body.rotation.y = Math.sin(t * 22) * .28; body.position.y = Math.abs(Math.sin(t * 15)) * .12; puff(c, o, dt); }
       else if (l.done) { body.rotation.y *= .9; body.position.y = Math.abs(Math.sin(t * 4 + c.lane)) * .25; }
       else { body.rotation.y *= .85; body.position.y = Math.abs(dz) > .02 ? Math.sin(t * 30) * .03 : 0; }
-      var e = s.state === 'idle' ? '' : l.done ? '🏁' : l.penalty ? '💥' : l.asking ? '❓' : '';
+      var e = s.state === 'idle' ? '' : c.turbo ? '🔥' : l.done ? '🏁' : l.penalty ? '💥' : l.asking ? '❓' : '';
+      if (c.turbo) puffFire(c, o, dt);
       c.ico.visible = !!e; if (e && c.ico.material.map !== emojiTex(e)) { c.ico.material.map = emojiTex(e); c.ico.material.needsUpdate = true; }
       c.ico.position.y = 5.2 + Math.sin(t * 4) * .15;
       // nón đã vượt chuyển xám
@@ -312,10 +346,14 @@
     c.puffT = (c.puffT || 0) - dt; if (c.puffT > 0) return; c.puffT = .12;
     var m = sprite(emojiTex('💨'), .9, .9); m.material.opacity = .9; m.position.set(o.position.x + (Math.random() - .5), .6, o.position.z - 1.8); R.scene.add(m); c.smoke.push({ mesh: m, life: .9 });
   }
+  function puffFire(c, o, dt) {   // lửa phụt sau xe khi tăng tốc
+    c.fireT = (c.fireT || 0) - dt; if (c.fireT > 0) return; c.fireT = .07;
+    var m = sprite(emojiTex('🔥'), .8, .8); m.material.opacity = .95; m.position.set(o.position.x + (Math.random() - .5) * .4, .5, o.position.z - 2); R.scene.add(m); c.smoke.push({ mesh: m, life: .5 });
+  }
   function moveCamera(lead, avg, dt) {
     var W = R.roadW, cam = R.camera, p = new T.Vector3(), look = new T.Vector3(), mode = CAMS[R.cam];
     var focus = Math.max(-3, Math.min(R.L + 8, lead * .5 + avg * .5));
-    if (mode === 'follow') { p.set(0, Math.max(7, W * .42), focus - Math.max(13, W * .55)); look.set(0, 0, focus + 10); }
+    if (mode === 'follow') { p.set(0, Math.max(10.5, W * .42), focus - Math.max(13, W * .55)); look.set(0, 0, focus + 10); }
     else if (mode === 'tv') { p.set(W / 2 + Math.max(10, W * .35), Math.max(6, W * .18), focus - 8); look.set(0, 0, focus + 6); }
     else { p.set(W * .5 + 6, Math.max(R.L * .34, W * .8) + 8, -10); look.set(0, 0, R.L * .42); }
     var k = Math.min(1, dt * 2.2); cam.position.lerp(p, k); R.look.lerp(look, k); cam.lookAt(R.look);
