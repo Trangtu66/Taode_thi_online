@@ -16,7 +16,7 @@
 <script src="game3d_chung.js?v=20261123c"></script>
 <script src="bell3d.js?v=20261123c"></script>
 <script src="tug3d.js?v=20261123c"></script>
-<script src="race3d.js?v=20261123c"></script>
+<script src="race3d.js?v=20261123d"></script>
 <script src="nhipdo3d.js?v=20261123c"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -565,11 +565,12 @@ const ANH = {
     const mayPos = Math.min(n, Math.floor(pMay * n + 1e-9));
     if (mayPos !== V.mayPos){ V.mayPos = mayPos; V.mayPassAt = now; }
     const emXong = V.k >= n, mayXong = mayPos >= n;
-    const hang = emXong && (!mayXong || V.emVe <= V.mayVe) ? 1 : 2;
+    // Hạng theo vị trí thật: về đích trước xếp trên; đang chạy thì xe nào vượt nhiều chướng ngại hơn xếp trên (bằng nhau: em xếp trên)
+    const hang = emXong ? (!mayXong || V.emVe <= V.mayVe ? 1 : 2) : mayXong ? 2 : (V.k >= mayPos ? 1 : 2);
     if (emXong && !V.emVe) V.emVe = V.ketThuc || now; if (mayXong && !V.mayVe) V.mayVe = V.ketThuc && V.tg() / 1000 < V.giayMay ? now : (V.bd + V.giayMay * 1000);
-    return { state: dem ? 'countdown' : 'running', total: n, lanes: [
-      { id: 'em', name: tenNgan(), car: XE, color: RACE_CARS[XE].color, pos: V.k, done: emXong, penalty: V.khoaDen > now && !dem, asking: !emXong && !(V.khoaDen > now), rank: emXong ? hang : 1, driveMs: 1600, passAt: V.passAt || 0, streak: V.chuoiDung || 0 },
-      { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: mayXong ? (emXong && V.emVe <= V.mayVe ? 2 : 1) : 2, driveMs: 1600, passAt: V.mayPassAt || 0, streak: 0 }
+    return { state: dem ? 'countdown' : 'running', total: n, focusId: 'em', lanes: [
+      { id: 'em', name: '⭐ ' + tenNgan(), car: XE, color: RACE_CARS[XE].color, pos: V.k, done: emXong, penalty: V.khoaDen > now && !dem, asking: !emXong && !(V.khoaDen > now), rank: hang, driveMs: 1600, passAt: V.passAt || 0, streak: V.chuoiDung || 0 },
+      { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: 3 - hang, driveMs: 1600, passAt: V.mayPassAt || 0, streak: 0 }
     ] };
   },
   nhip: () => ({ info: !V ? 'SẴN SÀNG' : V.xong ? 'HOÀN THÀNH ' + CAU.length + ' CÂU' : V.hetGio ? 'HẾT GIỜ NHỊP – TRẢ LỜI LẠI CÂU ' + (V.k + 1) : 'CÂU ' + Math.min(V.k + 1, CAU.length) + '/' + CAU.length,

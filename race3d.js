@@ -2,6 +2,7 @@
 // Dùng: Race3D.mount(el, snapshot)  – snapshot() trả {state, total, lanes:[{id, name, car, color, pos, done, penalty, asking, rank}]}
 //       Race3D.camera()             – đổi góc quay: Bám đuôi dẫn đầu → Truyền hình (bên hông) → Toàn cảnh
 //       Race3D.stop() / Race3D.supported()
+//       Tự chơi (tu_choi.html): snapshot.focusId = id xe camera luôn bám (xe của em), không bám xe dẫn đầu.
 (function () {
   'use strict';
   var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js';
@@ -396,6 +397,7 @@
       var v = Math.abs(dz) / Math.max(dt, .001); speed = Math.max(speed, v); if (v > 1) moving++; auEvents(c, l, s);
       lead = Math.max(lead, c.z); sumZ += c.z; cnt++;
     });
+    if (s.focusId && R.cars[s.focusId]) { lead = R.cars[s.focusId].z; sumZ = lead * Math.max(cnt, 1); cnt = Math.max(cnt, 1); }   // camera bám xe được chỉ định
     auEngine(s, speed, moving, dt, true);
     moveCamera(lead, cnt ? sumZ / cnt : -3, dt);
     var r0 = performance.now(); R.renderer.render(R.scene, R.camera); R.ms = R.ms * .9 + (performance.now() - r0) * .1;
