@@ -1,6 +1,7 @@
 // RUNG CHUÔNG VÀNG – SÀN THI ĐẤU 3D (cần game3d_chung.js). Chỉ thay phần hiển thị trên máy GV, luật chơi giữ nguyên.
 // Bell3D.mount(el, snapshot) – snapshot() trả {players:[{id, name, alive}], revealed, qNum, total}
 // Bell3D.ring() – chuông vàng lắc + ngân (gọi khi còn 1 HS trên sàn / kết thúc)
+// Tự chơi (tu_choi.html): player.wrong = true → vẫn ngồi trên sàn, bảng chuyển đỏ; snapshot.info = {text, color} → thay dòng "CÒN x/y HỌC SINH TRÊN SÀN".
 (function () {
   'use strict';
   var T, S = null, COLS = [0x6366f1, 0x0ea5e9, 0x10b981, 0xf59e0b, 0xec4899, 0x8b5cf6, 0x14b8a6, 0xef4444];
@@ -55,11 +56,11 @@
         k = S.kids[p.id] = { obj: o, lab: lab, alive: null, name: '' };
       }
       if (k.name !== p.name) { k.name = p.name; G3D.setSprite(k.lab, G3D.label(p.name, '#facc15')); }
-      if (k.alive !== p.alive) {
+      if (k.alive !== p.alive || k.wrong !== !!p.wrong) {
         if (k.alive === true && !p.alive) { k.fallT = 1; S.out++; }
-        k.alive = p.alive;
+        k.alive = p.alive; k.wrong = !!p.wrong;
         var parts = k.obj.userData.parts;
-        if (parts.board) parts.board.material = p.alive ? G3D.mat('board', 0xffffff) : G3D.mat('boardOut', 0xef4444);
+        if (parts.board) parts.board.material = p.alive && !p.wrong ? G3D.mat('board', 0xffffff) : G3D.mat('boardOut', 0xef4444);
       }
     });
     Object.keys(S.kids).forEach(function (id) { if (!seen[id]) { S.scene.remove(S.kids[id].obj); delete S.kids[id]; } });
@@ -75,8 +76,8 @@
     var now = performance.now(), dt = Math.min(.05, (now - (S.last || now)) / 1000), t = now / 1000; S.last = now;
     var s = S.snapshot() || { players: [] };
     var n = sync(s.players), tot = s.players.length;
-    var key = n + '/' + tot;
-    if (key !== S.infoKey) { S.infoKey = key; G3D.setSprite(S.info, G3D.banner(tot ? 'CÒN ' + n + '/' + tot + ' HỌC SINH TRÊN SÀN' : 'QUÉT MÃ QR ĐỂ VÀO SÀN', n === 1 && tot > 1 ? '#ca8a04' : '#16a34a')); }
+    var key = s.info ? 'i|' + s.info.text + '|' + s.info.color : n + '/' + tot;
+    if (key !== S.infoKey) { S.infoKey = key; G3D.setSprite(S.info, s.info ? G3D.banner(s.info.text, s.info.color || '#16a34a') : G3D.banner(tot ? 'CÒN ' + n + '/' + tot + ' HỌC SINH TRÊN SÀN' : 'QUÉT MÃ QR ĐỂ VÀO SÀN', n === 1 && tot > 1 ? '#ca8a04' : '#16a34a')); }
     Object.keys(S.kids).forEach(function (id, idx) {
       var k = S.kids[id], o = k.obj, b = o.userData.body;
       if (k.target) { o.position.x += (k.target.x - o.position.x) * Math.min(1, dt * 2.5); o.position.z += (k.target.z - o.position.z) * Math.min(1, dt * 2.5); o.position.y += (k.target.y - o.position.y) * Math.min(1, dt * 4); }

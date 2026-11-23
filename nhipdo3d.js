@@ -1,5 +1,6 @@
 // THI ĐẤU THEO NHỊP ĐỘ – SÂN KHẤU 3D (cần game3d_chung.js). Chỉ thay phần hiển thị trên máy GV, luật chơi giữ nguyên.
 // ND3D.mount(el, snapshot) – snapshot() trả {phase: lobby|q|reveal|end, players:[{id, n, s, done, streak}] (đã xếp hạng), answered, total}
+//   Tự chơi (tu_choi.html): snapshot.info = chữ trên biển thông báo (thay "ĐÃ TRẢ LỜI x/y").
 //   lobby: HS vào sàn đứng thành hàng, vẫy tay · q: HS đã trả lời hiện ✓ · reveal/end: cột Top 10 dâng theo điểm, hạng 1 đội vương miện.
 (function () {
   'use strict';
@@ -62,6 +63,7 @@
     var podium = s.phase === 'reveal' || s.phase === 'end', n = s.players.length, max = 1;
     s.players.forEach(function (p) { max = Math.max(max, p.s || 0); });
     var info = s.phase === 'lobby' ? (n ? n + ' HỌC SINH ĐÃ VÀO SÀN' : 'QUÉT MÃ QR ĐỂ VÀO SÀN') : s.phase === 'q' ? 'ĐÃ TRẢ LỜI ' + s.answered + '/' + n : s.phase === 'end' ? '🏆 VINH DANH' : '🏆 BẢNG XẾP HẠNG TOP ' + Math.min(TOP, n);
+    if (s.info) info = s.info;
     if (info !== S.infoKey) { S.infoKey = info; G3D.setSprite(S.info, G3D.banner(info, s.phase === 'q' ? '#7c3aed' : '#0891b2')); }
     // cột xếp hạng
     S.cols.forEach(function (c, r) {

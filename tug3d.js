@@ -1,6 +1,7 @@
 // KÉO CO KIẾN THỨC – MÀN CHIẾU 3D (Three.js) + ÂM THANH (Web Audio tổng hợp, không cần file mp3).
 // Chỉ thay phần hiển thị và âm thanh trên máy GV; luật chơi, chấm điểm, điện thoại HS giữ nguyên.
 // Tug3D.mount(el, snapshot)  – snapshot() trả {pos (-5..5, âm: Đỏ thắng thế), redScore, blueScore, red:[tên], blue:[tên]}
+//   Tự chơi (tu_choi.html) thêm: redTitle/blueTitle, redSub/blueSub (chữ trên bảng điểm), win ('red'|'blue'|'' – đội thắng khi hết ván).
 // TugAudio.pull(team) / win(team) – nhạc mừng chiến thắng / victoryStop() / musicStart() / musicStop() / musicOn(v) / unlock()
 (function () {
   'use strict';
@@ -20,11 +21,11 @@
     return tex(384, 96, function (g, w, h) { g.fillStyle = 'rgba(15,23,42,.8)'; rr(g, 4, 10, w - 8, h - 20, 30); g.fill(); g.fillStyle = col; g.fillRect(18, 30, 12, 36);
       g.fillStyle = '#fff'; g.font = '800 40px Arial'; g.textBaseline = 'middle'; var t = String(name); while (g.measureText(t).width > w - 60 && t.length > 2) t = t.slice(0, -2); if (t !== String(name)) t += '…'; g.fillText(t, 42, h / 2 + 2); });
   }
-  function boardTex(team, score, extra) {
+  function boardTex(team, score, extra, title) {
     var red = team === 'red';
     return tex(768, 256, function (g, w, h) {
       g.fillStyle = red ? '#e11d48' : '#0284c7'; rr(g, 6, 6, w - 12, h - 12, 36); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 10; g.stroke();
-      g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '900 72px Arial'; g.fillText(red ? '🔴 ĐỘI ĐỎ' : 'ĐỘI XANH 🔵', w / 2, 100);
+      g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '900 72px Arial'; g.fillText(title || (red ? '🔴 ĐỘI ĐỎ' : 'ĐỘI XANH 🔵'), w / 2, 100);
       g.font = '900 84px Arial'; g.fillText(score + ' điểm', w / 2, 196); if (extra) { g.font = '700 30px Arial'; g.fillText(extra, w / 2, 236); }
     });
   }
@@ -194,7 +195,7 @@
     if (s.pos !== S.pos) { if (S.pos !== undefined) { S.jerk = 1; S.jerkTeam = s.pos < S.pos ? 'red' : 'blue'; } S.pos = s.pos; }
     var target = s.pos * STEP; S.x += (target - S.x) * Math.min(1, dt * 2.2); S.rope.position.x = S.x;
     S.jerk = Math.max(0, (S.jerk || 0) - dt * 1.4);
-    var win = s.pos <= -5 ? 'red' : s.pos >= 5 ? 'blue' : '';
+    var win = s.win !== undefined ? s.win : s.pos <= -5 ? 'red' : s.pos >= 5 ? 'blue' : '';
     S.ribbon.rotation.y = Math.sin(t * 3) * .4; S.ribbon.rotation.x = Math.sin(t * 2.3) * .15;
     var sag = .06 + (S.jerk ? Math.sin(t * 38) * S.jerk * .07 : Math.sin(t * 5) * .01);   // dây căng, rung khi bị giật
     if (Math.abs(sag - (S.sag || 0)) > .004) buildRope(sag);
@@ -206,11 +207,11 @@
       if (win) { if (k.team === win) { lean = .02; cheer = true; lift = Math.abs(Math.sin(t * 7 + k.i)) * .3; } else lean = -.3; }
       k.obj.userData.pose(lean, lift, cheer, t);
     });
-    var key = s.redScore + '|' + s.blueScore + '|' + s.red.length + '|' + s.blue.length;
+    var key = s.redScore + '|' + s.blueScore + '|' + s.red.length + '|' + s.blue.length + '|' + (s.redTitle || '') + (s.blueTitle || '') + (s.redSub || '') + (s.blueSub || '');
     if (key !== S.boardKey) {
       S.boardKey = key;
-      [['red', S.boardR, s.redScore, s.red.length], ['blue', S.boardB, s.blueScore, s.blue.length]].forEach(function (a) {
-        a[1].material.map.dispose(); a[1].material.map = boardTex(a[0], a[2], a[3] ? a[3] + ' học sinh' : ''); a[1].material.needsUpdate = true;
+      [['red', S.boardR, s.redScore, s.red.length, s.redTitle, s.redSub], ['blue', S.boardB, s.blueScore, s.blue.length, s.blueTitle, s.blueSub]].forEach(function (a) {
+        a[1].material.map.dispose(); a[1].material.map = boardTex(a[0], a[2], a[5] !== undefined ? a[5] : a[3] ? a[3] + ' học sinh' : '', a[4]); a[1].material.needsUpdate = true;
       });
     }
     var cam = S.camera, cx = S.x * .7 + Math.sin(t * .25) * .8;
