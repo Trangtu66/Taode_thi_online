@@ -245,8 +245,12 @@
   function ctx() {
     if (A.ctx) { if (A.ctx.state === 'suspended') A.ctx.resume(); return A.ctx; }
     var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
-    A.ctx = new C(); A.fx = A.ctx.createGain(); A.fx.gain.value = .9; A.fx.connect(A.ctx.destination);
-    A.mu = A.ctx.createGain(); A.mu.gain.value = 0; A.mu.connect(A.ctx.destination);
+    A.ctx = new C();
+    // Tầng ra loa: nén + khuếch đại (GV phản ánh 23/11/2026 âm thanh còn nhỏ) – to hơn mà không rè vỡ tiếng
+    var cp = A.ctx.createDynamicsCompressor(); cp.threshold.value = -20; cp.knee.value = 12; cp.ratio.value = 4; cp.attack.value = .004; cp.release.value = .2;
+    A.out = A.ctx.createGain(); A.out.gain.value = 2.2; cp.connect(A.out); A.out.connect(A.ctx.destination); A.bus = cp;
+    A.fx = A.ctx.createGain(); A.fx.gain.value = 1; A.fx.connect(A.bus);
+    A.mu = A.ctx.createGain(); A.mu.gain.value = 0; A.mu.connect(A.bus);
     var b = A.ctx.createBuffer(1, A.ctx.sampleRate * 2, A.ctx.sampleRate), d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; A.noise = b;
     return A.ctx;
   }
@@ -301,7 +305,7 @@
   function victory() {
     if (!ctx() || A.ctx.state !== 'running') return;
     victoryStop(); musicStop();
-    var c = A.ctx, out = c.createGain(); out.gain.value = .85; out.connect(c.destination); A.vic = out;
+    var c = A.ctx, out = c.createGain(); out.gain.value = .85; out.connect(A.bus); A.vic = out;
     var t0 = c.currentTime + .05, beat = 60 / 132, e = beat / 2, bar = beat * 4, PASS = 2;
     cheer(t0, 3.5, .5); for (var i = 0; i < 12; i++) tone(t0 + i * .06, 120, .1, 'sine', .3, out, 60);      // trống dồn mở màn
     var s0 = t0 + .8;
@@ -354,7 +358,7 @@
   function musicStart() {
     if (!A.music || A.playing || !ctx() || victoryPlaying()) return;   // đang phát nhạc mừng thì chưa bật lại trống hội
     A.playing = true; A.step = 0; A.next = A.ctx.currentTime + .08;
-    A.mu.gain.cancelScheduledValues(A.ctx.currentTime); A.mu.gain.setTargetAtTime(.3, A.ctx.currentTime, .4);
+    A.mu.gain.cancelScheduledValues(A.ctx.currentTime); A.mu.gain.setTargetAtTime(.45, A.ctx.currentTime, .4);
     A.timer = setInterval(tick, 25); tick();
   }
   function musicStop() { if (!A.playing) return; A.playing = false; clearInterval(A.timer); if (A.mu) A.mu.gain.setTargetAtTime(0, A.ctx.currentTime, .2); }

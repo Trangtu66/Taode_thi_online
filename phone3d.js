@@ -14,7 +14,9 @@
   function eng() {
     if (PS.ctx) { if (PS.ctx.state === 'suspended') PS.ctx.resume(); return PS.ctx; }
     var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
-    var c = PS.ctx = new C(); PS.g = c.createGain(); PS.g.gain.value = 0; PS.g.connect(c.destination);
+    var c = PS.ctx = new C();
+    var cp = c.createDynamicsCompressor(); cp.threshold.value = -20; cp.knee.value = 12; cp.ratio.value = 4; PS.out = c.createGain(); PS.out.gain.value = 2.2; cp.connect(PS.out); PS.out.connect(c.destination); PS.bus = cp;   // to hơn, không rè
+    PS.g = c.createGain(); PS.g.gain.value = 0; PS.g.connect(PS.bus);
     PS.lp = c.createBiquadFilter(); PS.lp.type = 'lowpass'; PS.lp.frequency.value = 500; PS.lp.connect(PS.g);
     PS.o1 = c.createOscillator(); PS.o1.type = 'sawtooth'; PS.o2 = c.createOscillator(); PS.o2.type = 'square';
     var g2 = c.createGain(); g2.gain.value = .4; PS.o1.connect(PS.lp); PS.o2.connect(g2); g2.connect(PS.lp); PS.o1.start(); PS.o2.start();
@@ -27,7 +29,7 @@
     PS.lp.frequency.setTargetAtTime(on ? (turbo ? 1500 : 900) : 300, t, .2);
     PS.g.gain.setTargetAtTime(on && PS.enabled ? (turbo ? .07 : .05) : 0, t, .2);
   }
-  function blip(f1, f2, len, type, vol) { if (!PS.enabled || !eng()) return; var c = PS.ctx, t = c.currentTime, o = c.createOscillator(), g = c.createGain(); o.type = type; o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + len); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + len); o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + len + .02); }
+  function blip(f1, f2, len, type, vol) { if (!PS.enabled || !eng()) return; var c = PS.ctx, t = c.currentTime, o = c.createOscillator(), g = c.createGain(); o.type = type; o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + len); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + len); o.connect(g); g.connect(PS.bus || c.destination); o.start(t); o.stop(t + len + .02); }
   window.PhoneSound = {
     on: function (v) { if (v === undefined) return PS.enabled; PS.enabled = !!v; try { localStorage.setItem('phone_sound', PS.enabled ? 'on' : 'off'); } catch (e) {} if (!PS.enabled) engine(false); return PS.enabled; },
     unlock: function () { eng(); if (window.GameAudio) GameAudio.unlock(); },

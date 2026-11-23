@@ -164,12 +164,13 @@
         }
 
         /* Sân kéo co luôn nhìn thấy khi cuộn xuống đọc đề (ghim dưới thanh menu; khi Toàn màn hình ghim sát mép trên) */
-        #tug-arena { position: sticky; top: 4.25rem; z-index: 30; }
-        .fullscreen-stage #tug-arena { top: -0.5rem; }
-        #tug-scene-svg { height: clamp(130px, 25vh, 240px); }
+        #tug-bottom-controls { position: sticky; top: 4.25rem; z-index: 30; }
+        .fullscreen-stage #tug-bottom-controls { top: -0.5rem; }
+        #tug-scene-svg { height: clamp(110px, 20vh, 200px); }
+        .fullscreen-stage #tug-3d { height: 28vh; max-height: 320px; }
         .fullscreen-stage #tug-scene-svg { height: clamp(150px, 30vh, 300px); }
         @media (max-width: 639px) {
-            #tug-arena { position: static; }
+            #tug-bottom-controls { position: static; }
             #tug-scene-svg, .fullscreen-stage #tug-scene-svg { height: auto; }
         }
 
@@ -843,7 +844,7 @@
                     </div>
 
                     <!-- Sân đấu Kéo Co 3D (tug3d.js) -->
-                    <div id="tug-3d" class="hidden w-full h-[42vh] min-h-[260px] rounded-2xl overflow-hidden border-2 border-white/80 bg-sky-200"></div>
+                    <div id="tug-3d" class="hidden w-full h-[30vh] min-h-[170px] max-h-[300px] rounded-2xl overflow-hidden border-2 border-white/80 bg-sky-200"></div>
                     <!-- Sân đấu Kéo Co 2D: 4 học sinh Đỏ – 4 học sinh Xanh, cùng khung xương với bản 3D (áo cổ trắng, không khăn quàng) -->
                     <div id="tug-2d-wrap" class="relative w-full overflow-hidden rounded-2xl border-2 border-white/80 dark:border-slate-700 shadow-sm" style="background: linear-gradient(to bottom, #d7f0ff 0%, #f3fbff 66%, #c8f2d0 76%, #9be9a8 85%, #5cc97a 100%);">
                         <svg id="tug-scene-svg" viewBox="0 0 1000 228" preserveAspectRatio="xMidYMid meet" class="w-full block select-none">
@@ -916,48 +917,39 @@
                     </div>
 
                 </div>
-
-                <!-- Danh sách Họ Tên Học Sinh Quét Mã QR Hiện Lên Sàn Đấu Kéo Co -->
-                <div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <div class="p-2.5 rounded-xl bg-rose-50/90 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
-                            <div class="text-[11px] font-black text-rose-700 dark:text-rose-300 mb-1 flex items-center justify-between">
-                                <span>🔴 SÀN ĐẤU ĐỘI ĐỎ (<span id="tug-red-count">0</span> HS)</span>
-                                <span class="text-[10px] font-semibold opacity-80">Quét QR hiện họ tên</span>
-                            </div>
-                            <div id="tug-red-players-list" class="flex flex-wrap gap-1.5 min-h-[26px] items-center text-xs"></div>
+                        <!-- Hàng điều khiển Kéo Co: đặt NGAY DƯỚI SÂN, ghim cùng sân để GV bấm mà không phải cuộn trang (GV yêu cầu 23/11/2026) -->
+                    <div id="tug-bottom-controls" class="z-controls flex flex-wrap items-center justify-between gap-2 bg-slate-100 dark:bg-slate-900 p-2.5 rounded-2xl border border-slate-300 dark:border-slate-700 shadow-md">
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="prevTugQuestion()" class="px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-200 font-extrabold text-xs border shadow-sm cursor-pointer">
+                                ⬅ Câu Trước
+                            </button>
+                            <button type="button" onclick="nextTugQuestion()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow cursor-pointer">
+                                Câu Tiếp ➡
+                            </button>
                         </div>
-                        <div class="p-2.5 rounded-xl bg-sky-50/90 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800">
-                            <div class="text-[11px] font-black text-sky-700 dark:text-sky-300 mb-1 flex items-center justify-between">
-                                <span>🔵 SÀN ĐẤU ĐỘI XANH (<span id="tug-blue-count">0</span> HS)</span>
-                                <span class="text-[10px] font-semibold opacity-80">Quét QR hiện họ tên</span>
-                            </div>
-                            <div id="tug-blue-players-list" class="flex flex-wrap gap-1.5 min-h-[26px] items-center text-xs"></div>
+
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            <span id="tug-command-status-badge" class="px-2.5 py-2 text-xs rounded-lg bg-amber-100 text-amber-800 font-extrabold">⏳ Chờ hiệu lệnh GV</span>
+                            <button type="button" onclick="teacherIssueStartCommand('tug')" class="px-3.5 py-2 rounded-xl text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black shadow">
+                                📢 Phát hiệu lệnh
+                            </button>
+                            <button type="button" onclick="teacherLockStudentPad()" class="px-3 py-2 rounded-xl text-xs bg-rose-600 hover:bg-rose-700 text-white font-bold shadow">
+                                🔒 Khoá máy HS
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="awardTugPoint('red')" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs shadow cursor-pointer">
+                                👈 +1 Kéo Về ĐỘI ĐỎ
+                            </button>
+                            <button type="button" onclick="revealTugAnswer()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow cursor-pointer">
+                                👁️ Mở Đáp Án & Giải Thích
+                            </button>
+                            <button type="button" onclick="awardTugPoint('blue')" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs shadow cursor-pointer">
+                                +1 Kéo Về ĐỘI XANH 👉
+                            </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Thanh Stepper 22 Câu của Kéo Co -->
-                <div id="tug-stepper" class="flex items-center gap-1 overflow-x-auto custom-scroll py-1"></div>
-
-                <!-- Thanh Âm Thanh Kịch Tính & Hiệu Lệnh Giáo Viên (Kéo Co) -->
-                <div class="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-slate-900 text-white border border-rose-500/40 text-xs shadow">
-                    <div class="flex flex-wrap items-center gap-1.5">
-                        <span class="font-extrabold text-amber-300" title="Nhạc kịch tính">🎼</span>
-                        <button type="button" onclick="playPartMusic(1)" class="px-2.5 py-1 rounded-lg bg-indigo-900/90 hover:bg-indigo-700 text-indigo-100 font-bold border border-indigo-400/40">🔔 Khởi động</button>
-                        <button type="button" onclick="playPartMusic(2)" class="px-2.5 py-1 rounded-lg bg-amber-900/80 hover:bg-amber-700 text-amber-100 font-bold border border-amber-400/40">⚡ Tăng tốc</button>
-                        <button type="button" onclick="playPartMusic(3)" class="px-2.5 py-1 rounded-lg bg-rose-900/80 hover:bg-rose-700 text-rose-100 font-bold border border-rose-400/40">🏁 Về đích</button>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-1.5">
-                        <span id="tug-command-status-badge" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 font-extrabold">⏳ Chờ hiệu lệnh GV</span>
-                        <button type="button" onclick="teacherIssueStartCommand('tug')" class="px-3 py-1 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black shadow">
-                            📢 Phát hiệu lệnh
-                        </button>
-                        <button type="button" onclick="teacherLockStudentPad()" class="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold shadow">
-                            🔒 Khoá máy HS
-                        </button>
-                    </div>
-                </div>
 
                 <!-- Khung Câu hỏi Kéo Co (Đầy đủ Đồng hồ 30s, Bảng biến thiên có mũi tên, Tương tác 3 phần) -->
                 <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 space-y-4">
@@ -991,29 +983,40 @@
                     </div>
                 </div>
 
-                <!-- Hàng điều khiển phía dưới của Kéo Co (Luôn bấm được khi Toàn màn hình) -->
-                <div id="tug-bottom-controls" class="z-controls flex flex-wrap items-center justify-between gap-2 bg-slate-100 dark:bg-slate-900 p-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 shadow-md">
-                    <div class="flex items-center gap-2">
-                        <button type="button" onclick="prevTugQuestion()" class="px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-200 font-extrabold text-xs border shadow-sm cursor-pointer">
-                            ⬅ Câu Trước
-                        </button>
-                        <button type="button" onclick="nextTugQuestion()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow cursor-pointer">
-                            Câu Tiếp ➡
-                        </button>
-                    </div>
 
-                    <div class="flex flex-wrap items-center gap-2">
-                        <button type="button" onclick="awardTugPoint('red')" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs shadow cursor-pointer">
-                            👈 +1 Kéo Về ĐỘI ĐỎ
-                        </button>
-                        <button type="button" onclick="revealTugAnswer()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow cursor-pointer">
-                            👁️ Mở Đáp Án & Giải Thích
-                        </button>
-                        <button type="button" onclick="awardTugPoint('blue')" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs shadow cursor-pointer">
-                            +1 Kéo Về ĐỘI XANH 👉
-                        </button>
+                <!-- Thanh nhạc kịch tính theo phần (Kéo Co) – đặt dưới đề -->
+                <div class="flex flex-wrap items-center justify-start gap-2 px-3.5 py-2 rounded-xl bg-slate-900 text-white border border-rose-500/40 text-xs shadow">
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <span class="font-extrabold text-amber-300" title="Nhạc kịch tính">🎼</span>
+                        <button type="button" onclick="playPartMusic(1)" class="px-2.5 py-1 rounded-lg bg-indigo-900/90 hover:bg-indigo-700 text-indigo-100 font-bold border border-indigo-400/40">🔔 Khởi động</button>
+                        <button type="button" onclick="playPartMusic(2)" class="px-2.5 py-1 rounded-lg bg-amber-900/80 hover:bg-amber-700 text-amber-100 font-bold border border-amber-400/40">⚡ Tăng tốc</button>
+                        <button type="button" onclick="playPartMusic(3)" class="px-2.5 py-1 rounded-lg bg-rose-900/80 hover:bg-rose-700 text-rose-100 font-bold border border-rose-400/40">🏁 Về đích</button>
                     </div>
                 </div>
+
+                <!-- Thanh Stepper 22 Câu của Kéo Co -->
+                <div id="tug-stepper" class="flex items-center gap-1 overflow-x-auto custom-scroll py-1"></div>
+
+                <!-- Danh sách Họ Tên Học Sinh Quét Mã QR Hiện Lên Sàn Đấu Kéo Co -->
+                <div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <div class="p-2.5 rounded-xl bg-rose-50/90 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
+                            <div class="text-[11px] font-black text-rose-700 dark:text-rose-300 mb-1 flex items-center justify-between">
+                                <span>🔴 SÀN ĐẤU ĐỘI ĐỎ (<span id="tug-red-count">0</span> HS)</span>
+                                <span class="text-[10px] font-semibold opacity-80">Quét QR hiện họ tên</span>
+                            </div>
+                            <div id="tug-red-players-list" class="flex flex-wrap gap-1.5 min-h-[26px] items-center text-xs"></div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-sky-50/90 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800">
+                            <div class="text-[11px] font-black text-sky-700 dark:text-sky-300 mb-1 flex items-center justify-between">
+                                <span>🔵 SÀN ĐẤU ĐỘI XANH (<span id="tug-blue-count">0</span> HS)</span>
+                                <span class="text-[10px] font-semibold opacity-80">Quét QR hiện họ tên</span>
+                            </div>
+                            <div id="tug-blue-players-list" class="flex flex-wrap gap-1.5 min-h-[26px] items-center text-xs"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1531,6 +1534,7 @@
         let soundMuted = false;
         let audioCtx = null;
         let masterBus = null;
+        let outBus = null; // đầu vào tầng nén + khuếch đại trước loa
         let tensionLoopInterval = null;
         let lobbyMusicActive = false;
         let currentMusicStyle = 'olympia'; // 'olympia' | 'kahoot' | 'millionaire' | 'minimal' | 'custom_mp3'
@@ -1543,10 +1547,15 @@
                 const AudioContextClass = window.AudioContext || window.webkitAudioContext;
                 if (AudioContextClass) {
                     audioCtx = new AudioContextClass();
+                    // Tầng ra loa: nén + khuếch đại cho phòng học (GV phản ánh 23/11/2026 âm thanh còn nhỏ)
+                    const comp = audioCtx.createDynamicsCompressor();
+                    comp.threshold.value = -22; comp.knee.value = 12; comp.ratio.value = 4; comp.attack.value = 0.004; comp.release.value = 0.2;
+                    outBus = audioCtx.createGain(); outBus.gain.value = 2.6;
+                    comp.connect(outBus); outBus.connect(audioCtx.destination); outBus = comp;
                     // Tạo bộ lọc âm thanh ấm áp + hiệu ứng vang nhẹ (Warm Lowpass + Soft Echo Delay)
                     const filter = audioCtx.createBiquadFilter();
                     filter.type = 'lowpass';
-                    filter.frequency.value = 2200;
+                    filter.frequency.value = 4200; // mở rộng dải cao cho tiếng chuông rõ hơn trên loa lớp học
                     filter.Q.value = 0.7;
 
                     const delay = audioCtx.createDelay();
@@ -1556,12 +1565,12 @@
                     const wetGain = audioCtx.createGain();
                     wetGain.gain.value = 0.25;
 
-                    filter.connect(audioCtx.destination);
+                    filter.connect(outBus);
                     filter.connect(delay);
                     delay.connect(feedback);
                     feedback.connect(delay);
                     delay.connect(wetGain);
-                    wetGain.connect(audioCtx.destination);
+                    wetGain.connect(outBus);
 
                     masterBus = filter;
                 }
@@ -1578,7 +1587,7 @@
             if (!ctx) return;
             try {
                 const now = ctx.currentTime + startTimeOffset;
-                const dest = masterBus || ctx.destination;
+                const dest = masterBus || outBus || ctx.destination;
 
                 // Âm cơ bản (Sine ấm áp)
                 const osc1 = ctx.createOscillator();
@@ -1632,7 +1641,7 @@
                 gain.gain.linearRampToValueAtTime(volume, now + 0.005);
                 gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.055);
                 osc.connect(gain);
-                gain.connect(ctx.destination);
+                gain.connect(outBus || ctx.destination);
                 osc.start(now);
                 osc.stop(now + 0.06);
             } catch (e) {}
@@ -1659,7 +1668,7 @@
             customBgAudioUrl = URL.createObjectURL(file);
             customBgAudio = new Audio(customBgAudioUrl);
             customBgAudio.loop = true;
-            customBgAudio.volume = 0.55;
+            customBgAudio.volume = 1.0;
             currentMusicStyle = 'custom_mp3';
             showToast(`🎧 Đã nạp file nhạc "${file.name}"! Sẽ phát khi bật nhạc nền hoặc đếm ngược.`);
             if (lobbyMusicActive || tensionLoopInterval) {
@@ -6139,7 +6148,7 @@
             const isFull = el.classList.toggle('fullscreen-stage');
             const tugControls = document.getElementById('tug-bottom-controls');
             if (containerId === 'tug-stage-container' && tugControls) {
-                tugControls.classList.toggle('floating-bottom-dock', isFull);
+                tugControls.classList.remove('floating-bottom-dock'); // hàng nút đã ghim trên cùng cùng sân đấu
             }
             if (isFull && !document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
