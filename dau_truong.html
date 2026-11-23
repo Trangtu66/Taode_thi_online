@@ -74,37 +74,32 @@
         .dark .fullscreen-stage {
             background: #0f172a !important;
         }
+        /* Cỡ chữ đề/phương án co giãn theo CHIỀU CAO màn hình để đề + hình + lựa chọn vừa một màn chiếu
+           (GV phản ánh 23/11/2026 chữ lớn tràn màn hình). --stage-fs do nút A− / A+ điều chỉnh. */
         .stage-question-text {
-            font-size: 1.55rem !important;
-            line-height: 2.35rem !important;
-        }
-        @media (min-width: 1024px) {
-            .stage-question-text {
-                font-size: 1.95rem !important;
-                line-height: 2.85rem !important;
-            }
+            font-size: calc(var(--stage-fs, 1) * clamp(1.15rem, 0.6rem + 1.9vh, 1.9rem)) !important;
+            line-height: 1.5 !important;
         }
         .stage-option-item {
-            font-size: 1.3rem !important;
-            line-height: 1.9rem !important;
-            padding: 1.1rem 1.4rem !important;
-        }
-        @media (min-width: 1024px) {
-            .stage-option-item {
-                font-size: 1.55rem !important;
-                line-height: 2.2rem !important;
-                padding: 1.25rem 1.6rem !important;
-            }
+            font-size: calc(var(--stage-fs, 1) * clamp(1rem, 0.5rem + 1.5vh, 1.5rem)) !important;
+            line-height: 1.45 !important;
+            padding: clamp(0.5rem, 1.1vh, 0.95rem) clamp(0.8rem, 1.4vh, 1.3rem) !important;
         }
         .fullscreen-stage .stage-question-text {
-            font-size: 2.25rem !important;
-            line-height: 3.2rem !important;
+            font-size: calc(var(--stage-fs, 1) * clamp(1.25rem, 0.6rem + 2.2vh, 2.2rem)) !important;
         }
         .fullscreen-stage .stage-option-item {
-            font-size: 1.75rem !important;
-            line-height: 2.45rem !important;
-            padding: 1.35rem 1.75rem !important;
+            font-size: calc(var(--stage-fs, 1) * clamp(1rem, 0.55rem + 1.45vh, 1.6rem)) !important;
         }
+        .stage-tf-label { font-size: calc(var(--stage-fs, 1) * clamp(1rem, 0.5rem + 1.5vh, 1.5rem)); line-height: 1.45; }
+        .fullscreen-stage .stage-tf-label { font-size: calc(var(--stage-fs, 1) * clamp(1.05rem, 0.55rem + 1.75vh, 1.7rem)); }
+        .stage-tf-row { padding: clamp(0.5rem, 1.1vh, 0.95rem) clamp(0.8rem, 1.4vh, 1.2rem); }
+        /* Hình vẽ, đồ thị, bảng biến thiên trong đề: không cao quá ~1/3 màn hình */
+        #bell-visual-box img, #tug-visual-box img, #bell-visual-box svg, #tug-visual-box svg {
+            max-height: 34vh; width: auto; max-width: 100%; height: auto;
+        }
+        .fullscreen-stage #bell-visual-box img, .fullscreen-stage #tug-visual-box img,
+        .fullscreen-stage #bell-visual-box svg, .fullscreen-stage #tug-visual-box svg { max-height: 38vh; }
         .arena-glow-text {
             text-shadow: 0 4px 24px rgba(245, 158, 11, 0.45);
         }
@@ -165,6 +160,13 @@
 
         /* Sân kéo co luôn nhìn thấy khi cuộn xuống đọc đề (ghim dưới thanh menu; khi Toàn màn hình ghim sát mép trên) */
         #tug-sticky { position: sticky; top: 4.25rem; z-index: 30; }
+        /* Khi cuộn xuống đọc đề: sân thu gọn (vẫn thấy dây, học sinh, tỉ số) để nhường chỗ cho đề */
+        #tug-sticky.tug-compact #tug-3d { height: 15vh !important; min-height: 96px !important; }
+        #tug-sticky.tug-compact #tug-scene-svg { height: 14vh !important; }
+        #tug-sticky.tug-compact #tug-arena { padding: 0.35rem !important; }
+        #tug-sticky.tug-compact #tug-arena > * + * { margin-top: 0.3rem !important; }
+        #tug-sticky.tug-compact #tug-status-banner { padding: 0.15rem 0.8rem; font-size: 0.7rem; }
+        #tug-sticky.tug-compact #tug-bottom-controls { padding: 0.35rem 0.6rem; }
         .fullscreen-stage #tug-sticky { top: -0.5rem; background: inherit; }
         #tug-scene-svg { height: clamp(110px, 20vh, 200px); }
         .fullscreen-stage #tug-3d { height: 28vh; max-height: 320px; }
@@ -817,6 +819,7 @@
                 </div>
 
                 <!-- Khối ghim: sân đấu + hàng nút luôn cùng hiện khi cuộn đọc đề (sửa 23/11/2026: trước chỉ ghim nút nên mất hình sân) -->
+                <div id="tug-sticky-sentinel" aria-hidden="true" style="height:1px;margin:0"></div>
                 <div id="tug-sticky" class="space-y-2 bg-white dark:bg-slate-800 pb-1 rounded-2xl">
                 <!-- SÂN ĐẤU KÉO CO 4 ĐẤU 4 TRỰC QUAN SỐNG ĐỘNG -->
                 <div id="tug-arena" class="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-b from-sky-100 to-emerald-50 dark:from-slate-900 dark:to-slate-800 border-2 border-sky-100 dark:border-slate-700 shadow-md space-y-2">
@@ -955,7 +958,7 @@
                 </div>
 
                 <!-- Khung Câu hỏi Kéo Co (Đầy đủ Đồng hồ 30s, Bảng biến thiên có mũi tên, Tương tác 3 phần) -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 space-y-4">
+                <div id="tug-question-card" class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 space-y-4">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <span id="tug-question-type-hint" class="text-[11px] font-extrabold uppercase tracking-wider text-rose-600 dark:text-rose-400">
                             PHẦN I - KHỞI ĐỘNG: Trắc nghiệm 4 lựa chọn (Bấm vào phương án để kiểm tra nhanh)
@@ -1188,7 +1191,11 @@
                         <div id="student-visual-preview" class="hidden"></div>
                     </div>
 
-                    <!-- KHUNG 3D TRÊN ĐIỆN THOẠI (phone3d.js): xe của em khi đua, nhân vật của em ở Rung chuông vàng / Kéo co -->
+                    <!-- BẢNG CHỌN ĐÁP ÁN TRÊN ĐIỆN THOẠI -->
+                    <div id="student-remote-pad" class="space-y-3"></div>
+                    <div id="student-race-box" class="hidden space-y-3"></div>
+                    <div id="student-submit-feedback" class="hidden p-3 rounded-xl bg-emerald-100 text-emerald-800 text-center text-xs font-black border border-emerald-300"></div>
+                    <!-- KHUNG 3D TRÊN ĐIỆN THOẠI (đặt DƯỚI bảng đáp án – 23/11/2026: HS phải thấy lựa chọn ngay dưới đề) (phone3d.js): xe của em khi đua, nhân vật của em ở Rung chuông vàng / Kéo co -->
                     <div id="student-3d-wrap" class="hidden relative">
                         <div id="student-3d" class="w-full h-44 rounded-2xl overflow-hidden border-2 border-indigo-200 bg-sky-200"></div>
                         <div class="absolute top-1.5 right-1.5 flex gap-1">
@@ -1197,10 +1204,6 @@
                         </div>
                     </div>
                     <button type="button" id="phone-3d-on-btn" onclick="phoneToggle3d()" class="hidden w-full py-1.5 rounded-xl bg-indigo-100 text-indigo-700 text-xs font-black">🎮 Bật khung 3D</button>
-                    <!-- BẢNG CHỌN ĐÁP ÁN TRÊN ĐIỆN THOẠI -->
-                    <div id="student-remote-pad" class="space-y-3"></div>
-                    <div id="student-race-box" class="hidden space-y-3"></div>
-                    <div id="student-submit-feedback" class="hidden p-3 rounded-xl bg-emerald-100 text-emerald-800 text-center text-xs font-black border border-emerald-300"></div>
 
                     <div id="student-footer-teacher-links" class="pt-2 border-t dark:border-slate-700 flex items-center justify-between text-[11px] text-slate-400">
                         <button onclick="openQrModal()" class="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">📱 Mở lại Mã QR</button>
@@ -1936,7 +1939,8 @@
         let bellTfUserSelections = [null, null, null, null];
         let bellTimer = null;
         let bellTimeLeft = 20;
-        let stageFontScale = 1;
+        let stageFontScale = (() => { try { return +localStorage.getItem('stage_font_scale') || 1; } catch (e) { return 1; } })();
+        document.documentElement.style.setProperty('--stage-fs', stageFontScale);
         let visualTargetContext = 'bell';
         let lastPlayedPartNum = 0;
 
@@ -2570,6 +2574,13 @@
             else if (now.lastChoice && old.lastChoice !== now.lastChoice && now.lastChoice !== 'Không trả lời' && bellRevealed) { PhoneSound.wrong(); react('sad'); }
         }
 
+        // Chỉ thay nội dung khi thật sự đổi: tránh vẽ lại đề/ảnh mỗi lần có HS khác vào phòng hay nộp bài
+        // (ảnh tải lại làm trang co lại, điện thoại HS bị giật lên đầu, không cuộn xuống xem lựa chọn được – GV phản ánh 23/11/2026)
+        function setHtmlIfChanged(el, html) {
+            if (!el || el._srcHtml === html) return false;
+            el._srcHtml = html; el.innerHTML = html; return true;
+        }
+
         function renderStudentPhoneUI() {
             phoneApply3d();
             populateStudentDropdown();
@@ -2593,7 +2604,7 @@
                 if (activeCard) activeCard.classList.add('hidden');
                 if (qStatusBox) qStatusBox.classList.add('hidden');
                 if (fb) fb.classList.add('hidden');
-                pad.innerHTML = '';
+                setHtmlIfChanged(pad, '');
                 return;
             }
 
@@ -2606,7 +2617,7 @@
             if (IS_STUDENT_MODE && racePhone.state !== 'idle') {
                 if (qStatusBox) qStatusBox.classList.add('hidden');
                 if (fb) fb.classList.add('hidden');
-                pad.innerHTML = '';
+                setHtmlIfChanged(pad, '');
                 if (raceBox && raceBox.classList.contains('hidden')) racePhoneRender();
                 return;
             }
@@ -2617,7 +2628,7 @@
             if (!isGameStarted) {
                 if (qStatusBox) qStatusBox.classList.add('hidden');
                 if (fb) fb.classList.add('hidden');
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="p-6 rounded-3xl bg-gradient-to-b from-indigo-950 to-slate-900 text-white border-2 border-amber-400/80 text-center space-y-3 shadow-xl">
                         <div class="text-4xl animate-bounce">🏆</div>
                         <div class="text-base font-black text-amber-300 uppercase tracking-wider">ĐÃ BÁO DANH LÊN SÀN ĐẤU!</div>
@@ -2626,7 +2637,7 @@
                             Hãy hướng mắt lên Ti vi và chờ Giáo viên bấm bắt đầu trận đấu!
                         </p>
                     </div>
-                `;
+                `);
                 return;
             }
 
@@ -2644,12 +2655,12 @@
             const vPrev = document.getElementById('student-visual-preview');
             if (qPrev) {
                 qPrev.className = showQ ? 'text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed' : 'hidden';
-                qPrev.innerHTML = showQ ? sanitizeHtml(q.text) : '';
+                setHtmlIfChanged(qPrev, showQ ? sanitizeHtml(q.text) : '');
             }
             if (vPrev) {
                 const hasV = showQ && q.visual;
                 vPrev.className = hasV ? 'word-table-visual overflow-x-auto rounded-xl bg-white p-2 flex justify-center' : 'hidden';
-                vPrev.innerHTML = hasV ? sanitizeHtml(q.visual) : '';
+                setHtmlIfChanged(vPrev, hasV ? sanitizeHtml(q.visual) : '');
             }
             if (showQ && qStatusBox) renderAllMath(qStatusBox);
 
@@ -2658,12 +2669,12 @@
 
             if (!registeredPlayer.alive && (registeredPlayer.teamMode || 'bell') === 'bell') {
                 fb.classList.add('hidden');
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border-2 border-rose-400 text-center space-y-1.5">
                         <div class="text-2xl">🛟</div>
                         <div class="text-xs font-extrabold text-rose-800 dark:text-rose-200">Em đang tạm rời sàn đấu. Hãy chờ Giáo viên bấm "🛟 Cứu Trợ" để quay trở lại sàn nhé!</div>
                     </div>
-                `;
+                `);
                 return;
             }
 
@@ -2674,13 +2685,13 @@
                 const lockMsg = stageCommandState === 'waiting'
                     ? `👀 Đang ở ${q.qNum}: Hãy đọc đề bài ${showQ ? 'ở trên (hoặc trên Ti vi)' : 'trên màn hình Ti vi'}. Khi Giáo viên bấm "📢 Hiệu lệnh & Bắt đầu", các nút chọn đáp án trên điện thoại sẽ mở khóa ngay!`
                     : '🔒 Đã hết giờ hoặc Giáo viên đã khóa đáp án câu hỏi này.';
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 text-center space-y-2.5">
                         <div class="text-3xl">${stageCommandState === 'waiting' ? '👀' : '🔒'}</div>
                         <div class="text-xs font-extrabold text-slate-700 dark:text-slate-200 leading-relaxed">${lockMsg}</div>
                         ${alreadySubmitted ? `<div class="inline-block px-3.5 py-1.5 rounded-xl bg-emerald-100 text-emerald-800 text-xs font-black">Đáp án em đã chọn: ${escapeHtml(alreadySubmitted)}</div>` : ''}
                     </div>
-                `;
+                `);
                 return;
             }
 
@@ -2694,7 +2705,7 @@
                 ];
                 if (showQ && Array.isArray(q.options) && q.options.length) {
                     // Kéo co: nút đáp án có đủ nội dung phương án
-                    pad.innerHTML = `
+                    setHtmlIfChanged(pad, `
                     <div class="text-xs font-extrabold text-center text-emerald-600 dark:text-emerald-400">🟢 Chạm chọn đáp án cho ${q.qNum}:</div>
                     <div class="grid grid-cols-1 gap-2.5">
                         ${q.options.map((o, idx) => {
@@ -2706,11 +2717,11 @@
                             </button>`;
                         }).join('')}
                     </div>
-                `;
+                `);
                     renderAllMath(pad);
                     return;
                 }
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="text-xs font-extrabold text-center text-emerald-600 dark:text-emerald-400">🟢 Quan sát đề trên Ti vi & Chạm chọn đáp án cho ${q.qNum}:</div>
                     <div class="grid grid-cols-2 gap-3.5">
                         ${['A', 'B', 'C', 'D'].map((letter, idx) => {
@@ -2721,9 +2732,9 @@
                             </button>`;
                         }).join('')}
                     </div>
-                `;
+                `);
             } else if (q.type === 'tf') {
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="text-xs font-extrabold text-center text-emerald-600 dark:text-emerald-400">🟢 Chọn Đúng / Sai cho 4 mệnh đề a, b, c, d${showQ ? '' : ' trên Ti vi'}:</div>
                     <div class="space-y-2">
                         ${['Ý a)', 'Ý b)', 'Ý c)', 'Ý d)'].map((lbl, idx) => `
@@ -2739,10 +2750,10 @@
                     <button type="button" onclick="submitFromStudentPhone('tf', studentTfDraft)" class="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm shadow-lg">
                         🚀 Gửi Đáp Án 4 Ý Lên Sân Khấu
                     </button>
-                `;
+                `);
                 if (showQ) renderAllMath(pad);
             } else {
-                pad.innerHTML = `
+                setHtmlIfChanged(pad, `
                     <div class="space-y-3">
                         <label class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 block text-center">✍️ Nhập đáp số trả lời ngắn cho ${q.qNum}:</label>
                         <input id="student-short-ans-inp" type="text" value="${escapeHtml(studentShortDraft)}" oninput="studentShortDraft = this.value" placeholder="Nhập kết quả (VD: 3, 24, 2.67)..." class="w-full px-4 py-3.5 rounded-2xl border-2 border-indigo-400 bg-slate-50 dark:bg-slate-900 font-black text-center text-xl text-indigo-700 dark:text-indigo-300">
@@ -2750,7 +2761,7 @@
                             🚀 Gửi Đáp Số Về Đích
                         </button>
                     </div>
-                `;
+                `);
             }
 
             if (alreadySubmitted) {
@@ -3961,8 +3972,8 @@
                                 ? `<span class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-sm font-black">ĐÁP ÁN: ĐÚNG</span>`
                                 : `<span class="px-3.5 py-1.5 rounded-xl bg-rose-600 text-white text-sm font-black">ĐÁP ÁN: SAI</span>`;
                         }
-                        return `<div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
-                            <div class="text-lg sm:text-xl lg:text-2xl font-bold flex-1">${st.label}</div>
+                        return `<div class="stage-tf-row rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+                            <div class="stage-tf-label font-bold flex-1">${st.label}</div>
                             <div class="flex items-center space-x-2">
                                 <button onclick="toggleBellTfChoice(${idx}, true)" class="px-4 py-1.5 rounded-xl text-sm font-black border transition ${userVal === true ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-slate-100 dark:bg-slate-700'}">Đúng</button>
                                 <button onclick="toggleBellTfChoice(${idx}, false)" class="px-4 py-1.5 rounded-xl text-sm font-black border transition ${userVal === false ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-slate-100 dark:bg-slate-700'}">Sai</button>
@@ -4495,6 +4506,15 @@
             if (btn) btn.innerText = want3d ? '🖼️ Hình 2D' : '🎮 Sân 3D';
             if (want3d) Tug3D.mount(box3, tug3dSnapshot).catch(e => { showToast('⚠️ ' + (e.message || e) + ' – chuyển về hình 2D.'); tugView = '2d'; tugApplyView(); });
         }
+        // Sân thu gọn khi khối ghim đã dính mép trên (mốc 1px ngay trước khối đã cuộn khuất)
+        (function tugCompactWatch() {
+            const sen = document.getElementById('tug-sticky-sentinel'), box = document.getElementById('tug-sticky');
+            if (!sen || !box || !('IntersectionObserver' in window)) return;
+            new IntersectionObserver(es => es.forEach(e => {
+                const stuck = !e.isIntersecting && e.boundingClientRect.top < (e.rootBounds ? e.rootBounds.top + 80 : 80);
+                box.classList.toggle('tug-compact', stuck && window.innerWidth >= 640);
+            }), { rootMargin: '-72px 0px 0px 0px', threshold: 0 }).observe(sen);
+        })();
         function tugToggleView() {
             tugView = tugView === '3d' ? '2d' : '3d';
             try { localStorage.setItem('tug_view', tugView); } catch (e) {}
@@ -4612,8 +4632,8 @@
                                 ? `<span class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-sm font-black">ĐÁP ÁN: ĐÚNG</span>`
                                 : `<span class="px-3.5 py-1.5 rounded-xl bg-rose-600 text-white text-sm font-black">ĐÁP ÁN: SAI</span>`;
                         }
-                        return `<div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
-                            <div class="text-lg sm:text-xl lg:text-2xl font-bold flex-1">${st.label}</div>
+                        return `<div class="stage-tf-row rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+                            <div class="stage-tf-label font-bold flex-1">${st.label}</div>
                             <div class="flex flex-wrap items-center gap-3">
                                 <div class="flex items-center space-x-1 bg-rose-50 dark:bg-rose-950/50 px-2.5 py-1 rounded-xl border border-rose-200">
                                     <span class="text-xs font-black text-rose-600 mr-1">🔴 Đỏ:</span>
@@ -4957,6 +4977,7 @@
             if (tugIndex > 0) {
                 tugIndex--;
                 resetTugQuestionState();
+                tugScrollToQuestion();
             }
         }
 
@@ -4964,6 +4985,7 @@
             if (tugIndex < examQuestions.length - 1) {
                 tugIndex++;
                 resetTugQuestionState();
+                tugScrollToQuestion();
             } else {
                 openHonorModal();
             }
@@ -4972,6 +4994,17 @@
         function jumpTugQuestion(idx) {
             tugIndex = idx;
             resetTugQuestionState();
+            tugScrollToQuestion();
+        }
+
+        // Đang cuộn đọc đề (sân thu gọn): sang câu mới thì đưa đầu câu lên ngay dưới sân, khỏi cuộn tay
+        function tugScrollToQuestion() {
+            const box = document.getElementById('tug-sticky'), card = document.getElementById('tug-question-card');
+            if (!box || !card || !box.classList.contains('tug-compact')) return;
+            const full = document.getElementById('tug-stage-container');
+            const scroller = full && full.classList.contains('fullscreen-stage') ? full : null;
+            const dy = card.getBoundingClientRect().top - box.getBoundingClientRect().bottom - 8;
+            if (scroller) scroller.scrollBy({ top: dy, behavior: 'smooth' }); else window.scrollBy({ top: dy, behavior: 'smooth' });
         }
 
         function resetTugGame() {
@@ -6098,7 +6131,7 @@
             box.classList.remove('hidden');
             ['student-question-status-box', 'student-submit-feedback'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('hidden'); });
             const pad = document.getElementById('student-remote-pad');
-            if (pad) pad.innerHTML = '';
+            if (pad) setHtmlIfChanged(pad, '');
             const st = racePhone.state;
             const total = racePhone.total || 0;
             const k = Math.min(racePhone.k, total);
@@ -6125,7 +6158,7 @@
                     ? `<div class="p-4 rounded-2xl bg-gradient-to-b from-amber-100 to-white dark:from-amber-950/60 dark:to-slate-900 border-2 border-amber-400 text-center space-y-1"><div class="text-3xl">🏁🏆</div><div class="text-base font-black text-amber-700 dark:text-amber-300">VỀ ĐÍCH! HẠNG ${racePhone.rank || '?'}</div><div class="text-xs font-bold text-slate-600 dark:text-slate-300">Thời gian: ${raceFmt(racePhone.finishMs || 0)} • Nhìn lên màn chiếu xem bảng xếp hạng nhé!</div></div>`
                     : `<div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 text-center space-y-1"><div class="text-3xl">⏹️</div><div class="text-sm font-black">Cuộc đua đã kết thúc</div><div class="text-xs font-bold text-slate-600 dark:text-slate-300">Em vượt được ${k}/${total} chướng ngại vật${racePhone.rank ? ` • Hạng ${racePhone.rank}` : ''}.</div></div>`;
             }
-            box.innerHTML = `
+            const html = `
                 <div class="p-3 rounded-2xl bg-emerald-50 dark:bg-slate-900 border border-emerald-200 dark:border-slate-700 space-y-2">
                     <div class="flex items-center justify-between gap-2 text-xs font-black">
                         <span class="text-emerald-700 dark:text-emerald-300">🏎️ ĐUA XE KIẾN THỨC</span>
@@ -6141,7 +6174,7 @@
                     </div>
                 </div>
                 ${body}`;
-            renderAllMath(box);
+            if (setHtmlIfChanged(box, html)) renderAllMath(box);
         }
 
         // 16. CHẾ ĐỘ TOÀN MÀN HÌNH TRÀN 100% CHIỀU NGANG LAPTOP / TI VI
@@ -6170,11 +6203,10 @@
         }
 
         function adjustStageFontSize(delta) {
-            stageFontScale = Math.max(0.85, Math.min(1.65, stageFontScale + delta * 0.12));
-            const bellQ = document.getElementById('bell-question-text');
-            const tugQ = document.getElementById('tug-question-text');
-            if (bellQ) bellQ.style.fontSize = `${stageFontScale * 1.9}rem`;
-            if (tugQ) tugQ.style.fontSize = `${stageFontScale * 1.9}rem`;
+            stageFontScale = Math.max(0.7, Math.min(1.6, +(stageFontScale + delta * 0.1).toFixed(2)));
+            document.documentElement.style.setProperty('--stage-fs', stageFontScale);
+            try { localStorage.setItem('stage_font_scale', stageFontScale); } catch (e) {}
+            showToast(`🔠 Cỡ chữ đề: ${Math.round(stageFontScale * 100)}%`);
         }
 
         function openVisualModal(ctx) {
