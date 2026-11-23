@@ -9,7 +9,13 @@
   var T, S = null, STEP = 1.6;   // 1 nấc = 1,6 đơn vị; 5 nấc chạm vạch biên (±8)
   var RED = 0xe11d48, BLUE = 0x0284c7;
 
-  function supported() { try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); } catch (e) { return false; } }
+  // Kiểm tra WebGL MỘT lần rồi nhớ kết quả: mỗi lần tạo canvas thử là thêm một ngữ cảnh WebGL; gọi lặp lại (vài lần/giây)
+  // làm trình duyệt vượt giới hạn và huỷ ngữ cảnh cũ nhất – chính là sân 3D đang chạy → sân tắt rồi hiện (sửa 23/11/2026).
+  var WEBGL = null;
+  function supported() {
+    if (WEBGL === null) { try { var c = document.createElement('canvas'), g = c.getContext('webgl') || c.getContext('experimental-webgl'); WEBGL = !!(window.WebGLRenderingContext && g); var x = g && g.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); } catch (e) { WEBGL = false; } }
+    return WEBGL;
+  }
   function loadThree() {
     if (window.THREE) return Promise.resolve(window.THREE);
     return new Promise(function (ok, fail) { var s = document.createElement('script'); s.src = THREE_URL; s.onload = function () { ok(window.THREE); }; s.onerror = function () { fail(new Error('Không tải được thư viện 3D (kiểm tra mạng).')); }; document.head.appendChild(s); });

@@ -5,8 +5,15 @@
   'use strict';
   var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js';
   var T = null, MAT = {};
+  // Kiểm tra WebGL MỘT lần rồi nhớ kết quả: mỗi lần tạo canvas thử là thêm một ngữ cảnh WebGL; gọi lặp lại (vài lần/giây)
+  // làm trình duyệt vượt giới hạn và huỷ ngữ cảnh cũ nhất – chính là sân 3D đang chạy → sân tắt rồi hiện (sửa 23/11/2026).
+  var WEBGL = null;
+  function coWebGL() {
+    if (WEBGL === null) { try { var c = document.createElement('canvas'), g = c.getContext('webgl') || c.getContext('experimental-webgl'); WEBGL = !!(window.WebGLRenderingContext && g); var x = g && g.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); } catch (e) { WEBGL = false; } }
+    return WEBGL;
+  }
   var G = window.G3D = {
-    supported: function () { try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); } catch (e) { return false; } },
+    supported: function () { return coWebGL(); },
     load: function () {
       if (window.THREE) { T = window.THREE; if (T.ColorManagement) T.ColorManagement.legacyMode = false; return Promise.resolve(T); }
       return new Promise(function (ok, fail) {

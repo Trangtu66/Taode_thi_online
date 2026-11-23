@@ -13,11 +13,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="chon_de.js"></script>
 <!-- Sân 3D và âm thanh DÙNG CHUNG với các game trình chiếu (dau_truong.html, nhip_do.html) -->
-<script src="game3d_chung.js?v=20261123"></script>
-<script src="bell3d.js?v=20261123b"></script>
-<script src="tug3d.js?v=20261123b"></script>
-<script src="race3d.js?v=20261123"></script>
-<script src="nhipdo3d.js?v=20261123b"></script>
+<script src="game3d_chung.js?v=20261123c"></script>
+<script src="bell3d.js?v=20261123c"></script>
+<script src="tug3d.js?v=20261123c"></script>
+<script src="race3d.js?v=20261123c"></script>
+<script src="nhipdo3d.js?v=20261123c"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -84,6 +84,8 @@
   .san-wrap{position:relative}
   .san3d{height:40vh;min-height:230px;max-height:420px;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.18);background:#0F172A}
   @media(max-width:640px){.san3d{height:34vh;min-height:200px}}
+  /* Kéo co, Rung chuông, Nhịp độ: camera cố định dựng cho khung ngang như màn chiếu → giữ tỉ lệ 16:9 để thấy trọn sân */
+  #s3-bell,#s3-tug,#s3-nhip{height:auto!important;min-height:0!important;aspect-ratio:16/9;max-height:calc(100vh - 108px)}
   .hud{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none;z-index:2}
   .hud span{background:rgba(15,23,42,.78);color:#fff;border-radius:999px;padding:5px 11px;font-weight:900;font-size:14px}
   .hud .vang{background:rgba(245,158,11,.92);color:#1F2937}
@@ -161,6 +163,17 @@
   .hd-modal{position:fixed;inset:0;z-index:60;background:rgba(2,6,23,.7);display:flex;align-items:center;justify-content:center;padding:14px}
   .hd-box{background:#fff;border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow:auto;padding:18px 18px 14px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
   .hd-box .ic{font-size:44px;line-height:1}
+  /* Laptop, máy chiếu: sân chơi bung rộng bên trái (cao gần hết màn hình), câu hỏi bên phải (GV yêu cầu 23/11/2026) */
+  @media (min-width:1024px){
+    body.dang-choi .wrap{max-width:none;padding-top:12px}
+    #man-choi{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(360px,1fr);grid-template-areas:"thanh thanh" "san cau" "td cau";column-gap:18px;align-items:start}
+    body[data-game=tug] #man-choi,body[data-game=bell] #man-choi,body[data-game=nhip] #man-choi{grid-template-columns:minmax(0,2.3fr) minmax(340px,1fr)}
+    #man-choi .thanh{grid-area:thanh} #man-choi .san-wrap{grid-area:san;position:sticky;top:10px} #man-choi .tien-do{grid-area:td}
+    #man-choi #khung-cau{grid-area:cau;margin-top:0;max-height:calc(100vh - 86px);overflow:auto;position:sticky;top:10px}
+    body.dang-choi .san3d{height:calc(100vh - 108px);max-height:none;min-height:320px}
+    body.dang-choi .san svg{max-height:calc(100vh - 108px)}
+  }
+  :fullscreen body, body:fullscreen{background:var(--bg)}
   .an{display:none!important}
   @media (prefers-reduced-motion: reduce){ .lac,.phao i{animation:none} .tien-do i{transition:none} }
 </style>
@@ -248,7 +261,7 @@
       <span class="chip" id="c-cau"></span>
       <span class="chip" id="c-gio">⏱ 0:00</span>
       <span class="chip" id="c-sai">✖ 0 lần sai</span>
-      <span class="phai"><button class="nut-nho" id="nut-hd" type="button" title="Xem cách chơi" aria-label="Cách chơi">❓<span class="chu"> Cách chơi</span></button><button class="nut-nho an" id="nut-cam" type="button" title="Đổi góc quay: Bám đuôi → Truyền hình → Toàn cảnh">🎥</button><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button" aria-label="Dừng ván">✕<span class="chu"> Dừng</span></button></span>
+      <span class="phai"><button class="nut-nho" id="nut-hd" type="button" title="Xem cách chơi" aria-label="Cách chơi">❓<span class="chu"> Cách chơi</span></button><button class="nut-nho an" id="nut-cam" type="button" title="Đổi góc quay: Bám đuôi → Truyền hình → Toàn cảnh">🎥</button><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button" aria-label="Dừng ván">✕<span class="chu"> Dừng</span></button></span>
     </div>
     <div class="san-wrap">
       <div class="san" id="san"></div>
@@ -665,7 +678,7 @@ function batDau(){
   const demMs = GAME === 'race' ? 3000 : 0;   // Đua xe: đếm ngược 3 – 2 – 1 như bản trình chiếu
   V = { k:0, lanSai:0, saiCau:0, kq:[], bd:Date.now() + demMs, khoaDen:Date.now() + demMs, xong:false, pos:0, max:Math.max(4, Math.ceil(CAU.length / 2)), luc:0, lucMay:0,
         giayMay, chuoi:0, chuoiMax:0, chuoiDung:0, trongGio:0, han:0, hetGio:false, mayPos:0, tg(){ return Math.max(0, (this.ketThuc || Date.now()) - this.bd); } };
-  document.body.classList.add('dang-choi');
+  document.body.classList.add('dang-choi'); document.body.dataset.game = GAME;
   $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
   $('c-game').textContent = TEN_GAME[GAME];
   moKhoaAm(); veCau(); veSan(); demGio(); nhac(true);
@@ -870,7 +883,7 @@ function phaoGiay(){
   document.body.appendChild(p); setTimeout(() => p.remove(), 5200);
 }
 function veChuanBi(){
-  V = null; clearInterval(dongHo); nhac(false); document.body.classList.remove('dang-choi'); $('dem-nguoc').classList.add('an');
+  V = null; clearInterval(dongHo); nhac(false); try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {} document.body.classList.remove('dang-choi'); $('dem-nguoc').classList.add('an');
   $('man-choi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-chuan-bi').classList.remove('an'); window.scrollTo(0, 0);
 }
 $('nut-thoat').onclick = () => { if (confirm('Dừng ván đang chơi? Kết quả ván này sẽ không được tính.')) veChuanBi(); };
@@ -881,6 +894,10 @@ $('nut-am').onclick = () => {
   if (AM.on) moKhoaAm(); nhac(!!(V && !V.xong));
 };
 $('nut-cam').onclick = () => { if (window.Race3D) $('nut-cam').title = Race3D.camera(); };
+$('nut-fs').onclick = () => {
+  try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); } catch (e) {}
+};
+document.addEventListener('fullscreenchange', () => { $('nut-fs').textContent = document.fullscreenElement ? '🗗' : '⛶'; });
 $('nut-hd').onclick = () => moHuongDan(GAME, 'Chơi tiếp');
 $('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tc_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = CHE_3D ? null : V.da3d; veSan(); } };
 window.addEventListener('beforeunload', e => { if (V && !V.ketThuc){ e.preventDefault(); e.returnValue = ''; } });
