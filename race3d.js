@@ -167,7 +167,7 @@
     banner.position.set(0, 8, L); W.add(banner);
     var startB = banner.clone(); startB.material = banner.material.slice(); startB.material[4] = startB.material[5] = new T.MeshBasicMaterial({ map: canvasTex(1024, 128, function (g, w, h) { g.fillStyle = '#16a34a'; g.fillRect(0, 0, w, h); g.fillStyle = '#fff'; g.font = '900 84px Arial'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('🚦 XUẤT PHÁT', w / 2, h / 2 + 4); }) });
     startB.position.set(0, 8, 0); W.add(startB);
-    R.banners = [startB, banner];   // tự chơi: băng rôn nằm giữa camera và xe của em thì tạm ẩn (đường 2 làn, camera thấp – băng rôn che kín xe)
+    R.banners = [startB, banner];   // tạm ẩn khi nằm giữa camera và xe (xem frame)
     [-1, 1].forEach(function (sd) { var post = new T.Mesh(new T.CylinderGeometry(.35, .35, 8, 12), postM); post.position.set(sd * (roadW / 2 + 1), 4, 0); W.add(post); });
     // chướng ngại vật: mỗi làn một cọc nón (đổi màu xám khi xe làn đó đã vượt), mỗi chặng một biển số câu
     R.cones = null;
@@ -404,7 +404,9 @@
     if (s.focusId && R.cars[s.focusId]) { lead = R.cars[s.focusId].z; sumZ = lead * Math.max(cnt, 1); cnt = Math.max(cnt, 1); }   // camera bám xe được chỉ định
     auEngine(s, speed, moving, dt, true);
     moveCamera(lead, cnt ? sumZ / cnt : -3, dt);
-    if (R.banners) R.banners.forEach(function (b) { var cz = R.camera.position.z; b.visible = !(s.focusId && R.cars[s.focusId] && cz < b.position.z && b.position.z < R.cars[s.focusId].z + 2.5); });
+    // băng rôn nằm giữa camera và xe (xe của em khi tự chơi, xe xa nhất trên màn chiếu GV) thì tạm ẩn – ít làn, camera thấp, băng rôn che kín thân xe
+    var xa = s.focusId && R.cars[s.focusId] ? R.cars[s.focusId].z : lead;
+    if (R.banners) R.banners.forEach(function (b) { var cz = R.camera.position.z; b.visible = !(cnt && cz < b.position.z && b.position.z < xa + 2.5); });
     var r0 = performance.now(); R.renderer.render(R.scene, R.camera); R.ms = R.ms * .9 + (performance.now() - r0) * .1;
   }
   function puff(c, o, dt) {
