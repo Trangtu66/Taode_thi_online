@@ -365,7 +365,7 @@ function giayTheoMucDo(level, noiDung) {
 const giayCau = c => giayTheoMucDo(c.mucDo, c.nd) || NHIP[c.type];
 const DIEM_LAN = [1, .5, .25];   // điểm theo lần trả lời đúng (lần 1, 2, 3); từ lần 4: 0
 const CHO_SAI = { bell:2000, tug:2000, race:5000, nhip:2000 };
-const CHAY_MS = 5000;   // Đua xe: mỗi câu đúng xe chạy 5 giây tới chướng ngại kế tiếp (như mặc định màn chiếu GV), chạy tới nơi mới mở câu sau
+const CHAY_MS = 6000;   // Đua xe: mỗi câu đúng xe chạy 6 giây tới chướng ngại kế tiếp, chạy tới nơi mới mở câu sau
 
 // ======================= BƯỚC 1: ĐĂNG NHẬP =======================
 function hienHS(){
@@ -426,9 +426,9 @@ const HD = {
     thang:'🏆 Hết đề, dây nằm bên phía em là em thắng; dây ở giữa là hoà.', meo:'Mẹo: càng ít lần sai, Máy càng ít cơ hội kéo lại.' },
   race: { ic:'🏎️', ten:'Đua xe với Máy', muc:'Lái xe em chọn đua với xe của Máy; mỗi câu hỏi là một chướng ngại vật (cọc tiêu).',
     buoc:['Chọn xe ở mục <b>Chọn xe đua của em</b> trước khi bấm Bắt đầu.', 'Đếm ngược 3 – 2 – 1 – XUẤT PHÁT! rồi câu hỏi mới mở.',
-          'Trả lời đúng: xe lao đi 5 giây vượt chướng ngại vật, tới chướng ngại tiếp theo thì câu sau mới mở. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
+          'Trả lời đúng: xe lao đi 6 giây vượt chướng ngại vật, tới chướng ngại tiếp theo thì câu sau mới mở. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
           'Trả lời sai: xe trượt bánh, chờ 5 giây rồi trả lời lại câu đó.',
-          'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây) cộng 5 giây chạy mỗi chặng như xe em; góc sân ghi số chướng ngại em và Máy đã vượt.'],
+          'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây) cộng 6 giây chạy mỗi chặng như xe em; góc sân ghi số chướng ngại em và Máy đã vượt.'],
     thang:'🏆 Về đích trước xe Máy: em HẠNG NHẤT!', meo:'Mẹo: vừa nhanh vừa chính xác – mỗi lần sai mất 5 giây.' },
   nhip: { ic:'⏱️', ten:'Thi theo nhịp độ', muc:'Trả lời đúng trong thời gian của từng câu để giữ chuỗi nhịp dài nhất.',
     buoc:['Đồng hồ vòng ở góc sân đếm ngược: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây.',
