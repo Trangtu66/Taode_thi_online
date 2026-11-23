@@ -4903,10 +4903,24 @@ window.HOC_LIEU = [
 "ten": "Kiem Tra Chuyen De1 (tiết 12)",
 "file": "KHBD_TOAN10_KiemTraChuyenDe1_T12.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_KiemTraChuyenDe1_T12.docx",
-"kb": 44,
-"ngay": "2026-11-22",
+"kb": 47,
+"ngay": "2026-11-23",
 "nhom": "toan|10|chuyende|1",
 "bai": "Kiem Tra Chuyen De1 (tiết 12)",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Kiem Tra Chuyen De2 (tiết 18)",
+"file": "KHBD_TOAN10_KiemTraChuyenDe2_T18.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_KiemTraChuyenDe2_T18.docx",
+"kb": 73,
+"ngay": "2026-11-23",
+"nhom": "toan|10|chuyende|2",
+"bai": "Kiem Tra Chuyen De2 (tiết 18)",
 "nhan": ""
 },
 {
@@ -5271,6 +5285,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-22",
 "nhom": "toan|10|chuyende|1",
 "bai": "Kiem Tra Chuyen De1 (tiết 12)",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Kiem Tra Chuyen De2 (tiết 18) (hoà nhập)",
+"file": "KHBD_TOAN10_KiemTraChuyenDe2_T18_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/HoaNhap/KHBD_TOAN10_KiemTraChuyenDe2_T18_HoaNhap.docx",
+"kb": 77,
+"ngay": "2026-11-23",
+"nhom": "toan|10|chuyende|2",
+"bai": "Kiem Tra Chuyen De2 (tiết 18)",
 "nhan": "hoà nhập"
 },
 {
