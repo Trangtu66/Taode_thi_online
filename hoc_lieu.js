@@ -7308,6 +7308,20 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 12,
+"ten": "Kiem Tra Chuyen De1 (tiết 12)",
+"file": "KHBD_TOAN12_KiemTraChuyenDe1_T12.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_KiemTraChuyenDe1_T12.docx",
+"kb": 71,
+"ngay": "2026-11-23",
+"nhom": "toan|12|chuyende|1",
+"bai": "Kiem Tra Chuyen De1 (tiết 12)",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
 "ten": "Kiểm tra giữa học kì I",
 "file": "KHBD_TOAN12_KiemTraGiuaKyI_T26-27.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/KHBD/KHBD_TOAN12_KiemTraGiuaKyI_T26-27.docx",
@@ -7917,6 +7931,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-14",
 "nhom": "toan|12|cd|7",
 "bai": "Chuyên đề – Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 12,
+"ten": "Kiem Tra Chuyen De1 (tiết 12) (hoà nhập)",
+"file": "KHBD_TOAN12_KiemTraChuyenDe1_T12_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop12/HoaNhap/KHBD_TOAN12_KiemTraChuyenDe1_T12_HoaNhap.docx",
+"kb": 75,
+"ngay": "2026-11-23",
+"nhom": "toan|12|chuyende|1",
+"bai": "Kiem Tra Chuyen De1 (tiết 12)",
 "nhan": "hoà nhập"
 },
 {
