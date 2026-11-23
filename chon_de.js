@@ -1,14 +1,16 @@
 // BỘ CHỌN ĐỀ DÙNG CHUNG cho mọi trò chơi (Rung chuông vàng, Kéo co, Đua xe – dau_truong.html; Thi đấu theo nhịp độ – nhip_do.html).
 // Một giao diện, một thứ tự nguồn đề: 🎮 Đề game · 📘 Bài củng cố · 🗂 Ngân hàng đề của tôi · 🔗 Dán link.
 // Đề vừa chọn được nhớ trên máy (localStorage) để trò chơi khác nạp lại đúng đề đó bằng một nút.
-// Dùng: ChonDe.mo((de, ten) => { ...nạp đề vào game...; })   – de: {meta, parts:[{type, questions}]}; hàm nạp báo lỗi bằng throw.
+// Dùng: ChonDe.mo((de, ten) => { ...nạp đề vào game...; }[, {tabs:['game','cc'], tieuDe, moTa}])  – tabs: chỉ hiện các ngăn này (trang HS tự chơi)   – de: {meta, parts:[{type, questions}]}; hàm nạp báo lỗi bằng throw.
 //       ChonDe.ganNhat() -> {ten, link|id} hoặc null;  ChonDe.napGanNhat(onPick) -> Promise
 // Cần: cau_hinh.js (DANH_SACH_BAI, KQ_API), lz-string.
 (function () {
   'use strict';
   var KEY_DE = 'chon_de_gan_nhat', KEY_TAB = 'chon_de_tab', KEY_KHOI = 'chon_de_khoi';
   var GAME = /Ngân hàng đề game/i;
-  var st = { tab: lay(KEY_TAB) || 'game', khoi: lay(KEY_KHOI) || '', mon: '', tim: '', onPick: null, nh: [] };
+  var TAT_CA = ['game', 'cc', 'nh', 'link'], TIEU_DE = '📚 Chọn đề cho trò chơi',
+      MO_TA = 'Dùng chung cho Rung chuông vàng, Kéo co, Đua xe và Thi đấu theo nhịp độ. Đề được chia 3 phần: 4 lựa chọn · Đúng/Sai · Trả lời ngắn.';
+  var st = { tab: lay(KEY_TAB) || 'game', khoi: lay(KEY_KHOI) || '', mon: '', tim: '', onPick: null, nh: [], tabs: TAT_CA };
 
   function lay(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function ghi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -83,8 +85,8 @@
     var s = document.createElement('style'); s.textContent = CSS; document.head.appendChild(s);
     var m = document.createElement('div'); m.id = 'cd-modal';
     m.innerHTML = '<div id="cd-box" role="dialog" aria-modal="true" aria-labelledby="cd-tt">' +
-      '<div id="cd-head"><button id="cd-x" type="button" aria-label="Đóng">✕</button><h3 id="cd-tt">📚 Chọn đề cho trò chơi</h3>' +
-      '<p>Dùng chung cho Rung chuông vàng, Kéo co, Đua xe và Thi đấu theo nhịp độ. Đề được chia 3 phần: 4 lựa chọn · Đúng/Sai · Trả lời ngắn.</p>' +
+      '<div id="cd-head"><button id="cd-x" type="button" aria-label="Đóng">✕</button><h3 id="cd-tt"></h3>' +
+      '<p id="cd-mota"></p>' +
       '<div id="cd-tabs">' +
       '<button class="cd-tab" data-t="game" type="button">🎮 Đề game</button><button class="cd-tab" data-t="cc" type="button">📘 Bài củng cố</button>' +
       '<button class="cd-tab" data-t="nh" type="button">🗂 Ngân hàng đề của tôi</button><button class="cd-tab" data-t="link" type="button">🔗 Dán link</button></div></div>' +
@@ -101,7 +103,8 @@
   function trangThai(msg, cls) { var s = $('cd-status'); if (s) { s.className = cls || ''; s.textContent = msg; } }
 
   function ve() {
-    document.querySelectorAll('.cd-tab').forEach(function (b) { b.classList.toggle('on', b.dataset.t === st.tab); });
+    if (st.tabs.indexOf(st.tab) < 0) st.tab = st.tabs[0];
+    document.querySelectorAll('.cd-tab').forEach(function (b) { b.classList.toggle('on', b.dataset.t === st.tab); b.hidden = st.tabs.indexOf(b.dataset.t) < 0; });
     var g = ganNhat(); var lai = $('cd-lai');
     lai.hidden = !g; if (g) lai.textContent = '↺ Dùng lại đề vừa chọn: ' + (g.ten.length > 46 ? g.ten.slice(0, 45) + '…' : g.ten);
     if (st.tab === 'nh') return veNH();
@@ -213,7 +216,11 @@
     dung(); st.onPick = onPick;
     return nap(function () { return g.id ? deTheoId(g.id) : deTheoLink(g.link); }, g.ten, g).then(function () { return true; });
   }
-  function mo(onPick) { dung(); st.onPick = onPick; $('cd-modal').classList.add('on'); trangThai('Chọn một đề trong danh sách.'); ve(); }
+  function mo(onPick, opt) {
+    opt = opt || {}; dung(); st.onPick = onPick;
+    st.tabs = (opt.tabs || TAT_CA).filter(function (t) { return TAT_CA.indexOf(t) >= 0; }); if (!st.tabs.length) st.tabs = TAT_CA;
+    $('cd-tt').textContent = opt.tieuDe || TIEU_DE; $('cd-mota').textContent = opt.moTa || MO_TA;
+    $('cd-modal').classList.add('on'); trangThai('Chọn một đề trong danh sách.'); ve(); }
   function dong() { var m = $('cd-modal'); if (m) m.classList.remove('on'); }
 
   window.ChonDe = { mo: mo, dong: dong, ganNhat: ganNhat, napGanNhat: napGanNhat, deTheoLink: deTheoLink };

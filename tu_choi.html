@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tự chơi trò chơi – Học tập trực tuyến</title>
+<!-- Trang HỌC SINH TỰ CHƠI (23/11/2026): đăng nhập → chọn game → chọn đề → trả lời đúng mới qua câu → báo kết quả, gửi điểm cho GV.
+     Đề lấy qua bộ chọn đề dùng chung chon_de.js (chỉ ngăn Đề game, Bài củng cố); điểm gửi về KQ_API với mã bài "Tự chơi · <game> · <đề>". -->
+<script src="cau_hinh.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="chon_de.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --blue:#1E40AF; --blue2:#2563EB; --ink:#0F172A; --muted:#64748B; --bg:#F1F5F9; --line:#E2E8F0; --ok:#16A34A; --bad:#DC2626; --gold:#F59E0B; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Be Vietnam Pro',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+  header.top{background:var(--blue);color:#fff}
+  header.top .in{max-width:1120px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+  .logo b{font-size:18px}.logo small{display:block;opacity:.85;font-size:12.5px}
+  .logo .dot{width:38px;height:38px;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:18px}
+  .nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .nav a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:8px;font-size:14px;opacity:.92}
+  .nav a:hover,.nav a.on{background:rgba(255,255,255,.16);opacity:1}
+  @media(max-width:640px){.nav{margin-left:0}}
+  body.dang-choi header.top{display:none}
+
+  .wrap{max-width:980px;margin:0 auto;padding:18px 16px 40px}
+  h1{font-size:clamp(22px,4vw,30px);margin:4px 0 2px;font-weight:900;color:var(--blue)}
+  .sub{color:var(--muted);margin:0 0 16px;font-size:15px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+  .buoc{display:flex;align-items:center;gap:10px;font-weight:900;font-size:16px;margin:0 0 10px}
+  .buoc .so{width:30px;height:30px;border-radius:50%;background:var(--blue2);color:#fff;display:grid;place-items:center;font-size:15px;flex:none}
+  .buoc .so.xong{background:var(--ok)}
+  .stack>*+*{margin-top:14px}
+  label.f{display:block;font-weight:700;font-size:14px;margin:0 0 4px}
+  .inp{width:100%;padding:12px 14px;border:2px solid #CBD5E1;border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+  .inp:focus{outline:none;border-color:var(--blue2)}
+  .row2{display:grid;grid-template-columns:140px 1fr;gap:10px}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:12px 18px;font:inherit;font-weight:800;font-size:16px;cursor:pointer;background:var(--blue2);color:#fff;text-decoration:none}
+  .btn:hover{filter:brightness(1.07)} .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn.ghost{background:#E2E8F0;color:var(--ink)} .btn.ok{background:var(--ok)} .btn.gold{background:linear-gradient(90deg,#F59E0B,#EA580C)}
+  .btn.lon{width:100%;padding:16px;font-size:18px}
+  .btn:focus-visible,.game-card:focus-visible,.opt:focus-visible{outline:3px solid #93C5FD;outline-offset:2px}
+  .loi{color:var(--bad);font-weight:700;font-size:14px;margin-top:6px}
+  .chao{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:14px;padding:10px 14px;font-weight:700}
+  .chao .ten{color:var(--blue);font-weight:900}
+  .link{background:none;border:0;color:var(--blue2);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
+
+  .games{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:900px){.games{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.games{grid-template-columns:1fr}}
+  .game-card{border:3px solid var(--line);border-radius:18px;padding:14px;background:#fff;cursor:pointer;text-align:left;font:inherit;color:var(--ink);transition:transform .15s,border-color .15s}
+  .game-card:hover{transform:translateY(-2px)}
+  .game-card .ic{font-size:38px;line-height:1}
+  .game-card b{display:block;font-size:18px;margin:6px 0 2px}
+  .game-card small{color:var(--muted);font-size:13.5px}
+  .game-card.on{border-color:var(--blue2);background:#EFF6FF;box-shadow:0 6px 18px rgba(37,99,235,.18)}
+  .de-chon{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#F8FAFC;border:1px dashed #94A3B8;border-radius:14px;padding:12px 14px}
+  .de-chon .t{flex:1;min-width:200px;font-weight:800}
+  .de-chon .t small{display:block;font-weight:600;color:var(--muted)}
+  .luat{font-size:14px;color:#334155;background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:10px 14px}
+  .luat ul{margin:4px 0 0;padding-left:20px}
+
+  /* ---------- màn chơi ---------- */
+  .thanh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:800;font-size:14px;white-space:nowrap}
+  .chip.blue{background:var(--blue2);color:#fff;border-color:var(--blue2)}
+  .thanh .phai{margin-left:auto;display:flex;gap:6px}
+  .nut-nho{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;font-weight:800;cursor:pointer}
+  .san{border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.12);background:#DBEAFE}
+  .san svg{display:block;width:100%;height:auto;max-height:34vh}
+  @media(max-width:640px){.san svg{max-height:28vh}}
+  .tien-do{height:8px;border-radius:999px;background:#E2E8F0;overflow:hidden;margin:10px 0}
+  .tien-do i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22C55E,#3B82F6);transition:width .5s}
+  .cau{margin-top:12px}
+  .cau .phan{font-size:12.5px;font-weight:900;color:#7C3AED;text-transform:uppercase;letter-spacing:.3px}
+  .cau .nd{font-size:clamp(16px,2.4vw,19px);font-weight:600;margin:6px 0 10px;white-space:pre-wrap}
+  .cau .doan{background:#F8FAFC;border-left:4px solid #94A3B8;padding:8px 12px;border-radius:8px;font-size:15px;white-space:pre-wrap;max-height:30vh;overflow:auto;margin-bottom:8px}
+  .cau img{max-width:100%;max-height:34vh;display:block;margin:6px auto 10px;border-radius:10px;background:#fff}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:600px){.opts{grid-template-columns:1fr}}
+  .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;border:2px solid #CBD5E1;background:#fff;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;font-weight:600;cursor:pointer;color:var(--ink);min-height:54px}
+  .opt .l{flex:none;width:30px;height:30px;border-radius:9px;background:var(--blue2);color:#fff;display:grid;place-items:center;font-weight:900}
+  .opt:hover:not(:disabled){border-color:var(--blue2);background:#EFF6FF}
+  .opt.sai{border-color:#FCA5A5;background:#FEF2F2;color:#991B1B;text-decoration:line-through;cursor:not-allowed}
+  .opt.sai .l{background:var(--bad)}
+  .opt.dung{border-color:#86EFAC;background:#F0FDF4}
+  .opt.dung .l{background:var(--ok)}
+  .tf{display:flex;align-items:center;gap:10px;border:2px solid #E2E8F0;border-radius:14px;padding:10px 12px;background:#fff;flex-wrap:wrap}
+  .tf+.tf{margin-top:8px}
+  .tf .y{flex:1;min-width:200px;font-size:16px;font-weight:600}
+  .tf .ds{display:flex;gap:6px}
+  .tf .ds button{border:2px solid #CBD5E1;background:#F8FAFC;border-radius:10px;padding:8px 14px;font:inherit;font-weight:900;cursor:pointer;min-width:64px}
+  .tf .ds button.chon-d{background:var(--ok);border-color:var(--ok);color:#fff}
+  .tf .ds button.chon-s{background:var(--bad);border-color:var(--bad);color:#fff}
+  .tln{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .tln .inp{max-width:220px;font-size:22px;font-weight:900;text-align:center;letter-spacing:1px}
+  .hanh-dong{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .phan-hoi{margin-top:12px;border-radius:14px;padding:12px 14px;font-weight:800;font-size:16px;display:none}
+  .phan-hoi.on{display:block}
+  .phan-hoi.dung{background:#DCFCE7;color:#166534;border:1px solid #86EFAC}
+  .phan-hoi.sai{background:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5}
+  .phan-hoi.cho{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+  .lac{animation:lac .45s}
+  @keyframes lac{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+
+  /* ---------- kết quả ---------- */
+  .kq{text-align:center}
+  .kq .huy{font-size:64px;line-height:1;margin-top:4px}
+  .kq h2{font-size:clamp(22px,4vw,30px);margin:8px 0 4px;font-weight:900}
+  .kq .diem{font-size:clamp(46px,9vw,72px);font-weight:900;color:var(--blue2);line-height:1.1}
+  .kq .diem small{font-size:.4em;color:var(--muted)}
+  .sao{font-size:34px;letter-spacing:4px;margin:4px 0}
+  .so-lieu{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+  @media(max-width:600px){.so-lieu{grid-template-columns:1fr 1fr}}
+  .so-lieu div{background:#F8FAFC;border:1px solid var(--line);border-radius:14px;padding:10px}
+  .so-lieu b{display:block;font-size:22px;font-weight:900}
+  .so-lieu span{font-size:13px;color:var(--muted);font-weight:600}
+  .bang{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;text-align:left}
+  .bang th,.bang td{padding:7px 8px;border-bottom:1px solid var(--line)}
+  .bang th{background:#F8FAFC;font-size:12.5px;text-transform:uppercase;color:var(--muted)}
+  .gui{font-weight:700;font-size:14px;color:var(--muted);margin-top:8px}
+  .gui.ok{color:var(--ok)} .gui.err{color:var(--bad)}
+  .phao{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+  .phao i{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:roi linear forwards}
+  @keyframes roi{to{transform:translateY(110vh) rotate(720deg)}}
+  .an{display:none!important}
+  @media (prefers-reduced-motion: reduce){ .lac,.phao i{animation:none} .tien-do i{transition:none} }
+</style>
+<link rel="stylesheet" href="menu_tro_choi.css">
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
+    <a href="quan_ly.html">Góc Giáo viên</a><span class="nav-game"><a href="tu_choi.html" class="nav-game-btn on" aria-haspopup="true">🎮 Trò chơi ▾</a><span class="nav-game-menu"><span class="box"><a href="tu_choi.html">🧑‍🎓 Tự chơi (học sinh)<small>Em tự chọn game, chọn đề; trả lời đúng mới qua câu</small></a><a href="dau_truong.html?vao=bell">🔔 Rung chuông vàng<small>Cả lớp thi loại trực tiếp, trả lời bằng điện thoại</small></a><a href="dau_truong.html?vao=tug">🪢 Kéo co kiến thức<small>Hai đội Đỏ – Xanh thi đấu, chấm theo tỉ lệ đúng</small></a><a href="dau_truong.html?vao=race">🏎️ Đua xe kiến thức<small>Mỗi em tự lái xe, trả lời đúng mới vượt chướng ngại</small></a><a href="nhip_do.html">⏱️ Thi đấu theo nhịp độ<small>GV chiếu từng câu, cả lớp trả lời theo nhịp; cuối trận xếp hạng, vinh danh</small></a></span></span></span><a href="huong_dan.html">Hướng dẫn</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ================= MÀN CHUẨN BỊ: đăng nhập, chọn game, chọn đề ================= -->
+  <section id="man-chuan-bi" class="stack">
+    <div>
+      <h1>🎮 Tự chơi – vừa chơi vừa ôn bài</h1>
+      <p class="sub">Đăng nhập, chọn trò chơi và đề rồi bấm Bắt đầu. Em phải trả lời <b>đúng</b> mới được qua câu tiếp theo, cho đến hết đề.</p>
+    </div>
+
+    <!-- Bước 1: đăng nhập -->
+    <div class="card" id="o-dang-nhap">
+      <div class="buoc"><span class="so" id="so-1">1</span>Đăng nhập</div>
+      <div id="dn-form">
+        <div class="row2">
+          <div><label class="f" for="dn-lop">Lớp</label><input id="dn-lop" class="inp" list="ds-lop" placeholder="VD: 10A1" autocomplete="off" maxlength="20"><datalist id="ds-lop"></datalist></div>
+          <div><label class="f" for="dn-ten">Họ và tên</label><input id="dn-ten" class="inp" placeholder="Họ và tên đầy đủ như danh sách lớp" autocomplete="name" maxlength="60"></div>
+        </div>
+        <div id="dn-loi" class="loi" role="alert"></div>
+        <div class="hanh-dong"><button id="dn-btn" class="btn" type="button">Đăng nhập</button></div>
+      </div>
+      <div id="dn-xacnhan" class="an">
+        <p style="margin:0 0 8px">Máy chủ tìm thấy em trong danh sách lớp. Em kiểm tra đúng mình chưa?</p>
+        <div class="chao"><span>👤 <span class="ten" id="xn-ten"></span> · Lớp <span id="xn-lop"></span></span></div>
+        <div class="hanh-dong"><button id="xn-dung" class="btn ok" type="button">✔ Đúng là em</button><button id="xn-sai" class="btn ghost" type="button">Nhập lại</button></div>
+      </div>
+      <div id="dn-xong" class="an">
+        <div class="chao">👋 Chào <span class="ten" id="hs-ten"></span> · Lớp <span id="hs-lop"></span><button id="dn-doi" class="link" type="button" style="margin-left:auto">Đổi người chơi</button></div>
+      </div>
+    </div>
+
+    <!-- Bước 2: chọn game -->
+    <div class="card">
+      <div class="buoc"><span class="so" id="so-2">2</span>Chọn trò chơi</div>
+      <div class="games" role="radiogroup" aria-label="Trò chơi">
+        <button type="button" class="game-card" data-g="bell" role="radio" aria-checked="false"><span class="ic">🔔</span><b>Rung chuông vàng</b><small>Mỗi câu đúng leo lên một bậc. Lên tới đỉnh là rung chuông vàng!</small></button>
+        <button type="button" class="game-card" data-g="tug" role="radio" aria-checked="false"><span class="ic">🪢</span><b>Kéo co với Máy</b><small>Đúng ngay lần đầu kéo mạnh về phía em; trả lời sai thì Máy kéo lại.</small></button>
+        <button type="button" class="game-card" data-g="race" role="radio" aria-checked="false"><span class="ic">🏎️</span><b>Đua xe với Máy</b><small>Đúng thì vượt chướng ngại vật; sai bị trượt bánh 5 giây. Về đích trước xe Máy!</small></button>
+        <button type="button" class="game-card" data-g="nhip" role="radio" aria-checked="false"><span class="ic">⏱️</span><b>Thi theo nhịp độ</b><small>Đồng hồ theo mức độ câu: Biết 20s · Hiểu 40s · Vận dụng 60s. Đúng trong giờ để giữ chuỗi nhịp!</small></button>
+      </div>
+    </div>
+
+    <!-- Bước 3: chọn đề -->
+    <div class="card">
+      <div class="buoc"><span class="so" id="so-3">3</span>Chọn đề</div>
+      <div class="de-chon">
+        <div class="t" id="de-ten">Chưa chọn đề<small>Đề game hoặc bài củng cố theo bài học</small></div>
+        <button id="de-btn" class="btn" type="button">📚 Chọn đề</button>
+      </div>
+    </div>
+
+    <div class="luat">
+      <b>Luật chơi</b>
+      <ul>
+        <li>Trả lời <b>đúng</b> mới sang câu tiếp theo. Sai thì chọn lại (chờ 2 giây; đua xe trượt bánh 5 giây).</li>
+        <li>Điểm mỗi câu: đúng ngay lần 1 được trọn điểm, lần 2 được ½, lần 3 được ¼, từ lần 4 không có điểm.</li>
+        <li>Câu trả lời ngắn sai 3 lần sẽ hiện 4 đáp số để em chọn.</li>
+        <li>Thời lượng mỗi câu theo mức độ: <b>Biết 20 giây · Hiểu 40 giây · Vận dụng 60 giây</b> (Thi theo nhịp độ: hết giờ vẫn phải trả lời đúng mới qua câu; xe Máy chạy đúng thời lượng này).</li>
+      </ul>
+    </div>
+
+    <button id="bat-dau" class="btn gold lon" type="button" disabled>▶ Bắt đầu</button>
+    <div id="bd-goi-y" class="sub" style="text-align:center;margin:0"></div>
+  </section>
+
+  <!-- ================= MÀN CHƠI ================= -->
+  <section id="man-choi" class="an" aria-live="polite">
+    <div class="thanh">
+      <span class="chip blue" id="c-game"></span>
+      <span class="chip" id="c-cau"></span>
+      <span class="chip" id="c-gio">⏱ 0:00</span>
+      <span class="chip" id="c-sai">✖ 0 lần sai</span>
+      <span class="phai"><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
+    </div>
+    <div class="san" id="san"></div>
+    <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
+    <div class="card cau" id="khung-cau"></div>
+  </section>
+
+  <!-- ================= MÀN KẾT QUẢ ================= -->
+  <section id="man-ket-qua" class="an">
+    <div class="card kq" id="kq"></div>
+  </section>
+</main>
+
+<script>
+(function(){
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rich = t => esc(t).replace(/⟪([^⟫]+)⟫/g, '<u>$1</u>');
+const lay = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const ghi = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+const api = () => { const u = window.KQ_API || ''; return /^https:\/\/script\.google(usercontent)?\.com\//.test(u) ? u : ''; };
+function jsonp(p, ms){
+  return new Promise((ok, fail) => {
+    const u = api(); if (!u) return fail('Chưa cấu hình máy chủ.');
+    const cb = 'tc_' + Math.random().toString(36).slice(2), sc = document.createElement('script');
+    const t = setTimeout(() => { xong(); fail('Không kết nối được máy chủ.'); }, ms || 15000);
+    function xong(){ clearTimeout(t); delete window[cb]; sc.remove(); }
+    window[cb] = d => { xong(); ok(d || {}); };
+    sc.onerror = () => { xong(); fail('Không kết nối được máy chủ.'); };
+    sc.src = u + '?' + new URLSearchParams(Object.assign({}, p, {callback: cb})).toString();
+    document.body.appendChild(sc);
+  });
+}
+function toan(el){
+  if (typeof renderMathInElement !== 'function' || (DE && DE.meta && DE.meta.noMath)) return;
+  try { renderMathInElement(el, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}], throwOnError:false}); } catch (e) {}
+}
+
+// ======================= ÂM THANH (Web Audio, không cần file) =======================
+const AM = { ctx:null, on: lay('tc_am') !== 'tat' };
+function amCtx(){ if (!AM.on) return null; try { if (!AM.ctx) AM.ctx = new (window.AudioContext || window.webkitAudioContext)(); if (AM.ctx.state === 'suspended') AM.ctx.resume(); } catch (e) { return null; } return AM.ctx; }
+function not(f, t0, dai, kieu, to){ const c = amCtx(); if (!c) return; const o = c.createOscillator(), g = c.createGain(); o.type = kieu || 'sine'; o.frequency.value = f; const t = c.currentTime + (t0 || 0);
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(to || .35, t + .01); g.gain.exponentialRampToValueAtTime(0.0001, t + dai); o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + dai + .02); }
+const SFX = {
+  dung(){ not(660, 0, .14, 'triangle'); not(880, .1, .2, 'triangle'); not(1320, .22, .28, 'triangle', .25); },
+  sai(){ not(180, 0, .28, 'sawtooth', .22); not(140, .12, .3, 'sawtooth', .18); },
+  chuong(){ [0, .35, .7].forEach(t => { not(1568, t, 1.2, 'sine', .3); not(2093, t + .02, .9, 'sine', .15); }); },
+  thang(){ [523, 659, 784, 1047].forEach((f, i) => not(f, i * .14, .35, 'triangle', .3)); not(1047, .6, .9, 'triangle', .3); },
+  thua(){ [392, 330, 262].forEach((f, i) => not(f, i * .2, .35, 'triangle', .25)); }
+};
+
+// ======================= TRẠNG THÁI =======================
+let HS = null;              // {ten, lop, xacThuc}
+let GAME = lay('tc_game') || '';
+let DE = null, DE_TEN = '';
+let CAU = [];               // danh sách câu đã chuẩn hoá
+let V = null;               // ván đang chơi
+const TEN_GAME = { bell:'🔔 Rung chuông vàng', tug:'🪢 Kéo co với Máy', race:'🏎️ Đua xe với Máy', nhip:'⏱️ Thi theo nhịp độ' };
+const NHIP = { mcq:40, tf:60, short:60 };      // câu chưa ghi mức độ: thời lượng theo dạng câu
+// Thời lượng câu theo mức độ (GV quy định 23/11/2026): Biết 20 giây · Hiểu 40 giây · Vận dụng, Vận dụng cao 60 giây.
+// Mức độ lấy ở trường level của đề, hoặc chữ "(Biết)", "(Hiểu)"… đầu câu; trả về null khi đề không ghi mức độ.
+function giayTheoMucDo(level, noiDung) {
+    const m = String(noiDung || '').replace(/<[^>]*>/g, '').match(/^\s*(?:Câu\s*\d+\s*[.:]?\s*)?\(\s*(Nhận biết|Thông hiểu|Vận dụng cao|Vận dụng|Biết|Hiểu)\s*\)/i);
+    const s = (level || '') + ' ' + (m ? m[1] : '');
+    if (/vận\s*dụng/i.test(s)) return 60;
+    if (/hiểu/i.test(s)) return 40;
+    if (/biết/i.test(s)) return 20;
+    return null;
+}
+const giayCau = c => giayTheoMucDo(c.mucDo, c.nd) || NHIP[c.type];
+const DIEM_LAN = [1, .5, .25];   // điểm theo lần trả lời đúng (lần 1, 2, 3); từ lần 4: 0
+const CHO_SAI = { bell:2000, tug:2000, race:5000, nhip:2000 };
+
+// ======================= BƯỚC 1: ĐĂNG NHẬP =======================
+function hienHS(){
+  const xong = !!HS;
+  $('dn-form').classList.toggle('an', xong); $('dn-xacnhan').classList.add('an'); $('dn-xong').classList.toggle('an', !xong);
+  if (xong){ $('hs-ten').textContent = HS.ten; $('hs-lop').textContent = HS.lop; }
+  $('so-1').classList.toggle('xong', xong); $('so-1').textContent = xong ? '✓' : '1';
+  capNhatNutBatDau();
+}
+try { const h = JSON.parse(lay('tc_hs') || 'null'); if (h && h.ten && h.lop) HS = h; } catch (e) {}
+if (api()) jsonp({action:'dsLop'}).then(d => { $('ds-lop').innerHTML = (d.lop || []).map(l => `<option value="${esc(l)}">`).join(''); }).catch(() => {});
+let choXacNhan = null;
+function dangNhap(){
+  const lop = $('dn-lop').value.trim().toUpperCase().replace(/\s+/g, ''), ten = $('dn-ten').value.trim().replace(/\s+/g, ' ');
+  const loi = $('dn-loi'); loi.textContent = '';
+  if (!lop){ loi.textContent = 'Em nhập lớp (VD: 10A1).'; $('dn-lop').focus(); return; }
+  if (ten.split(' ').length < 2){ loi.textContent = 'Em nhập đầy đủ họ và tên.'; $('dn-ten').focus(); return; }
+  if (!api()){ HS = {ten, lop, xacThuc:false}; ghi('tc_hs', JSON.stringify(HS)); return hienHS(); }
+  const b = $('dn-btn'); b.disabled = true; b.textContent = 'Đang kiểm tra họ tên…';
+  jsonp({action:'ktHS', lop, ten}).then(d => {
+    b.disabled = false; b.textContent = 'Đăng nhập';
+    if (d.coDS && !d.ok){ loi.textContent = d.loi || 'Không tìm thấy họ tên trong danh sách lớp.'; $('dn-ten').focus(); return; }
+    if (d.coDS && d.ten){
+      choXacNhan = {ten:d.ten, lop, xacThuc:true};
+      $('xn-ten').textContent = d.ten; $('xn-lop').textContent = lop;
+      $('dn-form').classList.add('an'); $('dn-xacnhan').classList.remove('an'); $('xn-dung').focus(); return;
+    }
+    HS = {ten, lop, xacThuc:false}; ghi('tc_hs', JSON.stringify(HS)); hienHS();
+  }).catch(() => {   // mất mạng: vẫn cho chơi, kết quả gửi khi có mạng (thử lại lúc nộp)
+    b.disabled = false; b.textContent = 'Đăng nhập';
+    HS = {ten, lop, xacThuc:false}; ghi('tc_hs', JSON.stringify(HS)); hienHS();
+  });
+}
+$('dn-btn').onclick = dangNhap;
+['dn-lop', 'dn-ten'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') dangNhap(); }));
+$('xn-dung').onclick = () => { HS = choXacNhan; ghi('tc_hs', JSON.stringify(HS)); hienHS(); };
+$('xn-sai').onclick = () => { $('dn-xacnhan').classList.add('an'); $('dn-form').classList.remove('an'); $('dn-ten').focus(); };
+$('dn-doi').onclick = () => { HS = null; try { localStorage.removeItem('tc_hs'); } catch (e) {} hienHS(); $('dn-lop').focus(); };
+
+// ======================= BƯỚC 2: CHỌN GAME =======================
+function hienGame(){
+  document.querySelectorAll('.game-card').forEach(b => { const on = b.dataset.g === GAME; b.classList.toggle('on', on); b.setAttribute('aria-checked', on); });
+  $('so-2').classList.toggle('xong', !!GAME); $('so-2').textContent = GAME ? '✓' : '2';
+  capNhatNutBatDau();
+}
+document.querySelectorAll('.game-card').forEach(b => b.onclick = () => { GAME = b.dataset.g; ghi('tc_game', GAME); hienGame(); });
+
+// ======================= BƯỚC 3: CHỌN ĐỀ =======================
+function chuanHoa(de){
+  const out = [], ten = {mcq:'Phần I · Trắc nghiệm 4 lựa chọn', tf:'Phần II · Đúng / Sai', short:'Phần III · Trả lời ngắn'};
+  ['mcq', 'tf', 'short'].forEach(type => (de.parts || []).filter(p => p.type === type).forEach(part => (part.questions || []).forEach(q => {
+    const c = {type, phan: part.title || ten[type], doan: part.passage || '', nd: q.content || '', anh: q.imageUrl || '', mucDo: q.level || ''};
+    if (type === 'mcq'){
+      const opts = (q.options || []).slice(0, 4); if (opts.length < 2 || !opts.some(o => o.l === q.correct)) return;
+      Object.assign(c, {opts, dung: q.correct});
+    } else if (type === 'tf'){
+      const sts = (q.statements || []).slice(0, 4); if (!sts.length) return;
+      Object.assign(c, {sts: sts.map(s => ({t: s.text, d: s.correct === true || s.correct === 'true'}))});
+    } else {
+      if (q.answer === undefined || q.answer === null || String(q.answer).trim() === '' || soCua(q.answer) === null) return;
+      c.dapSo = String(q.answer).trim();
+    }
+    out.push(c);
+  })));
+  return out;
+}
+function nhanDe(de, ten){
+  const ds = chuanHoa(de);
+  if (!ds.length) throw new Error('Đề này không có câu 4 lựa chọn, Đúng/Sai hoặc trả lời ngắn để chơi.');
+  DE = de; DE_TEN = (de.meta && de.meta.title) || ten || 'Đề'; CAU = ds;
+  const dem = t => ds.filter(c => c.type === t).length;
+  $('de-ten').innerHTML = `${esc(DE_TEN)}<small>${ds.length} câu · ${dem('mcq')} trắc nghiệm · ${dem('tf')} Đúng/Sai · ${dem('short')} trả lời ngắn</small>`;
+  $('so-3').classList.add('xong'); $('so-3').textContent = '✓';
+  capNhatNutBatDau();
+}
+$('de-btn').onclick = () => {
+  if (!window.ChonDe) return alert('Không tải được bộ chọn đề (kiểm tra mạng rồi tải lại trang).');
+  ChonDe.mo(nhanDe, {tabs:['game', 'cc'], tieuDe:'📚 Chọn đề để tự chơi', moTa:'Chọn khối, chọn bài. Đề game có 2 đề mỗi bài; bài củng cố bám theo từng tiết học.'});
+};
+function capNhatNutBatDau(){
+  const thieu = [!HS && 'đăng nhập', !GAME && 'chọn trò chơi', !CAU.length && 'chọn đề'].filter(Boolean);
+  $('bat-dau').disabled = thieu.length > 0;
+  $('bd-goi-y').textContent = thieu.length ? 'Em cần ' + thieu.join(', ') + '.' : '';
+}
+$('bat-dau').onclick = batDau;
+
+// ======================= SÂN CHƠI (SVG) =======================
+// Hình học sinh: áo cổ trắng, không khăn quàng
+function hs(x, y, ao, s, lat){ s = s || 1;
+  return `<g transform="translate(${x} ${y}) scale(${lat ? -s : s} ${s})">
+    <ellipse cx="0" cy="2" rx="16" ry="4" fill="#000" opacity=".15"/>
+    <rect x="-9" y="-30" width="7" height="30" rx="3" fill="#1E293B"/><rect x="2" y="-30" width="7" height="30" rx="3" fill="#1E293B"/>
+    <rect x="-13" y="-62" width="26" height="34" rx="8" fill="${ao}"/><path d="M -7 -62 L 0 -52 L 7 -62 Z" fill="#fff"/>
+    <circle cx="0" cy="-74" r="12" fill="#F5D0A9"/><path d="M -12 -77 Q 0 -92 12 -77 Q 6 -84 -12 -77 Z" fill="#1F2937"/>
+    <circle cx="4" cy="-74" r="1.6" fill="#1F2937"/></g>`; }
+function mayRobot(x, y, s){ s = s || 1;
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <ellipse cx="0" cy="2" rx="18" ry="4" fill="#000" opacity=".15"/>
+    <rect x="-10" y="-28" width="8" height="28" rx="2" fill="#475569"/><rect x="2" y="-28" width="8" height="28" rx="2" fill="#475569"/>
+    <rect x="-15" y="-62" width="30" height="36" rx="6" fill="#94A3B8"/><rect x="-8" y="-54" width="16" height="10" rx="3" fill="#38BDF8"/>
+    <rect x="-12" y="-86" width="24" height="22" rx="6" fill="#CBD5E1"/><circle cx="-5" cy="-75" r="3" fill="#EF4444"/><circle cx="5" cy="-75" r="3" fill="#EF4444"/>
+    <line x1="0" y1="-86" x2="0" y2="-95" stroke="#64748B" stroke-width="2"/><circle cx="0" cy="-97" r="3" fill="#F59E0B"/></g>`; }
+function xe(x, y, mau, s){
+  return `<g transform="translate(${x} ${y}) scale(${s || 1})"><rect x="-34" y="-22" width="68" height="18" rx="7" fill="${mau}"/><path d="M -16 -22 L -8 -34 L 12 -34 L 20 -22 Z" fill="${mau}"/>
+    <path d="M -10 -23 L -5 -31 L 10 -31 L 15 -23 Z" fill="#BAE6FD"/><circle cx="-20" cy="-3" r="8" fill="#111827"/><circle cx="20" cy="-3" r="8" fill="#111827"/>
+    <circle cx="-20" cy="-3" r="3" fill="#E5E7EB"/><circle cx="20" cy="-3" r="3" fill="#E5E7EB"/><rect x="28" y="-18" width="6" height="5" rx="2" fill="#FDE047"/></g>`; }
+
+function veSan(hieuUng){
+  const n = CAU.length, k = V.k, sv = [];
+  // Điện thoại (màn hẹp): sân cao hơn, nhân vật và chữ to hơn để nhìn rõ
+  const nho = ($('san').clientWidth || 1000) < 640, H = nho ? 440 : 230, S = nho ? 1.75 : 1, F = nho ? 1.7 : 1;
+  if (GAME === 'bell'){
+    // Bậc thang từ trái-dưới lên phải-trên, chuông vàng ở đỉnh
+    const x0 = 40, y0 = H - 22, x1 = 840, y1 = nho ? 150 : 72, w = (x1 - x0) / n, h = (y0 - y1) / n;
+    sv.push(`<defs><linearGradient id="bt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E1B4B"/><stop offset="1" stop-color="#4338CA"/></linearGradient></defs><rect width="1000" height="${H}" fill="url(#bt)"/>`);
+    for (let i = 0; i < 34; i++) sv.push(`<circle cx="${(i * 137) % 1000}" cy="${(i * 53) % (H * .55)}" r="${i % 3 ? 1.4 : 2.4}" fill="#FDE68A" opacity=".7"/>`);
+    for (let i = 0; i < n; i++){
+      const x = x0 + i * w, y = y0 - (i + 1) * h, xong = i < k;
+      sv.push(`<rect x="${x}" y="${y}" width="${w + 1}" height="${H - y}" fill="${xong ? '#FBBF24' : '#6366F1'}" opacity="${xong ? 1 : .55}"/>`);
+      if (n <= 30 && w > 22) sv.push(`<text x="${x + w / 2}" y="${y + 14 * F}" text-anchor="middle" font-size="${12 * F}" font-weight="800" fill="${xong ? '#78350F' : '#E0E7FF'}">${i + 1}</text>`);
+    }
+    const lac = V.xong ? `<animateTransform attributeName="transform" type="rotate" values="-18 0 0;18 0 0;-18 0 0" dur=".5s" repeatCount="indefinite"/>` : '';
+    sv.push(`<g transform="translate(925 ${nho ? 20 : 14}) scale(${S})"><g>${lac}<line x1="0" y1="0" x2="0" y2="24" stroke="#FDE68A" stroke-width="3"/><path d="M -30 76 Q -28 28 0 24 Q 28 28 30 76 Z" fill="#F59E0B" stroke="#FDE68A" stroke-width="3"/><circle cx="0" cy="80" r="7" fill="#B45309"/></g></g>`);
+    const px = k === 0 ? x0 + 10 : x0 + (k - .5) * w, py = k === 0 ? y0 : y0 - k * h;
+    sv.push(`<g class="${hieuUng === 'sai' ? 'lac' : ''}" style="transform-box:fill-box">${hs(Math.min(px, 820), py, '#2563EB', .8 * S)}</g>`);
+    sv.push(`<text x="20" y="${30 * F}" font-size="${20 * F}" font-weight="900" fill="#FDE68A">Bậc ${k}/${n}</text>`);
+  } else if (GAME === 'tug'){
+    const M = V.max, d = V.pos / M * 230;       // pos < 0: dây về phía em (bên trái)
+    const gy = H - 24, ry = gy - 47 * S, sky = Math.round(H * .55);
+    sv.push(`<rect width="1000" height="${H}" fill="#BAE6FD"/><rect y="${sky}" width="1000" height="${H - sky}" fill="#4ADE80"/><rect y="${sky}" width="1000" height="10" fill="#86EFAC"/>
+      <circle cx="940" cy="${40 * F}" r="${20 * F}" fill="#FDE68A"/>
+      <line x1="500" y1="${sky}" x2="500" y2="${H}" stroke="#fff" stroke-width="5" stroke-dasharray="10 8"/>
+      <line x1="270" y1="${sky}" x2="270" y2="${H}" stroke="#2563EB" stroke-width="4" stroke-dasharray="6 6"/><line x1="730" y1="${sky}" x2="730" y2="${H}" stroke="#DC2626" stroke-width="4" stroke-dasharray="6 6"/>`);
+    sv.push(`<g transform="translate(${d} 0)">
+      <path d="M 60 ${ry} L 940 ${ry}" stroke="#8A5A2B" stroke-width="${7 * S}" stroke-linecap="round"/><path d="M 60 ${ry} L 940 ${ry}" stroke="#D9B47C" stroke-width="${4 * S}" stroke-dasharray="3 4"/>
+      ${hs(nho ? 120 : 170, gy, '#3B82F6', .95 * S)}${hs(nho ? 230 : 230, gy, '#2563EB', .95 * S)}
+      ${mayRobot(nho ? 770 : 770, gy, .95 * S)}${mayRobot(nho ? 880 : 830, gy, .95 * S)}
+      <g transform="translate(500 ${ry}) scale(${S})"><path d="M -2 4 L -9 30 L -2 28 Z" fill="#DC2626"/><path d="M 2 4 L 9 30 L 2 28 Z" fill="#FACC15"/><ellipse rx="9" ry="6" fill="#B08250"/></g></g>`);
+    sv.push(`<text x="20" y="${30 * F}" font-size="${20 * F}" font-weight="900" fill="#1D4ED8">EM: ${V.luc}</text><text x="980" y="${30 * F}" text-anchor="end" font-size="${20 * F}" font-weight="900" fill="#B91C1C">MÁY: ${V.lucMay}</text>`);
+    const the = V.pos < 0 ? ['Em đang thắng thế!', '#1D4ED8'] : V.pos > 0 ? ['Máy đang thắng thế!', '#B91C1C'] : ['Cân sức!', '#334155'];
+    sv.push(`<text x="500" y="${(nho ? 84 : 58)}" text-anchor="middle" font-size="${18 * F}" font-weight="900" fill="${the[1]}">${the[0]}</text>`);
+  } else if (GAME === 'nhip'){
+    const c = CAU[Math.min(k, n - 1)], tong = giayCau(c), con = V.xong ? 0 : Math.max(0, (V.han - Date.now()) / 1000), tl = con / tong;
+    const R = nho ? 120 : 78, cx = nho ? 180 : 130, cy = H / 2, chu = 2 * Math.PI * R;
+    const mau = tl > .5 ? '#22C55E' : tl > .2 ? '#F59E0B' : '#EF4444';
+    sv.push(`<defs><linearGradient id="nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#312E81"/></linearGradient></defs><rect width="1000" height="${H}" fill="url(#nd)"/>
+      <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#334155" stroke-width="${16 * S}"/>
+      <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${mau}" stroke-width="${16 * S}" stroke-linecap="round" stroke-dasharray="${chu}" stroke-dashoffset="${chu * (1 - tl)}" transform="rotate(-90 ${cx} ${cy})"/>
+      <text x="${cx}" y="${cy + 14 * F}" text-anchor="middle" font-size="${44 * F}" font-weight="900" fill="#fff">${V.xong ? '✓' : V.hetGio ? '⏰' : Math.ceil(con)}</text>`);
+    const x2 = nho ? 360 : 280;
+    sv.push(`<text x="${x2}" y="${cy - 34 * F}" font-size="${18 * F}" font-weight="800" fill="#C7D2FE">${V.hetGio ? 'HẾT GIỜ NHỊP – MẤT CHUỖI' : 'CHUỖI NHỊP'}</text>
+      <text x="${x2}" y="${cy + 26 * F}" font-size="${60 * F}" font-weight="900" fill="${V.chuoi >= 3 ? '#FDE047' : '#fff'}">${V.chuoi >= 3 ? '🔥' : ''}×${V.chuoi}</text>
+      <text x="${x2}" y="${cy + 60 * F}" font-size="${15 * F}" font-weight="700" fill="#A5B4FC">Kỉ lục ván: ×${V.chuoiMax} · Đúng trong giờ: ${V.trongGio}/${k}</text>`);
+    if (!nho){ const dw = Math.min(26, 380 / Math.min(n, 15)); for (let i = 0; i < n; i++){ const x = 600 + (i % 15) * dw, y = 50 + Math.floor(i / 15) * dw, r = V.kq[i];
+      sv.push(`<circle cx="${x}" cy="${y}" r="${dw * .35}" fill="${!r ? (i === k ? '#6366F1' : '#334155') : r.trongGio ? '#22C55E' : '#F59E0B'}"/>`); } }
+  } else {
+    // Hai làn đường: làn trên xe Máy (chạy đều), làn dưới xe của em; chướng ngại vật là cọc tiêu
+    const x0 = nho ? 110 : 80, x1 = 920, w = (x1 - x0) / n, top = nho ? 70 : 40, giua = (top + H - 16) / 2;
+    const pMay = Math.min(1, (V.tg() / 1000) / V.giayMay), xMay = x0 + pMay * (x1 - x0), xEm = x0 + k * w;
+    sv.push(`<defs><pattern id="co" width="11" height="11" patternUnits="userSpaceOnUse"><rect width="11" height="11" fill="#fff"/><rect width="5.5" height="5.5" fill="#111"/><rect x="5.5" y="5.5" width="5.5" height="5.5" fill="#111"/></pattern></defs>
+      <rect width="1000" height="${H}" fill="#86EFAC"/><rect x="0" y="${top}" width="1000" height="${H - 16 - top}" fill="#334155"/>
+      <line x1="0" y1="${giua}" x2="1000" y2="${giua}" stroke="#F8FAFC" stroke-width="${4 * S}" stroke-dasharray="26 18"/>
+      <rect x="${x1}" y="${top}" width="${22 * S}" height="${H - 16 - top}" fill="url(#co)"/>
+      <text x="14" y="${top - 10}" font-size="${18 * F}" font-weight="900" fill="#14532D">🤖 MÁY</text><text x="14" y="${H - 34}" font-size="${16 * F}" font-weight="900" fill="#BFDBFE">EM</text>`);
+    for (let i = k; i < n; i++){ const cx = x0 + (i + 1) * w - w / 2, cy = H - 26; sv.push(`<path d="M ${cx - 9 * S} ${cy} L ${cx} ${cy - 30 * S} L ${cx + 9 * S} ${cy} Z" fill="#F97316" stroke="#fff" stroke-width="2"/>`); }
+    sv.push(xe(xMay, giua - 12, '#64748B', S));
+    sv.push(`<g class="${hieuUng === 'sai' ? 'lac' : ''}" style="transform-box:fill-box">${xe(Math.min(xEm, x1), H - 26, '#2563EB', S)}</g>`);
+    if (V.khoaDen > Date.now()) sv.push(`<text x="${Math.max(140, Math.min(xEm, 860))}" y="${H - 26 - 48 * S}" text-anchor="middle" font-size="${16 * F}" font-weight="900" fill="#FDE047">💥 Trượt bánh!</text>`);
+  }
+  $('san').innerHTML = `<svg viewBox="0 0 1000 ${H}" role="img" aria-label="${esc(TEN_GAME[GAME])}: câu ${Math.min(k + 1, n)} trên ${n}">${sv.join('')}</svg>`;
+  $('tien-do').style.width = (k / n * 100) + '%';
+}
+
+// ======================= VÁN CHƠI =======================
+function batDau(){
+  if (!HS || !GAME || !CAU.length) return;
+  const giayMay = CAU.reduce((s, c) => s + giayCau(c), 0);   // xe Máy chạy đúng thời lượng chuẩn của từng câu
+  V = { k:0, lanSai:0, saiCau:0, kq:[], bd:Date.now(), khoaDen:0, xong:false, pos:0, max:Math.max(4, Math.ceil(CAU.length / 2)), luc:0, lucMay:0,
+        giayMay, chuoi:0, chuoiMax:0, trongGio:0, han:0, hetGio:false, tg(){ return (this.ketThuc || Date.now()) - this.bd; } };
+  document.body.classList.add('dang-choi');
+  $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
+  $('c-game').textContent = TEN_GAME[GAME];
+  amCtx(); veCau(); veSan(); demGio();
+  window.scrollTo(0, 0);
+}
+let dongHo = null;
+function demGio(){
+  clearInterval(dongHo);
+  dongHo = setInterval(() => {
+    if (!V || V.ketThuc) return clearInterval(dongHo);
+    const s = Math.floor(V.tg() / 1000); $('c-gio').textContent = '⏱ ' + Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+    if (GAME === 'nhip' && !V.hetGio && !V.dangChuyen && Date.now() > V.han){
+      V.hetGio = true; V.chuoi = 0; SFX.sai();
+      phanHoi('cho', '⏰ Hết giờ nhịp – mất chuỗi. Em vẫn phải trả lời đúng câu này để qua câu.');
+    }
+    if (GAME === 'race' || GAME === 'nhip') veSan();
+  }, GAME === 'race' || GAME === 'nhip' ? 250 : 1000);
+}
+function capNhatThanh(){
+  $('c-cau').textContent = `Câu ${Math.min(V.k + 1, CAU.length)}/${CAU.length}`;
+  $('c-sai').textContent = `✖ ${V.lanSai} lần sai`;
+}
+
+function soCua(v){ const s = String(v == null ? '' : v).trim().replace(/,/g, '.'); if (!/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return null; const x = parseFloat(s); return isNaN(x) ? null : x; }
+function sachTLN(v){ let s = String(v == null ? '' : v).replace(/\./g, ',').replace(/[^0-9,\-]/g, ''); s = (s.startsWith('-') ? '-' : '') + s.replace(/-/g, ''); const k = s.indexOf(','); if (k >= 0) s = s.slice(0, k + 1) + s.slice(k + 1).replace(/,/g, ''); return s.slice(0, 4); }
+const hienSo = x => String(+x.toFixed(4)).replace('.', ',');
+function phuongAnSo(dapSo){   // 4 đáp số (1 đúng + 3 nhiễu) cho câu trả lời ngắn sai 3 lần
+  const v = soCua(dapSo), le = (String(dapSo).split(/[.,]/)[1] || '').length, buoc = le ? Math.pow(10, -le) : 1;
+  const ung = [v + buoc, v - buoc, -v, v * 2, v / 2, v + 2 * buoc, v - 2 * buoc, v + 10 * buoc, v * 10].map(x => +x.toFixed(Math.max(le, 2)));
+  const ds = [v], tt = new Set([hienSo(v)]);
+  for (const x of ung){ const h = hienSo(x); if (!tt.has(h) && h.replace('-', '').replace(',', '').length <= 4){ tt.add(h); ds.push(x); } if (ds.length === 4) break; }
+  for (let i = ds.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [ds[i], ds[j]] = [ds[j], ds[i]]; }
+  return ds.map(hienSo);
+}
+
+function veCau(){
+  capNhatThanh();
+  const c = CAU[V.k], khung = $('khung-cau');
+  V.lanCau = 0; V.tf = c.type === 'tf' ? c.sts.map(() => null) : null; V.saiOpt = []; V.soChon = null;
+  V.han = Date.now() + giayCau(c) * 1000; V.hetGio = false;
+  let h = `<div class="phan">${esc(c.phan)}</div>${c.doan ? `<div class="doan">${rich(c.doan)}</div>` : ''}
+    <div class="nd"><b>Câu ${V.k + 1}.</b> ${rich(c.nd)}</div>${c.anh ? `<img src="${esc(c.anh)}" alt="Hình minh hoạ câu ${V.k + 1}" onerror="this.remove()">` : ''}<div id="tra-loi"></div>
+    <div id="phan-hoi" class="phan-hoi" role="status"></div>`;
+  khung.innerHTML = h; veTraLoi(); toan(khung);
+  khung.scrollIntoView({block:'nearest'});
+}
+function veTraLoi(){
+  const c = CAU[V.k], o = $('tra-loi'), khoa = V.khoaDen > Date.now();
+  if (c.type === 'mcq'){
+    o.innerHTML = `<div class="opts">${c.opts.map(op => {
+      const sai = V.saiOpt.includes(op.l);
+      return `<button type="button" class="opt ${sai ? 'sai' : ''}" data-l="${esc(op.l)}" ${sai || khoa ? 'disabled' : ''}><span class="l">${esc(op.l)}</span><span>${rich(op.t)}</span></button>`;
+    }).join('')}</div>`;
+    o.querySelectorAll('.opt').forEach(b => b.onclick = () => traLoi(b.dataset.l, b));
+  } else if (c.type === 'tf'){
+    o.innerHTML = c.sts.map((s, i) => `<div class="tf"><span class="y"><b>${'abcd'[i]})</b> ${rich(s.t)}</span><span class="ds">
+      <button type="button" data-i="${i}" data-v="1" class="${V.tf[i] === true ? 'chon-d' : ''}" aria-pressed="${V.tf[i] === true}">Đúng</button>
+      <button type="button" data-i="${i}" data-v="0" class="${V.tf[i] === false ? 'chon-s' : ''}" aria-pressed="${V.tf[i] === false}">Sai</button></span></div>`).join('') +
+      `<div class="hanh-dong"><button type="button" class="btn" id="kt-btn" ${khoa ? 'disabled' : ''}>✔ Kiểm tra</button></div>`;
+    o.querySelectorAll('.ds button').forEach(b => b.onclick = () => { V.tf[+b.dataset.i] = b.dataset.v === '1'; veTraLoi(); toan(o); });
+    $('kt-btn').onclick = () => { if (V.tf.some(v => v === null)) return phanHoi('cho', 'Em chọn Đúng hoặc Sai cho đủ ' + c.sts.length + ' ý nhé.'); traLoi(V.tf.slice()); };
+  } else {
+    if (V.lanCau >= 3){
+      if (!V.soChon) V.soChon = phuongAnSo(c.dapSo);
+      o.innerHTML = `<p style="margin:0 0 8px;font-weight:700;color:#92400E">Gợi ý: đáp số là một trong 4 số dưới đây.</p><div class="opts">${V.soChon.map((s, i) => {
+        const sai = V.saiOpt.includes(s);
+        return `<button type="button" class="opt ${sai ? 'sai' : ''}" data-s="${esc(s)}" ${sai || khoa ? 'disabled' : ''}><span class="l">${'ABCD'[i]}</span><span style="font-size:20px;font-weight:900">${esc(s)}</span></button>`;
+      }).join('')}</div>`;
+      o.querySelectorAll('.opt').forEach(b => b.onclick = () => traLoi(b.dataset.s, b));
+    } else {
+      o.innerHTML = `<div class="tln"><input id="tln" class="inp" inputmode="decimal" autocomplete="off" placeholder="Đáp số" aria-label="Đáp số"><button type="button" class="btn" id="kt-btn" ${khoa ? 'disabled' : ''}>✔ Kiểm tra</button></div>
+        <div class="sub" style="margin:6px 0 0;font-size:13px">Tối đa 4 kí tự, dấu phẩy thập phân (VD: -1,5 hoặc 0,25).</div>`;
+      const inp = $('tln');
+      inp.oninput = () => { const s = sachTLN(inp.value); if (s !== inp.value) inp.value = s; };
+      inp.onkeydown = e => { if (e.key === 'Enter') $('kt-btn').click(); };
+      $('kt-btn').onclick = () => { if (!inp.value.trim()) return phanHoi('cho', 'Em nhập đáp số trước khi kiểm tra.'); traLoi(inp.value); };
+      if (!khoa) setTimeout(() => inp.focus({preventScroll:true}), 50);
+    }
+  }
+}
+function phanHoi(loai, txt){ const p = $('phan-hoi'); if (!p) return; p.className = 'phan-hoi on ' + loai; p.textContent = txt; }
+
+function traLoi(gt, nut){
+  if (!V || V.dangChuyen || V.khoaDen > Date.now()) return;
+  const c = CAU[V.k];
+  let dung = false, ghiChu = '';
+  if (c.type === 'mcq') dung = gt === c.dung;
+  else if (c.type === 'tf'){ const n = c.sts.filter((s, i) => s.d === gt[i]).length; dung = n === c.sts.length; ghiChu = `Em đúng ${n}/${c.sts.length} ý.`; }
+  else { const a = soCua(gt), b = soCua(c.dapSo); dung = a !== null && Math.abs(a - b) <= 0.006 + 1e-9; }
+  V.lanCau++;
+  if (dung){
+    const diem = DIEM_LAN[V.lanCau - 1] || 0;
+    const trongGio = Date.now() <= V.han;
+    if (GAME === 'nhip'){ if (trongGio){ V.chuoi++; V.trongGio++; V.chuoiMax = Math.max(V.chuoiMax, V.chuoi); } else V.chuoi = 0; }
+    V.kq.push({cau: V.k + 1, loai: c.type, lan: V.lanCau, diem, trongGio});
+    if (nut) nut.classList.add('dung');
+    V.dangChuyen = true; SFX.dung();
+    if (GAME === 'tug'){ const keo = V.lanCau === 1 ? 2 : 1; V.pos = Math.max(-V.max, V.pos - keo); V.luc += keo; }
+    V.k++;
+    phanHoi('dung', V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`);
+    veSan();
+    if (GAME === 'bell' && V.k < CAU.length) setTimeout(() => not(1568, 0, .6, 'sine', .2), 200);
+    setTimeout(() => { V.dangChuyen = false; if (V.k >= CAU.length) ketThuc(); else veCau(); }, 1100);
+    return;
+  }
+  // Sai: phải trả lời lại câu này
+  V.lanSai++; SFX.sai();
+  if (GAME === 'nhip') V.chuoi = 0;
+  if (c.type === 'mcq' || (c.type === 'short' && V.lanCau > 3)) V.saiOpt.push(gt);
+  if (GAME === 'tug'){ V.pos = Math.min(V.max, V.pos + 1); V.lucMay++; }
+  const cho = CHO_SAI[GAME]; V.khoaDen = Date.now() + cho;
+  const loiNhan = GAME === 'nhip' ? '❌ Sai rồi – mất chuỗi nhịp!' : GAME === 'race' ? '💥 Sai rồi – xe trượt bánh!' : GAME === 'tug' ? '😬 Sai rồi – Máy kéo lại!' : '❌ Chưa đúng!';
+  phanHoi('sai', `${loiNhan} ${ghiChu} Chờ ${Math.round(cho / 1000)} giây rồi trả lời lại câu này.`);
+  if (c.type === 'short' && V.lanCau === 3) phanHoi('sai', `${loiNhan} Sai 3 lần – sau ${Math.round(cho / 1000)} giây sẽ hiện 4 đáp số để em chọn.`);
+  capNhatThanh(); veSan('sai'); veTraLoi(); toan($('tra-loi'));
+  $('khung-cau').classList.remove('lac'); void $('khung-cau').offsetWidth; $('khung-cau').classList.add('lac');
+  setTimeout(() => { if (!V || V.dangChuyen) return; veTraLoi(); toan($('tra-loi')); veSan(); phanHoi('cho', 'Em trả lời lại câu này nhé.'); }, cho);
+}
+
+// ======================= KẾT THÚC & KẾT QUẢ =======================
+function ketThuc(){
+  V.ketThuc = Date.now(); V.xong = true; clearInterval(dongHo); veSan();
+  const n = CAU.length, tong = V.kq.reduce((s, x) => s + x.diem, 0), diem10 = Math.round(tong / n * 1000) / 100;
+  const lan1 = V.kq.filter(x => x.lan === 1).length, giay = Math.round(V.tg() / 1000);
+  const sao = diem10 >= 9 ? 3 : diem10 >= 7 ? 2 : diem10 >= 5 ? 1 : 0;
+  let huy = '🏅', tieuDe = 'Hoàn thành!', thang = true;
+  if (GAME === 'bell'){ huy = '🔔'; tieuDe = diem10 >= 8 ? 'Em đã RUNG CHUÔNG VÀNG!' : 'Em đã leo tới đỉnh tháp chuông!'; }
+  else if (GAME === 'tug'){ thang = V.pos < 0; huy = thang ? '🏆' : V.pos === 0 ? '🤝' : '💪'; tieuDe = thang ? 'Em thắng Máy trong trận kéo co!' : V.pos === 0 ? 'Hoà! Hai bên cân sức.' : 'Máy thắng sát nút – chơi lại nhé!'; }
+  else if (GAME === 'nhip'){ const tl = V.trongGio / n; thang = tl >= .7 && diem10 >= 6.5; const xs = tl >= .9 && diem10 >= 8; huy = xs ? '🥇' : thang ? '🏅' : '⏱️';
+    tieuDe = xs ? 'Giữ nhịp xuất sắc!' : thang ? 'Em giữ nhịp rất tốt!' : 'Hoàn thành – lần sau chắc tay và nhanh hơn nhé!'; }
+  else { thang = giay <= V.giayMay; huy = thang ? '🏆' : '🥈'; tieuDe = thang ? 'Em về đích trước xe Máy – HẠNG NHẤT!' : 'Xe Máy về trước – em về nhì!'; }
+  if (thang) { SFX.thang(); if (GAME === 'bell') SFX.chuong(); phaoGiay(); } else SFX.thua();
+  const mmss = s => Math.floor(s / 60) + ' phút ' + String(s % 60).padStart(2, '0') + ' giây';
+  const tenLoai = {mcq:'4 lựa chọn', tf:'Đúng/Sai', short:'Trả lời ngắn'};
+  const quizId = ('Tự chơi · ' + TEN_GAME[GAME].replace(/^\S+\s/, '') + ' · ' + DE_TEN).slice(0, 120);
+  luuKyLuc(quizId, diem10, giay);
+  $('kq').innerHTML = `<div class="huy">${huy}</div><h2>${esc(tieuDe)}</h2>
+    <div class="sub" style="margin:0">${esc(HS.ten)} · Lớp ${esc(HS.lop)} · ${esc(DE_TEN)}</div>
+    <div class="diem">${diem10.toFixed(2).replace('.', ',')}<small> / 10 điểm</small></div>
+    <div class="sao" aria-label="${sao} sao">${'⭐'.repeat(sao)}${'☆'.repeat(3 - sao)}</div>
+    <div class="so-lieu"><div><b>${n}/${n}</b><span>câu đã vượt qua</span></div><div><b>${lan1}</b><span>câu đúng ngay lần đầu</span></div>
+      <div><b>${V.lanSai}</b><span>lần trả lời sai</span></div><div><b>${Math.floor(giay / 60)}:${String(giay % 60).padStart(2, '0')}</b><span>thời gian${GAME === 'race' ? ' (Máy: ' + Math.floor(V.giayMay / 60) + ':' + String(V.giayMay % 60).padStart(2, '0') + ')' : ''}</span></div></div>
+    ${GAME === 'nhip' ? `<div class="sub" style="margin:0 0 6px">Đúng trong giờ nhịp: <b>${V.trongGio}/${n}</b> câu · Chuỗi nhịp dài nhất: <b>×${V.chuoiMax}</b></div>` : ''}
+    ${kyLucHtml(quizId)}
+    <details style="text-align:left;margin-top:10px"><summary style="cursor:pointer;font-weight:800">Xem chi tiết từng câu</summary>
+      <table class="bang"><thead><tr><th>Câu</th><th>Dạng</th><th>Đúng ở lần</th>${GAME === 'nhip' ? '<th>Nhịp</th>' : ''}<th>Điểm</th></tr></thead><tbody>
+      ${V.kq.map(x => `<tr><td>${x.cau}</td><td>${tenLoai[x.loai]}</td><td>${x.lan === 1 ? '✅ lần 1' : 'lần ' + x.lan}</td>${GAME === 'nhip' ? `<td>${x.trongGio ? '⏱️ trong giờ' : '⏰ quá giờ'}</td>` : ''}<td>${x.diem ? (+x.diem.toFixed(2)).toString().replace('.', ',') : '0'}</td></tr>`).join('')}
+      </tbody></table></details>
+    <div id="gui" class="gui"></div>
+    <div class="hanh-dong" style="justify-content:center;margin-top:14px">
+      <button type="button" class="btn gold" id="kq-lai">↻ Chơi lại đề này</button>
+      <button type="button" class="btn" id="kq-doi">🎮 Đổi game / đổi đề</button>
+      <a class="btn ghost an" id="kq-xh" href="#">🏆 Bảng xếp hạng</a>
+    </div>`;
+  $('man-choi').classList.add('an'); $('man-ket-qua').classList.remove('an'); document.body.classList.remove('dang-choi');
+  $('kq-lai').onclick = batDau;
+  $('kq-doi').onclick = veChuanBi;
+  window.scrollTo(0, 0);
+  guiKetQua(quizId, diem10, tong, n, giay);
+}
+function luuKyLuc(id, d, g){
+  let kl = {}; try { kl = JSON.parse(lay('tc_ky_luc') || '{}'); } catch (e) {}
+  const cu = kl[id]; V.kyLucCu = cu || null;
+  if (!cu || d > cu.d || (d === cu.d && g < cu.g)) kl[id] = {d, g, t: Date.now()};
+  ghi('tc_ky_luc', JSON.stringify(kl));
+}
+function kyLucHtml(){
+  const cu = V.kyLucCu; if (!cu) return '<div class="sub" style="margin:0">Đây là lần đầu em chơi đề này với trò chơi này.</div>';
+  const d = Math.round(CAU.length && V.kq.reduce((s, x) => s + x.diem, 0) / CAU.length * 1000) / 100;
+  return `<div class="sub" style="margin:0">Kỉ lục trước của em: <b>${cu.d.toFixed(2).replace('.', ',')}</b> điểm${d > cu.d ? ' – <b style="color:#16A34A">em vừa phá kỉ lục! 🎉</b>' : ''}</div>`;
+}
+function guiKetQua(quizId, diem10, tong, n, giay){
+  const el = $('gui'), u = api();
+  if (!u){ el.textContent = ''; return; }
+  const answers = V.kq.map(x => ({p: x.loai === 'mcq' ? 1 : x.loai === 'tf' ? 2 : 3, c: x.cau, q: rutGon(CAU[x.cau - 1].nd), pts: +x.diem.toFixed(2), ok: x.lan === 1, chon: 'Đúng ở lần ' + x.lan, dung: ''}));
+  const payload = { quizId, title: quizId, name: HS.ten, lop: HS.lop, score10: diem10, total: +tong.toFixed(2), max: n,
+    parts: ['Đúng lần đầu: ' + V.kq.filter(x => x.lan === 1).length + '/' + n, 'Lần sai: ' + V.lanSai].concat(GAME === 'nhip' ? ['Đúng trong giờ: ' + V.trongGio + '/' + n, 'Chuỗi nhịp: ' + V.chuoiMax] : []), timeUsed: giay, auto: false, answers, clientId: maMay() };
+  el.className = 'gui'; el.textContent = 'Đang gửi kết quả cho giáo viên…';
+  const gui = lan => fetch(u, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(() => {
+      el.className = 'gui ok'; el.textContent = '✓ Đã gửi kết quả cho giáo viên.';
+      const xh = $('kq-xh'); if (xh){ xh.href = 'xep_hang.html?q=' + encodeURIComponent(quizId) + '&lop=' + encodeURIComponent(HS.lop); xh.classList.remove('an'); }
+    })
+    .catch(() => { if (lan < 3){ el.textContent = 'Mạng chập chờn, đang gửi lại lần ' + (lan + 1) + '…'; setTimeout(() => gui(lan + 1), 2500 * lan); } else { el.className = 'gui err'; el.textContent = '⚠ Chưa gửi được kết quả (mất mạng). Em chụp màn hình kết quả gửi giáo viên nhé.'; } });
+  gui(1);
+}
+function rutGon(t){ return String(t || '').replace(/\s+/g, ' ').slice(0, 160); }
+function maMay(){ try { let id = lay('tdt_client'); if (!id){ id = Math.random().toString(36).slice(2, 12); ghi('tdt_client', id); } return id; } catch (e) { return ''; } }
+function phaoGiay(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const p = document.createElement('div'); p.className = 'phao'; const mau = ['#F59E0B', '#22C55E', '#3B82F6', '#EF4444', '#A855F7', '#FDE047'];
+  for (let i = 0; i < 90; i++){ const c = document.createElement('i'); c.style.left = Math.random() * 100 + 'vw'; c.style.background = mau[i % mau.length]; c.style.animationDuration = (2.2 + Math.random() * 2) + 's'; c.style.animationDelay = Math.random() * .8 + 's'; p.appendChild(c); }
+  document.body.appendChild(p); setTimeout(() => p.remove(), 5200);
+}
+function veChuanBi(){
+  V = null; clearInterval(dongHo); document.body.classList.remove('dang-choi');
+  $('man-choi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-chuan-bi').classList.remove('an'); window.scrollTo(0, 0);
+}
+$('nut-thoat').onclick = () => { if (confirm('Dừng ván đang chơi? Kết quả ván này sẽ không được tính.')) veChuanBi(); };
+function hienAm(){ $('nut-am').textContent = AM.on ? '🔊' : '🔇'; }
+$('nut-am').onclick = () => { AM.on = !AM.on; ghi('tc_am', AM.on ? 'bat' : 'tat'); hienAm(); };
+window.addEventListener('beforeunload', e => { if (V && !V.ketThuc){ e.preventDefault(); e.returnValue = ''; } });
+
+hienAm(); hienHS(); hienGame(); capNhatNutBatDau();
+// Mở thẳng một game: tu_choi.html?game=tug
+const gq = new URLSearchParams(location.search).get('game'); if (TEN_GAME[gq]){ GAME = gq; ghi('tc_game', GAME); hienGame(); }
+})();
+</script>
+</body>

@@ -449,6 +449,7 @@
                 <button onclick="switchTab('bank')" id="tab-btn-bank" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">
                     📝 Đề (<span id="nav-q-count">22</span>)
                 </button>
+                <a href="tu_choi.html" id="nut-tu-choi" title="Học sinh tự chơi: chọn game, chọn đề, trả lời đúng mới qua câu" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">🧑‍🎓 Tự chơi</a>
                 <button onclick="switchTab('practice')" id="tab-btn-practice" class="tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 dark:text-slate-300 hover:text-indigo-600 shrink-0">
                     🎓 Luyện thi
                 </button>
@@ -1914,8 +1915,20 @@
         }
 
         // 5. HÀM XÁC ĐỊNH THỜI GIAN TỪNG PHẦN (PHẦN I KHỞI ĐỘNG: 20s, PHẦN II TĂNG TỐC: 30s, PHẦN III VỀ ĐÍCH: 40s)
+        // Thời lượng câu theo mức độ (GV quy định 23/11/2026): Biết 20 giây · Hiểu 40 giây · Vận dụng, Vận dụng cao 60 giây.
+        // Mức độ lấy ở trường level của đề, hoặc chữ "(Biết)", "(Hiểu)"… đầu câu; trả về null khi đề không ghi mức độ.
+        function giayTheoMucDo(level, noiDung) {
+            const m = String(noiDung || '').replace(/<[^>]*>/g, '').match(/^\s*(?:Câu\s*\d+\s*[.:]?\s*)?\(\s*(Nhận biết|Thông hiểu|Vận dụng cao|Vận dụng|Biết|Hiểu)\s*\)/i);
+            const s = (level || '') + ' ' + (m ? m[1] : '');
+            if (/vận\s*dụng/i.test(s)) return 60;
+            if (/hiểu/i.test(s)) return 40;
+            if (/biết/i.test(s)) return 20;
+            return null;
+        }
         function getQuestionDuration(q) {
             if (!q) return 20;
+            const md = giayTheoMucDo(q.level, q.text);
+            if (md) return md;
             if (/PHẦN\s*I\b|KHỞI\s*ĐỘNG/i.test(q.part) || q.type === 'mcq') return 20;
             if (/PHẦN\s*II\b|TĂNG\s*TỐC/i.test(q.part) || q.type === 'tf') return 30;
             if (/PHẦN\s*III\b|VỀ\s*ĐÍCH/i.test(q.part) || q.type === 'short') return 40;
@@ -3946,7 +3959,7 @@
             const hintEl = document.getElementById('bell-question-type-hint');
 
             if (q.type === 'mcq') {
-                hintEl.innerText = 'PHẦN I - KHỞI ĐỘNG (20 GIÂY): Trắc nghiệm 4 phương án — Học sinh chọn trên Điện thoại';
+                hintEl.innerText = `PHẦN I - KHỞI ĐỘNG (${getQuestionDuration(q)} GIÂY): Trắc nghiệm 4 phương án — Học sinh chọn trên Điện thoại`;
                 optArea.innerHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">` +
                     q.options.map((opt, idx) => {
                         const letter = String.fromCharCode(65 + idx);
@@ -3962,7 +3975,7 @@
                         </div>`;
                     }).join('') + `</div>`;
             } else if (q.type === 'tf') {
-                hintEl.innerText = 'PHẦN II - TĂNG TỐC (30 GIÂY): Xét tính Đúng / Sai cho từng mệnh đề a), b), c), d)';
+                hintEl.innerText = `PHẦN II - TĂNG TỐC (${getQuestionDuration(q)} GIÂY): Xét tính Đúng / Sai cho từng mệnh đề a), b), c), d)`;
                 optArea.innerHTML = `<div class="space-y-3">` +
                     q.statements.map((st, idx) => {
                         const userVal = bellTfUserSelections[idx];
@@ -3982,7 +3995,7 @@
                         </div>`;
                     }).join('') + `</div>`;
             } else {
-                hintEl.innerText = 'PHẦN III - VỀ ĐÍCH (40 GIÂY): Câu hỏi Trả lời ngắn — Thí sinh nhập đáp số trên Điện thoại';
+                hintEl.innerText = `PHẦN III - VỀ ĐÍCH (${getQuestionDuration(q)} GIÂY): Câu hỏi Trả lời ngắn — Thí sinh nhập đáp số trên Điện thoại`;
                 optArea.innerHTML = `
                     <div class="p-5 rounded-2xl bg-indigo-50/70 dark:bg-slate-800/90 border-2 border-indigo-200 dark:border-indigo-700 space-y-3">
                         <div class="flex flex-wrap items-center gap-3">
@@ -4577,7 +4590,7 @@
             const hintEl = document.getElementById('tug-question-type-hint');
 
             if (q.type === 'mcq') {
-                hintEl.innerText = 'PHẦN I - KHỞI ĐỘNG (20 GIÂY): 2 Đội chọn đáp án trên Điện thoại hoặc bấm chọn trực tiếp ở bảng Đội Đỏ / Đội Xanh bên dưới';
+                hintEl.innerText = `PHẦN I - KHỞI ĐỘNG (${getQuestionDuration(q)} GIÂY): 2 Đội chọn đáp án trên Điện thoại hoặc bấm chọn trực tiếp ở bảng Đội Đỏ / Đội Xanh bên dưới`;
                 const optionsGrid = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">` +
                     q.options.map((opt, idx) => {
                         const letter = String.fromCharCode(65 + idx);
@@ -4621,7 +4634,7 @@
                 `;
                 optArea.innerHTML = optionsGrid + dualTeamPad;
             } else if (q.type === 'tf') {
-                hintEl.innerText = 'PHẦN II - TĂNG TỐC (30 GIÂY): Xét tính Đúng / Sai cho từng mệnh đề a), b), c), d)';
+                hintEl.innerText = `PHẦN II - TĂNG TỐC (${getQuestionDuration(q)} GIÂY): Xét tính Đúng / Sai cho từng mệnh đề a), b), c), d)`;
                 optArea.innerHTML = `<div class="space-y-3">` +
                     q.statements.map((st, idx) => {
                         const redVal = tugRedTfSelections[idx];
@@ -4650,7 +4663,7 @@
                         </div>`;
                     }).join('') + `</div>`;
             } else {
-                hintEl.innerText = 'PHẦN III - VỀ ĐÍCH (40 GIÂY): Trả lời ngắn (Nhập đáp số của Đội Đỏ & Đội Xanh để chấm tự động)';
+                hintEl.innerText = `PHẦN III - VỀ ĐÍCH (${getQuestionDuration(q)} GIÂY): Trả lời ngắn (Nhập đáp số của Đội Đỏ & Đội Xanh để chấm tự động)`;
                 optArea.innerHTML = `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
                         <div class="space-y-1.5">
@@ -5270,7 +5283,7 @@
                 (de.parts || []).filter(p => p.type === type).forEach(part => {
                     (part.questions || []).forEach(q => {
                         const n = out.length + 1;
-                        const base = { id: n, part: partName[type], qNum: `Câu ${n}`, type, text: rich(q.content) };
+                        const base = { id: n, part: partName[type], qNum: `Câu ${n}`, type, text: rich(q.content), level: q.level || '' };
                         const visual = img(q.imageUrl);
                         if (visual) base.visual = visual;
                         if (type === 'mcq') {
