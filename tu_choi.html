@@ -149,6 +149,17 @@
   .phao{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
   .phao i{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:roi linear forwards}
   @keyframes roi{to{transform:translateY(110vh) rotate(720deg)}}
+  .hd-game{margin-top:14px;border:2px solid #C7D2FE;background:#EEF2FF;border-radius:16px;padding:12px 16px}
+  .hd-game h3,.hd-box h3{margin:0 0 6px;font-size:17px;font-weight:900;color:#3730A3}
+  .hd-game .muc-tieu,.hd-box .muc-tieu{margin:0 0 8px;font-weight:700}
+  .hd-game ol,.hd-box ol{margin:0;padding-left:22px}.hd-game li,.hd-box li{margin:3px 0}
+  .hd-game .thang,.hd-box .thang{margin:8px 0 0;background:#FEF9C3;border-radius:10px;padding:6px 10px;font-weight:700}
+  .hd-game .meo,.hd-box .meo{margin:6px 0 0;color:#475569;font-size:14px}
+  .hd-chung summary{cursor:pointer;font-weight:800;color:#3730A3;margin-top:8px}
+  .hd-chung ul{margin:6px 0 0;padding-left:20px;font-size:14.5px}
+  .hd-modal{position:fixed;inset:0;z-index:60;background:rgba(2,6,23,.7);display:flex;align-items:center;justify-content:center;padding:14px}
+  .hd-box{background:#fff;border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow:auto;padding:18px 18px 14px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  .hd-box .ic{font-size:44px;line-height:1}
   .an{display:none!important}
   @media (prefers-reduced-motion: reduce){ .lac,.phao i{animation:none} .tien-do i{transition:none} }
 </style>
@@ -169,7 +180,7 @@
   <section id="man-chuan-bi" class="stack">
     <div>
       <h1>🎮 Tự chơi – vừa chơi vừa ôn bài</h1>
-      <p class="sub">Đăng nhập, chọn trò chơi và đề rồi bấm Bắt đầu. Em phải trả lời <b>đúng</b> mới được qua câu tiếp theo, cho đến hết đề.</p>
+      <p class="sub">Đăng nhập, chọn trò chơi và đề rồi bấm Bắt đầu. Em phải trả lời <b>đúng</b> mới được qua câu tiếp theo, cho đến hết đề. Chọn trò chơi để xem <b>cách chơi</b>.</p>
     </div>
 
     <!-- Bước 1: đăng nhập -->
@@ -202,6 +213,7 @@
         <button type="button" class="game-card" data-g="race" role="radio" aria-checked="false"><span class="ic">🏎️</span><b>Đua xe với Máy</b><small>Đúng thì vượt chướng ngại vật; sai bị trượt bánh 5 giây. Về đích trước xe Máy!</small></button>
         <button type="button" class="game-card" data-g="nhip" role="radio" aria-checked="false"><span class="ic">⏱️</span><b>Thi theo nhịp độ</b><small>Đồng hồ theo mức độ câu: Biết 20s · Hiểu 40s · Vận dụng 60s. Đúng trong giờ để giữ chuỗi nhịp!</small></button>
       </div>
+      <div id="hd-game" class="hd-game an" aria-live="polite"></div>
       <div id="chon-xe" class="an"><div class="buoc" style="margin:14px 0 0;font-size:15px">🏎️ Chọn xe đua của em</div><div class="xe-grid" id="xe-grid" role="radiogroup" aria-label="Loại xe"></div></div>
     </div>
 
@@ -235,7 +247,7 @@
       <span class="chip" id="c-cau"></span>
       <span class="chip" id="c-gio">⏱ 0:00</span>
       <span class="chip" id="c-sai">✖ 0 lần sai</span>
-      <span class="phai"><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
+      <span class="phai"><button class="nut-nho" id="nut-hd" type="button" title="Xem cách chơi">❓ Cách chơi</button><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
     <div class="san-wrap">
       <div class="san" id="san"></div>
@@ -252,6 +264,11 @@
     <div class="card kq" id="kq"></div>
   </section>
 </main>
+  <!-- Hướng dẫn chơi (mở bằng nút ❓ Cách chơi; tự hiện lần đầu em chơi mỗi game) -->
+  <div id="hd-modal" class="hd-modal an" role="dialog" aria-modal="true" aria-labelledby="hd-tieu-de">
+    <div class="hd-box"><div id="hd-noi-dung"></div>
+      <div class="hanh-dong" style="justify-content:flex-end"><button type="button" class="btn gold" id="hd-dong">Đã hiểu</button></div></div>
+  </div>
 
 <script>
 (function(){
@@ -377,10 +394,54 @@ $('dn-doi').onclick = () => { HS = null; try { localStorage.removeItem('tc_hs');
 function hienGame(){
   document.querySelectorAll('.game-card').forEach(b => { const on = b.dataset.g === GAME; b.classList.toggle('on', on); b.setAttribute('aria-checked', on); });
   $('so-2').classList.toggle('xong', !!GAME); $('so-2').textContent = GAME ? '✓' : '2';
-  veChonXe();
+  veChonXe(); veHuongDan();
   capNhatNutBatDau();
 }
 document.querySelectorAll('.game-card').forEach(b => b.onclick = () => { GAME = b.dataset.g; ghi('tc_game', GAME); hienGame(); });
+
+// ======================= HƯỚNG DẪN CHƠI TỪNG GAME =======================
+const HD = {
+  bell: { ic:'🔔', ten:'Rung chuông vàng', muc:'Vượt qua lần lượt từng câu của đề để rung chuông vàng.',
+    buoc:['Đọc đề ở khung câu hỏi bên dưới sân khấu.', 'Trả lời đúng: em vượt qua câu đó, chuông ngân và sang câu tiếp theo.',
+          'Trả lời sai: bảng của em chuyển màu đỏ, chờ 2 giây rồi trả lời lại <b>chính câu đó</b>.', 'Vượt hết các câu là xong ván.'],
+    thang:'🏆 Đạt từ 8 điểm trở lên: em RUNG CHUÔNG VÀNG!', meo:'Mẹo: đọc kĩ đề, đúng ngay lần đầu để được trọn điểm mỗi câu.' },
+  tug: { ic:'🪢', ten:'Kéo co với Máy', muc:'Em là Đội Đỏ (bên trái), kéo co với Máy (Đội Xanh, bên phải).',
+    buoc:['Đúng <b>ngay lần đầu</b>: em kéo mạnh, được +2 lực kéo.', 'Đúng ở lần thứ 2 trở đi: được +1 lực kéo.',
+          'Mỗi lần trả lời sai: Máy +1 lực kéo, dây bị kéo về phía Máy; chờ 2 giây rồi trả lời lại câu đó.', 'Bảng điểm trên sân cho biết lực kéo của em và của Máy.'],
+    thang:'🏆 Hết đề, dây nằm bên phía em là em thắng; dây ở giữa là hoà.', meo:'Mẹo: càng ít lần sai, Máy càng ít cơ hội kéo lại.' },
+  race: { ic:'🏎️', ten:'Đua xe với Máy', muc:'Lái xe em chọn đua với xe của Máy; mỗi câu hỏi là một chướng ngại vật (cọc tiêu).',
+    buoc:['Chọn xe ở mục <b>Chọn xe đua của em</b> trước khi bấm Bắt đầu.', 'Đếm ngược 3 – 2 – 1 – XUẤT PHÁT! rồi câu hỏi mới mở.',
+          'Trả lời đúng: xe vượt chướng ngại vật. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
+          'Trả lời sai: xe trượt bánh, chờ 5 giây rồi trả lời lại câu đó.',
+          'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây); góc sân ghi số chướng ngại em và Máy đã vượt.'],
+    thang:'🏆 Về đích trước xe Máy: em HẠNG NHẤT!', meo:'Mẹo: vừa nhanh vừa chính xác – mỗi lần sai mất 5 giây.' },
+  nhip: { ic:'⏱️', ten:'Thi theo nhịp độ', muc:'Trả lời đúng trong thời gian của từng câu để giữ chuỗi nhịp dài nhất.',
+    buoc:['Đồng hồ vòng ở góc sân đếm ngược: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây.',
+          'Đúng trong giờ: chuỗi nhịp +1 (từ ×3 trở lên có 🔥).', 'Trả lời sai hoặc hết giờ: mất chuỗi nhịp. Em vẫn phải trả lời đúng câu đó mới được sang câu tiếp.'],
+    thang:'🏆 Đúng trong giờ từ 70% số câu và đạt từ 6,5 điểm: giữ nhịp tốt; từ 90% và 8 điểm: xuất sắc!', meo:'Mẹo: câu Biết làm thật nhanh để dành thời gian cho câu Vận dụng.' }
+};
+const HD_CHUNG = `<details class="hd-chung"><summary>Cách trả lời, cách tính điểm và các nút</summary><ul>
+  <li><b>Câu 4 lựa chọn:</b> bấm vào phương án em chọn. Phương án sai sẽ bị gạch, em chọn lại phương án khác.</li>
+  <li><b>Câu Đúng/Sai:</b> chọn <b>Đúng</b> hoặc <b>Sai</b> cho cả 4 ý a, b, c, d rồi bấm <b>✔ Kiểm tra</b>. Phải đúng cả 4 ý mới qua câu; máy báo em đúng mấy ý.</li>
+  <li><b>Câu trả lời ngắn:</b> gõ đáp số (tối đa 4 kí tự, dấu phẩy thập phân, ví dụ <code>-1,5</code>) rồi bấm <b>✔ Kiểm tra</b> hoặc Enter. Sai 3 lần sẽ hiện 4 đáp số để em chọn.</li>
+  <li><b>Điểm mỗi câu:</b> đúng ngay lần 1 được trọn điểm, lần 2 được ½, lần 3 được ¼, từ lần 4 không có điểm. Điểm cả ván quy về thang 10.</li>
+  <li><b>Các nút:</b> 🔊 bật/tắt âm thanh · <b>2D/3D</b> đổi kiểu sân (máy chạy chậm thì bấm 2D) · <b>❓ Cách chơi</b> xem lại hướng dẫn · <b>✕ Dừng</b> bỏ ván đang chơi (không tính điểm).</li>
+  <li>Hết ván, kết quả tự gửi cho thầy cô; em xem được <b>Bảng xếp hạng</b> của lớp và kỉ lục của mình.</li></ul></details>`;
+function hdHtml(g, the){
+  const h = HD[g]; if (!h) return '';
+  return `<h3 ${the ? 'id="hd-tieu-de"' : ''}>${the ? `<span class="ic">${h.ic}</span><br>` : ''}📖 Cách chơi: ${h.ten}</h3><p class="muc-tieu">${h.muc}</p>
+    <ol>${h.buoc.map(b => `<li>${b}</li>`).join('')}</ol><p class="thang">${h.thang}</p><p class="meo">${h.meo}</p>${HD_CHUNG}`;
+}
+function veHuongDan(){ const o = $('hd-game'); o.classList.toggle('an', !GAME); o.innerHTML = hdHtml(GAME, false); }
+let sauHuongDan = null;
+function moHuongDan(g, nutChu, sau){
+  $('hd-noi-dung').innerHTML = hdHtml(g, true); $('hd-dong').textContent = nutChu || 'Đã hiểu';
+  sauHuongDan = sau || null; $('hd-modal').classList.remove('an'); $('hd-dong').focus();
+}
+function dongHuongDan(){ $('hd-modal').classList.add('an'); const f = sauHuongDan; sauHuongDan = null; if (f) f(); }
+$('hd-dong').onclick = dongHuongDan;
+$('hd-modal').addEventListener('click', e => { if (e.target === $('hd-modal')) dongHuongDan(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('hd-modal').classList.contains('an')) dongHuongDan(); });
 
 // ======================= CHỌN XE (giống Đua xe trình chiếu) =======================
 const RACE_CARS = {
@@ -442,7 +503,10 @@ function capNhatNutBatDau(){
   $('bat-dau').disabled = thieu.length > 0;
   $('bd-goi-y').textContent = thieu.length ? 'Em cần ' + thieu.join(', ') + '.' : '';
 }
-$('bat-dau').onclick = batDau;
+$('bat-dau').onclick = () => {
+  if (!lay('tc_hd_' + GAME)) return moHuongDan(GAME, '▶ Bắt đầu chơi', () => { ghi('tc_hd_' + GAME, '1'); batDau(); });
+  batDau();
+};
 
 // ======================= SÂN CHƠI (SVG) =======================
 // Hình học sinh: áo cổ trắng, không khăn quàng
@@ -814,6 +878,7 @@ $('nut-am').onclick = () => {
   if (window.Race3D) Race3D.engine(AM.on);           // tiếng động cơ xe
   if (AM.on) moKhoaAm(); nhac(!!(V && !V.xong));
 };
+$('nut-hd').onclick = () => moHuongDan(GAME, 'Chơi tiếp');
 $('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tc_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = CHE_3D ? null : V.da3d; veSan(); } };
 window.addEventListener('beforeunload', e => { if (V && !V.ketThuc){ e.preventDefault(); e.returnValue = ''; } });
 
