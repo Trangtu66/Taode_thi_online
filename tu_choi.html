@@ -365,6 +365,7 @@ function giayTheoMucDo(level, noiDung) {
 const giayCau = c => giayTheoMucDo(c.mucDo, c.nd) || NHIP[c.type];
 const DIEM_LAN = [1, .5, .25];   // điểm theo lần trả lời đúng (lần 1, 2, 3); từ lần 4: 0
 const CHO_SAI = { bell:2000, tug:2000, race:5000, nhip:2000 };
+const CHAY_MS = 5000;   // Đua xe: mỗi câu đúng xe chạy 5 giây tới chướng ngại kế tiếp (như mặc định màn chiếu GV), chạy tới nơi mới mở câu sau
 
 // ======================= BƯỚC 1: ĐĂNG NHẬP =======================
 function hienHS(){
@@ -425,9 +426,9 @@ const HD = {
     thang:'🏆 Hết đề, dây nằm bên phía em là em thắng; dây ở giữa là hoà.', meo:'Mẹo: càng ít lần sai, Máy càng ít cơ hội kéo lại.' },
   race: { ic:'🏎️', ten:'Đua xe với Máy', muc:'Lái xe em chọn đua với xe của Máy; mỗi câu hỏi là một chướng ngại vật (cọc tiêu).',
     buoc:['Chọn xe ở mục <b>Chọn xe đua của em</b> trước khi bấm Bắt đầu.', 'Đếm ngược 3 – 2 – 1 – XUẤT PHÁT! rồi câu hỏi mới mở.',
-          'Trả lời đúng: xe vượt chướng ngại vật. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
+          'Trả lời đúng: xe lao đi 5 giây vượt chướng ngại vật, tới chướng ngại tiếp theo thì câu sau mới mở. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
           'Trả lời sai: xe trượt bánh, chờ 5 giây rồi trả lời lại câu đó.',
-          'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây); góc sân ghi số chướng ngại em và Máy đã vượt.'],
+          'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây) cộng 5 giây chạy mỗi chặng như xe em; góc sân ghi số chướng ngại em và Máy đã vượt.'],
     thang:'🏆 Về đích trước xe Máy: em HẠNG NHẤT!', meo:'Mẹo: vừa nhanh vừa chính xác – mỗi lần sai mất 5 giây.' },
   nhip: { ic:'⏱️', ten:'Thi theo nhịp độ', muc:'Trả lời đúng trong thời gian của từng câu để giữ chuỗi nhịp dài nhất.',
     buoc:['Đồng hồ vòng ở góc sân đếm ngược: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây.',
@@ -569,8 +570,8 @@ const ANH = {
     const hang = emXong ? (!mayXong || V.emVe <= V.mayVe ? 1 : 2) : mayXong ? 2 : (V.k >= mayPos ? 1 : 2);
     if (emXong && !V.emVe) V.emVe = V.ketThuc || now; if (mayXong && !V.mayVe) V.mayVe = V.ketThuc && V.tg() / 1000 < V.giayMay ? now : (V.bd + V.giayMay * 1000);
     return { state: dem ? 'countdown' : 'running', total: n, focusId: 'em', lanes: [
-      { id: 'em', name: '⭐ ' + tenNgan(), car: XE, color: RACE_CARS[XE].color, pos: V.k, done: emXong, penalty: V.khoaDen > now && !dem, asking: !emXong && !(V.khoaDen > now), rank: hang, driveMs: 1600, passAt: V.passAt || 0, streak: V.chuoiDung || 0 },
-      { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: 3 - hang, driveMs: 1600, passAt: V.mayPassAt || 0, streak: 0 }
+      { id: 'em', name: '⭐ ' + tenNgan(), car: XE, color: RACE_CARS[XE].color, pos: V.k, done: emXong, penalty: V.khoaDen > now && !dem, asking: !emXong && !(V.khoaDen > now) && !V.dangChuyen, rank: hang, driveMs: CHAY_MS, passAt: V.passAt || 0, streak: V.chuoiDung || 0 },
+      { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: 3 - hang, driveMs: CHAY_MS, passAt: V.mayPassAt || 0, streak: 0 }
     ] };
   },
   nhip: () => ({ info: !V ? 'SẴN SÀNG' : V.xong ? 'HOÀN THÀNH ' + CAU.length + ' CÂU' : V.hetGio ? 'HẾT GIỜ NHỊP – TRẢ LỜI LẠI CÂU ' + (V.k + 1) : 'CÂU ' + Math.min(V.k + 1, CAU.length) + '/' + CAU.length,
@@ -657,7 +658,8 @@ function veSan(hieuUng){
   } else {
     // Hai làn đường: làn trên xe Máy (chạy đều), làn dưới xe của em; chướng ngại vật là cọc tiêu
     const x0 = nho ? 110 : 80, x1 = 920, w = (x1 - x0) / n, top = nho ? 70 : 40, giua = (top + H - 16) / 2;
-    const pMay = Math.min(1, (V.tg() / 1000) / V.giayMay), xMay = x0 + pMay * (x1 - x0), xEm = x0 + k * w;
+    const fc = Math.min(1, (Date.now() - (V.passAt || 0)) / CHAY_MS), chay = k > 0 && fc < 1 ? 1 - (fc < .5 ? 2 * fc * fc : 1 - Math.pow(-2 * fc + 2, 2) / 2) : 0;   // xe em chạy dần tới chướng ngại mới
+    const pMay = Math.min(1, (V.tg() / 1000) / V.giayMay), xMay = x0 + pMay * (x1 - x0), xEm = x0 + (k - chay) * w;
     sv.push(`<defs><pattern id="co" width="11" height="11" patternUnits="userSpaceOnUse"><rect width="11" height="11" fill="#fff"/><rect width="5.5" height="5.5" fill="#111"/><rect x="5.5" y="5.5" width="5.5" height="5.5" fill="#111"/></pattern></defs>
       <rect width="1000" height="${H}" fill="#86EFAC"/><rect x="0" y="${top}" width="1000" height="${H - 16 - top}" fill="#334155"/>
       <line x1="0" y1="${giua}" x2="1000" y2="${giua}" stroke="#F8FAFC" stroke-width="${4 * S}" stroke-dasharray="26 18"/>
@@ -675,7 +677,7 @@ function veSan(hieuUng){
 // ======================= VÁN CHƠI =======================
 function batDau(){
   if (!HS || !GAME || !CAU.length) return;
-  const giayMay = CAU.reduce((s, c) => s + giayCau(c), 0);   // xe Máy chạy đúng thời lượng chuẩn của từng câu
+  const giayMay = CAU.reduce((s, c) => s + giayCau(c), 0) + (GAME === 'race' ? CAU.length * CHAY_MS / 1000 : 0);   // xe Máy chạy đúng thời lượng chuẩn của từng câu (Đua xe: cộng thời gian chạy giữa hai chướng ngại như xe em)
   const demMs = GAME === 'race' ? 3000 : 0;   // Đua xe: đếm ngược 3 – 2 – 1 như bản trình chiếu
   V = { k:0, lanSai:0, saiCau:0, kq:[], bd:Date.now() + demMs, khoaDen:Date.now() + demMs, xong:false, pos:0, max:Math.max(4, Math.ceil(CAU.length / 2)), luc:0, lucMay:0,
         giayMay, chuoi:0, chuoiMax:0, chuoiDung:0, trongGio:0, han:0, hetGio:false, mayPos:0, tg(){ return Math.max(0, (this.ketThuc || Date.now()) - this.bd); } };
@@ -788,7 +790,8 @@ function traLoi(gt, nut){
     V.k++;
     phanHoi('dung', V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`);
     veSan();
-    setTimeout(() => { V.dangChuyen = false; if (V.k >= CAU.length) ketThuc(); else veCau(); }, 1100);
+    if (GAME === 'race') phanHoi('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`) + (V.k >= CAU.length ? ' 🏁 Xe đang lao về đích…' : (V.chuoiDung >= 2 ? ' 🔥 Tăng tốc' : ' 🏎️ Xe đang chạy') + ' tới chướng ngại ' + (V.k + 1) + '…'));
+    setTimeout(() => { if (!V) return; V.dangChuyen = false; if (V.k >= CAU.length) ketThuc(); else veCau(); }, GAME === 'race' ? CHAY_MS : 1100);
     return;
   }
   // Sai: phải trả lời lại câu này
