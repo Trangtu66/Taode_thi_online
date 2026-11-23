@@ -164,13 +164,13 @@
         }
 
         /* Sân kéo co luôn nhìn thấy khi cuộn xuống đọc đề (ghim dưới thanh menu; khi Toàn màn hình ghim sát mép trên) */
-        #tug-bottom-controls { position: sticky; top: 4.25rem; z-index: 30; }
-        .fullscreen-stage #tug-bottom-controls { top: -0.5rem; }
+        #tug-sticky { position: sticky; top: 4.25rem; z-index: 30; }
+        .fullscreen-stage #tug-sticky { top: -0.5rem; background: inherit; }
         #tug-scene-svg { height: clamp(110px, 20vh, 200px); }
         .fullscreen-stage #tug-3d { height: 28vh; max-height: 320px; }
         .fullscreen-stage #tug-scene-svg { height: clamp(150px, 30vh, 300px); }
         @media (max-width: 639px) {
-            #tug-bottom-controls { position: static; }
+            #tug-sticky { position: static; }
             #tug-scene-svg, .fullscreen-stage #tug-scene-svg { height: auto; }
         }
 
@@ -816,6 +816,8 @@
                     </div>
                 </div>
 
+                <!-- Khối ghim: sân đấu + hàng nút luôn cùng hiện khi cuộn đọc đề (sửa 23/11/2026: trước chỉ ghim nút nên mất hình sân) -->
+                <div id="tug-sticky" class="space-y-2 bg-white dark:bg-slate-800 pb-1 rounded-2xl">
                 <!-- SÂN ĐẤU KÉO CO 4 ĐẤU 4 TRỰC QUAN SỐNG ĐỘNG -->
                 <div id="tug-arena" class="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-b from-sky-100 to-emerald-50 dark:from-slate-900 dark:to-slate-800 border-2 border-sky-100 dark:border-slate-700 shadow-md space-y-2">
                     <!-- Bảng tỷ số 2 đội Đỏ - Xanh trên sân -->
@@ -950,6 +952,7 @@
                             </button>
                         </div>
                     </div>
+                </div>
 
                 <!-- Khung Câu hỏi Kéo Co (Đầy đủ Đồng hồ 30s, Bảng biến thiên có mũi tên, Tương tác 3 phần) -->
                 <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 space-y-4">
