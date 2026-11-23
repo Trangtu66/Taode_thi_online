@@ -340,7 +340,7 @@
   };
 
   // ---------------------------------------------------------------- xe từng học sinh
-  function syncCars(lanes) {
+  function syncCars(lanes, focusId) {
     var seen = {};
     lanes.forEach(function (l, i) {
       seen[l.id] = 1;
@@ -354,6 +354,8 @@
         c = R.cars[l.id] = { obj: obj, key: l.car, z: c ? c.z : -3, lab: lab, ico: ico, labKey: '', smoke: [] };
       }
       c.lane = i;
+      // tự chơi (2 làn sát nhau): nhãn xe Máy nâng cao, nhỏ hơn để không đè nhãn ⭐ của em
+      var phu = !!focusId && l.id !== focusId; if (c.labPhu !== phu) { c.labPhu = phu; c.lab.position.y = phu ? 6.8 : 3.4; c.lab.scale.set(phu ? 5.4 : 6.4, phu ? 1.35 : 1.6, 1); }
       var lk = l.name + '|' + l.rank;
       if (c.labKey !== lk) { c.labKey = lk; c.lab.material.map.dispose(); c.lab.material.map = labelTex(l.name, l.color, l.rank || i + 1); c.lab.material.needsUpdate = true; }
       c.data = l;
@@ -369,7 +371,7 @@
     var s = R.snapshot() || { state: 'idle', total: 0, lanes: [] };
     var total = s.total || R.preview || 10, n = s.lanes.length;
     if (n !== R.n || total !== R.total) { buildWorld(n, total); Object.keys(R.cars).forEach(function (id) { R.cars[id].obj.position.x = 0; }); }
-    syncCars(s.lanes);
+    syncCars(s.lanes, s.focusId);
     var lead = -3, sumZ = 0, cnt = 0, t = now / 1000, speed = 0, moving = 0;
     Object.keys(R.cars).forEach(function (id) {
       var c = R.cars[id], l = c.data, o = c.obj, tz = targetZ(l, s.state), dz;
