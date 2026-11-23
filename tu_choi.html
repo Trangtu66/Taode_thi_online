@@ -78,7 +78,8 @@
   .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:800;font-size:14px;white-space:nowrap}
   .chip.blue{background:var(--blue2);color:#fff;border-color:var(--blue2)}
   .thanh .phai{margin-left:auto;display:flex;gap:6px}
-  .nut-nho{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;font-weight:800;cursor:pointer}
+  .nut-nho{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;font-weight:800;cursor:pointer;white-space:nowrap}
+  @media(max-width:520px){.nut-nho .chu{display:none}.thanh .chip{font-size:13px;padding:5px 9px}}
   .san{border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.12);background:#DBEAFE}
   .san-wrap{position:relative}
   .san3d{height:40vh;min-height:230px;max-height:420px;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.18);background:#0F172A}
@@ -247,7 +248,7 @@
       <span class="chip" id="c-cau"></span>
       <span class="chip" id="c-gio">⏱ 0:00</span>
       <span class="chip" id="c-sai">✖ 0 lần sai</span>
-      <span class="phai"><button class="nut-nho" id="nut-hd" type="button" title="Xem cách chơi">❓ Cách chơi</button><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
+      <span class="phai"><button class="nut-nho" id="nut-hd" type="button" title="Xem cách chơi" aria-label="Cách chơi">❓<span class="chu"> Cách chơi</span></button><button class="nut-nho an" id="nut-cam" type="button" title="Đổi góc quay: Bám đuôi → Truyền hình → Toàn cảnh">🎥</button><button class="nut-nho" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button" aria-label="Dừng ván">✕<span class="chu"> Dừng</span></button></span>
     </div>
     <div class="san-wrap">
       <div class="san" id="san"></div>
@@ -450,8 +451,8 @@ const RACE_CARS = {
 };
 let XE = (() => { const x = lay('tc_xe'); if (RACE_CARS[x]) return x; try { const pf = JSON.parse(lay('mathlab_2025_my_student_profile') || 'null'); if (pf && RACE_CARS[pf.car]) return pf.car; } catch (e) {} return 'f1'; })();
 function banhXe(cx, r = 6.5){ const h = (r * .45).toFixed(2); return `<circle cx="${cx}" cy="28" r="${r}" fill="#1f2937"/><circle cx="${cx}" cy="28" r="${h}" fill="#e5e7eb"/>`; }
-function hinhXe(key){   // xe nhìn ngang (viewBox 72 x 36) – cùng kiểu vẽ với dau_truong.html (raceCarSvg)
-  const c = RACE_CARS[key].color, gl = '#bae6fd', ln = 'rgba(15,23,42,.28)'; let b;
+function hinhXe(key, mau){   // xe nhìn ngang (viewBox 72 x 36) – cùng kiểu vẽ với dau_truong.html (raceCarSvg)
+  const c = mau || RACE_CARS[key].color, gl = '#bae6fd', ln = 'rgba(15,23,42,.28)'; let b;
   if (key === 'f1') b = `<rect x="3" y="11" width="8" height="3" rx="1.5" fill="${c}"/><rect x="6" y="13" width="2" height="8" fill="#374151"/><path d="M 6 25 L 12 20 L 30 19 L 38 14 L 49 14 L 53 19 L 64 21 L 69 25 Z" fill="${c}" stroke="${ln}"/><rect x="60" y="24" width="10" height="3" rx="1.5" fill="${c}"/><circle cx="44" cy="13" r="4.5" fill="#fde047" stroke="${ln}"/>` + banhXe(17, 7) + banhXe(58, 6);
   else if (key === 'sport') b = `<path d="M 4 25 C 4 20 9 18 16 17 L 26 11 C 31 8.5 42 8.5 48 12 L 56 17 C 64 18 69 20 69 24 L 69 26 L 4 26 Z" fill="${c}" stroke="${ln}"/><path d="M 28 12.5 C 32 10.5 41 10.5 45 12.5 L 50 16.5 L 24 16.5 Z" fill="${gl}"/>` + banhXe(18) + banhXe(56);
   else if (key === 'jeep') b = `<circle cx="6" cy="18" r="5" fill="#374151"/><rect x="7" y="12" width="58" height="14" rx="3.5" fill="${c}" stroke="${ln}"/><path d="M 28 12 L 31 4 H 50 L 54 12 Z" fill="${c}" stroke="${ln}"/><path d="M 32 11 L 34 6 H 41 V 11 Z M 43 11 V 6 H 49 L 51 11 Z" fill="${gl}"/>` + banhXe(19, 7.5) + banhXe(54, 7.5);
@@ -459,6 +460,11 @@ function hinhXe(key){   // xe nhìn ngang (viewBox 72 x 36) – cùng kiểu v�
   else if (key === 'pickup') b = `<rect x="3" y="16" width="66" height="10" rx="3" fill="${c}" stroke="${ln}"/><path d="M 38 16 L 41 7 H 56 C 59 7 61 10 62 16 Z" fill="${c}" stroke="${ln}"/><path d="M 43 15 L 44.5 9.5 H 55 C 57 9.5 58 11 58.5 15 Z" fill="${gl}"/>` + banhXe(16) + banhXe(56);
   else b = `<circle cx="15" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><circle cx="56" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 15 27 L 28 18 L 46 18 L 56 27" stroke="#475569" stroke-width="2.4" fill="none"/><path d="M 24 20 C 28 13 44 12 52 18 L 58 22 L 44 22 L 40 19 L 28 22 Z" fill="${c}" stroke="${ln}"/><path d="M 33 14 L 38 7" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="5.5" r="4.5" fill="${c}" stroke="${ln}"/>`;
   return `<svg viewBox="0 0 72 36" aria-hidden="true"><ellipse cx="36" cy="34" rx="30" ry="2" fill="#000" opacity=".18"/>${b}</svg>`;
+}
+const XE_MAY = () => XE === 'sport' ? 'jeep' : 'sport';   // xe của Máy: khác loại với xe em, màu xám (giống sân 3D)
+function xe2d(x, y, key, s, mau){   // đặt hình xe đã chọn lên sân 2D (đầu xe quay sang phải, bánh chạm mặt đường tại y)
+  const w = 104 * s, h = 52 * s;
+  return hinhXe(key, mau).replace('<svg ', `<svg x="${x - w / 2}" y="${y - h * .95}" width="${w}" height="${h}" `);
 }
 function veChonXe(){
   $('chon-xe').classList.toggle('an', GAME !== 'race');
@@ -524,11 +530,6 @@ function mayRobot(x, y, s){ s = s || 1;
     <rect x="-15" y="-62" width="30" height="36" rx="6" fill="#94A3B8"/><rect x="-8" y="-54" width="16" height="10" rx="3" fill="#38BDF8"/>
     <rect x="-12" y="-86" width="24" height="22" rx="6" fill="#CBD5E1"/><circle cx="-5" cy="-75" r="3" fill="#EF4444"/><circle cx="5" cy="-75" r="3" fill="#EF4444"/>
     <line x1="0" y1="-86" x2="0" y2="-95" stroke="#64748B" stroke-width="2"/><circle cx="0" cy="-97" r="3" fill="#F59E0B"/></g>`; }
-function xe(x, y, mau, s){
-  return `<g transform="translate(${x} ${y}) scale(${s || 1})"><rect x="-34" y="-22" width="68" height="18" rx="7" fill="${mau}"/><path d="M -16 -22 L -8 -34 L 12 -34 L 20 -22 Z" fill="${mau}"/>
-    <path d="M -10 -23 L -5 -31 L 10 -31 L 15 -23 Z" fill="#BAE6FD"/><circle cx="-20" cy="-3" r="8" fill="#111827"/><circle cx="20" cy="-3" r="8" fill="#111827"/>
-    <circle cx="-20" cy="-3" r="3" fill="#E5E7EB"/><circle cx="20" cy="-3" r="3" fill="#E5E7EB"/><rect x="28" y="-18" width="6" height="5" rx="2" fill="#FDE047"/></g>`; }
-
 // ======================= SÂN 3D (bell3d.js, tug3d.js, race3d.js, nhipdo3d.js) =======================
 let CHE_3D = lay('tc_3d') !== 'tat';
 const S3 = { bell:'Bell3D', tug:'Tug3D', race:'Race3D', nhip:'ND3D' };
@@ -555,7 +556,7 @@ const ANH = {
     if (emXong && !V.emVe) V.emVe = V.ketThuc || now; if (mayXong && !V.mayVe) V.mayVe = V.ketThuc && V.tg() / 1000 < V.giayMay ? now : (V.bd + V.giayMay * 1000);
     return { state: dem ? 'countdown' : 'running', total: n, lanes: [
       { id: 'em', name: tenNgan(), car: XE, color: RACE_CARS[XE].color, pos: V.k, done: emXong, penalty: V.khoaDen > now && !dem, asking: !emXong && !(V.khoaDen > now), rank: emXong ? hang : 1, driveMs: 1600, passAt: V.passAt || 0, streak: V.chuoiDung || 0 },
-      { id: 'may', name: '🤖 Máy', car: XE === 'sport' ? 'jeep' : 'sport', color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: mayXong ? (emXong && V.emVe <= V.mayVe ? 2 : 1) : 2, driveMs: 1600, passAt: V.mayPassAt || 0, streak: 0 }
+      { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: mayXong ? (emXong && V.emVe <= V.mayVe ? 2 : 1) : 2, driveMs: 1600, passAt: V.mayPassAt || 0, streak: 0 }
     ] };
   },
   nhip: () => ({ info: !V ? 'SẴN SÀNG' : V.xong ? 'HOÀN THÀNH ' + CAU.length + ' CÂU' : V.hetGio ? 'HẾT GIỜ NHỊP – TRẢ LỜI LẠI CÂU ' + (V.k + 1) : 'CÂU ' + Math.min(V.k + 1, CAU.length) + '/' + CAU.length,
@@ -567,6 +568,7 @@ function dung3d(){   // true nếu sân 3D của game hiện tại đang chạy
   Object.keys(S3).forEach(g => $('s3-' + g).classList.toggle('an', !(on && g === GAME)));
   $('san').classList.toggle('an', !!on);
   $('nut-3d').textContent = on ? '2D' : '3D';
+  $('nut-cam').classList.toggle('an', !(on && GAME === 'race'));
   if (on && V.da3d !== GAME){
     V.da3d = GAME;
     lib.mount(box, ANH[GAME]).catch(e => { V.loi3d = true; dung3d(); veSan(); });
@@ -648,8 +650,8 @@ function veSan(hieuUng){
       <rect x="${x1}" y="${top}" width="${22 * S}" height="${H - 16 - top}" fill="url(#co)"/>
       <text x="14" y="${top - 10}" font-size="${18 * F}" font-weight="900" fill="#14532D">🤖 MÁY</text><text x="14" y="${H - 34}" font-size="${16 * F}" font-weight="900" fill="#BFDBFE">EM</text>`);
     for (let i = k; i < n; i++){ const cx = x0 + (i + 1) * w - w / 2, cy = H - 26; sv.push(`<path d="M ${cx - 9 * S} ${cy} L ${cx} ${cy - 30 * S} L ${cx + 9 * S} ${cy} Z" fill="#F97316" stroke="#fff" stroke-width="2"/>`); }
-    sv.push(xe(xMay, giua - 12, '#64748B', S));
-    sv.push(`<g class="${hieuUng === 'sai' ? 'lac' : ''}" style="transform-box:fill-box">${xe(Math.min(xEm, x1), H - 26, '#2563EB', S)}</g>`);
+    sv.push(xe2d(xMay, giua - 8, XE_MAY(), S, '#64748B'));
+    sv.push(`<g class="${hieuUng === 'sai' ? 'lac' : ''}" style="transform-box:fill-box">${xe2d(Math.min(xEm, x1), H - 22, XE, S)}</g>`);
     if (V.khoaDen > Date.now()) sv.push(`<text x="${Math.max(140, Math.min(xEm, 860))}" y="${H - 26 - 48 * S}" text-anchor="middle" font-size="${16 * F}" font-weight="900" fill="#FDE047">💥 Trượt bánh!</text>`);
   }
   $('san').innerHTML = `<svg viewBox="0 0 1000 ${H}" role="img" aria-label="${esc(TEN_GAME[GAME])}: câu ${Math.min(k + 1, n)} trên ${n}">${sv.join('')}</svg>`;
@@ -878,6 +880,7 @@ $('nut-am').onclick = () => {
   if (window.Race3D) Race3D.engine(AM.on);           // tiếng động cơ xe
   if (AM.on) moKhoaAm(); nhac(!!(V && !V.xong));
 };
+$('nut-cam').onclick = () => { if (window.Race3D) $('nut-cam').title = Race3D.camera(); };
 $('nut-hd').onclick = () => moHuongDan(GAME, 'Chơi tiếp');
 $('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tc_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = CHE_3D ? null : V.da3d; veSan(); } };
 window.addEventListener('beforeunload', e => { if (V && !V.ketThuc){ e.preventDefault(); e.returnValue = ''; } });
