@@ -16,7 +16,7 @@
 <script src="game3d_chung.js?v=20261123c"></script>
 <script src="bell3d.js?v=20261123c"></script>
 <script src="tug3d.js?v=20261123c"></script>
-<script src="race3d.js?v=20261123g"></script>
+<script src="race3d.js?v=20261124a"></script>
 <script src="nhipdo3d.js?v=20261123c"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -91,8 +91,8 @@
   .hud .vang{background:rgba(245,158,11,.92);color:#1F2937}
   .hud-dong-ho{position:absolute;right:10px;top:10px;width:clamp(64px,13vw,96px);height:clamp(64px,13vw,96px);z-index:2;pointer-events:none}
   .dem-nguoc{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(70px,16vw,150px);font-weight:900;color:#fff;text-shadow:0 6px 24px rgba(0,0,0,.6);z-index:3;pointer-events:none}
-  .xe-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
-  @media(max-width:600px){.xe-grid{grid-template-columns:repeat(3,1fr)}}
+  .xe-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+  @media(max-width:600px){.xe-grid{grid-template-columns:repeat(5,1fr);gap:5px}.xe-btn{font-size:10.5px;padding:4px 2px}.xe-btn svg{height:30px}}
   .xe-btn{border:2px solid var(--line);background:#fff;border-radius:14px;padding:6px 4px;cursor:pointer;font:inherit;font-size:12.5px;font-weight:800;color:var(--ink)}
   .xe-btn svg{width:100%;height:38px;display:block}
   .xe-btn.on{border-color:var(--blue2);background:#EFF6FF;box-shadow:0 4px 12px rgba(37,99,235,.2)}
@@ -461,7 +461,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('hd-mod
 // ======================= CHỌN XE (giống Đua xe trình chiếu) =======================
 const RACE_CARS = {
   f1: { name: 'Xe đua F1', color: '#ef4444' }, sport: { name: 'Xe thể thao', color: '#f59e0b' }, jeep: { name: 'Xe địa hình', color: '#22c55e' },
-  bus: { name: 'Xe buýt mini', color: '#3b82f6' }, pickup: { name: 'Xe bán tải', color: '#f97316' }, moto: { name: 'Mô tô', color: '#a855f7' }
+  bus: { name: 'Xe buýt mini', color: '#3b82f6' }, pickup: { name: 'Xe bán tải', color: '#f97316' }, moto: { name: 'Mô tô', color: '#a855f7' },
+  kart: { name: 'Xe go-kart', color: '#ec4899' }, truck: { name: 'Xe tải', color: '#06b6d4' }, classic: { name: 'Xe cổ điển', color: '#a16207' }, jet: { name: 'Xe phản lực', color: '#6366f1' }
 };
 let XE = (() => { const x = lay('tc_xe'); if (RACE_CARS[x]) return x; try { const pf = JSON.parse(lay('mathlab_2025_my_student_profile') || 'null'); if (pf && RACE_CARS[pf.car]) return pf.car; } catch (e) {} return 'f1'; })();
 function banhXe(cx, r = 6.5){ const h = (r * .45).toFixed(2); return `<circle cx="${cx}" cy="28" r="${r}" fill="#1f2937"/><circle cx="${cx}" cy="28" r="${h}" fill="#e5e7eb"/>`; }
@@ -472,6 +473,10 @@ function hinhXe(key, mau){   // xe nhìn ngang (viewBox 72 x 36) – cùng kiể
   else if (key === 'jeep') b = `<circle cx="6" cy="18" r="5" fill="#374151"/><rect x="7" y="12" width="58" height="14" rx="3.5" fill="${c}" stroke="${ln}"/><path d="M 28 12 L 31 4 H 50 L 54 12 Z" fill="${c}" stroke="${ln}"/><path d="M 32 11 L 34 6 H 41 V 11 Z M 43 11 V 6 H 49 L 51 11 Z" fill="${gl}"/>` + banhXe(19, 7.5) + banhXe(54, 7.5);
   else if (key === 'bus') b = `<rect x="3" y="5" width="66" height="21" rx="6" fill="${c}" stroke="${ln}"/><rect x="8" y="9" width="10" height="7" rx="2" fill="${gl}"/><rect x="21" y="9" width="10" height="7" rx="2" fill="${gl}"/><rect x="34" y="9" width="10" height="7" rx="2" fill="${gl}"/><path d="M 48 9 H 60 C 64 9 66 12 66 16 H 48 Z" fill="${gl}"/>` + banhXe(16) + banhXe(56);
   else if (key === 'pickup') b = `<rect x="3" y="16" width="66" height="10" rx="3" fill="${c}" stroke="${ln}"/><path d="M 38 16 L 41 7 H 56 C 59 7 61 10 62 16 Z" fill="${c}" stroke="${ln}"/><path d="M 43 15 L 44.5 9.5 H 55 C 57 9.5 58 11 58.5 15 Z" fill="${gl}"/>` + banhXe(16) + banhXe(56);
+  else if (key === 'kart') b = `<rect x="5" y="17" width="9" height="5" rx="1" fill="#374151"/><path d="M 8 24 L 14 20 L 52 20 L 64 23 L 66 26 L 8 26 Z" fill="${c}" stroke="${ln}"/><path d="M 44 20 L 48 13" stroke="#374151" stroke-width="2"/><path d="M 30 20 L 34 12" stroke="#1f2937" stroke-width="4.5" stroke-linecap="round"/><circle cx="35" cy="8.5" r="4.5" fill="#fff" stroke="${ln}"/>` + banhXe(16, 6.5) + banhXe(56, 5.5);
+  else if (key === 'truck') b = `<rect x="3" y="23" width="66" height="3" fill="#374151"/><rect x="3" y="6" width="44" height="18" rx="2" fill="${c}" stroke="${ln}"/><path d="M 48 24 V 10 H 60 C 63 10 65 13 67 17 L 69 18 V 24 Z" fill="${c}" stroke="${ln}"/><path d="M 52 12 H 59 C 61 12 62.5 14 63.5 17 H 52 Z" fill="${gl}"/>` + banhXe(13) + banhXe(28) + banhXe(58);
+  else if (key === 'classic') b = `<path d="M 5 25 C 5 21 8 19 12 18 C 16 8 26 5 36 5 C 48 5 56 10 60 18 C 65 19 68 21 68 25 L 68 26 L 5 26 Z" fill="${c}" stroke="${ln}"/><path d="M 22 16 C 24 11 29 9 34 9 V 16 Z M 37 16 V 9 C 43 9 48 12 51 16 Z" fill="${gl}"/><rect x="2" y="23" width="7" height="2.4" rx="1.2" fill="#e5e7eb"/><rect x="64" y="23" width="7" height="2.4" rx="1.2" fill="#e5e7eb"/>` + banhXe(18) + banhXe(55);
+  else if (key === 'jet') b = `<path d="M 4 17 L 0 19.5 L 4 22 Z" fill="#fb923c"/><path d="M 5 14 L 8 6 H 13 L 15 17 Z" fill="${c}" stroke="${ln}"/><path d="M 4 24 L 5 15 L 16 15 L 22 19 L 40 18 C 50 18 60 20 71 24 L 71 25 L 4 26 Z" fill="${c}" stroke="${ln}"/><path d="M 33 18.5 C 36 12 46 12 50 18.5 Z" fill="${gl}"/>` + banhXe(16, 6) + banhXe(58, 5.5);
   else b = `<circle cx="15" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><circle cx="56" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 15 27 L 28 18 L 46 18 L 56 27" stroke="#475569" stroke-width="2.4" fill="none"/><path d="M 24 20 C 28 13 44 12 52 18 L 58 22 L 44 22 L 40 19 L 28 22 Z" fill="${c}" stroke="${ln}"/><path d="M 33 14 L 38 7" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="5.5" r="4.5" fill="${c}" stroke="${ln}"/>`;
   return `<svg viewBox="0 0 72 36" aria-hidden="true"><ellipse cx="36" cy="34" rx="30" ry="2" fill="#000" opacity=".18"/>${b}</svg>`;
 }

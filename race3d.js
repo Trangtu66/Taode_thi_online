@@ -59,7 +59,11 @@
     jeep: { w: 1.7, h: .8, l: 3, cab: [1.5, .6, 1.5, -.3], wheel: .48, spare: true },
     bus: { w: 1.7, h: .9, l: 3.6, cab: [1.6, .3, 3.2, 0], wheel: .4, bus: true },
     pickup: { w: 1.7, h: .65, l: 3.4, cab: [1.5, .6, 1.3, .6], wheel: .44 },
-    moto: { w: .5, h: .5, l: 2, cab: [.45, .55, .5, -.2], wheel: .4, moto: true }
+    moto: { w: .5, h: .5, l: 2, cab: [.45, .55, .5, -.2], wheel: .4, moto: true },
+    kart: { w: 1.3, h: .22, l: 2.3, wheel: .3 },
+    truck: { w: 1.8, h: .6, l: 4.2, wheel: .46 },
+    classic: { w: 1.6, h: .55, l: 3, wheel: .38 },
+    jet: { w: 1.3, h: .36, l: 3.6, wheel: .34 }
   };
   // gộp các khối cùng vật liệu thành một lưới (ít lệnh vẽ: 40 xe vẫn mượt trên máy yếu)
   function merge(geos) {
@@ -77,7 +81,8 @@
     return MAT;
   }
   // Xe 3D vẽ theo đúng hình xe HS chọn trên điện thoại (raceCarSvg): F1 có người lái mũ vàng, xe thể thao, xe địa hình có bánh dự phòng,
-  // xe buýt mini dãy cửa kính, xe bán tải cabin trước – thùng sau, mô tô có người lái; cùng màu, cùng sọc trắng thân xe.
+  // xe buýt mini dãy cửa kính, xe bán tải cabin trước – thùng sau, mô tô có người lái, go-kart mui trần có người lái mũ trắng,
+  // xe tải thùng kín, xe cổ điển mui tròn cản mạ crôm, xe phản lực mũi nhọn có vây đuôi và lửa phụt; cùng màu, cùng sọc trắng thân xe.
   function makeCar(key, color) {
     var s = SHAPE[key] || SHAPE.sport, g = new T.Group(), body = new T.Group(); g.add(body); mats(color);
     if (!MAT.white) { MAT.white = new T.MeshStandardMaterial({ color: 0xffffff, roughness: .5 }); MAT.helmet = new T.MeshStandardMaterial({ color: 0xfde047, roughness: .3, metalness: .2 }); }
@@ -110,6 +115,33 @@
       box(W * .95, .6, L * .36, 'paint', 0, top + .3, L * .22); box(W * .97, .34, L * .3, 'glass', 0, top + .32, L * .24);  // cabin trước
       box(.1, .3, L * .5, 'paint', -W / 2 + .05, top + .15, -L * .24); box(.1, .3, L * .5, 'paint', W / 2 - .05, top + .15, -L * .24); box(W, .3, .1, 'paint', 0, top + .15, -L / 2 + .05);   // thùng sau
       box(W + .02, .08, L * .95, 'white', 0, lift + s.h * .55, 0);
+    } else if (key === 'kart') {
+      box(W * .9, s.h, L, 'paint', 0, lift + s.h / 2, 0);                                   // sàn thấp
+      box(W * .6, .3, .45, 'dark', 0, top + .1, -L / 2 + .3);                              // động cơ sau
+      box(.4, .45, .35, 'dark', 0, top + .25, -.25); ball(.24, 'white', 0, top + .68, -.15); box(.24, .08, .1, 'dark', 0, top + .7, .08);   // người lái mũ trắng
+      box(.5, .06, .06, 'dark', 0, top + .35, .45); box(.06, .3, .06, 'dark', 0, top + .18, .5);   // vô lăng
+      box(W * 1.05, .1, .2, 'dark', 0, lift + .05, L / 2 + .05);                           // cản trước
+      box(W * .25, .05, L * .8, 'white', 0, top + .005, .1);
+    } else if (key === 'truck') {
+      box(W, .2, L, 'dark', 0, lift + .1, 0);                                              // khung gầm
+      box(W, 1.3, L * .66, 'paint', 0, lift + .2 + .65, -L * .17);                          // thùng hàng
+      box(W * .96, s.h + .5, L * .3, 'paint', 0, lift + .2 + (s.h + .5) / 2, L * .35);     // cabin
+      box(W * .9, .38, .04, 'glass', 0, lift + .2 + s.h + .2, L / 2 + .01); box(W + .02, .3, L * .18, 'glass', 0, lift + .2 + s.h + .2, L * .38);   // kính trước, kính hông
+      box(W + .02, .1, L * .64, 'white', 0, lift + .75, -L * .17);
+    } else if (key === 'classic') {
+      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
+      box(W * .8, .34, L * .42, 'glass', 0, top + .17, -.1);                               // cửa kính
+      parts.paint.push(new T.SphereGeometry(1, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2).scale(W * .44, .25, L * .26).translate(0, top + .32, -.1));   // mui tròn
+      box(W * 1.04, .12, .12, 'white', 0, lift + .1, L / 2 + .03); box(W * 1.04, .12, .12, 'white', 0, lift + .1, -L / 2 - .03);   // cản mạ crôm
+      box(W + .02, .07, L * .9, 'white', 0, lift + s.h * .6, 0);
+    } else if (key === 'jet') {
+      box(W * .7, s.h, L * .8, 'paint', 0, lift + s.h / 2, -L * .1);
+      parts.paint.push(new T.ConeGeometry(W * .35, L * .35, 4).rotateY(Math.PI / 4).rotateX(Math.PI / 2).translate(0, lift + s.h / 2, L * .45));   // mũi nhọn
+      box(W * 1.3, .07, .6, 'paint', 0, lift + .15, -L * .3);                              // cánh
+      box(.08, .7, .6, 'paint', 0, top + .35, -L / 2 + .3);                                // vây đuôi
+      ball(.32, 'glass', 0, top + .02, .2);                                                // buồng lái
+      parts.light.push(new T.ConeGeometry(.2, .6, 10).rotateX(-Math.PI / 2).translate(0, lift + s.h / 2, -L / 2 - .3));   // lửa phụt
+      box(W * .72, .05, L * .7, 'white', 0, top + .005, -L * .1);
     } else {   // mô tô
       box(W, s.h, L * .55, 'paint', 0, lift + s.h / 2 + .1, .1);
       box(.36, .55, .32, 'dark', 0, top + .35, -.15); ball(.26, 'paint', 0, top + .82, -.05); box(.24, .08, .1, 'dark', 0, top + .84, .18);   // người lái, mũ cùng màu xe

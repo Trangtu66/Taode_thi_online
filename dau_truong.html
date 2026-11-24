@@ -36,7 +36,7 @@
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
 <script src="chon_de.js"></script>
-<script src="race3d.js?v=20261123g"></script>
+<script src="race3d.js?v=20261124a"></script>
 <script src="tug3d.js?v=20261123c"></script>
 <script src="game3d_chung.js?v=20261123c"></script>
 <script src="bell3d.js?v=20261123c"></script>
@@ -1147,7 +1147,7 @@
                         </div>
                         <div class="space-y-1">
                             <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300 block">🏎️ Chọn xe (dùng cho game Đua xe):</label>
-                            <div id="student-car-grid" class="grid grid-cols-3 gap-1.5"></div>
+                            <div id="student-car-grid" class="grid grid-cols-5 gap-1.5"></div>
                         </div>
                         <button type="button" onclick="registerStudentFromPhone()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:opacity-95 text-white font-black text-xs uppercase tracking-wider shadow-lg active:scale-95 transition">
                             🚀 Đăng Nhập Lên Sàn Thi Đấu
@@ -5389,7 +5389,11 @@
             jeep: { name: 'Xe địa hình', color: '#22c55e' },
             bus: { name: 'Xe buýt mini', color: '#3b82f6' },
             pickup: { name: 'Xe bán tải', color: '#f97316' },
-            moto: { name: 'Mô tô', color: '#a855f7' }
+            moto: { name: 'Mô tô', color: '#a855f7' },
+            kart: { name: 'Xe go-kart', color: '#ec4899' },
+            truck: { name: 'Xe tải', color: '#06b6d4' },
+            classic: { name: 'Xe cổ điển', color: '#a16207' },
+            jet: { name: 'Xe phản lực', color: '#6366f1' }
         };
         const RACE_CAR_KEYS = Object.keys(RACE_CARS);
         const RACE_DRIVE_MS = 1600;
@@ -5433,6 +5437,26 @@
                 body = `<rect x="3" y="16" width="66" height="10" rx="3" fill="${c}" stroke="${line}"/>
                     <path d="M 38 16 L 41 7 H 56 C 59 7 61 10 62 16 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/><path d="M 43 15 L 44.5 9.5 H 55 C 57 9.5 58 11 58.5 15 Z" fill="${glass}"/>
                     <path d="M 5 16 V 12 H 36" stroke="${c}" stroke-width="2.4" fill="none" stroke-linecap="round"/><rect x="3" y="20" width="66" height="2.2" fill="#ffffff" opacity=".5"/><circle cx="67" cy="19" r="1.6" fill="#fef3c7"/>` + raceWheel(16) + raceWheel(57);
+            } else if (key === 'kart') {
+                body = `<rect x="5" y="17" width="9" height="5" rx="1" fill="#374151"/><path d="M 8 24 L 14 20 L 52 20 L 64 23 L 66 26 L 8 26 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 44 20 L 48 13" stroke="#374151" stroke-width="2" stroke-linecap="round"/><path d="M 46 13 h 4" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M 30 20 L 34 12" stroke="#1f2937" stroke-width="4.5" stroke-linecap="round"/><path d="M 34 14 L 45 14" stroke="#1f2937" stroke-width="2.2" stroke-linecap="round"/>
+                    <circle cx="35" cy="8.5" r="4.5" fill="#ffffff" stroke="${line}"/><path d="M 36 7 h 3.4" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M 16 23 H 58" stroke="#ffffff" stroke-width="1.4" opacity=".7" stroke-linecap="round"/><rect x="62" y="22" width="6" height="3" rx="1.5" fill="#374151"/>` + raceWheel(16, 6.5) + raceWheel(56, 5.5);
+            } else if (key === 'truck') {
+                body = `<rect x="3" y="23" width="66" height="3" fill="#374151"/><rect x="3" y="6" width="44" height="18" rx="2" fill="${c}" stroke="${line}"/><path d="M 6 9 V 21 M 45 9 V 21" stroke="${line}"/>
+                    <path d="M 48 24 V 10 H 60 C 63 10 65 13 67 17 L 69 18 V 24 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/><path d="M 52 12 H 59 C 61 12 62.5 14 63.5 17 H 52 Z" fill="${glass}"/>
+                    <rect x="3" y="18" width="44" height="2.5" fill="#ffffff" opacity=".55"/><circle cx="67" cy="21" r="1.6" fill="#fef3c7"/>` + raceWheel(13) + raceWheel(28) + raceWheel(58);
+            } else if (key === 'classic') {
+                body = `<path d="M 5 25 C 5 21 8 19 12 18 C 16 8 26 5 36 5 C 48 5 56 10 60 18 C 65 19 68 21 68 25 L 68 26 L 5 26 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 22 16 C 24 11 29 9 34 9 V 16 Z M 37 16 V 9 C 43 9 48 12 51 16 Z" fill="${glass}"/>
+                    <path d="M 9 20.5 H 64" stroke="#ffffff" stroke-width="1.6" opacity=".6" stroke-linecap="round"/><circle cx="63" cy="19.5" r="2" fill="#fef3c7" stroke="${line}"/>
+                    <rect x="2" y="23" width="7" height="2.4" rx="1.2" fill="#e5e7eb"/><rect x="64" y="23" width="7" height="2.4" rx="1.2" fill="#e5e7eb"/>` + raceWheel(18) + raceWheel(55);
+            } else if (key === 'jet') {
+                body = `<path d="M 4 17 L 0 19.5 L 4 22 Z" fill="#fb923c"/><path d="M 4 18.3 L 1.8 19.5 L 4 20.7 Z" fill="#fde047"/>
+                    <path d="M 5 14 L 8 6 H 13 L 15 17 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 4 24 L 5 15 L 16 15 L 22 19 L 40 18 C 50 18 60 20 71 24 L 71 25 L 4 26 Z" fill="${c}" stroke="${line}" stroke-linejoin="round"/>
+                    <path d="M 33 18.5 C 36 12 46 12 50 18.5 Z" fill="${glass}" stroke="${line}"/><path d="M 8 22 H 62" stroke="#ffffff" stroke-width="1.6" opacity=".65" stroke-linecap="round"/>` + raceWheel(16, 6) + raceWheel(58, 5.5);
             } else {
                 body = `<g class="race-wheel"><circle cx="15" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 11 27 H 19 M 15 23 V 31" stroke="#9ca3af" stroke-width="1.2"/></g>
                     <g class="race-wheel"><circle cx="56" cy="27" r="7" fill="none" stroke="#1f2937" stroke-width="3"/><path d="M 52 27 H 60 M 56 23 V 31" stroke="#9ca3af" stroke-width="1.2"/></g>
