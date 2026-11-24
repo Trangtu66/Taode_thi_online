@@ -137,7 +137,7 @@
     if (game) {   // gom theo bài: một dòng, các nút Đề 1, Đề 2…
       var nhom = {}, thuTu = [];
       items.forEach(function (b) {
-        var m = String(b.ten).match(/^(.*?)\s*[–-]\s*(Đề\s*\d+)\s*$/), ten = m ? m[1] : b.ten, de = m ? m[2] : 'Mở đề';
+        var m = String(b.ten).match(/^(.*?)\s*[–-]\s*(Đề\s*\d+|Đua xe 3 mức)\s*$/), ten = m ? m[1] : b.ten, de = m ? (m[2] === 'Đua xe 3 mức' ? '🏁 Đua xe 3 mức' : m[2]) : 'Mở đề';
         if (!nhom[ten]) { nhom[ten] = []; thuTu.push(ten); } nhom[ten].push([de, all.indexOf(b)]);
       });
       html = '<div class="cd-grid">' + thuTu.map(function (t) {
