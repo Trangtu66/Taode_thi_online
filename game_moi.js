@@ -66,7 +66,7 @@ function veQuaBom(st, cx, cy, S) {
     o.push('<ellipse cx="' + cx + '" cy="' + r1(cy + 95 * S) + '" rx="' + r1(120 * S) + '" ry="' + r1(22 * S) + '" fill="#020617" opacity=".8"/>');
     for (var j = 0; j < 5; j++) { var p = ((t / 1800) + j / 5) % 1; o.push('<circle cx="' + r1(cx + (j - 2) * 30 * S + Math.sin(t / 500 + j) * 10) + '" cy="' + r1(cy + 80 * S - p * 200 * S) + '" r="' + r1((24 + p * 30) * S) + '" fill="#64748B" opacity="' + r1(.55 * (1 - p)) + '"/>'); }
     o.push(txt(cx, cy + 10 * S, 30 * S, '💥 Bom đã nổ!', '#FCA5A5', 'text-anchor="middle"'));
-    o.push(txt(cx, cy + 46 * S, 17 * S, 'Vẫn phải trả lời đúng để qua câu', '#E2E8F0', 'text-anchor="middle" font-weight="700"'));
+    if (!st.lop) o.push(txt(cx, cy + 46 * S, 17 * S, 'Vẫn phải trả lời đúng để qua câu', '#E2E8F0', 'text-anchor="middle" font-weight="700"'));
     return o.join('');
   }
   var rung = !go && tl < .25 ? Math.sin(t / 25) * 3 : 0, lac = aSai < 450 ? Math.sin(aSai / 30) * 8 : 0;

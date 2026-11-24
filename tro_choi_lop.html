@@ -14,7 +14,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
 <script src="game3d_chung.js?v=20261123c"></script>
-<script src="game_moi.js?v=20261124a"></script>
+<script src="game_moi.js?v=20261124c"></script>
+<script src="bom3d.js?v=20261124b"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -79,6 +80,7 @@
   .nut-nho{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font:inherit;font-weight:800;cursor:pointer;white-space:nowrap}
   .san{border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.12);background:#0F172A}
   .san svg{display:block;width:100%;height:auto;max-height:52vh}
+  .san3d{aspect-ratio:16/9;max-height:calc(100vh - 100px);border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.18);background:#0F172A}
   .tien-do{height:8px;border-radius:999px;background:#E2E8F0;overflow:hidden;margin:10px 0}
   .tien-do i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22C55E,#3B82F6);transition:width .5s}
   .cau .phan{font-size:13px;font-weight:900;color:#7C3AED;text-transform:uppercase;letter-spacing:.3px}
@@ -115,7 +117,7 @@
   @media (min-width:1024px){
     body.dang-choi .wrap{max-width:none;padding-top:12px}
     #man-choi{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(380px,1fr);grid-template-areas:"thanh thanh" "san cau" "td cau";column-gap:18px;align-items:start}
-    #man-choi .thanh{grid-area:thanh} #man-choi .san{grid-area:san;position:sticky;top:10px} #man-choi .tien-do{grid-area:td}
+    #man-choi .thanh{grid-area:thanh} #man-choi .san-wrap{grid-area:san;position:sticky;top:10px} #man-choi .tien-do{grid-area:td}
     #man-choi #khung-cau{grid-area:cau;max-height:calc(100vh - 80px);overflow:auto;position:sticky;top:10px}
     body.dang-choi .san svg{max-height:calc(100vh - 100px)}
   }
@@ -177,9 +179,9 @@
   <section id="man-choi" class="an">
     <div class="thanh">
       <span class="chip blue" id="c-game"></span><span class="chip" id="c-cau"></span><span class="chip dh" id="c-dh">⏱ 0:00</span>
-      <span class="phai"><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
+      <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
-    <div class="san" id="san"></div>
+    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3"></div></div>
     <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
     <div class="card cau" id="khung-cau">
       <div id="noi-dung"></div>
@@ -295,14 +297,24 @@ function batDau(){
 $('bat-dau').onclick = batDau;
 const giayThoatDung = () => V.daDung + (V.batDauCau && !V.chot ? (Date.now() - V.batDauCau) / 1000 : 0);
 function stSan(){
-  const n = CAU.length, now = Date.now(), st = { n, k: V.k, t: now, fx: V.fx, xong: V.xong, nho: ($('san').clientWidth || 1000) < 640, doi: V.doi };
+  const n = CAU.length, now = Date.now(), st = { n, k: V.k, t: now, lop: true, fx: V.fx, xong: V.xong, nho: ($('san').clientWidth || 1000) < 640, doi: V.doi };
   if (GAME === 'bom'){ st.k = iHien(); st.tong = giayCau(CAU[Math.min(st.k, n - 1)]); st.con = V.chot ? V.conLuc : Math.max(0, (V.han - now) / 1000); st.daNo = V.daNo; st.daGo = V.chot && !V.daNo; }
   else if (GAME === 'farm') st.k = iHien();
   else if (GAME === 'rpg') Object.assign(st, { ai: V.ai, iAi: V.iAi, hp: V.hp, hpMax: HP_DOI, thang: V.xong ? !!V.ai[V.ai.length - 1].ha : undefined });
   else if (GAME === 'thoat'){ st.tong = V.tongThoat; st.con = V.tongThoat - giayThoatDung() - V.phat; st.quaGio = st.con < 0; }
   return st;
 }
-function veSan(){ if (!V) return; $('san').innerHTML = G_.html(GAME, stSan(), G_.TEN[GAME] + ': câu ' + Math.min(V.k + 1, CAU.length) + ' trên ' + CAU.length); $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; }
+// Sân 3D (trò nào có thì dùng, máy không hỗ trợ WebGL hoặc GV bấm 2D thì dùng sân 2D của game_moi.js)
+const S3 = { bom:'Bom3D' };
+let CHE_3D = lay('tcl_3d') !== 'tat';
+function dung3d(){
+  const lib = window[S3[GAME]], on = !!(CHE_3D && lib && lib.supported && lib.supported() && !V.loi3d);
+  $('nut-3d').classList.toggle('an', !lib); $('nut-3d').textContent = on ? '2D' : '3D';
+  $('s3').classList.toggle('an', !on); $('san').classList.toggle('an', on);
+  if (on && !V.da3d){ V.da3d = true; lib.mount($('s3'), stSan).catch(() => { if (V){ V.loi3d = true; dung3d(); } }); }
+  return on;
+}
+function veSan(){ if (!V) return; if (dung3d()){ $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; return; } $('san').innerHTML = G_.html(GAME, stSan(), G_.TEN[GAME] + ': câu ' + Math.min(V.k + 1, CAU.length) + ' trên ' + CAU.length); $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; }
 function chay(){   // vẽ lại sân ~14 lần/giây (hoạt cảnh theo thời gian) + đồng hồ câu + ngòi bom
   clearInterval(veHen);
   veHen = setInterval(() => {
@@ -450,6 +462,7 @@ function veChuanBi(){
 $('nut-thoat').onclick = () => { if (confirm('Dừng trận đang chơi?')) veChuanBi(); };
 function hienAm(){ $('nut-am').textContent = AM_ON ? '🔊' : '🔇'; }
 $('nut-am').onclick = () => { AM_ON = !AM_ON; ghi('tcl_am', AM_ON ? 'bat' : 'tat'); hienAm(); if (AM_ON) moKhoaAm(); nhac(!!(V && !V.xong)); };
+$('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tcl_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = false; veSan(); } };
 $('nut-fs').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); } catch (e) {} };
 document.addEventListener('fullscreenchange', () => { $('nut-fs').textContent = document.fullscreenElement ? '🗗' : '⛶'; });
 // Phím tắt cho GV (bút trình chiếu / bàn phím)
