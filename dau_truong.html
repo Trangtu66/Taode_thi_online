@@ -191,6 +191,8 @@
         .race-finish { position: absolute; right: 0; top: 0; bottom: 0; width: 14px; background: repeating-conic-gradient(#111827 0 25%, #fff 0 50%) 0 0 / 7px 7px; }
         .race-cone { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 22px; transition: opacity .4s; }
         .race-cone.passed { opacity: .28; }
+        .race-muc-line { position: absolute; top: 0; bottom: 0; width: 3px; transform: translateX(-50%); background: repeating-linear-gradient(#f59e0b 0 6px, #fff 6px 10px); opacity: .9; }
+        .race-muc-tag { position: absolute; top: 1px; transform: translateX(-50%); font-size: 9px; font-weight: 900; color: #fff; background: #d97706; border-radius: 6px; padding: 0 4px; line-height: 13px; }
         .race-car { position: absolute; top: 50%; transform: translateY(-50%); width: 58px; height: 29px; transition: left 1.5s cubic-bezier(.4, 0, .2, 1); z-index: 2; }
         .race-car svg { width: 100%; height: 100%; display: block; }
         .race-bubble { position: absolute; top: -9px; right: -8px; font-size: 15px; line-height: 1; }
@@ -1066,6 +1068,7 @@
                         </label>
                         <label class="flex items-center gap-1.5 cursor-pointer" title="Mỗi câu đúng liên tiếp chạy thêm 1 giây, tối đa thêm 3 giây"><input id="race-turbo" type="checkbox" checked class="w-4 h-4 accent-orange-500"> 🔥 Đúng liên tiếp được tăng tốc (+1 giây/câu)</label>
                         <label class="flex items-center gap-1.5 cursor-pointer"><input id="race-shuffle" type="checkbox" checked class="w-4 h-4 accent-emerald-600"> Chọn ngẫu nhiên &amp; trộn thứ tự câu cho từng HS</label>
+                        <label id="race-3muc-lbl" class="flex items-center gap-1.5 cursor-pointer" title="Mức 1 câu Biết → Mức 2 câu Hiểu → Mức 3 câu Vận dụng. Mỗi HS đạt từ 5 điểm của mức thì máy tự chuyển sang mức sau; chưa đạt thì dừng, HS bấm chơi lại mức đó trên điện thoại."><input id="race-3muc" type="checkbox" checked class="w-4 h-4 accent-amber-500"> 🏁 Đua 3 mức <span id="race-3muc-info" class="font-semibold text-slate-500"></span></label>
                         <span class="text-slate-500 font-semibold">Đề: <b id="race-exam-title" class="text-slate-700 dark:text-slate-200"></b></span>
                     </div>
                     <div class="flex flex-wrap items-center gap-1.5">
@@ -2104,6 +2107,8 @@
                 raceTeacherAsk(data.payload);
             } else if (data.type === 'RACE_ANSWER') {
                 raceTeacherAnswer(data.payload);
+            } else if (data.type === 'RACE_RETRY') {
+                raceTeacherRetry(data.payload);
             } else if (data.type === 'RACE_Q' || data.type === 'RACE_RESULT') {
                 const p = data.payload || {};
                 if (IS_STUDENT_MODE && currentStudentId && String(p.to) === String(currentStudentId)) {
@@ -5532,6 +5537,18 @@
         let raceFeed = [];
         let raceClockTimer = null;
         let raceTrackKey = '';
+        // Đua 3 mức (GV yêu cầu 24/11/2026): Mức 1 câu Biết → Mức 2 câu Hiểu → Mức 3 câu Vận dụng, Vận dụng cao.
+        // Mỗi HS tự đi: hết một mức, máy GV tính điểm mức (đúng lần 1: 1 điểm, lần 2: ½, lần 3: ¼, từ lần 4: 0, quy về thang 10);
+        // đạt từ 5 điểm thì tự sang mức sau, chưa đạt thì dừng ở mức đó, HS bấm "Chơi lại mức" trên điện thoại.
+        let raceMuc = null;   // [vị trí cuối mức 1, cuối mức 2, cuối mức 3] khi đua 3 mức
+        const RACE_TEN_MUC = ['Nhận biết', 'Thông hiểu', 'Vận dụng'], RACE_DIEM_LAN = [1, .5, .25], RACE_QUA_MUC = 5;
+        function raceMucCau(q) { const g = giayTheoMucDo(q && q.level, q && q.text); return g === 20 ? 0 : g === 40 ? 1 : g === 60 ? 2 : -1; }
+        function raceChiaMuc() {   // [[chỉ số câu Biết], [Hiểu], [Vận dụng]] – null nếu đề thiếu mức hoặc có câu không ghi mức độ
+            const m = [[], [], []];
+            for (let i = 0; i < examQuestions.length; i++) { const k = raceMucCau(examQuestions[i]); if (k < 0) return null; m[k].push(i); }
+            return m.every(x => x.length) ? m : null;
+        }
+        function raceMucOf(pos, muc = raceMuc) { if (!muc) return -1; const i = muc.findIndex(e => pos < e); return i < 0 ? 2 : i; }
 
         function raceHash(str) {
             let h = 2166136261;
@@ -5551,7 +5568,12 @@
         }
 
         function raceOrderFor(r) {
-            if (!r.order) r.order = raceShuffle ? raceShuffled(raceQIdx, raceHash(r.id) ^ raceSeed) : [...raceQIdx];
+            if (!r.order) {
+                if (raceMuc) {
+                    const t = raceChiaMuc() || [raceQIdx, [], []];
+                    r.order = [].concat(...t.map((ds, i) => raceShuffle ? raceShuffled(ds, raceHash(r.id) ^ raceSeed ^ (i + 1) * 7919) : ds));
+                } else r.order = raceShuffle ? raceShuffled(raceQIdx, raceHash(r.id) ^ raceSeed) : [...raceQIdx];
+            }
             return r.order;
         }
 
@@ -5560,7 +5582,7 @@
             let r = raceRacers[id];
             if (!r) {
                 const p = bellPlayers.find(x => String(x.id) === String(id));
-                r = raceRacers[id] = { id: String(id), name: name || (p && p.name) || 'Học sinh', car: (p && p.car) || null, pos: 0, wrong: 0, blockUntil: 0, finishMs: 0, lastPassAt: 0, asking: false, streak: 0, driveMs: 0, bestStreak: 0 };
+                r = raceRacers[id] = { id: String(id), name: name || (p && p.name) || 'Học sinh', car: (p && p.car) || null, pos: 0, wrong: 0, blockUntil: 0, finishMs: 0, lastPassAt: 0, asking: false, streak: 0, driveMs: 0, bestStreak: 0, tries: 0, pts: [0, 0, 0], muc: [null, null, null], stopped: 0, retries: 0 };
             }
             if (name) r.name = String(name).slice(0, 40);
             if (RACE_CARS[car]) {   // xe HS đang chọn trên điện thoại (gửi kèm mỗi lần hỏi/trả lời) – đồng bộ cả danh sách HS
@@ -5595,8 +5617,8 @@
         function broadcastRaceState(extra = {}) {
             if (IS_STUDENT_MODE) return;
             const positions = {};
-            raceRanked().forEach((r, i) => { positions[r.id] = { pos: r.pos, done: !!r.finishMs, rank: i + 1, finishMs: r.finishMs }; });
-            raceSend('RACE_STATE', { state: raceState, total: raceTotal, penaltyMs: racePenaltyMs, positions, ...extra });
+            raceRanked().forEach((r, i) => { positions[r.id] = { pos: r.pos, done: !!r.finishMs, rank: i + 1, finishMs: r.finishMs, stopped: r.stopped || 0, mucDiem: r.stopped ? r.muc[r.stopped - 1] : null }; });
+            raceSend('RACE_STATE', { state: raceState, total: raceTotal, penaltyMs: racePenaltyMs, positions, muc: raceMuc, ...extra });
         }
 
         // Câu hỏi gửi sang điện thoại: KHÔNG kèm đáp án, lời giải
@@ -5625,6 +5647,7 @@
                 raceSend('RACE_RESULT', { to: r.id, k: r.pos, ok: true, pos: r.pos, total: raceTotal, done: true, finishMs: r.finishMs, rank: raceRankOf(r.id) });
                 return;
             }
+            if (r.stopped) { raceSend('RACE_RESULT', { to: r.id, k: r.pos, ok: true, pos: r.pos, total: raceTotal, stopped: r.stopped, mucDiem: r.muc[r.stopped - 1] }); return; }
             r.asking = true;
             raceSend('RACE_Q', { to: r.id, k: r.pos, total: raceTotal, q: raceQuestionForPhone(examQuestions[raceOrderFor(r)[r.pos]]) });
             raceUpdateLane(r.id);
@@ -5634,6 +5657,7 @@
             if (IS_STUDENT_MODE || raceState !== 'running' || !p) return;
             const r = raceEnsureRacer(p.id, p.name, p.car);
             if (!r || r.finishMs) return;
+            if (r.stopped) { raceSend('RACE_RESULT', { to: r.id, k: p.k, ok: true, pos: r.pos, total: raceTotal, stopped: r.stopped, mucDiem: r.muc[r.stopped - 1] }); return; }
             const now = Date.now();
             if (p.k !== r.pos) {
                 raceSend('RACE_RESULT', { to: r.id, k: p.k, ok: false, stale: true, pos: r.pos, total: raceTotal });
@@ -5645,6 +5669,26 @@
             }
             const ok = isAnswerCorrect(examQuestions[raceOrderFor(r)[r.pos]], p.qType, p.answer);
             r.asking = false;
+            r.tries = (r.tries || 0) + 1;
+            let mucMoi = null;   // {muc, diem, qua} khi HS vừa đi hết một mức
+            if (ok && raceMuc) {
+                const i = raceMucOf(r.pos);
+                r.pts[i] += RACE_DIEM_LAN[r.tries - 1] || 0;
+                if (r.pos + 1 === raceMuc[i]) {
+                    const n = raceMuc[i] - (i ? raceMuc[i - 1] : 0), d = Math.round(r.pts[i] / n * 1000) / 100;
+                    r.muc[i] = d; mucMoi = { muc: i + 1, diem: d, qua: d >= RACE_QUA_MUC };
+                }
+            }
+            if (ok) r.tries = 0;
+            if (mucMoi && !mucMoi.qua) {   // chưa đạt: dừng ở mức này
+                r.pos++; r.lastPassAt = now; r.streak = 0; r.driveMs = raceDriveMs;
+                r.stopped = mucMoi.muc;
+                raceLog(`⛔ ${r.name} dừng ở Mức ${mucMoi.muc} (${String(mucMoi.diem).replace('.', ',')} điểm, cần từ ${RACE_QUA_MUC})`);
+                playSoftWoodTap(0, 330, 0.1);
+                raceSend('RACE_RESULT', { to: r.id, k: p.k, ok: true, pos: r.pos, total: raceTotal, stopped: r.stopped, mucDiem: mucMoi.diem, driveMs: r.driveMs, streak: 0 });
+                raceUpdateLane(r.id); renderRaceBoard(); updateRaceClock();
+                return;
+            }
             if (ok) {
                 r.pos++;
                 r.lastPassAt = now;
@@ -5656,6 +5700,9 @@
                     raceLog(`🏁 ${r.name} về đích hạng ${rank} (${raceFmt(r.finishMs)})`);
                     if (rank <= 3) playVictorySoundAndApplause();
                     else playCorrectSound();
+                } else if (mucMoi) {
+                    raceLog(`⬆️ ${r.name} qua Mức ${mucMoi.muc} (${String(mucMoi.diem).replace('.', ',')} điểm) → Mức ${mucMoi.muc + 1}: ${RACE_TEN_MUC[mucMoi.muc]}`);
+                    playCorrectSound();
                 } else {
                     raceLog(r.streak >= 2 && raceTurbo ? `🔥 ${r.name} đúng ${r.streak} câu liên tiếp – tăng tốc ${Math.round(r.driveMs / 1000)} giây!` : `✅ ${r.name} vượt chướng ngại ${r.pos}/${raceTotal}`);
                     playSoftWoodTap(0, 880, 0.08);
@@ -5668,10 +5715,25 @@
                 setTimeout(() => raceUpdateLane(r.id), racePenaltyMs + 60);
             }
             raceMusicSync();   // chặng cuối: nhạc dồn dập hơn
-            raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs, driveMs: ok ? r.driveMs : 0, streak: r.streak });
+            raceSend('RACE_RESULT', { to: r.id, k: p.k, ok, pos: r.pos, total: raceTotal, done: !!r.finishMs, finishMs: r.finishMs, rank: raceRankOf(r.id), wait: ok ? 0 : racePenaltyMs, driveMs: ok ? r.driveMs : 0, streak: r.streak, levelUp: mucMoi && !r.finishMs ? mucMoi : undefined });
             raceUpdateLane(r.id);
             renderRaceBoard();
             updateRaceClock();
+        }
+
+        // HS dừng ở một mức bấm "Chơi lại mức" trên điện thoại: về đầu mức đó, câu của mức được trộn lại
+        function raceTeacherRetry(p) {
+            if (IS_STUDENT_MODE || raceState !== 'running' || !p) return;
+            const r = raceEnsureRacer(p.id, p.name, p.car);
+            if (!r || !r.stopped) return;
+            const i = r.stopped - 1, from = i ? raceMuc[i - 1] : 0, order = raceOrderFor(r);
+            r.retries = (r.retries || 0) + 1;
+            const phan = order.slice(from, raceMuc[i]);
+            order.splice(from, phan.length, ...raceShuffled(phan, raceHash(r.id) ^ raceSeed ^ r.retries * 104729));
+            r.pos = from; r.pts[i] = 0; r.muc[i] = null; r.stopped = 0; r.tries = 0; r.streak = 0; r.lastPassAt = Date.now(); r.driveMs = raceDriveMs; r.blockUntil = 0;
+            raceLog(`🔁 ${r.name} chơi lại Mức ${i + 1}`);
+            raceSend('RACE_RESULT', { to: r.id, k: from, ok: true, retry: true, pos: r.pos, total: raceTotal, driveMs: r.driveMs, streak: 0 });
+            raceUpdateLane(r.id); renderRaceBoard(); updateRaceClock();
         }
 
         function raceCountdownOverlay(ms, done, elId = 'race-countdown') {
@@ -5703,6 +5765,9 @@
             const sel = document.getElementById('race-count');
             const want = (!sel || sel.value === 'all') ? examQuestions.length : parseInt(sel.value, 10);
             raceTotal = Math.max(1, Math.min(want || 10, examQuestions.length));
+            const tang = (document.getElementById('race-3muc') || {}).checked ? raceChiaMuc() : null;
+            raceMuc = tang ? [tang[0].length, tang[0].length + tang[1].length, examQuestions.length] : null;
+            if (raceMuc) raceTotal = examQuestions.length;
             raceShuffle = !!(document.getElementById('race-shuffle') || {}).checked;
             racePenaltyMs = (parseInt((document.getElementById('race-penalty') || {}).value, 10) || 5) * 1000;
             raceDriveMs = (parseInt((document.getElementById('race-drive') || {}).value, 10) || 5) * 1000;
@@ -5722,7 +5787,7 @@
                 raceState = 'running';
                 raceStartAt = Date.now();
                 broadcastRaceState();
-                raceLog(`🚦 Xuất phát! ${raceTotal} chướng ngại vật.`);
+                raceLog(raceMuc ? `🚦 Xuất phát! Đua 3 mức: ${raceMuc[0]} câu Biết → ${raceMuc[1] - raceMuc[0]} câu Hiểu → ${raceMuc[2] - raceMuc[1]} câu Vận dụng.` : `🚦 Xuất phát! ${raceTotal} chướng ngại vật.`);
                 renderRaceStage();
                 clearInterval(raceClockTimer);
                 raceClockTimer = setInterval(updateRaceClock, 1000);
@@ -5740,6 +5805,7 @@
 
         function raceReset(silent = false) {
             raceState = 'idle';
+            raceMuc = null;
             raceRacers = {};
             raceFeed = [];
             raceTotal = 0;
@@ -5753,6 +5819,16 @@
             const sel = document.getElementById('race-count');
             const titleEl = document.getElementById('race-exam-title');
             if (titleEl) titleEl.innerText = `${currentExamTitle} (${examQuestions.length} câu)`;
+            const cb = document.getElementById('race-3muc'), info = document.getElementById('race-3muc-info'), tang = raceChiaMuc();
+            if (cb) {
+                const chay = raceState === 'countdown' || raceState === 'running';
+                cb.disabled = !tang || chay;
+                if (!tang) cb.checked = false; else if (cb.dataset.de !== currentExamTitle) { cb.checked = true; cb.dataset.de = currentExamTitle; }
+                if (info) info.innerText = tang ? `(${tang[0].length} Biết → ${tang[1].length} Hiểu → ${tang[2].length} Vận dụng)` : '(đề chưa ghi mức độ từng câu)';
+                const lbl = document.getElementById('race-3muc-lbl'); if (lbl) lbl.classList.toggle('opacity-50', !tang);
+                if (sel && !chay) sel.disabled = !!(tang && cb.checked);
+                if (!cb.dataset.nghe) { cb.dataset.nghe = '1'; cb.addEventListener('change', () => { if (sel) sel.disabled = cb.checked; }); }
+            }
             if (!sel) return;
             const n = examQuestions.length;
             const prev = sel.value;
@@ -5788,7 +5864,8 @@
                     track.innerHTML = '<div class="py-10 text-center text-sm font-bold text-slate-500">📱 Chưa có học sinh. Bấm "📱 Mã QR" để học sinh quét, nhập tên và chọn xe.</div>';
                     return;
                 }
-                const cones = raceTotal ? Array.from({ length: raceTotal }, (_, k) => `<span class="race-cone" style="left:${raceObstacleX(k, raceTotal).toFixed(2)}%">${RACE_CONE}</span>`).join('') : '';
+                const cones = (raceTotal ? Array.from({ length: raceTotal }, (_, k) => `<span class="race-cone" style="left:${raceObstacleX(k, raceTotal).toFixed(2)}%">${RACE_CONE}</span>`).join('') : '')
+                    + (raceMuc ? [0, raceMuc[0], raceMuc[1]].map((e, i) => { const x = i ? (raceObstacleX(e - 1, raceTotal) + raceObstacleX(e, raceTotal)) / 2 : 5; return (i ? `<span class="race-muc-line" style="left:${x.toFixed(2)}%"></span>` : '') + `<span class="race-muc-tag" style="left:${(i ? x + 2.2 : x).toFixed(2)}%">M${i + 1}</span>`; }).join('') : '');
                 track.innerHTML = lanes.map((l, i) => {
                     const r = raceRacers[l.id];
                     const car = r && r.car ? r.car : l.car;
@@ -5824,10 +5901,10 @@
             const penalty = r && Date.now() < r.blockUntil;
             carEl.classList.toggle('penalty', !!penalty);
             const bubble = lane.querySelector('.race-bubble');
-            bubble.innerText = !r || raceState === 'idle' ? '' : (r.finishMs ? '🏁' : (penalty ? '💥' : (r.asking ? '❓' : '')));
+            bubble.innerText = !r || raceState === 'idle' ? '' : (r.finishMs ? '🏁' : r.stopped ? '⛔' : (penalty ? '💥' : (r.asking ? '❓' : '')));
             lane.querySelectorAll('.race-cone').forEach((c, k) => c.classList.toggle('passed', !!r && k < r.pos));
             const stat = lane.querySelector('.race-lane-stat');
-            stat.innerText = !r || !raceTotal ? '' : (r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`);
+            stat.innerText = !r || !raceTotal ? '' : (r.finishMs ? raceFmt(r.finishMs) : r.stopped ? `⛔ M${r.stopped}` : (raceMuc ? `M${raceMucOf(r.pos) + 1} · ` : '') + `${r.pos}/${raceTotal}`);
         }
 
         function renderRaceBoard() {
@@ -5844,7 +5921,7 @@
                     <span class="w-6 text-center text-sm font-black">${medal(i)}</span>
                     <span class="w-9 h-5 shrink-0">${raceCarSvg(r.car, 'w-9 h-5 block')}</span>
                     <span class="flex-1 truncate text-xs font-black">${escapeHtml(r.name)}</span>
-                    <span class="text-[11px] font-black ${r.finishMs ? 'text-emerald-600' : 'text-slate-600 dark:text-slate-300'}">${r.finishMs ? '🏁 ' + raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`}</span>
+                    <span class="text-[11px] font-black ${r.finishMs ? 'text-emerald-600' : r.stopped ? 'text-rose-600' : 'text-slate-600 dark:text-slate-300'}">${r.finishMs ? '🏁 ' + raceFmt(r.finishMs) : r.stopped ? `⛔ dừng Mức ${r.stopped}` : (raceMuc ? `M${raceMucOf(r.pos) + 1} · ` : '') + `${r.pos}/${raceTotal}`}</span>
                 </li>`).join('');
         }
 
@@ -5858,10 +5935,10 @@
             const badge = document.getElementById('race-status-badge');
             if (!badge) return;
             const all = Object.values(raceRacers);
-            const done = all.filter(r => r.finishMs).length;
+            const done = all.filter(r => r.finishMs).length, dung = all.filter(r => r.stopped).length;
             if (raceState === 'running') {
                 badge.className = 'px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 text-xs font-extrabold animate-pulse';
-                badge.innerText = `🟢 Đang đua • ⏱️ ${raceFmt(Date.now() - raceStartAt)} • 🏁 ${done}/${all.length} về đích`;
+                badge.innerText = `🟢 Đang đua${raceMuc ? ' 3 mức' : ''} • ⏱️ ${raceFmt(Date.now() - raceStartAt)} • 🏁 ${done}/${all.length} về đích` + (dung ? ` • ⛔ ${dung} dừng mức` : '');
             } else if (raceState === 'countdown') {
                 badge.className = 'px-3 py-1 rounded-xl bg-amber-100 text-amber-800 text-xs font-extrabold';
                 badge.innerText = '🚦 Chuẩn bị xuất phát…';
@@ -5884,11 +5961,12 @@
                 const r = raceRacers[l.id];
                 const car = raceCarKey(l.car || (r && r.car), i);
                 return { id: l.id, name: l.name, car, color: RACE_CARS[car].color, pos: r ? r.pos : 0, done: !!(r && r.finishMs),
-                         penalty: !!(r && now < r.blockUntil), asking: !!(r && r.asking), rank: ranks[l.id] || (i + 1),
+                         penalty: !!(r && (now < r.blockUntil || r.stopped)), asking: !!(r && r.asking), rank: ranks[l.id] || (i + 1),
                          passAt: r ? r.lastPassAt : 0, driveMs: r ? r.driveMs : 0, streak: r ? r.streak : 0 };
             });
             const sel = document.getElementById('race-count');
-            const preview = sel ? (sel.value === 'all' ? examQuestions.length : parseInt(sel.value, 10)) : 10;
+            const cb3 = document.getElementById('race-3muc');
+            const preview = cb3 && cb3.checked && !cb3.disabled ? examQuestions.length : sel ? (sel.value === 'all' ? examQuestions.length : parseInt(sel.value, 10)) : 10;
             if (window.Race3D) Race3D.preview(Math.max(1, Math.min(preview || 10, 40)));
             return { state: raceState, total: raceTotal, lanes, muted: soundMuted };
         }
@@ -5947,6 +6025,8 @@
             if (startBtn) startBtn.disabled = raceState === 'countdown' || raceState === 'running';
             if (startBtn) startBtn.classList.toggle('opacity-50', startBtn.disabled);
             ['race-count', 'race-penalty', 'race-drive', 'race-turbo', 'race-shuffle'].forEach(id => { const el = document.getElementById(id); if (el) el.disabled = raceState === 'countdown' || raceState === 'running'; });
+            const cb3 = document.getElementById('race-3muc'), rc = document.getElementById('race-count');
+            if (cb3 && rc && cb3.checked && !cb3.disabled) rc.disabled = true;   // đua 3 mức: chạy hết các câu của đề
             renderRaceTrack();
             renderRaceBoard();
             renderRaceFeed();
@@ -5961,11 +6041,11 @@
                 <div class="flex flex-col items-center gap-1 w-28 sm:w-36">
                     <div class="w-20 h-10">${raceCarSvg(r.car, 'w-20 h-10 block')}</div>
                     <div class="text-xs sm:text-sm font-black truncate max-w-full">${escapeHtml(r.name)}</div>
-                    <div class="text-[11px] font-bold text-slate-500">${r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal} chướng ngại`}</div>
+                    <div class="text-[11px] font-bold text-slate-500">${r.finishMs ? raceFmt(r.finishMs) : r.stopped ? `dừng Mức ${r.stopped}` : `${r.pos}/${raceTotal} chướng ngại`}</div>
                     <div class="w-full ${h} ${bg} rounded-t-xl flex items-start justify-center pt-2 text-2xl font-black text-white shadow-inner">${place}</div>
                 </div>` : '';
             top.innerHTML = block(list[1], '2', 'h-20', 'bg-slate-400') + block(list[0], '1', 'h-28', 'bg-amber-400') + block(list[2], '3', 'h-14', 'bg-orange-400');
-            rest.innerHTML = list.slice(3).map((r, i) => `<li class="flex justify-between gap-2 px-2 py-1 rounded-lg odd:bg-slate-50 dark:odd:bg-slate-900"><span class="font-bold">${i + 4}. ${escapeHtml(r.name)}</span><span class="font-black text-slate-600 dark:text-slate-300">${r.finishMs ? raceFmt(r.finishMs) : `${r.pos}/${raceTotal}`}</span></li>`).join('');
+            rest.innerHTML = list.slice(3).map((r, i) => `<li class="flex justify-between gap-2 px-2 py-1 rounded-lg odd:bg-slate-50 dark:odd:bg-slate-900"><span class="font-bold">${i + 4}. ${escapeHtml(r.name)}</span><span class="font-black text-slate-600 dark:text-slate-300">${r.finishMs ? raceFmt(r.finishMs) : r.stopped ? `⛔ dừng Mức ${r.stopped} (${r.pos}/${raceTotal})` : `${r.pos}/${raceTotal}`}</span></li>`).join('');
             document.getElementById('race-podium').classList.remove('hidden');
             playVictorySoundAndApplause();
             launchFireworks(4000);
@@ -5974,9 +6054,11 @@
         function exportRaceCSV() {
             const list = raceRanked();
             if (!list.length) { showToast('Chưa có kết quả đua xe.'); return; }
-            let csv = '﻿Hạng,Họ tên,Xe,Chướng ngại đã vượt,Số lần trả lời sai,Đúng liên tiếp dài nhất,Thời gian về đích\n';
+            const d3 = x => x == null ? '' : `"${String(x).replace('.', ',')}"`;
+            let csv = '﻿Hạng,Họ tên,Xe,Chướng ngại đã vượt,Số lần trả lời sai,Đúng liên tiếp dài nhất,Thời gian về đích' + (raceMuc ? ',Điểm Mức 1 (Biết),Điểm Mức 2 (Hiểu),Điểm Mức 3 (Vận dụng),Dừng ở mức' : '') + '\n';
             list.forEach((r, i) => {
-                csv += `${i + 1},"${String(r.name).replace(/"/g, '""')}",${RACE_CARS[raceCarKey(r.car)].name},${r.pos}/${raceTotal},${r.wrong},${r.bestStreak || 0},${r.finishMs ? raceFmt(r.finishMs) : 'Chưa về đích'}\n`;
+                csv += `${i + 1},"${String(r.name).replace(/"/g, '""')}",${RACE_CARS[raceCarKey(r.car)].name},${r.pos}/${raceTotal},${r.wrong},${r.bestStreak || 0},${r.finishMs ? raceFmt(r.finishMs) : 'Chưa về đích'}`
+                    + (raceMuc ? `,${d3(r.muc[0])},${d3(r.muc[1])},${d3(r.muc[2])},${r.stopped || ''}` : '') + '\n';
             });
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const a = document.createElement('a');
@@ -5988,7 +6070,7 @@
 
         // ---------- Điện thoại HS: tự lái xe ----------
         function racePhoneFresh() {
-            return { state: 'idle', total: 0, k: 0, q: null, penaltyUntil: 0, penaltyMs: 5000, driveMs: RACE_DRIVE_MS, streak: 0, rank: 0, finishMs: 0, tfDraft: [null, null, null, null], shortDraft: '', wrongOpts: [], lastAnswer: null, timers: [], ticker: null };
+            return { state: 'idle', muc: null, stopped: 0, mucDiem: null, levelMsg: '', total: 0, k: 0, q: null, penaltyUntil: 0, penaltyMs: 5000, driveMs: RACE_DRIVE_MS, streak: 0, rank: 0, finishMs: 0, tfDraft: [null, null, null, null], shortDraft: '', wrongOpts: [], lastAnswer: null, timers: [], ticker: null };
         }
         let racePhone = racePhoneFresh();
 
@@ -6011,10 +6093,11 @@
             if (!hasJoinedCurrentSession || !currentStudentId) return; // báo danh xong sẽ nhận lại trạng thái
             racePhone.total = d.total || racePhone.total;
             racePhone.penaltyMs = d.penaltyMs || racePhone.penaltyMs;
+            racePhone.muc = d.muc || null;
             const me = d.positions ? d.positions[currentStudentId] : null;
             if (d.state === 'countdown') {
                 racePhoneClearTimers();
-                racePhone = { ...racePhoneFresh(), total: d.total, penaltyMs: racePhone.penaltyMs, state: 'countdown' };
+                racePhone = { ...racePhoneFresh(), total: d.total, penaltyMs: racePhone.penaltyMs, muc: d.muc || null, state: 'countdown' };
                 racePhoneRender();
                 raceCountdownOverlay(d.countdownMs || 3500, () => { if (racePhone.state === 'countdown') racePhoneDrive(); }, 'race-phone-countdown');
                 return;
@@ -6031,6 +6114,8 @@
                     racePhoneClearTimers();
                     racePhone.state = 'finished'; racePhone.k = me.pos; racePhone.rank = me.rank; racePhone.finishMs = me.finishMs;
                     racePhoneRender();
+                } else if (me && me.stopped) {
+                    if (racePhone.state !== 'stopped' && racePhone.state !== 'retrying') { racePhoneClearTimers(); racePhone.state = 'stopped'; racePhone.k = me.pos; racePhone.stopped = me.stopped; racePhone.mucDiem = me.mucDiem; racePhoneRender(); }
                 } else if (['idle', 'countdown', 'finished'].includes(racePhone.state)) {
                     racePhone.k = me ? me.pos : 0;
                     racePhoneDrive();
@@ -6051,6 +6136,19 @@
             racePhoneLater(racePhoneAsk, racePhone.driveMs);
         }
 
+        function racePhoneRetry() {   // chơi lại mức vừa dừng
+            if (racePhone.state !== 'stopped') return;
+            racePhoneClearTimers();
+            racePhone.state = 'retrying';
+            racePhoneRender();
+            const send = () => {
+                if (racePhone.state !== 'retrying') return;
+                raceSend('RACE_RETRY', { id: currentStudentId, name: currentStudentName, car: selectedCar });
+                racePhoneLater(send, 3000);
+            };
+            send();
+        }
+
         function racePhoneAsk() {
             racePhone.state = 'asking';
             racePhoneRender();
@@ -6065,6 +6163,7 @@
         function racePhoneOnQuestion(d) {
             if (racePhone.state !== 'asking' && racePhone.state !== 'driving') return;
             racePhoneClearTimers();
+            racePhone.levelMsg = '';
             racePhone.k = d.k;
             racePhone.total = d.total || racePhone.total;
             racePhone.q = d.q;
@@ -6088,6 +6187,21 @@
         }
 
         function racePhoneOnResult(d) {
+            if (d.retry) {
+                if (racePhone.state !== 'retrying') return;
+                racePhoneClearTimers(); racePhone.k = d.pos; racePhone.stopped = 0; racePhone.mucDiem = null;
+                racePhone.levelMsg = `🔁 Chơi lại Mức ${raceMucOf(d.pos, racePhone.muc) + 1} – cố lên!`;
+                racePhoneDrive(d.driveMs, 0);
+                return;
+            }
+            if (d.stopped) {
+                if (racePhone.state === 'stopped' || racePhone.state === 'retrying') return;
+                racePhoneClearTimers();
+                racePhone.state = 'stopped'; racePhone.k = d.pos; racePhone.stopped = d.stopped; racePhone.mucDiem = d.mucDiem;
+                playWrongSound();
+                racePhoneRender();
+                return;
+            }
             if (racePhone.state !== 'checking' && !d.done) return;
             racePhoneClearTimers();
             if (d.done) {
@@ -6100,6 +6214,7 @@
             if (d.ok || d.stale) {
                 racePhone.k = d.pos;
                 if (d.ok) playCorrectSound();
+                if (d.levelUp) { racePhone.levelMsg = `🏁 Qua Mức ${d.levelUp.muc} với ${String(d.levelUp.diem).replace('.', ',')} điểm! Sang Mức ${d.levelUp.muc + 1}: ${RACE_TEN_MUC[d.levelUp.muc]}`; launchFireworks(1500); }
                 if (d.ok && d.streak >= 2) { try { if (navigator.vibrate) navigator.vibrate([60, 40, 60]); } catch (e) {} }
                 racePhoneDrive(d.ok ? d.driveMs : 0, d.ok ? d.streak : 0);
                 return;
@@ -6182,12 +6297,21 @@
             } else if (st === 'driving') {
                 const turbo = racePhone.streak >= 2;
                 body = `<div class="py-2 space-y-1.5 text-center">
-                    ${turbo ? `<div class="text-base font-black text-orange-600 animate-pulse">🔥 TĂNG TỐC! Đúng ${racePhone.streak} câu liên tiếp</div>` : (racePhone.driveMs > RACE_DRIVE_MS ? '<div class="text-base font-black text-emerald-600">✅ Chính xác! Bứt tốc nào!</div>' : '')}
+                    ${racePhone.levelMsg ? `<div class="px-3 py-2 rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-200 text-sm font-black">${escapeHtml(racePhone.levelMsg)}</div>` : ''}
+                    ${turbo ? `<div class="text-base font-black text-orange-600 animate-pulse">🔥 TĂNG TỐC! Đúng ${racePhone.streak} câu liên tiếp</div>` : (racePhone.driveMs > RACE_DRIVE_MS && !racePhone.levelMsg ? '<div class="text-base font-black text-emerald-600">✅ Chính xác! Bứt tốc nào!</div>' : '')}
                     <div class="text-sm font-black text-emerald-700 dark:text-emerald-300">🏎️ Đang lao tới chướng ngại vật ${k + 1}…</div>
                     <div class="race-drive-bar"><i style="animation-duration:${racePhone.driveMs}ms"></i></div>
                 </div>`;
             } else if (st === 'asking') {
                 body = '<div class="text-center text-sm font-black text-amber-600 py-2">🚧 Gặp chướng ngại vật! Đang nhận câu hỏi…</div>';
+            } else if (st === 'stopped' || st === 'retrying') {
+                const m = racePhone.stopped;
+                body = `<div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border-2 border-rose-300 dark:border-rose-800 text-center space-y-2">
+                    <div class="text-3xl">⛔</div>
+                    <div class="text-sm font-black text-rose-700 dark:text-rose-300">Dừng ở Mức ${m}: ${RACE_TEN_MUC[m - 1] || ''}</div>
+                    <div class="text-xs font-bold text-slate-600 dark:text-slate-300">Mức này em đạt ${racePhone.mucDiem == null ? '?' : String(racePhone.mucDiem).replace('.', ',')} điểm – cần từ ${RACE_QUA_MUC} điểm để qua mức.</div>
+                    <button type="button" ${st === 'retrying' ? 'disabled' : ''} onclick="racePhoneRetry()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-black text-sm">${st === 'retrying' ? '⏳ Đang vào lại mức…' : `↻ Chơi lại Mức ${m}`}</button>
+                </div>`;
             } else if (atCone) {
                 body = racePhoneQuestionHtml();
             } else if (st === 'finished') {
@@ -6198,7 +6322,7 @@
             const html = `
                 <div class="p-3 rounded-2xl bg-emerald-50 dark:bg-slate-900 border border-emerald-200 dark:border-slate-700 space-y-2">
                     <div class="flex items-center justify-between gap-2 text-xs font-black">
-                        <span class="text-emerald-700 dark:text-emerald-300">🏎️ ĐUA XE KIẾN THỨC</span>
+                        <span class="text-emerald-700 dark:text-emerald-300">🏎️ ĐUA XE KIẾN THỨC${racePhone.muc ? ((mi) => ` · MỨC ${mi + 1}/3 ${(RACE_TEN_MUC[mi] || '').toUpperCase()}`)(racePhone.stopped ? racePhone.stopped - 1 : raceMucOf(Math.min(k, total - 1), racePhone.muc)) : ''}</span>
                         <span class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">🚧 ${atCone ? k + 1 : k}/${total}</span>
                     </div>
                     <div class="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"><div class="h-full bg-gradient-to-r from-emerald-500 to-sky-500 transition-all duration-500" style="width:${pct}%"></div></div>
