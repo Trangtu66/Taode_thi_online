@@ -18,6 +18,8 @@
 <script src="tug3d.js?v=20261123c"></script>
 <script src="race3d.js?v=20261124a"></script>
 <script src="nhipdo3d.js?v=20261123c"></script>
+<!-- 4 trò mới (24/11/2026): Gỡ bom, Nông trại, Đấu trường nhập vai, Đồng đội thoát hiểm – sân 2D dùng chung với tro_choi_lop.html -->
+<script src="game_moi.js?v=20261124a"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -97,7 +99,7 @@
   .xe-btn svg{width:100%;height:38px;display:block}
   .xe-btn.on{border-color:var(--blue2);background:#EFF6FF;box-shadow:0 4px 12px rgba(37,99,235,.2)}
   .san svg{display:block;width:100%;height:auto;max-height:34vh}
-  @media(max-width:640px){.san svg{max-height:28vh}}
+  @media(max-width:640px){.san svg{max-height:28vh} body[data-game=bom] .san svg,body[data-game=farm] .san svg,body[data-game=rpg] .san svg,body[data-game=thoat] .san svg{max-height:40vh}}
   .tien-do{height:8px;border-radius:999px;background:#E2E8F0;overflow:hidden;margin:10px 0}
   .tien-do i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22C55E,#3B82F6);transition:width .5s}
   .cau{margin-top:12px}
@@ -184,7 +186,7 @@
   <a class="logo" href="index.html"><span class="dot">VT</span><span><b>Học tập trực tuyến</b><small>Trường THPT</small></span></a>
   <nav class="nav" aria-label="Điều hướng chính">
     <a href="index.html">Trang chủ</a><a href="luyen_thi.html">Luyện thi &amp; Bài tập</a><a href="hoc_lieu.html">Kho học liệu</a><a href="tao_de.html">Soạn đề (GV)</a>
-    <a href="quan_ly.html">Góc Giáo viên</a><span class="nav-game"><a href="tu_choi.html" class="nav-game-btn on" aria-haspopup="true">🎮 Trò chơi ▾</a><span class="nav-game-menu"><span class="box"><a href="tu_choi.html">🧑‍🎓 Tự chơi (học sinh)<small>Em tự chọn game, chọn đề; trả lời đúng mới qua câu</small></a><a href="dau_truong.html?vao=bell">🔔 Rung chuông vàng<small>Cả lớp thi loại trực tiếp, trả lời bằng điện thoại</small></a><a href="dau_truong.html?vao=tug">🪢 Kéo co kiến thức<small>Hai đội Đỏ – Xanh thi đấu, chấm theo tỉ lệ đúng</small></a><a href="dau_truong.html?vao=race">🏎️ Đua xe kiến thức<small>Mỗi em tự lái xe, trả lời đúng mới vượt chướng ngại</small></a><a href="nhip_do.html">⏱️ Thi đấu theo nhịp độ<small>GV chiếu từng câu, cả lớp trả lời theo nhịp; cuối trận xếp hạng, vinh danh</small></a></span></span></span><a href="huong_dan.html">Hướng dẫn</a>
+    <a href="quan_ly.html">Góc Giáo viên</a><span class="nav-game"><a href="tu_choi.html" class="nav-game-btn on" aria-haspopup="true">🎮 Trò chơi ▾</a><span class="nav-game-menu"><span class="box"><a href="tu_choi.html">🧑‍🎓 Tự chơi (học sinh)<small>Em tự chọn game, chọn đề; trả lời đúng mới qua câu</small></a><a href="dau_truong.html?vao=bell">🔔 Rung chuông vàng<small>Cả lớp thi loại trực tiếp, trả lời bằng điện thoại</small></a><a href="dau_truong.html?vao=tug">🪢 Kéo co kiến thức<small>Hai đội Đỏ – Xanh thi đấu, chấm theo tỉ lệ đúng</small></a><a href="dau_truong.html?vao=race">🏎️ Đua xe kiến thức<small>Mỗi em tự lái xe, trả lời đúng mới vượt chướng ngại</small></a><a href="nhip_do.html">⏱️ Thi đấu theo nhịp độ<small>GV chiếu từng câu, cả lớp trả lời theo nhịp; cuối trận xếp hạng, vinh danh</small></a><a href="tro_choi_lop.html">🧩 Trò chơi cả lớp theo đội<small>Gỡ bom, Nông trại, Đấu trường, Thoát hiểm – GV chiếu, chia 1–4 đội</small></a></span></span></span><a href="huong_dan.html">Hướng dẫn</a>
   </nav>
 </div></header>
 
@@ -226,6 +228,10 @@
         <button type="button" class="game-card" data-g="tug" role="radio" aria-checked="false"><span class="ic">🪢</span><b>Kéo co với Máy</b><small>Đúng ngay lần đầu kéo mạnh về phía em; trả lời sai thì Máy kéo lại.</small></button>
         <button type="button" class="game-card" data-g="race" role="radio" aria-checked="false"><span class="ic">🏎️</span><b>Đua xe với Máy</b><small>Đúng thì vượt chướng ngại vật; sai bị trượt bánh 5 giây. Về đích trước xe Máy!</small></button>
         <button type="button" class="game-card" data-g="nhip" role="radio" aria-checked="false"><span class="ic">⏱️</span><b>Thi theo nhịp độ</b><small>Đồng hồ theo mức độ câu: Biết 20s · Hiểu 40s · Vận dụng 60s. Đúng trong giờ để giữ chuỗi nhịp!</small></button>
+        <button type="button" class="game-card" data-g="bom" role="radio" aria-checked="false"><span class="ic">💣</span><b>Gỡ bom</b><small>Mỗi câu là một quả bom đang cháy ngòi. Trả lời đúng trước khi ngòi cháy hết để gỡ bom!</small></button>
+        <button type="button" class="game-card" data-g="farm" role="radio" aria-checked="false"><span class="ic">🌾</span><b>Nông trại</b><small>Mỗi câu đúng gieo một luống. Đúng ngay lần đầu cây ra trái; sai thì sâu kéo đến!</small></button>
+        <button type="button" class="game-card" data-g="rpg" role="radio" aria-checked="false"><span class="ic">⚔️</span><b>Đấu trường nhập vai</b><small>Vượt từng ải, đánh quái vật và hạ Trùm Rồng lửa. Trả lời sai bị quái đánh mất máu.</small></button>
+        <button type="button" class="game-card" data-g="thoat" role="radio" aria-checked="false"><span class="ic">🚪</span><b>Đồng đội thoát hiểm</b><small>Cùng 2 bạn mở khoá từng phòng bằng câu trả lời đúng, thoát ra trước giờ báo động!</small></button>
       </div>
       <div id="hd-game" class="hd-game an" aria-live="polite"></div>
       <div id="chon-xe" class="an"><div class="buoc" style="margin:14px 0 0;font-size:15px">🏎️ Chọn xe đua của em</div><div class="xe-grid" id="xe-grid" role="radiogroup" aria-label="Loại xe"></div></div>
@@ -243,7 +249,7 @@
     <div class="luat">
       <b>Luật chơi</b>
       <ul>
-        <li>Trả lời <b>đúng</b> mới sang câu tiếp theo. Sai thì chọn lại (chờ 2 giây; đua xe trượt bánh 5 giây).</li>
+        <li>Trả lời <b>đúng</b> mới sang câu tiếp theo. Sai thì chọn lại (chờ 2 giây; thoát hiểm 3 giây; đua xe trượt bánh 5 giây).</li>
         <li>Điểm mỗi câu: đúng ngay lần 1 được trọn điểm, lần 2 được ½, lần 3 được ¼, từ lần 4 không có điểm.</li>
         <li>Câu trả lời ngắn sai 3 lần sẽ hiện 4 đáp số để em chọn.</li>
         <li>Thời lượng mỗi câu theo mức độ: <b>Biết 20 giây · Hiểu 40 giây · Vận dụng 60 giây</b> (Thi theo nhịp độ: hết giờ vẫn phải trả lời đúng mới qua câu; xe Máy chạy đúng thời lượng này).</li>
@@ -336,13 +342,16 @@ const SFX = {
   },
   thua(){ const g = GA(); if (g) return g.sad(); [392, 330, 262].forEach((f, i) => not(f, i * .2, .35, 'triangle', .25)); }
 };
+const NHAC_NEN = { bell:'show', nhip:'tension', bom:'tension', thoat:'tension', farm:'quiz', rpg:'show' };
 function nhac(bat){   // nhạc nền theo game: bật khi đang chơi, tắt khi dừng/kết thúc/tắt tiếng
   const on = bat && AM.on;
-  if (window.GameAudio) GameAudio.music(on && GAME === 'bell' ? 'show' : on && GAME === 'nhip' ? 'tension' : null);
+  if (window.GameAudio) GameAudio.music(on && NHAC_NEN[GAME] || null);
   if (window.TugAudio){ if (on && GAME === 'tug') TugAudio.musicStart(); else TugAudio.musicStop(); }
   if (window.RaceMusic){ if (on && GAME === 'race') RaceMusic.start(); else RaceMusic.stop(); }
 }
-function moKhoaAm(){ amCtx(); try { if (window.GameAudio) GameAudio.unlock(); if (window.TugAudio) TugAudio.unlock(); if (window.Race3D) Race3D.unlock(); } catch (e) {} }
+function moKhoaAm(){ amCtx(); try { if (window.GameAudio) GameAudio.unlock(); if (window.TugAudio) TugAudio.unlock(); if (window.Race3D) Race3D.unlock(); if (window.GameMoi && AM.on) GameMoi.am.mo(); } catch (e) {} }
+const amMoi = ten => { if (AM.on && window.GameMoi) try { GameMoi.am[ten](); } catch (e) {} };   // tiếng riêng của 4 trò mới (nổ bom, chém, mở cửa…)
+const laMoi = g => !!(window.GameMoi && GameMoi.co(g));
 
 // ======================= TRẠNG THÁI =======================
 let HS = null;              // {ten, lop, xacThuc}
@@ -356,7 +365,9 @@ let V = null;               // ván đang chơi
 // Đề "… – Đua xe 3 mức" của ngân hàng đề game có đúng 12 Biết – 12 Hiểu – 4 Vận dụng + 2 Vận dụng cao.
 let MUC3 = null;
 const TEN_MUC = ['Nhận biết', 'Thông hiểu', 'Vận dụng'], DIEM_QUA_MUC = 5;
-const TEN_GAME = { bell:'🔔 Rung chuông vàng', tug:'🪢 Kéo co với Máy', race:'🏎️ Đua xe với Máy', nhip:'⏱️ Thi theo nhịp độ' };
+const TEN_GAME = { bell:'🔔 Rung chuông vàng', tug:'🪢 Kéo co với Máy', race:'🏎️ Đua xe với Máy', nhip:'⏱️ Thi theo nhịp độ',
+  bom:'💣 Gỡ bom', farm:'🌾 Nông trại', rpg:'⚔️ Đấu trường nhập vai', thoat:'🚪 Đồng đội thoát hiểm' };
+const HP_ANH_HUNG = 5;   // Đấu trường: máu của em; sai bị quái đánh mất 1, hết máu thì gục ngã rồi hồi sinh đầy máu
 const NHIP = { mcq:40, tf:60, short:60 };      // câu chưa ghi mức độ: thời lượng theo dạng câu
 // Thời lượng câu theo mức độ (GV quy định 23/11/2026): Biết 20 giây · Hiểu 40 giây · Vận dụng, Vận dụng cao 60 giây.
 // Mức độ lấy ở trường level của đề, hoặc chữ "(Biết)", "(Hiểu)"… đầu câu; trả về null khi đề không ghi mức độ.
@@ -376,7 +387,7 @@ function chiaMuc(ds){   // [câu Biết, câu Hiểu, câu Vận dụng] – nul
 }
 const giayCau = c => giayTheoMucDo(c.mucDo, c.nd) || NHIP[c.type];
 const DIEM_LAN = [1, .5, .25];   // điểm theo lần trả lời đúng (lần 1, 2, 3); từ lần 4: 0
-const CHO_SAI = { bell:2000, tug:2000, race:5000, nhip:2000 };
+const CHO_SAI = { bell:2000, tug:2000, race:5000, nhip:2000, bom:2000, farm:2000, rpg:2000, thoat:3000 };
 const CHAY_MS = 6000;   // Đua xe: mỗi câu đúng xe chạy 6 giây tới chướng ngại kế tiếp, chạy tới nơi mới mở câu sau
 
 // ======================= BƯỚC 1: ĐĂNG NHẬP =======================
@@ -446,7 +457,25 @@ const HD = {
   nhip: { ic:'⏱️', ten:'Thi theo nhịp độ', muc:'Trả lời đúng trong thời gian của từng câu để giữ chuỗi nhịp dài nhất.',
     buoc:['Đồng hồ vòng ở góc sân đếm ngược: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây.',
           'Đúng trong giờ: chuỗi nhịp +1 (từ ×3 trở lên có 🔥).', 'Trả lời sai hoặc hết giờ: mất chuỗi nhịp. Em vẫn phải trả lời đúng câu đó mới được sang câu tiếp.'],
-    thang:'🏆 Đúng trong giờ từ 70% số câu và đạt từ 6,5 điểm: giữ nhịp tốt; từ 90% và 8 điểm: xuất sắc!', meo:'Mẹo: câu Biết làm thật nhanh để dành thời gian cho câu Vận dụng.' }
+    thang:'🏆 Đúng trong giờ từ 70% số câu và đạt từ 6,5 điểm: giữ nhịp tốt; từ 90% và 8 điểm: xuất sắc!', meo:'Mẹo: câu Biết làm thật nhanh để dành thời gian cho câu Vận dụng.' },
+  bom: { ic:'💣', ten:'Gỡ bom', muc:'Mỗi câu hỏi là một quả bom hẹn giờ. Trả lời đúng trước khi ngòi nổ cháy hết để gỡ bom.',
+    buoc:['Ngòi nổ cháy theo mức độ câu: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây. Màn hình trên quả bom đếm ngược.',
+          'Trả lời đúng khi bom chưa nổ: cắt dây, <b>gỡ bom thành công</b> ✔.', 'Trả lời sai: chờ 2 giây rồi trả lời lại – ngòi vẫn tiếp tục cháy!',
+          'Hết giờ: bom <b>nổ</b> 💥. Em vẫn phải trả lời đúng câu đó mới sang quả bom tiếp theo.', 'Bảng bên cạnh ghi các quả bom đã gỡ (✔) và đã nổ (💥).'],
+    thang:'🏆 Gỡ được từ 70% số bom: em là chuyên gia gỡ bom! Gỡ hết bom: xuất sắc!', meo:'Mẹo: ngòi còn ít (bom rung, viền đỏ) thì chọn phương án chắc chắn nhất.' },
+  farm: { ic:'🌾', ten:'Nông trại', muc:'Mỗi câu hỏi là một luống đất. Trả lời đúng để gieo hạt, cây lớn lên cho em thu hoạch.',
+    buoc:['Luống đang trồng có viền vàng và dấu ❓.', 'Đúng ngay lần đầu: cây <b>ra trái</b>, thu 3 nông sản 🌽🥕🍅.', 'Đúng ở lần 2: cây lớn, thu 2 nông sản. Đúng ở lần 3: cây non, thu 1 nông sản. Từ lần 4: cây héo 🍂.',
+          'Trả lời sai: <b>sâu</b> 🐛 bò vào luống, chờ 2 giây rồi trả lời lại câu đó.', 'Kho nông sản ở nhà kho đỏ ghi tổng số em đã thu hoạch.'],
+    thang:'🏆 Thu từ 70% số nông sản tối đa: vụ mùa bội thu!', meo:'Mẹo: đọc kĩ đề để đúng ngay lần đầu – cây ra trái, kho đầy nhanh.' },
+  rpg: { ic:'⚔️', ten:'Đấu trường nhập vai', muc:'Em là hiệp sĩ vượt qua các ải. Mỗi ải có một quái vật, ải cuối là Trùm Rồng lửa 🐉.',
+    buoc:['Mỗi câu đúng là một nhát kiếm: đúng <b>ngay lần đầu</b> là đòn chí mạng ⚡ (trừ 2 máu quái), đúng ở lần sau trừ 1 máu.',
+          'Trả lời sai: quái vật đánh trả, em mất 1 ❤️ và chờ 2 giây rồi trả lời lại. Hết 5 ❤️ thì gục ngã, hồi sinh đầy máu rồi đánh tiếp.',
+          'Hết các câu của ải mà quái còn máu thì quái <b>bỏ chạy</b>; em sang ải tiếp theo.', 'Thanh máu trên đầu quái cho biết quái còn bao nhiêu máu.'],
+    thang:'🏆 Hạ được Trùm Rồng lửa: CHIẾN THẮNG! Không gục ngã lần nào: anh hùng đấu trường!', meo:'Mẹo: muốn hạ quái thì phải đúng ngay lần đầu nhiều câu.' },
+  thoat: { ic:'🚪', ten:'Đồng đội thoát hiểm', muc:'Em và 2 bạn bị nhốt trong toà nhà nhiều phòng. Mỗi cửa có 3 ổ khoá, mỗi ổ khoá là một câu hỏi.',
+    buoc:['Trả lời đúng: mở một ổ khoá 🔓. Mở hết ổ khoá thì cửa mở, cả đội sang phòng tiếp theo.', 'Trả lời sai: còi báo động 🚨, chờ 3 giây rồi trả lời lại câu đó.',
+          'Thanh <b>thời gian thoát hiểm</b> ở trên cùng bằng tổng thời gian chuẩn của các câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây).', 'Bản đồ trên cùng cho biết em đang ở phòng nào và còn bao nhiêu phòng tới Lối thoát.'],
+    thang:'🏆 Ra tới Lối thoát trước khi hết thời gian: THOÁT HIỂM THÀNH CÔNG!', meo:'Mẹo: mỗi lần sai mất 3 giây – bình tĩnh, chắc tay.' }
 };
 const HD_CHUNG = `<details class="hd-chung"><summary>Cách trả lời, cách tính điểm và các nút</summary><ul>
   <li><b>Câu 4 lựa chọn:</b> bấm vào phương án em chọn. Phương án sai sẽ bị gạch, em chọn lại phương án khác.</li>
@@ -602,6 +631,8 @@ const ANH = {
     phase: !V ? 'lobby' : V.xong ? 'end' : V.dangChuyen ? 'reveal' : 'q', players: [{ id: 'em', n: tenNgan(), s: +(tongDiem() * 10 / Math.max(1, CAU.length)).toFixed(1), done: !!(V && V.dangChuyen), streak: V ? V.chuoi : 0 }], answered: V && V.dangChuyen ? 1 : 0, total: 1 })
 };
 function dung3d(){   // true nếu sân 3D của game hiện tại đang chạy
+  $('nut-3d').classList.toggle('an', laMoi(GAME));   // 4 trò mới chỉ có sân 2D
+  if (!S3[GAME]){ Object.keys(S3).forEach(g => $('s3-' + g).classList.add('an')); $('san').classList.remove('an'); $('nut-cam').classList.add('an'); return false; }
   const lib = window[S3[GAME]], box = $('s3-' + GAME);
   const on = CHE_3D && lib && lib.supported && lib.supported() && !V.loi3d;
   Object.keys(S3).forEach(g => $('s3-' + g).classList.toggle('an', !(on && g === GAME)));
@@ -632,6 +663,10 @@ function veHud(){
 function veSan(hieuUng){
   if (dung3d()){ veHud(); $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; return; }
   $('hud').innerHTML = ''; $('hud-dh').classList.add('an');
+  if (laMoi(GAME)){
+    $('san').innerHTML = GameMoi.html(GAME, stMoi(), `${TEN_GAME[GAME]}: câu ${Math.min(V.k + 1, CAU.length)} trên ${CAU.length}`);
+    $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; return;
+  }
   const n = CAU.length, k = V.k, sv = [];
   // Điện thoại (màn hẹp): sân cao hơn, nhân vật và chữ to hơn để nhìn rõ
   const nho = ($('san').clientWidth || 1000) < 640, H = nho ? 440 : 230, S = nho ? 1.75 : 1, F = nho ? 1.7 : 1;
@@ -698,6 +733,59 @@ function veSan(hieuUng){
   $('tien-do').style.width = (k / n * 100) + '%';
 }
 
+// ======================= 4 TRÒ MỚI (game_moi.js): trạng thái để vẽ sân =======================
+function stMoi(){
+  const n = CAU.length, now = Date.now(), d = { ten: tenNgan(), mau: '#2563EB' };
+  const st = { n, k: V.k, nho: ($('san').clientWidth || 1000) < 640, t: now, fx: V.fx, xong: V.xong, doi: [d] };
+  if (GAME === 'bom'){
+    const c = CAU[Math.min(V.k, n - 1)];
+    d.kq = V.bomKq; st.tong = giayCau(c); st.daNo = V.hetGio;
+    st.con = V.dangChuyen ? V.conLuc : Math.max(0, (V.han - now) / 1000);
+  } else if (GAME === 'farm'){ d.cay = V.cay; st.sau = V.sau; }
+  else if (GAME === 'rpg') Object.assign(st, { ai: V.ai, iAi: V.iAi, hp: V.hp, hpMax: HP_ANH_HUNG, thang: V.xong ? V.ai[V.ai.length - 1].ha : undefined });
+  else if (GAME === 'thoat'){ st.tong = V.giayThoat; st.con = V.giayThoat - V.tg() / 1000; st.quaGio = st.con < 0; }
+  return st;
+}
+// Trả lời đúng câu i (đúng ở lần V.lanCau): cập nhật sân, trả về thời gian chờ (ms) trước khi mở câu sau
+function moiDung(i){
+  const now = Date.now();
+  if (GAME === 'bom'){
+    const go = !V.hetGio; V.bomKq[i] = go ? 'go' : 'no'; V.conLuc = Math.max(0, (V.han - now) / 1000);
+    if (go){ V.goDuoc++; V.fx = { loai:'go', at: now }; amMoi('goBom'); }
+    return 1200;
+  }
+  if (GAME === 'farm'){ V.cay[i] = [0, 3, 2, 1][V.lanCau] || 0; V.sau = false; V.fx = { loai:'dung', at: now, cau: i }; amMoi('mam'); return 1100; }
+  if (GAME === 'rpg'){
+    const ai = V.ai[V.iAi], sat = V.lanCau === 1 ? 2 : 1;
+    ai.mau.con = Math.max(0, ai.mau.con - sat); amMoi('chem');
+    if (ai.mau.con <= 0){ ai.ha = true; V.haQuai++; V.fx = { loai:'ha', at: now, sat }; setTimeout(() => amMoi('ha'), 250); return 1700; }
+    V.fx = { loai: sat === 2 ? 'chimang' : 'danh', at: now, sat };
+    return 1100;
+  }
+  if (GAME === 'thoat'){
+    V.fx = { loai:'khoa', at: now }; amMoi('khoa');
+    if ((i + 1) % 3 === 0 || i + 1 === CAU.length){ V.fx = { loai:'mo', at: now + 350, phong: Math.floor(i / 3) }; setTimeout(() => amMoi('cua'), 350); return 2100; }
+    return 1000;
+  }
+  return 1100;
+}
+function moiSai(){
+  const now = Date.now();
+  if (GAME === 'bom') V.fx = { loai:'sai', at: now };
+  else if (GAME === 'farm'){ V.sau = true; V.fx = { loai:'sai', at: now }; amMoi('sau'); }
+  else if (GAME === 'rpg'){
+    V.hp--; V.fx = { loai:'trung', at: now }; amMoi('trung');
+    if (V.hp <= 0){ V.guc++; V.hp = HP_ANH_HUNG; V.fx = { loai:'guc', at: now }; }
+  } else if (GAME === 'thoat'){ V.fx = { loai:'bao', at: now }; amMoi('coi'); }
+}
+// Đấu trường: hết câu của ải mà quái còn máu thì quái bỏ chạy; xong ải thì sang ải sau. Trả về thời gian chờ thêm (ms).
+function rpgQuaAi(){
+  const ai = V.ai[V.iAi]; if (!ai || V.k < ai.den) return 0;
+  if (!ai.ha){ ai.tron = true; V.fx = { loai:'tron', at: Date.now() }; amMoi('sau'); }
+  if (V.iAi < V.ai.length - 1){ const cho = ai.ha ? 0 : 1500; setTimeout(() => { if (V) V.iAi++; }, cho); return cho; }
+  return ai.ha ? 0 : 1500;
+}
+
 // ======================= VÁN CHƠI =======================
 // cach: không có – ván mới (Đua xe: từ mức 1) · 'tiep' – sang mức kế tiếp · 'lai' – chơi lại mức vừa dừng
 function batDau(cach){
@@ -714,7 +802,10 @@ function batDau(cach){
   const giayMay = CAU.reduce((s, c) => s + giayCau(c), 0) + (GAME === 'race' ? CAU.length * CHAY_MS / 1000 : 0);   // xe Máy chạy đúng thời lượng chuẩn của từng câu (Đua xe: cộng thời gian chạy giữa hai chướng ngại như xe em)
   const demMs = GAME === 'race' ? 3000 : 0;   // Đua xe: đếm ngược 3 – 2 – 1 như bản trình chiếu
   V = { k:0, lanSai:0, saiCau:0, kq:[], bd:Date.now() + demMs, khoaDen:Date.now() + demMs, xong:false, pos:0, max:Math.max(4, Math.ceil(CAU.length / 2)), luc:0, lucMay:0,
-        giayMay, chuoi:0, chuoiMax:0, chuoiDung:0, trongGio:0, han:0, hetGio:false, mayPos:0, tg(){ return Math.max(0, (this.ketThuc || Date.now()) - this.bd); } };
+        giayMay, chuoi:0, chuoiMax:0, chuoiDung:0, trongGio:0, han:0, hetGio:false, mayPos:0, tg(){ return Math.max(0, (this.ketThuc || Date.now()) - this.bd); },
+        // 4 trò mới: Gỡ bom (bomKq, goDuoc), Nông trại (cay, sau), Đấu trường (ai, iAi, hp, guc, haQuai), Thoát hiểm (giayThoat)
+        fx:null, bomKq:[], goDuoc:0, cay:[], sau:false, iAi:0, hp:HP_ANH_HUNG, guc:0, haQuai:0, giayThoat: CAU.reduce((s, c) => s + giayCau(c), 0),
+        ai: GAME === 'rpg' && window.GameMoi ? GameMoi.chiaAi(CAU.length).map(a => Object.assign(a, { mau: { con: a.so * 2, max: a.so * 2 } })) : [] };
   document.body.classList.add('dang-choi'); document.body.dataset.game = GAME;
   $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
   $('c-game').textContent = TEN_GAME[GAME];
@@ -737,8 +828,14 @@ function demGio(){
       V.hetGio = true; V.chuoi = 0; SFX.sai();
       phanHoi('cho', '⏰ Hết giờ nhịp – mất chuỗi. Em vẫn phải trả lời đúng câu này để qua câu.');
     }
+    if (GAME === 'bom' && !V.hetGio && !V.dangChuyen && !V.xong){
+      const con = Math.ceil((V.han - Date.now()) / 1000);
+      if (con <= 5 && con > 0 && con !== V.tich){ V.tich = con; amMoi('tichTac'); }
+      if (Date.now() > V.han){ V.hetGio = true; V.fx = { loai:'no', at: Date.now() }; amMoi('bum'); phanHoi('sai', '💥 Bom nổ rồi! Em vẫn phải trả lời đúng câu này mới sang quả bom tiếp theo.'); }
+    }
+    if (GAME === 'thoat' && !V.quaGio && !V.xong && V.tg() / 1000 > V.giayThoat){ V.quaGio = true; amMoi('coi'); phanHoi('cho', '⏰ Hết thời gian thoát hiểm – còi báo động hú! Cả đội vẫn cố mở hết cửa để ra ngoài.'); }
     veSan();
-  }, 250);
+  }, laMoi(GAME) ? 70 : 250);   // 4 trò mới vẽ hoạt cảnh theo thời gian → vẽ lại dày hơn cho mượt
 }
 function capNhatThanh(){
   $('c-cau').textContent = (MUC3 ? `Mức ${MUC3.i + 1}/3 · ` : '') + `Câu ${Math.min(V.k + 1, CAU.length)}/${CAU.length}`;
@@ -805,7 +902,7 @@ function veTraLoi(){
 function phanHoi(loai, txt){ const p = $('phan-hoi'); if (!p) return; p.className = 'phan-hoi on ' + loai; p.textContent = txt; }
 
 function traLoi(gt, nut){
-  if (!V || V.dangChuyen || V.khoaDen > Date.now()) return;
+  if (!V || V.xong || V.dangChuyen || V.khoaDen > Date.now() || V.k >= CAU.length) return;   // đã xong ván: chặn bấm thêm trong lúc chờ sang bảng kết quả
   const c = CAU[V.k];
   let dung = false, ghiChu = '';
   if (c.type === 'mcq') dung = gt === c.dung;
@@ -821,11 +918,19 @@ function traLoi(gt, nut){
     V.dangChuyen = true; SFX.dung();
     if (GAME === 'tug'){ const keo = V.lanCau === 1 ? 2 : 1; V.pos = Math.max(-V.max, V.pos - keo); V.luc += keo; }
     V.chuoiDung = V.lanCau === 1 ? (V.chuoiDung || 0) + 1 : 0; V.passAt = Date.now();
+    const choMoi = laMoi(GAME) ? moiDung(V.k) : 0;
     V.k++;
     phanHoi('dung', V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`);
     veSan();
     if (GAME === 'race') phanHoi('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`) + (V.k >= CAU.length ? ' 🏁 Xe đang lao về đích…' : (V.chuoiDung >= 2 ? ' 🔥 Tăng tốc' : ' 🏎️ Xe đang chạy') + ' tới chướng ngại ' + (V.k + 1) + '…'));
-    setTimeout(() => { if (!V) return; V.dangChuyen = false; if (V.k >= CAU.length) ketThuc(); else veCau(); }, GAME === 'race' ? CHAY_MS : 1100);
+    if (GAME === 'bom' && V.hetGio) phanHoi('cho', '✅ Đúng rồi – nhưng quả bom này đã nổ. Sang quả bom tiếp theo…');
+    if (GAME === 'thoat' && choMoi > 1500) phanHoi('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu! ' : '✅ Chính xác! ') + (V.k >= CAU.length ? '🚪 Cửa cuối đã mở – ra lối thoát!' : '🔓 Mở hết ổ khoá – cả đội sang phòng tiếp theo…'));
+    const sau = () => { if (!V) return; V.dangChuyen = false; if (V.k >= CAU.length) ketThuc(); else veCau(); };
+    setTimeout(() => {
+      if (!V) return;
+      const them = GAME === 'rpg' ? rpgQuaAi() : 0;   // Đấu trường: quái bỏ chạy / sang ải mới
+      if (them) setTimeout(sau, them); else sau();
+    }, GAME === 'race' ? CHAY_MS : (choMoi || 1100));
     return;
   }
   // Sai: phải trả lời lại câu này
@@ -833,13 +938,16 @@ function traLoi(gt, nut){
   if (GAME === 'nhip') V.chuoi = 0;
   if (c.type === 'mcq' || (c.type === 'short' && V.lanCau > 3)) V.saiOpt.push(gt);
   if (GAME === 'tug'){ V.pos = Math.min(V.max, V.pos + 1); V.lucMay++; }
+  if (laMoi(GAME)) moiSai();
   const cho = CHO_SAI[GAME]; V.khoaDen = Date.now() + cho;
-  const loiNhan = GAME === 'nhip' ? '❌ Sai rồi – mất chuỗi nhịp!' : GAME === 'race' ? '💥 Sai rồi – xe trượt bánh!' : GAME === 'tug' ? '😬 Sai rồi – Máy kéo lại!' : '❌ Chưa đúng!';
+  const loiNhan = { nhip:'❌ Sai rồi – mất chuỗi nhịp!', race:'💥 Sai rồi – xe trượt bánh!', tug:'😬 Sai rồi – Máy kéo lại!', bom:'❌ Sai rồi – ngòi nổ vẫn đang cháy!',
+    farm:'🐛 Sai rồi – sâu bò vào luống!', rpg: V.fx && V.fx.loai === 'guc' ? '😵 Sai rồi – em gục ngã và được hồi sinh đầy máu!' : '💢 Sai rồi – quái vật đánh trả, em mất 1 ❤️!',
+    thoat:'🚨 Sai mật mã – còi báo động!' }[GAME] || '❌ Chưa đúng!';
   phanHoi('sai', `${loiNhan} ${ghiChu} Chờ ${Math.round(cho / 1000)} giây rồi trả lời lại câu này.`);
   if (c.type === 'short' && V.lanCau === 3) phanHoi('sai', `${loiNhan} Sai 3 lần – sau ${Math.round(cho / 1000)} giây sẽ hiện 4 đáp số để em chọn.`);
   capNhatThanh(); veSan('sai'); veTraLoi(); toan($('tra-loi'));
   $('khung-cau').classList.remove('lac'); void $('khung-cau').offsetWidth; $('khung-cau').classList.add('lac');
-  setTimeout(() => { if (!V || V.dangChuyen) return; veTraLoi(); toan($('tra-loi')); veSan(); phanHoi('cho', 'Em trả lời lại câu này nhé.'); }, cho);
+  setTimeout(() => { if (!V || V.dangChuyen || V.xong) return; veTraLoi(); toan($('tra-loi')); veSan(); phanHoi('cho', 'Em trả lời lại câu này nhé.'); }, cho);
 }
 
 // ======================= KẾT THÚC & KẾT QUẢ =======================
@@ -863,6 +971,15 @@ function ketThuc(){
   else if (GAME === 'tug'){ thang = V.pos < 0; huy = thang ? '🏆' : V.pos === 0 ? '🤝' : '💪'; tieuDe = thang ? 'Em thắng Máy trong trận kéo co!' : V.pos === 0 ? 'Hoà! Hai bên cân sức.' : 'Máy thắng sát nút – chơi lại nhé!'; }
   else if (GAME === 'nhip'){ const tl = V.trongGio / n; thang = tl >= .7 && diem10 >= 6.5; const xs = tl >= .9 && diem10 >= 8; huy = xs ? '🥇' : thang ? '🏅' : '⏱️';
     tieuDe = xs ? 'Giữ nhịp xuất sắc!' : thang ? 'Em giữ nhịp rất tốt!' : 'Hoàn thành – lần sau chắc tay và nhanh hơn nhé!'; }
+  else if (GAME === 'bom'){ const g = V.goDuoc; thang = g / n >= .7; huy = g === n ? '🥇' : thang ? '🧯' : '💥';
+    tieuDe = g === n ? `Em gỡ được cả ${n} quả bom – xuất sắc!` : thang ? `Em gỡ được ${g}/${n} quả bom – chuyên gia gỡ bom!` : `Em gỡ được ${g}/${n} quả bom – lần sau nhanh tay hơn nhé!`; }
+  else if (GAME === 'farm'){ const s = V.cay.reduce((a, x) => a + (x || 0), 0); thang = s >= .7 * 3 * n; huy = thang ? '🧺' : '🌱';
+    tieuDe = thang ? `Vụ mùa bội thu – ${s}/${3 * n} nông sản!` : `Em thu hoạch ${s}/${3 * n} nông sản – chăm sóc kĩ hơn nhé!`; }
+  else if (GAME === 'rpg'){ const trum = V.ai[V.ai.length - 1]; thang = !!trum.ha; huy = thang ? (V.guc ? '⚔️' : '🛡️') : '💨';
+    tieuDe = !thang ? `Trùm ${trum.ten} đã bỏ chạy – em hạ được ${V.haQuai}/${V.ai.length} quái vật. Luyện thêm nhé!`
+      : V.guc ? `Em hạ được Trùm ${trum.ten} sau ${V.guc} lần gục ngã!` : `Em hạ Trùm ${trum.ten} mà không gục ngã lần nào – anh hùng đấu trường!`; }
+  else if (GAME === 'thoat'){ thang = !V.quaGio; huy = thang ? '🚪' : '🚨';
+    tieuDe = thang ? 'Cả đội thoát hiểm thành công trước giờ báo động!' : 'Cả đội đã ra ngoài nhưng quá thời gian thoát hiểm – nhanh hơn nhé!'; }
   else if (MUC3){ thang = dungMuc < 0; const truoc = giay <= giayMay;
     huy = !thang ? '💪' : truoc ? '🏆' : '🏁';
     tieuDe = !thang ? `Em dừng ở Mức ${dungMuc + 1} (${TEN_MUC[dungMuc]}) – cần từ ${DIEM_QUA_MUC} điểm để qua mức. Chơi lại nhé!`
@@ -870,7 +987,7 @@ function ketThuc(){
   else { thang = giay <= V.giayMay; huy = thang ? '🏆' : '🥈'; tieuDe = thang ? 'Em về đích trước xe Máy – HẠNG NHẤT!' : 'Xe Máy về trước – em về nhì!'; }
   if (thang) { SFX.thang(); phaoGiay(); } else SFX.thua();
   phanHoi(thang ? 'dung' : 'cho', (thang ? '🏆 ' : '🏁 ') + tieuDe + ' Đang tổng hợp kết quả…');
-  const choXem = $('san').classList.contains('an') ? (GAME === 'race' ? 3200 : 2600) : 1200;   // để em xem hoạt cảnh trên sân 3D
+  const choXem = $('san').classList.contains('an') ? (GAME === 'race' ? 3200 : 2600) : laMoi(GAME) ? 2400 : 1200;   // để em xem hoạt cảnh trên sân
   const mmss = s => Math.floor(s / 60) + ' phút ' + String(s % 60).padStart(2, '0') + ' giây';
   const tenLoai = {mcq:'4 lựa chọn', tf:'Đúng/Sai', short:'Trả lời ngắn'};
   const quizId = ('Tự chơi · ' + TEN_GAME[GAME].replace(/^\S+\s/, '') + (MUC3 ? ' 3 mức' : '') + ' · ' + DE_TEN).slice(0, 120);
@@ -883,6 +1000,7 @@ function ketThuc(){
     <div class="so-lieu"><div><b>${n}/${MUC3 ? CAU_DE.length : n}</b><span>câu đã vượt qua</span></div><div><b>${lan1}</b><span>câu đúng ngay lần đầu</span></div>
       <div><b>${lanSai}</b><span>lần trả lời sai</span></div><div><b>${Math.floor(giay / 60)}:${String(giay % 60).padStart(2, '0')}</b><span>thời gian${GAME === 'race' ? ' (Máy: ' + Math.floor(giayMay / 60) + ':' + String(giayMay % 60).padStart(2, '0') + ')' : ''}</span></div></div>
     ${GAME === 'nhip' ? `<div class="sub" style="margin:0 0 6px">Đúng trong giờ nhịp: <b>${V.trongGio}/${n}</b> câu · Chuỗi nhịp dài nhất: <b>×${V.chuoiMax}</b></div>` : ''}
+    ${laMoi(GAME) ? `<div class="sub" style="margin:0 0 6px">${tomTatMoi(n).join(' · ')}</div>` : ''}
     ${kyLucHtml(diem10)}
     <details style="text-align:left;margin-top:10px"><summary style="cursor:pointer;font-weight:800">Xem chi tiết từng câu</summary>
       <table class="bang"><thead><tr><th>Câu</th>${MUC3 ? '<th>Mức</th>' : ''}<th>Dạng</th><th>Đúng ở lần</th>${GAME === 'nhip' ? '<th>Nhịp</th>' : ''}<th>Điểm</th></tr></thead><tbody>
@@ -929,7 +1047,7 @@ function guiKetQua(quizId, diem10, tong, n, giay, ds, kq, lanSai){
   if (!u){ el.textContent = ''; return; }
   const answers = kq.map(x => ({p: x.loai === 'mcq' ? 1 : x.loai === 'tf' ? 2 : 3, c: x.cau, q: rutGon(ds[x.cau - 1].nd), pts: +x.diem.toFixed(2), ok: x.lan === 1, chon: (x.muc ? 'Mức ' + x.muc + ' · ' : '') + 'Đúng ở lần ' + x.lan, dung: ''}));
   const payload = { quizId, title: quizId, name: HS.ten, lop: HS.lop, score10: diem10, total: +tong.toFixed(2), max: n,
-    parts: ['Đúng lần đầu: ' + kq.filter(x => x.lan === 1).length + '/' + n, 'Lần sai: ' + lanSai].concat(MUC3 ? MUC3.diem.map((d, i) => 'Mức ' + (i + 1) + ': ' + d.toFixed(2).replace('.', ',') + (d >= DIEM_QUA_MUC ? ' ✓' : ' ✗')) : []).concat(GAME === 'nhip' ? ['Đúng trong giờ: ' + V.trongGio + '/' + n, 'Chuỗi nhịp: ' + V.chuoiMax] : []), timeUsed: giay, auto: false, answers, clientId: maMay() };
+    parts: ['Đúng lần đầu: ' + kq.filter(x => x.lan === 1).length + '/' + n, 'Lần sai: ' + lanSai].concat(MUC3 ? MUC3.diem.map((d, i) => 'Mức ' + (i + 1) + ': ' + d.toFixed(2).replace('.', ',') + (d >= DIEM_QUA_MUC ? ' ✓' : ' ✗')) : []).concat(GAME === 'nhip' ? ['Đúng trong giờ: ' + V.trongGio + '/' + n, 'Chuỗi nhịp: ' + V.chuoiMax] : []).concat(laMoi(GAME) ? tomTatMoi(n).map(s => s.replace(/<[^>]+>/g, '')) : []), timeUsed: giay, auto: false, answers, clientId: maMay() };
   el.className = 'gui'; el.textContent = 'Đang gửi kết quả cho giáo viên…';
   const gui = lan => fetch(u, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
     .then(() => {
@@ -938,6 +1056,13 @@ function guiKetQua(quizId, diem10, tong, n, giay, ds, kq, lanSai){
     })
     .catch(() => { if (lan < 3){ el.textContent = 'Mạng chập chờn, đang gửi lại lần ' + (lan + 1) + '…'; setTimeout(() => gui(lan + 1), 2500 * lan); } else { el.className = 'gui err'; el.textContent = '⚠ Chưa gửi được kết quả (mất mạng). Em chụp màn hình kết quả gửi giáo viên nhé.'; } });
   gui(1);
+}
+function tomTatMoi(n){   // số liệu riêng của 4 trò mới (bảng kết quả + gửi GV)
+  if (GAME === 'bom') return [`Bom gỡ được: <b>${V.goDuoc}/${n}</b>`, `Bom nổ: <b>${n - V.goDuoc}</b>`];
+  if (GAME === 'farm') return [`Nông sản: <b>${V.cay.reduce((a, x) => a + (x || 0), 0)}/${3 * n}</b>`, `Cây ra trái: <b>${V.cay.filter(x => x === 3).length}/${n}</b>`];
+  if (GAME === 'rpg') return [`Quái vật hạ được: <b>${V.haQuai}/${V.ai.length}</b>`, `Hạ Trùm: <b>${V.ai[V.ai.length - 1].ha ? 'có' : 'không'}</b>`, `Gục ngã: <b>${V.guc}</b> lần`];
+  if (GAME === 'thoat'){ const s = Math.round(V.tg() / 1000); return [`Thoát hiểm: <b>${V.quaGio ? 'quá giờ' : 'kịp giờ'}</b>`, `Thời gian: <b>${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}</b> / ${Math.floor(V.giayThoat / 60)}:${String(V.giayThoat % 60).padStart(2, '0')}`]; }
+  return [];
 }
 function rutGon(t){ return String(t || '').replace(/\s+/g, ' ').slice(0, 160); }
 function maMay(){ try { let id = lay('tdt_client'); if (!id){ id = Math.random().toString(36).slice(2, 12); ghi('tdt_client', id); } return id; } catch (e) { return ''; } }
