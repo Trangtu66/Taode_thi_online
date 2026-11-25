@@ -984,6 +984,10 @@ function veTraLoi(){
   }
 }
 function phanHoi(loai, txt){ const p = $('phan-hoi'); if (!p) return; p.className = 'phan-hoi on ' + loai; p.textContent = txt; }
+// Đua xe: giọng nói đang bật thì không hiện phụ đề kết quả (đúng/sai/qua mức/về đích) – GV yêu cầu 25/11/2026; tắt giọng nói thì vẫn hiện chữ
+const coGiong = () => AM.on && window.GiongNoi && GiongNoi.dangBat();
+// conLai: phần thông tin giọng nói không đọc (đang chạy tới chướng ngại nào, đúng mấy ý, thời gian chờ) – vẫn hiện
+function phuDe(loai, txt, conLai){ if (GAME === 'race' && coGiong()){ if (conLai) return phanHoi(loai === 'sai' ? 'cho' : loai, conLai); const p = $('phan-hoi'); if (p) p.className = 'phan-hoi'; return; } phanHoi(loai, txt); }
 
 function traLoi(gt, nut){
   try { if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); } catch (e) {}   // bỏ trạng thái đang chọn của nút vừa chạm
@@ -1007,7 +1011,8 @@ function traLoi(gt, nut){
     V.k++;
     phanHoi('dung', V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`);
     veSan();
-    if (GAME === 'race') phanHoi('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`) + (V.k >= CAU.length ? ' 🏁 Xe đang lao về đích…' : (V.chuoiDung >= 2 ? ' 🔥 Tăng tốc' : ' 🏎️ Xe đang chạy') + ' tới chướng ngại ' + (V.k + 1) + '…'));
+    if (GAME === 'race'){ const chay = V.k >= CAU.length ? '🏁 Xe đang lao về đích…' : (V.chuoiDung >= 2 ? '🔥 Tăng tốc' : '🏎️ Xe đang chạy') + ' tới chướng ngại ' + (V.k + 1) + '…';
+      phuDe('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu!' : `✅ Chính xác! (đúng ở lần thứ ${V.lanCau})`) + ' ' + chay, chay); }
     if (GAME === 'bom' && V.hetGio) phanHoi('cho', '✅ Đúng rồi – nhưng quả bom này đã nổ. Sang quả bom tiếp theo…');
     noi(maDung(choMoi));
     if (GAME === 'thoat' && choMoi > 1500) phanHoi('dung', (V.lanCau === 1 ? '🎉 Chính xác ngay lần đầu! ' : '✅ Chính xác! ') + (V.k >= CAU.length ? '🚪 Cửa cuối đã mở – ra lối thoát!' : '🔓 Mở hết ổ khoá – cả đội sang phòng tiếp theo…'));
@@ -1029,12 +1034,12 @@ function traLoi(gt, nut){
   const loiNhan = { nhip:'❌ Sai rồi – mất chuỗi nhịp!', race:'💥 Sai rồi – xe trượt bánh!', tug:'😬 Sai rồi – Máy kéo lại!', bom:'❌ Sai rồi – ngòi nổ vẫn đang cháy!',
     farm:'🐛 Sai rồi – sâu bò vào luống!', rpg: V.fx && V.fx.loai === 'guc' ? '😵 Sai rồi – em gục ngã và được hồi sinh đầy máu!' : '💢 Sai rồi – quái vật đánh trả, em mất 1 ❤️!',
     thoat:'🚨 Sai mật mã – còi báo động!', may:'⛈️ Sai rồi – mây giông kéo đến!', khoe:'💥 Sai rồi – lượt thi hỏng!', mua:'😵 Sai rồi – em vấp, mất chuỗi!' }[GAME] || '❌ Chưa đúng!';
-  phanHoi('sai', `${loiNhan} ${ghiChu} Chờ ${Math.round(cho / 1000)} giây rồi trả lời lại câu này.`);
-  if (c.type === 'short' && V.lanCau === 3) phanHoi('sai', `${loiNhan} Sai 3 lần – sau ${Math.round(cho / 1000)} giây sẽ hiện 4 đáp số để em chọn.`);
+  phuDe('sai', `${loiNhan} ${ghiChu} Chờ ${Math.round(cho / 1000)} giây rồi trả lời lại câu này.`, `${ghiChu} ⏳ Chờ ${Math.round(cho / 1000)} giây rồi trả lời lại.`.trim());
+  if (c.type === 'short' && V.lanCau === 3) phuDe('sai', `${loiNhan} Sai 3 lần – sau ${Math.round(cho / 1000)} giây sẽ hiện 4 đáp số để em chọn.`, `⏳ Sau ${Math.round(cho / 1000)} giây sẽ hiện 4 đáp số để em chọn.`);
   noi(maSai(c));
   capNhatThanh(); veSan('sai'); veTraLoi(); toan($('tra-loi'));
   $('khung-cau').classList.remove('lac'); void $('khung-cau').offsetWidth; $('khung-cau').classList.add('lac');
-  setTimeout(() => { if (!V || V.dangChuyen || V.xong) return; veTraLoi(); toan($('tra-loi')); veSan(); phanHoi('cho', 'Em trả lời lại câu này nhé.'); }, cho);
+  setTimeout(() => { if (!V || V.dangChuyen || V.xong) return; veTraLoi(); toan($('tra-loi')); veSan(); phuDe('cho', 'Em trả lời lại câu này nhé.'); }, cho);
 }
 
 // ======================= KẾT THÚC & KẾT QUẢ =======================
@@ -1080,7 +1085,7 @@ function ketThuc(){
   else { thang = giay <= V.giayMay; huy = thang ? '🏆' : '🥈'; tieuDe = thang ? 'Em về đích trước xe Máy – HẠNG NHẤT!' : 'Xe Máy về trước – em về nhì!'; }
   if (thang) { SFX.thang(); phaoGiay(); } else SFX.thua();
   setTimeout(() => noi(thang ? ({ may:'may_dinh', khoe:'khoe_ket', mua:'mua_ket' }[GAME] || 'thang') : 'xong'), thang ? 900 : 400);
-  phanHoi(thang ? 'dung' : 'cho', (thang ? '🏆 ' : '🏁 ') + tieuDe + ' Đang tổng hợp kết quả…');
+  phuDe(thang ? 'dung' : 'cho', (thang ? '🏆 ' : '🏁 ') + tieuDe + ' Đang tổng hợp kết quả…');
   const choXem = $('san').classList.contains('an') ? (GAME === 'race' ? 3200 : 2600) : laMoi(GAME) ? 2400 : 1200;   // để em xem hoạt cảnh trên sân
   const mmss = s => Math.floor(s / 60) + ' phút ' + String(s % 60).padStart(2, '0') + ' giây';
   const tenLoai = {mcq:'4 lựa chọn', tf:'Đúng/Sai', short:'Trả lời ngắn'};
@@ -1118,8 +1123,8 @@ function ketThuc(){
 // Đua xe 3 mức: qua mức → chúc mừng, báo mức mới trên sân rồi máy tự xuất phát mức sau (đếm ngược 3 – 2 – 1)
 function chuyenMuc(dM){
   const VAN = V, moi = MUC3.i + 1;
-  SFX.thang(); phaoGiay();
-  phanHoi('dung', `🏁 Qua Mức ${moi} với ${dM.toFixed(2).replace('.', ',')} điểm! Máy tự chuyển sang Mức ${moi + 1}: ${MUC3.ds[moi].length} câu ${TEN_MUC[moi]}…`);
+  SFX.thang(); phaoGiay(); noi('race_qua_muc');
+  phuDe('dung', `🏁 Qua Mức ${moi} với ${dM.toFixed(2).replace('.', ',')} điểm! Máy tự chuyển sang Mức ${moi + 1}: ${MUC3.ds[moi].length} câu ${TEN_MUC[moi]}…`);
   setTimeout(() => {
     if (V !== VAN) return;
     const d = $('dem-nguoc'); d.innerHTML = `MỨC ${moi + 1}<small style="display:block;font-size:.28em">${TEN_MUC[moi]} · ${MUC3.ds[moi].length} câu</small>`; d.classList.remove('an');

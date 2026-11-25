@@ -2590,6 +2590,8 @@
         function phoneToggleSound() { if (window.PhoneSound) { PhoneSound.on(!PhoneSound.on()); PhoneSound.unlock(); } phoneApply3d(); }
         // Giọng nói tiếng Việt (giong_noi.js): điện thoại HS nói kết quả của em (theo nút 🔊 trên điện thoại);
         // màn hình GV đọc "Đáp án đúng là …" và kết quả câu (tắt khi GV tắt âm thanh)
+        // điện thoại HS – Đua xe: giọng nói đang bật thì không hiện phụ đề đúng/sai/qua mức (GV yêu cầu 25/11/2026)
+        function phoneCoGiong() { return IS_STUDENT_MODE && window.GiongNoi && GiongNoi.dangBat() && (!window.PhoneSound || PhoneSound.on()); }
         function phoneNoi(ma) { if (IS_STUDENT_MODE && window.GiongNoi && (!window.PhoneSound || PhoneSound.on())) GiongNoi.noi(ma); }
         function gvNoi(ma) { if (!IS_STUDENT_MODE && window.GiongNoi && !soundMuted) GiongNoi.noi(ma); }
         // màn chiếu GV: giọng nói đã đọc kết quả thì không hiện thêm phụ đề (toast) lặp lại lời đọc (GV yêu cầu 25/11/2026)
@@ -6287,7 +6289,7 @@
                     <button type="button" ${locked ? 'disabled' : ''} onclick="racePhoneSubmit(racePhone.shortDraft)" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm">🚀 Gửi đáp số</button></div>`;
             }
             const banner = st === 'penalty'
-                ? `<div class="px-3 py-2 rounded-xl bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-200 text-xs font-black text-center">💥 Chưa đúng! Xe trượt bánh – trả lời lại sau <span id="race-phone-penalty-left">${Math.max(0, Math.ceil((racePhone.penaltyUntil - Date.now()) / 1000))}</span> giây</div>`
+                ? `<div class="px-3 py-2 rounded-xl bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-200 text-xs font-black text-center">${phoneCoGiong() ? '⏳ Trả lời lại' : '💥 Chưa đúng! Xe trượt bánh – trả lời lại'} sau <span id="race-phone-penalty-left">${Math.max(0, Math.ceil((racePhone.penaltyUntil - Date.now()) / 1000))}</span> giây</div>`
                 : (st === 'checking' ? '<div class="px-3 py-2 rounded-xl bg-indigo-50 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-200 text-xs font-black text-center">⏳ Đang kiểm tra đáp án…</div>' : '');
             return `<div class="space-y-2.5">
                 <div class="text-sm font-bold leading-relaxed">${sanitizeHtml(q.text)}</div>
@@ -6319,8 +6321,8 @@
             } else if (st === 'driving') {
                 const turbo = racePhone.streak >= 2;
                 body = `<div class="py-2 space-y-1.5 text-center">
-                    ${racePhone.levelMsg ? `<div class="px-3 py-2 rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-200 text-sm font-black">${escapeHtml(racePhone.levelMsg)}</div>` : ''}
-                    ${turbo ? `<div class="text-base font-black text-orange-600 animate-pulse">🔥 TĂNG TỐC! Đúng ${racePhone.streak} câu liên tiếp</div>` : (racePhone.driveMs > RACE_DRIVE_MS && !racePhone.levelMsg ? '<div class="text-base font-black text-emerald-600">✅ Chính xác! Bứt tốc nào!</div>' : '')}
+                    ${racePhone.levelMsg && !(phoneCoGiong() && /^🏁/.test(racePhone.levelMsg)) ? `<div class="px-3 py-2 rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-200 text-sm font-black">${escapeHtml(racePhone.levelMsg)}</div>` : ''}
+                    ${phoneCoGiong() ? '' : turbo ? `<div class="text-base font-black text-orange-600 animate-pulse">🔥 TĂNG TỐC! Đúng ${racePhone.streak} câu liên tiếp</div>` : (racePhone.driveMs > RACE_DRIVE_MS && !racePhone.levelMsg ? '<div class="text-base font-black text-emerald-600">✅ Chính xác! Bứt tốc nào!</div>' : '')}
                     <div class="text-sm font-black text-emerald-700 dark:text-emerald-300">🏎️ Đang lao tới chướng ngại vật ${k + 1}…</div>
                     <div class="race-drive-bar"><i style="animation-duration:${racePhone.driveMs}ms"></i></div>
                 </div>`;
