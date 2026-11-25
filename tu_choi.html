@@ -23,6 +23,7 @@
 <script src="bom3d.js?v=20261124b"></script>
 <script src="rpg3d.js?v=20261125b"></script>
 <script src="thoat3d.js?v=20261125a"></script>
+<script src="farm3d.js?v=20261125e"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -90,7 +91,7 @@
   .san3d{height:40vh;min-height:230px;max-height:420px;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 16px rgba(15,23,42,.18);background:#0F172A}
   @media(max-width:640px){.san3d{height:34vh;min-height:200px}}
   /* Kéo co, Rung chuông, Nhịp độ: camera cố định dựng cho khung ngang như màn chiếu → giữ tỉ lệ 16:9 để thấy trọn sân */
-  #s3-bell,#s3-tug,#s3-nhip,#s3-bom,#s3-rpg,#s3-thoat{height:auto!important;min-height:0!important;aspect-ratio:16/9;max-height:calc(100vh - 108px)}
+  #s3-bell,#s3-tug,#s3-nhip,#s3-bom,#s3-rpg,#s3-thoat,#s3-farm{height:auto!important;min-height:0!important;aspect-ratio:16/9;max-height:calc(100vh - 108px)}
   .hud{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none;z-index:2}
   .hud span{background:rgba(15,23,42,.78);color:#fff;border-radius:999px;padding:5px 11px;font-weight:900;font-size:14px}
   .hud .vang{background:rgba(245,158,11,.92);color:#1F2937}
@@ -172,7 +173,7 @@
   @media (min-width:1024px){
     body.dang-choi .wrap{max-width:none;padding-top:12px}
     #man-choi{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(360px,1fr);grid-template-areas:"thanh thanh" "san cau" "td cau";column-gap:18px;align-items:start}
-    body[data-game=tug] #man-choi,body[data-game=bell] #man-choi,body[data-game=nhip] #man-choi,body[data-game=bom] #man-choi,body[data-game=rpg] #man-choi,body[data-game=thoat] #man-choi{grid-template-columns:minmax(0,2.3fr) minmax(340px,1fr)}
+    body[data-game=tug] #man-choi,body[data-game=bell] #man-choi,body[data-game=nhip] #man-choi,body[data-game=bom] #man-choi,body[data-game=rpg] #man-choi,body[data-game=thoat] #man-choi,body[data-game=farm] #man-choi{grid-template-columns:minmax(0,2.3fr) minmax(340px,1fr)}
     #man-choi .thanh{grid-area:thanh} #man-choi .san-wrap{grid-area:san;position:sticky;top:10px} #man-choi .tien-do{grid-area:td}
     #man-choi #khung-cau{grid-area:cau;margin-top:0;max-height:calc(100vh - 86px);overflow:auto;position:sticky;top:10px}
     body.dang-choi .san3d{height:calc(100vh - 108px);max-height:none;min-height:320px}
@@ -274,7 +275,7 @@
     </div>
     <div class="san-wrap">
       <div class="san" id="san"></div>
-      <div class="san3d an" id="s3-bell"></div><div class="san3d an" id="s3-tug"></div><div class="san3d an" id="s3-race"></div><div class="san3d an" id="s3-nhip"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div>
+      <div class="san3d an" id="s3-bell"></div><div class="san3d an" id="s3-tug"></div><div class="san3d an" id="s3-race"></div><div class="san3d an" id="s3-nhip"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div><div class="san3d an" id="s3-farm"></div>
       <div class="hud" id="hud"></div><svg class="hud-dong-ho an" id="hud-dh" viewBox="0 0 100 100" aria-hidden="true"></svg>
       <div class="dem-nguoc an" id="dem-nguoc"></div>
     </div>
@@ -612,7 +613,7 @@ function mayRobot(x, y, s){ s = s || 1;
     <line x1="0" y1="-86" x2="0" y2="-95" stroke="#64748B" stroke-width="2"/><circle cx="0" cy="-97" r="3" fill="#F59E0B"/></g>`; }
 // ======================= SÂN 3D (bell3d.js, tug3d.js, race3d.js, nhipdo3d.js) =======================
 let CHE_3D = lay('tc_3d') !== 'tat';
-const S3 = { bell:'Bell3D', tug:'Tug3D', race:'Race3D', nhip:'ND3D', bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D' };   // 4 trò mới: có sân 3D đến đâu thêm vào đây (còn lại dùng sân 2D)
+const S3 = { bell:'Bell3D', tug:'Tug3D', race:'Race3D', nhip:'ND3D', bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D', farm:'Farm3D' };   // 4 trò mới: có sân 3D đến đâu thêm vào đây (còn lại dùng sân 2D)
 const tenNgan = () => { const w = String(HS ? HS.ten : 'Em').trim().split(/\s+/); return w.slice(-2).join(' '); };
 function tongDiem(){ return V ? V.kq.reduce((s, x) => s + x.diem, 0) : 0; }
 const ANH = {
@@ -640,7 +641,7 @@ const ANH = {
       { id: 'may', name: '🤖 Máy', car: XE_MAY(), color: '#64748b', pos: mayPos, done: mayXong, penalty: false, asking: false, rank: 3 - hang, driveMs: CHAY_MS, passAt: V.mayPassAt || 0, streak: 0 }
     ] };
   },
-  bom: () => stMoi(), rpg: () => stMoi(), thoat: () => stMoi(),   // Gỡ bom 3D (bom3d.js) đọc đúng trạng thái của sân 2D
+  bom: () => stMoi(), rpg: () => stMoi(), thoat: () => stMoi(), farm: () => stMoi(),   // Gỡ bom 3D (bom3d.js) đọc đúng trạng thái của sân 2D
   nhip: () => ({ info: !V ? 'SẴN SÀNG' : V.xong ? 'HOÀN THÀNH ' + CAU.length + ' CÂU' : V.hetGio ? 'HẾT GIỜ NHỊP – TRẢ LỜI LẠI CÂU ' + (V.k + 1) : 'CÂU ' + Math.min(V.k + 1, CAU.length) + '/' + CAU.length,
     phase: !V ? 'lobby' : V.xong ? 'end' : V.dangChuyen ? 'reveal' : 'q', players: [{ id: 'em', n: tenNgan(), s: +(tongDiem() * 10 / Math.max(1, CAU.length)).toFixed(1), done: !!(V && V.dangChuyen), streak: V ? V.chuoi : 0 }], answered: V && V.dangChuyen ? 1 : 0, total: 1 })
 };

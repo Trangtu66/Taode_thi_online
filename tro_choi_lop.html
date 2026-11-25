@@ -18,6 +18,7 @@
 <script src="bom3d.js?v=20261124b"></script>
 <script src="rpg3d.js?v=20261125b"></script>
 <script src="thoat3d.js?v=20261125a"></script>
+<script src="farm3d.js?v=20261125e"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -183,7 +184,7 @@
       <span class="chip blue" id="c-game"></span><span class="chip" id="c-cau"></span><span class="chip dh" id="c-dh">⏱ 0:00</span>
       <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
-    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div></div>
+    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div><div class="san3d an" id="s3-farm"></div></div>
     <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
     <div class="card cau" id="khung-cau">
       <div id="noi-dung"></div>
@@ -307,7 +308,7 @@ function stSan(){
   return st;
 }
 // Sân 3D (trò nào có thì dùng, máy không hỗ trợ WebGL hoặc GV bấm 2D thì dùng sân 2D của game_moi.js)
-const S3 = { bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D' };
+const S3 = { bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D', farm:'Farm3D' };
 let CHE_3D = lay('tcl_3d') !== 'tat';
 function dung3d(){
   const lib = window[S3[GAME]], on = !!(CHE_3D && lib && lib.supported && lib.supported() && !V.loi3d);
