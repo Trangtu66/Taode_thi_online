@@ -21,6 +21,7 @@
 <!-- 4 trò mới (24/11/2026): Gỡ bom, Nông trại, Đấu trường nhập vai, Đồng đội thoát hiểm – sân 2D dùng chung với tro_choi_lop.html -->
 <script src="game_moi.js?v=20261126a"></script>
 <!-- Giọng nói tiếng Việt khi chọn đáp án (25/11/2026) – câu thu sẵn ở am_thanh/giong/ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="giong_noi.js?v=20261125b"></script>
 <script src="bom3d.js?v=20261124b"></script>
 <script src="rpg3d.js?v=20261125b"></script>
@@ -185,6 +186,14 @@
     body.dang-choi .san svg{max-height:calc(100vh - 108px)}
   }
   :fullscreen body, body:fullscreen{background:var(--bg)}
+  /* Link giao (GV gửi link trò chơi + đề cho lớp) */
+  .gv-link{margin-top:14px;border:2px dashed #A5B4FC;background:#EEF2FF;border-radius:16px;padding:12px 14px}
+  .gv-link b{color:#3730A3}.gv-link .hang{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .gv-link input{flex:1;min-width:200px;font-size:13px;padding:9px 10px;border:1px solid #C7D2FE;border-radius:10px;background:#fff;color:#1E293B}
+  .gv-link #gv-qr{margin-top:10px;display:flex;justify-content:center}.gv-link #gv-qr img,.gv-link #gv-qr canvas{background:#fff;padding:8px;border-radius:12px}
+  .giao{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.giao .ic{font-size:46px;line-height:1}.giao .t{flex:1;min-width:200px}
+  .giao .t b{display:block;font-size:20px;color:var(--blue)}.giao .t span{color:var(--muted);font-weight:700}
+  body.link-giao .nav{display:none}
   .an{display:none!important}
   @media (prefers-reduced-motion: reduce){ .lac,.phao i{animation:none} .tien-do i{transition:none} }
 </style>
@@ -229,8 +238,11 @@
       </div>
     </div>
 
+    <!-- Link giao: GV đã chọn sẵn trò chơi và đề, em chỉ cần đăng nhập -->
+    <div class="card an" id="o-giao"><div class="giao"><span class="ic" id="giao-ic">🎮</span><div class="t"><b id="giao-game"></b><span id="giao-de">Đang tải đề…</span></div></div></div>
+
     <!-- Bước 2: chọn game -->
-    <div class="card">
+    <div class="card" id="o-chon-game">
       <div class="buoc"><span class="so" id="so-2">2</span>Chọn trò chơi</div>
       <div class="games" role="radiogroup" aria-label="Trò chơi">
         <button type="button" class="game-card" data-g="bell" role="radio" aria-checked="false"><span class="ic">🔔</span><b>Rung chuông vàng</b><small>Mỗi câu đúng leo lên một bậc. Lên tới đỉnh là rung chuông vàng!</small></button>
@@ -250,11 +262,17 @@
     </div>
 
     <!-- Bước 3: chọn đề -->
-    <div class="card">
+    <div class="card" id="o-chon-de">
       <div class="buoc"><span class="so" id="so-3">3</span>Chọn đề</div>
       <div class="de-chon">
         <div class="t" id="de-ten">Chưa chọn đề<small>Đề game hoặc bài củng cố theo bài học</small></div>
         <button id="de-btn" class="btn" type="button">📚 Chọn đề</button>
+      </div>
+      <div id="gv-link" class="gv-link an">
+        <b>👩‍🏫 Giáo viên: link giao trò chơi này cho lớp</b>
+        <div class="sub" style="margin:2px 0 0;font-size:13.5px">Học sinh bấm link (hoặc quét mã QR) → đăng nhập lớp, họ tên, xác nhận là vào chơi ngay đúng trò chơi và đề này. Kết quả gửi về như khi tự chơi.</div>
+        <div class="hang"><input id="gv-url" readonly aria-label="Link giao trò chơi"><button type="button" class="btn" id="gv-chep">📋 Sao chép</button><button type="button" class="btn ghost" id="gv-qr-btn">🔳 Mã QR</button></div>
+        <div id="gv-qr" class="an"></div>
       </div>
     </div>
 
@@ -439,7 +457,7 @@ function dangNhap(){
   const loi = $('dn-loi'); loi.textContent = '';
   if (!lop){ loi.textContent = 'Em nhập lớp (VD: 10A1).'; $('dn-lop').focus(); return; }
   if (ten.split(' ').length < 2){ loi.textContent = 'Em nhập đầy đủ họ và tên.'; $('dn-ten').focus(); return; }
-  if (!api()){ HS = {ten, lop, xacThuc:false}; ghi('tc_hs', JSON.stringify(HS)); return hienHS(); }
+  if (!api()){ HS = {ten, lop, xacThuc:false}; ghi('tc_hs', JSON.stringify(HS)); hienHS(); return batDauNeuGiao(); }
   const b = $('dn-btn'); b.disabled = true; b.textContent = 'Đang kiểm tra họ tên…';
   jsonp({action:'ktHS', lop, ten}).then(d => {
     b.disabled = false; b.textContent = 'Đăng nhập';
@@ -457,7 +475,7 @@ function dangNhap(){
 }
 $('dn-btn').onclick = dangNhap;
 ['dn-lop', 'dn-ten'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') dangNhap(); }));
-$('xn-dung').onclick = () => { HS = choXacNhan; ghi('tc_hs', JSON.stringify(HS)); hienHS(); };
+$('xn-dung').onclick = () => { HS = choXacNhan; ghi('tc_hs', JSON.stringify(HS)); hienHS(); batDauNeuGiao(); };
 $('xn-sai').onclick = () => { $('dn-xacnhan').classList.add('an'); $('dn-form').classList.remove('an'); $('dn-ten').focus(); };
 $('dn-doi').onclick = () => { HS = null; try { localStorage.removeItem('tc_hs'); } catch (e) {} hienHS(); $('dn-lop').focus(); };
 
@@ -468,7 +486,7 @@ function hienGame(){
   veChonXe(); veHuongDan(); veTenDe();
   capNhatNutBatDau();
 }
-document.querySelectorAll('.game-card').forEach(b => b.onclick = () => { GAME = b.dataset.g; ghi('tc_game', GAME); hienGame(); });
+document.querySelectorAll('.game-card').forEach(b => b.onclick = () => { GAME = b.dataset.g; ghi('tc_game', GAME); hienGame(); veLinkGV(); });
 
 // ======================= HƯỚNG DẪN CHƠI TỪNG GAME =======================
 const HD = {
@@ -607,7 +625,7 @@ function nhanDe(de, ten){
 }
 $('de-btn').onclick = () => {
   if (!window.ChonDe) return alert('Không tải được bộ chọn đề (kiểm tra mạng rồi tải lại trang).');
-  ChonDe.mo(nhanDe, {tabs:['game', 'cc'], tieuDe:'📚 Chọn đề để tự chơi', moTa:'Chọn khối, chọn bài. Đề game có 2 đề mỗi bài; bài củng cố bám theo từng tiết học.'});
+  ChonDe.mo((de, ten) => { nhanDe(de, ten); setTimeout(veLinkGV, 0); }, {tabs:['game', 'cc'], tieuDe:'📚 Chọn đề để tự chơi', moTa:'Chọn khối, chọn bài. Đề game có 2 đề mỗi bài; bài củng cố bám theo từng tiết học.'});
 };
 function veTenDe(){
   const ds = CAU_DE; if (!ds.length) return;
@@ -1086,7 +1104,7 @@ function ketThuc(){
     <div class="hanh-dong" style="justify-content:center;margin-top:14px">
       ${dungMuc >= 0 ? `<button type="button" class="btn gold" id="kq-lai-muc">↻ Chơi lại Mức ${dungMuc + 1}</button>` : ''}
       <button type="button" class="btn ${dungMuc >= 0 ? '' : 'gold'}" id="kq-lai">↻ Chơi lại ${MUC3 ? 'từ Mức 1' : 'đề này'}</button>
-      <button type="button" class="btn" id="kq-doi">🎮 Đổi game / đổi đề</button>
+      <button type="button" class="btn ${LINK_GIAO ? 'an' : ''}" id="kq-doi">🎮 Đổi game / đổi đề</button>
       <a class="btn ghost an" id="kq-xh" href="#">🏆 Bảng xếp hạng</a>
     </div>`;
   const VAN = V;
@@ -1173,6 +1191,40 @@ $('nut-hd').onclick = () => moHuongDan(GAME, 'Chơi tiếp');
 $('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tc_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = CHE_3D ? null : V.da3d; veSan(); } };
 window.addEventListener('beforeunload', e => { if (V && !V.ketThuc){ e.preventDefault(); e.returnValue = ''; } });
 
+// ======================= LINK GIAO TRÒ CHƠI (26/11/2026) =======================
+// GV chọn trò chơi + đề rồi lấy link: tu_choi.html?game=<trò>&de=<nguồn đề>&ten=<tên đề>. HS mở link: chỉ đăng nhập lớp, họ tên, xác nhận là vào chơi.
+const QS = new URLSearchParams(location.search);
+const LINK_GIAO = !!(QS.get('de') && TEN_GAME[QS.get('game')]);
+function nguonDe(){ const g = window.ChonDe && ChonDe.ganNhat(); return g ? { de: g.id ? '?de=' + g.id : g.link, ten: g.ten } : null; }
+function veLinkGV(){
+  const o = $('gv-link'), n = nguonDe(), co = !LINK_GIAO && GAME && CAU_DE.length && n;
+  o.classList.toggle('an', !co); if (!co) return;
+  const u = new URL(location.href.split('#')[0]); u.search = '';
+  u.searchParams.set('game', GAME); u.searchParams.set('de', n.de); u.searchParams.set('ten', DE_TEN || n.ten);
+  $('gv-url').value = u.href; $('gv-qr').classList.add('an'); $('gv-qr').innerHTML = '';
+}
+$('gv-chep').onclick = () => { const i = $('gv-url'); i.select(); try { navigator.clipboard.writeText(i.value).then(() => { $('gv-chep').textContent = '✓ Đã chép'; setTimeout(() => { $('gv-chep').textContent = '📋 Sao chép'; }, 1800); }).catch(() => document.execCommand('copy')); } catch (e) { document.execCommand('copy'); } };
+$('gv-qr-btn').onclick = () => { const q = $('gv-qr'); const mo = q.classList.toggle('an') === false; if (mo && !q.innerHTML && window.QRCode) new QRCode(q, { text: $('gv-url').value, width: 230, height: 230, correctLevel: QRCode.CorrectLevel.M }); };
+function batDauNeuGiao(){ if (LINK_GIAO && HS && GAME !== 'race' && CAU_DE.length) $('bat-dau').click(); }   // link giao: xác nhận xong là vào chơi (Đua xe: để em chọn xe rồi bấm Bắt đầu)
+if (LINK_GIAO){
+  GAME = QS.get('game'); document.body.classList.add('link-giao');
+  $('o-chon-game').classList.add('an'); $('o-chon-de').classList.add('an'); $('o-giao').classList.remove('an');
+  if (GAME === 'race'){   // Đua xe: vẫn cho em chọn xe
+    $('o-chon-game').classList.remove('an'); document.querySelector('#o-chon-game .games').classList.add('an'); $('hd-game').style.display = 'none';
+    document.querySelector('#o-chon-game .buoc').innerHTML = '<span class="so xong">✓</span>Chọn xe đua của em rồi bấm Bắt đầu';
+  }
+  $('giao-ic').textContent = (HD[GAME] && HD[GAME].ic) || '🎮'; $('giao-game').textContent = TEN_GAME[GAME].replace(/^\S+\s/, '');
+  document.querySelector('#man-chuan-bi h1').textContent = '🎮 ' + TEN_GAME[GAME].replace(/^\S+\s/, '');
+  document.querySelector('#man-chuan-bi .sub').innerHTML = 'Thầy cô đã giao trò chơi và đề cho lớp. Em <b>đăng nhập lớp, họ tên</b> rồi <b>xác nhận</b> là vào chơi. Trả lời <b>đúng</b> mới được qua câu.';
+  const ch = () => { if (window.ChonDe) return ChonDe.deTheoLink(QS.get('de')); throw new Error('Không tải được bộ chọn đề.'); };
+  Promise.resolve().then(ch).then(de => {
+    if (!de || !Array.isArray(de.parts)) throw new Error('Không đọc được nội dung đề.');
+    if (!(de.meta && de.meta.title)) de.meta = Object.assign({}, de.meta, { title: QS.get('ten') || 'Đề' });
+    nhanDe(de, QS.get('ten') || 'Đề');
+    $('giao-de').textContent = '📚 ' + DE_TEN + ' · ' + CAU_DE.length + ' câu';
+    hienGame();
+  }).catch(e => { $('giao-de').innerHTML = '<span style="color:var(--bad)">⚠ Không tải được đề (' + esc(e && e.message || e) + '). Em tải lại trang hoặc báo thầy cô.</span>'; });
+}
 hienAm(); hienGiong(); hienHS(); hienGame(); capNhatNutBatDau();
 // Mở thẳng một game: tu_choi.html?game=tug
 const gq = new URLSearchParams(location.search).get('game'); if (TEN_GAME[gq]){ GAME = gq; ghi('tc_game', GAME); hienGame(); }
