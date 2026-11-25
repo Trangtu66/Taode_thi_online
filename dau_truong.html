@@ -238,7 +238,7 @@
     
         /* Chữ tô màu chuyển sắc (bg-clip-text): nền chỉ phủ trong chiều cao dòng nên dấu tiếng Việt nhô cao (Ấ, Ắ, Ố…) bị trong suốt, nhìn như mất dấu.
            Nới vùng nền lên trên để dấu nằm trọn trong vùng tô màu (sửa 26/11/2026: "VINH DANH TAY ĐUA XUẤT SẮC" mất dấu). */
-        .bg-clip-text { padding-top: .24em; padding-bottom: .08em; line-height: 1.3; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+        .bg-clip-text { padding-top: .42em; padding-bottom: .1em; line-height: 1.3 !important; -webkit-box-decoration-break: clone; box-decoration-break: clone; }   /* !important: Tailwind (nạp sau) đặt leading 1 cho chữ cỡ lớn – "ĐẤU TRƯỜNG KIẾN THỨC" vẫn mất dấu */
         span.bg-clip-text { display: inline-block; }
     </style>
 </head>
