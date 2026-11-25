@@ -21,15 +21,24 @@ function emo(x, y, s, ch, them) { return '<text x="' + r1(x) + '" y="' + r1(y) +
 function tuoi(st, loai) { return st.fx && (!loai || st.fx.loai === loai) ? st.t - st.fx.at : 1e9; }
 function mmss(s) { s = Math.max(0, Math.ceil(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 
-// Học sinh (nhìn sang phải). vk: cầm kiếm + khiên màu áo (Đấu trường)
+// Học sinh (dựng lại 25/11/2026: mặt mũi, tay chân bo tròn, cổ áo trắng, không khăn quàng). vk: cầm kiếm + khiên màu áo (Đấu trường)
 function hs(x, y, ao, s, lat, vk) {
   s = s || 1;
   return '<g transform="translate(' + r1(x) + ' ' + r1(y) + ') scale(' + (lat ? -s : s) + ' ' + s + ')">' +
     '<ellipse cx="0" cy="2" rx="16" ry="4" fill="#000" opacity=".2"/>' +
-    '<rect x="-9" y="-30" width="7" height="30" rx="3" fill="#1E293B"/><rect x="2" y="-30" width="7" height="30" rx="3" fill="#1E293B"/>' +
-    '<rect x="-13" y="-62" width="26" height="34" rx="8" fill="' + ao + '"/><path d="M -7 -62 L 0 -52 L 7 -62 Z" fill="#fff"/>' +
-    '<circle cx="0" cy="-74" r="12" fill="#F5D0A9"/><path d="M -12 -77 Q 0 -92 12 -77 Q 6 -84 -12 -77 Z" fill="#1F2937"/>' +
-    '<circle cx="4" cy="-74" r="1.6" fill="#1F2937"/>' +
+    '<path d="M -6.5 -31 V -5 M 6.5 -31 V -5" stroke="#1E293B" stroke-width="8.5" stroke-linecap="round"/>' +
+    '<ellipse cx="-6" cy="-2" rx="7" ry="3.6" fill="#111827"/><ellipse cx="7" cy="-2" rx="7" ry="3.6" fill="#111827"/><path d="M -12 0.5 H -0.5 M 1 0.5 H 13" stroke="#F8FAFC" stroke-width="1.4"/>' +
+    '<path d="M -13 -56 Q -17 -46 -16 -37 M 13 -56 Q 17 -46 16 -37" stroke="#F2C6A0" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="-16" cy="-35" r="3.6" fill="#F2C6A0"/><circle cx="16" cy="-35" r="3.6" fill="#F2C6A0"/>' +
+    '<path d="M -12.5 -34 H 12.5 V -27 Q 0 -25 -12.5 -27 Z" fill="#1E293B"/>' +
+    '<path d="M -13 -58 Q -15 -45 -12.5 -32 H 12.5 Q 15 -45 13 -58 Q 0 -63.5 -13 -58 Z" fill="' + ao + '"/>' +
+    '<ellipse cx="-13.5" cy="-54.5" rx="5" ry="6" fill="' + ao + '"/><ellipse cx="13.5" cy="-54.5" rx="5" ry="6" fill="' + ao + '"/>' +
+    '<rect x="-3" y="-65" width="6" height="6" rx="2" fill="#F2C6A0"/>' +
+    '<path d="M -7.5 -61 L -0.8 -61 L -3.2 -54 Z M 7.5 -61 L 0.8 -61 L 3.2 -54 Z" fill="#fff"/><circle cx="0" cy="-49" r="1.2" fill="#000" opacity=".25"/><circle cx="0" cy="-42" r="1.2" fill="#000" opacity=".25"/>' +
+    '<circle cx="-12.6" cy="-75" r="3" fill="#F2C6A0"/><circle cx="12.6" cy="-75" r="3" fill="#F2C6A0"/><circle cx="0" cy="-76" r="13" fill="#F5D0A9"/>' +
+    '<path d="M -13.6 -74 Q -14.5 -91 0 -91.5 Q 14.5 -91 13.6 -74 Q 11 -82.5 0 -83 Q -11 -82.5 -13.6 -74 Z" fill="#1F2937"/>' +
+    '<ellipse cx="-4.6" cy="-75" rx="1.9" ry="2.5" fill="#111827"/><ellipse cx="4.6" cy="-75" rx="1.9" ry="2.5" fill="#111827"/><circle cx="-4" cy="-76" r=".7" fill="#fff"/><circle cx="5.2" cy="-76" r=".7" fill="#fff"/>' +
+    '<ellipse cx="-8.3" cy="-70.5" rx="2.5" ry="1.5" fill="#F9A8A8" opacity=".85"/><ellipse cx="8.3" cy="-70.5" rx="2.5" ry="1.5" fill="#F9A8A8" opacity=".85"/>' +
+    '<path d="M -3.6 -69.5 Q 0 -66.2 3.6 -69.5" stroke="#9F1239" stroke-width="1.4" stroke-linecap="round" fill="none"/>' +
     (vk ? '<g transform="rotate(-35 14 -48)"><rect x="12" y="-98" width="5" height="48" rx="1" fill="#E5E7EB" stroke="#94A3B8"/><rect x="7" y="-52" width="15" height="4" rx="1" fill="#92400E"/><rect x="12.5" y="-49" width="4" height="9" fill="#78350F"/></g>' +
       '<ellipse cx="-15" cy="-45" rx="10" ry="14" fill="' + ao + '" stroke="#FDE68A" stroke-width="2.5"/><path d="M -15 -55 V -35 M -23 -45 H -7" stroke="#FDE68A" stroke-width="2"/>' : '') +
     '</g>';

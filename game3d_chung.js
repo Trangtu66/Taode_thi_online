@@ -43,25 +43,94 @@
       geos.forEach(function (g) { var ng = g.index ? g.toNonIndexed() : g; Array.prototype.push.apply(pos, ng.attributes.position.array); Array.prototype.push.apply(nor, ng.attributes.normal.array); g.dispose(); if (ng !== g) ng.dispose(); });
       var o = new T.BufferGeometry(); o.setAttribute('position', new T.Float32BufferAttribute(pos, 3)); o.setAttribute('normal', new T.Float32BufferAttribute(nor, 3)); return o;
     },
-    // Học sinh: pose 'stand' | 'sit' (ngồi trên sàn, cầm bảng trắng); shirt: màu áo; girl: tóc dài
+    // Học sinh: pose 'stand' | 'sit' (ngồi trên sàn, cầm bảng trắng); shirt: màu áo; girl: tóc buộc đuôi ngựa, mặc váy.
+    // Dựng lại 25/11/2026 (GV: hình cũ khối vuông quá thô): thân, tay chân bo tròn; mặt có mắt, lông mày, mũi, miệng cười, má hồng, tai;
+    // áo màu đội tay ngắn, cổ áo trắng hai vạt, KHÔNG khăn quàng. Giữ nguyên kích thước, vị trí bàn tay (±.33, .78) và userData {body, parts}
+    // để mọi sân đang dùng (Rung chuông vàng, Nhịp độ, điện thoại, Gỡ bom, Đấu trường, Thoát hiểm) không phải sửa.
     kid: function (shirt, girl, pose) {
       var g = new T.Group(), body = new T.Group(); g.add(body);
-      var P = { shirt: [], pants: [], skin: [], hair: [], white: [], shoe: [], board: [] };
-      var B = function (k, w, h, d, x, y, z, rx) { var geo = new T.BoxGeometry(w, h, d); if (rx) geo.rotateX(rx); P[k].push(geo.translate(x, y, z)); };
-      var sit = pose === 'sit', base = sit ? -.62 : 0;
-      if (sit) { B('pants', .5, .2, .7, 0, .1, .25); B('shoe', .45, .12, .14, 0, .07, .64); }
-      else { B('pants', .2, .8, .22, -.13, .4, 0); B('pants', .2, .8, .22, .13, .4, 0); B('shoe', .22, .12, .32, -.13, .06, .05); B('shoe', .22, .12, .32, .13, .06, .05); }
-      B('shirt', .5, .7, .38, 0, 1.15 + base, 0); B('white', .44, .1, .36, 0, 1.5 + base, .03);
-      if (girl && !sit) B('pants', .54, .28, .42, 0, .82, 0);
-      if (sit) { B('shirt', .14, .14, .45, -.25, 1.15 + base, .25); B('shirt', .14, .14, .45, .25, 1.15 + base, .25); B('board', .7, .5, .04, 0, 1.15 + base, .5); }
-      else { B('shirt', .14, .6, .14, -.33, 1.1, 0); B('shirt', .14, .6, .14, .33, 1.1, 0); B('skin', .13, .13, .13, -.33, .78, 0); B('skin', .13, .13, .13, .33, .78, 0); }
-      P.skin.push(new T.SphereGeometry(.24, 14, 12).translate(0, 1.78 + base, 0));
-      P.hair.push(new T.SphereGeometry(.255, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2).translate(0, 1.8 + base, -.01));
-      if (girl) P.hair.push(new T.BoxGeometry(.4, .36, .12).translate(0, 1.62 + base, -.2));
-      var key = 'shirt' + shirt;
-      var M = { shirt: G.mat(key, shirt), pants: G.mat('pants', 0x1e293b), skin: G.mat('skin', 0xf2c6a0), hair: G.mat('hair', 0x1f1308), white: G.mat('white', 0xffffff), shoe: G.mat('shoe', 0x111827), board: G.mat('board', 0xffffff, { roughness: .4 }) };
+      var P = { shirt: [], pants: [], skin: [], hair: [], white: [], shoe: [], board: [], eye: [], mouth: [], cheek: [] };
+      var V = function (x, y, z) { return new T.Vector3(x, y, z); }, UP = V(0, 1, 0);
+      var sit = pose === 'sit', b0 = sit ? -.62 : 0;   // ngồi: phần trên hạ thấp .62
+      // ống bo tròn nối hai điểm a → b (bán kính r), quả cầu, nửa cầu (tóc)
+      var cap = function (k, a, b, r, sx, sz) {
+        var d = b.clone().sub(a), L = d.length(), geo = new T.CapsuleGeometry(r, Math.max(.001, L), 6, 16);
+        if (sx || sz) geo.scale(sx || 1, 1, sz || 1);
+        geo.applyMatrix4(new T.Matrix4().compose(a.clone().add(b).multiplyScalar(.5), new T.Quaternion().setFromUnitVectors(UP, d.normalize()), V(1, 1, 1)));
+        P[k].push(geo);
+      };
+      var cau = function (k, x, y, z, r, sx, sy, sz, w, ph0, phL, th0, thL) {
+        var geo = new T.SphereGeometry(r, w || 20, Math.round((w || 20) * .7), ph0 || 0, phL || Math.PI * 2, th0 || 0, thL || Math.PI);
+        geo.scale(sx || 1, sy || 1, sz || 1); geo.translate(x, y, z); P[k].push(geo); return geo;
+      };
+      // ---------- chân, giày
+      if (sit) {   // ngồi xếp bằng trên sàn
+        [-1, 1].forEach(function (s) {
+          cap('pants', V(s * .13, .16, -.02), V(s * .28, .13, .36), .1);
+          cap('pants', V(s * .28, .12, .36), V(-s * .06, .1, .52), .085);
+          cau('shoe', -s * .12, .09, .55, .075, 1.1, .8, 1.5);
+        });
+        cap('pants', V(-.16, .2, 0), V(.16, .2, 0), .15, 1, 1.1);
+      } else {
+        [-1, 1].forEach(function (s) {
+          cap('pants', V(s * .115, .93, 0), V(s * .12, .5, .01), .095);
+          cap('pants', V(s * .12, .5, .01), V(s * .12, .14, 0), .082);
+          cau('shoe', s * .12, .085, .05, .085, 1, .72, 1.75, 18, 0, Math.PI * 2, 0, Math.PI * .62);
+          P.white.push(new T.CylinderGeometry(.088, .09, .035, 18).scale(1, 1, 1.75).translate(s * .12, .02, .05));   // đế giày trắng
+        });
+        cap('pants', V(-.13, .95, 0), V(.13, .95, 0), .14, 1, 1.05);   // hông
+        if (girl) P.pants.push(new T.CylinderGeometry(.21, .3, .36, 24).translate(0, .82, 0));   // váy
+      }
+      // ---------- thân áo, cổ áo trắng, cổ
+      cap('shirt', V(0, 1.02 + b0, 0), V(0, 1.4 + b0, 0), .2, 1.05, .72);
+      P.white.push(new T.TorusGeometry(.085, .03, 8, 22).rotateX(Math.PI / 2).translate(0, 1.56 + b0, 0));
+      [-1, 1].forEach(function (s) {   // hai vạt cổ áo
+        var v = new T.ConeGeometry(.075, .15, 3); v.rotateX(Math.PI / 2 + .25); v.rotateZ(s * .5); v.translate(s * .065, 1.52 + b0, .11); P.white.push(v);
+      });
+      cap('skin', V(0, 1.5 + b0, 0), V(0, 1.64 + b0, 0), .058);
+      cau('shirt', 0, 1.47 + b0, .14, .025, 1, 1, .5, 8);   // khuy áo
+      cau('shirt', 0, 1.3 + b0, .145, .025, 1, 1, .5, 8);
+      // ---------- tay: ống tay áo ngắn màu áo, cẳng tay và bàn tay
+      if (sit) {   // hai tay đưa ra trước cầm bảng
+        [-1, 1].forEach(function (s) {
+          cap('shirt', V(s * .25, 1.44 + b0, 0), V(s * .3, 1.24 + b0, .12), .075);
+          cap('skin', V(s * .3, 1.24 + b0, .12), V(s * .3, 1.12 + b0, .42), .055);
+          cau('skin', s * .3, 1.12 + b0, .46, .06);
+        });
+        P.board.push(new T.BoxGeometry(.7, .5, .04).translate(0, 1.15 + b0, .5));
+      } else {
+        [-1, 1].forEach(function (s) {
+          cap('shirt', V(s * .25, 1.45, 0), V(s * .3, 1.22, 0), .078);
+          cap('skin', V(s * .3, 1.18, 0), V(s * .315, 1.02, .01), .056);
+          cap('skin', V(s * .315, 1.02, .01), V(s * .33, .84, .02), .05);
+          cau('skin', s * .33, .78, .02, .062, .9, 1.15, .85);
+        });
+      }
+      // ---------- đầu: mặt nhìn về +z
+      var hy = 1.84 + b0, R = .24;
+      cau('skin', 0, hy, 0, R, 1, 1.07, .97, 28);
+      [-1, 1].forEach(function (s) {
+        cau('skin', s * .235, hy - .01, -.01, .055, .45, 1, .75, 12);   // tai
+        cau('eye', s * .085, hy + .01, .215, .034, 1, 1.25, .6, 14);     // mắt
+        cau('white', s * .075, hy + .028, .233, .011, 1, 1, .6, 8);      // đốm sáng trong mắt
+        cap('hair', V(s * .045, hy + .085, .222), V(s * .125, hy + .078, .205), .012);   // lông mày
+        cau('cheek', s * .14, hy - .055, .19, .04, 1, .7, .45, 12);      // má hồng
+      });
+      cau('skin', 0, hy - .03, .238, .03, 1, .9, .9, 12);               // mũi
+      P.mouth.push(new T.TorusGeometry(.045, .011, 6, 16, Math.PI).rotateZ(Math.PI).translate(0, hy - .075, .222));   // miệng cười
+      // tóc: chỏm ôm đầu + mái + phía sau; nữ buộc đuôi ngựa
+      cau('hair', 0, hy + .015, -.005, R + .018, 1, 1.07, .99, 28, 0, Math.PI * 2, 0, Math.PI * .37);   // chỏm tóc (mái ngắn, lộ trán và mắt)
+      cau('hair', 0, hy + .01, -.012, R + .02, 1, 1.07, 1, 28, Math.PI, Math.PI, 0, Math.PI * (girl ? .78 : .62));   // nửa sau (phi π → 2π là phía −z)
+      if (girl) {
+        cau('hair', 0, hy + .06, -.25, .07, 1, 1, 1, 12);
+        cap('hair', V(0, hy + .02, -.29), V(0, hy - .3, -.3), .07, 1, .8);
+        cau('shirt', 0, hy + .06, -.23, .045, 1.2, 1, 1, 10);   // dây buộc tóc màu áo
+      }
+      var M = { shirt: G.mat('shirt' + shirt, shirt, { roughness: .75 }), pants: G.mat('pants', 0x1e293b, { roughness: .8 }), skin: G.mat('skin', 0xf2c6a0, { roughness: .55 }),
+        hair: G.mat('hair', 0x1f1308, { roughness: .45 }), white: G.mat('white', 0xffffff, { roughness: .6 }), shoe: G.mat('shoe', 0x111827, { roughness: .4 }),
+        board: G.mat('board', 0xffffff, { roughness: .4 }), eye: G.mat('eyeKid', 0x111827, { roughness: .2 }), mouth: G.mat('mouthKid', 0x9f1239), cheek: G.mat('cheekKid', 0xf9a8a8, { roughness: .9 }) };
       g.userData = { body: body, parts: {} };
-      Object.keys(P).forEach(function (k) { if (P[k].length) { var m = new T.Mesh(G.merge(P[k]), M[k]); m.castShadow = true; body.add(m); g.userData.parts[k] = m; } });
+      Object.keys(P).forEach(function (k) { if (P[k].length) { var m = new T.Mesh(G.merge(P[k]), M[k]); m.castShadow = k !== 'eye' && k !== 'mouth' && k !== 'cheek'; body.add(m); g.userData.parts[k] = m; } });
       return g;
     },
     // Khởi tạo renderer + cảnh + camera trong một khung; tự co giãn theo khung (kể cả toàn màn hình)

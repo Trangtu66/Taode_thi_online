@@ -147,7 +147,7 @@
       S.hs = doi.slice(0, 4).map(function (d, j) {
         var o = hiepSi(d.mau, j % 2 === 1), p = doi.length === 1 ? [-3.4, .6] : CHO[j];
         if (doi.length === 1) o.scale.setScalar(1.55);
-        o.position.set(p[0], 0, p[1]); o.rotation.y = .85; S.scene.add(o);   // nhìn chéo: vừa hướng về quái vừa hướng ra máy quay
+        o.position.set(p[0], 0, p[1]); o.rotation.y = .5; S.scene.add(o);   // nhìn chéo: vừa hướng về quái vừa hướng ra máy quay
         var lab = G3D.sprite(G3D.label(d.ten, d.mau), 1.6, .5); lab.position.set(0, 2.45, 0); o.add(lab);
         return { obj: o, lab: lab, j: j, x0: p[0], z0: p[1], satKey: '' };
       });
