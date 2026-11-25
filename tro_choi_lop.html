@@ -13,8 +13,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
-<script src="game3d_chung.js?v=20261125a"></script>
+<script src="game3d_chung.js?v=20261125b"></script>
 <script src="game_moi.js?v=20261125a"></script>
+<script src="giong_noi.js?v=20261125a"></script>
 <script src="bom3d.js?v=20261124b"></script>
 <script src="rpg3d.js?v=20261125b"></script>
 <script src="thoat3d.js?v=20261125a"></script>
@@ -182,7 +183,7 @@
   <section id="man-choi" class="an">
     <div class="thanh">
       <span class="chip blue" id="c-game"></span><span class="chip" id="c-cau"></span><span class="chip dh" id="c-dh">⏱ 0:00</span>
-      <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
+      <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-giong" type="button" title="Bật/tắt giọng nói tiếng Việt" aria-label="Bật/tắt giọng nói">🗣️</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
     <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div><div class="san3d an" id="s3-farm"></div></div>
     <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
@@ -296,6 +297,7 @@ function batDau(){
   $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
   $('c-game').textContent = G_.TEN[GAME];
   moKhoaAm(); nhac(true); veCau(); chay(); window.scrollTo(0, 0);
+  if (window.GiongNoi) GiongNoi.napTruoc(['da_A', 'da_B', 'da_C', 'da_D', 'da_xem', 'lop_dung_het', 'lop_sai_het', 'lop_bom_go', 'lop_farm_dung', 'lop_ket', 'lop_thang', 'rpg_chimang', 'rpg_danh', 'rpg_ha', 'rpg_trum', 'rpg_trung', 'rpg_tron', 'thoat_khoa', 'thoat_mo', 'thoat_ra', 'thoat_sai']);
 }
 $('bat-dau').onclick = batDau;
 const giayThoatDung = () => V.daDung + (V.batDauCau && !V.chot ? (Date.now() - V.batDauCau) / 1000 : 0);
@@ -338,7 +340,7 @@ function chay(){   // vẽ lại sân ~14 lần/giây (hoạt cảnh theo thời
 }
 function veCau(){
   const c = CAU[V.k], n = CAU.length;
-  V.cham = V.doi.map(() => null); V.chot = false; V.hien = false; V.daNo = false; V.baoHet = false; V.tich = 0;
+  V.cham = V.doi.map(() => null); V.chot = false; V.hien = false; V.daNo = false; V.baoHet = false; V.tich = 0; V.daDocDA = false;
   V.batDauCau = Date.now(); V.han = V.batDauCau + giayCau(c) * 1000;
   $('c-cau').textContent = `Câu ${V.k + 1}/${n}`;
   thongBao('', '');
@@ -372,9 +374,14 @@ function veGV(){
   if ($('lop-dung')) $('lop-dung').onclick = () => { V.cham[0] = true; chot(); };
   if ($('lop-sai')) $('lop-sai').onclick = () => { V.cham[0] = false; chot(); };
   if ($('chot')) $('chot').onclick = chot;
-  if ($('hien-da')) $('hien-da').onclick = () => { V.hien = !V.hien; veNoiDung(); toan($('noi-dung')); veGV(); };
+  if ($('hien-da')) $('hien-da').onclick = () => { V.hien = !V.hien; veNoiDung(); toan($('noi-dung')); veGV(); if (V.hien) docDapAn(); };
   if ($('tiep')) $('tiep').onclick = tiep;
 }
+// Giọng nói tiếng Việt (giong_noi.js): đọc đáp án đúng và kết quả câu; tắt 🔊 thì cũng tắt giọng nói
+const noi = ma => { if (AM_ON && window.GiongNoi) GiongNoi.noi(ma); };
+function maDapAn(i){ const c = CAU[i === undefined ? iHien() : i];   // i: câu vừa chốt (lúc chốt V.chot đã bật nên iHien() lùi một câu)
+  return c && c.type === 'mcq' && /^[ABCD]$/.test(c.dung) ? 'da_' + c.dung : 'da_xem'; }
+function docDapAn(){ V.daDocDA = true; noi(maDapAn()); }
 function thongBao(loai, txt){ const t = $('thong-bao'); t.className = 'thong-bao' + (txt ? ' on ' + loai : ''); t.textContent = txt; }
 
 function chot(){
@@ -414,6 +421,14 @@ function chot(){
     else if (!baoDong){ V.fx = { loai:'khoa', at: now }; am('khoa'); }
     tb = baoDong ? ['sai', '🚨 Quá nửa số đội trả lời sai – còi báo động, đồng hồ thoát hiểm bị trừ ' + PHAT_BAO_DONG + ' giây! Ổ khoá vẫn mở.'] : ['dung', (xongPhong ? '🔓 Mở hết ổ khoá – cửa phòng mở!' : '🔓 Mở được một ổ khoá!') + (dung.length && V.doi.length > 1 ? ' Đội đúng: ' + dung.map(j => V.doi[j].ten).join(', ') + '.' : '')];
   }
+  // giọng nói: đọc đáp án (nếu GV chưa bấm Hiện đáp án) rồi đọc kết quả câu
+  const loi = [];
+  if (!V.daDocDA) loi.push(maDapAn(i));
+  if (GAME === 'bom') loi.push(V.fx && V.fx.loai === 'go' ? (dung.length === V.doi.length && V.doi.length > 1 ? 'lop_dung_het' : 'lop_bom_go') : dung.length ? '' : 'lop_sai_het');   // bom nổ trước khi chốt: không nói thêm
+  else if (GAME === 'farm') loi.push(dung.length === V.doi.length && V.doi.length > 1 ? 'lop_dung_het' : dung.length ? 'lop_farm_dung' : 'lop_sai_het');
+  else if (GAME === 'rpg'){ const ai = V.ai[V.iAi]; loi.push(ai.ha ? (ai.trum ? 'rpg_trum' : 'rpg_ha') : dung.length === V.doi.length && dung.length > 1 ? 'rpg_chimang' : dung.length ? 'rpg_danh' : 'rpg_trung'); if (!ai.ha && ai.tron) loi.push('rpg_tron'); }
+  else if (GAME === 'thoat'){ const xp = (i + 1) % 3 === 0 || i + 1 === CAU.length; loi.push(sai.length > V.doi.length / 2 ? 'thoat_sai' : xp ? (i + 1 === CAU.length ? 'thoat_ra' : 'thoat_mo') : 'thoat_khoa'); }
+  noi(loi);
   V.k++;
   if (GAME === 'rpg' && V.k >= (V.ai[V.iAi] || {}).den && V.iAi < V.ai.length - 1) V.chuyenAi = true;
   if (!dung.length && g && GAME !== 'bom') setTimeout(() => g.sad(), 300);
@@ -442,6 +457,7 @@ function ketThuc(){
   const them = GAME === 'rpg' ? `Quái vật hạ được: <b>${V.haQuai}/${V.ai.length}</b> · Gục ngã: <b>${V.guc}</b> lần`
     : GAME === 'thoat' ? `Thời gian dùng: <b>${Math.round(giayThoatDung())} giây</b> · Bị trừ: <b>${V.phat} giây</b> · Tổng giờ: <b>${V.tongThoat} giây</b>` : '';
   if (thangLop){ const g = ga(); if (g) g.win(); phaoGiay(); } else { const g = ga(); if (g) g.sad(); }
+  setTimeout(() => noi(V && V.doi.length > 1 ? 'lop_ket' : thangLop ? 'lop_thang' : 'xong'), 900);
   const huyChuong = ['🥇', '🥈', '🥉', '4'];
   $('kq').innerHTML = `<div class="huy">${huy}</div><h2>${esc(tieuDe)}</h2><div class="sub" style="margin:0">${esc(G_.TEN[GAME])} · ${esc(DE_TEN)} · ${n} câu</div>
     ${them ? `<div class="sub" style="margin:6px 0 0">${them}</div>` : ''}
@@ -464,6 +480,8 @@ function veChuanBi(){
 }
 $('nut-thoat').onclick = () => { if (confirm('Dừng trận đang chơi?')) veChuanBi(); };
 function hienAm(){ $('nut-am').textContent = AM_ON ? '🔊' : '🔇'; }
+function hienGiong(){ const on = !!(window.GiongNoi && GiongNoi.dangBat()); $('nut-giong').textContent = on ? '🗣️' : '🤐'; $('nut-giong').setAttribute('aria-pressed', on); }
+$('nut-giong').onclick = () => { if (!window.GiongNoi) return; GiongNoi.bat(!GiongNoi.dangBat()); hienGiong(); };
 $('nut-am').onclick = () => { AM_ON = !AM_ON; ghi('tcl_am', AM_ON ? 'bat' : 'tat'); hienAm(); if (AM_ON) moKhoaAm(); nhac(!!(V && !V.xong)); };
 $('nut-3d').onclick = () => { CHE_3D = !CHE_3D; ghi('tcl_3d', CHE_3D ? 'bat' : 'tat'); if (V){ V.da3d = false; veSan(); } };
 $('nut-fs').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); } catch (e) {} };
@@ -473,14 +491,14 @@ document.addEventListener('keydown', e => {
   if (!V || V.xong || $('man-choi').classList.contains('an') || /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
   const k = e.key.toLowerCase();
   if (V.chot){ if (k === 'enter' || k === 'arrowright' || k === 'pagedown' || k === ' '){ e.preventDefault(); tiep(); } return; }
-  if (k === 'a'){ V.hien = !V.hien; veNoiDung(); toan($('noi-dung')); veGV(); return; }
+  if (k === 'a'){ V.hien = !V.hien; veNoiDung(); toan($('noi-dung')); veGV(); if (V.hien) docDapAn(); return; }
   if (V.doi.length === 1){ if (k === 'đ' || k === 'd' || k === '1'){ V.cham[0] = true; chot(); } else if (k === 's' || k === '0'){ V.cham[0] = false; chot(); } return; }
   const j = +k - 1; if (j >= 0 && j < V.doi.length){ V.cham[j] = V.cham[j] !== true; veGV(); return; }
   if (k === 'enter'){ e.preventDefault(); chot(); }
 });
 window.addEventListener('beforeunload', e => { if (V && !V.xong){ e.preventDefault(); e.returnValue = ''; } });
 
-hienAm(); veDoi(); veGame();
+hienAm(); hienGiong(); veDoi(); veGame();
 const gq = new URLSearchParams(location.search).get('game'); if (G_.co(gq)){ GAME = gq; ghi('tcl_game', GAME); veGame(); }
 })();
 </script>

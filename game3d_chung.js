@@ -216,10 +216,12 @@
       if (!style) { A.playing = null; clearInterval(A.timer); if (A.mu) A.mu.gain.setTargetAtTime(0, A.ctx.currentTime, .2); return; }
       if (!ctx()) return;
       var was = A.playing; A.playing = style; if (!was) { A.step = 0; A.next = A.ctx.currentTime + .08; }
-      A.mu.gain.cancelScheduledValues(A.ctx.currentTime); A.mu.gain.setTargetAtTime(style === 'tension' ? .35 : .28, A.ctx.currentTime, .3);
+      A.mu.gain.cancelScheduledValues(A.ctx.currentTime); A.mu.gain.setTargetAtTime((style === 'tension' ? .35 : .28) * (A.heSo || 1), A.ctx.currentTime, .3);
       clearInterval(A.timer); A.timer = setInterval(tick, 25); tick();
     },
-    playing: function () { return A.playing; }
+    playing: function () { return A.playing; },
+    // hệ số âm lượng nhạc nền (giong_noi.js hạ còn .35 khi đang đọc lời, xong trả về 1)
+    amLuong: function (k) { A.heSo = k; if (A.mu && A.playing) A.mu.gain.setTargetAtTime((A.playing === 'tension' ? .35 : .28) * k, A.ctx.currentTime, .15); }
   };
   document.addEventListener('pointerdown', function () { if (A.ctx && A.ctx.state === 'suspended') A.ctx.resume(); }, { passive: true });
 })();
