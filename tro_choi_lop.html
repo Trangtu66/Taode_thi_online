@@ -454,7 +454,10 @@ function chot(){
   V.k++;
   if (GAME === 'rpg' && V.k >= (V.ai[V.iAi] || {}).den && V.iAi < V.ai.length - 1) V.chuyenAi = true;
   if (!dung.length && g && GAME !== 'bom') setTimeout(() => g.sad(), 300);
-  thongBao(tb[0], tb[1]); veNoiDung(); toan($('noi-dung')); veGV();
+  // giọng nói đang đọc kết quả thì không hiện phụ đề trên màn chiếu (GV yêu cầu 25/11/2026); tắt giọng nói thì vẫn hiện chữ
+  const coGiong = AM_ON && window.GiongNoi && GiongNoi.dangBat() && loi.some(Boolean);
+  if (coGiong) thongBao('', ''); else thongBao(tb[0], tb[1]);
+  veNoiDung(); toan($('noi-dung')); veGV();
   if ($('tiep')) $('tiep').focus();
 }
 function tiep(){

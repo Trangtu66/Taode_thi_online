@@ -74,93 +74,203 @@
   var MAT = {};
   function mats(color) {
     if (!MAT.glass) {
-      MAT.glass = new T.MeshStandardMaterial({ color: 0x1e293b, roughness: .1, metalness: .6 }); MAT.dark = new T.MeshStandardMaterial({ color: 0x111827, roughness: .8 });
-      MAT.light = new T.MeshStandardMaterial({ color: 0xfef9c3, emissive: 0xfef08a, emissiveIntensity: .8 }); MAT.rider = new T.MeshStandardMaterial({ color: 0xfde047 });
+      var S = function (c, o) { return new T.MeshStandardMaterial(Object.assign({ color: c }, o || {})); };
+      MAT.glass = S(0x1e3a5f, { roughness: .08, metalness: .55 }); MAT.dark = S(0x1f2937, { roughness: .7 });
+      MAT.tire = S(0x18181b, { roughness: .92 }); MAT.rim = S(0xd4d4d8, { roughness: .28, metalness: .65 });
+      MAT.light = S(0xfffbeb, { emissive: 0xfef3c7, emissiveIntensity: .9, roughness: .2 }); MAT.tail = S(0xdc2626, { emissive: 0xb91c1c, emissiveIntensity: .6, roughness: .3 });
+      MAT.white = S(0xffffff, { roughness: .45 }); MAT.helmet = S(0xfde047, { roughness: .25, metalness: .15 });
+      MAT.fire = S(0xfb923c, { emissive: 0xf97316, emissiveIntensity: 1.2, roughness: .5 }); MAT.suit = S(0x334155, { roughness: .8 });
     }
-    if (!MAT[color]) MAT[color] = new T.MeshStandardMaterial({ color: color, roughness: .35, metalness: .3 });
+    if (!MAT[color]) MAT[color] = new T.MeshStandardMaterial({ color: color, roughness: .3, metalness: .25 });
     return MAT;
+  }
+  // làm mượt pháp tuyến khối đùn (giữ cạnh gãy > deg độ): thân xe bo tròn bóng mịn, không lộ mặt phẳng nhỏ
+  function muot(geo, deg) {
+    var p = geo.attributes.position.array, n = geo.attributes.normal.array, cnt = p.length / 3, cs = Math.cos(deg * Math.PI / 180), f = new Float32Array(p.length), nhom = {}, i, k;
+    for (i = 0; i < cnt; i += 3) {
+      var a = i * 3, ux = p[a + 3] - p[a], uy = p[a + 4] - p[a + 1], uz = p[a + 5] - p[a + 2], vx = p[a + 6] - p[a], vy = p[a + 7] - p[a + 1], vz = p[a + 8] - p[a + 2];
+      var x = uy * vz - uz * vy, y = uz * vx - ux * vz, z = ux * vy - uy * vx, l = Math.sqrt(x * x + y * y + z * z) || 1;
+      for (k = 0; k < 3; k++) { f[a + k * 3] = x / l; f[a + k * 3 + 1] = y / l; f[a + k * 3 + 2] = z / l; }
+    }
+    for (i = 0; i < cnt; i++) { var key = Math.round(p[i * 3] * 1e3) + ',' + Math.round(p[i * 3 + 1] * 1e3) + ',' + Math.round(p[i * 3 + 2] * 1e3); (nhom[key] || (nhom[key] = [])).push(i); }
+    Object.keys(nhom).forEach(function (key) {
+      var ds = nhom[key];
+      ds.forEach(function (a) {
+        var x = 0, y = 0, z = 0;
+        ds.forEach(function (b) { if (f[a * 3] * f[b * 3] + f[a * 3 + 1] * f[b * 3 + 1] + f[a * 3 + 2] * f[b * 3 + 2] > cs) { x += f[b * 3]; y += f[b * 3 + 1]; z += f[b * 3 + 2]; } });
+        var l = Math.sqrt(x * x + y * y + z * z) || 1; n[a * 3] = x / l; n[a * 3 + 1] = y / l; n[a * 3 + 2] = z / l;
+      });
+    });
   }
   // Xe 3D vẽ theo đúng hình xe HS chọn trên điện thoại (raceCarSvg): F1 có người lái mũ vàng, xe thể thao, xe địa hình có bánh dự phòng,
   // xe buýt mini dãy cửa kính, xe bán tải cabin trước – thùng sau, mô tô có người lái, go-kart mui trần có người lái mũ trắng,
   // xe tải thùng kín, xe cổ điển mui tròn cản mạ crôm, xe phản lực mũi nhọn có vây đuôi và lửa phụt; cùng màu, cùng sọc trắng thân xe.
+  // Dựng lại 25/11/2026 (GV: "cải tiến lại các xe mẫu 3D cho đẹp"): thân xe đùn theo hình mặt bên, bo tròn cạnh, khoét vòm bánh xe;
+  // cabin kính lái nghiêng, cột kính; đèn pha, đèn hậu phát sáng, lưới tản nhiệt, cản; lốp bo tròn có mâm bạc và nan (thấy bánh quay);
+  // người lái có thân, tay, chân. Giữ kích thước, vị trí bánh xe và userData {body, wheels, radius} như cũ (màn chiếu, điện thoại dùng chung).
   function makeCar(key, color) {
     // Điện thoại HS (phone3d.js) gọi Race3D.buildCar khi chưa mount màn chiếu: lấy THREE đã nạp sẵn (sửa 26/11/2026 – trước đây báo lỗi, điện thoại không dựng đúng xe em chọn)
     if (!T && window.THREE) { T = window.THREE; if (T.ColorManagement) T.ColorManagement.legacyMode = false; }
-    var s = SHAPE[key] || SHAPE.sport, g = new T.Group(), body = new T.Group(); g.add(body); mats(color);
-    if (!MAT.white) { MAT.white = new T.MeshStandardMaterial({ color: 0xffffff, roughness: .5 }); MAT.helmet = new T.MeshStandardMaterial({ color: 0xfde047, roughness: .3, metalness: .2 }); }
-    var parts = { paint: [], glass: [], dark: [], light: [], white: [], helmet: [] };
-    var box = function (w, h, l, m, x, y, z) { parts[m].push(new T.BoxGeometry(w, h, l).translate(x, y, z)); };
-    var ball = function (r, m, x, y, z) { parts[m].push(new T.SphereGeometry(r, 12, 10).translate(x, y, z)); };
-    var lift = s.wheel * .8, top = lift + s.h, W = s.w, L = s.l;
-    if (key === 'f1') {
-      box(W * .55, s.h, L, 'paint', 0, lift + s.h / 2, 0);                                 // thân hẹp
-      box(W, s.h * .7, L * .35, 'paint', 0, lift + s.h * .35, -.2);                        // hông
-      box(W * 1.35, .08, .45, 'paint', 0, lift + .12, L / 2 + .05);                        // cánh trước
-      box(W * 1.2, .08, .5, 'paint', 0, top + .45, -L / 2 + .2); box(.1, .45, .1, 'dark', 0, top + .2, -L / 2 + .2);   // cánh sau
-      ball(.3, 'helmet', 0, top + .22, .15); box(.32, .1, .12, 'dark', 0, top + .26, .4);  // người lái mũ vàng, kính
-      box(W * .57, .06, L * .8, 'white', 0, top + .005, 0);                                // sọc trắng
-    } else if (key === 'sport') {
-      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
-      box(W * .8, .36, L * .42, 'glass', 0, top + .18, -.15); box(W * .82, .06, L * .3, 'paint', 0, top + .38, -.15);   // mui xe
-      box(W + .02, .08, L * .9, 'white', 0, lift + s.h * .6, 0);
+    if (!SHAPE[key]) key = 'sport';
+    var s = SHAPE[key], g = new T.Group(), body = new T.Group(); g.add(body); mats(color);
+    var P = {}, them = function (m, geo) { (P[m] || (P[m] = [])).push(geo); return geo; };
+    var V = function (x, y, z) { return new T.Vector3(x, y, z); }, UP = V(0, 1, 0);
+    var W = s.w, L = s.l, R0 = s.wheel, zF = key === 'moto' ? L / 2 - .35 : L / 2 - .6, zR = -zF, PI = Math.PI;
+    // hình mặt bên (u dọc xe, mũi xe phía +u; v độ cao): [u, v] | ['q', cu, cv, u, v] cong | ['a', u, v, r, góc đầu, góc cuối, cùng chiều kim đồng hồ]
+    var hinh = function (pts) {
+      var sh = new T.Shape();
+      pts.forEach(function (p, i) { if (!i) sh.moveTo(p[0], p[1]); else if (p[0] === 'q') sh.quadraticCurveTo(p[1], p[2], p[3], p[4]); else if (p[0] === 'a') sh.absarc(p[1], p[2], p[3], p[4], p[5], p[6]); else sh.lineTo(p[0], p[1]); });
+      return sh;
+    };
+    // đùn hình mặt bên theo bề ngang w (căn giữa), bo cạnh b
+    var dun = function (m, pts, w, b, x) {
+      b = b === undefined ? .06 : b; var d = Math.max(.01, w - 2 * b);
+      var geo = new T.ExtrudeGeometry(hinh(pts), { depth: d, bevelEnabled: b > 0, bevelThickness: b, bevelSize: b, bevelOffset: -b, bevelSegments: 3, curveSegments: 12 });
+      geo.rotateY(-PI / 2); geo.translate(d / 2 + (x || 0), 0, 0); muot(geo, 50); return them(m, geo);
+    };
+    // viền trên (từ mũi dưới → đuôi dưới) + đáy ở độ cao yDay có khoét vòm quanh các bánh (tâm u trong ds, tăng dần)
+    var vom = function (top, yDay, ds) {
+      var pts = top.slice(), ra = R0 + .05, a = Math.asin(Math.max(-1, Math.min(1, (yDay - R0) / ra)));
+      (ds || [zR, zF]).forEach(function (z) { pts.push(['a', z, R0, ra, PI - a, a, true]); });
+      return pts;
+    };
+    // cabin: đai kính (belt) từ u = bf (trước) tới br (sau), nóc từ rf tới rr (cong phồng), kính lái/kính hậu/kính hông nhô nhẹ ra ngoài
+    var cabin = function (belt, bf, rf, rr, br, wC, phong, coCot) {
+      dun('paint', [[bf, belt - .1], [bf, belt], [rf[0], rf[1]], ['q', (rf[0] + rr[0]) / 2, Math.max(rf[1], rr[1]) + (phong || 0), rr[0], rr[1]], [br, belt], [br, belt - .1]], wC, .05);
+      var gt = Math.min(rf[1], rr[1]) - .06, k1 = (gt - belt) / (rf[1] - belt), k2 = (gt - belt) / (rr[1] - belt), o = .035;
+      var u1 = bf + (rf[0] - bf) * k1, u2 = br + (rr[0] - br) * k2;
+      dun('glass', [[bf + o, belt + .04], [u1 + o, gt], [u2 - o, gt], [br - o, belt + .04]], wC + .04, .02);
+      if (coCot !== false) hop('paint', wC + .06, gt - belt - .02, .08, 0, (gt + belt) / 2 + .02, (u1 + u2) / 2 + (bf - u1) * .3);   // cột kính giữa
+    };
+    var hop = function (m, w, h, l, x, y, z) { return them(m, new T.BoxGeometry(w, h, l).translate(x, y, z)); };
+    var cau = function (m, r, x, y, z, sx, sy, sz) { var geo = new T.SphereGeometry(r, 18, 12); geo.scale(sx || 1, sy || 1, sz || 1); geo.translate(x, y, z); return them(m, geo); };
+    var ong = function (m, a, b, r) {
+      var d = b.clone().sub(a), geo = new T.CapsuleGeometry(r, Math.max(.001, d.length()), 4, 12);
+      geo.applyMatrix4(new T.Matrix4().compose(a.clone().add(b).multiplyScalar(.5), new T.Quaternion().setFromUnitVectors(UP, d.normalize()), V(1, 1, 1))); return them(m, geo);
+    };
+    var doi = function (f) { f(-1); f(1); };   // dựng đối xứng hai bên
+    // bánh xe: lốp tiện bo tròn + nan tối (mesh lốp), mâm bạc + ốc giữa (mesh mâm), viền trắng (xe cổ điển); trục quay theo x
+    var banh = function (x, r, rong, dich, vienTrang) {
+      var h = rong / 2, ri = r * .62, c = Math.min(.07, h * .55), out = { tire: [], rim: [], white: [] }, dy = dich || [0, 0, 0];
+      var lop = new T.LatheGeometry([new T.Vector2(ri, -h), new T.Vector2(r - c, -h), new T.Vector2(r - c * .3, -h + c * .3), new T.Vector2(r, -h + c), new T.Vector2(r, h - c), new T.Vector2(r - c * .3, h - c * .3), new T.Vector2(r - c, h), new T.Vector2(ri, h)], 24);
+      out.tire.push(lop.rotateZ(PI / 2));
+      out.rim.push(new T.CylinderGeometry(ri + .005, ri + .005, rong - .05, 20).rotateZ(PI / 2), new T.CylinderGeometry(ri * .26, ri * .26, rong + .01, 12).rotateZ(PI / 2));
+      for (var k = 0; k < 3; k++) [-1, 1].forEach(function (sd) { out.tire.push(new T.BoxGeometry(.03, ri * 1.85, ri * .2).rotateX(k * PI / 3).translate(sd * (h - .035), 0, 0)); });
+      if (vienTrang) [-1, 1].forEach(function (sd) { out.white.push(new T.RingGeometry(ri + .02, ri + (r - ri) * .55, 24).rotateY(sd * PI / 2).translate(sd * (h + .003), 0, 0)); });
+      Object.keys(out).forEach(function (k) { out[k].forEach(function (gg) { gg.translate(x + dy[0], dy[1], dy[2]); }); });
+      return out;
+    };
+    var denPha = function (r, dx, y, z, sx, sy) { doi(function (sd) { cau('light', r, sd * dx, y, z, sx || 1.4, sy || .7, .5); }); };
+    var denHau = function (w, h, dx, y, z) { doi(function (sd) { hop('tail', w, h, .05, sd * dx, y, z); }); };
+    var soc = function (y, l, z) { hop('white', W + .012, .06, l, 0, y, z || 0); };   // sọc trắng hai bên thân
+    var guong = function (y, z, dx) { doi(function (sd) { ong('dark', V(sd * (dx - .05), y - .05, z), V(sd * (dx + .08), y, z - .04), .025); cau('paint', .07, sd * (dx + .12), y, z - .05, .7, .9, 1.2); }); };
+
+    if (key === 'sport') {
+      dun('paint', vom([[1.6, .24], [1.63, .5], ['q', 1.65, .8, 1.35, .84], [.45, .9], [-1.2, .92], ['q', -1.62, .94, -1.6, .6], [-1.58, .24]], .24), W, .08);
+      cabin(.88, .45, [-.15, 1.25], [-.75, 1.22], -1.35, W * .8, .04);
+      dun('paint', [[-1.36, 1.08], [-1.68, 1.11], ['q', -1.7, 1.05, -1.64, 1.03], [-1.4, 1.02]], W * .9, .02);   // cánh gió sau
+      doi(function (sd) { hop('dark', .06, .14, .12, sd * .45, .98, -1.5); });
+      denPha(.12, .5, .66, 1.56); hop('dark', .7, .12, .06, 0, .42, 1.61); denHau(.42, .09, .5, .78, -1.6);
+      hop('dark', W + .01, .06, 1.05, 0, .27, 0); soc(.8, 2.4); guong(1.0, .36, W * .4);
+    } else if (key === 'f1') {
+      dun('paint', [[1.75, .2], [1.75, .3], ['q', 1.0, .42, .45, .6], [.1, .66], [-.5, .66], [-.62, .98], ['q', -.75, 1.06, -1.0, 1.0], [-1.45, .66], [-1.7, .6], [-1.7, .22], [0, .16]], .52, .1);
+      dun('paint', [[.45, .22], [.45, .48], ['q', .1, .62, -.3, .6], [-1.05, .45], [-1.05, .22]], 1.05, .08);   // hai hông khí động
+      dun('white', [[1.7, .33], ['q', 1.0, .45, .45, .63], [.42, .59], ['q', 1.0, .4, 1.7, .29]], .18, 0);   // sọc trắng trên mũi
+      hop('dark', .36, .04, .6, 0, .665, -.15);                                                                // khoang lái
+      dun('paint', [[1.95, .1], [1.95, .17], [1.56, .2], [1.53, .12]], W * 1.25, .02);                       // cánh trước
+      doi(function (sd) { hop('dark', .04, .17, .44, sd * .94, .17, 1.74); hop('dark', .04, .38, .48, sd * .64, .96, -1.68); });
+      dun('paint', [[-1.45, 1.06], [-1.86, 1.13], [-1.86, 1.03], [-1.5, .99]], 1.25, .02);                   // cánh sau
+      hop('dark', .08, .35, .1, 0, .82, -1.6); hop('tail', .14, .1, .04, 0, .45, -1.72);
+      cau('helmet', .2, 0, .82, -.2); cau('dark', .13, 0, .84, -.07, 1.25, .55, .7);                         // người lái mũ vàng, kính
     } else if (key === 'jeep') {
-      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
-      box(W * .92, .55, L * .5, 'paint', 0, top + .27, -.25); box(W * .94, .32, L * .44, 'glass', 0, top + .3, -.25);   // cabin + kính
-      parts.dark.push(new T.CylinderGeometry(.42, .42, .26, 14).rotateX(Math.PI / 2).translate(0, lift + s.h / 2 + .1, -L / 2 - .13));   // bánh dự phòng
-      box(W + .02, .1, L * .95, 'white', 0, lift + s.h * .55, 0);
+      dun('paint', vom([[1.5, .36], [1.53, .7], ['q', 1.55, 1.12, 1.4, 1.14], [.5, 1.18], [-1.45, 1.18], ['q', -1.52, 1.18, -1.52, 1.0], [-1.5, .36]], .36), W, .1);
+      cabin(1.15, .42, [.22, 1.78], [-1.38, 1.8], -1.45, W * .92, .02);
+      hop('dark', .92, .34, .06, 0, .86, 1.53); for (var j = -2; j <= 2; j++) hop('rim', .05, .28, .07, j * .16, .86, 1.54);   // lưới tản nhiệt
+      denPha(.12, .62, .9, 1.52, 1, 1); doi(function (sd) { them('rim', new T.TorusGeometry(.12, .025, 8, 18).translate(sd * .62, .9, 1.55)); });
+      hop('dark', W + .1, .16, .2, 0, .5, 1.58); hop('dark', W + .1, .16, .2, 0, .5, -1.58);                  // cản trước, sau
+      var dp = banh(0, .42, .24); ['tire', 'rim'].forEach(function (k) { dp[k].forEach(function (gg) { them(k, gg.rotateY(PI / 2).translate(0, 1.1, -1.7)); }); });   // bánh dự phòng sau xe
+      doi(function (sd) { hop('dark', .06, .06, 1.5, sd * .66, 1.87, -.55); }); hop('dark', 1.38, .05, .06, 0, 1.89, -.05); hop('dark', 1.38, .05, .06, 0, 1.89, -1.05);   // giá nóc
+      denHau(.12, .22, .7, .85, -1.53); soc(1.08, 2.9); guong(1.4, .38, W * .46);
     } else if (key === 'bus') {
-      box(W, s.h + .5, L, 'paint', 0, lift + (s.h + .5) / 2, 0);
-      box(W + .03, .42, L * .82, 'glass', 0, top + .05, -.1); box(W * .9, .42, .04, 'glass', 0, top + .05, L / 2 + .01);   // dãy cửa kính, kính trước
-      box(W + .03, .1, L * .98, 'white', 0, lift + s.h * .45, 0);
+      dun('paint', vom([[1.82, .28], [1.86, .95], [1.62, 1.72], ['q', 1.58, 1.88, 1.4, 1.88], [-1.65, 1.88], ['q', -1.82, 1.88, -1.82, 1.7], [-1.82, .28]], .28), W, .1);
+      dun('glass', [[1.7, 1.02], [1.868, 1.02], [1.669, 1.66], [1.5, 1.66]], W * .86, .02);                // kính lái
+      hop('glass', W + .02, .5, 2.95, 0, 1.38, -.07);                                                          // dãy cửa kính
+      [-1.05, -.42, .21, .84].forEach(function (u) { hop('paint', W + .04, .5, .09, 0, 1.38, u); });
+      hop('dark', .8, .14, .05, 0, .58, 1.86); denPha(.12, .62, .62, 1.85, 1.3, .8);
+      hop('dark', W + .06, .14, .14, 0, .35, 1.84); hop('dark', W + .06, .14, .14, 0, .35, -1.84);
+      denHau(.12, .3, .7, .7, -1.84); hop('white', .7, .1, .7, 0, 1.93, -.4); soc(1.0, 3.3); guong(1.3, 1.7, W * .5);
     } else if (key === 'pickup') {
-      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
-      box(W * .95, .6, L * .36, 'paint', 0, top + .3, L * .22); box(W * .97, .34, L * .3, 'glass', 0, top + .32, L * .24);  // cabin trước
-      box(.1, .3, L * .5, 'paint', -W / 2 + .05, top + .15, -L * .24); box(.1, .3, L * .5, 'paint', W / 2 - .05, top + .15, -L * .24); box(W, .3, .1, 'paint', 0, top + .15, -L / 2 + .05);   // thùng sau
-      box(W + .02, .08, L * .95, 'white', 0, lift + s.h * .55, 0);
+      dun('paint', vom([[1.7, .32], [1.74, .72], ['q', 1.76, 1.02, 1.5, 1.04], [.5, 1.08], [-1.7, 1.08], [-1.7, .32]], .32), W, .08);
+      hop('dark', W - .24, .03, 1.42, 0, 1.085, -.95);                                                          // sàn thùng
+      doi(function (sd) { hop('paint', .1, .22, 1.46, sd * (W / 2 - .05), 1.19, -.95); }); hop('paint', W, .22, .1, 0, 1.19, -1.65);   // thành thùng
+      cabin(1.05, .48, [.22, 1.66], [-.18, 1.66], -.24, W * .94, .02, false);
+      hop('dark', 1.0, .26, .06, 0, .82, 1.75); [.74, .82, .9].forEach(function (y) { hop('rim', .9, .03, .07, 0, y, 1.755); });
+      denPha(.12, .66, .9, 1.69); hop('rim', W + .08, .14, .16, 0, .42, 1.76); hop('rim', W + .08, .12, .14, 0, .42, -1.74);
+      denHau(.1, .28, .78, .85, -1.72); soc(.99, 3.2); guong(1.32, .4, W * .47);
     } else if (key === 'kart') {
-      box(W * .9, s.h, L, 'paint', 0, lift + s.h / 2, 0);                                   // sàn thấp
-      box(W * .6, .3, .45, 'dark', 0, top + .1, -L / 2 + .3);                              // động cơ sau
-      box(.4, .45, .35, 'dark', 0, top + .25, -.25); ball(.24, 'white', 0, top + .68, -.15); box(.24, .08, .1, 'dark', 0, top + .7, .08);   // người lái mũ trắng
-      box(.5, .06, .06, 'dark', 0, top + .35, .45); box(.06, .3, .06, 'dark', 0, top + .18, .5);   // vô lăng
-      box(W * 1.05, .1, .2, 'dark', 0, lift + .05, L / 2 + .05);                           // cản trước
-      box(W * .25, .05, L * .8, 'white', 0, top + .005, .1);
+      dun('paint', [[1.15, .1], [1.18, .24], ['q', 1.0, .42, .55, .36], [.3, .3], [-1.0, .3], [-1.15, .22], [-1.15, .1]], .9, .06);   // sàn thấp, mũi chắn gió
+      doi(function (sd) { cau('paint', .14, sd * .52, .22, 0, 1, .7, 2.2); });                                 // hai hông
+      dun('dark', [[-.05, .3], [-.2, .75], [-.4, .78], [-.45, .3]], .5, .05);                                 // ghế
+      hop('dark', .3, .3, .3, .22, .45, -.85); ong('rim', V(.3, .5, -.95), V(.42, .45, -1.25), .04);          // động cơ, ống xả
+      ong('dark', V(-.7, .25, -1.2), V(.7, .25, -1.2), .05); ong('dark', V(-.45, .18, 1.22), V(.45, .18, 1.22), .04);   // cản sau, trước
+      them('white', new T.CylinderGeometry(.12, .12, .02, 18).rotateX(-.35).translate(0, .4, .78));            // biển số trắng
+      ong('white', V(0, .5, -.25), V(0, .92, -.15), .17);                                                      // người lái áo trắng
+      doi(function (sd) { ong('white', V(sd * .18, .9, -.12), V(sd * .18, .7, .3), .055); ong('white', V(sd * .12, .42, -.12), V(sd * .13, .36, .62), .07); });
+      cau('white', .19, 0, 1.16, -.12); cau('dark', .13, 0, 1.17, .0, 1.1, .55, .6);                          // mũ trắng, kính
+      them('dark', new T.TorusGeometry(.14, .025, 8, 20).rotateX(-.9).translate(0, .72, .38)); ong('dark', V(0, .72, .38), V(0, .35, .72), .025);   // vô lăng
     } else if (key === 'truck') {
-      box(W, .2, L, 'dark', 0, lift + .1, 0);                                              // khung gầm
-      box(W, 1.3, L * .66, 'paint', 0, lift + .2 + .65, -L * .17);                          // thùng hàng
-      box(W * .96, s.h + .5, L * .3, 'paint', 0, lift + .2 + (s.h + .5) / 2, L * .35);     // cabin
-      box(W * .9, .38, .04, 'glass', 0, lift + .2 + s.h + .2, L / 2 + .01); box(W + .02, .3, L * .18, 'glass', 0, lift + .2 + s.h + .2, L * .38);   // kính trước, kính hông
-      box(W + .02, .1, L * .64, 'white', 0, lift + .75, -L * .17);
+      hop('dark', W * .8, .2, L * .95, 0, .5, 0);                                                              // khung gầm
+      dun('paint', vom([[2.1, .4], [2.12, 1.0], ['q', 2.12, 1.95, 1.85, 1.98], [.8, 2.0], [.8, .4]], .4, [zF]), W, .1);   // cabin
+      hop('glass', W * .84, .48, .04, 0, 1.48, 2.13); hop('glass', W + .02, .42, .55, 0, 1.5, 1.62);
+      hop('dark', 1.1, .35, .05, 0, .78, 2.13); [.68, .78, .88].forEach(function (y) { hop('rim', 1.0, .03, .06, 0, y, 2.14); });
+      doi(function (sd) { hop('light', .3, .14, .05, sd * .62, .62, 2.14); }); hop('rim', W + .06, .16, .18, 0, .45, 2.15);
+      dun('paint', vom([[.7, .8], [.7, 2.3], [-2.1, 2.3], [-2.1, .8]], .8, [zR]), W, .06);                     // thùng hàng kín
+      hop('dark', .03, 1.3, .03, 0, 1.55, -2.11); denHau(.12, .26, .75, .95, -2.12);
+      hop('white', W + .012, .12, 2.6, 0, 1.6, -.7); ong('rim', V(.72, 1.0, .74), V(.72, 2.15, .74), .05); guong(1.65, 1.85, W * .5);
     } else if (key === 'classic') {
-      box(W, s.h, L, 'paint', 0, lift + s.h / 2, 0);
-      box(W * .8, .34, L * .42, 'glass', 0, top + .17, -.1);                               // cửa kính
-      parts.paint.push(new T.SphereGeometry(1, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2).scale(W * .44, .25, L * .26).translate(0, top + .32, -.1));   // mui tròn
-      box(W * 1.04, .12, .12, 'white', 0, lift + .1, L / 2 + .03); box(W * 1.04, .12, .12, 'white', 0, lift + .1, -L / 2 - .03);   // cản mạ crôm
-      box(W + .02, .07, L * .9, 'white', 0, lift + s.h * .6, 0);
+      dun('paint', vom([[1.5, .28], [1.55, .55], ['q', 1.58, .88, 1.3, .9], [.4, .95], [-1.05, .95], ['q', -1.55, .95, -1.52, .55], [-1.5, .28]], .28), W, .12);
+      cabin(.92, .35, [.08, 1.38], [-.75, 1.38], -1.0, W * .82, .14);
+      doi(function (sd) { ong('rim', V(sd * .05, .42, 1.55), V(sd * .82, .42, 1.53), .07); ong('rim', V(sd * .05, .42, -1.55), V(sd * .82, .42, -1.53), .07); });   // cản mạ crôm
+      denPha(.13, .55, .72, 1.5, 1, 1); doi(function (sd) { them('rim', new T.TorusGeometry(.13, .025, 8, 18).translate(sd * .55, .72, 1.53)); });
+      hop('rim', .5, .22, .05, 0, .62, 1.55); for (var q = -2; q <= 2; q++) hop('dark', .04, .2, .06, q * .09, .62, 1.556);
+      doi(function (sd) { cau('tail', .08, sd * .6, .75, -1.52, 1, 1, .5); }); soc(.85, 2.4); guong(1.0, .45, W * .42);
     } else if (key === 'jet') {
-      box(W * .7, s.h, L * .8, 'paint', 0, lift + s.h / 2, -L * .1);
-      parts.paint.push(new T.ConeGeometry(W * .35, L * .35, 4).rotateY(Math.PI / 4).rotateX(Math.PI / 2).translate(0, lift + s.h / 2, L * .45));   // mũi nhọn
-      box(W * 1.3, .07, .6, 'paint', 0, lift + .15, -L * .3);                              // cánh
-      box(.08, .7, .6, 'paint', 0, top + .35, -L / 2 + .3);                                // vây đuôi
-      ball(.32, 'glass', 0, top + .02, .2);                                                // buồng lái
-      parts.light.push(new T.ConeGeometry(.2, .6, 10).rotateX(-Math.PI / 2).translate(0, lift + s.h / 2, -L / 2 - .3));   // lửa phụt
-      box(W * .72, .05, L * .7, 'white', 0, top + .005, -L * .1);
+      var than = new T.LatheGeometry([V(0, -1.75, 0), V(.36, -1.75, 0), V(.4, -1.3, 0), V(.4, .3, 0), V(.36, .9, 0), V(.26, 1.35, 0), V(.12, 1.7, 0), V(0, 1.85, 0)].map(function (v) { return new T.Vector2(v.x, v.y); }), 20);
+      than.rotateX(PI / 2); than.scale(1.15, .9, 1); than.translate(0, .62, 0); them('paint', than);          // thân thuôn tròn, mũi nhọn
+      cau('white', .1, 0, .62, 1.8, 1, .9, 1.4); cau('glass', .22, 0, .92, .45, 1, .8, 2.2);                  // đầu mũi, buồng lái
+      var canh = new T.ExtrudeGeometry(hinh([[-1.05, -.95], [-1.05, -.7], [0, .3], [1.05, -.7], [1.05, -.95]]), { depth: .06, bevelEnabled: false });
+      canh.rotateX(PI / 2); canh.translate(0, .56, 0); muot(canh, 50); them('paint', canh);                    // cánh tam giác
+      dun('paint', [[-1.1, .9], [-1.75, 1.55], [-1.85, 1.55], [-1.75, .9]], .08, .02);                       // vây đuôi
+      doi(function (sd) { cau('dark', .14, sd * .4, .62, .2, .6, .8, 1.6); });                                // cửa hút gió
+      them('dark', new T.CylinderGeometry(.3, .26, .25, 18).rotateX(PI / 2).translate(0, .62, -1.85));
+      them('fire', new T.ConeGeometry(.24, .7, 14).rotateX(-PI / 2).translate(0, .62, -2.3));                  // lửa phụt
+      hop('white', .93, .06, 2.0, 0, .62, -.3);
     } else {   // mô tô
-      box(W, s.h, L * .55, 'paint', 0, lift + s.h / 2 + .1, .1);
-      box(.36, .55, .32, 'dark', 0, top + .35, -.15); ball(.26, 'paint', 0, top + .82, -.05); box(.24, .08, .1, 'dark', 0, top + .84, .18);   // người lái, mũ cùng màu xe
-      box(.06, .5, .06, 'dark', 0, top + .1, .55);
+      dun('paint', [[.95, .62], [1.02, .9], ['q', .98, 1.1, .78, 1.12], [.45, 1.08], ['q', .25, 1.2, -.05, 1.05], [-.35, 1.0], [-.7, 1.02], ['q', -.95, 1.08, -1.0, .92], [-.75, .78], [-.2, .55], [.4, .5]], .42, .1);
+      dun('glass', [[.8, 1.1], [.9, 1.1], [.72, 1.38], [.64, 1.36]], .34, .02);                             // kính chắn gió
+      dun('dark', [[.05, 1.04], [-.7, 1.02], ['q', -.76, 1.12, -.6, 1.14], [0, 1.13]], .36, .04);           // yên
+      hop('dark', .36, .3, .5, 0, .5, -.05); ong('rim', V(.2, .3, .25), V(.2, .45, -.9), .05);                // máy, ống xả
+      doi(function (sd) { ong('rim', V(sd * .1, .4, .65), V(sd * .1, 1.05, .72), .035); });                  // phuộc trước
+      ong('dark', V(-.32, 1.12, .62), V(.32, 1.12, .62), .03); cau('light', .09, 0, .95, 1.0, 1, 1, .5); hop('tail', .14, .06, .05, 0, .95, -1.0);
+      ong('suit', V(0, 1.2, -.35), V(0, 1.6, -.05), .17);                                                     // người lái
+      doi(function (sd) {
+        ong('suit', V(sd * .18, 1.55, -.05), V(sd * .3, 1.15, .55), .06);
+        ong('suit', V(sd * .12, 1.18, -.35), V(sd * .2, 1.05, .05), .085); ong('suit', V(sd * .2, 1.05, .05), V(sd * .2, .6, -.05), .07);
+        cau('dark', .07, sd * .2, .55, 0, 1, .8, 1.6);
+      });
+      cau('paint', .2, 0, 1.8, .05); cau('dark', .14, 0, 1.8, .15, 1.1, .6, .6);                              // mũ cùng màu xe, kính
     }
-    box(.28, .14, .06, 'light', key === 'moto' ? 0 : -W / 2 + .3, lift + s.h * .55, L / 2 + .01); if (key !== 'moto') box(.28, .14, .06, 'light', W / 2 - .3, lift + s.h * .55, L / 2 + .01);
-    Object.keys(parts).forEach(function (k) {
-      if (!parts[k].length) return;
-      var m = new T.Mesh(merge(parts[k]), k === 'paint' ? MAT[color] : MAT[k]); m.castShadow = true; body.add(m);
+    Object.keys(P).forEach(function (k) {
+      var m = new T.Mesh(merge(P[k]), k === 'paint' ? MAT[color] : MAT[k]); m.castShadow = true; body.add(m);
     });
-    var wheels = [], tire = function (x) { return new T.CylinderGeometry(s.wheel, s.wheel, key === 'moto' ? .18 : .32, 14).rotateZ(Math.PI / 2).translate(x, 0, 0); };
-    var rim = function (x) { return new T.BoxGeometry(key === 'moto' ? .2 : .34, s.wheel * 1.2, .12).translate(x, 0, 0); };
-    (key === 'moto' ? [L / 2 - .35, -L / 2 + .35] : [L / 2 - .6, -L / 2 + .6]).forEach(function (z) {
-      var xs = key === 'moto' ? [0] : [-W / 2, W / 2];
-      var ax = new T.Mesh(merge(xs.map(tire).concat(xs.map(rim))), MAT.dark); ax.castShadow = true; ax.position.set(0, s.wheel, z); g.add(ax); wheels.push(ax);
+    var wheels = [], xs = key === 'moto' ? [0] : [-W / 2, W / 2], rong = key === 'moto' ? .16 : key === 'f1' ? .38 : .32;
+    [zF, zR].forEach(function (z) {
+      var ax = new T.Group(), gop = { tire: [], rim: [], white: [] };
+      xs.forEach(function (x) { var b = banh(x, R0, rong, null, key === 'classic'); Object.keys(gop).forEach(function (k) { gop[k] = gop[k].concat(b[k]); }); });
+      Object.keys(gop).forEach(function (k) { if (gop[k].length) { var m = new T.Mesh(merge(gop[k]), MAT[k]); m.castShadow = true; ax.add(m); } });
+      ax.position.set(0, R0, z); g.add(ax); wheels.push(ax);
     });
-    g.userData = { body: body, wheels: wheels, radius: s.wheel };
+    g.userData = { body: body, wheels: wheels, radius: R0 };
     return g;
   }
 

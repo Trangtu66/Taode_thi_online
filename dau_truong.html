@@ -36,7 +36,7 @@
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
-<script src="race3d.js?v=20261126a"></script>
+<script src="race3d.js?v=20261126b"></script>
 <script src="tug3d.js?v=20261123c"></script>
 <script src="game3d_chung.js?v=20261126a"></script>
 <script src="bell3d.js?v=20261123c"></script>
@@ -2592,6 +2592,8 @@
         // màn hình GV đọc "Đáp án đúng là …" và kết quả câu (tắt khi GV tắt âm thanh)
         function phoneNoi(ma) { if (IS_STUDENT_MODE && window.GiongNoi && (!window.PhoneSound || PhoneSound.on())) GiongNoi.noi(ma); }
         function gvNoi(ma) { if (!IS_STUDENT_MODE && window.GiongNoi && !soundMuted) GiongNoi.noi(ma); }
+        // màn chiếu GV: giọng nói đã đọc kết quả thì không hiện thêm phụ đề (toast) lặp lại lời đọc (GV yêu cầu 25/11/2026)
+        function gvCoGiong() { return !IS_STUDENT_MODE && window.GiongNoi && !soundMuted && GiongNoi.dangBat(); }
         function maDapAnGV(q) { return q && q.type === 'mcq' && typeof q.correct === 'number' && q.correct >= 0 && q.correct < 4 ? 'da_' + 'ABCD'[q.correct] : 'da_xem'; }
         function phoneResultFx(newList) {
             if (!currentStudentId || !window.PhoneSound) return;
@@ -2980,7 +2982,7 @@
                     if (correctCount > 0) playCorrectSound();
                     else playWrongSound();
                     gvNoi([maDapAnGV(examQuestions[tugIndex]), redRate > blueRate ? 'tug_do_keo' : blueRate > redRate ? 'tug_xanh_keo' : redRate > 0 ? 'tug_hoa' : 'lop_sai_het']);
-                    showToast(`🪢 Đội Đỏ đúng ${redCorrect}/${redSize} HS (${pct(redRate)}) • Đội Xanh đúng ${blueCorrect}/${blueSize} HS (${pct(blueRate)}). ${result}`);
+                    if (!gvCoGiong()) showToast(`🪢 Đội Đỏ đúng ${redCorrect}/${redSize} HS (${pct(redRate)}) • Đội Xanh đúng ${blueCorrect}/${blueSize} HS (${pct(blueRate)}). ${result}`);
                 }
                 return;
             }
@@ -2990,7 +2992,7 @@
                 if (correctCount > 0) playCorrectSound();
                 else playWrongSound();
                 gvNoi([maDapAnGV(examQuestions[bellIndex]), remainingAlive < aliveTruoc ? 'bell_gv_loai' : '']);
-                showToast(`✅ Đã chấm sàn: ${correctCount} HS trả lời đúng, loại ${noAnswerEliminatedCount} HS không trả lời. Còn ${remainingAlive} HS trên sàn!`);
+                if (!gvCoGiong()) showToast(`✅ Đã chấm sàn: ${correctCount} HS trả lời đúng, loại ${noAnswerEliminatedCount} HS không trả lời. Còn ${remainingAlive} HS trên sàn!`);
             } else {
                 playCorrectSound();
                 gvNoi(maDapAnGV(examQuestions[isTugMode ? tugIndex : bellIndex]));
