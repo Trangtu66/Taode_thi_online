@@ -16,6 +16,7 @@
 <script src="game3d_chung.js?v=20261123c"></script>
 <script src="game_moi.js?v=20261124c"></script>
 <script src="bom3d.js?v=20261124b"></script>
+<script src="rpg3d.js?v=20261124a"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -181,7 +182,7 @@
       <span class="chip blue" id="c-game"></span><span class="chip" id="c-cau"></span><span class="chip dh" id="c-dh">⏱ 0:00</span>
       <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
-    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3"></div></div>
+    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div></div>
     <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
     <div class="card cau" id="khung-cau">
       <div id="noi-dung"></div>
@@ -305,13 +306,13 @@ function stSan(){
   return st;
 }
 // Sân 3D (trò nào có thì dùng, máy không hỗ trợ WebGL hoặc GV bấm 2D thì dùng sân 2D của game_moi.js)
-const S3 = { bom:'Bom3D' };
+const S3 = { bom:'Bom3D', rpg:'Rpg3D' };
 let CHE_3D = lay('tcl_3d') !== 'tat';
 function dung3d(){
   const lib = window[S3[GAME]], on = !!(CHE_3D && lib && lib.supported && lib.supported() && !V.loi3d);
   $('nut-3d').classList.toggle('an', !lib); $('nut-3d').textContent = on ? '2D' : '3D';
-  $('s3').classList.toggle('an', !on); $('san').classList.toggle('an', on);
-  if (on && !V.da3d){ V.da3d = true; lib.mount($('s3'), stSan).catch(() => { if (V){ V.loi3d = true; dung3d(); } }); }
+  Object.keys(S3).forEach(g => $('s3-' + g).classList.toggle('an', !(on && g === GAME))); $('san').classList.toggle('an', on);   // mỗi trò một khung 3D riêng
+  if (on && !V.da3d){ V.da3d = true; lib.mount($('s3-' + GAME), stSan).catch(() => { if (V){ V.loi3d = true; dung3d(); } }); }
   return on;
 }
 function veSan(){ if (!V) return; if (dung3d()){ $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; return; } $('san').innerHTML = G_.html(GAME, stSan(), G_.TEN[GAME] + ': câu ' + Math.min(V.k + 1, CAU.length) + ' trên ' + CAU.length); $('tien-do').style.width = (V.k / CAU.length * 100) + '%'; }
