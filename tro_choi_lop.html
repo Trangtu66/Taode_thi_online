@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="chon_de.js?v=20261125d"></script>
+<script src="chon_de.js?v=20261126b"></script>
 <script src="game3d_chung.js?v=20261126a"></script>
 <script src="game_moi.js?v=20261126a"></script>
 <script src="giong_noi.js?v=20261125b"></script>
@@ -235,6 +235,12 @@ function mucCua(level, noiDung){
   if (/vận\s*dụng/i.test(s)) return 3; if (/hiểu/i.test(s)) return 2; if (/biết/i.test(s)) return 1; return null;
 }
 const NHIP = { mcq:40, tf:60, short:60 };
+// Chơi 3 mức (GV yêu cầu 25/11/2026) với đề “🏁 Đề 3 mức”: câu xếp Biết → Hiểu → Vận dụng; hết Mức 1, Mức 2 bấm “Câu tiếp”
+// thì hiện bảng tổng kết mức của các đội (điểm mức = số câu đúng của mức quy về thang 10, đạt từ 5 điểm), GV bấm sang mức sau.
+const TEN_MUC = ['Nhận biết', 'Thông hiểu', 'Vận dụng'], QUA_MUC = 5;
+const la3Muc = () => !!(DE && ((DE.meta && (DE.meta.de3Muc || DE.meta.duaXe3Muc)) || /(Đề|Đua xe) 3 mức/.test(DE_TEN)));
+const co3Muc = () => { if (!la3Muc()) return false; const m = CAU.map(c => mucCua(c.mucDo, c.nd)); return !m.includes(null) && [1, 2, 3].every(k => m.includes(k)); };
+const mucCau = i => !V || !V.muc3 ? -1 : (k => k < 0 ? 2 : k)(V.muc3.findIndex(e => i < e));
 const giayCau = c => [null, 20, 40, 60][mucCua(c.mucDo, c.nd) || 0] || NHIP[c.type];
 const HE_SO_THOAT = 1.5, PHAT_BAO_DONG = 20, HP_DOI = 5;   // Thoát hiểm: tổng giờ = 1,5 × thời lượng chuẩn (cả lớp cần thời gian bàn); báo động trừ 20 giây
 
@@ -284,7 +290,8 @@ $('de-btn').onclick = () => {
     const ds = chuanHoa(de); if (!ds.length) throw new Error('Đề này không có câu 4 lựa chọn, Đúng/Sai hoặc trả lời ngắn để chơi.');
     DE = de; DE_TEN = (de.meta && de.meta.title) || ten || 'Đề'; CAU = ds;
     const dem = t => ds.filter(c => c.type === t).length;
-    $('de-ten').innerHTML = `${esc(DE_TEN)}<small>${ds.length} câu · ${dem('mcq')} trắc nghiệm · ${dem('tf')} Đúng/Sai · ${dem('short')} trả lời ngắn</small>`;
+    $('de-ten').innerHTML = `${esc(DE_TEN)}<small>${ds.length} câu · ${dem('mcq')} trắc nghiệm · ${dem('tf')} Đúng/Sai · ${dem('short')} trả lời ngắn</small>` +
+      (co3Muc() ? `<label style="display:block;margin-top:6px;font-weight:800;cursor:pointer"><input type="checkbox" id="m3" checked> 🏁 Chơi 3 mức: Mức 1 Biết → Mức 2 Hiểu → Mức 3 Vận dụng (hết mỗi mức tổng kết điểm các đội)</label>` : '');
     $('so-2').classList.add('xong'); $('so-2').textContent = '✓'; kiemTra();
   }, {tieuDe:'📚 Chọn đề cho cả lớp chơi', moTa:'Chọn khối, chọn bài. Nên chọn đề 10–20 câu cho một tiết ôn tập.'});
 };
@@ -297,11 +304,15 @@ function kiemTra(){
 let V = null, veHen = null;
 function batDau(){
   if (!GAME || !CAU.length) return;
+  const choi3 = !!($('m3') && $('m3').checked && co3Muc());
+  if (choi3) CAU = [1, 2, 3].flatMap(k => CAU.filter(c => mucCua(c.mucDo, c.nd) === k));
   const n = CAU.length;
-  V = { k:0, doi: Array.from({length: SO_DOI}, (_, j) => ({ ten: (SO_DOI === 1 && (TEN_DOI[0] || '') === G_.DOI[0].ten) ? 'Cả lớp' : (TEN_DOI[j] || G_.DOI[j].ten), mau: G_.DOI[j].mau, kq: [], cay: [], sat: 0, dung: 0, bac: 0, sao: [], hc: [], dong: 0, combo: 0, comboMax: 0 })),
+  V = { k:0, doi: Array.from({length: SO_DOI}, (_, j) => ({ ten: (SO_DOI === 1 && (TEN_DOI[0] || '') === G_.DOI[0].ten) ? 'Cả lớp' : (TEN_DOI[j] || G_.DOI[j].ten), mau: G_.DOI[j].mau, kq: [], cay: [], sat: 0, dung: 0, bac: 0, sao: [], hc: [], dong: 0, combo: 0, comboMax: 0, m3: [0, 0, 0] })),
     cham: [], chot: false, hien: false, fx: null, batDauCau: 0, han: 0, daNo: false, dungLuc: 0,
     ai: GAME === 'rpg' ? G_.chiaAi(n).map(a => Object.assign(a, { mau: { con: a.so * SO_DOI, max: a.so * SO_DOI } })) : [], iAi: 0, hp: HP_DOI, guc: 0, haQuai: 0,
     tongThoat: Math.round(CAU.reduce((s, c) => s + giayCau(c), 0) * HE_SO_THOAT), daDung: 0, phat: 0, quaGio: false, xong: false };
+  V.muc3 = null; V.m3Xong = {};
+  if (choi3){ const d = [1, 2, 3].map(k => CAU.filter(c => mucCua(c.mucDo, c.nd) === k).length); V.muc3 = [d[0], d[0] + d[1], n]; }
   document.body.classList.add('dang-choi');
   $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
   $('c-game').textContent = G_.TEN[GAME];
@@ -351,7 +362,8 @@ function veCau(){
   const c = CAU[V.k], n = CAU.length;
   V.cham = V.doi.map(() => null); V.chot = false; V.hien = false; V.daNo = false; V.baoHet = false; V.tich = 0; V.daDocDA = false;
   V.batDauCau = Date.now(); V.han = V.batDauCau + giayCau(c) * 1000;
-  $('c-cau').textContent = `Câu ${V.k + 1}/${n}`;
+  const km = mucCau(V.k);
+  $('c-cau').textContent = (km >= 0 ? `🏁 Mức ${km + 1}/3 · ${TEN_MUC[km]} · ` : '') + `Câu ${V.k + 1}/${n}`;
   thongBao('', '');
   veNoiDung(); veGV(); toan($('noi-dung'));
   $('khung-cau').scrollTop = 0;
@@ -397,6 +409,7 @@ function chot(){
   if (!V || V.chot) return;
   const now = Date.now(), i = V.k, dung = [], sai = [];
   V.cham.forEach((x, j) => (x === true ? dung : sai).push(j));
+  if (V.muc3) dung.forEach(j => V.doi[j].m3[mucCau(i)]++);
   V.chot = true; V.hien = true; V.daDung += (now - V.batDauCau) / 1000; V.conLuc = Math.max(0, (V.han - now) / 1000);
   dung.forEach(j => V.doi[j].dung++);
   let tb = ['dung', ''];
@@ -463,8 +476,30 @@ function chot(){
 function tiep(){
   if (!V || !V.chot) return;
   if (V.chuyenAi){ V.chuyenAi = false; V.iAi++; }
+  if (V.muc3){ const k = V.muc3.indexOf(V.k); if ((k === 0 || k === 1) && !V.m3Xong[k]) return tongKetMuc(k); }
   if (V.k >= CAU.length) return ketThuc();
   veCau();
+}
+const diemMuc = (d, k) => Math.round(d.m3[k] / (V.muc3[k] - (k ? V.muc3[k - 1] : 0)) * 100) / 10;
+function tongKetMuc(k){
+  const n = V.muc3[k] - (k ? V.muc3[k - 1] : 0), nSau = V.muc3[k + 1] - V.muc3[k];
+  const ds = V.doi.map(d => ({ d, diem: diemMuc(d, k) })).sort((a, b) => b.diem - a.diem);
+  let o = $('m3-modal');
+  if (!o){ o = document.createElement('div'); o.id = 'm3-modal'; document.body.appendChild(o); }
+  o.style.cssText = 'position:fixed;inset:0;z-index:9990;background:rgba(2,6,23,.8);display:flex;align-items:center;justify-content:center;padding:14px';
+  o.innerHTML = `<div role="dialog" aria-modal="true" style="background:#fff;color:#0f172a;width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:22px;padding:20px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.45)">
+    <div style="font-size:40px">🏁</div><h3 style="margin:2px 0 6px;font-size:24px;font-weight:900;color:#4338ca">Tổng kết Mức ${k + 1} · ${TEN_MUC[k]} (${n} câu)</h3>
+    <p style="margin:0 0 12px;font-weight:700">Điểm mức = số câu đúng của mức quy về thang 10 · đạt từ ${QUA_MUC} điểm là qua mức.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">${ds.map(x => `<div style="padding:14px;border-radius:16px;background:${x.diem >= QUA_MUC ? '#dcfce7' : '#fef3c7'};font-weight:900">
+      <div style="font-size:18px"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${x.d.mau};margin-right:6px"></span>${esc(x.d.ten)}</div>
+      <div style="font-size:30px;margin:4px 0">${String(x.diem).replace('.', ',')}</div><div style="font-size:13px">${x.d.m3[k]}/${n} câu đúng · ${x.diem >= QUA_MUC ? '✅ qua mức' : '⚠ chưa đạt'}</div></div>`).join('')}</div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+      <button type="button" class="btn gold" id="m3-sang">➡ Sang Mức ${k + 2}: ${nSau} câu ${TEN_MUC[k + 1]}</button>
+      <button type="button" class="btn" id="m3-o-lai">Ở lại câu này</button></div></div>`;
+  $('m3-o-lai').onclick = () => { o.style.display = 'none'; };
+  $('m3-sang').onclick = () => { o.style.display = 'none'; V.m3Xong[k] = true; tiep(); };
+  const g = ga(); if (g) g.win(); phaoGiay(); noi('race_qua_muc');
+  $('m3-sang').focus();
 }
 
 // ======================= KẾT THÚC =======================
@@ -490,8 +525,8 @@ function ketThuc(){
   const huyChuong = ['🥇', '🥈', '🥉', '4'];
   $('kq').innerHTML = `<div class="huy">${huy}</div><h2>${esc(tieuDe)}</h2><div class="sub" style="margin:0">${esc(G_.TEN[GAME])} · ${esc(DE_TEN)} · ${n} câu</div>
     ${them ? `<div class="sub" style="margin:6px 0 0">${them}</div>` : ''}
-    <table class="bxh"><thead><tr><th>Hạng</th><th>Đội</th><th>${dv[0]} ${dv[1]}</th><th>Câu đúng</th></tr></thead><tbody>
-    ${ds.map((x, i) => `<tr class="${x.diem === ds[0].diem && V.doi.length > 1 ? 'nhat' : ''}"><td>${ds.findIndex(y => y.diem === x.diem) < 3 ? huyChuong[ds.findIndex(y => y.diem === x.diem)] : i + 1}</td><td><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${x.d.mau};margin-right:6px"></span>${esc(x.d.ten)}</td><td><b>${x.diem}</b>${toi ? ' / ' + toi : ''}</td><td>${x.d.dung}/${n}</td></tr>`).join('')}
+    <table class="bxh"><thead><tr><th>Hạng</th><th>Đội</th><th>${dv[0]} ${dv[1]}</th><th>Câu đúng</th>${V.muc3 ? '<th>Mức 1</th><th>Mức 2</th><th>Mức 3</th>' : ''}</tr></thead><tbody>
+    ${ds.map((x, i) => `<tr class="${x.diem === ds[0].diem && V.doi.length > 1 ? 'nhat' : ''}"><td>${ds.findIndex(y => y.diem === x.diem) < 3 ? huyChuong[ds.findIndex(y => y.diem === x.diem)] : i + 1}</td><td><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${x.d.mau};margin-right:6px"></span>${esc(x.d.ten)}</td><td><b>${x.diem}</b>${toi ? ' / ' + toi : ''}</td><td>${x.d.dung}/${n}</td>${V.muc3 ? [0, 1, 2].map(k => `<td>${String(diemMuc(x.d, k)).replace('.', ',')}</td>`).join('') : ''}</tr>`).join('')}
     </tbody></table>
     <div class="hanh-dong" style="justify-content:center;margin-top:16px"><button type="button" class="btn gold" id="kq-lai">↻ Chơi lại đề này</button><button type="button" class="btn" id="kq-doi">🧩 Đổi trò / đổi đề</button></div>`;
   setTimeout(() => { if (!V || !V.xong) return; clearInterval(veHen); $('man-choi').classList.add('an'); $('man-ket-qua').classList.remove('an'); document.body.classList.remove('dang-choi'); window.scrollTo(0, 0); }, 2600);
@@ -504,6 +539,7 @@ function phaoGiay(){
   document.body.appendChild(p); setTimeout(() => p.remove(), 5200);
 }
 function veChuanBi(){
+  if ($('m3-modal')) $('m3-modal').style.display = 'none';
   V = null; clearInterval(veHen); nhac(false); try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {}
   document.body.classList.remove('dang-choi'); $('man-choi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-chuan-bi').classList.remove('an'); window.scrollTo(0, 0);
 }

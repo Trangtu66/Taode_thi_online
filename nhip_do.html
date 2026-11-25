@@ -15,7 +15,7 @@
 <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
 <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
-<script src="chon_de.js?v=20261125d"></script>
+<script src="chon_de.js?v=20261126b"></script>
 <script src="game3d_chung.js?v=20261126a"></script>
 <!-- Giọng nói tiếng Việt (25/11/2026): điện thoại HS nói kết quả, màn hình GV đọc đáp án – am_thanh/giong/ -->
 <script src="giong_noi.js?v=20261125b"></script>
@@ -231,6 +231,7 @@ th{background:#f8fafc;position:sticky;top:0}
             <option value="120">2 phút</option>
           </select>
           <label><input type="checkbox" id="shuf"> Đảo thứ tự câu</label>
+          <label id="m3Lbl" class="hidden" title="Mức 1 câu Biết → Mức 2 câu Hiểu → Mức 3 câu Vận dụng. Hết mỗi mức máy tổng kết điểm mức của từng HS (đạt từ 5 điểm) rồi GV bấm sang mức sau. Đảo thứ tự câu chỉ đảo trong từng mức."><input type="checkbox" id="m3" checked> 🏁 Chơi 3 mức (Biết → Hiểu → Vận dụng)</label>
           <label><input type="checkbox" id="autoClose"> Tự mở đáp án khi cả lớp đã trả lời</label>
         </div>
         <div class="row" style="margin-top:16px">
@@ -346,6 +347,9 @@ function giayTheoMucDo(level, noiDung) {
     return null;
 }
 // ====================== DÙNG CHUNG ======================
+// Chơi 3 mức (GV yêu cầu 25/11/2026) với đề “🏁 Đề 3 mức”: 0 Biết · 1 Hiểu · 2 Vận dụng, Vận dụng cao; -1: câu không ghi mức độ
+const mucNd = q => ({ 20: 0, 40: 1, 60: 2 })[giayTheoMucDo(q.level, q.text)] ?? -1;
+const TEN_MUC = ['Nhận biết', 'Thông hiểu', 'Vận dụng'], QUA_MUC = 5;
 const TOPIC = 'thptvt/nhipdo/v1/';
 const BROKERS = ['wss://broker.emqx.io:8084/mqtt', 'wss://broker.hivemq.com:8884/mqtt'];
 const params = new URLSearchParams(location.search);
@@ -540,7 +544,7 @@ const GV = {
     const n = t => all.filter(q => q.type === t).length;
     $('nMcq').textContent = n('mcq'); $('nTf').textContent = n('tf'); $('nShort').textContent = n('short');
     $('useMcq').checked = n('mcq') > 0; $('useTf').checked = n('tf') > 0; $('useShort').checked = n('short') > 0;
-    $('setOpts').classList.remove('hidden');
+    $('setOpts').classList.remove('hidden'); this.ve3Muc();
     this.setStatus(`✅ Đã nạp <b>${esc(this.title)}</b>: ${all.length} câu.`, 'ok');
     this.updateStart(); this.buildKho();
   },
@@ -555,7 +559,7 @@ const GV = {
       const n = t => all.filter(q => q.type === t).length;
       $('nMcq').textContent = n('mcq'); $('nTf').textContent = n('tf'); $('nShort').textContent = n('short');
       $('useMcq').checked = n('mcq') > 0; $('useTf').checked = n('tf') > 0; $('useShort').checked = n('short') > 0;
-      $('setOpts').classList.remove('hidden');
+      $('setOpts').classList.remove('hidden'); this.ve3Muc();
       this.setStatus(`✅ Đã nạp <b>${esc(this.title)}</b>: ${all.length} câu.`, 'ok');
       this.updateStart();
     } catch (e) {
@@ -680,11 +684,51 @@ const GV = {
     return q.correct;
   },
 
+  // ---- Chơi 3 mức ----
+  co3Muc(qs) {   // đề “Đề 3 mức” và các câu đang chọn đều ghi mức độ, đủ 3 mức
+    if (!/(Đề|Đua xe) 3 mức/.test(this.title || '') && !(this.de && this.de.meta && (this.de.meta.de3Muc || this.de.meta.duaXe3Muc))) return false;
+    const m = qs.map(mucNd);
+    return !m.includes(-1) && [0, 1, 2].every(k => m.includes(k));
+  },
+  ve3Muc() { $('m3Lbl').classList.toggle('hidden', !this.co3Muc(this.all || [])); },
+  mucCua(i) { if (!this.muc3 || i < 0) return -1; const k = this.muc3.findIndex(e => i < e); return k < 0 ? 2 : k; },
+  diemMuc(p, k) {   // điểm mức của HS (thang 10): tổng phần đúng của các câu trong mức / số câu của mức
+    const tu = k ? this.muc3[k - 1] : 0, den = this.muc3[k];
+    let s = 0; for (let i = tu; i < den; i++) { const x = p.ans[i]; if (x && x.f > 0) s += x.f; }
+    return Math.round(s / (den - tu) * 100) / 10;
+  },
+  tongKetMuc(k) {   // hết Mức 1, Mức 2: bảng điểm mức của cả lớp, GV bấm sang mức sau
+    const n = this.muc3[k] - (k ? this.muc3[k - 1] : 0), nSau = this.muc3[k + 1] - this.muc3[k];
+    const ds = this.ranking().map(p => ({ p, d: this.diemMuc(p, k) })).sort((a, b) => b.d - a.d || b.p.s - a.p.s);
+    const dat = ds.filter(x => x.d >= QUA_MUC).length;
+    let o = $('m3Modal');
+    if (!o) { o = document.createElement('div'); o.id = 'm3Modal'; document.body.appendChild(o); }
+    o.style.cssText = 'position:fixed;inset:0;z-index:9990;background:rgba(2,6,23,.8);display:flex;align-items:center;justify-content:center;padding:14px';
+    o.innerHTML = `<div role="dialog" aria-modal="true" style="background:#fff;color:#0f172a;width:min(860px,100%);max-height:92vh;overflow:auto;border-radius:22px;padding:20px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.45)">
+      <div style="font-size:40px">🏁</div><h3 style="margin:2px 0 6px;font-size:22px;font-weight:900;color:#4338ca">Tổng kết Mức ${k + 1} · ${TEN_MUC[k]} (${n} câu)</h3>
+      <p style="margin:0 0 10px;font-weight:700">Điểm mức = số câu đúng của mức quy về thang 10 · <b style="color:#15803d">✅ ${dat} HS đạt từ ${QUA_MUC} điểm</b> · <b style="color:#b45309">⚠ ${ds.length - dat} HS chưa đạt</b> (vẫn thi tiếp mức sau, GV lưu ý chữa bài)</p>
+      <div style="max-height:50vh;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px;text-align:left">${ds.map((x, r) =>
+        `<div style="display:flex;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:12px;background:${x.d >= QUA_MUC ? '#dcfce7' : '#fef3c7'};font-weight:700;font-size:13px">
+          <span>${r + 1}. ${esc(x.p.n)} <small style="color:#64748b">${esc(x.p.lop)}</small></span><span><b>${String(x.d).replace('.', ',')}</b> ${x.d >= QUA_MUC ? '✅' : '⚠'}</span></div>`).join('') || '<div>Chưa có học sinh.</div>'}</div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+        <button type="button" id="m3Sang" class="btn green big">➡ Sang Mức ${k + 2}: ${nSau} câu ${TEN_MUC[k + 1]}</button>
+        <button type="button" id="m3OLai" class="btn ghost">Ở lại câu này</button></div></div>`;
+    $('m3OLai').onclick = () => { o.style.display = 'none'; };
+    $('m3Sang').onclick = () => { o.style.display = 'none'; this.m3Xong[k] = true; this.next(); };
+    Snd.fanfare(); this.sfx('cheer', 1.2, .3);
+  },
+
   // ---- Diễn biến trận ----
   startGame() {
     const types = this.selTypes();
     this.qs = this.all.filter(q => types.includes(q.type));
     if ($('shuf').checked) for (let i = this.qs.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [this.qs[i], this.qs[j]] = [this.qs[j], this.qs[i]]; }
+    this.muc3 = null; this.m3Xong = {};
+    if ($('m3').checked && this.co3Muc(this.qs)) {   // chơi 3 mức: xếp câu Biết → Hiểu → Vận dụng (đảo câu chỉ đảo trong từng mức)
+      this.qs = [0, 1, 2].flatMap(k => this.qs.filter(q => mucNd(q) === k));
+      const d = [0, 1, 2].map(k => this.qs.filter(q => mucNd(q) === k).length);
+      this.muc3 = [d[0], d[0] + d[1], this.qs.length];
+    }
     this.tSel = $('tSel').value;
     Object.values(this.players).forEach(p => Object.assign(p, { s: 0, ok: 0, streak: 0, tt: 0, ans: {} }));
     this.stats = []; this.prevRank = {}; this.idx = -1;
@@ -697,6 +741,10 @@ const GV = {
     return +this.tSel * 1000;
   },
   next() {
+    if (this.muc3 && this.idx >= 0) {
+      const k = this.muc3.indexOf(this.idx + 1);
+      if ((k === 0 || k === 1) && !this.m3Xong[k]) return this.tongKetMuc(k);
+    }
     if (this.idx + 1 >= this.qs.length) return this.endGame();
     this.idx++; this.phase = 'q'; this.answers = {}; this.paused = false; this.pauseAt = 0; this.pauseTotal = 0;
     const q = this.qs[this.idx];
@@ -730,7 +778,8 @@ const GV = {
   },
   renderQ(reveal) {
     const q = this.qs[this.idx];
-    $('qNum').textContent = `Câu ${this.idx + 1}/${this.qs.length}`;
+    const km = this.mucCua(this.idx);
+    $('qNum').textContent = (km >= 0 ? `🏁 Mức ${km + 1}/3 · ${TEN_MUC[km]} · ` : '') + `Câu ${this.idx + 1}/${this.qs.length}`;
     $('qType').textContent = TYPE_NAME[q.type];
     $('qLevel').textContent = q.level; $('qLevel').classList.toggle('hidden', !q.level);
     $('qText').innerHTML = rich(q.text);
@@ -869,8 +918,9 @@ const GV = {
     const perfect = rk.filter(p => p.ok === asked.length && asked.length).length;
     $('kpis').innerHTML = [[nP, 'Học sinh'], [asked.length, 'Câu đã thi'], [avgPct + '%', 'Tỉ lệ đúng TB'], [avgS, 'Điểm TB']].map(([v, l]) => `<div class="kpi"><b>${v}</b>${l}</div>`).join('');
     // Bảng xếp hạng
-    $('rankTbl').innerHTML = '<tr><th>Hạng</th><th>Họ tên</th><th>Lớp</th><th>Câu đúng</th><th>Điểm</th></tr>' +
-      rk.map((p, r) => `<tr><td>${['🥇', '🥈', '🥉'][r] || r + 1}</td><td>${esc(p.n)}</td><td>${esc(p.lop)}</td><td>${p.ok}/${asked.length}</td><td><b>${p.s}</b></td></tr>`).join('');
+    const m3 = this.muc3 && this.stats.length >= this.qs.length, dm = (p, k) => String(this.diemMuc(p, k)).replace('.', ',');
+    $('rankTbl').innerHTML = '<tr><th>Hạng</th><th>Họ tên</th><th>Lớp</th><th>Câu đúng</th>' + (m3 ? '<th>Mức 1</th><th>Mức 2</th><th>Mức 3</th>' : '') + '<th>Điểm</th></tr>' +
+      rk.map((p, r) => `<tr><td>${['🥇', '🥈', '🥉'][r] || r + 1}</td><td>${esc(p.n)}</td><td>${esc(p.lop)}</td><td>${p.ok}/${asked.length}</td>${m3 ? [0, 1, 2].map(k => `<td>${dm(p, k)}</td>`).join('') : ''}<td><b>${p.s}</b></td></tr>`).join('');
     // Thống kê từng câu
     const color = v => v >= 70 ? 'var(--ok)' : v >= 40 ? 'var(--gold)' : 'var(--bad)';
     const rows = this.stats.map((x, i) => x ? [i, x.total ? Math.round(100 * x.sum / x.total) : 0] : null).filter(Boolean);
@@ -909,14 +959,14 @@ const GV = {
   // Lưu để lỡ tải lại trang vẫn thi tiếp được
   save() {
     store.set('nhipdo_gv', { at: Date.now(), pin: this.pin, title: this.title, qs: this.qs, players: this.players, kicked: [...this.kicked],
-      phase: this.phase, idx: this.idx, stats: this.stats, tSel: this.tSel, de: this.de ? { meta: this.de.meta } : null });
+      phase: this.phase, idx: this.idx, stats: this.stats, tSel: this.tSel, de: this.de ? { meta: this.de.meta } : null, muc3: this.muc3 || null, m3Xong: this.m3Xong || {} });
   },
   offerResume(s) {
     const box = $('resumeBox'); box.classList.remove('hidden'); box.className = 'status';
     box.innerHTML = `⚠️ Có trận đang dở: <b>${esc(s.title)}</b> – câu ${s.idx + 1}/${s.qs.length}, ${Object.keys(s.players || {}).length} học sinh. ` +
       `<button class="btn green" id="btnResume">Thi tiếp</button> <button class="btn ghost" id="btnDrop">Bỏ, thi trận mới</button>`;
     $('btnResume').onclick = () => {
-      Object.assign(this, { title: s.title, qs: s.qs, all: s.qs, players: s.players || {}, kicked: new Set(s.kicked || []), stats: s.stats || [], tSel: s.tSel || '0', de: s.de || { meta: {} } });
+      Object.assign(this, { title: s.title, qs: s.qs, all: s.qs, players: s.players || {}, kicked: new Set(s.kicked || []), stats: s.stats || [], tSel: s.tSel || '0', de: s.de || { meta: {} }, muc3: s.muc3 || null, m3Xong: s.m3Xong || {} });
       box.classList.add('hidden'); this.renderPlayers(); $('pinPill').classList.remove('hidden');
       if (s.phase === 'end') return this.endGame();
       // Câu đang chiếu dở thì chiếu lại từ đầu câu đó

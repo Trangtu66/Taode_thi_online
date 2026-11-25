@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="chon_de.js?v=20261125d"></script>
+<script src="chon_de.js?v=20261126b"></script>
 <!-- Sân 3D và âm thanh DÙNG CHUNG với các game trình chiếu (dau_truong.html, nhip_do.html) -->
 <script src="game3d_chung.js?v=20261126a"></script>
 <script src="bell3d.js?v=20261123c"></script>
@@ -407,13 +407,20 @@ function maSai(c){
 let HS = null;              // {ten, lop, xacThuc}
 let GAME = lay('tc_game') || '';
 let DE = null, DE_TEN = '';
-let CAU = [];               // danh sách câu đang chơi (Đua xe 3 mức: câu của mức hiện tại)
+let CAU = [];               // danh sách câu đang chơi (chơi 3 mức: câu của mức hiện tại)
 let CAU_DE = [];            // toàn bộ câu của đề đã chọn
 let V = null;               // ván đang chơi
-// Đua xe 3 mức (GV yêu cầu 24/11/2026): Mức 1 câu Biết → Mức 2 câu Hiểu → Mức 3 câu Vận dụng, Vận dụng cao.
+// Chơi 3 mức (Đua xe 24/11/2026; mọi game từ 25/11/2026): Mức 1 câu Biết → Mức 2 câu Hiểu → Mức 3 câu Vận dụng, Vận dụng cao.
 // Đạt từ 5/10 điểm của mức thì máy tự chuyển sang mức sau; chưa đạt thì dừng, em chơi lại mức đó.
-// Đề "… – Đua xe 3 mức" của ngân hàng đề game có đúng 12 Biết – 12 Hiểu – 4 Vận dụng + 2 Vận dụng cao.
+// Đề "… – Đề 3 mức" của ngân hàng đề game có đúng 12 Biết – 12 Hiểu – 4 Vận dụng + 2 Vận dụng cao: mọi game chơi 3 mức.
+// Đua xe chơi 3 mức với mọi đề có ghi mức độ từng câu (như trước); game khác chỉ chơi 3 mức với Đề 3 mức.
 let MUC3 = null;
+const laDe3Muc = () => !!(DE && ((DE.meta && (DE.meta.de3Muc || DE.meta.duaXe3Muc)) || /(Đề|Đua xe) 3 mức/.test(DE_TEN)));
+const choi3Muc = () => (GAME === 'race' || laDe3Muc()) ? chiaMuc(CAU_DE) : null;
+const XONG_3_MUC = { bell:'em RUNG CHUÔNG VÀNG!', tug:'em thắng Máy cả trận kéo co!', nhip:'em giữ nhịp tới cuối!', bom:'em là chuyên gia gỡ bom!',
+  farm:'vụ mùa bội thu!', rpg:'em là anh hùng đấu trường!', thoat:'cả đội thoát hiểm thành công!', may:'em đã lên tới đỉnh mây!',
+  khoe:'em lên bục nhận huy chương!', mua:'vũ công xuất sắc!' };
+const HUY_3_MUC = { bell:'🔔', tug:'🏆', nhip:'🥇', bom:'🧯', farm:'🧺', rpg:'⚔️', thoat:'🚪', may:'☁️', khoe:'🥇', mua:'💃' };
 const TEN_MUC = ['Nhận biết', 'Thông hiểu', 'Vận dụng'], DIEM_QUA_MUC = 5;
 const TEN_GAME = { bell:'🔔 Rung chuông vàng', tug:'🪢 Kéo co với Máy', race:'🏎️ Đua xe với Máy', nhip:'⏱️ Thi theo nhịp độ',
   bom:'💣 Gỡ bom', farm:'🌾 Nông trại', rpg:'⚔️ Đấu trường nhập vai', thoat:'🚪 Đồng đội thoát hiểm',
@@ -503,7 +510,7 @@ const HD = {
           'Trả lời đúng: xe lao đi 6 giây vượt chướng ngại vật, tới chướng ngại tiếp theo thì câu sau mới mở. Đúng ngay lần đầu nhiều câu liên tiếp, xe phụt lửa tăng tốc 🔥.',
           'Trả lời sai: xe trượt bánh, chờ 5 giây rồi trả lời lại câu đó.',
           'Xe Máy chạy đều theo thời gian chuẩn của từng câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây) cộng 6 giây chạy mỗi chặng như xe em; góc sân ghi số chướng ngại em và Máy đã vượt.',
-          '<b>Đua 3 mức</b> (đề có ghi mức độ, ví dụ đề “🏁 Đua xe 3 mức”): <b>Mức 1</b> 12 câu Nhận biết → <b>Mức 2</b> 12 câu Thông hiểu → <b>Mức 3</b> 6 câu Vận dụng (4 câu Vận dụng, 2 câu Vận dụng cao). Mỗi mức đạt từ <b>5 điểm</b> trở lên thì máy tự chuyển sang mức sau; chưa đạt thì dừng ở mức đó để em chơi lại.'],
+          '<b>Đua 3 mức</b> (đề có ghi mức độ, ví dụ đề “🏁 Đề 3 mức”): <b>Mức 1</b> 12 câu Nhận biết → <b>Mức 2</b> 12 câu Thông hiểu → <b>Mức 3</b> 6 câu Vận dụng (4 câu Vận dụng, 2 câu Vận dụng cao). Mỗi mức đạt từ <b>5 điểm</b> trở lên thì máy tự chuyển sang mức sau; chưa đạt thì dừng ở mức đó để em chơi lại.'],
     thang:'🏆 Về đích trước xe Máy: em HẠNG NHẤT! Đua 3 mức: vượt qua cả 3 mức là em hoàn thành đường đua.', meo:'Mẹo: vừa nhanh vừa chính xác – mỗi lần sai mất 5 giây.' },
   nhip: { ic:'⏱️', ten:'Thi theo nhịp độ', muc:'Trả lời đúng trong thời gian của từng câu để giữ chuỗi nhịp dài nhất.',
     buoc:['Đồng hồ vòng ở góc sân đếm ngược: câu Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây.',
@@ -546,6 +553,7 @@ const HD_CHUNG = `<details class="hd-chung"><summary>Cách trả lời, cách t�
   <li><b>Câu trả lời ngắn:</b> gõ đáp số (tối đa 4 kí tự, dấu phẩy thập phân, ví dụ <code>-1,5</code>) rồi bấm <b>✔ Kiểm tra</b> hoặc Enter. Sai 3 lần sẽ hiện 4 đáp số để em chọn.</li>
   <li><b>Điểm mỗi câu:</b> đúng ngay lần 1 được trọn điểm, lần 2 được ½, lần 3 được ¼, từ lần 4 không có điểm. Điểm cả ván quy về thang 10.</li>
   <li><b>Các nút:</b> 🔊 bật/tắt âm thanh · <b>2D/3D</b> đổi kiểu sân (máy chạy chậm thì bấm 2D) · <b>❓ Cách chơi</b> xem lại hướng dẫn · <b>✕ Dừng</b> bỏ ván đang chơi (không tính điểm).</li>
+  <li><b>Chơi 3 mức</b> (chọn đề “🏁 Đề 3 mức”, trò chơi nào cũng được): <b>Mức 1</b> 12 câu Nhận biết → <b>Mức 2</b> 12 câu Thông hiểu → <b>Mức 3</b> 6 câu Vận dụng. Mỗi mức đạt từ <b>5 điểm</b> thì máy tự chuyển sang mức sau; chưa đạt thì dừng ở mức đó để em chơi lại.</li>
   <li>Hết ván, kết quả tự gửi cho thầy cô; em xem được <b>Bảng xếp hạng</b> của lớp và kỉ lục của mình.</li></ul></details>`;
 function hdHtml(g, the){
   const h = HD[g]; if (!h) return '';
@@ -629,9 +637,10 @@ $('de-btn').onclick = () => {
 };
 function veTenDe(){
   const ds = CAU_DE; if (!ds.length) return;
-  const dem = t => ds.filter(c => c.type === t).length, m = chiaMuc(ds);
-  const goiY = GAME !== 'race' ? '' : m ? `<br>🏁 Đua xe 3 mức: Mức 1 ${m[0].length} câu Biết → Mức 2 ${m[1].length} câu Hiểu → Mức 3 ${m[2].length} câu Vận dụng`
-    : '<br>🏁 Đề này không ghi mức độ từng câu nên Đua xe chơi một chặng. Chọn đề “🏁 Đua xe 3 mức” để chơi 3 mức.';
+  const dem = t => ds.filter(c => c.type === t).length, m = choi3Muc();
+  const goiY = m ? `<br>🏁 Chơi 3 mức: Mức 1 ${m[0].length} câu Biết → Mức 2 ${m[1].length} câu Hiểu → Mức 3 ${m[2].length} câu Vận dụng`
+    : GAME === 'race' ? '<br>🏁 Đề này không ghi mức độ từng câu nên Đua xe chơi một chặng. Chọn đề “🏁 Đề 3 mức” để chơi 3 mức.'
+    : GAME ? '<br>Chọn đề “🏁 Đề 3 mức” để chơi 3 mức (Biết → Hiểu → Vận dụng).' : '';
   $('de-ten').innerHTML = `${esc(DE_TEN)}<small>${ds.length} câu · ${dem('mcq')} trắc nghiệm · ${dem('tf')} Đúng/Sai · ${dem('short')} trả lời ngắn${goiY}</small>`;
 }
 function capNhatNutBatDau(){
@@ -723,6 +732,7 @@ function veHud(){
   const n = CAU.length, k = V.k, h = [];
   if (GAME === 'bell') h.push(`<span class="vang">🔔 Bậc ${k}/${n}</span>`);
   if (GAME === 'tug') h.push(`<span>🔴 Em ${V.luc} – ${V.lucMay} Máy 🔵</span>`);
+  if (MUC3 && GAME !== 'race') h.unshift(`<span class="vang">🏁 Mức ${MUC3.i + 1}/3 · ${TEN_MUC[MUC3.i]}</span>`);
   if (GAME === 'race') h.push((MUC3 ? `<span class="vang">🏁 Mức ${MUC3.i + 1}/3 · ${TEN_MUC[MUC3.i]}</span>` : '') + `<span>🚧 ${Math.min(k, n)}/${n}</span><span>🤖 Máy ${V.mayPos || 0}/${n}</span>`);
   if (GAME === 'nhip') h.push(`<span class="vang">${V.chuoi >= 3 ? '🔥' : '⏱️'} Chuỗi ×${V.chuoi}</span>`);
   $('hud').innerHTML = h.join('');
@@ -874,12 +884,12 @@ function rpgQuaAi(){
 function batDau(cach){
   if (!HS || !GAME || !CAU_DE.length) return;
   if (cach !== 'tiep' && cach !== 'lai'){
-    const m = GAME === 'race' ? chiaMuc(CAU_DE) : null;
-    MUC3 = m ? { ds: m, i: 0, kq: [], cau: [], lanSai: 0, giay: 0, giayMay: 0, diem: [] } : null;
+    const m = choi3Muc();
+    MUC3 = m ? { ds: m, i: 0, kq: [], cau: [], lanSai: 0, giay: 0, giayMay: 0, diem: [], trongGio: 0, chuoiMax: 0, tt: [] } : null;
   }
   if (MUC3){
-    if (cach === 'lai'){ const c = MUC3.moc; MUC3.kq.length = c.kq; MUC3.cau.length = c.cau; MUC3.lanSai = c.lanSai; MUC3.giay = c.giay; MUC3.giayMay = c.giayMay; MUC3.diem.length = MUC3.i; }
-    MUC3.moc = { kq: MUC3.kq.length, cau: MUC3.cau.length, lanSai: MUC3.lanSai, giay: MUC3.giay, giayMay: MUC3.giayMay };
+    if (cach === 'lai'){ const c = MUC3.moc; MUC3.kq.length = c.kq; MUC3.cau.length = c.cau; MUC3.lanSai = c.lanSai; MUC3.giay = c.giay; MUC3.giayMay = c.giayMay; MUC3.trongGio = c.trongGio; MUC3.chuoiMax = c.chuoiMax; MUC3.diem.length = MUC3.tt.length = MUC3.i; }
+    MUC3.moc = { kq: MUC3.kq.length, cau: MUC3.cau.length, lanSai: MUC3.lanSai, giay: MUC3.giay, giayMay: MUC3.giayMay, trongGio: MUC3.trongGio, chuoiMax: MUC3.chuoiMax };
     CAU = MUC3.ds[MUC3.i];
   } else CAU = CAU_DE;
   const giayMay = CAU.reduce((s, c) => s + giayCau(c), 0) + (GAME === 'race' ? CAU.length * CHAY_MS / 1000 : 0);   // xe Máy chạy đúng thời lượng chuẩn của từng câu (Đua xe: cộng thời gian chạy giữa hai chướng ngại như xe em)
@@ -894,6 +904,7 @@ function batDau(cach){
   $('c-game').textContent = TEN_GAME[GAME];
   moKhoaAm(); veCau(); veSan(); demGio(); nhac(true);
   if (window.GiongNoi) GiongNoi.napTruoc(['dung1', 'dung', 'sai', 'sai_tln', 'thang', 'xong'].concat({ bom:['bom_go', 'bom_no', 'bom_tre'], farm:['farm_dung1', 'farm_sai'], rpg:['rpg_chimang', 'rpg_danh', 'rpg_ha', 'rpg_trum', 'rpg_trung', 'rpg_guc', 'rpg_tron'], thoat:['thoat_khoa', 'thoat_mo', 'thoat_ra', 'thoat_sai', 'thoat_quagio'], may:['may_len', 'may_sao', 'may_sai', 'may_dinh'], khoe:['khoe_vang', 'khoe_bac', 'khoe_dong', 'khoe_sai', 'khoe_ket'], mua:['mua_nhay', 'mua_combo', 'mua_sai', 'mua_ket'], bell:['bell_dung'], tug:['tug_dung1', 'tug_sai'], race:['race_dung1', 'race_sai'], nhip:['nhip_het'] }[GAME] || []));
+  if (!demMs) $('dem-nguoc').classList.add('an');   // game khác Đua xe: tắt bảng “MỨC 2/3” của chuyenMuc khi mức mới bắt đầu
   if (demMs){
     const d = $('dem-nguoc'); d.classList.remove('an'); let i = 3; d.textContent = i; if (GA()) GA().pop();
     const t = setInterval(() => { i--; if (!V){ clearInterval(t); return d.classList.add('an'); }
@@ -1046,10 +1057,11 @@ function traLoi(gt, nut){
 function ketThuc(){
   V.ketThuc = Date.now(); V.xong = true; veSan();
   let ds = CAU, kq = V.kq, lanSai = V.lanSai, giay = Math.round(V.tg() / 1000), giayMay = V.giayMay, dungMuc = -1;
-  if (MUC3){   // Đua xe 3 mức: cộng dồn kết quả mức vừa chơi, đạt thì tự sang mức sau
+  if (MUC3){   // chơi 3 mức: cộng dồn kết quả mức vừa chơi, đạt thì tự sang mức sau
     const dM = Math.round(V.kq.reduce((s, x) => s + x.diem, 0) / CAU.length * 1000) / 100, qua = dM >= DIEM_QUA_MUC, off = MUC3.cau.length;
     MUC3.kq.push(...V.kq.map(x => ({ ...x, cau: x.cau + off, muc: MUC3.i + 1 }))); MUC3.cau.push(...CAU);
     MUC3.lanSai += V.lanSai; MUC3.giay += giay; MUC3.giayMay += V.giayMay; MUC3.diem[MUC3.i] = dM;
+    MUC3.trongGio += V.trongGio; MUC3.chuoiMax = Math.max(MUC3.chuoiMax, V.chuoiMax); MUC3.tt[MUC3.i] = laMoi(GAME) ? tomTatMoi(CAU.length) : [];
     if (qua && MUC3.i < 2) return chuyenMuc(dM);
     if (!qua) dungMuc = MUC3.i;
     ds = MUC3.cau; kq = MUC3.kq; lanSai = MUC3.lanSai; giay = MUC3.giay; giayMay = MUC3.giayMay;
@@ -1059,7 +1071,12 @@ function ketThuc(){
   const lan1 = kq.filter(x => x.lan === 1).length;
   const sao = diem10 >= 9 ? 3 : diem10 >= 7 ? 2 : diem10 >= 5 ? 1 : 0;
   let huy = '🏅', tieuDe = 'Hoàn thành!', thang = true;
-  if (GAME === 'bell'){ huy = '🔔'; tieuDe = diem10 >= 8 ? 'Em đã RUNG CHUÔNG VÀNG!' : 'Em đã leo tới đỉnh tháp chuông!'; }
+  if (MUC3){ thang = dungMuc < 0; const truoc = giay <= giayMay;
+    huy = !thang ? '💪' : GAME === 'race' ? (truoc ? '🏆' : '🏁') : HUY_3_MUC[GAME] || '🏆';
+    tieuDe = !thang ? `Em dừng ở Mức ${dungMuc + 1} (${TEN_MUC[dungMuc]}) – cần từ ${DIEM_QUA_MUC} điểm để qua mức. Chơi lại nhé!`
+      : GAME !== 'race' ? `Em vượt qua cả 3 mức – ${XONG_3_MUC[GAME] || 'xuất sắc!'}`
+      : truoc ? 'Em vượt qua cả 3 mức và về đích trước xe Máy – HẠNG NHẤT!' : 'Em đã vượt qua cả 3 mức của đường đua!'; }
+  else if (GAME === 'bell'){ huy = '🔔'; tieuDe = diem10 >= 8 ? 'Em đã RUNG CHUÔNG VÀNG!' : 'Em đã leo tới đỉnh tháp chuông!'; }
   else if (GAME === 'tug'){ thang = V.pos < 0; huy = thang ? '🏆' : V.pos === 0 ? '🤝' : '💪'; tieuDe = thang ? 'Em thắng Máy trong trận kéo co!' : V.pos === 0 ? 'Hoà! Hai bên cân sức.' : 'Máy thắng sát nút – chơi lại nhé!'; }
   else if (GAME === 'nhip'){ const tl = V.trongGio / n; thang = tl >= .7 && diem10 >= 6.5; const xs = tl >= .9 && diem10 >= 8; huy = xs ? '🥇' : thang ? '🏅' : '⏱️';
     tieuDe = xs ? 'Giữ nhịp xuất sắc!' : thang ? 'Em giữ nhịp rất tốt!' : 'Hoàn thành – lần sau chắc tay và nhanh hơn nhé!'; }
@@ -1078,10 +1095,6 @@ function ketThuc(){
     tieuDe = thang ? `Vũ công xuất sắc! Chuỗi vũ điệu dài nhất ×${V.comboMax}` : `Màn trình diễn hoàn thành – chuỗi dài nhất ×${V.comboMax}, lần sau giữ nhịp hơn nhé!`; }
   else if (GAME === 'thoat'){ thang = !V.quaGio; huy = thang ? '🚪' : '🚨';
     tieuDe = thang ? 'Cả đội thoát hiểm thành công trước giờ báo động!' : 'Cả đội đã ra ngoài nhưng quá thời gian thoát hiểm – nhanh hơn nhé!'; }
-  else if (MUC3){ thang = dungMuc < 0; const truoc = giay <= giayMay;
-    huy = !thang ? '💪' : truoc ? '🏆' : '🏁';
-    tieuDe = !thang ? `Em dừng ở Mức ${dungMuc + 1} (${TEN_MUC[dungMuc]}) – cần từ ${DIEM_QUA_MUC} điểm để qua mức. Chơi lại nhé!`
-      : truoc ? 'Em vượt qua cả 3 mức và về đích trước xe Máy – HẠNG NHẤT!' : 'Em đã vượt qua cả 3 mức của đường đua!'; }
   else { thang = giay <= V.giayMay; huy = thang ? '🏆' : '🥈'; tieuDe = thang ? 'Em về đích trước xe Máy – HẠNG NHẤT!' : 'Xe Máy về trước – em về nhì!'; }
   if (thang) { SFX.thang(); phaoGiay(); } else SFX.thua();
   setTimeout(() => noi(thang ? ({ may:'may_dinh', khoe:'khoe_ket', mua:'mua_ket' }[GAME] || 'thang') : 'xong'), thang ? 900 : 400);
@@ -1089,6 +1102,9 @@ function ketThuc(){
   const choXem = $('san').classList.contains('an') ? (GAME === 'race' ? 3200 : 2600) : laMoi(GAME) ? 2400 : 1200;   // để em xem hoạt cảnh trên sân
   const mmss = s => Math.floor(s / 60) + ' phút ' + String(s % 60).padStart(2, '0') + ' giây';
   const tenLoai = {mcq:'4 lựa chọn', tf:'Đúng/Sai', short:'Trả lời ngắn'};
+  const trongGio = MUC3 ? MUC3.trongGio : V.trongGio, chuoiMax = MUC3 ? MUC3.chuoiMax : V.chuoiMax;
+  V.tomTat = MUC3 ? MUC3.tt.map((x, i) => x.length ? `Mức ${i + 1}: ` + x.join(', ') : '').filter(Boolean) : laMoi(GAME) ? tomTatMoi(n) : [];
+  V.trongGioTong = trongGio; V.chuoiMaxTong = chuoiMax;
   const quizId = ('Tự chơi · ' + TEN_GAME[GAME].replace(/^\S+\s/, '') + (MUC3 ? ' 3 mức' : '') + ' · ' + DE_TEN).slice(0, 120);
   luuKyLuc(quizId, diem10, giay);
   const hang = MUC3 ? `<div class="sub" style="margin:4px 0 0">${MUC3.diem.map((d, i) => `Mức ${i + 1} · ${TEN_MUC[i]}: <b>${d.toFixed(2).replace('.', ',')}</b> ${d >= DIEM_QUA_MUC ? '✅' : '❌'}`).join(' &nbsp;·&nbsp; ')}</div>` : '';
@@ -1098,8 +1114,8 @@ function ketThuc(){
     <div class="sao" aria-label="${sao} sao">${'⭐'.repeat(sao)}${'☆'.repeat(3 - sao)}</div>${hang}
     <div class="so-lieu"><div><b>${n}/${MUC3 ? CAU_DE.length : n}</b><span>câu đã vượt qua</span></div><div><b>${lan1}</b><span>câu đúng ngay lần đầu</span></div>
       <div><b>${lanSai}</b><span>lần trả lời sai</span></div><div><b>${Math.floor(giay / 60)}:${String(giay % 60).padStart(2, '0')}</b><span>thời gian${GAME === 'race' ? ' (Máy: ' + Math.floor(giayMay / 60) + ':' + String(giayMay % 60).padStart(2, '0') + ')' : ''}</span></div></div>
-    ${GAME === 'nhip' ? `<div class="sub" style="margin:0 0 6px">Đúng trong giờ nhịp: <b>${V.trongGio}/${n}</b> câu · Chuỗi nhịp dài nhất: <b>×${V.chuoiMax}</b></div>` : ''}
-    ${laMoi(GAME) ? `<div class="sub" style="margin:0 0 6px">${tomTatMoi(n).join(' · ')}</div>` : ''}
+    ${GAME === 'nhip' ? `<div class="sub" style="margin:0 0 6px">Đúng trong giờ nhịp: <b>${trongGio}/${n}</b> câu · Chuỗi nhịp dài nhất: <b>×${chuoiMax}</b></div>` : ''}
+    ${V.tomTat.length ? `<div class="sub" style="margin:0 0 6px">${V.tomTat.join(' · ')}</div>` : ''}
     ${kyLucHtml(diem10)}
     <details style="text-align:left;margin-top:10px"><summary style="cursor:pointer;font-weight:800">Xem chi tiết từng câu</summary>
       <table class="bang"><thead><tr><th>Câu</th>${MUC3 ? '<th>Mức</th>' : ''}<th>Dạng</th><th>Đúng ở lần</th>${GAME === 'nhip' ? '<th>Nhịp</th>' : ''}<th>Điểm</th></tr></thead><tbody>
@@ -1120,7 +1136,7 @@ function ketThuc(){
   $('kq-doi').onclick = veChuanBi;
   guiKetQua(quizId, diem10, tong, n, giay, ds, kq, lanSai);
 }
-// Đua xe 3 mức: qua mức → chúc mừng, báo mức mới trên sân rồi máy tự xuất phát mức sau (đếm ngược 3 – 2 – 1)
+// Chơi 3 mức: qua mức → chúc mừng, báo mức mới trên sân rồi máy tự chuyển mức sau (Đua xe: đếm ngược 3 – 2 – 1)
 function chuyenMuc(dM){
   const VAN = V, moi = MUC3.i + 1;
   SFX.thang(); phaoGiay(); noi('race_qua_muc');
@@ -1146,7 +1162,7 @@ function guiKetQua(quizId, diem10, tong, n, giay, ds, kq, lanSai){
   if (!u){ el.textContent = ''; return; }
   const answers = kq.map(x => ({p: x.loai === 'mcq' ? 1 : x.loai === 'tf' ? 2 : 3, c: x.cau, q: rutGon(ds[x.cau - 1].nd), pts: +x.diem.toFixed(2), ok: x.lan === 1, chon: (x.muc ? 'Mức ' + x.muc + ' · ' : '') + 'Đúng ở lần ' + x.lan, dung: ''}));
   const payload = { quizId, title: quizId, name: HS.ten, lop: HS.lop, score10: diem10, total: +tong.toFixed(2), max: n,
-    parts: ['Đúng lần đầu: ' + kq.filter(x => x.lan === 1).length + '/' + n, 'Lần sai: ' + lanSai].concat(MUC3 ? MUC3.diem.map((d, i) => 'Mức ' + (i + 1) + ': ' + d.toFixed(2).replace('.', ',') + (d >= DIEM_QUA_MUC ? ' ✓' : ' ✗')) : []).concat(GAME === 'nhip' ? ['Đúng trong giờ: ' + V.trongGio + '/' + n, 'Chuỗi nhịp: ' + V.chuoiMax] : []).concat(laMoi(GAME) ? tomTatMoi(n).map(s => s.replace(/<[^>]+>/g, '')) : []), timeUsed: giay, auto: false, answers, clientId: maMay() };
+    parts: ['Đúng lần đầu: ' + kq.filter(x => x.lan === 1).length + '/' + n, 'Lần sai: ' + lanSai].concat(MUC3 ? MUC3.diem.map((d, i) => 'Mức ' + (i + 1) + ': ' + d.toFixed(2).replace('.', ',') + (d >= DIEM_QUA_MUC ? ' ✓' : ' ✗')) : []).concat(GAME === 'nhip' ? ['Đúng trong giờ: ' + V.trongGioTong + '/' + n, 'Chuỗi nhịp: ' + V.chuoiMaxTong] : []).concat(V.tomTat.map(s => s.replace(/<[^>]+>/g, ''))), timeUsed: giay, auto: false, answers, clientId: maMay() };
   el.className = 'gui'; el.textContent = 'Đang gửi kết quả cho giáo viên…';
   const gui = lan => fetch(u, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
     .then(() => {

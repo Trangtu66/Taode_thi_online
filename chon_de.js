@@ -137,9 +137,9 @@
     if (game) {   // gom theo bài: một dòng, các nút Đề 1, Đề 2…
       var nhom = {}, thuTu = [];
       items.forEach(function (b) {
-        // "… – Đua xe 3 mức (Đề 2)": đề đua xe 3 mức thứ hai (30 câu mới, vận dụng khó hơn – 25/11/2026)
-        var m = String(b.ten).match(/^(.*?)\s*[–-]\s*(Đề\s*\d+|Đua xe 3 mức(?:\s*\(Đề\s*\d+\))?)\s*$/), ten = m ? m[1] : b.ten,
-          de = m ? (/^Đua xe 3 mức/.test(m[2]) ? '🏁 Đua xe 3 mức' + (/\(Đề\s*(\d+)\)/.test(m[2]) ? ' – Đề ' + m[2].match(/\(Đề\s*(\d+)\)/)[1] : '') : m[2]) : 'Mở đề';
+        // "… – Đề 3 mức (Đề 2)": Đề 3 mức thứ hai (30 câu mới, vận dụng khó hơn – 25/11/2026); tên cũ "Đua xe 3 mức" vẫn nhận
+        var m = String(b.ten).match(/^(.*?)\s*[–-]\s*(Đề\s*\d+|(?:Đề|Đua xe) 3 mức(?:\s*\(Đề\s*\d+\))?)\s*$/), ten = m ? m[1] : b.ten,
+          de = m ? (/^(Đề|Đua xe) 3 mức/.test(m[2]) ? '🏁 Đề 3 mức' + (/\(Đề\s*(\d+)\)/.test(m[2]) ? ' – Đề ' + m[2].match(/\(Đề\s*(\d+)\)/)[1] : '') : m[2]) : 'Mở đề';
         if (!nhom[ten]) { nhom[ten] = []; thuTu.push(ten); } nhom[ten].push([de, all.indexOf(b)]);
       });
       html = '<div class="cd-grid">' + thuTu.map(function (t) {

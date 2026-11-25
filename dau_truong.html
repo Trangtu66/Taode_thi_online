@@ -35,7 +35,7 @@
     <!-- Kho đề Taode_thi_online: danh sách bài củng cố (DANH_SACH_BAI), địa chỉ Ngân hàng đề (KQ_API) và bộ giải nén đề -->
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
-<script src="chon_de.js?v=20261125d"></script>
+<script src="chon_de.js?v=20261126b"></script>
 <script src="race3d.js?v=20261126b"></script>
 <script src="tug3d.js?v=20261123c"></script>
 <script src="game3d_chung.js?v=20261126a"></script>
@@ -2914,6 +2914,7 @@
             if (player.pendingCorrect) {
                 player.alive = true;
                 player.score += (qType === 'mcq' ? 10 : (qType === 'tf' ? 20 : 30));
+                lop3MucGhi(player, isTugMode);
             } else if (!isTugMode && (player.teamMode || 'bell') === 'bell') {
                 player.alive = false;
             }
@@ -3036,6 +3037,7 @@
         }
 
         function syncAllViewsAfterLoad() {
+            setTimeout(() => lop3MucDatLai('all'), 0);
             bellIndex = 0;
             tugIndex = 0;
             bellRevealed = false;
@@ -4260,6 +4262,7 @@
         }
 
         function nextBellQuestion() {
+            if (lop3MucChan(bellIndex, 'bell')) return;
             if (bellIndex < examQuestions.length - 1) {
                 bellIndex++;
                 tugIndex = bellIndex;
@@ -4318,6 +4321,7 @@
                 timeLeft: bellTimeLeft,
                 playAlert: true
             });
+            lop3Badge();
         }
 
         function startBellTimer() {
@@ -4437,6 +4441,7 @@
                 p.pendingChoice = null;
             });
             studentSubmittedForQuestion = {};
+            lop3MucDatLai('bell');
             savePlayersToStorage();
             bellIndex = 0;
             tugIndex = 0;
@@ -4896,6 +4901,7 @@
         }
 
         function awardTugPoint(team, silentToast = false) {
+            lop3TugGhi(team);
             playTugPullSound();
             if (window.TugAudio && !soundMuted) TugAudio.pull(team);   // hò dô, dây căng, cổ vũ
             if (team === 'red') {
@@ -4966,6 +4972,7 @@
         function resetTugQuestionState() {
             isGameStarted = true;
             activeGameMode = 'tug';
+            setTimeout(lop3Badge, 0);
             tugRevealed = false;
             bellRevealed = false;
             tugRedChoiceMcq = null;
@@ -5023,6 +5030,7 @@
         }
 
         function nextTugQuestion() {
+            if (lop3MucChan(tugIndex, 'tug')) return;
             if (tugIndex < examQuestions.length - 1) {
                 tugIndex++;
                 resetTugQuestionState();
@@ -5053,6 +5061,7 @@
             tugRedScore = 0;
             tugBlueScore = 0;
             tugIndex = 0;
+            lop3MucDatLai('tug');
             resetTugQuestionState();
             if (window.TugAudio) TugAudio.victoryStop();   // đặt lại trận: tắt nhạc mừng chiến thắng
             showToast('🔄 Đã đặt lại trận đấu Kéo Co Kiến Thức!');
@@ -5572,6 +5581,106 @@
             return m.every(x => x.length) ? m : null;
         }
         function raceMucOf(pos, muc = raceMuc) { if (!muc) return -1; const i = muc.findIndex(e => pos < e); return i < 0 ? 2 : i; }
+
+        // Rung chuông vàng, Kéo co chơi 3 mức (GV yêu cầu 25/11/2026) với đề “🏁 Đề 3 mức” (câu đã xếp Biết → Hiểu → Vận dụng).
+        // GV vẫn điều khiển từng câu. Hết câu cuối của một mức, bấm “Câu tiếp” thì máy mở bảng tổng kết mức:
+        //  · Rung chuông vàng: điểm mức của HS = số câu đúng / số câu của mức × 10. Đạt từ 5 điểm được lên sàn mức sau (kể cả đã bị loại); chưa đạt thì dừng ở mức đó.
+        //  · Kéo co: số lần kéo dây của từng đội trong mức; dây giữ nguyên, hai đội cùng sang mức sau.
+        let lop3MucTat = false;                 // GV bấm nhãn mức để tắt / bật chơi 3 mức
+        const lop3MucXong = new Set();          // các mức đã tổng kết: 'bell|0', 'tug|1'…
+        const lop3TugDiem = { red: [0, 0, 0], blue: [0, 0, 0] };
+        function lop3MucCo() {                  // [cuối mức 1, cuối mức 2, cuối mức 3] nếu đề là Đề 3 mức, câu xếp đúng thứ tự mức
+            if (!/(Đề|Đua xe) 3 mức/.test(currentExamTitle || '')) return null;
+            const dem = [0, 0, 0]; let truoc = 0;
+            for (const q of examQuestions) { const k = raceMucCau(q); if (k < 0 || k < truoc) return null; truoc = k; dem[k]++; }
+            return dem.every(x => x) ? [dem[0], dem[0] + dem[1], examQuestions.length] : null;
+        }
+        function lop3Muc() { return lop3MucTat ? null : lop3MucCo(); }
+        function lop3MucCua(idx, m = lop3Muc()) { return m ? raceMucOf(idx, m) : -1; }
+        function lop3GameDangMo() { return ['bell', 'tug'].find(t => { const el = document.getElementById('tab-' + t); return el && !el.classList.contains('hidden'); }) || ''; }
+        function lop3MucGhi(p, tug) {           // HS trả lời đúng: cộng 1 câu đúng vào mức của câu đang chơi
+            const k = lop3MucCua(tug ? tugIndex : bellIndex); if (k < 0) return;
+            if (!Array.isArray(p.m3)) p.m3 = [0, 0, 0];
+            p.m3[k]++;
+        }
+        function lop3TugGhi(team) { const k = lop3MucCua(tugIndex); if (k >= 0 && lop3TugDiem[team]) lop3TugDiem[team][k]++; }
+        function lop3MucDatLai(game) {
+            [...lop3MucXong].forEach(x => { if (game === 'all' || x.startsWith(game + '|')) lop3MucXong.delete(x); });
+            if (game !== 'tug') bellPlayers.forEach(p => { delete p.m3; });
+            if (game !== 'bell') { lop3TugDiem.red = [0, 0, 0]; lop3TugDiem.blue = [0, 0, 0]; }
+            lop3Badge();
+        }
+        // Nhãn mức trên đầu màn hình: cho biết đang ở mức nào; GV bấm để tắt / bật chơi 3 mức
+        function lop3Badge() {
+            let b = document.getElementById('lop3-badge');
+            const game = lop3GameDangMo(), co = lop3MucCo();
+            if (!game || !co || IS_STUDENT_MODE) { if (b) b.style.display = 'none'; return; }
+            if (!b) {
+                b = document.createElement('button'); b.id = 'lop3-badge'; b.type = 'button';
+                b.style.cssText = 'position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:60;border:0;border-radius:999px;padding:6px 14px;font-weight:900;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer';
+                b.onclick = () => { lop3MucTat = !lop3MucTat; lop3Badge(); showToast(lop3MucTat ? 'Đã tắt chơi 3 mức: chơi liền các câu của đề.' : '🏁 Đã bật chơi 3 mức: hết mỗi mức máy tổng kết rồi mới sang mức sau.'); };
+                document.body.appendChild(b);
+            }
+            b.style.display = '';
+            if (lop3MucTat) { b.style.background = '#e2e8f0'; b.style.color = '#334155'; b.textContent = '🏁 Chơi 3 mức: TẮT (bấm để bật)'; b.title = ''; return; }
+            const k = lop3MucCua(game === 'tug' ? tugIndex : bellIndex, co);
+            b.style.background = ['#16a34a', '#d97706', '#dc2626'][k]; b.style.color = '#fff';
+            b.textContent = `🏁 Mức ${k + 1}/3 · ${RACE_TEN_MUC[k]}`;
+            b.title = 'Bấm để tắt chơi 3 mức';
+        }
+        // Gọi đầu “Câu tiếp”: đang ở câu cuối của Mức 1 hoặc Mức 2 thì mở bảng tổng kết mức (true = dừng lại chờ GV)
+        function lop3MucChan(idx, game) {
+            const m = lop3Muc(); if (!m) return false;
+            const k = m.indexOf(idx + 1);
+            if (k < 0 || k > 1 || lop3MucXong.has(game + '|' + k)) return false;
+            lop3TongKet(k, game, m);
+            return true;
+        }
+        function lop3TongKet(k, game, m) {
+            const n = m[k] - (k ? m[k - 1] : 0), ten = RACE_TEN_MUC[k], tenSau = RACE_TEN_MUC[k + 1], nSau = m[k + 1] - m[k];
+            let than = '';
+            if (game === 'bell') {
+                const ds = bellPlayers.filter(p => (p.teamMode || 'bell') === 'bell').map(p => {
+                    const dung = (p.m3 || [0, 0, 0])[k], d = Math.round(dung / n * 100) / 10;
+                    return { p, dung, d, qua: d >= RACE_QUA_MUC };
+                }).sort((a, b) => b.d - a.d);
+                const qua = ds.filter(x => x.qua).length;
+                than = `<p style="margin:0 0 10px;font-weight:700">Đạt từ ${RACE_QUA_MUC} điểm của mức thì lên sàn Mức ${k + 2} (kể cả bạn đã bị loại); chưa đạt thì dừng ở Mức ${k + 1}.<br>
+                    <b style="color:#15803d">✅ ${qua} HS lên sàn Mức ${k + 2}</b> · <b style="color:#b91c1c">⛔ ${ds.length - qua} HS dừng ở Mức ${k + 1}</b></p>
+                    <div style="max-height:46vh;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;text-align:left">${ds.map(x =>
+                    `<div style="display:flex;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:12px;background:${x.qua ? '#dcfce7' : '#fee2e2'};color:#0f172a;font-weight:700;font-size:13px">
+                        <span>${x.qua ? '✅' : '⛔'} ${escapeHtml(x.p.name)}</span><span>${x.dung}/${n} câu · <b>${String(x.d).replace('.', ',')}</b></span></div>`).join('') || '<div>Chưa có học sinh.</div>'}</div>`;
+            } else {
+                const r = lop3TugDiem.red[k], b = lop3TugDiem.blue[k];
+                than = `<p style="margin:0 0 10px;font-weight:700">Số lần kéo dây được trong Mức ${k + 1} (${n} câu). Dây giữ nguyên vị trí, hai đội cùng sang mức sau.</p>
+                    <div style="display:flex;gap:10px;justify-content:center;font-weight:900;font-size:22px">
+                    <div style="flex:1;padding:14px;border-radius:16px;background:#fee2e2;color:#b91c1c">🔴 Đội Đỏ<br>${r} lần kéo</div>
+                    <div style="flex:1;padding:14px;border-radius:16px;background:#dbeafe;color:#1d4ed8">🔵 Đội Xanh<br>${b} lần kéo</div></div>
+                    <p style="margin:10px 0 0;font-weight:800">${r > b ? '🔴 Đội Đỏ thắng Mức ' + (k + 1) + '!' : b > r ? '🔵 Đội Xanh thắng Mức ' + (k + 1) + '!' : '🤝 Hai đội hoà ở Mức ' + (k + 1) + '.'}</p>`;
+            }
+            let o = document.getElementById('lop3-modal');
+            if (!o) { o = document.createElement('div'); o.id = 'lop3-modal'; document.body.appendChild(o); }
+            o.style.cssText = 'position:fixed;inset:0;z-index:99980;background:rgba(2,6,23,.78);display:flex;align-items:center;justify-content:center;padding:14px';
+            o.innerHTML = `<div role="dialog" aria-modal="true" style="background:#fff;color:#0f172a;width:min(820px,100%);max-height:92vh;overflow:auto;border-radius:22px;padding:20px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.45)">
+                <div style="font-size:40px">🏁</div><h3 style="margin:2px 0 8px;font-size:22px;font-weight:900;color:#4338ca">Tổng kết Mức ${k + 1} · ${ten}</h3>${than}
+                <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+                <button type="button" id="lop3-sang" style="border:0;border-radius:12px;padding:10px 18px;font-weight:900;font-size:15px;background:#4f46e5;color:#fff;cursor:pointer">➡ Sang Mức ${k + 2}: ${nSau} câu ${tenSau}</button>
+                <button type="button" id="lop3-o-lai" style="border:0;border-radius:12px;padding:10px 14px;font-weight:800;background:#e2e8f0;color:#0f172a;cursor:pointer">Ở lại câu này</button></div></div>`;
+            document.getElementById('lop3-o-lai').onclick = () => { o.style.display = 'none'; };
+            document.getElementById('lop3-sang').onclick = () => { o.style.display = 'none'; lop3SangMuc(k, game, n); };
+            if (window.GameAudio && !soundMuted) GameAudio.sfx.cheer(1.2, .3);
+            launchFireworks(1500);
+        }
+        function lop3SangMuc(k, game, n) {
+            lop3MucXong.add(game + '|' + k);
+            if (game === 'bell') {
+                bellPlayers.forEach(p => { if ((p.teamMode || 'bell') === 'bell') p.alive = (p.m3 || [0, 0, 0])[k] / n * 10 >= RACE_QUA_MUC; });
+                savePlayersToStorage(); renderBellPlayers(); renderStudentPhoneUI();
+                broadcastRoomEvent({ type: 'PLAYERS_LIST_SYNC', players: bellPlayers });
+                nextBellQuestion();
+            } else nextTugQuestion();
+            showToast(`🏁 Bắt đầu Mức ${k + 2} · ${RACE_TEN_MUC[k + 1]}`);
+        }
 
         function raceHash(str) {
             let h = 2166136261;
@@ -6446,6 +6555,7 @@
 
         // 17. CHUYỂN TAB & KHỞI ĐỘNG HỆ THỐNG
         function switchTab(tabName) {
+            setTimeout(lop3Badge, 0);
             if (window.RaceMusic && tabName !== 'race') RaceMusic.stop();
             if (window.TugAudio && tabName !== 'tug') { TugAudio.musicStop(); TugAudio.victoryStop(); }
             const params = new URLSearchParams(window.location.search);
