@@ -84,6 +84,8 @@
   // xe buýt mini dãy cửa kính, xe bán tải cabin trước – thùng sau, mô tô có người lái, go-kart mui trần có người lái mũ trắng,
   // xe tải thùng kín, xe cổ điển mui tròn cản mạ crôm, xe phản lực mũi nhọn có vây đuôi và lửa phụt; cùng màu, cùng sọc trắng thân xe.
   function makeCar(key, color) {
+    // Điện thoại HS (phone3d.js) gọi Race3D.buildCar khi chưa mount màn chiếu: lấy THREE đã nạp sẵn (sửa 26/11/2026 – trước đây báo lỗi, điện thoại không dựng đúng xe em chọn)
+    if (!T && window.THREE) { T = window.THREE; if (T.ColorManagement) T.ColorManagement.legacyMode = false; }
     var s = SHAPE[key] || SHAPE.sport, g = new T.Group(), body = new T.Group(); g.add(body); mats(color);
     if (!MAT.white) { MAT.white = new T.MeshStandardMaterial({ color: 0xffffff, roughness: .5 }); MAT.helmet = new T.MeshStandardMaterial({ color: 0xfde047, roughness: .3, metalness: .2 }); }
     var parts = { paint: [], glass: [], dark: [], light: [], white: [], helmet: [] };

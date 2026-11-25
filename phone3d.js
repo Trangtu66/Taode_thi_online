@@ -74,9 +74,11 @@
     S.kid = G3D.kid(color, false, 'stand'); S.arena.add(S.kid);
   }
   function setCar(key, color) {
-    if (S.carKey === key + color || !window.Race3D || !Race3D.buildCar) return; S.carKey = key + color;
+    if (S.carKey === key + color || !window.Race3D || !Race3D.buildCar) return;
+    var moi; try { moi = Race3D.buildCar(key, color); } catch (e) { return; }   // lỗi thì để lần sau dựng lại (không ghi nhận đã dựng)
+    S.carKey = key + color;
     if (S.car) S.race.remove(S.car);
-    S.car = Race3D.buildCar(key, color); S.car.position.set(0, 0, 0); S.race.add(S.car);
+    S.car = moi; S.car.position.set(0, 0, 0); S.race.add(S.car);
   }
   function puff(e, x, y, z, life) { var m = G3D.sprite(G3D.banner(e, 'rgba(0,0,0,0)'), .7, .45); m.material.opacity = .95; m.position.set(x, y, z); S.race.add(m); S.fx.push({ m: m, life: life || .6 }); }
 

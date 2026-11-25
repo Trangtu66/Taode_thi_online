@@ -36,11 +36,11 @@
     <script src="cau_hinh.js"></script>
 <script src="mon_hien.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
-<script src="race3d.js?v=20261124a"></script>
+<script src="race3d.js?v=20261126a"></script>
 <script src="tug3d.js?v=20261123c"></script>
 <script src="game3d_chung.js?v=20261126a"></script>
 <script src="bell3d.js?v=20261123c"></script>
-<script src="phone3d.js?v=20261123c"></script>
+<script src="phone3d.js?v=20261126a"></script>
 <!-- Giọng nói tiếng Việt (25/11/2026): điện thoại HS nói kết quả, màn hình GV đọc đáp án – câu thu sẵn ở am_thanh/giong/ -->
 <script src="giong_noi.js?v=20261125b"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
@@ -2723,10 +2723,11 @@
             // Khi Giáo viên đang mở hiệu lệnh: Học sinh đọc đề trên Ti vi và bấm chọn đáp án trực tiếp trên Điện thoại
             if (q.type === 'mcq') {
                 const colors = [
-                    'bg-rose-600 hover:bg-rose-700',
-                    'bg-sky-600 hover:bg-sky-700',
-                    'bg-amber-500 hover:bg-amber-600',
-                    'bg-emerald-600 hover:bg-emerald-700'
+                    // điện thoại: không dùng hover (trình duyệt cảm ứng giữ trạng thái rê ở chỗ vừa chạm → ô câu sau trông như đã chọn – sửa 26/11/2026)
+                    'bg-rose-600',
+                    'bg-sky-600',
+                    'bg-amber-500',
+                    'bg-emerald-600'
                 ];
                 if (showQ && Array.isArray(q.options) && q.options.length) {
                     // Kéo co: nút đáp án có đủ nội dung phương án
@@ -2798,6 +2799,7 @@
         }
 
         function submitFromStudentPhone(qType, answerValue) {
+            try { if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); } catch (e) {}   // bỏ trạng thái đang chọn của nút vừa chạm
             if (IS_STUDENT_MODE && window.PhoneSound) { PhoneSound.tap(); PhoneSound.send(); }
             if (stageCommandState !== 'open') {
                 showToast('⏳ Chỉ được gửi đáp án khi Giáo viên đang mở hiệu lệnh làm bài!');
@@ -6184,6 +6186,7 @@
         }
 
         function racePhoneSubmit(answer) {
+            try { if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); } catch (e) {}
             if (racePhone.state !== 'question' || !racePhone.q) return;
             if (racePhone.q.type === 'tf' && (!Array.isArray(answer) || answer.some(v => v === null))) { showToast('⚠️ Em chọn Đúng/Sai cho đủ các ý nhé!'); return; }
             if (racePhone.q.type === 'short' && !String(answer || '').trim()) { showToast('⚠️ Em nhập đáp số trước khi gửi nhé!'); return; }
@@ -6259,7 +6262,7 @@
             if (q.type === 'mcq') {
                 ans = `<div class="grid grid-cols-1 gap-2">${(q.options || []).map((o, i) => {
                     const bad = racePhone.wrongOpts.includes(i);
-                    return `<button type="button" ${locked || bad ? 'disabled' : ''} onclick="racePhoneSubmit(${i})" class="text-left px-3 py-2.5 rounded-xl border-2 text-sm font-bold transition ${bad ? 'border-rose-200 bg-rose-50 text-rose-300 line-through' : 'border-indigo-200 bg-white dark:bg-slate-900 dark:border-slate-600 hover:border-indigo-500 active:scale-[.98]'}"><span class="font-black text-indigo-600 mr-1">${'ABCD'[i] || ''}.</span> ${sanitizeHtml(o)}</button>`;
+                    return `<button type="button" ${locked || bad ? 'disabled' : ''} onclick="racePhoneSubmit(${i})" class="text-left px-3 py-2.5 rounded-xl border-2 text-sm font-bold transition ${bad ? 'border-rose-200 bg-rose-50 text-rose-300 line-through' : 'border-indigo-200 bg-white dark:bg-slate-900 dark:border-slate-600 active:scale-[.98]'}"><span class="font-black text-indigo-600 mr-1">${'ABCD'[i] || ''}.</span> ${sanitizeHtml(o)}</button>`;
                 }).join('')}</div>`;
             } else if (q.type === 'tf') {
                 ans = `<div class="space-y-1.5">${(q.statements || []).map((label, i) => `

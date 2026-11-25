@@ -16,7 +16,7 @@
 <script src="game3d_chung.js?v=20261126a"></script>
 <script src="bell3d.js?v=20261123c"></script>
 <script src="tug3d.js?v=20261123c"></script>
-<script src="race3d.js?v=20261124a"></script>
+<script src="race3d.js?v=20261126a"></script>
 <script src="nhipdo3d.js?v=20261123c"></script>
 <!-- 4 trò mới (24/11/2026): Gỡ bom, Nông trại, Đấu trường nhập vai, Đồng đội thoát hiểm – sân 2D dùng chung với tro_choi_lop.html -->
 <script src="game_moi.js?v=20261126a"></script>
@@ -120,7 +120,7 @@
   @media(max-width:600px){.opts{grid-template-columns:1fr}}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;border:2px solid #CBD5E1;background:#fff;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;font-weight:600;cursor:pointer;color:var(--ink);min-height:54px}
   .opt .l{flex:none;width:30px;height:30px;border-radius:9px;background:var(--blue2);color:#fff;display:grid;place-items:center;font-weight:900}
-  .opt:hover:not(:disabled){border-color:var(--blue2);background:#EFF6FF}
+  @media (hover:hover) and (pointer:fine){ .opt:hover:not(:disabled){border-color:var(--blue2);background:#EFF6FF} }   /* điện thoại: không giữ viền ở ô vừa chạm sang câu sau (sửa 26/11/2026) */
   .opt.sai{border-color:#FCA5A5;background:#FEF2F2;color:#991B1B;text-decoration:line-through;cursor:not-allowed}
   .opt.sai .l{background:var(--bad)}
   .opt.dung{border-color:#86EFAC;background:#F0FDF4}
@@ -968,6 +968,7 @@ function veTraLoi(){
 function phanHoi(loai, txt){ const p = $('phan-hoi'); if (!p) return; p.className = 'phan-hoi on ' + loai; p.textContent = txt; }
 
 function traLoi(gt, nut){
+  try { if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); } catch (e) {}   // bỏ trạng thái đang chọn của nút vừa chạm
   if (!V || V.xong || V.dangChuyen || V.khoaDen > Date.now() || V.k >= CAU.length) return;   // đã xong ván: chặn bấm thêm trong lúc chờ sang bảng kết quả
   const c = CAU[V.k];
   let dung = false, ghiChu = '';
