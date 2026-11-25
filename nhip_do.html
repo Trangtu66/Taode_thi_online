@@ -17,6 +17,8 @@
 <script src="mon_hien.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
 <script src="game3d_chung.js?v=20261125b"></script>
+<!-- Giọng nói tiếng Việt (25/11/2026): điện thoại HS nói kết quả, màn hình GV đọc đáp án – am_thanh/giong/ -->
+<script src="giong_noi.js?v=20261125b"></script>
 <script src="nhipdo3d.js?v=20261123c"></script>
 <script src="phone3d.js?v=20261123c"></script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -818,6 +820,8 @@ const GV = {
     Snd.reveal(); this.broadcast(); this.save();
     this.sfx('drumroll', .8);
     const rate = st.total ? st.full / st.total : 0;
+    // giọng nói: đọc đáp án đúng rồi nhận xét cả lớp
+    if (Snd.on && window.GiongNoi) GiongNoi.noi([q.type === 'mcq' && q.correct >= 0 && q.correct < 4 ? 'da_' + 'ABCD'[q.correct] : 'da_xem', rate >= .5 ? 'nd_tot' : rate > 0 ? 'nd_it' : 'nd_khong']);
     setTimeout(() => { if (rate > 0) { this.sfx('cheer', 1.4 + rate * 1.4, .2 + rate * .25); if (rate >= .5) this.sfx('clap', 1.5); } else this.sfx('sad'); }, 900);
   },
   // ---- Âm thanh, nhạc nền, sân khấu 3D (game3d_chung.js, nhipdo3d.js) ----
@@ -849,6 +853,7 @@ const GV = {
     if (this.phase === 'q') this.closeQ();
     clearInterval(this.timerId);
     this.phase = 'end';
+    if (Snd.on && window.GiongNoi) setTimeout(() => GiongNoi.noi('nd_ket'), 1200);
     show(['v-setup', 'v-play', 'v-end'], 'v-end');
     const rk = this.ranking();
     $('endTitle').textContent = this.title;
@@ -1028,6 +1033,7 @@ const HS = {
         $('sResSub').innerHTML = (res[1] ? `+${res[1]} điểm` : '+0 điểm') + (res[4] >= 2 ? ` · 🔥 ${res[4]} câu liên tiếp` : '') + `<br>Đáp án: <b>${esc(st.ca)}</b>`;
         if (navigator.vibrate) try { navigator.vibrate(f === 1 ? 80 : [60, 60, 60]); } catch (e) {}
         if (window.PhoneSound && f >= 0) { if (f > 0) { PhoneSound.correct(); PhoneStage.react(res[4] >= 2 ? 'win' : 'happy'); } else { PhoneSound.wrong(); PhoneStage.react('sad'); } }
+        if (window.GiongNoi && (!window.PhoneSound || PhoneSound.on())) GiongNoi.noi(f < 0 ? 'nd_cham' : f === 1 ? (res[4] >= 2 ? 'nd_chuoi' : 'dung1') : f > 0 ? 'nd_mot_phan' : 'sai_het');   // giọng nói kết quả của em
       }
       this.fillRank(res, st);
       this.go('s-res'); return;
@@ -1040,7 +1046,7 @@ const HS = {
         $('sEndTitle').textContent = vd ? '🎉 Chúc mừng! Em được vinh danh!' : '🏁 Kết thúc!';
         $('sEndRank').textContent = `Hạng ${r}/${st.np} · ${res[2]} điểm`;
         $('sEndSub').textContent = vd ? 'Nhìn lên màn hình để xem bục vinh danh nhé!' : 'Cảm ơn em đã tham gia. Cố gắng hơn ở lần sau nhé!';
-        if (window.PhoneSound && this.endFx !== r) { this.endFx = r; if (vd) { PhoneSound.win(); PhoneStage.react('win', 8000); } else PhoneSound.bell(); }
+        if (window.PhoneSound && this.endFx !== r) { this.endFx = r; if (vd) { PhoneSound.win(); PhoneStage.react('win', 8000); } else PhoneSound.bell(); if (window.GiongNoi && PhoneSound.on()) GiongNoi.noi(vd ? 'nd_vinh_danh' : 'xong'); }
       }
       this.go('s-end');
     }

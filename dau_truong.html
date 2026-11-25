@@ -41,6 +41,8 @@
 <script src="game3d_chung.js?v=20261125b"></script>
 <script src="bell3d.js?v=20261123c"></script>
 <script src="phone3d.js?v=20261123c"></script>
+<!-- Giọng nói tiếng Việt (25/11/2026): điện thoại HS nói kết quả, màn hình GV đọc đáp án – câu thu sẵn ở am_thanh/giong/ -->
+<script src="giong_noi.js?v=20261125b"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <!-- Thư viện đồng bộ thời gian thực đa thiết bị qua mã QR (MQTT over WebSockets) -->
     <script src="https://unpkg.com/mqtt@5.3.4/dist/mqtt.min.js"></script>
@@ -2581,15 +2583,20 @@
         }
         function phoneToggle3d() { phone3dOn = !phone3dOn; try { localStorage.setItem('phone_3d', phone3dOn ? 'on' : 'off'); } catch (e) {} phoneApply3d(); }
         function phoneToggleSound() { if (window.PhoneSound) { PhoneSound.on(!PhoneSound.on()); PhoneSound.unlock(); } phoneApply3d(); }
+        // Giọng nói tiếng Việt (giong_noi.js): điện thoại HS nói kết quả của em (theo nút 🔊 trên điện thoại);
+        // màn hình GV đọc "Đáp án đúng là …" và kết quả câu (tắt khi GV tắt âm thanh)
+        function phoneNoi(ma) { if (IS_STUDENT_MODE && window.GiongNoi && (!window.PhoneSound || PhoneSound.on())) GiongNoi.noi(ma); }
+        function gvNoi(ma) { if (!IS_STUDENT_MODE && window.GiongNoi && !soundMuted) GiongNoi.noi(ma); }
+        function maDapAnGV(q) { return q && q.type === 'mcq' && typeof q.correct === 'number' && q.correct >= 0 && q.correct < 4 ? 'da_' + 'ABCD'[q.correct] : 'da_xem'; }
         function phoneResultFx(newList) {
             if (!currentStudentId || !window.PhoneSound) return;
             const old = bellPlayers.find(p => String(p.id) === String(currentStudentId)), now = newList.find(p => String(p.id) === String(currentStudentId));
             if (!old || !now) return;
             const react = k => window.PhoneStage && PhoneStage.react(k);
-            if (old.alive !== false && now.alive === false && (now.teamMode || 'bell') === 'bell') { PhoneSound.out(); react('out'); try { navigator.vibrate && navigator.vibrate([80, 60, 80]); } catch (e) {} }
-            else if (old.alive === false && now.alive !== false) { PhoneSound.correct(); react('rescue'); }
-            else if ((now.score || 0) > (old.score || 0)) { PhoneSound.correct(); react('happy'); try { navigator.vibrate && navigator.vibrate(60); } catch (e) {} }
-            else if (now.lastChoice && old.lastChoice !== now.lastChoice && now.lastChoice !== 'Không trả lời' && bellRevealed) { PhoneSound.wrong(); react('sad'); }
+            if (old.alive !== false && now.alive === false && (now.teamMode || 'bell') === 'bell') { PhoneSound.out(); react('out'); phoneNoi('bell_loai'); try { navigator.vibrate && navigator.vibrate([80, 60, 80]); } catch (e) {} }
+            else if (old.alive === false && now.alive !== false) { PhoneSound.correct(); react('rescue'); phoneNoi('bell_cuu'); }
+            else if ((now.score || 0) > (old.score || 0)) { PhoneSound.correct(); react('happy'); phoneNoi(now.teamMode === 'red' || now.teamMode === 'blue' ? 'tug_doi_dung' : 'dung1'); try { navigator.vibrate && navigator.vibrate(60); } catch (e) {} }
+            else if (now.lastChoice && old.lastChoice !== now.lastChoice && now.lastChoice !== 'Không trả lời' && bellRevealed) { PhoneSound.wrong(); react('sad'); phoneNoi('sai_het'); }
         }
 
         // Chỉ thay nội dung khi thật sự đổi: tránh vẽ lại đề/ảnh mỗi lần có HS khác vào phòng hay nộp bài
@@ -2910,6 +2917,7 @@
             let blueCorrect = 0;
             let redSize = 0;
             let blueSize = 0;
+            const aliveTruoc = bellPlayers.filter(p => p.alive).length;   // để biết có HS rời sàn (giọng nói)
             const isTugMode = (activeGameMode === 'tug') || !document.getElementById('tab-tug').classList.contains('hidden');
 
             bellPlayers.forEach((p, idx) => {
@@ -2964,6 +2972,7 @@
                     }
                     if (correctCount > 0) playCorrectSound();
                     else playWrongSound();
+                    gvNoi([maDapAnGV(examQuestions[tugIndex]), redRate > blueRate ? 'tug_do_keo' : blueRate > redRate ? 'tug_xanh_keo' : redRate > 0 ? 'tug_hoa' : 'lop_sai_het']);
                     showToast(`🪢 Đội Đỏ đúng ${redCorrect}/${redSize} HS (${pct(redRate)}) • Đội Xanh đúng ${blueCorrect}/${blueSize} HS (${pct(blueRate)}). ${result}`);
                 }
                 return;
@@ -2973,9 +2982,11 @@
             if (submittedCount > 0 || noAnswerEliminatedCount > 0) {
                 if (correctCount > 0) playCorrectSound();
                 else playWrongSound();
+                gvNoi([maDapAnGV(examQuestions[bellIndex]), remainingAlive < aliveTruoc ? 'bell_gv_loai' : '']);
                 showToast(`✅ Đã chấm sàn: ${correctCount} HS trả lời đúng, loại ${noAnswerEliminatedCount} HS không trả lời. Còn ${remainingAlive} HS trên sàn!`);
             } else {
                 playCorrectSound();
+                gvNoi(maDapAnGV(examQuestions[isTugMode ? tugIndex : bellIndex]));
             }
         }
 
@@ -3888,6 +3899,7 @@
             if (alive === 1 && bellPlayers.length > 1 && aliveBefore > 1) {   // còn đúng 1 HS: RUNG CHUÔNG VÀNG!
                 if (window.Bell3D) Bell3D.ring();
                 if (window.GameAudio && !soundMuted) setTimeout(() => { GameAudio.sfx.bell(5); GameAudio.sfx.win(); }, 1500);
+                if (window.GiongNoi && !soundMuted && !IS_STUDENT_MODE) GiongNoi.them('bell_rung');
             }
         }
         function bellMusicSync() {
@@ -6198,7 +6210,7 @@
                 if (racePhone.state === 'stopped' || racePhone.state === 'retrying') return;
                 racePhoneClearTimers();
                 racePhone.state = 'stopped'; racePhone.k = d.pos; racePhone.stopped = d.stopped; racePhone.mucDiem = d.mucDiem;
-                playWrongSound();
+                playWrongSound(); phoneNoi('race_dung_muc');
                 racePhoneRender();
                 return;
             }
@@ -6206,20 +6218,20 @@
             racePhoneClearTimers();
             if (d.done) {
                 racePhone.state = 'finished'; racePhone.k = d.pos; racePhone.rank = d.rank; racePhone.finishMs = d.finishMs;
-                playVictorySoundAndApplause();
+                playVictorySoundAndApplause(); phoneNoi('race_ve_dich');
                 launchFireworks(2500);
                 racePhoneRender();
                 return;
             }
             if (d.ok || d.stale) {
                 racePhone.k = d.pos;
-                if (d.ok) playCorrectSound();
+                if (d.ok) { playCorrectSound(); phoneNoi(d.levelUp ? 'race_qua_muc' : d.streak >= 2 ? 'race_dung1' : 'dung'); }
                 if (d.levelUp) { racePhone.levelMsg = `🏁 Qua Mức ${d.levelUp.muc} với ${String(d.levelUp.diem).replace('.', ',')} điểm! Sang Mức ${d.levelUp.muc + 1}: ${RACE_TEN_MUC[d.levelUp.muc]}`; launchFireworks(1500); }
                 if (d.ok && d.streak >= 2) { try { if (navigator.vibrate) navigator.vibrate([60, 40, 60]); } catch (e) {} }
                 racePhoneDrive(d.ok ? d.driveMs : 0, d.ok ? d.streak : 0);
                 return;
             }
-            playWrongSound();
+            playWrongSound(); phoneNoi('race_sai');
             try { if (navigator.vibrate) navigator.vibrate(220); } catch (e) {}
             if (racePhone.q && racePhone.q.type === 'mcq' && typeof racePhone.lastAnswer === 'number' && !racePhone.wrongOpts.includes(racePhone.lastAnswer)) {
                 racePhone.wrongOpts.push(racePhone.lastAnswer);
