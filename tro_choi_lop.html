@@ -13,13 +13,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="chon_de.js?v=20261124a"></script>
-<script src="game3d_chung.js?v=20261125b"></script>
-<script src="game_moi.js?v=20261125a"></script>
+<script src="game3d_chung.js?v=20261126a"></script>
+<script src="game_moi.js?v=20261126a"></script>
 <script src="giong_noi.js?v=20261125b"></script>
 <script src="bom3d.js?v=20261124b"></script>
 <script src="rpg3d.js?v=20261125b"></script>
 <script src="thoat3d.js?v=20261125a"></script>
 <script src="farm3d.js?v=20261125e"></script>
+<script src="may3d.js?v=20261126a"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -163,6 +164,9 @@
         <button type="button" class="game-card" data-g="farm" role="radio" aria-checked="false"><span class="ic">🌾</span><b>Nông trại</b><small>Mỗi đội một mảnh ruộng. Câu đúng thì luống cây ra trái; đội nào thu hoạch nhiều nhất thắng.</small></button>
         <button type="button" class="game-card" data-g="rpg" role="radio" aria-checked="false"><span class="ic">⚔️</span><b>Đấu trường nhập vai</b><small>Các đội là hiệp sĩ cùng đánh quái qua từng ải, hạ Trùm Rồng lửa. Đội nào gây sát thương nhiều nhất?</small></button>
         <button type="button" class="game-card" data-g="thoat" role="radio" aria-checked="false"><span class="ic">🚪</span><b>Đồng đội thoát hiểm</b><small>Cả lớp cùng mở khoá từng phòng, thoát ra trước khi hết giờ. Sai nhiều thì còi báo động trừ giờ!</small></button>
+        <button type="button" class="game-card" data-g="may" role="radio" aria-checked="false"><span class="ic">☁️</span><b>Bậc thang lên mây</b><small>Mỗi đội một cầu thang mây. Đội trả lời đúng leo thêm một bậc; đội nào lên cao nhất thắng.</small></button>
+        <button type="button" class="game-card" data-g="khoe" role="radio" aria-checked="false"><span class="ic">🏅</span><b>Hội khoẻ tri thức</b><small>Chạy, nhảy xa, ném bóng rổ, nhảy cao: đội trả lời đúng thi thành công, giành huy chương vàng.</small></button>
+        <button type="button" class="game-card" data-g="mua" role="radio" aria-checked="false"><span class="ic">💃</span><b>Vũ điệu tri thức</b><small>Mỗi đội một vũ công trên sân khấu. Đội đúng tung ra động tác mới, đúng liên tiếp giữ chuỗi vũ điệu.</small></button>
       </div>
       <div id="hd" class="hd an" aria-live="polite"></div>
     </div>
@@ -185,7 +189,7 @@
       <span class="chip blue" id="c-game"></span><span class="chip" id="c-cau"></span><span class="chip dh" id="c-dh">⏱ 0:00</span>
       <span class="phai"><button class="nut-nho an" id="nut-3d" type="button" title="Đổi sân 3D / hình 2D (máy yếu dùng 2D)">2D</button><button class="nut-nho" id="nut-fs" type="button" title="Toàn màn hình (Esc để thoát)" aria-label="Toàn màn hình">⛶</button><button class="nut-nho" id="nut-giong" type="button" title="Bật/tắt giọng nói tiếng Việt" aria-label="Bật/tắt giọng nói">🗣️</button><button class="nut-nho" id="nut-am" type="button" aria-label="Bật/tắt âm thanh">🔊</button><button class="nut-nho" id="nut-thoat" type="button">✕ Dừng</button></span>
     </div>
-    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div><div class="san3d an" id="s3-farm"></div></div>
+    <div class="san-wrap"><div class="san" id="san"></div><div class="san3d an" id="s3-bom"></div><div class="san3d an" id="s3-rpg"></div><div class="san3d an" id="s3-thoat"></div><div class="san3d an" id="s3-farm"></div><div class="san3d an" id="s3-may"></div><div class="san3d an" id="s3-khoe"></div><div class="san3d an" id="s3-mua"></div></div>
     <div class="tien-do" aria-hidden="true"><i id="tien-do"></i></div>
     <div class="card cau" id="khung-cau">
       <div id="noi-dung"></div>
@@ -241,7 +245,10 @@ const HD = {
   bom: { ten:'Gỡ bom', buoc:['Mỗi câu là một quả bom, ngòi nổ cháy theo mức độ câu (Biết 20 giây, Hiểu 40 giây, Vận dụng 60 giây).', 'Các đội thảo luận rồi giơ đáp án. Thầy cô bấm ✔ cho đội đúng, ✖ cho đội sai rồi bấm <b>Chốt</b>.', 'Đội đúng và chốt <b>trước khi bom nổ</b>: gỡ được bom (+1). Bom nổ trước khi chốt: không đội nào được điểm câu đó.'], thang:'🏆 Đội gỡ được nhiều bom nhất thắng.' },
   farm: { ten:'Nông trại', buoc:['Mỗi đội một mảnh ruộng, mỗi câu là một luống đất.', 'Đội trả lời đúng: luống cây lớn và ra trái (+3 nông sản). Đội sai: luống héo 🍂.', 'Đồng hồ câu chỉ để nhắc nhịp, hết giờ thầy cô chốt.'], thang:'🏆 Đội có kho nông sản đầy nhất thắng.' },
   rpg: { ten:'Đấu trường nhập vai', buoc:['Các đội là hiệp sĩ cùng vượt các ải; ải cuối là Trùm Rồng lửa 🐉.', 'Mỗi đội đúng chém quái 1 nhát (−1 máu quái); cả lớp đều đúng là đòn chí mạng ⚡.', 'Mỗi đội sai: quái đánh trả, cả lớp mất 1 ❤️ (có 5 ❤️, hết thì gục ngã rồi hồi sinh).', 'Hết câu của ải mà quái còn máu thì quái bỏ chạy.'], thang:'🏆 Hạ Trùm là cả lớp thắng; đội gây nhiều sát thương nhất là đội xuất sắc.' },
-  thoat: { ten:'Đồng đội thoát hiểm', buoc:['Cả lớp bị nhốt trong toà nhà; mỗi cửa có 3 ổ khoá, mỗi ổ khoá một câu.', 'Chốt câu nào là ổ khoá đó mở. Nếu <b>quá nửa số đội trả lời sai</b>: còi báo động, đồng hồ thoát hiểm bị trừ 20 giây.', 'Đồng hồ thoát hiểm chỉ chạy khi câu hỏi đang mở (tổng bằng 1,5 lần thời lượng chuẩn của các câu).'], thang:'🏆 Ra tới Lối thoát khi đồng hồ còn giờ: cả lớp thắng! Đội đúng nhiều câu nhất là đội dẫn đường.' }
+  thoat: { ten:'Đồng đội thoát hiểm', buoc:['Cả lớp bị nhốt trong toà nhà; mỗi cửa có 3 ổ khoá, mỗi ổ khoá một câu.', 'Chốt câu nào là ổ khoá đó mở. Nếu <b>quá nửa số đội trả lời sai</b>: còi báo động, đồng hồ thoát hiểm bị trừ 20 giây.', 'Đồng hồ thoát hiểm chỉ chạy khi câu hỏi đang mở (tổng bằng 1,5 lần thời lượng chuẩn của các câu).'], thang:'🏆 Ra tới Lối thoát khi đồng hồ còn giờ: cả lớp thắng! Đội đúng nhiều câu nhất là đội dẫn đường.' },
+  may: { ten:'Bậc thang lên mây', buoc:['Mỗi đội một cầu thang mây lên trời.', 'Đội trả lời đúng: vận động viên của đội leo thêm một bậc và nhặt ngôi sao ⭐.', 'Đội trả lời sai: mây giông ⛈️ kéo đến, đội đứng yên ở bậc cũ.'], thang:'🏆 Đội leo cao nhất thắng; đội lên tới đỉnh mây được cả lớp chúc mừng.' },
+  khoe: { ten:'Hội khoẻ tri thức', buoc:['Mỗi câu là một lượt thi, 4 môn luân phiên: chạy 100 m, nhảy xa, ném bóng rổ, nhảy cao.', 'Đội trả lời đúng: vận động viên thi thành công, giành <b>huy chương vàng</b> 🥇 (3 điểm).', 'Đội trả lời sai: lượt thi hỏng (vấp ngã, ném trượt, rơi xà).'], thang:'🏆 Đội nhiều điểm huy chương nhất lên bục cao nhất.' },
+  mua: { ten:'Vũ điệu tri thức', buoc:['Mỗi đội một vũ công trên sân khấu ánh đèn.', 'Đội trả lời đúng: vũ công tung ra động tác nhảy mới; đúng liên tiếp thì giữ chuỗi vũ điệu 🔥.', 'Đội trả lời sai: vũ công vấp, mất chuỗi.'], thang:'🏆 Đội nhiều động tác nhất thắng; bằng nhau thì xét chuỗi dài nhất.' }
 };
 function veGame(){
   document.querySelectorAll('.game-card').forEach(b => { const on = b.dataset.g === GAME; b.classList.toggle('on', on); b.setAttribute('aria-checked', on); });
@@ -289,7 +296,7 @@ let V = null, veHen = null;
 function batDau(){
   if (!GAME || !CAU.length) return;
   const n = CAU.length;
-  V = { k:0, doi: Array.from({length: SO_DOI}, (_, j) => ({ ten: (SO_DOI === 1 && (TEN_DOI[0] || '') === G_.DOI[0].ten) ? 'Cả lớp' : (TEN_DOI[j] || G_.DOI[j].ten), mau: G_.DOI[j].mau, kq: [], cay: [], sat: 0, dung: 0 })),
+  V = { k:0, doi: Array.from({length: SO_DOI}, (_, j) => ({ ten: (SO_DOI === 1 && (TEN_DOI[0] || '') === G_.DOI[0].ten) ? 'Cả lớp' : (TEN_DOI[j] || G_.DOI[j].ten), mau: G_.DOI[j].mau, kq: [], cay: [], sat: 0, dung: 0, bac: 0, sao: [], hc: [], dong: 0, combo: 0, comboMax: 0 })),
     cham: [], chot: false, hien: false, fx: null, batDauCau: 0, han: 0, daNo: false, dungLuc: 0,
     ai: GAME === 'rpg' ? G_.chiaAi(n).map(a => Object.assign(a, { mau: { con: a.so * SO_DOI, max: a.so * SO_DOI } })) : [], iAi: 0, hp: HP_DOI, guc: 0, haQuai: 0,
     tongThoat: Math.round(CAU.reduce((s, c) => s + giayCau(c), 0) * HE_SO_THOAT), daDung: 0, phat: 0, quaGio: false, xong: false };
@@ -297,20 +304,20 @@ function batDau(){
   $('man-chuan-bi').classList.add('an'); $('man-ket-qua').classList.add('an'); $('man-choi').classList.remove('an');
   $('c-game').textContent = G_.TEN[GAME];
   moKhoaAm(); nhac(true); veCau(); chay(); window.scrollTo(0, 0);
-  if (window.GiongNoi) GiongNoi.napTruoc(['da_A', 'da_B', 'da_C', 'da_D', 'da_xem', 'lop_dung_het', 'lop_sai_het', 'lop_bom_go', 'lop_farm_dung', 'lop_ket', 'lop_thang', 'rpg_chimang', 'rpg_danh', 'rpg_ha', 'rpg_trum', 'rpg_trung', 'rpg_tron', 'thoat_khoa', 'thoat_mo', 'thoat_ra', 'thoat_sai']);
+  if (window.GiongNoi) GiongNoi.napTruoc(['lop_may', 'lop_khoe', 'lop_mua', 'da_A', 'da_B', 'da_C', 'da_D', 'da_xem', 'lop_dung_het', 'lop_sai_het', 'lop_bom_go', 'lop_farm_dung', 'lop_ket', 'lop_thang', 'rpg_chimang', 'rpg_danh', 'rpg_ha', 'rpg_trum', 'rpg_trung', 'rpg_tron', 'thoat_khoa', 'thoat_mo', 'thoat_ra', 'thoat_sai']);
 }
 $('bat-dau').onclick = batDau;
 const giayThoatDung = () => V.daDung + (V.batDauCau && !V.chot ? (Date.now() - V.batDauCau) / 1000 : 0);
 function stSan(){
   const n = CAU.length, now = Date.now(), st = { n, k: V.k, t: now, lop: true, fx: V.fx, xong: V.xong, nho: ($('san').clientWidth || 1000) < 640, doi: V.doi };
   if (GAME === 'bom'){ st.k = iHien(); st.tong = giayCau(CAU[Math.min(st.k, n - 1)]); st.con = V.chot ? V.conLuc : Math.max(0, (V.han - now) / 1000); st.daNo = V.daNo; st.daGo = V.chot && !V.daNo; }
-  else if (GAME === 'farm') st.k = iHien();
+  else if (GAME === 'farm' || GAME === 'khoe') st.k = iHien();
   else if (GAME === 'rpg') Object.assign(st, { ai: V.ai, iAi: V.iAi, hp: V.hp, hpMax: HP_DOI, thang: V.xong ? !!V.ai[V.ai.length - 1].ha : undefined });
   else if (GAME === 'thoat'){ st.tong = V.tongThoat; st.con = V.tongThoat - giayThoatDung() - V.phat; st.quaGio = st.con < 0; }
   return st;
 }
 // Sân 3D (trò nào có thì dùng, máy không hỗ trợ WebGL hoặc GV bấm 2D thì dùng sân 2D của game_moi.js)
-const S3 = { bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D', farm:'Farm3D' };
+const S3 = { bom:'Bom3D', rpg:'Rpg3D', thoat:'Thoat3D', farm:'Farm3D', may:'May3D', khoe:'Khoe3D', mua:'Mua3D' };
 let CHE_3D = lay('tcl_3d') !== 'tat';
 function dung3d(){
   const lib = window[S3[GAME]], on = !!(CHE_3D && lib && lib.supported && lib.supported() && !V.loi3d);
@@ -420,6 +427,18 @@ function chot(){
     if (xongPhong) setTimeout(() => { if (!V) return; V.fx = { loai:'mo', at: Date.now(), phong: Math.floor(i / 3) }; am('cua'); }, baoDong ? 1000 : 300);
     else if (!baoDong){ V.fx = { loai:'khoa', at: now }; am('khoa'); }
     tb = baoDong ? ['sai', '🚨 Quá nửa số đội trả lời sai – còi báo động, đồng hồ thoát hiểm bị trừ ' + PHAT_BAO_DONG + ' giây! Ổ khoá vẫn mở.'] : ['dung', (xongPhong ? '🔓 Mở hết ổ khoá – cửa phòng mở!' : '🔓 Mở được một ổ khoá!') + (dung.length && V.doi.length > 1 ? ' Đội đúng: ' + dung.map(j => V.doi[j].ten).join(', ') + '.' : '')];
+  } else if (GAME === 'may'){
+    dung.forEach(j => { V.doi[j].bac++; V.doi[j].sao[V.doi[j].bac - 1] = true; });
+    V.fx = dung.length ? { loai:'len', at: now, doi: dung } : { loai:'truot', at: now, doi: sai };
+    tb = dung.length ? ['dung', '☁️ Leo thêm một bậc mây: ' + dung.map(j => V.doi[j].ten).join(', ') + '!'] : ['sai', '⛈️ Chưa đội nào đúng – mây giông kéo đến, cả lớp đứng yên.'];
+  } else if (GAME === 'khoe'){
+    V.doi.forEach((d, j) => { d.hc[i] = V.cham[j] ? 3 : 0; });
+    V.fx = dung.length ? { loai:'dat', at: now, cau: i, hc: 3, doi: dung } : { loai:'hong', at: now, cau: i, doi: sai };
+    tb = dung.length ? ['dung', '🥇 Huy chương vàng ' + G_.MON[i % 4].ten + ': ' + dung.map(j => V.doi[j].ten).join(', ') + '!'] : ['sai', '💥 Chưa đội nào đúng – lượt thi ' + G_.MON[i % 4].ten + ' hỏng.'];
+  } else if (GAME === 'mua'){
+    V.doi.forEach((d, j) => { if (V.cham[j]){ d.dong++; d.combo++; d.comboMax = Math.max(d.comboMax, d.combo); } else d.combo = 0; });
+    V.fx = dung.length ? { loai:'nhay', at: now, doi: dung, combo: i, chuoi: Math.max.apply(null, dung.map(j => V.doi[j].combo)) } : { loai:'vap', at: now, doi: sai };
+    tb = dung.length ? ['dung', '💃 ' + G_.DIEU[i % G_.DIEU.length] + ': ' + dung.map(j => V.doi[j].ten).join(', ') + '!'] : ['sai', '😵 Chưa đội nào đúng – các vũ công vấp, mất chuỗi.'];
   }
   // giọng nói: đọc đáp án (nếu GV chưa bấm Hiện đáp án) rồi đọc kết quả câu
   const loi = [];
@@ -427,6 +446,7 @@ function chot(){
   if (GAME === 'bom') loi.push(V.fx && V.fx.loai === 'go' ? (dung.length === V.doi.length && V.doi.length > 1 ? 'lop_dung_het' : 'lop_bom_go') : dung.length ? '' : 'lop_sai_het');   // bom nổ trước khi chốt: không nói thêm
   else if (GAME === 'farm') loi.push(dung.length === V.doi.length && V.doi.length > 1 ? 'lop_dung_het' : dung.length ? 'lop_farm_dung' : 'lop_sai_het');
   else if (GAME === 'rpg'){ const ai = V.ai[V.iAi]; loi.push(ai.ha ? (ai.trum ? 'rpg_trum' : 'rpg_ha') : dung.length === V.doi.length && dung.length > 1 ? 'rpg_chimang' : dung.length ? 'rpg_danh' : 'rpg_trung'); if (!ai.ha && ai.tron) loi.push('rpg_tron'); }
+  else if (GAME === 'may' || GAME === 'khoe' || GAME === 'mua') loi.push(dung.length ? { may:'lop_may', khoe:'lop_khoe', mua:'lop_mua' }[GAME] : 'lop_sai_het');
   else if (GAME === 'thoat'){ const xp = (i + 1) % 3 === 0 || i + 1 === CAU.length; loi.push(sai.length > V.doi.length / 2 ? 'thoat_sai' : xp ? (i + 1 === CAU.length ? 'thoat_ra' : 'thoat_mo') : 'thoat_khoa'); }
   noi(loi);
   V.k++;
@@ -443,8 +463,8 @@ function tiep(){
 }
 
 // ======================= KẾT THÚC =======================
-const DON_VI = { bom:['💣', 'bom gỡ được'], farm:['🧺', 'nông sản'], rpg:['⚔️', 'sát thương'], thoat:['🔓', 'câu đúng'] };
-function diemDoi(d){ return GAME === 'bom' ? d.kq.filter(x => x === 'go').length : GAME === 'farm' ? d.cay.reduce((a, x) => a + (x || 0), 0) : GAME === 'rpg' ? d.sat : d.dung; }
+const DON_VI = { bom:['💣', 'bom gỡ được'], farm:['🧺', 'nông sản'], rpg:['⚔️', 'sát thương'], thoat:['🔓', 'câu đúng'], may:['☁️', 'bậc mây'], khoe:['🏅', 'điểm huy chương'], mua:['💃', 'động tác'] };
+function diemDoi(d){ return GAME === 'may' ? d.bac : GAME === 'khoe' ? d.hc.reduce((a, x) => a + (x || 0), 0) : GAME === 'mua' ? d.dong + d.comboMax / 100 : GAME === 'bom' ? d.kq.filter(x => x === 'go').length : GAME === 'farm' ? d.cay.reduce((a, x) => a + (x || 0), 0) : GAME === 'rpg' ? d.sat : d.dung; }
 function ketThuc(){
   V.xong = true; V.chot = true; veSan(); nhac(false);
   const n = CAU.length, ds = V.doi.map(d => ({ d, diem: diemDoi(d) })).sort((a, b) => b.diem - a.diem), dv = DON_VI[GAME];
@@ -452,8 +472,12 @@ function ketThuc(){
   if (GAME === 'rpg'){ const trum = V.ai[V.ai.length - 1]; thangLop = !!trum.ha; huy = thangLop ? '🐉' : '💨'; tieuDe = thangLop ? `Cả lớp đã hạ Trùm ${trum.ten}!` : `Trùm ${trum.ten} đã bỏ chạy – lần sau hạ trùm nhé!`; }
   else if (GAME === 'thoat'){ thangLop = !V.quaGio; huy = thangLop ? '🚪' : '🚨'; tieuDe = thangLop ? 'Cả lớp THOÁT HIỂM THÀNH CÔNG!' : 'Cả lớp đã ra ngoài nhưng quá giờ báo động!'; }
   if (V.doi.length > 1){ const dau = ds.filter(x => x.diem === ds[0].diem); tieuDe = (tieuDe ? tieuDe + ' ' : '') + (dau.length > 1 ? 'Đồng hạng nhất: ' + dau.map(x => x.d.ten).join(', ') + '!' : ds[0].d.ten + ' về nhất!'); }
+  else if (!tieuDe && GAME === 'may') tieuDe = `Cả lớp leo được ${ds[0].diem}/${n} bậc mây!`;
+  else if (!tieuDe && GAME === 'khoe') tieuDe = `Cả lớp giành ${ds[0].diem}/${3 * n} điểm huy chương!`;
+  else if (!tieuDe && GAME === 'mua') tieuDe = `Cả lớp biểu diễn ${Math.floor(ds[0].diem)}/${n} động tác!`;
   else if (!tieuDe) tieuDe = GAME === 'bom' ? `Cả lớp gỡ được ${ds[0].diem}/${n} quả bom!` : `Cả lớp thu hoạch ${ds[0].diem}/${3 * n} nông sản!`;
-  const toi = GAME === 'bom' || GAME === 'thoat' ? n : GAME === 'farm' ? 3 * n : null;
+  const toi = GAME === 'bom' || GAME === 'thoat' || GAME === 'may' || GAME === 'mua' ? n : GAME === 'farm' || GAME === 'khoe' ? 3 * n : null;
+  ds.forEach(x => { x.diem = Math.floor(x.diem); });   // Vũ điệu: phần lẻ chỉ để xếp hạng theo chuỗi dài nhất
   const them = GAME === 'rpg' ? `Quái vật hạ được: <b>${V.haQuai}/${V.ai.length}</b> · Gục ngã: <b>${V.guc}</b> lần`
     : GAME === 'thoat' ? `Thời gian dùng: <b>${Math.round(giayThoatDung())} giây</b> · Bị trừ: <b>${V.phat} giây</b> · Tổng giờ: <b>${V.tongThoat} giây</b>` : '';
   if (thangLop){ const g = ga(); if (g) g.win(); phaoGiay(); } else { const g = ga(); if (g) g.sad(); }

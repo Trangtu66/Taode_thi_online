@@ -6,7 +6,12 @@
 (function () {
 'use strict';
 var W = 1000;
-var TEN = { bom: '💣 Gỡ bom', farm: '🌾 Nông trại', rpg: '⚔️ Đấu trường nhập vai', thoat: '🚪 Đồng đội thoát hiểm' };
+var TEN = { bom: '💣 Gỡ bom', farm: '🌾 Nông trại', rpg: '⚔️ Đấu trường nhập vai', thoat: '🚪 Đồng đội thoát hiểm',
+  may: '☁️ Bậc thang lên mây', khoe: '🏅 Hội khoẻ tri thức', mua: '💃 Vũ điệu tri thức' };
+// Hội khoẻ tri thức: 4 môn thi luân phiên theo câu (câu i thi môn MON[i % 4])
+var MON = [{ ma: 'chay', ten: 'Chạy 100 m', ic: '🏃' }, { ma: 'nhayxa', ten: 'Nhảy xa', ic: '🦘' }, { ma: 'bongro', ten: 'Ném bóng rổ', ic: '🏀' }, { ma: 'nhaycao', ten: 'Nhảy cao', ic: '🤸' }];
+// Vũ điệu tri thức: tên động tác (động tác thứ c theo chuỗi đúng liên tiếp)
+var DIEU = ['Vẫy tay', 'Xoay tròn', 'Bật nhảy', 'Bước ngang', 'Chỉ tay disco', 'Sóng tay', 'Lắc hông', 'Tạo dáng'];
 var DOI = [{ ten: 'Đội Đỏ', mau: '#DC2626' }, { ten: 'Đội Xanh', mau: '#2563EB' }, { ten: 'Đội Lá', mau: '#16A34A' }, { ten: 'Đội Vàng', mau: '#D97706' }];
 var CAY = ['🌽', '🥕', '🍅', '🍉', '🎃', '🥦', '🍓', '🍆'];
 var QUAI = [{ ten: 'Slime xanh', ic: '👾' }, { ten: 'Dơi đêm', ic: '🦇' }, { ten: 'Sói xám', ic: '🐺' }, { ten: 'Quỷ đỏ', ic: '👹' }, { ten: 'Nhện độc', ic: '🕷️' }];
@@ -360,9 +365,95 @@ var AM = {
   sau: function () { on(0, .25, 300, 200, .2, 'sawtooth'); }
 };
 
-var VE = { bom: bom, farm: farm, rpg: rpg, thoat: thoat };
+// ============================================================ ☁️ BẬC THANG LÊN MÂY
+// st: {n, k, doi:[{ten, mau, bac (số bậc đã leo), sao:[true|false theo từng bậc]}], fx:{loai:'len'|'truot', at, doi}, xong}
+function may(st) {
+  var nho = st.nho, F = nho ? 1.5 : 1, t = st.t, n = st.n, doi = st.doi, nd = doi.length, H = nho ? 600 : 440, o = [DEFS];
+  o.push('<defs><linearGradient id="gm-may" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#312E81"/><stop offset=".55" stop-color="#3B82F6"/><stop offset="1" stop-color="#BAE6FD"/></linearGradient></defs><rect width="1000" height="' + H + '" fill="url(#gm-may)"/>');
+  for (var s = 0; s < 30; s++) o.push('<circle cx="' + ((s * 173) % 1000) + '" cy="' + r1((s * 41) % (H * .35)) + '" r="' + (s % 3 ? 1.3 : 2.2) + '" fill="#FDE68A" opacity="' + r1(.4 + .4 * Math.sin(t / 600 + s)) + '"/>');
+  o.push('<circle cx="900" cy="' + r1(60 * F) + '" r="' + r1(52 * F) + '" fill="#FDE047" opacity=".25"/><circle cx="900" cy="' + r1(60 * F) + '" r="' + r1(38 * F) + '" fill="#FDE047"/>');
+  ['#8B5CF6', '#3B82F6', '#22C55E', '#FACC15', '#F97316', '#EF4444'].forEach(function (m, i) { o.push('<path d="M 740 ' + r1(170 * F) + ' A ' + (150 - i * 9) + ' ' + (120 - i * 8) + ' 0 0 1 1040 ' + r1(170 * F) + '" fill="none" stroke="' + m + '" stroke-width="' + r1(8 * F) + '" opacity=".7"/>'); });
+  var cot = (nho ? 760 : 820) / nd, aL = st.fx && st.fx.loai === 'len' ? t - st.fx.at : 1e9, aT = st.fx && st.fx.loai === 'truot' ? t - st.fx.at : 1e9;
+  doi.forEach(function (d, j) {
+    var x0 = 40 + j * cot, y0 = H - 30, w = Math.min(70, (cot - 40) / 1.2), dy = (H - (nho ? 190 : 140)) / n, dx = Math.min((cot - w - 20) / n, 20), b = d.bac || 0;
+    var minh = !st.fx || !st.fx.doi || st.fx.doi.indexOf(j) >= 0;
+    for (var i = 0; i < n; i++) {
+      var x = x0 + i * dx, y = y0 - (i + 1) * dy, da = i < b, lac = !da && i === b && minh && aT < 700 ? Math.sin(aT / 40) * 4 : 0, mm = da ? '#FEF9C3' : '#FFFFFF';
+      o.push('<g transform="translate(' + r1(x + lac) + ' ' + r1(y) + ')" opacity="' + (da ? 1 : .75) + '"><ellipse cx="' + r1(w / 2) + '" cy="6" rx="' + r1(w / 2) + '" ry="7" fill="' + mm + '"/><ellipse cx="' + r1(w * .3) + '" cy="1" rx="' + r1(w * .22) + '" ry="7" fill="' + mm + '"/><ellipse cx="' + r1(w * .68) + '" cy="0" rx="' + r1(w * .25) + '" ry="8" fill="' + mm + '"/></g>');
+      if (da && (d.sao || [])[i]) o.push(emo(x + w / 2, y - 10 * F, 14 * F, '⭐'));
+    }
+    var len = minh && aL < 700 ? Math.sin(Math.PI * aL / 700) * 24 : 0;
+    var kx = x0 + Math.max(0, b - 1) * dx + w / 2, ky = (b ? y0 - b * dy : y0 + 6) - len;
+    o.push(hs(kx, ky, d.mau, .55 * F));
+    if (minh && aT < 900) o.push(emo(kx, ky - 80 * F, 34 * F, '⛈️'));
+    if (nd > 1) o.push(txt(x0, H - 6, 14 * F, esc(d.ten) + ' · ' + b + ' bậc', '#0F172A', 'font-weight="800"'));
+  });
+  o.push(txt(24, 36 * F, 22 * F, st.xong ? '☁️ Đã lên tới đỉnh mây!' : '☁️ BẬC ' + Math.min(st.k + 1, n) + '/' + n, '#FDE68A'));
+  return { svg: o.join(''), H: H };
+}
+
+// ============================================================ 🏅 HỘI KHOẺ TRI THỨC
+// st: {n, k, doi:[{ten, mau, hc:[3 vàng|2 bạc|1 đồng|0|undefined theo câu]}], fx:{loai:'dat'|'hong', at, cau, hc, doi}, xong}
+var HC = { 3: '🥇', 2: '🥈', 1: '🥉', 0: '🎖️' };
+function khoe(st) {
+  var nho = st.nho, F = nho ? 1.5 : 1, t = st.t, n = st.n, doi = st.doi, nd = doi.length, k = Math.min(st.k, n - 1), mon = MON[k % 4];
+  var cot = n > (nho ? 10 : 15) ? Math.ceil(n / 2) : n, dk = Math.min(nho ? 46 : 30, ((nho ? 900 : 480) - (cot - 1) * 5) / cot), dongD = Math.ceil(n / cot);
+  var hang = 30 * F + dongD * (dk + 5) + 8, top = nho ? 330 : 90, H = Math.max(nho ? 600 : 440, top + nd * hang + 30), o = [DEFS];
+  o.push('<rect width="1000" height="' + H + '" fill="#16A34A"/><rect width="1000" height="' + r1(H * .16) + '" fill="#0EA5E9"/>');
+  for (var c = 0; c < 60; c++) o.push('<circle cx="' + (c * 17 + 8) + '" cy="' + r1(H * .16 - 6 - (c % 3) * 9) + '" r="5" fill="' + ['#F87171', '#FBBF24', '#60A5FA', '#F472B6', '#A3E635'][c % 5] + '"/>');
+  var tx = 30, ty = nho ? 100 : H * .22, tw = nho ? 940 : 410, th = nho ? 200 : H * .68;
+  o.push('<rect x="' + tx + '" y="' + r1(ty) + '" width="' + tw + '" height="' + r1(th) + '" rx="' + r1(Math.min(th, tw) / 2) + '" fill="#B45309"/><rect x="' + (tx + 26) + '" y="' + r1(ty + 26) + '" width="' + (tw - 52) + '" height="' + r1(th - 52) + '" rx="' + r1(Math.min(th, tw) / 2 - 26) + '" fill="#22C55E"/>');
+  var aD = st.fx && st.fx.loai === 'dat' ? t - st.fx.at : 1e9, aH = st.fx && st.fx.loai === 'hong' ? t - st.fx.at : 1e9;
+  var cx = tx + tw / 2, cy = ty + th / 2;
+  o.push(emo(cx - 70 * F, cy, 58 * F, mon.ic, aD < 1500 ? 'transform="translate(' + r1(Math.min(1, aD / 1200) * 100 * F) + ' ' + r1(-Math.abs(Math.sin(aD / 160)) * 10) + ')"' : aH < 900 ? 'transform="rotate(' + r1(Math.sin(aH / 60) * 20) + ' ' + r1(cx - 70 * F) + ' ' + r1(cy) + ')"' : ''));
+  o.push(txt(cx + 20 * F, cy - 16 * F, 21 * F, st.xong ? '🏆 Lễ trao huy chương' : mon.ten, '#FFFFFF', 'text-anchor="middle"'));
+  if (aD < 1600 && st.fx.hc !== undefined) o.push(emo(cx + 20 * F, cy + 30 * F, 40 * F * (1 + .2 * Math.sin(Math.min(1, aD / 400) * Math.PI)), HC[st.fx.hc] || '🥇'));
+  if (aH < 1100) o.push(txt(cx + 20 * F, cy + 34 * F, 19 * F, '💥 Hỏng rồi – thử lại!', '#FEF08A', 'text-anchor="middle"'));
+  var x0 = nho ? 40 : 480;
+  if (!nho) o.push(txt(x0, top - 22, 17, 'BẢNG HUY CHƯƠNG', '#DCFCE7', 'letter-spacing="1"'));
+  doi.forEach(function (d, j) {
+    var y = top + j * hang, diem = 0; (d.hc || []).forEach(function (h) { diem += h || 0; });
+    o.push('<circle cx="' + (x0 + 9 * F) + '" cy="' + r1(y + 12 * F) + '" r="' + r1(9 * F) + '" fill="' + d.mau + '" stroke="#fff" stroke-width="2"/>');
+    o.push(txt(x0 + 24 * F, y + 19 * F, 17 * F, esc(d.ten) + ' · ' + diem + ' điểm', '#F0FDF4'));
+    for (var i = 0; i < n; i++) {
+      var x = x0 + (i % cot) * (dk + 5) + dk / 2, yy = y + 30 * F + Math.floor(i / cot) * (dk + 5) + dk / 2, h = (d.hc || [])[i], cur = i === st.k && !st.xong;
+      if (h !== undefined && h !== null) o.push(emo(x, yy, dk * .92, HC[h]));
+      else o.push('<circle cx="' + r1(x) + '" cy="' + r1(yy) + '" r="' + r1(dk * .42) + '" fill="#14532D" stroke="' + (cur ? '#FACC15' : '#4ADE80') + '" stroke-width="' + (cur ? 3 : 1) + '" opacity=".85"/>' + emo(x, yy, dk * .48, MON[i % 4].ic, 'opacity=".6"'));
+    }
+  });
+  return { svg: o.join(''), H: H };
+}
+
+// ============================================================ 💃 VŨ ĐIỆU TRI THỨC
+// st: {n, k, doi:[{ten, mau, dong (số động tác), combo, comboMax}], fx:{loai:'nhay'|'vap', at, doi, combo}, xong}
+function mua(st) {
+  var nho = st.nho, F = nho ? 1.5 : 1, t = st.t, doi = st.doi, nd = doi.length, H = nho ? 600 : 440, o = [DEFS];
+  o.push('<rect width="1000" height="' + H + '" fill="#0B0618"/>');
+  var mauDen = ['#F472B6', '#38BDF8', '#FACC15', '#A78BFA', '#34D399'], san = H * .72;
+  for (var s = 0; s < 5; s++) { var g = Math.sin(t / 700 + s * 1.3) * 25; o.push('<path d="M ' + (120 + s * 190) + ' 0 L ' + r1(60 + s * 190 + g * 3) + ' ' + r1(san) + ' L ' + r1(180 + s * 190 + g * 3) + ' ' + r1(san) + ' Z" fill="' + mauDen[s] + '" opacity=".13"/>'); }
+  for (var c = 0; c < 10; c++) for (var r = 0; r < 3; r++) { var on = (Math.floor(t / 300) + c + r) % 3 === 0; o.push('<rect x="' + (c * 100) + '" y="' + r1(san + r * (H - san) / 3) + '" width="99" height="' + r1((H - san) / 3 - 1) + '" fill="' + (on ? mauDen[(c + r) % 5] : '#1E1B4B') + '" opacity="' + (on ? .75 : 1) + '"/>'); }
+  o.push('<line x1="500" y1="0" x2="500" y2="' + r1(14 * F) + '" stroke="#94A3B8"/><g transform="translate(500 ' + r1(38 * F) + ') rotate(' + r1(t / 20 % 360) + ')"><circle r="' + r1(24 * F) + '" fill="#CBD5E1"/>' + [0, 1, 2, 3, 4, 5].map(function (i) { return '<path d="M 0 0 L ' + r1(Math.cos(i) * 24 * F) + ' ' + r1(Math.sin(i) * 24 * F) + '" stroke="#64748B" stroke-width="1"/>'; }).join('') + '</g>');
+  var aN = st.fx && st.fx.loai === 'nhay' ? t - st.fx.at : 1e9, aV = st.fx && st.fx.loai === 'vap' ? t - st.fx.at : 1e9;
+  doi.forEach(function (d, j) {
+    var x = 500 + (j - (nd - 1) / 2) * (nd > 1 ? 220 : 0), y = san + 30 * F, minh = !st.fx || !st.fx.doi || st.fx.doi.indexOf(j) >= 0;
+    var p = minh && aN < 1400 ? aN / 1400 : -1, dong = ((st.fx && st.fx.combo) || 0) % 5, tf;
+    if (p >= 0) tf = dong === 1 ? 'scale(' + r1(Math.cos(p * Math.PI * 4)) + ' 1)' : dong === 2 ? 'translate(0 ' + r1(-Math.abs(Math.sin(p * Math.PI * 2)) * 40) + ')' : dong === 3 ? 'translate(' + r1(Math.sin(p * Math.PI * 4) * 40) + ' 0)' : 'rotate(' + r1(Math.sin(p * Math.PI * 6) * 14) + ')';
+    else if (minh && aV < 900) tf = 'rotate(' + r1(Math.sin(aV / 50) * 25 * (1 - aV / 900)) + ')';
+    else tf = 'translate(0 ' + r1(-Math.abs(Math.sin(t / 260 + j)) * 5) + ')';
+    o.push('<g transform="translate(' + x + ' ' + r1(y) + ')"><g transform="' + tf + '">' + hs(0, 0, d.mau, 1.6 * F) + '</g></g>');
+    if (p >= 0) for (var q = 0; q < 6; q++) o.push(emo(x + Math.cos(q + t / 300) * 70 * F, y - 90 * F + Math.sin(q * 2 + t / 300) * 40 * F, 16 * F, ['🎵', '✨', '🎶'][q % 3], 'opacity="' + r1(1 - p) + '"'));
+    if (minh && aV < 900) o.push(emo(x + 30 * F, y - 150 * F, 30 * F, '💫'));
+    o.push(txt(x, y + 30 * F, 15 * F, esc(nd > 1 ? d.ten + ' · ' : '') + (d.dong || 0) + ' động tác' + ((d.combo || 0) >= 2 ? ' · 🔥×' + d.combo : ''), '#F5F3FF', 'text-anchor="middle"'));
+  });
+  if (aN < 1400 && st.fx.combo !== undefined) o.push(txt(500, H * .3, 30 * F, '💃 ' + DIEU[(st.fx.combo || 0) % DIEU.length] + ((st.fx.chuoi || 0) >= 2 ? ' – CHUỖI ×' + st.fx.chuoi : ''), '#FDE047', 'text-anchor="middle" stroke="#4C1D95" stroke-width="4" paint-order="stroke"'));
+  if (aV < 1100) o.push(txt(500, H * .3, 30 * F, '😵 Vấp rồi – mất chuỗi!', '#FCA5A5', 'text-anchor="middle" stroke="#450A0A" stroke-width="4" paint-order="stroke"'));
+  o.push(txt(24, 36 * F, 22 * F, st.xong ? '🎉 Màn trình diễn kết thúc!' : '💃 CÂU ' + Math.min(st.k + 1, st.n) + '/' + st.n, '#F0ABFC'));
+  return { svg: o.join(''), H: H };
+}
+
+var VE = { bom: bom, farm: farm, rpg: rpg, thoat: thoat, may: may, khoe: khoe, mua: mua };
 window.GameMoi = {
-  DS: ['bom', 'farm', 'rpg', 'thoat'], TEN: TEN, DOI: DOI, am: AM, chiaAi: chiaAi, chiaPhong: chiaPhong,
+  DS: ['bom', 'farm', 'rpg', 'thoat', 'may', 'khoe', 'mua'], TEN: TEN, MON: MON, DIEU: DIEU, DOI: DOI, am: AM, chiaAi: chiaAi, chiaPhong: chiaPhong,
   co: function (g) { return !!VE[g]; },
   html: function (g, st, nhan) {
     st.t = st.t || Date.now();
