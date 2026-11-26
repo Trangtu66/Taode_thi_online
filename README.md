@@ -1559,6 +1559,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài tập cuối Chương VII. Phương pháp toạ độ trong mặt phẳng *(Tiết 79)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG VII<br/>Phương pháp toạ độ<br/>trong mặt phẳng"]:::root
+    G --> A["① Đường thẳng"]:::n1
+    G --> B["② Góc – khoảng cách"]:::n2
+    G --> C["③ Đường tròn"]:::n3
+    G --> D["④ Ba đường conic"]:::n4
+
+    A --> A1["★ ax + by + c = 0 (VTPT (a; b))"]:::l1
+    A --> A2["★ x = x₀ + at, y = y₀ + bt (VTCP (a; b))"]:::l1
+    A --> A3["n(a; b) ↔ u(−b; a)"]:::l1
+
+    B --> B1["★ cos φ = |a₁a₂ + b₁b₂| / (√(a₁² + b₁²)√(a₂² + b₂²))"]:::l2
+    B --> B2["★ d(M, Δ) = |ax₀ + by₀ + c| / √(a² + b²)"]:::l2
+    B --> B3["Vị trí tương đối: số nghiệm của hệ"]:::l2
+
+    C --> C1["★ (x − a)² + (y − b)² = R²"]:::l3
+    C --> C2["x² + y² − 2ax − 2by + c = 0, a² + b² − c > 0"]:::l3
+    C --> C3["Tiếp tuyến: VTPT MI"]:::l3
+
+    D --> D1["★ Elip: x²/a² + y²/b² = 1, c² = a² − b²"]:::l4
+    D --> D2["★ Hypebol: x²/a² − y²/b² = 1, c² = a² + b²"]:::l4
+    D --> D3["★ Parabol: y² = 2px, F(p/2; 0)"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong7_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
