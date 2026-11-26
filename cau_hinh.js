@@ -193,6 +193,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương VI", ma: "Củng cố – Bài tập cuối Chương VI. Hàm số, đồ thị và ứng dụng (Toán 10)", link: "cc_chuong6_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 19. Phương trình đường thẳng", ma: "Củng cố – Bài 19. Phương trình đường thẳng (Toán 10)", link: "cc_bai19_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 20. Vị trí tương đối giữa hai đường thẳng. Góc và khoảng cách", ma: "Củng cố – Bài 20. Vị trí tương đối giữa hai đường thẳng. Góc và khoảng cách (Toán 10)", link: "cc_bai20_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 21. Đường tròn trong mặt phẳng toạ độ", ma: "Củng cố – Bài 21. Đường tròn trong mặt phẳng toạ độ (Toán 10)", link: "cc_bai21_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
