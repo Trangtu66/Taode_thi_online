@@ -1467,6 +1467,51 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 21. Đường tròn trong mặt phẳng toạ độ *(Tiết 73–74)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 21<br/>Đường tròn trong<br/>mặt phẳng toạ độ"]:::root
+    G --> A["① Phương trình đường tròn"]:::n1
+    G --> B["② Dạng khai triển"]:::n2
+    G --> C["③ Tiếp tuyến tại M(x₀; y₀)"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ (x − a)² + (y − b)² = R²"]:::l1
+    A --> A2["Tâm I(a; b), bán kính R"]:::l1
+    A --> A3["Qua ba điểm: tâm là giao hai trung trực"]:::l1
+
+    B --> B1["★ x² + y² − 2ax − 2by + c = 0"]:::l2
+    B --> B2["★ Điều kiện a² + b² − c > 0"]:::l2
+    B --> B3["R = √(a² + b² − c)"]:::l2
+
+    C --> C1["★ VTPT MI = (a − x₀; b − y₀)"]:::l3
+    C --> C2["★ (a − x₀)(x − x₀) + (b − y₀)(y − y₀) = 0"]:::l3
+    C --> C3["Tiếp xúc: d(I, Δ) = R"]:::l3
+
+    D --> D1["Vùng phủ sóng trạm phát"]:::l4
+    D --> D2["Bể sục hồ bơi (cực trị)"]:::l4
+    D --> D3["Vật văng theo tiếp tuyến"]:::l4
+    D --> D4["GeoGebra kiểm chứng"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai21_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
