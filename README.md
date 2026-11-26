@@ -1379,6 +1379,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 19. Phương trình đường thẳng *(Tiết 68–69)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 19<br/>Phương trình<br/>đường thẳng"]:::root
+    G --> A["① Vectơ pháp tuyến"]:::n1
+    G --> B["② Phương trình tổng quát"]:::n2
+    G --> C["③ Vectơ chỉ phương"]:::n3
+    G --> D["④ Phương trình tham số"]:::n4
+
+    A --> A1["★ n ≠ 0, giá vuông góc Δ"]:::l1
+    A --> A2["kn (k ≠ 0) cũng là VTPT"]:::l1
+    A --> A3["Đường thẳng: 1 điểm + 1 VTPT"]:::l1
+
+    B --> B1["★ a(x − x₀) + b(y − y₀) = 0"]:::l2
+    B --> B2["★ ax + by + c = 0 (a² + b² ≠ 0)"]:::l2
+    B --> B3["y = ax + b ↔ ax − y + b = 0"]:::l2
+
+    C --> C1["★ u ≠ 0, giá song song/trùng Δ"]:::l3
+    C --> C2["n(a; b) ⟂ u(−b; a)"]:::l3
+    C --> C3["Qua A, B: u = AB"]:::l3
+
+    D --> D1["★ x = x₀ + at, y = y₀ + bt"]:::l4
+    D --> D2["Chuyển động thẳng đều"]:::l4
+    D --> D3["Quy đổi độ C – độ F; đường bay"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai19_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
