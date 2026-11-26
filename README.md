@@ -1290,6 +1290,95 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 18. Phương trình quy về phương trình bậc hai *(Tiết 65–66)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 18<br/>Phương trình quy về<br/>phương trình bậc hai"]:::root
+    G --> A["① Dạng 1"]:::n1
+    G --> B["② Dạng 2"]:::n2
+    G --> C["③ Lưu ý"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ √(ax² + bx + c) = √(dx² + ex + f)"]:::l1
+    A --> A2["Bình phương hai vế"]:::l1
+    A --> A3["Thử lại: biểu thức dưới căn ≥ 0"]:::l1
+
+    B --> B1["★ √(ax² + bx + c) = dx + e"]:::l2
+    B --> B2["Bình phương hai vế"]:::l2
+    B --> B3["Thử lại: vế phải ≥ 0"]:::l2
+
+    C --> C1["★ Bình phương có thể sinh nghiệm ngoại lai"]:::l3
+    C --> C2["Luôn thử lại trước khi kết luận"]:::l3
+    C --> C3["Vế phải âm: loại ngay"]:::l3
+
+    D --> D1["Hẹn gặp: bờ biển – hải đăng"]:::l4
+    D --> D2["Hùng đón Minh: CH ≈ 25,4 m"]:::l4
+    D --> D3["Tứ giác ABCD: S = 24"]:::l4
+    D --> D4["Đường đi qua rẫy cà phê"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai18_t10.html>
+
+---
+
+### Toán 10 – Bài tập cuối Chương VI. Hàm số, đồ thị và ứng dụng *(Tiết 67)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG VI<br/>Hàm số, đồ thị<br/>và ứng dụng"]:::root
+    G --> A["① Hàm số"]:::n1
+    G --> B["② Hàm số bậc hai"]:::n2
+    G --> C["③ Dấu tam thức – BPT bậc hai"]:::n3
+    G --> D["④ Phương trình chứa căn"]:::n4
+
+    A --> A1["★ Mỗi x ∈ D ↦ duy nhất một y"]:::l1
+    A --> A2["Tập xác định, tập giá trị"]:::l1
+    A --> A3["Đồng biến: đồ thị đi lên; nghịch biến: đi xuống"]:::l1
+
+    B --> B1["★ y = ax² + bx + c (a ≠ 0)"]:::l2
+    B --> B2["★ Đỉnh I(−b/2a; −Δ/4a), trục x = −b/2a"]:::l2
+    B --> B3["a > 0: GTNN; a < 0: GTLN"]:::l2
+
+    C --> C1["★ Δ < 0: cùng dấu a"]:::l3
+    C --> C2["★ Δ > 0: trong trái, ngoài cùng"]:::l3
+    C --> C3["Giải BPT: xét dấu tam thức"]:::l3
+
+    D --> D1["★ √A = √B, √A = dx + e"]:::l4
+    D --> D2["Bình phương hai vế"]:::l4
+    D --> D3["Thử lại, loại nghiệm ngoại lai"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong6_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
