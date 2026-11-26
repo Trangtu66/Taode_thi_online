@@ -1105,6 +1105,51 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 15. Hàm số *(Tiết 55–58)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 15<br/>Hàm số"]:::root
+    G --> A["① Khái niệm hàm số"]:::n1
+    G --> B["② Tập xác định"]:::n2
+    G --> C["③ Đồ thị"]:::n3
+    G --> D["④ Đồng biến – nghịch biến"]:::n4
+
+    A --> A1["★ Mỗi x ∈ D ↦ duy nhất một y"]:::l1
+    A --> A2["Tập xác định D, tập giá trị"]:::l1
+    A --> A3["Cho bằng bảng, biểu đồ, công thức, lời"]:::l1
+
+    B --> B1["★ √A có nghĩa ⇔ A ≥ 0"]:::l2
+    B --> B2["★ 1/B có nghĩa ⇔ B ≠ 0"]:::l2
+    B --> B3["Không chỉ rõ D: lấy mọi x để f(x) có nghĩa"]:::l2
+
+    C --> C1["★ Tập các điểm M(x; f(x)), x ∈ D"]:::l3
+    C --> C2["Điểm thuộc đồ thị: thay toạ độ"]:::l3
+    C --> C3["Chú ý tập xác định (đoạn thẳng, nhiều đoạn)"]:::l3
+
+    D --> D1["★ x₁ < x₂ ⇒ f(x₁) < f(x₂): đồng biến"]:::l4
+    D --> D2["★ x₁ < x₂ ⇒ f(x₁) > f(x₂): nghịch biến"]:::l4
+    D --> D3["Đồ thị 'đi lên' / 'đi xuống'"]:::l4
+    D --> D4["GeoGebra kiểm chứng"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai15_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
