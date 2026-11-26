@@ -189,6 +189,8 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài 16. Hàm số bậc hai", ma: "Củng cố – Bài 16. Hàm số bậc hai (Toán 10)", link: "cc_bai16_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "STEM: Thiết kế cổng chào parabol", ma: "Củng cố – STEM: Thiết kế cổng chào parabol (Toán 10)", link: "cc_stem_parabol_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 17. Dấu của tam thức bậc hai", ma: "Củng cố – Bài 17. Dấu của tam thức bậc hai (Toán 10)", link: "cc_bai17_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 18. Phương trình quy về phương trình bậc hai", ma: "Củng cố – Bài 18. Phương trình quy về phương trình bậc hai (Toán 10)", link: "cc_bai18_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương VI", ma: "Củng cố – Bài tập cuối Chương VI. Hàm số, đồ thị và ứng dụng (Toán 10)", link: "cc_chuong6_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
