@@ -1244,6 +1244,52 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 17. Dấu của tam thức bậc hai *(Tiết 63–64)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 17<br/>Dấu của tam thức<br/>bậc hai"]:::root
+    G --> A["① Tam thức bậc hai"]:::n1
+    G --> B["② Định lí về dấu"]:::n2
+    G --> C["③ Bất phương trình bậc hai"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ f(x) = ax² + bx + c (a ≠ 0)"]:::l1
+    A --> A2["Δ = b² − 4ac, Δ' = b'² − ac"]:::l1
+    A --> A3["Nghiệm của tam thức"]:::l1
+
+    B --> B1["★ Δ < 0: f cùng dấu a với mọi x"]:::l2
+    B --> B2["★ Δ = 0: cùng dấu a, x ≠ −b/2a"]:::l2
+    B --> B3["★ Δ > 0: trong trái, ngoài cùng"]:::l2
+    B --> B4["Giải thích bằng đồ thị (GeoGebra)"]:::l2
+
+    C --> C1["★ ax² + bx + c > 0 (≥, <, ≤)"]:::l3
+    C --> C2["Xét dấu tam thức → tập nghiệm"]:::l3
+    C --> C3["Máy tính cầm tay"]:::l3
+
+    D --> D1["Diện tích ≥ 48 m²: x ∈ [4; 6]"]:::l4
+    D --> D2["Quả bóng cao trên 5 m"]:::l4
+    D --> D3["Lợi nhuận cà phê"]:::l4
+    D --> D4["Tham số: Δ < 0 để luôn dương"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai17_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
