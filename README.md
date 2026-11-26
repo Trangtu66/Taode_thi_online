@@ -1423,6 +1423,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 20. Vị trí tương đối giữa hai đường thẳng. Góc và khoảng cách *(Tiết 70–72)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 20<br/>Vị trí tương đối.<br/>Góc và khoảng cách"]:::root
+    G --> A["① Vị trí tương đối"]:::n1
+    G --> B["② Góc giữa hai đường thẳng"]:::n2
+    G --> C["③ Khoảng cách"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ Hệ có nghiệm duy nhất: cắt nhau"]:::l1
+    A --> A2["★ Vô nghiệm: song song; vô số nghiệm: trùng nhau"]:::l1
+    A --> A3["n₁, n₂ cùng phương: song song/trùng"]:::l1
+
+    B --> B1["★ cos φ = |a₁a₂ + b₁b₂| / (√(a₁² + b₁²)·√(a₂² + b₂²))"]:::l2
+    B --> B2["0° ≤ φ ≤ 90°"]:::l2
+    B --> B3["★ Vuông góc ⇔ a₁a₂ + b₁b₂ = 0"]:::l2
+
+    C --> C1["★ d(M, Δ) = |ax₀ + by₀ + c| / √(a² + b²)"]:::l3
+    C --> C2["Độ dài đường cao, diện tích tam giác"]:::l3
+    C --> C3["Hệ số góc: tan α = a"]:::l3
+
+    D --> D1["Ao cá – chỗ nuôi vịt: 12,9 m > 10,7 m"]:::l4
+    D --> D2["Trạm phát sóng – quốc lộ"]:::l4
+    D --> D3["GeoGebra tính khoảng cách"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai20_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
