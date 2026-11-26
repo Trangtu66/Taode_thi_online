@@ -185,6 +185,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10 · Ngân hàng đề game", ten: "Bài 25. Nhị thức Newton – Đề 3 mức (Đề 2)", ma: "Game – Bài 25. Nhị thức Newton – Đề 3 mức (Đề 2) (Toán 10)", link: "game_bai25_dx2_t10.html" },
   { khoi: 10, nhom: "Toán 10 · Ngân hàng đề game", ten: "Bài 26. Biến cố và định nghĩa cổ điển của xác suất – Đề 3 mức (Đề 2)", ma: "Game – Bài 26. Biến cố và định nghĩa cổ điển của xác suất – Đề 3 mức (Đề 2) (Toán 10)", link: "game_bai26_dx2_t10.html" },
   { khoi: 10, nhom: "Toán 10 · Ngân hàng đề game", ten: "Bài 27. Thực hành tính xác suất theo định nghĩa cổ điển – Đề 3 mức (Đề 2)", ma: "Game – Bài 27. Thực hành tính xác suất theo định nghĩa cổ điển – Đề 3 mức (Đề 2) (Toán 10)", link: "game_bai27_dx2_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 15. Hàm số", ma: "Củng cố – Bài 15. Hàm số (Toán 10)", link: "cc_bai15_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
