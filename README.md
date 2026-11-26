@@ -1150,6 +1150,100 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 16. Hàm số bậc hai *(Tiết 59, 62)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 16<br/>Hàm số bậc hai"]:::root
+    G --> A["① Khái niệm"]:::n1
+    G --> B["② Đồ thị – parabol"]:::n2
+    G --> C["③ Tính chất"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["★ y = ax² + bx + c (a ≠ 0)"]:::l1
+    A --> A2["Tập xác định ℝ"]:::l1
+    A --> A3["y = ax² là trường hợp b = c = 0"]:::l1
+    A --> A4["Bảng giá trị"]:::l1
+
+    B --> B1["★ Đỉnh I(−b/2a; −Δ/4a)"]:::l2
+    B --> B2["★ Trục đối xứng x = −b/2a"]:::l2
+    B --> B3["a > 0: lõm lên; a < 0: lõm xuống"]:::l2
+    B --> B4["Vẽ: đỉnh → trục → giao điểm → vẽ"]:::l2
+
+    C --> C1["★ a > 0: nghịch biến (−∞; −b/2a), đồng biến (−b/2a; +∞)"]:::l3
+    C --> C2["★ a < 0: ngược lại"]:::l3
+    C --> C3["GTNN/GTLN = −Δ/4a tại đỉnh"]:::l3
+
+    D --> D1["Diện tích lớn nhất (rào vườn)"]:::l4
+    D --> D2["Cầu, cổng parabol (STEM)"]:::l4
+    D --> D3["Quỹ đạo vật ném, vòi nước"]:::l4
+    D --> D4["GeoGebra: thanh trượt a, b, c"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai16_t10.html>
+
+---
+
+### Toán 10 – STEM: Thiết kế cổng chào parabol *(Tiết 60–61)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>STEM<br/>Cổng chào parabol"]:::root
+    G --> A["① Xác định vấn đề"]:::n1
+    G --> B["② Kiến thức nền"]:::n2
+    G --> C["③ Thiết kế – Chế tạo"]:::n3
+    G --> D["④ Chia sẻ – Điều chỉnh"]:::n4
+
+    A --> A1["★ Cổng thật 6 m × 4 m, mô hình 1 : 20"]:::l1
+    A --> A2["Tiêu chí: đúng hình, bền, xe qua được, đẹp"]:::l1
+    A --> A3["Phiếu học tập số 1"]:::l1
+
+    B --> B1["★ Gốc tại tâm: y = ax² + c"]:::l2
+    B --> B2["★ Gốc tại chân: y = ax² + bx"]:::l2
+    B --> B3["Cầu ngã ba Huế ≈ 65,2 m"]:::l2
+    B --> B4["Cổng Bách khoa ≈ 12,5 m"]:::l2
+
+    C --> C1["★ y = 20 − (4/45)x² (cm)"]:::l3
+    C --> C2["Bảng giá trị → khuôn trên bìa A3"]:::l3
+    C --> C3["Uốn dây thép/ống nhựa theo khuôn"]:::l3
+    C --> C4["Kiểm tra 7 điểm, sai lệch ≤ 0,5 cm"]:::l3
+
+    D --> D1["Trưng bày, thuyết trình"]:::l4
+    D --> D2["Thử xe mô hình qua cổng"]:::l4
+    D --> D3["Đánh giá đồng đẳng"]:::l4
+    D --> D4["Trắc nghiệm củng cố online"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_stem_parabol_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
