@@ -1691,6 +1691,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 24. Hoán vị, chỉnh hợp và tổ hợp *(Tiết 86–89)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 24<br/>Hoán vị, chỉnh hợp<br/>và tổ hợp"]:::root
+    G --> A["① Hoán vị"]:::n1
+    G --> B["② Chỉnh hợp"]:::n2
+    G --> C["③ Tổ hợp"]:::n3
+    G --> D["④ Ứng dụng – máy tính"]:::n4
+
+    A --> A1["★ Sắp xếp thứ tự n phần tử"]:::l1
+    A --> A2["★ Pₙ = n! ; 0! = 1"]:::l1
+    A --> A3["Xếp hàng, lập số từ đủ các chữ số"]:::l1
+
+    B --> B1["★ Chọn k và sắp thứ tự"]:::l2
+    B --> B2["★ Aₙᵏ = n!/(n − k)!"]:::l2
+    B --> B3["Nhất – nhì – ba, các chức vụ khác nhau"]:::l2
+
+    C --> C1["★ Chọn k, không thứ tự"]:::l3
+    C --> C2["★ Cₙᵏ = n!/((n − k)! k!) = Aₙᵏ/k!"]:::l3
+    C --> C3["Chọn nhóm, đội hình, đề thi"]:::l3
+
+    D --> D1["Kết hợp quy tắc cộng, nhân"]:::l4
+    D --> D2["Máy tính cầm tay: x!, nPr, nCr"]:::l4
+    D --> D3["Có thứ tự → chỉnh hợp; không → tổ hợp"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai24_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
