@@ -1779,6 +1779,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài tập cuối Chương VIII. Đại số tổ hợp *(Tiết 92)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG VIII<br/>Đại số tổ hợp"]:::root
+    G --> A["① Quy tắc đếm"]:::n1
+    G --> B["② Hoán vị – Chỉnh hợp"]:::n2
+    G --> C["③ Tổ hợp"]:::n3
+    G --> D["④ Nhị thức Newton"]:::n4
+
+    A --> A1["★ Cộng: phương án rời nhau"]:::l1
+    A --> A2["★ Nhân: công đoạn nối tiếp"]:::l1
+    A --> A3["Sơ đồ hình cây"]:::l1
+
+    B --> B1["★ Pₙ = n!"]:::l2
+    B --> B2["★ Aₙᵏ = n!/(n − k)! (có thứ tự)"]:::l2
+    B --> B3["Xếp hàng, chức vụ, thứ hạng"]:::l2
+
+    C --> C1["★ Cₙᵏ = n!/((n − k)! k!) (không thứ tự)"]:::l3
+    C --> C2["Chọn nhóm; đếm phần bù khi có 'ít nhất'"]:::l3
+    C --> C3["Máy tính cầm tay: nPr, nCr"]:::l3
+
+    D --> D1["★ (a + b)⁴: 1, 4, 6, 4, 1"]:::l4
+    D --> D2["★ (a + b)⁵: 1, 5, 10, 10, 5, 1"]:::l4
+    D --> D3["Hệ số của xᵏ; tính gần đúng"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong8_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
