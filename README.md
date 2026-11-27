@@ -1911,6 +1911,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài tập cuối Chương IX. Tính xác suất theo định nghĩa cổ điển *(Tiết 98)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>CHƯƠNG IX<br/>Tính xác suất theo<br/>định nghĩa cổ điển"]:::root
+    G --> A["① Biến cố"]:::n1
+    G --> B["② Định nghĩa cổ điển"]:::n2
+    G --> C["③ Cách đếm"]:::n3
+    G --> D["④ Biến cố đối"]:::n4
+
+    A --> A1["Phép thử, không gian mẫu Ω"]:::l1
+    A --> A2["★ Biến cố là tập con của Ω"]:::l1
+    A --> A3["★ Biến cố đối Ē = Ω \ E"]:::l1
+
+    B --> B1["★ P(E) = n(E)/n(Ω) – đồng khả năng"]:::l2
+    B --> B2["0 ≤ P(E) ≤ 1"]:::l2
+    B --> B3["Nguyên lí xác suất bé"]:::l2
+
+    C --> C1["★ Tổ hợp, quy tắc đếm"]:::l3
+    C --> C2["★ Sơ đồ hình cây (phép thử nhiều bước)"]:::l3
+    C --> C3["Liệt kê, lập bảng (phép thử đơn giản)"]:::l3
+
+    D --> D1["★ P(Ē) = 1 − P(E)"]:::l4
+    D --> D2["'Ít nhất một' → xét 'không có'"]:::l4
+    D --> D3["Bài 9.22: có cả hai màu"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_chuong9_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
