@@ -196,6 +196,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài 21. Đường tròn trong mặt phẳng toạ độ", ma: "Củng cố – Bài 21. Đường tròn trong mặt phẳng toạ độ (Toán 10)", link: "cc_bai21_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 22. Ba đường conic", ma: "Củng cố – Bài 22. Ba đường conic (Toán 10)", link: "cc_bai22_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương VII", ma: "Củng cố – Bài tập cuối Chương VII. Phương pháp toạ độ trong mặt phẳng (Toán 10)", link: "cc_chuong7_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Ôn tập giữa kì II. Bài 15 – Bài 22", ma: "Củng cố – Ôn tập giữa kì II. Bài 15 – Bài 22 (Toán 10)", link: "cc_ontapgk2_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
