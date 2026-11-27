@@ -202,6 +202,7 @@ window.DANH_SACH_BAI = [
   { khoi: 10, nhom: "Toán 10", ten: "Bài 25. Nhị thức Newton", ma: "Củng cố – Bài 25. Nhị thức Newton (Toán 10)", link: "cc_bai25_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài tập cuối Chương VIII", ma: "Củng cố – Bài tập cuối Chương VIII. Đại số tổ hợp (Toán 10)", link: "cc_chuong8_t10.html" },
   { khoi: 10, nhom: "Toán 10", ten: "Bài 26. Biến cố và định nghĩa cổ điển của xác suất", ma: "Củng cố – Bài 26. Biến cố và định nghĩa cổ điển của xác suất (Toán 10)", link: "cc_bai26_t10.html" },
+  { khoi: 10, nhom: "Toán 10", ten: "Bài 27. Thực hành tính xác suất theo định nghĩa cổ điển", ma: "Củng cố – Bài 27. Thực hành tính xác suất theo định nghĩa cổ điển (Toán 10)", link: "cc_bai27_t10.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 1. Giá trị lượng giác của góc lượng giác", ma: "Củng cố – Bài 1. Giá trị lượng giác của góc lượng giác (Toán 11)", link: "cc_bai1_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 2. Công thức lượng giác", ma: "Củng cố – Bài 2. Công thức lượng giác (Toán 11)", link: "cc_bai2_t11.html" },
   { khoi: 11, nhom: "Toán 11", ten: "Bài 3. Hàm số lượng giác", ma: "Củng cố – Bài 3. Hàm số lượng giác (Toán 11)", link: "cc_bai3_t11.html" },
