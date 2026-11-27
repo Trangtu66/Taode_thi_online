@@ -1490,7 +1490,7 @@ graph TD
     C --> C2["★ (a − x₀)(x − x₀) + (b − y₀)(y − y₀) = 0"]:::l3
     C --> C3["Tiếp xúc: d(I, Δ) = R"]:::l3
 
-    D --> D1["Vùng phủ sóng trạm phát"]:::l4
+    D --> D1["Vùng tưới của béc tưới xoay"]:::l4
     D --> D2["Bể sục hồ bơi (cực trị)"]:::l4
     D --> D3["Vật văng theo tiếp tuyến"]:::l4
     D --> D4["GeoGebra kiểm chứng"]:::l4
