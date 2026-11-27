@@ -4984,6 +4984,20 @@ window.HOC_LIEU = [
 "tenMon": "Toán",
 "loai": "khbd",
 "khoi": 10,
+"ten": "Bài tập cuối chương VIII",
+"file": "KHBD_TOAN10_BaiTapCuoiChuong8_T92.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_BaiTapCuoiChuong8_T92.docx",
+"kb": 463,
+"ngay": "2026-11-27",
+"nhom": "toan|10|btcc|8",
+"bai": "Bài tập cuối chương VIII",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
 "ten": "Bài tập cuối chuyên đề 1",
 "file": "KHBD_TOAN10_BaiTapCuoiChuyenDe1_T10-11.docx",
 "url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/KHBD/KHBD_TOAN10_BaiTapCuoiChuyenDe1_T10-11.docx",
@@ -5565,6 +5579,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-27",
 "nhom": "toan|10|btcc|7",
 "bai": "Bài tập cuối chương VII",
+"nhan": "hoà nhập"
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Bài tập cuối chương VIII (hoà nhập)",
+"file": "KHBD_TOAN10_BaiTapCuoiChuong8_T92_HoaNhap.docx",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/HoaNhap/KHBD_TOAN10_BaiTapCuoiChuong8_T92_HoaNhap.docx",
+"kb": 467,
+"ngay": "2026-11-27",
+"nhom": "toan|10|btcc|8",
+"bai": "Bài tập cuối chương VIII",
 "nhan": "hoà nhập"
 },
 {
@@ -6181,6 +6209,20 @@ window.HOC_LIEU = [
 "ngay": "2026-11-27",
 "nhom": "toan|10|btcc|7",
 "bai": "Bài tập cuối chương VII",
+"nhan": ""
+},
+{
+"mon": "toan",
+"tenMon": "Toán",
+"loai": "khbd",
+"khoi": 10,
+"ten": "Sơ đồ tư duy – Bài tập cuối chương VIII",
+"file": "SoDoTuDuy_TOAN10_BaiTapCuoiChuong8_T92.png",
+"url": "https://raw.githubusercontent.com/Trangtu66/Hoc_lieu_2026-2027/main/toan/lop10/SoDoTuDuy/SoDoTuDuy_TOAN10_BaiTapCuoiChuong8_T92.png",
+"kb": 280,
+"ngay": "2026-11-27",
+"nhom": "toan|10|btcc|8",
+"bai": "Bài tập cuối chương VIII",
 "nhan": ""
 },
 {
