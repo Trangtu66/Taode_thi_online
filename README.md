@@ -1823,6 +1823,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 26. Biến cố và định nghĩa cổ điển của xác suất *(Tiết 93–94)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 26<br/>Biến cố và định nghĩa<br/>cổ điển của xác suất"]:::root
+    G --> A["① Biến cố"]:::n1
+    G --> B["② Biến cố đối"]:::n2
+    G --> C["③ Định nghĩa cổ điển"]:::n3
+    G --> D["④ Xác suất bé – ý nghĩa"]:::n4
+
+    A --> A1["Phép thử ngẫu nhiên; không gian mẫu Ω"]:::l1
+    A --> A2["★ Biến cố là tập con của Ω"]:::l1
+    A --> A3["Biến cố chắc chắn Ω, không thể ∅"]:::l1
+
+    B --> B1["★ Ē: 'E không xảy ra'"]:::l2
+    B --> B2["★ Ē = Ω \ E (phần bù)"]:::l2
+    B --> B3["Chẵn – lẻ; nguyên tố – không nguyên tố"]:::l2
+
+    C --> C1["★ P(E) = n(E)/n(Ω) (đồng khả năng)"]:::l3
+    C --> C2["0 ≤ P(E) ≤ 1; P(Ω) = 1; P(∅) = 0"]:::l3
+    C --> C3["Liệt kê, lập bảng khi phép thử đơn giản"]:::l3
+
+    D --> D1["★ Xác suất rất bé: coi như không xảy ra trong một phép thử"]:::l4
+    D --> D2["n lần thử: số lần xảy ra ≈ n·P(A)"]:::l4
+    D --> D3["Trò chơi bốc thăm, máy bay, sinh con trai – gái"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai26_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
