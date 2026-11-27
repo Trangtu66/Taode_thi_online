@@ -1647,6 +1647,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 23. Quy tắc đếm *(Tiết 83–85)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 23<br/>Quy tắc đếm"]:::root
+    G --> A["① Quy tắc cộng"]:::n1
+    G --> B["② Sơ đồ hình cây"]:::n2
+    G --> C["③ Quy tắc nhân"]:::n3
+    G --> D["④ Kết hợp"]:::n4
+
+    A --> A1["★ Hai phương án rời nhau: n₁ + n₂ cách"]:::l1
+    A --> A2["Không đếm trùng (A ∩ B = ∅)"]:::l1
+    A --> A3["Chọn chuyến đi, chọn món ăn"]:::l1
+
+    B --> B1["Minh hoạ phân chia trường hợp"]:::l2
+    B --> B2["Đếm thuận tiện, không bỏ sót"]:::l2
+    B --> B3["Chọn vé tàu, chọn món"]:::l2
+
+    C --> C1["★ Hai công đoạn liên tiếp: m₁ · m₂ cách"]:::l3
+    C --> C2["Các công đoạn độc lập"]:::l3
+    C --> C3["Gắn nhãn ghế, đi Hà Nội – Huế – Đà Nẵng"]:::l3
+
+    D --> D1["★ Chia trường hợp (cộng), mỗi trường hợp chia công đoạn (nhân)"]:::l4
+    D --> D2["Lập số, mật khẩu, thực đơn"]:::l4
+    D --> D3["Ưu tiên vị trí có điều kiện trước"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai23_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
