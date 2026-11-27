@@ -1735,6 +1735,50 @@ graph TD
 
 ---
 
+### Toán 10 – Bài 25. Nhị thức Newton *(Tiết 90–91)*
+
+```mermaid
+%%{init: {"theme": "base", "htmlLabels": true, "flowchart": {"htmlLabels": true, "padding": 10, "curve": "basis"}, "themeVariables": {"fontSize": "15px"}}}%%
+graph TD
+    G["🎯<br/>BÀI 25<br/>Nhị thức Newton"]:::root
+    G --> A["① Sơ đồ hình cây"]:::n1
+    G --> B["② (a + b)⁴"]:::n2
+    G --> C["③ (a + b)⁵"]:::n3
+    G --> D["④ Ứng dụng"]:::n4
+
+    A --> A1["Tích các nhị thức: chọn một hạng tử mỗi thừa số"]:::l1
+    A --> A2["(a + b)ⁿ có 2ⁿ tích"]:::l1
+    A --> A3["Đếm đơn thức đồng dạng bằng tổ hợp"]:::l1
+
+    B --> B1["★ C₄⁰a⁴ + C₄¹a³b + C₄²a²b² + C₄³ab³ + C₄⁴b⁴"]:::l2
+    B --> B2["★ Hệ số 1, 4, 6, 4, 1"]:::l2
+    B --> B3["Các đơn thức có bậc 4"]:::l2
+
+    C --> C1["★ Hệ số 1, 5, 10, 10, 5, 1"]:::l3
+    C --> C2["Số mũ của a giảm, của b tăng"]:::l3
+    C --> C3["Thay a, b bằng biểu thức (chú ý dấu)"]:::l3
+
+    D --> D1["Hệ số của xᵏ trong khai triển"]:::l4
+    D --> D2["Tính gần đúng (1 + r)ⁿ"]:::l4
+    D --> D3["Dân số, lãi suất; di truyền Hardy – Weinberg"]:::l4
+
+    classDef root fill:#002060,color:#FFFFFF,stroke:#000B1E,stroke-width:2px,font-weight:bold
+    classDef n1 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n2 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n3 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef n4 fill:#FFF2CC,color:#000000,stroke:#BF8F00,stroke-width:3px,font-weight:bold
+    classDef n5 fill:#E2EFDA,color:#000000,stroke:#375623,stroke-width:3px,font-weight:bold
+    classDef l1 fill:#EDF5E8,color:#000000,stroke:#548235
+    classDef l2 fill:#FFF8E1,color:#000000,stroke:#BF8F00
+    classDef l3 fill:#E3EEF9,color:#000000,stroke:#2F5597
+    classDef l4 fill:#F3E8F7,color:#000000,stroke:#7030A0
+    classDef l5 fill:#FDE9E1,color:#000000,stroke:#C55A11
+```
+
+> **Bài củng cố:** <https://trangtu66.github.io/Taode_thi_online/cc_bai25_t10.html>
+
+---
+
 ### Toán 10 – Ôn tập kiểm tra giữa kì I *(Tiết 23)*
 
 ```mermaid
